@@ -159,20 +159,6 @@ message Result {
 
 }
 
-// 多媒體
-message URLMedia {
-
-  // 代碼
-  string code = 1;
-
-  // 類型：hls, flv...
-  string mime = 2;
-
-  // url
-  string url = 3;
-
-}
-
 // 紀錄
 message RoundRecord {
 
@@ -232,8 +218,8 @@ message RoundRecord {
   // 取消備註
   optional string cancel_message = 22 [(tagger.tags) = "bson:\"cancelMessage,omitempty\""];
 
-  // 附加媒體
-  map<string, URLMedia> mideas = 28;
+  // 附加媒體：key: 媒體資源代碼；value: 媒體內容。
+  map<string, string> mideas = 28;
 
   // 財神倍率
   map<string, int64> fortune_rates = 29;
