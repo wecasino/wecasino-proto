@@ -1,4 +1,4 @@
-# skycasino-proto
+# wecasino-proto
 
 ## 說明
 
