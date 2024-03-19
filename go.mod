@@ -1,4 +1,4 @@
-module github.com/wegdevio/skycasino-proto
+module github.com/wecasino/wecasino-proto
 
 go 1.20
 

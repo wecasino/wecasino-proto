@@ -3,7 +3,7 @@
   "version": "0.2.0",
   "description": "skycasino typescript esnext lib",
   "author": "Sky",
-  "repository": "https://github.com/wegdevio/skycasino-proto",
+  "repository": "https://github.com/wecasino/wecasino-proto",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   },
