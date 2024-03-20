@@ -2,8 +2,7 @@
 
 ## 說明
 
-定義Casino遊戲的紀錄以及推送到skybet的事件
-實作在wecasino
+定義Casino遊戲的紀錄
 
 ## 開發設定
 
