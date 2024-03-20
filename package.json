@@ -1,7 +1,7 @@
 {
   "name": "@wecasino/wecasino-proto",
   "version": "0.6.0",
-  "description": "wecasino esnext lib",
+  "description": "wecasino typescript esnext lib",
   "author": "Sky",
   "repository": "https://github.com/wecasino/wecasino-proto",
   "publishConfig": {
