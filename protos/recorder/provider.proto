@@ -289,8 +289,8 @@ message GameProvide {
   // 玩家入座
   map<int32, string> players = 25;
 
-  // 附加媒體
-  map<string, URLMedia> mideas = 28;
+  // 附加媒體：key: 媒體資源代碼；value: 媒體內容。
+  map<string, string> mideas = 28;
 
   // 直播參數
   map<string, LiveStreamParams> live_streams = 29;
@@ -317,19 +317,16 @@ message FetchGameProvideListResponse {
 message CurrentGame {
 
   // 遊戲代碼
-  string game_code = 5;
+  string game_code = 6;
 
   // 班
-  optional ShiftRecord shift = 7;
-
-  // 遊戲局
-  optional RoundRecord round = 9;
+  optional ShiftRecord shift = 8;
 
   // 洗牌
-  optional ShoeRecord shoe = 10;
+  optional ShoeRecord shoe = 11;
 
-  // 附加媒體
-  map<string, URLMedia> mideas = 28;
+  // 遊戲局
+  optional RoundRecord round = 12;
 
 }
 
@@ -339,13 +336,10 @@ message FetchCurrentGameRequest {
   repeated string game_codes = 1;
 
   // 返回班表資訊
-  bool shift = 7;
+  bool shift = 8;
 
   // 返回牌靴資訊
   bool shoe = 10;
-
-  // 返回直播網址
-  bool stream = 3;
   
 }
 
@@ -377,7 +371,7 @@ message VerifyGameRequest {
   // 遊戲代碼
   string game_code = 1;
 
-  // e1,e2,e3,e4,e5,e6,e7,e8,e9,e10,e11,e12
+  // 驗證傳送接收的代碼
   repeated string pattern = 2;
 
   // 顯示名稱
@@ -385,26 +379,58 @@ message VerifyGameRequest {
   
 }
 
-message GetLiveStreamMediaRequest {
+message Article {
 
-  // 遊戲代碼
-  string game_code = 1;
+  // 標題
+  string title = 1;
 
-  // 直播參數
-  LiveStreamParams live_stream_params = 2;
+  // 副標
+  string subtitle = 2;
 
-  // 平台
-  string platform_code = 8;
+  // 內文
+  string text = 3;
+
+  // 附加媒體：key: 媒體資源代碼；value: 媒體內容。
+  map<string, string> mideas = 4;
+
+  // 子文檔
+  map<string, Article> sections = 5;
 
 }
 
-message GetLiveStreamMediaResponse {
+message Dealer {
 
-  // 遊戲代碼
-  string game_code = 1;
+  // 代碼
+  string code = 1;
 
-  // 附加媒體
-  map<string, URLMedia> mideas = 28;
+  // 名稱
+  string name = 2;
+
+  // 年齡
+  string age = 3;
+
+  // Tags
+  map<string, string> tags = 4;
+
+  // 介紹
+  Article intro = 5;
+
+  // 貼文
+  repeated Article posts = 6;
+
+}
+
+message GetDealerRequest {
+
+  // 荷官代碼陣列
+  repeated string dealer_codes = 1;
+
+}
+
+message GetDealerResponse {
+
+  // 荷官資料
+  repeated Dealer dealers = 1;
 
 }
 
@@ -423,7 +449,7 @@ service ProviderService {
   // 驗證
   rpc VerifyGame(VerifyGameRequest) returns (FetchCurrentGameResponse);
 
-  // 直播網址
-  rpc GetLiveStreamMedia(GetLiveStreamMediaRequest) returns (GetLiveStreamMediaResponse);
+  // 荷官資料
+  rpc GetDealers(GetDealerRequest) returns (GetDealerResponse);
 
 }

@@ -50,36 +50,36 @@ enum PokerCard {
   HEART_J = 43;
   HEART_Q = 44;
   HEART_K = 45;
-  // 鑽石
-  DIAMOND_ANY = 48;
-  DIAMOND_A = 49;
-  DIAMOND_2 = 50;
-  DIAMOND_3 = 51;
-  DIAMOND_4 = 52;
-  DIAMOND_5 = 53;
-  DIAMOND_6 = 54;
-  DIAMOND_7 = 55;
-  DIAMOND_8 = 56;
-  DIAMOND_9 = 57;
-  DIAMOND_10 = 58;
-  DIAMOND_J = 59;
-  DIAMOND_Q = 60;
-  DIAMOND_K = 61;
   // 梅花
-  CLUB_ANY = 64;
-  CLUB_A = 65;
-  CLUB_2 = 66;
-  CLUB_3 = 67;
-  CLUB_4 = 68;
-  CLUB_5 = 69;
-  CLUB_6 = 70;
-  CLUB_7 = 71;
-  CLUB_8 = 72;
-  CLUB_9 = 73;
-  CLUB_10 = 74;
-  CLUB_J = 75;
-  CLUB_Q = 76;
-  CLUB_K = 77;
+  CLUB_ANY = 48;
+  CLUB_A = 49;
+  CLUB_2 = 50;
+  CLUB_3 = 51;
+  CLUB_4 = 52;
+  CLUB_5 = 53;
+  CLUB_6 = 54;
+  CLUB_7 = 55;
+  CLUB_8 = 56;
+  CLUB_9 = 57;
+  CLUB_10 = 58;
+  CLUB_J = 59;
+  CLUB_Q = 60;
+  CLUB_K = 61;
+  // 鑽石
+  DIAMOND_ANY = 64;
+  DIAMOND_A = 65;
+  DIAMOND_2 = 66;
+  DIAMOND_3 = 67;
+  DIAMOND_4 = 68;
+  DIAMOND_5 = 69;
+  DIAMOND_6 = 70;
+  DIAMOND_7 = 71;
+  DIAMOND_8 = 72;
+  DIAMOND_9 = 73;
+  DIAMOND_10 = 74;
+  DIAMOND_J = 75;
+  DIAMOND_Q = 76;
+  DIAMOND_K = 77;
 
   // 鬼牌
   JOKER_COLOR = 94;

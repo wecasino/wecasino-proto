@@ -154,10 +154,13 @@ message RecordRoundMediaRequest {
 
   // 遊戲局紀錄ID
   bytes record_id = 1;
-  // 設定
-  map<string, URLMedia> set = 2;
-  // 增加
-  repeated URLMedia add = 3;
+
+  // 附加媒體：key: 媒體資源代碼；value: 媒體內容。
+  map<string, string> set = 2;
+  
+  // 附加媒體：key: 媒體資源代碼；value: 媒體內容。
+  map<string, string> add = 3;
+  
   // 移除
   repeated string remove = 4;
 
