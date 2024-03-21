@@ -9,7 +9,7 @@ enum CardType {
   POKER = 2;
   DICE = 3;
   ROULETTE = 4;
-  WEEL = 5;
+  WHEEL = 5;
 
   FLOW = 6;
 
