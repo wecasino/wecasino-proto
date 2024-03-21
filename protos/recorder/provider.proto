@@ -11,7 +11,7 @@ message RecordQuery {
   // 查詢終時
   google.protobuf.Timestamp ts_to = 2;
 
-  // 筆數
+  // 筆數 預設 100
   optional int64 limit = 3;
   // 頁面
   optional int64 page = 4;
@@ -22,33 +22,12 @@ message FetchShiftRecordRequest {
 
   // 紀錄ID
   optional bytes record_id = 1;
-  // 遊戲供應
-  optional string supplier = 2;
-  // 遊戲類型
-  optional string game_type = 3;
-  // 遊戲子類型
-  optional string game_subtype = 4;
+
   // 遊戲代碼
-  optional string game_code = 6;
-  // 桌代碼
-  optional string table_code = 7;
+  string game_code = 6;
+
   // 班代碼
   optional string shift_code = 8;
-
-  // 允許的紀錄ID
-  repeated bytes record_ids = 24;
-  // 允許的遊戲供應
-  repeated string suppliers = 25;
-  // 允許的遊戲類型
-  repeated string game_types = 26;
-  // 允許的遊戲子類型
-  repeated string game_subtypes = 27;
-  // 允許的遊戲代碼
-  repeated string game_codes = 29;
-  // 允許的桌代碼
-  repeated string table_codes = 30;
-  // 允許的班代碼
-  repeated string shift_codes = 31;
 
   // 查詢限制
   RecordQuery query = 36;
@@ -61,39 +40,11 @@ message FetchShiftRecordResponse {
 
 message FetchShoeRecordRequest {
 
-  // 紀錄ID
-  optional bytes record_id = 1;
-  // 遊戲供應
-  optional string supplier = 2;
-  // 遊戲類型
-  optional string game_type = 3;
-  // 遊戲子類型
-  optional string game_subtype = 4;
   // 遊戲代碼
-  optional string game_code = 6;
-  // 桌代碼
-  optional string table_code = 7;
-  // 班代碼
-  optional string shift_code = 8;
+  string game_code = 6;
+
   // 靴代碼
   optional string shoe_code = 10;
-
-  // 允許的紀錄ID
-  repeated bytes record_ids = 24;
-  // 允許的遊戲供應
-  repeated string suppliers = 25;
-  // 允許的遊戲類型
-  repeated string game_types = 26;
-  // 允許的遊戲子類型
-  repeated string game_subtypes = 27;
-  // 允許的遊戲代碼
-  repeated string game_codes = 29;
-  // 允許的桌代碼
-  repeated string table_codes = 30;
-  // 允許的班代碼
-  repeated string shift_codes = 31;
-  // 允許的靴代碼
-  repeated string shoe_codes = 33;
 
   // 查詢限制
   RecordQuery query = 36;
@@ -106,43 +57,11 @@ message FetchShoeRecordResponse {
 
 message FetchRoundRecordRequest {
 
-  // 紀錄ID
-  optional bytes record_id = 1;
-  // 遊戲供應
-  optional string supplier = 2;
-  // 遊戲類型
-  optional string game_type = 3;
-  // 遊戲子類型
-  optional string game_subtype = 4;
   // 遊戲代碼
-  optional string game_code = 6;
-  // 桌代碼
-  optional string table_code = 7;
-  // 班代碼
-  optional string shift_code = 8;
-  // 靴代碼
-  optional string shoe_code = 10;
+  string game_code = 6;
+
   // 局代碼
   optional string round_code = 12;
-
-  // 允許的紀錄ID
-  repeated bytes record_ids = 24;
-  // 允許的遊戲供應
-  repeated string suppliers = 25;
-  // 允許的遊戲類型
-  repeated string game_types = 26;
-  // 允許的遊戲子類型
-  repeated string game_subtypes = 27;
-  // 允許的遊戲代碼
-  repeated string game_codes = 29;
-  // 允許的桌代碼
-  repeated string table_codes = 30;
-  // 允許的班代碼
-  repeated string shift_codes = 31;
-  // 允許的靴代碼
-  repeated string shoe_codes = 33;
-  // 允許的局代碼
-  repeated string round_codes = 35;
 
   // 查詢限制
   RecordQuery query = 36;
@@ -290,7 +209,7 @@ message GameProvide {
   map<int32, string> players = 25;
 
   // 附加媒體：key: 媒體資源代碼；value: 媒體內容。
-  map<string, string> mideas = 28;
+  map<string, string> medias = 28;
 
   // 直播參數
   map<string, LiveStreamParams> live_streams = 29;
@@ -391,7 +310,7 @@ message Article {
   string text = 3;
 
   // 附加媒體：key: 媒體資源代碼；value: 媒體內容。
-  map<string, string> mideas = 4;
+  map<string, string> medias = 4;
 
   // 子文檔
   map<string, Article> sections = 5;
