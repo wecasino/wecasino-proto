@@ -118,15 +118,6 @@ message RecordRoundStepsRequest {
 
 }
 
-message RecordRoundResultsRequest {
-
-  // 紀錄ID
-  bytes record_id = 1;
-  // 判讀結果
-  repeated Result results = 27;
-  
-}
-
 message RecordRoundBeCanceledRequest {
 
   // 紀錄ID
@@ -185,9 +176,6 @@ service RecorderService {
 
   // 記錄步驟
   rpc RecordRoundSteps(RecordRoundStepsRequest) returns (RoundRecord);
-
-  // 紀錄結果
-  rpc RecordRoundResults(RecordRoundResultsRequest) returns (RoundRecord);
 
   // 此局作廢
   rpc RecordRoundBeCanceled(RecordRoundBeCanceledRequest) returns (RoundRecord);

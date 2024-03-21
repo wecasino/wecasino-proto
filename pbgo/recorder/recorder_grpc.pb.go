@@ -26,7 +26,6 @@ const (
 	RecorderService_RecordShoeEnded_FullMethodName       = "/recorder.RecorderService/RecordShoeEnded"
 	RecorderService_RecordRoundStarted_FullMethodName    = "/recorder.RecorderService/RecordRoundStarted"
 	RecorderService_RecordRoundSteps_FullMethodName      = "/recorder.RecorderService/RecordRoundSteps"
-	RecorderService_RecordRoundResults_FullMethodName    = "/recorder.RecorderService/RecordRoundResults"
 	RecorderService_RecordRoundBeCanceled_FullMethodName = "/recorder.RecorderService/RecordRoundBeCanceled"
 	RecorderService_RecordRoundFinished_FullMethodName   = "/recorder.RecorderService/RecordRoundFinished"
 	RecorderService_RecordRoundVideo_FullMethodName      = "/recorder.RecorderService/RecordRoundVideo"
@@ -49,8 +48,6 @@ type RecorderServiceClient interface {
 	RecordRoundStarted(ctx context.Context, in *RecordRoundStartedRequest, opts ...grpc.CallOption) (*RoundRecord, error)
 	// 記錄步驟
 	RecordRoundSteps(ctx context.Context, in *RecordRoundStepsRequest, opts ...grpc.CallOption) (*RoundRecord, error)
-	// 紀錄結果
-	RecordRoundResults(ctx context.Context, in *RecordRoundResultsRequest, opts ...grpc.CallOption) (*RoundRecord, error)
 	// 此局作廢
 	RecordRoundBeCanceled(ctx context.Context, in *RecordRoundBeCanceledRequest, opts ...grpc.CallOption) (*RoundRecord, error)
 	// 結束此局
@@ -123,15 +120,6 @@ func (c *recorderServiceClient) RecordRoundSteps(ctx context.Context, in *Record
 	return out, nil
 }
 
-func (c *recorderServiceClient) RecordRoundResults(ctx context.Context, in *RecordRoundResultsRequest, opts ...grpc.CallOption) (*RoundRecord, error) {
-	out := new(RoundRecord)
-	err := c.cc.Invoke(ctx, RecorderService_RecordRoundResults_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *recorderServiceClient) RecordRoundBeCanceled(ctx context.Context, in *RecordRoundBeCanceledRequest, opts ...grpc.CallOption) (*RoundRecord, error) {
 	out := new(RoundRecord)
 	err := c.cc.Invoke(ctx, RecorderService_RecordRoundBeCanceled_FullMethodName, in, out, opts...)
@@ -184,8 +172,6 @@ type RecorderServiceServer interface {
 	RecordRoundStarted(context.Context, *RecordRoundStartedRequest) (*RoundRecord, error)
 	// 記錄步驟
 	RecordRoundSteps(context.Context, *RecordRoundStepsRequest) (*RoundRecord, error)
-	// 紀錄結果
-	RecordRoundResults(context.Context, *RecordRoundResultsRequest) (*RoundRecord, error)
 	// 此局作廢
 	RecordRoundBeCanceled(context.Context, *RecordRoundBeCanceledRequest) (*RoundRecord, error)
 	// 結束此局
@@ -218,9 +204,6 @@ func (UnimplementedRecorderServiceServer) RecordRoundStarted(context.Context, *R
 }
 func (UnimplementedRecorderServiceServer) RecordRoundSteps(context.Context, *RecordRoundStepsRequest) (*RoundRecord, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RecordRoundSteps not implemented")
-}
-func (UnimplementedRecorderServiceServer) RecordRoundResults(context.Context, *RecordRoundResultsRequest) (*RoundRecord, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method RecordRoundResults not implemented")
 }
 func (UnimplementedRecorderServiceServer) RecordRoundBeCanceled(context.Context, *RecordRoundBeCanceledRequest) (*RoundRecord, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RecordRoundBeCanceled not implemented")
@@ -355,24 +338,6 @@ func _RecorderService_RecordRoundSteps_Handler(srv interface{}, ctx context.Cont
 	return interceptor(ctx, in, info, handler)
 }
 
-func _RecorderService_RecordRoundResults_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RecordRoundResultsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RecorderServiceServer).RecordRoundResults(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RecorderService_RecordRoundResults_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RecorderServiceServer).RecordRoundResults(ctx, req.(*RecordRoundResultsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _RecorderService_RecordRoundBeCanceled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(RecordRoundBeCanceledRequest)
 	if err := dec(in); err != nil {
@@ -475,10 +440,6 @@ var RecorderService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "RecordRoundSteps",
 			Handler:    _RecorderService_RecordRoundSteps_Handler,
-		},
-		{
-			MethodName: "RecordRoundResults",
-			Handler:    _RecorderService_RecordRoundResults_Handler,
 		},
 		{
 			MethodName: "RecordRoundBeCanceled",
