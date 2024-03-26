@@ -3,7 +3,6 @@ package recorder;
 
 import "recorder/record.proto";
 import "google/protobuf/timestamp.proto";
-import "google/protobuf/empty.proto";
 
 message RecordIDResponse {
 
@@ -186,7 +185,4 @@ service RecorderService {
   // 紀錄回放
   rpc RecordRoundVideo(RecordRoundMediaRequest) returns (RoundRecord);
 
-  //捕獲單幀。玩家登入時使用
-  rpc RecordCaptureFrame(RecordRoundStartedRequest) returns (google.protobuf.Empty);
-  
 }
