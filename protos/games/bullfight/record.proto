@@ -106,14 +106,28 @@ enum GameSeat {
 
 }
 
-// 結果紀錄類型代碼
-enum ResultRecordType {
+// 豹子 > 同花順 > 同花 > 順子 > 對子 > 散牌
+enum CardPattern {
 
   // 未指定
-  RESULT_RECORD_TYPE_UNSPECIFIED = 0;
-  // 遊戲局結束
-  ROUND_FINISH = 1;
-  // Pitboss 修正
-  PITBOSS_MODIFY_RESULT = 2;
+  CARD_PATTERN_UNSPECIFIED    = 0;
+
+  // 高牌
+  HIGHT = 1;
+
+  // 有牛
+  BULL = 2;
+
+  // 牛牛
+  BULL_BULL = 3;
+
+  // 四花
+  FOUR_FACE = 4;
+
+  // 五花
+  FULL_FACE = 5;
+
+  // 五小
+  FULL_SMALL = 6;
 
 }

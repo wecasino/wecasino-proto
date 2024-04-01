@@ -69,26 +69,31 @@ enum Step {
 
 }
 
-// 結果紀錄類型代碼
-enum ResultRecordType {
+// 豹子 > 同花順 > 同花 > 順子 > 對子 > 散牌
+enum CardPattern {
 
   // 未指定
-  RESULT_RECORD_TYPE_UNSPECIFIED = 0;
-  // 遊戲局結束
-  ROUND_FINISH = 1;
-  // Pitboss 修正
-  PITBOSS_MODIFY_RESULT = 2;
+  CARD_PATTERN_UNSPECIFIED    = 0;
 
-}
+  // 高牌
+  HIGHT = 1;
 
-// 豹子 > 同花順 > 同花 > 順子 > 對子 > 散牌
-enum CardStyle {
-  NONE    = 0;            // 散牌
-  PAIR   = 1;             // 對子
-  STRAIGHT   = 2;         // 順子
-  FLUSH   = 3;            // 同花
-  STRAIGHTF  = 4;         // 順子
-  LEOPARD  = 5;           // 豹子
-  LEOPARD_KILLER  = 6;    // 豹子殺手
+  // 對子
+  PAIR = 2;
+
+  // 順子
+  STRAIGHTF = 3;
+
+  // 金花
+  FLUSH = 4;
+
+  // 順金
+  STRAIGHT_FLUSH = 5;
+
+  // 豹子
+  LEOPARD = 6;
+
+  // 豹子殺手
+  LEOPARD_KILLER = 7;
 
 }

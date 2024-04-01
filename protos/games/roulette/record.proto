@@ -51,13 +51,3 @@ enum ResultRecordType {
   PITBOSS_MODIFY_RESULT = 2;
 
 }
-
-// 取消原因
-enum CancelReason {
-
-  // 未指定，沒有取消
-  CANCEL_REASON_UNSPECIFIED = 0;
-  // 取消說明原因
-  NO_REASON = 1;
-
-}
