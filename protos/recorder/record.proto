@@ -37,7 +37,7 @@ message CardList {
   repeated Card list = 2;
 
   // 牌型
-  repeated string patterns = 3;
+  int32 pattern = 3;
 
 }
 

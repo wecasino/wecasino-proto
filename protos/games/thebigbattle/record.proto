@@ -62,15 +62,3 @@ enum Step {
   // PITBOSS 修改派發手牌
   PITBOSS_MODIFY_NORMAL = 24;
 }
-
-// 結果紀錄類型代碼
-enum ResultRecordType {
-
-  // 未指定
-  RESULT_RECORD_TYPE_UNSPECIFIED = 0;
-  // 遊戲局結束
-  ROUND_FINISH = 1;
-  // Pitboss 修正
-  PITBOSS_MODIFY_RESULT = 2;
-
-}

@@ -146,6 +146,9 @@ enum GameNotifyType {
   // 通知遊戲局回放連結
   NOTIFY_ROUND_PLAYBACK = 19;
 
+  // 通知遊戲局事後取消
+  NOTIFY_ROUND_CANCEL_AFTER_ROUND = 20;
+  
 }
 
 enum GameProvideState {
