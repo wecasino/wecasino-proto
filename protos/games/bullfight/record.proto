@@ -113,7 +113,7 @@ enum CardPattern {
   CARD_PATTERN_UNSPECIFIED    = 0;
 
   // 高牌
-  HIGHT = 1;
+  HIGH = 1;
 
   // 有牛
   BULL = 2;
