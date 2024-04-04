@@ -5,6 +5,7 @@ import "google/api/annotations.proto";
 import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
 import "recorder/record.proto";
+import "games/games.proto";
 
 message GetRequest {
 
@@ -28,17 +29,26 @@ message ListRecordsRequest {
   // 查詢終時
   google.protobuf.Timestamp ts_to = 2;
 
-  // 筆數 預設 100
-  optional int64 limit = 3;
+  // 遊戲類型
+  optional games.GameType game_type = 3;
 
-  // pagination next page
-  optional string search_after = 4;
-  
-  // pagination previous page
-  optional string search_before = 5;
+  // 遊戲子類型
+  optional int32 game_subtype = 4;
 
   // 遊戲代碼
   optional string game_code = 6;
+
+  // pagination next page
+  optional string search_after = 8;
+  
+  // pagination previous page
+  optional string search_before = 9;
+
+  // 頁數 1開始，0表示未填，改為1
+  int64 page = 10;
+
+  // 每頁筆數
+  int64 page_size = 11;
 
 }
 
