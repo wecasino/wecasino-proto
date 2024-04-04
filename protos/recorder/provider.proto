@@ -112,7 +112,7 @@ service RecorderReadService {
   };
 
   // 讀取目前指定靴紀錄
-  rpc GetCurrentShoe(GetCurrentRecordRequest) returns (ShiftRecord){
+  rpc GetCurrentShoe(GetCurrentRecordRequest) returns (ShoeRecord){
     option (google.api.http) = {
       get: "/v1/recorder/shoes:current"
     };
@@ -126,7 +126,7 @@ service RecorderReadService {
   };
   
   // 讀取指定靴紀錄
-  rpc GetRound(GetRequest) returns (ShoeRecord){
+  rpc GetRound(GetRequest) returns (RoundRecord){
     option (google.api.http) = {
       get: "/v1/recorder/rounds/{code}"
     };
