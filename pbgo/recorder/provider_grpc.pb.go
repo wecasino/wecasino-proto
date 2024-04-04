@@ -46,11 +46,11 @@ type RecorderReadServiceClient interface {
 	// 讀取指定靴紀錄
 	GetShoe(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*ShoeRecord, error)
 	// 讀取目前指定靴紀錄
-	GetCurrentShoe(ctx context.Context, in *GetCurrentRecordRequest, opts ...grpc.CallOption) (*ShiftRecord, error)
+	GetCurrentShoe(ctx context.Context, in *GetCurrentRecordRequest, opts ...grpc.CallOption) (*ShoeRecord, error)
 	// 讀牌靴紀錄list
 	ListRounds(ctx context.Context, in *ListRecordsRequest, opts ...grpc.CallOption) (*ListRoundsRecordResponse, error)
 	// 讀取指定靴紀錄
-	GetRound(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*ShoeRecord, error)
+	GetRound(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*RoundRecord, error)
 	// 讀取目前指定靴紀錄
 	GetCurrentRound(ctx context.Context, in *GetCurrentRecordRequest, opts ...grpc.CallOption) (*RoundRecord, error)
 }
@@ -108,8 +108,8 @@ func (c *recorderReadServiceClient) GetShoe(ctx context.Context, in *GetRequest,
 	return out, nil
 }
 
-func (c *recorderReadServiceClient) GetCurrentShoe(ctx context.Context, in *GetCurrentRecordRequest, opts ...grpc.CallOption) (*ShiftRecord, error) {
-	out := new(ShiftRecord)
+func (c *recorderReadServiceClient) GetCurrentShoe(ctx context.Context, in *GetCurrentRecordRequest, opts ...grpc.CallOption) (*ShoeRecord, error) {
+	out := new(ShoeRecord)
 	err := c.cc.Invoke(ctx, RecorderReadService_GetCurrentShoe_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -126,8 +126,8 @@ func (c *recorderReadServiceClient) ListRounds(ctx context.Context, in *ListReco
 	return out, nil
 }
 
-func (c *recorderReadServiceClient) GetRound(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*ShoeRecord, error) {
-	out := new(ShoeRecord)
+func (c *recorderReadServiceClient) GetRound(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*RoundRecord, error) {
+	out := new(RoundRecord)
 	err := c.cc.Invoke(ctx, RecorderReadService_GetRound_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -159,11 +159,11 @@ type RecorderReadServiceServer interface {
 	// 讀取指定靴紀錄
 	GetShoe(context.Context, *GetRequest) (*ShoeRecord, error)
 	// 讀取目前指定靴紀錄
-	GetCurrentShoe(context.Context, *GetCurrentRecordRequest) (*ShiftRecord, error)
+	GetCurrentShoe(context.Context, *GetCurrentRecordRequest) (*ShoeRecord, error)
 	// 讀牌靴紀錄list
 	ListRounds(context.Context, *ListRecordsRequest) (*ListRoundsRecordResponse, error)
 	// 讀取指定靴紀錄
-	GetRound(context.Context, *GetRequest) (*ShoeRecord, error)
+	GetRound(context.Context, *GetRequest) (*RoundRecord, error)
 	// 讀取目前指定靴紀錄
 	GetCurrentRound(context.Context, *GetCurrentRecordRequest) (*RoundRecord, error)
 	mustEmbedUnimplementedRecorderReadServiceServer()
@@ -188,13 +188,13 @@ func (UnimplementedRecorderReadServiceServer) ListShoe(context.Context, *ListRec
 func (UnimplementedRecorderReadServiceServer) GetShoe(context.Context, *GetRequest) (*ShoeRecord, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetShoe not implemented")
 }
-func (UnimplementedRecorderReadServiceServer) GetCurrentShoe(context.Context, *GetCurrentRecordRequest) (*ShiftRecord, error) {
+func (UnimplementedRecorderReadServiceServer) GetCurrentShoe(context.Context, *GetCurrentRecordRequest) (*ShoeRecord, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetCurrentShoe not implemented")
 }
 func (UnimplementedRecorderReadServiceServer) ListRounds(context.Context, *ListRecordsRequest) (*ListRoundsRecordResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListRounds not implemented")
 }
-func (UnimplementedRecorderReadServiceServer) GetRound(context.Context, *GetRequest) (*ShoeRecord, error) {
+func (UnimplementedRecorderReadServiceServer) GetRound(context.Context, *GetRequest) (*RoundRecord, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetRound not implemented")
 }
 func (UnimplementedRecorderReadServiceServer) GetCurrentRound(context.Context, *GetCurrentRecordRequest) (*RoundRecord, error) {
