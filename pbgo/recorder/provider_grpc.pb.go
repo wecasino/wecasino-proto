@@ -11,6 +11,7 @@ import (
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
+	emptypb "google.golang.org/protobuf/types/known/emptypb"
 )
 
 // This is a compile-time assertion to ensure that this generated file
@@ -19,30 +20,39 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	RecorderReadService_FetchShiftRecord_FullMethodName        = "/recorder.RecorderReadService/FetchShiftRecord"
-	RecorderReadService_FetchLastOneShiftRecord_FullMethodName = "/recorder.RecorderReadService/FetchLastOneShiftRecord"
-	RecorderReadService_FetchShoeRecord_FullMethodName         = "/recorder.RecorderReadService/FetchShoeRecord"
-	RecorderReadService_FetchLastOneShoeRecord_FullMethodName  = "/recorder.RecorderReadService/FetchLastOneShoeRecord"
-	RecorderReadService_FetchRoundRecord_FullMethodName        = "/recorder.RecorderReadService/FetchRoundRecord"
-	RecorderReadService_FetchLastOneRoundRecord_FullMethodName = "/recorder.RecorderReadService/FetchLastOneRoundRecord"
+	RecorderReadService_ListShifts_FullMethodName      = "/recorder.RecorderReadService/ListShifts"
+	RecorderReadService_GetShift_FullMethodName        = "/recorder.RecorderReadService/GetShift"
+	RecorderReadService_GetCurrentShift_FullMethodName = "/recorder.RecorderReadService/GetCurrentShift"
+	RecorderReadService_ListShoe_FullMethodName        = "/recorder.RecorderReadService/ListShoe"
+	RecorderReadService_GetShoe_FullMethodName         = "/recorder.RecorderReadService/GetShoe"
+	RecorderReadService_GetCurrentShoe_FullMethodName  = "/recorder.RecorderReadService/GetCurrentShoe"
+	RecorderReadService_ListRounds_FullMethodName      = "/recorder.RecorderReadService/ListRounds"
+	RecorderReadService_GetRound_FullMethodName        = "/recorder.RecorderReadService/GetRound"
+	RecorderReadService_GetCurrentRound_FullMethodName = "/recorder.RecorderReadService/GetCurrentRound"
 )
 
 // RecorderReadServiceClient is the client API for RecorderReadService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type RecorderReadServiceClient interface {
-	// 讀取班次紀錄list
-	FetchShiftRecord(ctx context.Context, in *FetchShiftRecordRequest, opts ...grpc.CallOption) (*FetchShiftRecordResponse, error)
-	// 讀取最新班次紀錄
-	FetchLastOneShiftRecord(ctx context.Context, in *FetchShiftRecordRequest, opts ...grpc.CallOption) (*FetchShiftRecordResponse, error)
+	// 讀取班次紀錄List
+	ListShifts(ctx context.Context, in *ListRecordsRequest, opts ...grpc.CallOption) (*ListShiftsResponse, error)
+	// 讀取指定班次紀錄
+	GetShift(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*ShiftRecord, error)
+	// 讀取目前指定班次紀錄
+	GetCurrentShift(ctx context.Context, in *GetCurrentRecordRequest, opts ...grpc.CallOption) (*ShiftRecord, error)
 	// 讀牌靴紀錄list
-	FetchShoeRecord(ctx context.Context, in *FetchShoeRecordRequest, opts ...grpc.CallOption) (*FetchShoeRecordResponse, error)
-	// 讀最新牌靴紀錄
-	FetchLastOneShoeRecord(ctx context.Context, in *FetchShoeRecordRequest, opts ...grpc.CallOption) (*FetchShoeRecordResponse, error)
-	// 讀遊戲局號紀錄list
-	FetchRoundRecord(ctx context.Context, in *FetchRoundRecordRequest, opts ...grpc.CallOption) (*FetchRoundRecordResponse, error)
-	// 讀最新遊戲局號紀錄
-	FetchLastOneRoundRecord(ctx context.Context, in *FetchRoundRecordRequest, opts ...grpc.CallOption) (*FetchRoundRecordResponse, error)
+	ListShoe(ctx context.Context, in *ListRecordsRequest, opts ...grpc.CallOption) (*ListShoesRecordResponse, error)
+	// 讀取指定靴紀錄
+	GetShoe(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*ShoeRecord, error)
+	// 讀取目前指定靴紀錄
+	GetCurrentShoe(ctx context.Context, in *GetCurrentRecordRequest, opts ...grpc.CallOption) (*ShiftRecord, error)
+	// 讀牌靴紀錄list
+	ListRounds(ctx context.Context, in *ListRecordsRequest, opts ...grpc.CallOption) (*ListRoundsRecordResponse, error)
+	// 讀取指定靴紀錄
+	GetRound(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*ShoeRecord, error)
+	// 讀取目前指定靴紀錄
+	GetCurrentRound(ctx context.Context, in *GetCurrentRecordRequest, opts ...grpc.CallOption) (*RoundRecord, error)
 }
 
 type recorderReadServiceClient struct {
@@ -53,54 +63,81 @@ func NewRecorderReadServiceClient(cc grpc.ClientConnInterface) RecorderReadServi
 	return &recorderReadServiceClient{cc}
 }
 
-func (c *recorderReadServiceClient) FetchShiftRecord(ctx context.Context, in *FetchShiftRecordRequest, opts ...grpc.CallOption) (*FetchShiftRecordResponse, error) {
-	out := new(FetchShiftRecordResponse)
-	err := c.cc.Invoke(ctx, RecorderReadService_FetchShiftRecord_FullMethodName, in, out, opts...)
+func (c *recorderReadServiceClient) ListShifts(ctx context.Context, in *ListRecordsRequest, opts ...grpc.CallOption) (*ListShiftsResponse, error) {
+	out := new(ListShiftsResponse)
+	err := c.cc.Invoke(ctx, RecorderReadService_ListShifts_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *recorderReadServiceClient) FetchLastOneShiftRecord(ctx context.Context, in *FetchShiftRecordRequest, opts ...grpc.CallOption) (*FetchShiftRecordResponse, error) {
-	out := new(FetchShiftRecordResponse)
-	err := c.cc.Invoke(ctx, RecorderReadService_FetchLastOneShiftRecord_FullMethodName, in, out, opts...)
+func (c *recorderReadServiceClient) GetShift(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*ShiftRecord, error) {
+	out := new(ShiftRecord)
+	err := c.cc.Invoke(ctx, RecorderReadService_GetShift_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *recorderReadServiceClient) FetchShoeRecord(ctx context.Context, in *FetchShoeRecordRequest, opts ...grpc.CallOption) (*FetchShoeRecordResponse, error) {
-	out := new(FetchShoeRecordResponse)
-	err := c.cc.Invoke(ctx, RecorderReadService_FetchShoeRecord_FullMethodName, in, out, opts...)
+func (c *recorderReadServiceClient) GetCurrentShift(ctx context.Context, in *GetCurrentRecordRequest, opts ...grpc.CallOption) (*ShiftRecord, error) {
+	out := new(ShiftRecord)
+	err := c.cc.Invoke(ctx, RecorderReadService_GetCurrentShift_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *recorderReadServiceClient) FetchLastOneShoeRecord(ctx context.Context, in *FetchShoeRecordRequest, opts ...grpc.CallOption) (*FetchShoeRecordResponse, error) {
-	out := new(FetchShoeRecordResponse)
-	err := c.cc.Invoke(ctx, RecorderReadService_FetchLastOneShoeRecord_FullMethodName, in, out, opts...)
+func (c *recorderReadServiceClient) ListShoe(ctx context.Context, in *ListRecordsRequest, opts ...grpc.CallOption) (*ListShoesRecordResponse, error) {
+	out := new(ListShoesRecordResponse)
+	err := c.cc.Invoke(ctx, RecorderReadService_ListShoe_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *recorderReadServiceClient) FetchRoundRecord(ctx context.Context, in *FetchRoundRecordRequest, opts ...grpc.CallOption) (*FetchRoundRecordResponse, error) {
-	out := new(FetchRoundRecordResponse)
-	err := c.cc.Invoke(ctx, RecorderReadService_FetchRoundRecord_FullMethodName, in, out, opts...)
+func (c *recorderReadServiceClient) GetShoe(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*ShoeRecord, error) {
+	out := new(ShoeRecord)
+	err := c.cc.Invoke(ctx, RecorderReadService_GetShoe_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *recorderReadServiceClient) FetchLastOneRoundRecord(ctx context.Context, in *FetchRoundRecordRequest, opts ...grpc.CallOption) (*FetchRoundRecordResponse, error) {
-	out := new(FetchRoundRecordResponse)
-	err := c.cc.Invoke(ctx, RecorderReadService_FetchLastOneRoundRecord_FullMethodName, in, out, opts...)
+func (c *recorderReadServiceClient) GetCurrentShoe(ctx context.Context, in *GetCurrentRecordRequest, opts ...grpc.CallOption) (*ShiftRecord, error) {
+	out := new(ShiftRecord)
+	err := c.cc.Invoke(ctx, RecorderReadService_GetCurrentShoe_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recorderReadServiceClient) ListRounds(ctx context.Context, in *ListRecordsRequest, opts ...grpc.CallOption) (*ListRoundsRecordResponse, error) {
+	out := new(ListRoundsRecordResponse)
+	err := c.cc.Invoke(ctx, RecorderReadService_ListRounds_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recorderReadServiceClient) GetRound(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*ShoeRecord, error) {
+	out := new(ShoeRecord)
+	err := c.cc.Invoke(ctx, RecorderReadService_GetRound_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recorderReadServiceClient) GetCurrentRound(ctx context.Context, in *GetCurrentRecordRequest, opts ...grpc.CallOption) (*RoundRecord, error) {
+	out := new(RoundRecord)
+	err := c.cc.Invoke(ctx, RecorderReadService_GetCurrentRound_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -111,18 +148,24 @@ func (c *recorderReadServiceClient) FetchLastOneRoundRecord(ctx context.Context,
 // All implementations must embed UnimplementedRecorderReadServiceServer
 // for forward compatibility
 type RecorderReadServiceServer interface {
-	// 讀取班次紀錄list
-	FetchShiftRecord(context.Context, *FetchShiftRecordRequest) (*FetchShiftRecordResponse, error)
-	// 讀取最新班次紀錄
-	FetchLastOneShiftRecord(context.Context, *FetchShiftRecordRequest) (*FetchShiftRecordResponse, error)
+	// 讀取班次紀錄List
+	ListShifts(context.Context, *ListRecordsRequest) (*ListShiftsResponse, error)
+	// 讀取指定班次紀錄
+	GetShift(context.Context, *GetRequest) (*ShiftRecord, error)
+	// 讀取目前指定班次紀錄
+	GetCurrentShift(context.Context, *GetCurrentRecordRequest) (*ShiftRecord, error)
 	// 讀牌靴紀錄list
-	FetchShoeRecord(context.Context, *FetchShoeRecordRequest) (*FetchShoeRecordResponse, error)
-	// 讀最新牌靴紀錄
-	FetchLastOneShoeRecord(context.Context, *FetchShoeRecordRequest) (*FetchShoeRecordResponse, error)
-	// 讀遊戲局號紀錄list
-	FetchRoundRecord(context.Context, *FetchRoundRecordRequest) (*FetchRoundRecordResponse, error)
-	// 讀最新遊戲局號紀錄
-	FetchLastOneRoundRecord(context.Context, *FetchRoundRecordRequest) (*FetchRoundRecordResponse, error)
+	ListShoe(context.Context, *ListRecordsRequest) (*ListShoesRecordResponse, error)
+	// 讀取指定靴紀錄
+	GetShoe(context.Context, *GetRequest) (*ShoeRecord, error)
+	// 讀取目前指定靴紀錄
+	GetCurrentShoe(context.Context, *GetCurrentRecordRequest) (*ShiftRecord, error)
+	// 讀牌靴紀錄list
+	ListRounds(context.Context, *ListRecordsRequest) (*ListRoundsRecordResponse, error)
+	// 讀取指定靴紀錄
+	GetRound(context.Context, *GetRequest) (*ShoeRecord, error)
+	// 讀取目前指定靴紀錄
+	GetCurrentRound(context.Context, *GetCurrentRecordRequest) (*RoundRecord, error)
 	mustEmbedUnimplementedRecorderReadServiceServer()
 }
 
@@ -130,23 +173,32 @@ type RecorderReadServiceServer interface {
 type UnimplementedRecorderReadServiceServer struct {
 }
 
-func (UnimplementedRecorderReadServiceServer) FetchShiftRecord(context.Context, *FetchShiftRecordRequest) (*FetchShiftRecordResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method FetchShiftRecord not implemented")
+func (UnimplementedRecorderReadServiceServer) ListShifts(context.Context, *ListRecordsRequest) (*ListShiftsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListShifts not implemented")
 }
-func (UnimplementedRecorderReadServiceServer) FetchLastOneShiftRecord(context.Context, *FetchShiftRecordRequest) (*FetchShiftRecordResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method FetchLastOneShiftRecord not implemented")
+func (UnimplementedRecorderReadServiceServer) GetShift(context.Context, *GetRequest) (*ShiftRecord, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetShift not implemented")
 }
-func (UnimplementedRecorderReadServiceServer) FetchShoeRecord(context.Context, *FetchShoeRecordRequest) (*FetchShoeRecordResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method FetchShoeRecord not implemented")
+func (UnimplementedRecorderReadServiceServer) GetCurrentShift(context.Context, *GetCurrentRecordRequest) (*ShiftRecord, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetCurrentShift not implemented")
 }
-func (UnimplementedRecorderReadServiceServer) FetchLastOneShoeRecord(context.Context, *FetchShoeRecordRequest) (*FetchShoeRecordResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method FetchLastOneShoeRecord not implemented")
+func (UnimplementedRecorderReadServiceServer) ListShoe(context.Context, *ListRecordsRequest) (*ListShoesRecordResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListShoe not implemented")
 }
-func (UnimplementedRecorderReadServiceServer) FetchRoundRecord(context.Context, *FetchRoundRecordRequest) (*FetchRoundRecordResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method FetchRoundRecord not implemented")
+func (UnimplementedRecorderReadServiceServer) GetShoe(context.Context, *GetRequest) (*ShoeRecord, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetShoe not implemented")
 }
-func (UnimplementedRecorderReadServiceServer) FetchLastOneRoundRecord(context.Context, *FetchRoundRecordRequest) (*FetchRoundRecordResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method FetchLastOneRoundRecord not implemented")
+func (UnimplementedRecorderReadServiceServer) GetCurrentShoe(context.Context, *GetCurrentRecordRequest) (*ShiftRecord, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetCurrentShoe not implemented")
+}
+func (UnimplementedRecorderReadServiceServer) ListRounds(context.Context, *ListRecordsRequest) (*ListRoundsRecordResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListRounds not implemented")
+}
+func (UnimplementedRecorderReadServiceServer) GetRound(context.Context, *GetRequest) (*ShoeRecord, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetRound not implemented")
+}
+func (UnimplementedRecorderReadServiceServer) GetCurrentRound(context.Context, *GetCurrentRecordRequest) (*RoundRecord, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetCurrentRound not implemented")
 }
 func (UnimplementedRecorderReadServiceServer) mustEmbedUnimplementedRecorderReadServiceServer() {}
 
@@ -161,110 +213,164 @@ func RegisterRecorderReadServiceServer(s grpc.ServiceRegistrar, srv RecorderRead
 	s.RegisterService(&RecorderReadService_ServiceDesc, srv)
 }
 
-func _RecorderReadService_FetchShiftRecord_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FetchShiftRecordRequest)
+func _RecorderReadService_ListShifts_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListRecordsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(RecorderReadServiceServer).FetchShiftRecord(ctx, in)
+		return srv.(RecorderReadServiceServer).ListShifts(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: RecorderReadService_FetchShiftRecord_FullMethodName,
+		FullMethod: RecorderReadService_ListShifts_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RecorderReadServiceServer).FetchShiftRecord(ctx, req.(*FetchShiftRecordRequest))
+		return srv.(RecorderReadServiceServer).ListShifts(ctx, req.(*ListRecordsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _RecorderReadService_FetchLastOneShiftRecord_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FetchShiftRecordRequest)
+func _RecorderReadService_GetShift_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(RecorderReadServiceServer).FetchLastOneShiftRecord(ctx, in)
+		return srv.(RecorderReadServiceServer).GetShift(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: RecorderReadService_FetchLastOneShiftRecord_FullMethodName,
+		FullMethod: RecorderReadService_GetShift_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RecorderReadServiceServer).FetchLastOneShiftRecord(ctx, req.(*FetchShiftRecordRequest))
+		return srv.(RecorderReadServiceServer).GetShift(ctx, req.(*GetRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _RecorderReadService_FetchShoeRecord_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FetchShoeRecordRequest)
+func _RecorderReadService_GetCurrentShift_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCurrentRecordRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(RecorderReadServiceServer).FetchShoeRecord(ctx, in)
+		return srv.(RecorderReadServiceServer).GetCurrentShift(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: RecorderReadService_FetchShoeRecord_FullMethodName,
+		FullMethod: RecorderReadService_GetCurrentShift_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RecorderReadServiceServer).FetchShoeRecord(ctx, req.(*FetchShoeRecordRequest))
+		return srv.(RecorderReadServiceServer).GetCurrentShift(ctx, req.(*GetCurrentRecordRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _RecorderReadService_FetchLastOneShoeRecord_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FetchShoeRecordRequest)
+func _RecorderReadService_ListShoe_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListRecordsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(RecorderReadServiceServer).FetchLastOneShoeRecord(ctx, in)
+		return srv.(RecorderReadServiceServer).ListShoe(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: RecorderReadService_FetchLastOneShoeRecord_FullMethodName,
+		FullMethod: RecorderReadService_ListShoe_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RecorderReadServiceServer).FetchLastOneShoeRecord(ctx, req.(*FetchShoeRecordRequest))
+		return srv.(RecorderReadServiceServer).ListShoe(ctx, req.(*ListRecordsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _RecorderReadService_FetchRoundRecord_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FetchRoundRecordRequest)
+func _RecorderReadService_GetShoe_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(RecorderReadServiceServer).FetchRoundRecord(ctx, in)
+		return srv.(RecorderReadServiceServer).GetShoe(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: RecorderReadService_FetchRoundRecord_FullMethodName,
+		FullMethod: RecorderReadService_GetShoe_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RecorderReadServiceServer).FetchRoundRecord(ctx, req.(*FetchRoundRecordRequest))
+		return srv.(RecorderReadServiceServer).GetShoe(ctx, req.(*GetRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _RecorderReadService_FetchLastOneRoundRecord_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FetchRoundRecordRequest)
+func _RecorderReadService_GetCurrentShoe_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCurrentRecordRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(RecorderReadServiceServer).FetchLastOneRoundRecord(ctx, in)
+		return srv.(RecorderReadServiceServer).GetCurrentShoe(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: RecorderReadService_FetchLastOneRoundRecord_FullMethodName,
+		FullMethod: RecorderReadService_GetCurrentShoe_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RecorderReadServiceServer).FetchLastOneRoundRecord(ctx, req.(*FetchRoundRecordRequest))
+		return srv.(RecorderReadServiceServer).GetCurrentShoe(ctx, req.(*GetCurrentRecordRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecorderReadService_ListRounds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListRecordsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecorderReadServiceServer).ListRounds(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecorderReadService_ListRounds_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecorderReadServiceServer).ListRounds(ctx, req.(*ListRecordsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecorderReadService_GetRound_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecorderReadServiceServer).GetRound(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecorderReadService_GetRound_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecorderReadServiceServer).GetRound(ctx, req.(*GetRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecorderReadService_GetCurrentRound_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCurrentRecordRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecorderReadServiceServer).GetCurrentRound(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecorderReadService_GetCurrentRound_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecorderReadServiceServer).GetCurrentRound(ctx, req.(*GetCurrentRecordRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -277,28 +383,40 @@ var RecorderReadService_ServiceDesc = grpc.ServiceDesc{
 	HandlerType: (*RecorderReadServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "FetchShiftRecord",
-			Handler:    _RecorderReadService_FetchShiftRecord_Handler,
+			MethodName: "ListShifts",
+			Handler:    _RecorderReadService_ListShifts_Handler,
 		},
 		{
-			MethodName: "FetchLastOneShiftRecord",
-			Handler:    _RecorderReadService_FetchLastOneShiftRecord_Handler,
+			MethodName: "GetShift",
+			Handler:    _RecorderReadService_GetShift_Handler,
 		},
 		{
-			MethodName: "FetchShoeRecord",
-			Handler:    _RecorderReadService_FetchShoeRecord_Handler,
+			MethodName: "GetCurrentShift",
+			Handler:    _RecorderReadService_GetCurrentShift_Handler,
 		},
 		{
-			MethodName: "FetchLastOneShoeRecord",
-			Handler:    _RecorderReadService_FetchLastOneShoeRecord_Handler,
+			MethodName: "ListShoe",
+			Handler:    _RecorderReadService_ListShoe_Handler,
 		},
 		{
-			MethodName: "FetchRoundRecord",
-			Handler:    _RecorderReadService_FetchRoundRecord_Handler,
+			MethodName: "GetShoe",
+			Handler:    _RecorderReadService_GetShoe_Handler,
 		},
 		{
-			MethodName: "FetchLastOneRoundRecord",
-			Handler:    _RecorderReadService_FetchLastOneRoundRecord_Handler,
+			MethodName: "GetCurrentShoe",
+			Handler:    _RecorderReadService_GetCurrentShoe_Handler,
+		},
+		{
+			MethodName: "ListRounds",
+			Handler:    _RecorderReadService_ListRounds_Handler,
+		},
+		{
+			MethodName: "GetRound",
+			Handler:    _RecorderReadService_GetRound_Handler,
+		},
+		{
+			MethodName: "GetCurrentRound",
+			Handler:    _RecorderReadService_GetCurrentRound_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -306,11 +424,11 @@ var RecorderReadService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	ProviderService_FetchGameProvideList_FullMethodName = "/recorder.ProviderService/FetchGameProvideList"
-	ProviderService_FetchGameProvide_FullMethodName     = "/recorder.ProviderService/FetchGameProvide"
-	ProviderService_FetchCurrentGame_FullMethodName     = "/recorder.ProviderService/FetchCurrentGame"
-	ProviderService_VerifyGame_FullMethodName           = "/recorder.ProviderService/VerifyGame"
-	ProviderService_GetDealers_FullMethodName           = "/recorder.ProviderService/GetDealers"
+	ProviderService_ListGames_FullMethodName   = "/recorder.ProviderService/ListGames"
+	ProviderService_GetGames_FullMethodName    = "/recorder.ProviderService/GetGames"
+	ProviderService_VerifyGame_FullMethodName  = "/recorder.ProviderService/VerifyGame"
+	ProviderService_ListDealers_FullMethodName = "/recorder.ProviderService/ListDealers"
+	ProviderService_GetDealer_FullMethodName   = "/recorder.ProviderService/GetDealer"
 )
 
 // ProviderServiceClient is the client API for ProviderService service.
@@ -318,15 +436,15 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type ProviderServiceClient interface {
 	// 取得即時遊戲列表
-	FetchGameProvideList(ctx context.Context, in *FetchGameProvideListRequest, opts ...grpc.CallOption) (*FetchGameProvideListResponse, error)
+	ListGames(ctx context.Context, in *ListGamesRequest, opts ...grpc.CallOption) (*ListGamesResponse, error)
 	// 取得單一即時遊戲資訊
-	FetchGameProvide(ctx context.Context, in *FetchGameProvideRequest, opts ...grpc.CallOption) (*FetchGameProvideResponse, error)
-	// 讀即時遊戲桌資訊
-	FetchCurrentGame(ctx context.Context, in *FetchCurrentGameRequest, opts ...grpc.CallOption) (*FetchCurrentGameResponse, error)
+	GetGames(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GameProvide, error)
 	// 驗證
-	VerifyGame(ctx context.Context, in *VerifyGameRequest, opts ...grpc.CallOption) (*FetchCurrentGameResponse, error)
+	VerifyGame(ctx context.Context, in *VerifyGameRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	// 荷官資料
-	GetDealers(ctx context.Context, in *GetDealerRequest, opts ...grpc.CallOption) (*GetDealerResponse, error)
+	ListDealers(ctx context.Context, in *ListDealersRequest, opts ...grpc.CallOption) (*ListDealersResponse, error)
+	// 荷官資料
+	GetDealer(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*Dealer, error)
 }
 
 type providerServiceClient struct {
@@ -337,35 +455,26 @@ func NewProviderServiceClient(cc grpc.ClientConnInterface) ProviderServiceClient
 	return &providerServiceClient{cc}
 }
 
-func (c *providerServiceClient) FetchGameProvideList(ctx context.Context, in *FetchGameProvideListRequest, opts ...grpc.CallOption) (*FetchGameProvideListResponse, error) {
-	out := new(FetchGameProvideListResponse)
-	err := c.cc.Invoke(ctx, ProviderService_FetchGameProvideList_FullMethodName, in, out, opts...)
+func (c *providerServiceClient) ListGames(ctx context.Context, in *ListGamesRequest, opts ...grpc.CallOption) (*ListGamesResponse, error) {
+	out := new(ListGamesResponse)
+	err := c.cc.Invoke(ctx, ProviderService_ListGames_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *providerServiceClient) FetchGameProvide(ctx context.Context, in *FetchGameProvideRequest, opts ...grpc.CallOption) (*FetchGameProvideResponse, error) {
-	out := new(FetchGameProvideResponse)
-	err := c.cc.Invoke(ctx, ProviderService_FetchGameProvide_FullMethodName, in, out, opts...)
+func (c *providerServiceClient) GetGames(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GameProvide, error) {
+	out := new(GameProvide)
+	err := c.cc.Invoke(ctx, ProviderService_GetGames_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *providerServiceClient) FetchCurrentGame(ctx context.Context, in *FetchCurrentGameRequest, opts ...grpc.CallOption) (*FetchCurrentGameResponse, error) {
-	out := new(FetchCurrentGameResponse)
-	err := c.cc.Invoke(ctx, ProviderService_FetchCurrentGame_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *providerServiceClient) VerifyGame(ctx context.Context, in *VerifyGameRequest, opts ...grpc.CallOption) (*FetchCurrentGameResponse, error) {
-	out := new(FetchCurrentGameResponse)
+func (c *providerServiceClient) VerifyGame(ctx context.Context, in *VerifyGameRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, ProviderService_VerifyGame_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -373,9 +482,18 @@ func (c *providerServiceClient) VerifyGame(ctx context.Context, in *VerifyGameRe
 	return out, nil
 }
 
-func (c *providerServiceClient) GetDealers(ctx context.Context, in *GetDealerRequest, opts ...grpc.CallOption) (*GetDealerResponse, error) {
-	out := new(GetDealerResponse)
-	err := c.cc.Invoke(ctx, ProviderService_GetDealers_FullMethodName, in, out, opts...)
+func (c *providerServiceClient) ListDealers(ctx context.Context, in *ListDealersRequest, opts ...grpc.CallOption) (*ListDealersResponse, error) {
+	out := new(ListDealersResponse)
+	err := c.cc.Invoke(ctx, ProviderService_ListDealers_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *providerServiceClient) GetDealer(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*Dealer, error) {
+	out := new(Dealer)
+	err := c.cc.Invoke(ctx, ProviderService_GetDealer_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -387,15 +505,15 @@ func (c *providerServiceClient) GetDealers(ctx context.Context, in *GetDealerReq
 // for forward compatibility
 type ProviderServiceServer interface {
 	// 取得即時遊戲列表
-	FetchGameProvideList(context.Context, *FetchGameProvideListRequest) (*FetchGameProvideListResponse, error)
+	ListGames(context.Context, *ListGamesRequest) (*ListGamesResponse, error)
 	// 取得單一即時遊戲資訊
-	FetchGameProvide(context.Context, *FetchGameProvideRequest) (*FetchGameProvideResponse, error)
-	// 讀即時遊戲桌資訊
-	FetchCurrentGame(context.Context, *FetchCurrentGameRequest) (*FetchCurrentGameResponse, error)
+	GetGames(context.Context, *GetRequest) (*GameProvide, error)
 	// 驗證
-	VerifyGame(context.Context, *VerifyGameRequest) (*FetchCurrentGameResponse, error)
+	VerifyGame(context.Context, *VerifyGameRequest) (*emptypb.Empty, error)
 	// 荷官資料
-	GetDealers(context.Context, *GetDealerRequest) (*GetDealerResponse, error)
+	ListDealers(context.Context, *ListDealersRequest) (*ListDealersResponse, error)
+	// 荷官資料
+	GetDealer(context.Context, *GetRequest) (*Dealer, error)
 	mustEmbedUnimplementedProviderServiceServer()
 }
 
@@ -403,20 +521,20 @@ type ProviderServiceServer interface {
 type UnimplementedProviderServiceServer struct {
 }
 
-func (UnimplementedProviderServiceServer) FetchGameProvideList(context.Context, *FetchGameProvideListRequest) (*FetchGameProvideListResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method FetchGameProvideList not implemented")
+func (UnimplementedProviderServiceServer) ListGames(context.Context, *ListGamesRequest) (*ListGamesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListGames not implemented")
 }
-func (UnimplementedProviderServiceServer) FetchGameProvide(context.Context, *FetchGameProvideRequest) (*FetchGameProvideResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method FetchGameProvide not implemented")
+func (UnimplementedProviderServiceServer) GetGames(context.Context, *GetRequest) (*GameProvide, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetGames not implemented")
 }
-func (UnimplementedProviderServiceServer) FetchCurrentGame(context.Context, *FetchCurrentGameRequest) (*FetchCurrentGameResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method FetchCurrentGame not implemented")
-}
-func (UnimplementedProviderServiceServer) VerifyGame(context.Context, *VerifyGameRequest) (*FetchCurrentGameResponse, error) {
+func (UnimplementedProviderServiceServer) VerifyGame(context.Context, *VerifyGameRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method VerifyGame not implemented")
 }
-func (UnimplementedProviderServiceServer) GetDealers(context.Context, *GetDealerRequest) (*GetDealerResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetDealers not implemented")
+func (UnimplementedProviderServiceServer) ListDealers(context.Context, *ListDealersRequest) (*ListDealersResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListDealers not implemented")
+}
+func (UnimplementedProviderServiceServer) GetDealer(context.Context, *GetRequest) (*Dealer, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetDealer not implemented")
 }
 func (UnimplementedProviderServiceServer) mustEmbedUnimplementedProviderServiceServer() {}
 
@@ -431,56 +549,38 @@ func RegisterProviderServiceServer(s grpc.ServiceRegistrar, srv ProviderServiceS
 	s.RegisterService(&ProviderService_ServiceDesc, srv)
 }
 
-func _ProviderService_FetchGameProvideList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FetchGameProvideListRequest)
+func _ProviderService_ListGames_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListGamesRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ProviderServiceServer).FetchGameProvideList(ctx, in)
+		return srv.(ProviderServiceServer).ListGames(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ProviderService_FetchGameProvideList_FullMethodName,
+		FullMethod: ProviderService_ListGames_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ProviderServiceServer).FetchGameProvideList(ctx, req.(*FetchGameProvideListRequest))
+		return srv.(ProviderServiceServer).ListGames(ctx, req.(*ListGamesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ProviderService_FetchGameProvide_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FetchGameProvideRequest)
+func _ProviderService_GetGames_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ProviderServiceServer).FetchGameProvide(ctx, in)
+		return srv.(ProviderServiceServer).GetGames(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ProviderService_FetchGameProvide_FullMethodName,
+		FullMethod: ProviderService_GetGames_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ProviderServiceServer).FetchGameProvide(ctx, req.(*FetchGameProvideRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ProviderService_FetchCurrentGame_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FetchCurrentGameRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ProviderServiceServer).FetchCurrentGame(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ProviderService_FetchCurrentGame_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ProviderServiceServer).FetchCurrentGame(ctx, req.(*FetchCurrentGameRequest))
+		return srv.(ProviderServiceServer).GetGames(ctx, req.(*GetRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -503,20 +603,38 @@ func _ProviderService_VerifyGame_Handler(srv interface{}, ctx context.Context, d
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ProviderService_GetDealers_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDealerRequest)
+func _ProviderService_ListDealers_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListDealersRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ProviderServiceServer).GetDealers(ctx, in)
+		return srv.(ProviderServiceServer).ListDealers(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ProviderService_GetDealers_FullMethodName,
+		FullMethod: ProviderService_ListDealers_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ProviderServiceServer).GetDealers(ctx, req.(*GetDealerRequest))
+		return srv.(ProviderServiceServer).ListDealers(ctx, req.(*ListDealersRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ProviderService_GetDealer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProviderServiceServer).GetDealer(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProviderService_GetDealer_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProviderServiceServer).GetDealer(ctx, req.(*GetRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -529,24 +647,24 @@ var ProviderService_ServiceDesc = grpc.ServiceDesc{
 	HandlerType: (*ProviderServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "FetchGameProvideList",
-			Handler:    _ProviderService_FetchGameProvideList_Handler,
+			MethodName: "ListGames",
+			Handler:    _ProviderService_ListGames_Handler,
 		},
 		{
-			MethodName: "FetchGameProvide",
-			Handler:    _ProviderService_FetchGameProvide_Handler,
-		},
-		{
-			MethodName: "FetchCurrentGame",
-			Handler:    _ProviderService_FetchCurrentGame_Handler,
+			MethodName: "GetGames",
+			Handler:    _ProviderService_GetGames_Handler,
 		},
 		{
 			MethodName: "VerifyGame",
 			Handler:    _ProviderService_VerifyGame_Handler,
 		},
 		{
-			MethodName: "GetDealers",
-			Handler:    _ProviderService_GetDealers_Handler,
+			MethodName: "ListDealers",
+			Handler:    _ProviderService_ListDealers_Handler,
+		},
+		{
+			MethodName: "GetDealer",
+			Handler:    _ProviderService_GetDealer_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
