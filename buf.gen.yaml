@@ -6,6 +6,8 @@ managed:
     except:
       - buf.build/googleapis/googleapis
       - buf.build/srikrsna/protoc-gen-gotag
+  java_package_prefix:
+    default: "com.wecasino.proto"
 plugins:
   - plugin: buf.build/protocolbuffers/go
     out: pbgo
@@ -16,3 +18,11 @@ plugins:
     out: pbgo
     opt:
       - paths=source_relative
+
+  - plugin: buf.build/connectrpc/go
+    out: pbgo
+    opt:
+      - paths=source_relative
+
+  - plugin: buf.build/protocolbuffers/java
+    out: pbjava
