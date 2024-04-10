@@ -62,6 +62,8 @@ private static final long serialVersionUID = 0L;
         return internalGetSeats();
       case 25:
         return internalGetPlayers();
+      case 27:
+        return internalGetWinType();
       case 28:
         return internalGetMedias();
       case 29:
@@ -1164,6 +1166,173 @@ java.lang.String defaultValue) {
     }
   }
 
+  public static final int WIN_TYPE_FIELD_NUMBER = 27;
+  private static final class WinTypeDefaultEntryHolder {
+    static final com.google.protobuf.MapEntry<
+        java.lang.Integer, java.lang.Integer> defaultEntry =
+            com.google.protobuf.MapEntry
+            .<java.lang.Integer, java.lang.Integer>newDefaultInstance(
+                com.wecasino.proto.recorder.RecordProto.internal_static_recorder_RoundRecord_WinTypeEntry_descriptor, 
+                com.google.protobuf.WireFormat.FieldType.INT32,
+                0,
+                com.google.protobuf.WireFormat.FieldType.ENUM,
+                com.wecasino.proto.games.WinType.WIN_TYPE_UNSPECIFIED.getNumber());
+  }
+  @SuppressWarnings("serial")
+  private com.google.protobuf.MapField<
+      java.lang.Integer, java.lang.Integer> winType_;
+  private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
+  internalGetWinType() {
+    if (winType_ == null) {
+      return com.google.protobuf.MapField.emptyMapField(
+          WinTypeDefaultEntryHolder.defaultEntry);
+    }
+    return winType_;
+  }
+  private static final
+  com.google.protobuf.Internal.MapAdapter.Converter<
+      java.lang.Integer, com.wecasino.proto.games.WinType> winTypeValueConverter =
+          com.google.protobuf.Internal.MapAdapter.newEnumConverter(
+              com.wecasino.proto.games.WinType.internalGetValueMap(),
+              com.wecasino.proto.games.WinType.UNRECOGNIZED);
+  private static final java.util.Map<java.lang.Integer, com.wecasino.proto.games.WinType>
+  internalGetAdaptedWinTypeMap(
+      java.util.Map<java.lang.Integer, java.lang.Integer> map) {
+    return new com.google.protobuf.Internal.MapAdapter<
+        java.lang.Integer, com.wecasino.proto.games.WinType, java.lang.Integer>(
+            map, winTypeValueConverter);
+  }
+  public int getWinTypeCount() {
+    return internalGetWinType().getMap().size();
+  }
+  /**
+   * <pre>
+   * 贏方
+   * </pre>
+   *
+   * <code>map&lt;int32, .games.WinType&gt; win_type = 27 [json_name = "winType", (.tagger.tags) = "bson:&#92;"winType,omitempty&#92;""];</code>
+   */
+  @java.lang.Override
+  public boolean containsWinType(
+      int key) {
+
+    return internalGetWinType().getMap().containsKey(key);
+  }
+  /**
+   * Use {@link #getWinTypeMap()} instead.
+   */
+  @java.lang.Override
+  @java.lang.Deprecated
+  public java.util.Map<java.lang.Integer, com.wecasino.proto.games.WinType>
+  getWinType() {
+    return getWinTypeMap();
+  }
+  /**
+   * <pre>
+   * 贏方
+   * </pre>
+   *
+   * <code>map&lt;int32, .games.WinType&gt; win_type = 27 [json_name = "winType", (.tagger.tags) = "bson:&#92;"winType,omitempty&#92;""];</code>
+   */
+  @java.lang.Override
+  public java.util.Map<java.lang.Integer, com.wecasino.proto.games.WinType>
+  getWinTypeMap() {
+    return internalGetAdaptedWinTypeMap(
+        internalGetWinType().getMap());}
+  /**
+   * <pre>
+   * 贏方
+   * </pre>
+   *
+   * <code>map&lt;int32, .games.WinType&gt; win_type = 27 [json_name = "winType", (.tagger.tags) = "bson:&#92;"winType,omitempty&#92;""];</code>
+   */
+  @java.lang.Override
+  public /* nullable */
+com.wecasino.proto.games.WinType getWinTypeOrDefault(
+      int key,
+      /* nullable */
+com.wecasino.proto.games.WinType defaultValue) {
+
+    java.util.Map<java.lang.Integer, java.lang.Integer> map =
+        internalGetWinType().getMap();
+    return map.containsKey(key)
+           ? winTypeValueConverter.doForward(map.get(key))
+           : defaultValue;
+  }
+  /**
+   * <pre>
+   * 贏方
+   * </pre>
+   *
+   * <code>map&lt;int32, .games.WinType&gt; win_type = 27 [json_name = "winType", (.tagger.tags) = "bson:&#92;"winType,omitempty&#92;""];</code>
+   */
+  @java.lang.Override
+  public com.wecasino.proto.games.WinType getWinTypeOrThrow(
+      int key) {
+
+    java.util.Map<java.lang.Integer, java.lang.Integer> map =
+        internalGetWinType().getMap();
+    if (!map.containsKey(key)) {
+      throw new java.lang.IllegalArgumentException();
+    }
+    return winTypeValueConverter.doForward(map.get(key));
+  }
+  /**
+   * Use {@link #getWinTypeValueMap()} instead.
+   */
+  @java.lang.Override
+  @java.lang.Deprecated
+  public java.util.Map<java.lang.Integer, java.lang.Integer>
+  getWinTypeValue() {
+    return getWinTypeValueMap();
+  }
+  /**
+   * <pre>
+   * 贏方
+   * </pre>
+   *
+   * <code>map&lt;int32, .games.WinType&gt; win_type = 27 [json_name = "winType", (.tagger.tags) = "bson:&#92;"winType,omitempty&#92;""];</code>
+   */
+  @java.lang.Override
+  public java.util.Map<java.lang.Integer, java.lang.Integer>
+  getWinTypeValueMap() {
+    return internalGetWinType().getMap();
+  }
+  /**
+   * <pre>
+   * 贏方
+   * </pre>
+   *
+   * <code>map&lt;int32, .games.WinType&gt; win_type = 27 [json_name = "winType", (.tagger.tags) = "bson:&#92;"winType,omitempty&#92;""];</code>
+   */
+  @java.lang.Override
+  public int getWinTypeValueOrDefault(
+      int key,
+      int defaultValue) {
+
+    java.util.Map<java.lang.Integer, java.lang.Integer> map =
+        internalGetWinType().getMap();
+    return map.containsKey(key) ? map.get(key) : defaultValue;
+  }
+  /**
+   * <pre>
+   * 贏方
+   * </pre>
+   *
+   * <code>map&lt;int32, .games.WinType&gt; win_type = 27 [json_name = "winType", (.tagger.tags) = "bson:&#92;"winType,omitempty&#92;""];</code>
+   */
+  @java.lang.Override
+  public int getWinTypeValueOrThrow(
+      int key) {
+
+    java.util.Map<java.lang.Integer, java.lang.Integer> map =
+        internalGetWinType().getMap();
+    if (!map.containsKey(key)) {
+      throw new java.lang.IllegalArgumentException();
+    }
+    return map.get(key);
+  }
+
   public static final int MEDIAS_FIELD_NUMBER = 28;
   private static final class MediasDefaultEntryHolder {
     static final com.google.protobuf.MapEntry<
@@ -1445,6 +1614,12 @@ java.lang.String defaultValue) {
       output.writeMessage(26, process_.get(i));
     }
     com.google.protobuf.GeneratedMessage
+      .serializeIntegerMapTo(
+        output,
+        internalGetWinType(),
+        WinTypeDefaultEntryHolder.defaultEntry,
+        27);
+    com.google.protobuf.GeneratedMessage
       .serializeStringMapTo(
         output,
         internalGetMedias(),
@@ -1564,6 +1739,16 @@ java.lang.String defaultValue) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(26, process_.get(i));
     }
+    for (java.util.Map.Entry<java.lang.Integer, java.lang.Integer> entry
+         : internalGetWinType().getMap().entrySet()) {
+      com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
+      winType__ = WinTypeDefaultEntryHolder.defaultEntry.newBuilderForType()
+          .setKey(entry.getKey())
+          .setValue(entry.getValue())
+          .build();
+      size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(27, winType__);
+    }
     for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
          : internalGetMedias().getMap().entrySet()) {
       com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
@@ -1659,6 +1844,8 @@ java.lang.String defaultValue) {
       if (!getCancelMessage()
           .equals(other.getCancelMessage())) return false;
     }
+    if (!internalGetWinType().equals(
+        other.internalGetWinType())) return false;
     if (!internalGetMedias().equals(
         other.internalGetMedias())) return false;
     if (!internalGetFortuneRates().equals(
@@ -1741,6 +1928,10 @@ java.lang.String defaultValue) {
     if (hasCancelMessage()) {
       hash = (37 * hash) + CANCEL_MESSAGE_FIELD_NUMBER;
       hash = (53 * hash) + getCancelMessage().hashCode();
+    }
+    if (!internalGetWinType().getMap().isEmpty()) {
+      hash = (37 * hash) + WIN_TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + internalGetWinType().hashCode();
     }
     if (!internalGetMedias().getMap().isEmpty()) {
       hash = (37 * hash) + MEDIAS_FIELD_NUMBER;
@@ -1873,6 +2064,8 @@ java.lang.String defaultValue) {
           return internalGetSeats();
         case 25:
           return internalGetPlayers();
+        case 27:
+          return internalGetWinType();
         case 28:
           return internalGetMedias();
         case 29:
@@ -1892,6 +2085,8 @@ java.lang.String defaultValue) {
           return internalGetMutableSeats();
         case 25:
           return internalGetMutablePlayers();
+        case 27:
+          return internalGetMutableWinType();
         case 28:
           return internalGetMutableMedias();
         case 29:
@@ -1968,6 +2163,7 @@ java.lang.String defaultValue) {
       cancel_ = false;
       cancelCode_ = "";
       cancelMessage_ = "";
+      internalGetMutableWinType().clear();
       internalGetMutableMedias().clear();
       internalGetMutableFortuneRates().clear();
       return this;
@@ -2095,10 +2291,14 @@ java.lang.String defaultValue) {
         to_bitField0_ |= 0x00000010;
       }
       if (((from_bitField0_ & 0x00800000) != 0)) {
+        result.winType_ = internalGetWinType();
+        result.winType_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x01000000) != 0)) {
         result.medias_ = internalGetMedias();
         result.medias_.makeImmutable();
       }
-      if (((from_bitField0_ & 0x01000000) != 0)) {
+      if (((from_bitField0_ & 0x02000000) != 0)) {
         result.fortuneRates_ = internalGetFortuneRates();
         result.fortuneRates_.makeImmutable();
       }
@@ -2231,12 +2431,15 @@ java.lang.String defaultValue) {
         bitField0_ |= 0x00400000;
         onChanged();
       }
+      internalGetMutableWinType().mergeFrom(
+          other.internalGetWinType());
+      bitField0_ |= 0x00800000;
       internalGetMutableMedias().mergeFrom(
           other.internalGetMedias());
-      bitField0_ |= 0x00800000;
+      bitField0_ |= 0x01000000;
       internalGetMutableFortuneRates().mergeFrom(
           other.internalGetFortuneRates());
-      bitField0_ |= 0x01000000;
+      bitField0_ |= 0x02000000;
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
@@ -2402,13 +2605,22 @@ java.lang.String defaultValue) {
               }
               break;
             } // case 210
+            case 218: {
+              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
+              winType__ = input.readMessage(
+                  WinTypeDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableWinType().getMutableMap().put(
+                  winType__.getKey(), winType__.getValue());
+              bitField0_ |= 0x00800000;
+              break;
+            } // case 218
             case 226: {
               com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
               medias__ = input.readMessage(
                   MediasDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
               internalGetMutableMedias().getMutableMap().put(
                   medias__.getKey(), medias__.getValue());
-              bitField0_ |= 0x00800000;
+              bitField0_ |= 0x01000000;
               break;
             } // case 226
             case 234: {
@@ -2417,7 +2629,7 @@ java.lang.String defaultValue) {
                   FortuneRatesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
               internalGetMutableFortuneRates().getMutableMap().put(
                   fortuneRates__.getKey(), fortuneRates__.getValue());
-              bitField0_ |= 0x01000000;
+              bitField0_ |= 0x02000000;
               break;
             } // case 234
             default: {
@@ -4915,6 +5127,262 @@ java.lang.String defaultValue) {
     }
 
     private com.google.protobuf.MapField<
+        java.lang.Integer, java.lang.Integer> winType_;
+    private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
+        internalGetWinType() {
+      if (winType_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            WinTypeDefaultEntryHolder.defaultEntry);
+      }
+      return winType_;
+    }
+    private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
+        internalGetMutableWinType() {
+      if (winType_ == null) {
+        winType_ = com.google.protobuf.MapField.newMapField(
+            WinTypeDefaultEntryHolder.defaultEntry);
+      }
+      if (!winType_.isMutable()) {
+        winType_ = winType_.copy();
+      }
+      bitField0_ |= 0x00800000;
+      onChanged();
+      return winType_;
+    }
+    public int getWinTypeCount() {
+      return internalGetWinType().getMap().size();
+    }
+    /**
+     * <pre>
+     * 贏方
+     * </pre>
+     *
+     * <code>map&lt;int32, .games.WinType&gt; win_type = 27 [json_name = "winType", (.tagger.tags) = "bson:&#92;"winType,omitempty&#92;""];</code>
+     */
+    @java.lang.Override
+    public boolean containsWinType(
+        int key) {
+
+      return internalGetWinType().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getWinTypeMap()} instead.
+     */
+    @java.lang.Override
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.Integer, com.wecasino.proto.games.WinType>
+    getWinType() {
+      return getWinTypeMap();
+    }
+    /**
+     * <pre>
+     * 贏方
+     * </pre>
+     *
+     * <code>map&lt;int32, .games.WinType&gt; win_type = 27 [json_name = "winType", (.tagger.tags) = "bson:&#92;"winType,omitempty&#92;""];</code>
+     */
+    @java.lang.Override
+    public java.util.Map<java.lang.Integer, com.wecasino.proto.games.WinType>
+    getWinTypeMap() {
+      return internalGetAdaptedWinTypeMap(
+          internalGetWinType().getMap());}
+    /**
+     * <pre>
+     * 贏方
+     * </pre>
+     *
+     * <code>map&lt;int32, .games.WinType&gt; win_type = 27 [json_name = "winType", (.tagger.tags) = "bson:&#92;"winType,omitempty&#92;""];</code>
+     */
+    @java.lang.Override
+    public /* nullable */
+com.wecasino.proto.games.WinType getWinTypeOrDefault(
+        int key,
+        /* nullable */
+com.wecasino.proto.games.WinType defaultValue) {
+
+      java.util.Map<java.lang.Integer, java.lang.Integer> map =
+          internalGetWinType().getMap();
+      return map.containsKey(key)
+             ? winTypeValueConverter.doForward(map.get(key))
+             : defaultValue;
+    }
+    /**
+     * <pre>
+     * 贏方
+     * </pre>
+     *
+     * <code>map&lt;int32, .games.WinType&gt; win_type = 27 [json_name = "winType", (.tagger.tags) = "bson:&#92;"winType,omitempty&#92;""];</code>
+     */
+    @java.lang.Override
+    public com.wecasino.proto.games.WinType getWinTypeOrThrow(
+        int key) {
+
+      java.util.Map<java.lang.Integer, java.lang.Integer> map =
+          internalGetWinType().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return winTypeValueConverter.doForward(map.get(key));
+    }
+    /**
+     * Use {@link #getWinTypeValueMap()} instead.
+     */
+    @java.lang.Override
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.Integer, java.lang.Integer>
+    getWinTypeValue() {
+      return getWinTypeValueMap();
+    }
+    /**
+     * <pre>
+     * 贏方
+     * </pre>
+     *
+     * <code>map&lt;int32, .games.WinType&gt; win_type = 27 [json_name = "winType", (.tagger.tags) = "bson:&#92;"winType,omitempty&#92;""];</code>
+     */
+    @java.lang.Override
+    public java.util.Map<java.lang.Integer, java.lang.Integer>
+    getWinTypeValueMap() {
+      return internalGetWinType().getMap();
+    }
+    /**
+     * <pre>
+     * 贏方
+     * </pre>
+     *
+     * <code>map&lt;int32, .games.WinType&gt; win_type = 27 [json_name = "winType", (.tagger.tags) = "bson:&#92;"winType,omitempty&#92;""];</code>
+     */
+    @java.lang.Override
+    public int getWinTypeValueOrDefault(
+        int key,
+        int defaultValue) {
+
+      java.util.Map<java.lang.Integer, java.lang.Integer> map =
+          internalGetWinType().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <pre>
+     * 贏方
+     * </pre>
+     *
+     * <code>map&lt;int32, .games.WinType&gt; win_type = 27 [json_name = "winType", (.tagger.tags) = "bson:&#92;"winType,omitempty&#92;""];</code>
+     */
+    @java.lang.Override
+    public int getWinTypeValueOrThrow(
+        int key) {
+
+      java.util.Map<java.lang.Integer, java.lang.Integer> map =
+          internalGetWinType().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+    public Builder clearWinType() {
+      bitField0_ = (bitField0_ & ~0x00800000);
+      internalGetMutableWinType().getMutableMap()
+          .clear();
+      return this;
+    }
+    /**
+     * <pre>
+     * 贏方
+     * </pre>
+     *
+     * <code>map&lt;int32, .games.WinType&gt; win_type = 27 [json_name = "winType", (.tagger.tags) = "bson:&#92;"winType,omitempty&#92;""];</code>
+     */
+    public Builder removeWinType(
+        int key) {
+
+      internalGetMutableWinType().getMutableMap()
+          .remove(key);
+      return this;
+    }
+    /**
+     * Use alternate mutation accessors instead.
+     */
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.Integer, com.wecasino.proto.games.WinType>
+        getMutableWinType() {
+      bitField0_ |= 0x00800000;
+      return internalGetAdaptedWinTypeMap(
+           internalGetMutableWinType().getMutableMap());
+    }
+    /**
+     * <pre>
+     * 贏方
+     * </pre>
+     *
+     * <code>map&lt;int32, .games.WinType&gt; win_type = 27 [json_name = "winType", (.tagger.tags) = "bson:&#92;"winType,omitempty&#92;""];</code>
+     */
+    public Builder putWinType(
+        int key,
+        com.wecasino.proto.games.WinType value) {
+
+
+      internalGetMutableWinType().getMutableMap()
+          .put(key, winTypeValueConverter.doBackward(value));
+      bitField0_ |= 0x00800000;
+      return this;
+    }
+    /**
+     * <pre>
+     * 贏方
+     * </pre>
+     *
+     * <code>map&lt;int32, .games.WinType&gt; win_type = 27 [json_name = "winType", (.tagger.tags) = "bson:&#92;"winType,omitempty&#92;""];</code>
+     */
+    public Builder putAllWinType(
+        java.util.Map<java.lang.Integer, com.wecasino.proto.games.WinType> values) {
+      internalGetAdaptedWinTypeMap(
+          internalGetMutableWinType().getMutableMap())
+              .putAll(values);
+      bitField0_ |= 0x00800000;
+      return this;
+    }
+    /**
+     * Use alternate mutation accessors instead.
+     */
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.Integer, java.lang.Integer>
+    getMutableWinTypeValue() {
+      bitField0_ |= 0x00800000;
+      return internalGetMutableWinType().getMutableMap();
+    }
+    /**
+     * <pre>
+     * 贏方
+     * </pre>
+     *
+     * <code>map&lt;int32, .games.WinType&gt; win_type = 27 [json_name = "winType", (.tagger.tags) = "bson:&#92;"winType,omitempty&#92;""];</code>
+     */
+    public Builder putWinTypeValue(
+        int key,
+        int value) {
+
+
+      internalGetMutableWinType().getMutableMap()
+          .put(key, value);
+      bitField0_ |= 0x00800000;
+      return this;
+    }
+    /**
+     * <pre>
+     * 贏方
+     * </pre>
+     *
+     * <code>map&lt;int32, .games.WinType&gt; win_type = 27 [json_name = "winType", (.tagger.tags) = "bson:&#92;"winType,omitempty&#92;""];</code>
+     */
+    public Builder putAllWinTypeValue(
+        java.util.Map<java.lang.Integer, java.lang.Integer> values) {
+      internalGetMutableWinType().getMutableMap()
+          .putAll(values);
+      bitField0_ |= 0x00800000;
+      return this;
+    }
+
+    private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> medias_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
         internalGetMedias() {
@@ -4933,7 +5401,7 @@ java.lang.String defaultValue) {
       if (!medias_.isMutable()) {
         medias_ = medias_.copy();
       }
-      bitField0_ |= 0x00800000;
+      bitField0_ |= 0x01000000;
       onChanged();
       return medias_;
     }
@@ -5009,7 +5477,7 @@ java.lang.String defaultValue) {
       return map.get(key);
     }
     public Builder clearMedias() {
-      bitField0_ = (bitField0_ & ~0x00800000);
+      bitField0_ = (bitField0_ & ~0x01000000);
       internalGetMutableMedias().getMutableMap()
           .clear();
       return this;
@@ -5034,7 +5502,7 @@ java.lang.String defaultValue) {
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
         getMutableMedias() {
-      bitField0_ |= 0x00800000;
+      bitField0_ |= 0x01000000;
       return internalGetMutableMedias().getMutableMap();
     }
     /**
@@ -5051,7 +5519,7 @@ java.lang.String defaultValue) {
       if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableMedias().getMutableMap()
           .put(key, value);
-      bitField0_ |= 0x00800000;
+      bitField0_ |= 0x01000000;
       return this;
     }
     /**
@@ -5065,7 +5533,7 @@ java.lang.String defaultValue) {
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableMedias().getMutableMap()
           .putAll(values);
-      bitField0_ |= 0x00800000;
+      bitField0_ |= 0x01000000;
       return this;
     }
 
@@ -5088,7 +5556,7 @@ java.lang.String defaultValue) {
       if (!fortuneRates_.isMutable()) {
         fortuneRates_ = fortuneRates_.copy();
       }
-      bitField0_ |= 0x01000000;
+      bitField0_ |= 0x02000000;
       onChanged();
       return fortuneRates_;
     }
@@ -5162,7 +5630,7 @@ java.lang.String defaultValue) {
       return map.get(key);
     }
     public Builder clearFortuneRates() {
-      bitField0_ = (bitField0_ & ~0x01000000);
+      bitField0_ = (bitField0_ & ~0x02000000);
       internalGetMutableFortuneRates().getMutableMap()
           .clear();
       return this;
@@ -5187,7 +5655,7 @@ java.lang.String defaultValue) {
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.Long>
         getMutableFortuneRates() {
-      bitField0_ |= 0x01000000;
+      bitField0_ |= 0x02000000;
       return internalGetMutableFortuneRates().getMutableMap();
     }
     /**
@@ -5204,7 +5672,7 @@ java.lang.String defaultValue) {
 
       internalGetMutableFortuneRates().getMutableMap()
           .put(key, value);
-      bitField0_ |= 0x01000000;
+      bitField0_ |= 0x02000000;
       return this;
     }
     /**
@@ -5218,7 +5686,7 @@ java.lang.String defaultValue) {
         java.util.Map<java.lang.String, java.lang.Long> values) {
       internalGetMutableFortuneRates().getMutableMap()
           .putAll(values);
-      bitField0_ |= 0x01000000;
+      bitField0_ |= 0x02000000;
       return this;
     }
 

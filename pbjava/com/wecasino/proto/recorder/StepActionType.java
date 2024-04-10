@@ -101,6 +101,14 @@ public enum StepActionType
    * <code>NONE = 10;</code>
    */
   NONE(10),
+  /**
+   * <pre>
+   * 決定輸贏
+   * </pre>
+   *
+   * <code>WIN = 11;</code>
+   */
+  WIN(11),
   UNRECOGNIZED(-1),
   ;
 
@@ -201,6 +209,14 @@ public enum StepActionType
    * <code>NONE = 10;</code>
    */
   public static final int NONE_VALUE = 10;
+  /**
+   * <pre>
+   * 決定輸贏
+   * </pre>
+   *
+   * <code>WIN = 11;</code>
+   */
+  public static final int WIN_VALUE = 11;
 
 
   public final int getNumber() {
@@ -238,6 +254,7 @@ public enum StepActionType
       case 8: return VISIBLE;
       case 9: return STATUS;
       case 10: return NONE;
+      case 11: return WIN;
       default: return null;
     }
   }
