@@ -438,6 +438,65 @@ java.lang.String defaultValue);
 
   /**
    * <pre>
+   * 玩家姓名
+   * key: 玩家code, value: 玩家名稱。
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; players_name = 30 [json_name = "playersName", (.tagger.tags) = "bson:&#92;"playersName,omitempty&#92;""];</code>
+   */
+  int getPlayersNameCount();
+  /**
+   * <pre>
+   * 玩家姓名
+   * key: 玩家code, value: 玩家名稱。
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; players_name = 30 [json_name = "playersName", (.tagger.tags) = "bson:&#92;"playersName,omitempty&#92;""];</code>
+   */
+  boolean containsPlayersName(
+      java.lang.String key);
+  /**
+   * Use {@link #getPlayersNameMap()} instead.
+   */
+  @java.lang.Deprecated
+  java.util.Map<java.lang.String, java.lang.String>
+  getPlayersName();
+  /**
+   * <pre>
+   * 玩家姓名
+   * key: 玩家code, value: 玩家名稱。
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; players_name = 30 [json_name = "playersName", (.tagger.tags) = "bson:&#92;"playersName,omitempty&#92;""];</code>
+   */
+  java.util.Map<java.lang.String, java.lang.String>
+  getPlayersNameMap();
+  /**
+   * <pre>
+   * 玩家姓名
+   * key: 玩家code, value: 玩家名稱。
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; players_name = 30 [json_name = "playersName", (.tagger.tags) = "bson:&#92;"playersName,omitempty&#92;""];</code>
+   */
+  /* nullable */
+java.lang.String getPlayersNameOrDefault(
+      java.lang.String key,
+      /* nullable */
+java.lang.String defaultValue);
+  /**
+   * <pre>
+   * 玩家姓名
+   * key: 玩家code, value: 玩家名稱。
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; players_name = 30 [json_name = "playersName", (.tagger.tags) = "bson:&#92;"playersName,omitempty&#92;""];</code>
+   */
+  java.lang.String getPlayersNameOrThrow(
+      java.lang.String key);
+
+  /**
+   * <pre>
    * 歷程
    * </pre>
    *
