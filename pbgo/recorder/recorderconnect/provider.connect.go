@@ -9,6 +9,7 @@ import (
 	context "context"
 	errors "errors"
 	recorder "github.com/wecasino/wecasino-proto/pbgo/recorder"
+	emptypb "google.golang.org/protobuf/types/known/emptypb"
 	http "net/http"
 	strings "strings"
 )
@@ -35,72 +36,90 @@ const (
 // reflection-formatted method names, remove the leading slash and convert the remaining slash to a
 // period.
 const (
-	// RecorderReadServiceFetchShiftRecordProcedure is the fully-qualified name of the
-	// RecorderReadService's FetchShiftRecord RPC.
-	RecorderReadServiceFetchShiftRecordProcedure = "/recorder.RecorderReadService/FetchShiftRecord"
-	// RecorderReadServiceFetchLastOneShiftRecordProcedure is the fully-qualified name of the
-	// RecorderReadService's FetchLastOneShiftRecord RPC.
-	RecorderReadServiceFetchLastOneShiftRecordProcedure = "/recorder.RecorderReadService/FetchLastOneShiftRecord"
-	// RecorderReadServiceFetchShoeRecordProcedure is the fully-qualified name of the
-	// RecorderReadService's FetchShoeRecord RPC.
-	RecorderReadServiceFetchShoeRecordProcedure = "/recorder.RecorderReadService/FetchShoeRecord"
-	// RecorderReadServiceFetchLastOneShoeRecordProcedure is the fully-qualified name of the
-	// RecorderReadService's FetchLastOneShoeRecord RPC.
-	RecorderReadServiceFetchLastOneShoeRecordProcedure = "/recorder.RecorderReadService/FetchLastOneShoeRecord"
-	// RecorderReadServiceFetchRoundRecordProcedure is the fully-qualified name of the
-	// RecorderReadService's FetchRoundRecord RPC.
-	RecorderReadServiceFetchRoundRecordProcedure = "/recorder.RecorderReadService/FetchRoundRecord"
-	// RecorderReadServiceFetchLastOneRoundRecordProcedure is the fully-qualified name of the
-	// RecorderReadService's FetchLastOneRoundRecord RPC.
-	RecorderReadServiceFetchLastOneRoundRecordProcedure = "/recorder.RecorderReadService/FetchLastOneRoundRecord"
-	// ProviderServiceFetchGameProvideListProcedure is the fully-qualified name of the ProviderService's
-	// FetchGameProvideList RPC.
-	ProviderServiceFetchGameProvideListProcedure = "/recorder.ProviderService/FetchGameProvideList"
-	// ProviderServiceFetchGameProvideProcedure is the fully-qualified name of the ProviderService's
-	// FetchGameProvide RPC.
-	ProviderServiceFetchGameProvideProcedure = "/recorder.ProviderService/FetchGameProvide"
-	// ProviderServiceFetchCurrentGameProcedure is the fully-qualified name of the ProviderService's
-	// FetchCurrentGame RPC.
-	ProviderServiceFetchCurrentGameProcedure = "/recorder.ProviderService/FetchCurrentGame"
+	// RecorderReadServiceListShiftsProcedure is the fully-qualified name of the RecorderReadService's
+	// ListShifts RPC.
+	RecorderReadServiceListShiftsProcedure = "/recorder.RecorderReadService/ListShifts"
+	// RecorderReadServiceGetShiftProcedure is the fully-qualified name of the RecorderReadService's
+	// GetShift RPC.
+	RecorderReadServiceGetShiftProcedure = "/recorder.RecorderReadService/GetShift"
+	// RecorderReadServiceGetCurrentShiftProcedure is the fully-qualified name of the
+	// RecorderReadService's GetCurrentShift RPC.
+	RecorderReadServiceGetCurrentShiftProcedure = "/recorder.RecorderReadService/GetCurrentShift"
+	// RecorderReadServiceListShoeProcedure is the fully-qualified name of the RecorderReadService's
+	// ListShoe RPC.
+	RecorderReadServiceListShoeProcedure = "/recorder.RecorderReadService/ListShoe"
+	// RecorderReadServiceGetShoeProcedure is the fully-qualified name of the RecorderReadService's
+	// GetShoe RPC.
+	RecorderReadServiceGetShoeProcedure = "/recorder.RecorderReadService/GetShoe"
+	// RecorderReadServiceGetCurrentShoeProcedure is the fully-qualified name of the
+	// RecorderReadService's GetCurrentShoe RPC.
+	RecorderReadServiceGetCurrentShoeProcedure = "/recorder.RecorderReadService/GetCurrentShoe"
+	// RecorderReadServiceListRoundsProcedure is the fully-qualified name of the RecorderReadService's
+	// ListRounds RPC.
+	RecorderReadServiceListRoundsProcedure = "/recorder.RecorderReadService/ListRounds"
+	// RecorderReadServiceGetRoundProcedure is the fully-qualified name of the RecorderReadService's
+	// GetRound RPC.
+	RecorderReadServiceGetRoundProcedure = "/recorder.RecorderReadService/GetRound"
+	// RecorderReadServiceGetCurrentRoundProcedure is the fully-qualified name of the
+	// RecorderReadService's GetCurrentRound RPC.
+	RecorderReadServiceGetCurrentRoundProcedure = "/recorder.RecorderReadService/GetCurrentRound"
+	// ProviderServiceListGamesProcedure is the fully-qualified name of the ProviderService's ListGames
+	// RPC.
+	ProviderServiceListGamesProcedure = "/recorder.ProviderService/ListGames"
+	// ProviderServiceGetGamesProcedure is the fully-qualified name of the ProviderService's GetGames
+	// RPC.
+	ProviderServiceGetGamesProcedure = "/recorder.ProviderService/GetGames"
 	// ProviderServiceVerifyGameProcedure is the fully-qualified name of the ProviderService's
 	// VerifyGame RPC.
 	ProviderServiceVerifyGameProcedure = "/recorder.ProviderService/VerifyGame"
-	// ProviderServiceGetDealersProcedure is the fully-qualified name of the ProviderService's
-	// GetDealers RPC.
-	ProviderServiceGetDealersProcedure = "/recorder.ProviderService/GetDealers"
+	// ProviderServiceListDealersProcedure is the fully-qualified name of the ProviderService's
+	// ListDealers RPC.
+	ProviderServiceListDealersProcedure = "/recorder.ProviderService/ListDealers"
+	// ProviderServiceGetDealerProcedure is the fully-qualified name of the ProviderService's GetDealer
+	// RPC.
+	ProviderServiceGetDealerProcedure = "/recorder.ProviderService/GetDealer"
 )
 
 // These variables are the protoreflect.Descriptor objects for the RPCs defined in this package.
 var (
-	recorderReadServiceServiceDescriptor                       = recorder.File_recorder_provider_proto.Services().ByName("RecorderReadService")
-	recorderReadServiceFetchShiftRecordMethodDescriptor        = recorderReadServiceServiceDescriptor.Methods().ByName("FetchShiftRecord")
-	recorderReadServiceFetchLastOneShiftRecordMethodDescriptor = recorderReadServiceServiceDescriptor.Methods().ByName("FetchLastOneShiftRecord")
-	recorderReadServiceFetchShoeRecordMethodDescriptor         = recorderReadServiceServiceDescriptor.Methods().ByName("FetchShoeRecord")
-	recorderReadServiceFetchLastOneShoeRecordMethodDescriptor  = recorderReadServiceServiceDescriptor.Methods().ByName("FetchLastOneShoeRecord")
-	recorderReadServiceFetchRoundRecordMethodDescriptor        = recorderReadServiceServiceDescriptor.Methods().ByName("FetchRoundRecord")
-	recorderReadServiceFetchLastOneRoundRecordMethodDescriptor = recorderReadServiceServiceDescriptor.Methods().ByName("FetchLastOneRoundRecord")
-	providerServiceServiceDescriptor                           = recorder.File_recorder_provider_proto.Services().ByName("ProviderService")
-	providerServiceFetchGameProvideListMethodDescriptor        = providerServiceServiceDescriptor.Methods().ByName("FetchGameProvideList")
-	providerServiceFetchGameProvideMethodDescriptor            = providerServiceServiceDescriptor.Methods().ByName("FetchGameProvide")
-	providerServiceFetchCurrentGameMethodDescriptor            = providerServiceServiceDescriptor.Methods().ByName("FetchCurrentGame")
-	providerServiceVerifyGameMethodDescriptor                  = providerServiceServiceDescriptor.Methods().ByName("VerifyGame")
-	providerServiceGetDealersMethodDescriptor                  = providerServiceServiceDescriptor.Methods().ByName("GetDealers")
+	recorderReadServiceServiceDescriptor               = recorder.File_recorder_provider_proto.Services().ByName("RecorderReadService")
+	recorderReadServiceListShiftsMethodDescriptor      = recorderReadServiceServiceDescriptor.Methods().ByName("ListShifts")
+	recorderReadServiceGetShiftMethodDescriptor        = recorderReadServiceServiceDescriptor.Methods().ByName("GetShift")
+	recorderReadServiceGetCurrentShiftMethodDescriptor = recorderReadServiceServiceDescriptor.Methods().ByName("GetCurrentShift")
+	recorderReadServiceListShoeMethodDescriptor        = recorderReadServiceServiceDescriptor.Methods().ByName("ListShoe")
+	recorderReadServiceGetShoeMethodDescriptor         = recorderReadServiceServiceDescriptor.Methods().ByName("GetShoe")
+	recorderReadServiceGetCurrentShoeMethodDescriptor  = recorderReadServiceServiceDescriptor.Methods().ByName("GetCurrentShoe")
+	recorderReadServiceListRoundsMethodDescriptor      = recorderReadServiceServiceDescriptor.Methods().ByName("ListRounds")
+	recorderReadServiceGetRoundMethodDescriptor        = recorderReadServiceServiceDescriptor.Methods().ByName("GetRound")
+	recorderReadServiceGetCurrentRoundMethodDescriptor = recorderReadServiceServiceDescriptor.Methods().ByName("GetCurrentRound")
+	providerServiceServiceDescriptor                   = recorder.File_recorder_provider_proto.Services().ByName("ProviderService")
+	providerServiceListGamesMethodDescriptor           = providerServiceServiceDescriptor.Methods().ByName("ListGames")
+	providerServiceGetGamesMethodDescriptor            = providerServiceServiceDescriptor.Methods().ByName("GetGames")
+	providerServiceVerifyGameMethodDescriptor          = providerServiceServiceDescriptor.Methods().ByName("VerifyGame")
+	providerServiceListDealersMethodDescriptor         = providerServiceServiceDescriptor.Methods().ByName("ListDealers")
+	providerServiceGetDealerMethodDescriptor           = providerServiceServiceDescriptor.Methods().ByName("GetDealer")
 )
 
 // RecorderReadServiceClient is a client for the recorder.RecorderReadService service.
 type RecorderReadServiceClient interface {
-	// 讀取班次紀錄list
-	FetchShiftRecord(context.Context, *connect.Request[recorder.FetchShiftRecordRequest]) (*connect.Response[recorder.FetchShiftRecordResponse], error)
-	// 讀取最新班次紀錄
-	FetchLastOneShiftRecord(context.Context, *connect.Request[recorder.FetchShiftRecordRequest]) (*connect.Response[recorder.FetchShiftRecordResponse], error)
+	// 讀取班次紀錄List
+	ListShifts(context.Context, *connect.Request[recorder.ListRecordsRequest]) (*connect.Response[recorder.ListShiftsResponse], error)
+	// 讀取指定班次紀錄
+	GetShift(context.Context, *connect.Request[recorder.GetRequest]) (*connect.Response[recorder.ShiftRecord], error)
+	// 讀取目前指定班次紀錄
+	GetCurrentShift(context.Context, *connect.Request[recorder.GetCurrentRecordRequest]) (*connect.Response[recorder.ShiftRecord], error)
 	// 讀牌靴紀錄list
-	FetchShoeRecord(context.Context, *connect.Request[recorder.FetchShoeRecordRequest]) (*connect.Response[recorder.FetchShoeRecordResponse], error)
-	// 讀最新牌靴紀錄
-	FetchLastOneShoeRecord(context.Context, *connect.Request[recorder.FetchShoeRecordRequest]) (*connect.Response[recorder.FetchShoeRecordResponse], error)
-	// 讀遊戲局號紀錄list
-	FetchRoundRecord(context.Context, *connect.Request[recorder.FetchRoundRecordRequest]) (*connect.Response[recorder.FetchRoundRecordResponse], error)
-	// 讀最新遊戲局號紀錄
-	FetchLastOneRoundRecord(context.Context, *connect.Request[recorder.FetchRoundRecordRequest]) (*connect.Response[recorder.FetchRoundRecordResponse], error)
+	ListShoe(context.Context, *connect.Request[recorder.ListRecordsRequest]) (*connect.Response[recorder.ListShoesRecordResponse], error)
+	// 讀取指定靴紀錄
+	GetShoe(context.Context, *connect.Request[recorder.GetRequest]) (*connect.Response[recorder.ShoeRecord], error)
+	// 讀取目前指定靴紀錄
+	GetCurrentShoe(context.Context, *connect.Request[recorder.GetCurrentRecordRequest]) (*connect.Response[recorder.ShoeRecord], error)
+	// 讀牌靴紀錄list
+	ListRounds(context.Context, *connect.Request[recorder.ListRecordsRequest]) (*connect.Response[recorder.ListRoundsRecordResponse], error)
+	// 讀取指定靴紀錄
+	GetRound(context.Context, *connect.Request[recorder.GetRequest]) (*connect.Response[recorder.RoundRecord], error)
+	// 讀取目前指定靴紀錄
+	GetCurrentRound(context.Context, *connect.Request[recorder.GetCurrentRecordRequest]) (*connect.Response[recorder.RoundRecord], error)
 }
 
 // NewRecorderReadServiceClient constructs a client for the recorder.RecorderReadService service. By
@@ -113,40 +132,58 @@ type RecorderReadServiceClient interface {
 func NewRecorderReadServiceClient(httpClient connect.HTTPClient, baseURL string, opts ...connect.ClientOption) RecorderReadServiceClient {
 	baseURL = strings.TrimRight(baseURL, "/")
 	return &recorderReadServiceClient{
-		fetchShiftRecord: connect.NewClient[recorder.FetchShiftRecordRequest, recorder.FetchShiftRecordResponse](
+		listShifts: connect.NewClient[recorder.ListRecordsRequest, recorder.ListShiftsResponse](
 			httpClient,
-			baseURL+RecorderReadServiceFetchShiftRecordProcedure,
-			connect.WithSchema(recorderReadServiceFetchShiftRecordMethodDescriptor),
+			baseURL+RecorderReadServiceListShiftsProcedure,
+			connect.WithSchema(recorderReadServiceListShiftsMethodDescriptor),
 			connect.WithClientOptions(opts...),
 		),
-		fetchLastOneShiftRecord: connect.NewClient[recorder.FetchShiftRecordRequest, recorder.FetchShiftRecordResponse](
+		getShift: connect.NewClient[recorder.GetRequest, recorder.ShiftRecord](
 			httpClient,
-			baseURL+RecorderReadServiceFetchLastOneShiftRecordProcedure,
-			connect.WithSchema(recorderReadServiceFetchLastOneShiftRecordMethodDescriptor),
+			baseURL+RecorderReadServiceGetShiftProcedure,
+			connect.WithSchema(recorderReadServiceGetShiftMethodDescriptor),
 			connect.WithClientOptions(opts...),
 		),
-		fetchShoeRecord: connect.NewClient[recorder.FetchShoeRecordRequest, recorder.FetchShoeRecordResponse](
+		getCurrentShift: connect.NewClient[recorder.GetCurrentRecordRequest, recorder.ShiftRecord](
 			httpClient,
-			baseURL+RecorderReadServiceFetchShoeRecordProcedure,
-			connect.WithSchema(recorderReadServiceFetchShoeRecordMethodDescriptor),
+			baseURL+RecorderReadServiceGetCurrentShiftProcedure,
+			connect.WithSchema(recorderReadServiceGetCurrentShiftMethodDescriptor),
 			connect.WithClientOptions(opts...),
 		),
-		fetchLastOneShoeRecord: connect.NewClient[recorder.FetchShoeRecordRequest, recorder.FetchShoeRecordResponse](
+		listShoe: connect.NewClient[recorder.ListRecordsRequest, recorder.ListShoesRecordResponse](
 			httpClient,
-			baseURL+RecorderReadServiceFetchLastOneShoeRecordProcedure,
-			connect.WithSchema(recorderReadServiceFetchLastOneShoeRecordMethodDescriptor),
+			baseURL+RecorderReadServiceListShoeProcedure,
+			connect.WithSchema(recorderReadServiceListShoeMethodDescriptor),
 			connect.WithClientOptions(opts...),
 		),
-		fetchRoundRecord: connect.NewClient[recorder.FetchRoundRecordRequest, recorder.FetchRoundRecordResponse](
+		getShoe: connect.NewClient[recorder.GetRequest, recorder.ShoeRecord](
 			httpClient,
-			baseURL+RecorderReadServiceFetchRoundRecordProcedure,
-			connect.WithSchema(recorderReadServiceFetchRoundRecordMethodDescriptor),
+			baseURL+RecorderReadServiceGetShoeProcedure,
+			connect.WithSchema(recorderReadServiceGetShoeMethodDescriptor),
 			connect.WithClientOptions(opts...),
 		),
-		fetchLastOneRoundRecord: connect.NewClient[recorder.FetchRoundRecordRequest, recorder.FetchRoundRecordResponse](
+		getCurrentShoe: connect.NewClient[recorder.GetCurrentRecordRequest, recorder.ShoeRecord](
 			httpClient,
-			baseURL+RecorderReadServiceFetchLastOneRoundRecordProcedure,
-			connect.WithSchema(recorderReadServiceFetchLastOneRoundRecordMethodDescriptor),
+			baseURL+RecorderReadServiceGetCurrentShoeProcedure,
+			connect.WithSchema(recorderReadServiceGetCurrentShoeMethodDescriptor),
+			connect.WithClientOptions(opts...),
+		),
+		listRounds: connect.NewClient[recorder.ListRecordsRequest, recorder.ListRoundsRecordResponse](
+			httpClient,
+			baseURL+RecorderReadServiceListRoundsProcedure,
+			connect.WithSchema(recorderReadServiceListRoundsMethodDescriptor),
+			connect.WithClientOptions(opts...),
+		),
+		getRound: connect.NewClient[recorder.GetRequest, recorder.RoundRecord](
+			httpClient,
+			baseURL+RecorderReadServiceGetRoundProcedure,
+			connect.WithSchema(recorderReadServiceGetRoundMethodDescriptor),
+			connect.WithClientOptions(opts...),
+		),
+		getCurrentRound: connect.NewClient[recorder.GetCurrentRecordRequest, recorder.RoundRecord](
+			httpClient,
+			baseURL+RecorderReadServiceGetCurrentRoundProcedure,
+			connect.WithSchema(recorderReadServiceGetCurrentRoundMethodDescriptor),
 			connect.WithClientOptions(opts...),
 		),
 	}
@@ -154,58 +191,82 @@ func NewRecorderReadServiceClient(httpClient connect.HTTPClient, baseURL string,
 
 // recorderReadServiceClient implements RecorderReadServiceClient.
 type recorderReadServiceClient struct {
-	fetchShiftRecord        *connect.Client[recorder.FetchShiftRecordRequest, recorder.FetchShiftRecordResponse]
-	fetchLastOneShiftRecord *connect.Client[recorder.FetchShiftRecordRequest, recorder.FetchShiftRecordResponse]
-	fetchShoeRecord         *connect.Client[recorder.FetchShoeRecordRequest, recorder.FetchShoeRecordResponse]
-	fetchLastOneShoeRecord  *connect.Client[recorder.FetchShoeRecordRequest, recorder.FetchShoeRecordResponse]
-	fetchRoundRecord        *connect.Client[recorder.FetchRoundRecordRequest, recorder.FetchRoundRecordResponse]
-	fetchLastOneRoundRecord *connect.Client[recorder.FetchRoundRecordRequest, recorder.FetchRoundRecordResponse]
+	listShifts      *connect.Client[recorder.ListRecordsRequest, recorder.ListShiftsResponse]
+	getShift        *connect.Client[recorder.GetRequest, recorder.ShiftRecord]
+	getCurrentShift *connect.Client[recorder.GetCurrentRecordRequest, recorder.ShiftRecord]
+	listShoe        *connect.Client[recorder.ListRecordsRequest, recorder.ListShoesRecordResponse]
+	getShoe         *connect.Client[recorder.GetRequest, recorder.ShoeRecord]
+	getCurrentShoe  *connect.Client[recorder.GetCurrentRecordRequest, recorder.ShoeRecord]
+	listRounds      *connect.Client[recorder.ListRecordsRequest, recorder.ListRoundsRecordResponse]
+	getRound        *connect.Client[recorder.GetRequest, recorder.RoundRecord]
+	getCurrentRound *connect.Client[recorder.GetCurrentRecordRequest, recorder.RoundRecord]
 }
 
-// FetchShiftRecord calls recorder.RecorderReadService.FetchShiftRecord.
-func (c *recorderReadServiceClient) FetchShiftRecord(ctx context.Context, req *connect.Request[recorder.FetchShiftRecordRequest]) (*connect.Response[recorder.FetchShiftRecordResponse], error) {
-	return c.fetchShiftRecord.CallUnary(ctx, req)
+// ListShifts calls recorder.RecorderReadService.ListShifts.
+func (c *recorderReadServiceClient) ListShifts(ctx context.Context, req *connect.Request[recorder.ListRecordsRequest]) (*connect.Response[recorder.ListShiftsResponse], error) {
+	return c.listShifts.CallUnary(ctx, req)
 }
 
-// FetchLastOneShiftRecord calls recorder.RecorderReadService.FetchLastOneShiftRecord.
-func (c *recorderReadServiceClient) FetchLastOneShiftRecord(ctx context.Context, req *connect.Request[recorder.FetchShiftRecordRequest]) (*connect.Response[recorder.FetchShiftRecordResponse], error) {
-	return c.fetchLastOneShiftRecord.CallUnary(ctx, req)
+// GetShift calls recorder.RecorderReadService.GetShift.
+func (c *recorderReadServiceClient) GetShift(ctx context.Context, req *connect.Request[recorder.GetRequest]) (*connect.Response[recorder.ShiftRecord], error) {
+	return c.getShift.CallUnary(ctx, req)
 }
 
-// FetchShoeRecord calls recorder.RecorderReadService.FetchShoeRecord.
-func (c *recorderReadServiceClient) FetchShoeRecord(ctx context.Context, req *connect.Request[recorder.FetchShoeRecordRequest]) (*connect.Response[recorder.FetchShoeRecordResponse], error) {
-	return c.fetchShoeRecord.CallUnary(ctx, req)
+// GetCurrentShift calls recorder.RecorderReadService.GetCurrentShift.
+func (c *recorderReadServiceClient) GetCurrentShift(ctx context.Context, req *connect.Request[recorder.GetCurrentRecordRequest]) (*connect.Response[recorder.ShiftRecord], error) {
+	return c.getCurrentShift.CallUnary(ctx, req)
 }
 
-// FetchLastOneShoeRecord calls recorder.RecorderReadService.FetchLastOneShoeRecord.
-func (c *recorderReadServiceClient) FetchLastOneShoeRecord(ctx context.Context, req *connect.Request[recorder.FetchShoeRecordRequest]) (*connect.Response[recorder.FetchShoeRecordResponse], error) {
-	return c.fetchLastOneShoeRecord.CallUnary(ctx, req)
+// ListShoe calls recorder.RecorderReadService.ListShoe.
+func (c *recorderReadServiceClient) ListShoe(ctx context.Context, req *connect.Request[recorder.ListRecordsRequest]) (*connect.Response[recorder.ListShoesRecordResponse], error) {
+	return c.listShoe.CallUnary(ctx, req)
 }
 
-// FetchRoundRecord calls recorder.RecorderReadService.FetchRoundRecord.
-func (c *recorderReadServiceClient) FetchRoundRecord(ctx context.Context, req *connect.Request[recorder.FetchRoundRecordRequest]) (*connect.Response[recorder.FetchRoundRecordResponse], error) {
-	return c.fetchRoundRecord.CallUnary(ctx, req)
+// GetShoe calls recorder.RecorderReadService.GetShoe.
+func (c *recorderReadServiceClient) GetShoe(ctx context.Context, req *connect.Request[recorder.GetRequest]) (*connect.Response[recorder.ShoeRecord], error) {
+	return c.getShoe.CallUnary(ctx, req)
 }
 
-// FetchLastOneRoundRecord calls recorder.RecorderReadService.FetchLastOneRoundRecord.
-func (c *recorderReadServiceClient) FetchLastOneRoundRecord(ctx context.Context, req *connect.Request[recorder.FetchRoundRecordRequest]) (*connect.Response[recorder.FetchRoundRecordResponse], error) {
-	return c.fetchLastOneRoundRecord.CallUnary(ctx, req)
+// GetCurrentShoe calls recorder.RecorderReadService.GetCurrentShoe.
+func (c *recorderReadServiceClient) GetCurrentShoe(ctx context.Context, req *connect.Request[recorder.GetCurrentRecordRequest]) (*connect.Response[recorder.ShoeRecord], error) {
+	return c.getCurrentShoe.CallUnary(ctx, req)
+}
+
+// ListRounds calls recorder.RecorderReadService.ListRounds.
+func (c *recorderReadServiceClient) ListRounds(ctx context.Context, req *connect.Request[recorder.ListRecordsRequest]) (*connect.Response[recorder.ListRoundsRecordResponse], error) {
+	return c.listRounds.CallUnary(ctx, req)
+}
+
+// GetRound calls recorder.RecorderReadService.GetRound.
+func (c *recorderReadServiceClient) GetRound(ctx context.Context, req *connect.Request[recorder.GetRequest]) (*connect.Response[recorder.RoundRecord], error) {
+	return c.getRound.CallUnary(ctx, req)
+}
+
+// GetCurrentRound calls recorder.RecorderReadService.GetCurrentRound.
+func (c *recorderReadServiceClient) GetCurrentRound(ctx context.Context, req *connect.Request[recorder.GetCurrentRecordRequest]) (*connect.Response[recorder.RoundRecord], error) {
+	return c.getCurrentRound.CallUnary(ctx, req)
 }
 
 // RecorderReadServiceHandler is an implementation of the recorder.RecorderReadService service.
 type RecorderReadServiceHandler interface {
-	// 讀取班次紀錄list
-	FetchShiftRecord(context.Context, *connect.Request[recorder.FetchShiftRecordRequest]) (*connect.Response[recorder.FetchShiftRecordResponse], error)
-	// 讀取最新班次紀錄
-	FetchLastOneShiftRecord(context.Context, *connect.Request[recorder.FetchShiftRecordRequest]) (*connect.Response[recorder.FetchShiftRecordResponse], error)
+	// 讀取班次紀錄List
+	ListShifts(context.Context, *connect.Request[recorder.ListRecordsRequest]) (*connect.Response[recorder.ListShiftsResponse], error)
+	// 讀取指定班次紀錄
+	GetShift(context.Context, *connect.Request[recorder.GetRequest]) (*connect.Response[recorder.ShiftRecord], error)
+	// 讀取目前指定班次紀錄
+	GetCurrentShift(context.Context, *connect.Request[recorder.GetCurrentRecordRequest]) (*connect.Response[recorder.ShiftRecord], error)
 	// 讀牌靴紀錄list
-	FetchShoeRecord(context.Context, *connect.Request[recorder.FetchShoeRecordRequest]) (*connect.Response[recorder.FetchShoeRecordResponse], error)
-	// 讀最新牌靴紀錄
-	FetchLastOneShoeRecord(context.Context, *connect.Request[recorder.FetchShoeRecordRequest]) (*connect.Response[recorder.FetchShoeRecordResponse], error)
-	// 讀遊戲局號紀錄list
-	FetchRoundRecord(context.Context, *connect.Request[recorder.FetchRoundRecordRequest]) (*connect.Response[recorder.FetchRoundRecordResponse], error)
-	// 讀最新遊戲局號紀錄
-	FetchLastOneRoundRecord(context.Context, *connect.Request[recorder.FetchRoundRecordRequest]) (*connect.Response[recorder.FetchRoundRecordResponse], error)
+	ListShoe(context.Context, *connect.Request[recorder.ListRecordsRequest]) (*connect.Response[recorder.ListShoesRecordResponse], error)
+	// 讀取指定靴紀錄
+	GetShoe(context.Context, *connect.Request[recorder.GetRequest]) (*connect.Response[recorder.ShoeRecord], error)
+	// 讀取目前指定靴紀錄
+	GetCurrentShoe(context.Context, *connect.Request[recorder.GetCurrentRecordRequest]) (*connect.Response[recorder.ShoeRecord], error)
+	// 讀牌靴紀錄list
+	ListRounds(context.Context, *connect.Request[recorder.ListRecordsRequest]) (*connect.Response[recorder.ListRoundsRecordResponse], error)
+	// 讀取指定靴紀錄
+	GetRound(context.Context, *connect.Request[recorder.GetRequest]) (*connect.Response[recorder.RoundRecord], error)
+	// 讀取目前指定靴紀錄
+	GetCurrentRound(context.Context, *connect.Request[recorder.GetCurrentRecordRequest]) (*connect.Response[recorder.RoundRecord], error)
 }
 
 // NewRecorderReadServiceHandler builds an HTTP handler from the service implementation. It returns
@@ -214,56 +275,80 @@ type RecorderReadServiceHandler interface {
 // By default, handlers support the Connect, gRPC, and gRPC-Web protocols with the binary Protobuf
 // and JSON codecs. They also support gzip compression.
 func NewRecorderReadServiceHandler(svc RecorderReadServiceHandler, opts ...connect.HandlerOption) (string, http.Handler) {
-	recorderReadServiceFetchShiftRecordHandler := connect.NewUnaryHandler(
-		RecorderReadServiceFetchShiftRecordProcedure,
-		svc.FetchShiftRecord,
-		connect.WithSchema(recorderReadServiceFetchShiftRecordMethodDescriptor),
+	recorderReadServiceListShiftsHandler := connect.NewUnaryHandler(
+		RecorderReadServiceListShiftsProcedure,
+		svc.ListShifts,
+		connect.WithSchema(recorderReadServiceListShiftsMethodDescriptor),
 		connect.WithHandlerOptions(opts...),
 	)
-	recorderReadServiceFetchLastOneShiftRecordHandler := connect.NewUnaryHandler(
-		RecorderReadServiceFetchLastOneShiftRecordProcedure,
-		svc.FetchLastOneShiftRecord,
-		connect.WithSchema(recorderReadServiceFetchLastOneShiftRecordMethodDescriptor),
+	recorderReadServiceGetShiftHandler := connect.NewUnaryHandler(
+		RecorderReadServiceGetShiftProcedure,
+		svc.GetShift,
+		connect.WithSchema(recorderReadServiceGetShiftMethodDescriptor),
 		connect.WithHandlerOptions(opts...),
 	)
-	recorderReadServiceFetchShoeRecordHandler := connect.NewUnaryHandler(
-		RecorderReadServiceFetchShoeRecordProcedure,
-		svc.FetchShoeRecord,
-		connect.WithSchema(recorderReadServiceFetchShoeRecordMethodDescriptor),
+	recorderReadServiceGetCurrentShiftHandler := connect.NewUnaryHandler(
+		RecorderReadServiceGetCurrentShiftProcedure,
+		svc.GetCurrentShift,
+		connect.WithSchema(recorderReadServiceGetCurrentShiftMethodDescriptor),
 		connect.WithHandlerOptions(opts...),
 	)
-	recorderReadServiceFetchLastOneShoeRecordHandler := connect.NewUnaryHandler(
-		RecorderReadServiceFetchLastOneShoeRecordProcedure,
-		svc.FetchLastOneShoeRecord,
-		connect.WithSchema(recorderReadServiceFetchLastOneShoeRecordMethodDescriptor),
+	recorderReadServiceListShoeHandler := connect.NewUnaryHandler(
+		RecorderReadServiceListShoeProcedure,
+		svc.ListShoe,
+		connect.WithSchema(recorderReadServiceListShoeMethodDescriptor),
 		connect.WithHandlerOptions(opts...),
 	)
-	recorderReadServiceFetchRoundRecordHandler := connect.NewUnaryHandler(
-		RecorderReadServiceFetchRoundRecordProcedure,
-		svc.FetchRoundRecord,
-		connect.WithSchema(recorderReadServiceFetchRoundRecordMethodDescriptor),
+	recorderReadServiceGetShoeHandler := connect.NewUnaryHandler(
+		RecorderReadServiceGetShoeProcedure,
+		svc.GetShoe,
+		connect.WithSchema(recorderReadServiceGetShoeMethodDescriptor),
 		connect.WithHandlerOptions(opts...),
 	)
-	recorderReadServiceFetchLastOneRoundRecordHandler := connect.NewUnaryHandler(
-		RecorderReadServiceFetchLastOneRoundRecordProcedure,
-		svc.FetchLastOneRoundRecord,
-		connect.WithSchema(recorderReadServiceFetchLastOneRoundRecordMethodDescriptor),
+	recorderReadServiceGetCurrentShoeHandler := connect.NewUnaryHandler(
+		RecorderReadServiceGetCurrentShoeProcedure,
+		svc.GetCurrentShoe,
+		connect.WithSchema(recorderReadServiceGetCurrentShoeMethodDescriptor),
+		connect.WithHandlerOptions(opts...),
+	)
+	recorderReadServiceListRoundsHandler := connect.NewUnaryHandler(
+		RecorderReadServiceListRoundsProcedure,
+		svc.ListRounds,
+		connect.WithSchema(recorderReadServiceListRoundsMethodDescriptor),
+		connect.WithHandlerOptions(opts...),
+	)
+	recorderReadServiceGetRoundHandler := connect.NewUnaryHandler(
+		RecorderReadServiceGetRoundProcedure,
+		svc.GetRound,
+		connect.WithSchema(recorderReadServiceGetRoundMethodDescriptor),
+		connect.WithHandlerOptions(opts...),
+	)
+	recorderReadServiceGetCurrentRoundHandler := connect.NewUnaryHandler(
+		RecorderReadServiceGetCurrentRoundProcedure,
+		svc.GetCurrentRound,
+		connect.WithSchema(recorderReadServiceGetCurrentRoundMethodDescriptor),
 		connect.WithHandlerOptions(opts...),
 	)
 	return "/recorder.RecorderReadService/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
-		case RecorderReadServiceFetchShiftRecordProcedure:
-			recorderReadServiceFetchShiftRecordHandler.ServeHTTP(w, r)
-		case RecorderReadServiceFetchLastOneShiftRecordProcedure:
-			recorderReadServiceFetchLastOneShiftRecordHandler.ServeHTTP(w, r)
-		case RecorderReadServiceFetchShoeRecordProcedure:
-			recorderReadServiceFetchShoeRecordHandler.ServeHTTP(w, r)
-		case RecorderReadServiceFetchLastOneShoeRecordProcedure:
-			recorderReadServiceFetchLastOneShoeRecordHandler.ServeHTTP(w, r)
-		case RecorderReadServiceFetchRoundRecordProcedure:
-			recorderReadServiceFetchRoundRecordHandler.ServeHTTP(w, r)
-		case RecorderReadServiceFetchLastOneRoundRecordProcedure:
-			recorderReadServiceFetchLastOneRoundRecordHandler.ServeHTTP(w, r)
+		case RecorderReadServiceListShiftsProcedure:
+			recorderReadServiceListShiftsHandler.ServeHTTP(w, r)
+		case RecorderReadServiceGetShiftProcedure:
+			recorderReadServiceGetShiftHandler.ServeHTTP(w, r)
+		case RecorderReadServiceGetCurrentShiftProcedure:
+			recorderReadServiceGetCurrentShiftHandler.ServeHTTP(w, r)
+		case RecorderReadServiceListShoeProcedure:
+			recorderReadServiceListShoeHandler.ServeHTTP(w, r)
+		case RecorderReadServiceGetShoeProcedure:
+			recorderReadServiceGetShoeHandler.ServeHTTP(w, r)
+		case RecorderReadServiceGetCurrentShoeProcedure:
+			recorderReadServiceGetCurrentShoeHandler.ServeHTTP(w, r)
+		case RecorderReadServiceListRoundsProcedure:
+			recorderReadServiceListRoundsHandler.ServeHTTP(w, r)
+		case RecorderReadServiceGetRoundProcedure:
+			recorderReadServiceGetRoundHandler.ServeHTTP(w, r)
+		case RecorderReadServiceGetCurrentRoundProcedure:
+			recorderReadServiceGetCurrentRoundHandler.ServeHTTP(w, r)
 		default:
 			http.NotFound(w, r)
 		}
@@ -273,42 +358,54 @@ func NewRecorderReadServiceHandler(svc RecorderReadServiceHandler, opts ...conne
 // UnimplementedRecorderReadServiceHandler returns CodeUnimplemented from all methods.
 type UnimplementedRecorderReadServiceHandler struct{}
 
-func (UnimplementedRecorderReadServiceHandler) FetchShiftRecord(context.Context, *connect.Request[recorder.FetchShiftRecordRequest]) (*connect.Response[recorder.FetchShiftRecordResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("recorder.RecorderReadService.FetchShiftRecord is not implemented"))
+func (UnimplementedRecorderReadServiceHandler) ListShifts(context.Context, *connect.Request[recorder.ListRecordsRequest]) (*connect.Response[recorder.ListShiftsResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("recorder.RecorderReadService.ListShifts is not implemented"))
 }
 
-func (UnimplementedRecorderReadServiceHandler) FetchLastOneShiftRecord(context.Context, *connect.Request[recorder.FetchShiftRecordRequest]) (*connect.Response[recorder.FetchShiftRecordResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("recorder.RecorderReadService.FetchLastOneShiftRecord is not implemented"))
+func (UnimplementedRecorderReadServiceHandler) GetShift(context.Context, *connect.Request[recorder.GetRequest]) (*connect.Response[recorder.ShiftRecord], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("recorder.RecorderReadService.GetShift is not implemented"))
 }
 
-func (UnimplementedRecorderReadServiceHandler) FetchShoeRecord(context.Context, *connect.Request[recorder.FetchShoeRecordRequest]) (*connect.Response[recorder.FetchShoeRecordResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("recorder.RecorderReadService.FetchShoeRecord is not implemented"))
+func (UnimplementedRecorderReadServiceHandler) GetCurrentShift(context.Context, *connect.Request[recorder.GetCurrentRecordRequest]) (*connect.Response[recorder.ShiftRecord], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("recorder.RecorderReadService.GetCurrentShift is not implemented"))
 }
 
-func (UnimplementedRecorderReadServiceHandler) FetchLastOneShoeRecord(context.Context, *connect.Request[recorder.FetchShoeRecordRequest]) (*connect.Response[recorder.FetchShoeRecordResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("recorder.RecorderReadService.FetchLastOneShoeRecord is not implemented"))
+func (UnimplementedRecorderReadServiceHandler) ListShoe(context.Context, *connect.Request[recorder.ListRecordsRequest]) (*connect.Response[recorder.ListShoesRecordResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("recorder.RecorderReadService.ListShoe is not implemented"))
 }
 
-func (UnimplementedRecorderReadServiceHandler) FetchRoundRecord(context.Context, *connect.Request[recorder.FetchRoundRecordRequest]) (*connect.Response[recorder.FetchRoundRecordResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("recorder.RecorderReadService.FetchRoundRecord is not implemented"))
+func (UnimplementedRecorderReadServiceHandler) GetShoe(context.Context, *connect.Request[recorder.GetRequest]) (*connect.Response[recorder.ShoeRecord], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("recorder.RecorderReadService.GetShoe is not implemented"))
 }
 
-func (UnimplementedRecorderReadServiceHandler) FetchLastOneRoundRecord(context.Context, *connect.Request[recorder.FetchRoundRecordRequest]) (*connect.Response[recorder.FetchRoundRecordResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("recorder.RecorderReadService.FetchLastOneRoundRecord is not implemented"))
+func (UnimplementedRecorderReadServiceHandler) GetCurrentShoe(context.Context, *connect.Request[recorder.GetCurrentRecordRequest]) (*connect.Response[recorder.ShoeRecord], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("recorder.RecorderReadService.GetCurrentShoe is not implemented"))
+}
+
+func (UnimplementedRecorderReadServiceHandler) ListRounds(context.Context, *connect.Request[recorder.ListRecordsRequest]) (*connect.Response[recorder.ListRoundsRecordResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("recorder.RecorderReadService.ListRounds is not implemented"))
+}
+
+func (UnimplementedRecorderReadServiceHandler) GetRound(context.Context, *connect.Request[recorder.GetRequest]) (*connect.Response[recorder.RoundRecord], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("recorder.RecorderReadService.GetRound is not implemented"))
+}
+
+func (UnimplementedRecorderReadServiceHandler) GetCurrentRound(context.Context, *connect.Request[recorder.GetCurrentRecordRequest]) (*connect.Response[recorder.RoundRecord], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("recorder.RecorderReadService.GetCurrentRound is not implemented"))
 }
 
 // ProviderServiceClient is a client for the recorder.ProviderService service.
 type ProviderServiceClient interface {
 	// 取得即時遊戲列表
-	FetchGameProvideList(context.Context, *connect.Request[recorder.FetchGameProvideListRequest]) (*connect.Response[recorder.FetchGameProvideListResponse], error)
+	ListGames(context.Context, *connect.Request[recorder.ListGamesRequest]) (*connect.Response[recorder.ListGamesResponse], error)
 	// 取得單一即時遊戲資訊
-	FetchGameProvide(context.Context, *connect.Request[recorder.FetchGameProvideRequest]) (*connect.Response[recorder.FetchGameProvideResponse], error)
-	// 讀即時遊戲桌資訊
-	FetchCurrentGame(context.Context, *connect.Request[recorder.FetchCurrentGameRequest]) (*connect.Response[recorder.FetchCurrentGameResponse], error)
+	GetGames(context.Context, *connect.Request[recorder.GetRequest]) (*connect.Response[recorder.GameProvide], error)
 	// 驗證
-	VerifyGame(context.Context, *connect.Request[recorder.VerifyGameRequest]) (*connect.Response[recorder.FetchCurrentGameResponse], error)
+	VerifyGame(context.Context, *connect.Request[recorder.VerifyGameRequest]) (*connect.Response[emptypb.Empty], error)
 	// 荷官資料
-	GetDealers(context.Context, *connect.Request[recorder.GetDealerRequest]) (*connect.Response[recorder.GetDealerResponse], error)
+	ListDealers(context.Context, *connect.Request[recorder.ListDealersRequest]) (*connect.Response[recorder.ListDealersResponse], error)
+	// 荷官資料
+	GetDealer(context.Context, *connect.Request[recorder.GetRequest]) (*connect.Response[recorder.Dealer], error)
 }
 
 // NewProviderServiceClient constructs a client for the recorder.ProviderService service. By
@@ -321,34 +418,34 @@ type ProviderServiceClient interface {
 func NewProviderServiceClient(httpClient connect.HTTPClient, baseURL string, opts ...connect.ClientOption) ProviderServiceClient {
 	baseURL = strings.TrimRight(baseURL, "/")
 	return &providerServiceClient{
-		fetchGameProvideList: connect.NewClient[recorder.FetchGameProvideListRequest, recorder.FetchGameProvideListResponse](
+		listGames: connect.NewClient[recorder.ListGamesRequest, recorder.ListGamesResponse](
 			httpClient,
-			baseURL+ProviderServiceFetchGameProvideListProcedure,
-			connect.WithSchema(providerServiceFetchGameProvideListMethodDescriptor),
+			baseURL+ProviderServiceListGamesProcedure,
+			connect.WithSchema(providerServiceListGamesMethodDescriptor),
 			connect.WithClientOptions(opts...),
 		),
-		fetchGameProvide: connect.NewClient[recorder.FetchGameProvideRequest, recorder.FetchGameProvideResponse](
+		getGames: connect.NewClient[recorder.GetRequest, recorder.GameProvide](
 			httpClient,
-			baseURL+ProviderServiceFetchGameProvideProcedure,
-			connect.WithSchema(providerServiceFetchGameProvideMethodDescriptor),
+			baseURL+ProviderServiceGetGamesProcedure,
+			connect.WithSchema(providerServiceGetGamesMethodDescriptor),
 			connect.WithClientOptions(opts...),
 		),
-		fetchCurrentGame: connect.NewClient[recorder.FetchCurrentGameRequest, recorder.FetchCurrentGameResponse](
-			httpClient,
-			baseURL+ProviderServiceFetchCurrentGameProcedure,
-			connect.WithSchema(providerServiceFetchCurrentGameMethodDescriptor),
-			connect.WithClientOptions(opts...),
-		),
-		verifyGame: connect.NewClient[recorder.VerifyGameRequest, recorder.FetchCurrentGameResponse](
+		verifyGame: connect.NewClient[recorder.VerifyGameRequest, emptypb.Empty](
 			httpClient,
 			baseURL+ProviderServiceVerifyGameProcedure,
 			connect.WithSchema(providerServiceVerifyGameMethodDescriptor),
 			connect.WithClientOptions(opts...),
 		),
-		getDealers: connect.NewClient[recorder.GetDealerRequest, recorder.GetDealerResponse](
+		listDealers: connect.NewClient[recorder.ListDealersRequest, recorder.ListDealersResponse](
 			httpClient,
-			baseURL+ProviderServiceGetDealersProcedure,
-			connect.WithSchema(providerServiceGetDealersMethodDescriptor),
+			baseURL+ProviderServiceListDealersProcedure,
+			connect.WithSchema(providerServiceListDealersMethodDescriptor),
+			connect.WithClientOptions(opts...),
+		),
+		getDealer: connect.NewClient[recorder.GetRequest, recorder.Dealer](
+			httpClient,
+			baseURL+ProviderServiceGetDealerProcedure,
+			connect.WithSchema(providerServiceGetDealerMethodDescriptor),
 			connect.WithClientOptions(opts...),
 		),
 	}
@@ -356,50 +453,50 @@ func NewProviderServiceClient(httpClient connect.HTTPClient, baseURL string, opt
 
 // providerServiceClient implements ProviderServiceClient.
 type providerServiceClient struct {
-	fetchGameProvideList *connect.Client[recorder.FetchGameProvideListRequest, recorder.FetchGameProvideListResponse]
-	fetchGameProvide     *connect.Client[recorder.FetchGameProvideRequest, recorder.FetchGameProvideResponse]
-	fetchCurrentGame     *connect.Client[recorder.FetchCurrentGameRequest, recorder.FetchCurrentGameResponse]
-	verifyGame           *connect.Client[recorder.VerifyGameRequest, recorder.FetchCurrentGameResponse]
-	getDealers           *connect.Client[recorder.GetDealerRequest, recorder.GetDealerResponse]
+	listGames   *connect.Client[recorder.ListGamesRequest, recorder.ListGamesResponse]
+	getGames    *connect.Client[recorder.GetRequest, recorder.GameProvide]
+	verifyGame  *connect.Client[recorder.VerifyGameRequest, emptypb.Empty]
+	listDealers *connect.Client[recorder.ListDealersRequest, recorder.ListDealersResponse]
+	getDealer   *connect.Client[recorder.GetRequest, recorder.Dealer]
 }
 
-// FetchGameProvideList calls recorder.ProviderService.FetchGameProvideList.
-func (c *providerServiceClient) FetchGameProvideList(ctx context.Context, req *connect.Request[recorder.FetchGameProvideListRequest]) (*connect.Response[recorder.FetchGameProvideListResponse], error) {
-	return c.fetchGameProvideList.CallUnary(ctx, req)
+// ListGames calls recorder.ProviderService.ListGames.
+func (c *providerServiceClient) ListGames(ctx context.Context, req *connect.Request[recorder.ListGamesRequest]) (*connect.Response[recorder.ListGamesResponse], error) {
+	return c.listGames.CallUnary(ctx, req)
 }
 
-// FetchGameProvide calls recorder.ProviderService.FetchGameProvide.
-func (c *providerServiceClient) FetchGameProvide(ctx context.Context, req *connect.Request[recorder.FetchGameProvideRequest]) (*connect.Response[recorder.FetchGameProvideResponse], error) {
-	return c.fetchGameProvide.CallUnary(ctx, req)
-}
-
-// FetchCurrentGame calls recorder.ProviderService.FetchCurrentGame.
-func (c *providerServiceClient) FetchCurrentGame(ctx context.Context, req *connect.Request[recorder.FetchCurrentGameRequest]) (*connect.Response[recorder.FetchCurrentGameResponse], error) {
-	return c.fetchCurrentGame.CallUnary(ctx, req)
+// GetGames calls recorder.ProviderService.GetGames.
+func (c *providerServiceClient) GetGames(ctx context.Context, req *connect.Request[recorder.GetRequest]) (*connect.Response[recorder.GameProvide], error) {
+	return c.getGames.CallUnary(ctx, req)
 }
 
 // VerifyGame calls recorder.ProviderService.VerifyGame.
-func (c *providerServiceClient) VerifyGame(ctx context.Context, req *connect.Request[recorder.VerifyGameRequest]) (*connect.Response[recorder.FetchCurrentGameResponse], error) {
+func (c *providerServiceClient) VerifyGame(ctx context.Context, req *connect.Request[recorder.VerifyGameRequest]) (*connect.Response[emptypb.Empty], error) {
 	return c.verifyGame.CallUnary(ctx, req)
 }
 
-// GetDealers calls recorder.ProviderService.GetDealers.
-func (c *providerServiceClient) GetDealers(ctx context.Context, req *connect.Request[recorder.GetDealerRequest]) (*connect.Response[recorder.GetDealerResponse], error) {
-	return c.getDealers.CallUnary(ctx, req)
+// ListDealers calls recorder.ProviderService.ListDealers.
+func (c *providerServiceClient) ListDealers(ctx context.Context, req *connect.Request[recorder.ListDealersRequest]) (*connect.Response[recorder.ListDealersResponse], error) {
+	return c.listDealers.CallUnary(ctx, req)
+}
+
+// GetDealer calls recorder.ProviderService.GetDealer.
+func (c *providerServiceClient) GetDealer(ctx context.Context, req *connect.Request[recorder.GetRequest]) (*connect.Response[recorder.Dealer], error) {
+	return c.getDealer.CallUnary(ctx, req)
 }
 
 // ProviderServiceHandler is an implementation of the recorder.ProviderService service.
 type ProviderServiceHandler interface {
 	// 取得即時遊戲列表
-	FetchGameProvideList(context.Context, *connect.Request[recorder.FetchGameProvideListRequest]) (*connect.Response[recorder.FetchGameProvideListResponse], error)
+	ListGames(context.Context, *connect.Request[recorder.ListGamesRequest]) (*connect.Response[recorder.ListGamesResponse], error)
 	// 取得單一即時遊戲資訊
-	FetchGameProvide(context.Context, *connect.Request[recorder.FetchGameProvideRequest]) (*connect.Response[recorder.FetchGameProvideResponse], error)
-	// 讀即時遊戲桌資訊
-	FetchCurrentGame(context.Context, *connect.Request[recorder.FetchCurrentGameRequest]) (*connect.Response[recorder.FetchCurrentGameResponse], error)
+	GetGames(context.Context, *connect.Request[recorder.GetRequest]) (*connect.Response[recorder.GameProvide], error)
 	// 驗證
-	VerifyGame(context.Context, *connect.Request[recorder.VerifyGameRequest]) (*connect.Response[recorder.FetchCurrentGameResponse], error)
+	VerifyGame(context.Context, *connect.Request[recorder.VerifyGameRequest]) (*connect.Response[emptypb.Empty], error)
 	// 荷官資料
-	GetDealers(context.Context, *connect.Request[recorder.GetDealerRequest]) (*connect.Response[recorder.GetDealerResponse], error)
+	ListDealers(context.Context, *connect.Request[recorder.ListDealersRequest]) (*connect.Response[recorder.ListDealersResponse], error)
+	// 荷官資料
+	GetDealer(context.Context, *connect.Request[recorder.GetRequest]) (*connect.Response[recorder.Dealer], error)
 }
 
 // NewProviderServiceHandler builds an HTTP handler from the service implementation. It returns the
@@ -408,22 +505,16 @@ type ProviderServiceHandler interface {
 // By default, handlers support the Connect, gRPC, and gRPC-Web protocols with the binary Protobuf
 // and JSON codecs. They also support gzip compression.
 func NewProviderServiceHandler(svc ProviderServiceHandler, opts ...connect.HandlerOption) (string, http.Handler) {
-	providerServiceFetchGameProvideListHandler := connect.NewUnaryHandler(
-		ProviderServiceFetchGameProvideListProcedure,
-		svc.FetchGameProvideList,
-		connect.WithSchema(providerServiceFetchGameProvideListMethodDescriptor),
+	providerServiceListGamesHandler := connect.NewUnaryHandler(
+		ProviderServiceListGamesProcedure,
+		svc.ListGames,
+		connect.WithSchema(providerServiceListGamesMethodDescriptor),
 		connect.WithHandlerOptions(opts...),
 	)
-	providerServiceFetchGameProvideHandler := connect.NewUnaryHandler(
-		ProviderServiceFetchGameProvideProcedure,
-		svc.FetchGameProvide,
-		connect.WithSchema(providerServiceFetchGameProvideMethodDescriptor),
-		connect.WithHandlerOptions(opts...),
-	)
-	providerServiceFetchCurrentGameHandler := connect.NewUnaryHandler(
-		ProviderServiceFetchCurrentGameProcedure,
-		svc.FetchCurrentGame,
-		connect.WithSchema(providerServiceFetchCurrentGameMethodDescriptor),
+	providerServiceGetGamesHandler := connect.NewUnaryHandler(
+		ProviderServiceGetGamesProcedure,
+		svc.GetGames,
+		connect.WithSchema(providerServiceGetGamesMethodDescriptor),
 		connect.WithHandlerOptions(opts...),
 	)
 	providerServiceVerifyGameHandler := connect.NewUnaryHandler(
@@ -432,24 +523,30 @@ func NewProviderServiceHandler(svc ProviderServiceHandler, opts ...connect.Handl
 		connect.WithSchema(providerServiceVerifyGameMethodDescriptor),
 		connect.WithHandlerOptions(opts...),
 	)
-	providerServiceGetDealersHandler := connect.NewUnaryHandler(
-		ProviderServiceGetDealersProcedure,
-		svc.GetDealers,
-		connect.WithSchema(providerServiceGetDealersMethodDescriptor),
+	providerServiceListDealersHandler := connect.NewUnaryHandler(
+		ProviderServiceListDealersProcedure,
+		svc.ListDealers,
+		connect.WithSchema(providerServiceListDealersMethodDescriptor),
+		connect.WithHandlerOptions(opts...),
+	)
+	providerServiceGetDealerHandler := connect.NewUnaryHandler(
+		ProviderServiceGetDealerProcedure,
+		svc.GetDealer,
+		connect.WithSchema(providerServiceGetDealerMethodDescriptor),
 		connect.WithHandlerOptions(opts...),
 	)
 	return "/recorder.ProviderService/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
-		case ProviderServiceFetchGameProvideListProcedure:
-			providerServiceFetchGameProvideListHandler.ServeHTTP(w, r)
-		case ProviderServiceFetchGameProvideProcedure:
-			providerServiceFetchGameProvideHandler.ServeHTTP(w, r)
-		case ProviderServiceFetchCurrentGameProcedure:
-			providerServiceFetchCurrentGameHandler.ServeHTTP(w, r)
+		case ProviderServiceListGamesProcedure:
+			providerServiceListGamesHandler.ServeHTTP(w, r)
+		case ProviderServiceGetGamesProcedure:
+			providerServiceGetGamesHandler.ServeHTTP(w, r)
 		case ProviderServiceVerifyGameProcedure:
 			providerServiceVerifyGameHandler.ServeHTTP(w, r)
-		case ProviderServiceGetDealersProcedure:
-			providerServiceGetDealersHandler.ServeHTTP(w, r)
+		case ProviderServiceListDealersProcedure:
+			providerServiceListDealersHandler.ServeHTTP(w, r)
+		case ProviderServiceGetDealerProcedure:
+			providerServiceGetDealerHandler.ServeHTTP(w, r)
 		default:
 			http.NotFound(w, r)
 		}
@@ -459,22 +556,22 @@ func NewProviderServiceHandler(svc ProviderServiceHandler, opts ...connect.Handl
 // UnimplementedProviderServiceHandler returns CodeUnimplemented from all methods.
 type UnimplementedProviderServiceHandler struct{}
 
-func (UnimplementedProviderServiceHandler) FetchGameProvideList(context.Context, *connect.Request[recorder.FetchGameProvideListRequest]) (*connect.Response[recorder.FetchGameProvideListResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("recorder.ProviderService.FetchGameProvideList is not implemented"))
+func (UnimplementedProviderServiceHandler) ListGames(context.Context, *connect.Request[recorder.ListGamesRequest]) (*connect.Response[recorder.ListGamesResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("recorder.ProviderService.ListGames is not implemented"))
 }
 
-func (UnimplementedProviderServiceHandler) FetchGameProvide(context.Context, *connect.Request[recorder.FetchGameProvideRequest]) (*connect.Response[recorder.FetchGameProvideResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("recorder.ProviderService.FetchGameProvide is not implemented"))
+func (UnimplementedProviderServiceHandler) GetGames(context.Context, *connect.Request[recorder.GetRequest]) (*connect.Response[recorder.GameProvide], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("recorder.ProviderService.GetGames is not implemented"))
 }
 
-func (UnimplementedProviderServiceHandler) FetchCurrentGame(context.Context, *connect.Request[recorder.FetchCurrentGameRequest]) (*connect.Response[recorder.FetchCurrentGameResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("recorder.ProviderService.FetchCurrentGame is not implemented"))
-}
-
-func (UnimplementedProviderServiceHandler) VerifyGame(context.Context, *connect.Request[recorder.VerifyGameRequest]) (*connect.Response[recorder.FetchCurrentGameResponse], error) {
+func (UnimplementedProviderServiceHandler) VerifyGame(context.Context, *connect.Request[recorder.VerifyGameRequest]) (*connect.Response[emptypb.Empty], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("recorder.ProviderService.VerifyGame is not implemented"))
 }
 
-func (UnimplementedProviderServiceHandler) GetDealers(context.Context, *connect.Request[recorder.GetDealerRequest]) (*connect.Response[recorder.GetDealerResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("recorder.ProviderService.GetDealers is not implemented"))
+func (UnimplementedProviderServiceHandler) ListDealers(context.Context, *connect.Request[recorder.ListDealersRequest]) (*connect.Response[recorder.ListDealersResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("recorder.ProviderService.ListDealers is not implemented"))
+}
+
+func (UnimplementedProviderServiceHandler) GetDealer(context.Context, *connect.Request[recorder.GetRequest]) (*connect.Response[recorder.Dealer], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("recorder.ProviderService.GetDealer is not implemented"))
 }

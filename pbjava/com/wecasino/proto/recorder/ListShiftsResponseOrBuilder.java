@@ -4,29 +4,49 @@
 // Protobuf Java Version: 4.26.1
 package com.wecasino.proto.recorder;
 
-public interface FetchShiftRecordResponseOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:recorder.FetchShiftRecordResponse)
+public interface ListShiftsResponseOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:recorder.ListShiftsResponse)
     com.google.protobuf.MessageOrBuilder {
 
   /**
+   * <pre>
+   * shifts
+   * </pre>
+   *
    * <code>repeated .recorder.ShiftRecord shift_record = 1 [json_name = "shiftRecord"];</code>
    */
   java.util.List<com.wecasino.proto.recorder.ShiftRecord> 
       getShiftRecordList();
   /**
+   * <pre>
+   * shifts
+   * </pre>
+   *
    * <code>repeated .recorder.ShiftRecord shift_record = 1 [json_name = "shiftRecord"];</code>
    */
   com.wecasino.proto.recorder.ShiftRecord getShiftRecord(int index);
   /**
+   * <pre>
+   * shifts
+   * </pre>
+   *
    * <code>repeated .recorder.ShiftRecord shift_record = 1 [json_name = "shiftRecord"];</code>
    */
   int getShiftRecordCount();
   /**
+   * <pre>
+   * shifts
+   * </pre>
+   *
    * <code>repeated .recorder.ShiftRecord shift_record = 1 [json_name = "shiftRecord"];</code>
    */
   java.util.List<? extends com.wecasino.proto.recorder.ShiftRecordOrBuilder> 
       getShiftRecordOrBuilderList();
   /**
+   * <pre>
+   * shifts
+   * </pre>
+   *
    * <code>repeated .recorder.ShiftRecord shift_record = 1 [json_name = "shiftRecord"];</code>
    */
   com.wecasino.proto.recorder.ShiftRecordOrBuilder getShiftRecordOrBuilder(

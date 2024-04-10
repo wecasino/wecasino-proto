@@ -9,7 +9,6 @@ import (
 	context "context"
 	errors "errors"
 	recorder "github.com/wecasino/wecasino-proto/pbgo/recorder"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
 	http "net/http"
 	strings "strings"
 )
@@ -58,27 +57,27 @@ const (
 	// RecorderServiceRecordRoundFinishedProcedure is the fully-qualified name of the RecorderService's
 	// RecordRoundFinished RPC.
 	RecorderServiceRecordRoundFinishedProcedure = "/recorder.RecorderService/RecordRoundFinished"
+	// RecorderServiceRecordRoundBeCanceledAfterFinishedProcedure is the fully-qualified name of the
+	// RecorderService's RecordRoundBeCanceledAfterFinished RPC.
+	RecorderServiceRecordRoundBeCanceledAfterFinishedProcedure = "/recorder.RecorderService/RecordRoundBeCanceledAfterFinished"
 	// RecorderServiceRecordRoundVideoProcedure is the fully-qualified name of the RecorderService's
 	// RecordRoundVideo RPC.
 	RecorderServiceRecordRoundVideoProcedure = "/recorder.RecorderService/RecordRoundVideo"
-	// RecorderServiceRecordCaptureFrameProcedure is the fully-qualified name of the RecorderService's
-	// RecordCaptureFrame RPC.
-	RecorderServiceRecordCaptureFrameProcedure = "/recorder.RecorderService/RecordCaptureFrame"
 )
 
 // These variables are the protoreflect.Descriptor objects for the RPCs defined in this package.
 var (
-	recorderServiceServiceDescriptor                     = recorder.File_recorder_recorder_proto.Services().ByName("RecorderService")
-	recorderServiceRecordShiftStartedMethodDescriptor    = recorderServiceServiceDescriptor.Methods().ByName("RecordShiftStarted")
-	recorderServiceRecordShiftEndedMethodDescriptor      = recorderServiceServiceDescriptor.Methods().ByName("RecordShiftEnded")
-	recorderServiceRecordShoeStartedMethodDescriptor     = recorderServiceServiceDescriptor.Methods().ByName("RecordShoeStarted")
-	recorderServiceRecordShoeEndedMethodDescriptor       = recorderServiceServiceDescriptor.Methods().ByName("RecordShoeEnded")
-	recorderServiceRecordRoundStartedMethodDescriptor    = recorderServiceServiceDescriptor.Methods().ByName("RecordRoundStarted")
-	recorderServiceRecordRoundStepsMethodDescriptor      = recorderServiceServiceDescriptor.Methods().ByName("RecordRoundSteps")
-	recorderServiceRecordRoundBeCanceledMethodDescriptor = recorderServiceServiceDescriptor.Methods().ByName("RecordRoundBeCanceled")
-	recorderServiceRecordRoundFinishedMethodDescriptor   = recorderServiceServiceDescriptor.Methods().ByName("RecordRoundFinished")
-	recorderServiceRecordRoundVideoMethodDescriptor      = recorderServiceServiceDescriptor.Methods().ByName("RecordRoundVideo")
-	recorderServiceRecordCaptureFrameMethodDescriptor    = recorderServiceServiceDescriptor.Methods().ByName("RecordCaptureFrame")
+	recorderServiceServiceDescriptor                                  = recorder.File_recorder_recorder_proto.Services().ByName("RecorderService")
+	recorderServiceRecordShiftStartedMethodDescriptor                 = recorderServiceServiceDescriptor.Methods().ByName("RecordShiftStarted")
+	recorderServiceRecordShiftEndedMethodDescriptor                   = recorderServiceServiceDescriptor.Methods().ByName("RecordShiftEnded")
+	recorderServiceRecordShoeStartedMethodDescriptor                  = recorderServiceServiceDescriptor.Methods().ByName("RecordShoeStarted")
+	recorderServiceRecordShoeEndedMethodDescriptor                    = recorderServiceServiceDescriptor.Methods().ByName("RecordShoeEnded")
+	recorderServiceRecordRoundStartedMethodDescriptor                 = recorderServiceServiceDescriptor.Methods().ByName("RecordRoundStarted")
+	recorderServiceRecordRoundStepsMethodDescriptor                   = recorderServiceServiceDescriptor.Methods().ByName("RecordRoundSteps")
+	recorderServiceRecordRoundBeCanceledMethodDescriptor              = recorderServiceServiceDescriptor.Methods().ByName("RecordRoundBeCanceled")
+	recorderServiceRecordRoundFinishedMethodDescriptor                = recorderServiceServiceDescriptor.Methods().ByName("RecordRoundFinished")
+	recorderServiceRecordRoundBeCanceledAfterFinishedMethodDescriptor = recorderServiceServiceDescriptor.Methods().ByName("RecordRoundBeCanceledAfterFinished")
+	recorderServiceRecordRoundVideoMethodDescriptor                   = recorderServiceServiceDescriptor.Methods().ByName("RecordRoundVideo")
 )
 
 // RecorderServiceClient is a client for the recorder.RecorderService service.
@@ -99,10 +98,10 @@ type RecorderServiceClient interface {
 	RecordRoundBeCanceled(context.Context, *connect.Request[recorder.RecordRoundBeCanceledRequest]) (*connect.Response[recorder.RoundRecord], error)
 	// 結束此局
 	RecordRoundFinished(context.Context, *connect.Request[recorder.RecordRoundFinishedRequest]) (*connect.Response[recorder.RoundRecord], error)
+	// 事後取消此局
+	RecordRoundBeCanceledAfterFinished(context.Context, *connect.Request[recorder.RecordRoundBeCanceledRequest]) (*connect.Response[recorder.RoundRecord], error)
 	// 紀錄回放
 	RecordRoundVideo(context.Context, *connect.Request[recorder.RecordRoundMediaRequest]) (*connect.Response[recorder.RoundRecord], error)
-	// 捕獲單幀。玩家登入時使用
-	RecordCaptureFrame(context.Context, *connect.Request[recorder.RecordRoundStartedRequest]) (*connect.Response[emptypb.Empty], error)
 }
 
 // NewRecorderServiceClient constructs a client for the recorder.RecorderService service. By
@@ -163,16 +162,16 @@ func NewRecorderServiceClient(httpClient connect.HTTPClient, baseURL string, opt
 			connect.WithSchema(recorderServiceRecordRoundFinishedMethodDescriptor),
 			connect.WithClientOptions(opts...),
 		),
+		recordRoundBeCanceledAfterFinished: connect.NewClient[recorder.RecordRoundBeCanceledRequest, recorder.RoundRecord](
+			httpClient,
+			baseURL+RecorderServiceRecordRoundBeCanceledAfterFinishedProcedure,
+			connect.WithSchema(recorderServiceRecordRoundBeCanceledAfterFinishedMethodDescriptor),
+			connect.WithClientOptions(opts...),
+		),
 		recordRoundVideo: connect.NewClient[recorder.RecordRoundMediaRequest, recorder.RoundRecord](
 			httpClient,
 			baseURL+RecorderServiceRecordRoundVideoProcedure,
 			connect.WithSchema(recorderServiceRecordRoundVideoMethodDescriptor),
-			connect.WithClientOptions(opts...),
-		),
-		recordCaptureFrame: connect.NewClient[recorder.RecordRoundStartedRequest, emptypb.Empty](
-			httpClient,
-			baseURL+RecorderServiceRecordCaptureFrameProcedure,
-			connect.WithSchema(recorderServiceRecordCaptureFrameMethodDescriptor),
 			connect.WithClientOptions(opts...),
 		),
 	}
@@ -180,16 +179,16 @@ func NewRecorderServiceClient(httpClient connect.HTTPClient, baseURL string, opt
 
 // recorderServiceClient implements RecorderServiceClient.
 type recorderServiceClient struct {
-	recordShiftStarted    *connect.Client[recorder.RecordShiftStartedRequest, recorder.ShiftRecord]
-	recordShiftEnded      *connect.Client[recorder.RecordShiftEndedRequest, recorder.ShiftRecord]
-	recordShoeStarted     *connect.Client[recorder.RecordShoeStartedRequest, recorder.ShoeRecord]
-	recordShoeEnded       *connect.Client[recorder.RecordShoeEndedRequest, recorder.ShoeRecord]
-	recordRoundStarted    *connect.Client[recorder.RecordRoundStartedRequest, recorder.RoundRecord]
-	recordRoundSteps      *connect.Client[recorder.RecordRoundStepsRequest, recorder.RoundRecord]
-	recordRoundBeCanceled *connect.Client[recorder.RecordRoundBeCanceledRequest, recorder.RoundRecord]
-	recordRoundFinished   *connect.Client[recorder.RecordRoundFinishedRequest, recorder.RoundRecord]
-	recordRoundVideo      *connect.Client[recorder.RecordRoundMediaRequest, recorder.RoundRecord]
-	recordCaptureFrame    *connect.Client[recorder.RecordRoundStartedRequest, emptypb.Empty]
+	recordShiftStarted                 *connect.Client[recorder.RecordShiftStartedRequest, recorder.ShiftRecord]
+	recordShiftEnded                   *connect.Client[recorder.RecordShiftEndedRequest, recorder.ShiftRecord]
+	recordShoeStarted                  *connect.Client[recorder.RecordShoeStartedRequest, recorder.ShoeRecord]
+	recordShoeEnded                    *connect.Client[recorder.RecordShoeEndedRequest, recorder.ShoeRecord]
+	recordRoundStarted                 *connect.Client[recorder.RecordRoundStartedRequest, recorder.RoundRecord]
+	recordRoundSteps                   *connect.Client[recorder.RecordRoundStepsRequest, recorder.RoundRecord]
+	recordRoundBeCanceled              *connect.Client[recorder.RecordRoundBeCanceledRequest, recorder.RoundRecord]
+	recordRoundFinished                *connect.Client[recorder.RecordRoundFinishedRequest, recorder.RoundRecord]
+	recordRoundBeCanceledAfterFinished *connect.Client[recorder.RecordRoundBeCanceledRequest, recorder.RoundRecord]
+	recordRoundVideo                   *connect.Client[recorder.RecordRoundMediaRequest, recorder.RoundRecord]
 }
 
 // RecordShiftStarted calls recorder.RecorderService.RecordShiftStarted.
@@ -232,14 +231,15 @@ func (c *recorderServiceClient) RecordRoundFinished(ctx context.Context, req *co
 	return c.recordRoundFinished.CallUnary(ctx, req)
 }
 
+// RecordRoundBeCanceledAfterFinished calls
+// recorder.RecorderService.RecordRoundBeCanceledAfterFinished.
+func (c *recorderServiceClient) RecordRoundBeCanceledAfterFinished(ctx context.Context, req *connect.Request[recorder.RecordRoundBeCanceledRequest]) (*connect.Response[recorder.RoundRecord], error) {
+	return c.recordRoundBeCanceledAfterFinished.CallUnary(ctx, req)
+}
+
 // RecordRoundVideo calls recorder.RecorderService.RecordRoundVideo.
 func (c *recorderServiceClient) RecordRoundVideo(ctx context.Context, req *connect.Request[recorder.RecordRoundMediaRequest]) (*connect.Response[recorder.RoundRecord], error) {
 	return c.recordRoundVideo.CallUnary(ctx, req)
-}
-
-// RecordCaptureFrame calls recorder.RecorderService.RecordCaptureFrame.
-func (c *recorderServiceClient) RecordCaptureFrame(ctx context.Context, req *connect.Request[recorder.RecordRoundStartedRequest]) (*connect.Response[emptypb.Empty], error) {
-	return c.recordCaptureFrame.CallUnary(ctx, req)
 }
 
 // RecorderServiceHandler is an implementation of the recorder.RecorderService service.
@@ -260,10 +260,10 @@ type RecorderServiceHandler interface {
 	RecordRoundBeCanceled(context.Context, *connect.Request[recorder.RecordRoundBeCanceledRequest]) (*connect.Response[recorder.RoundRecord], error)
 	// 結束此局
 	RecordRoundFinished(context.Context, *connect.Request[recorder.RecordRoundFinishedRequest]) (*connect.Response[recorder.RoundRecord], error)
+	// 事後取消此局
+	RecordRoundBeCanceledAfterFinished(context.Context, *connect.Request[recorder.RecordRoundBeCanceledRequest]) (*connect.Response[recorder.RoundRecord], error)
 	// 紀錄回放
 	RecordRoundVideo(context.Context, *connect.Request[recorder.RecordRoundMediaRequest]) (*connect.Response[recorder.RoundRecord], error)
-	// 捕獲單幀。玩家登入時使用
-	RecordCaptureFrame(context.Context, *connect.Request[recorder.RecordRoundStartedRequest]) (*connect.Response[emptypb.Empty], error)
 }
 
 // NewRecorderServiceHandler builds an HTTP handler from the service implementation. It returns the
@@ -320,16 +320,16 @@ func NewRecorderServiceHandler(svc RecorderServiceHandler, opts ...connect.Handl
 		connect.WithSchema(recorderServiceRecordRoundFinishedMethodDescriptor),
 		connect.WithHandlerOptions(opts...),
 	)
+	recorderServiceRecordRoundBeCanceledAfterFinishedHandler := connect.NewUnaryHandler(
+		RecorderServiceRecordRoundBeCanceledAfterFinishedProcedure,
+		svc.RecordRoundBeCanceledAfterFinished,
+		connect.WithSchema(recorderServiceRecordRoundBeCanceledAfterFinishedMethodDescriptor),
+		connect.WithHandlerOptions(opts...),
+	)
 	recorderServiceRecordRoundVideoHandler := connect.NewUnaryHandler(
 		RecorderServiceRecordRoundVideoProcedure,
 		svc.RecordRoundVideo,
 		connect.WithSchema(recorderServiceRecordRoundVideoMethodDescriptor),
-		connect.WithHandlerOptions(opts...),
-	)
-	recorderServiceRecordCaptureFrameHandler := connect.NewUnaryHandler(
-		RecorderServiceRecordCaptureFrameProcedure,
-		svc.RecordCaptureFrame,
-		connect.WithSchema(recorderServiceRecordCaptureFrameMethodDescriptor),
 		connect.WithHandlerOptions(opts...),
 	)
 	return "/recorder.RecorderService/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
@@ -350,10 +350,10 @@ func NewRecorderServiceHandler(svc RecorderServiceHandler, opts ...connect.Handl
 			recorderServiceRecordRoundBeCanceledHandler.ServeHTTP(w, r)
 		case RecorderServiceRecordRoundFinishedProcedure:
 			recorderServiceRecordRoundFinishedHandler.ServeHTTP(w, r)
+		case RecorderServiceRecordRoundBeCanceledAfterFinishedProcedure:
+			recorderServiceRecordRoundBeCanceledAfterFinishedHandler.ServeHTTP(w, r)
 		case RecorderServiceRecordRoundVideoProcedure:
 			recorderServiceRecordRoundVideoHandler.ServeHTTP(w, r)
-		case RecorderServiceRecordCaptureFrameProcedure:
-			recorderServiceRecordCaptureFrameHandler.ServeHTTP(w, r)
 		default:
 			http.NotFound(w, r)
 		}
@@ -395,10 +395,10 @@ func (UnimplementedRecorderServiceHandler) RecordRoundFinished(context.Context, 
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("recorder.RecorderService.RecordRoundFinished is not implemented"))
 }
 
-func (UnimplementedRecorderServiceHandler) RecordRoundVideo(context.Context, *connect.Request[recorder.RecordRoundMediaRequest]) (*connect.Response[recorder.RoundRecord], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("recorder.RecorderService.RecordRoundVideo is not implemented"))
+func (UnimplementedRecorderServiceHandler) RecordRoundBeCanceledAfterFinished(context.Context, *connect.Request[recorder.RecordRoundBeCanceledRequest]) (*connect.Response[recorder.RoundRecord], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("recorder.RecorderService.RecordRoundBeCanceledAfterFinished is not implemented"))
 }
 
-func (UnimplementedRecorderServiceHandler) RecordCaptureFrame(context.Context, *connect.Request[recorder.RecordRoundStartedRequest]) (*connect.Response[emptypb.Empty], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("recorder.RecorderService.RecordCaptureFrame is not implemented"))
+func (UnimplementedRecorderServiceHandler) RecordRoundVideo(context.Context, *connect.Request[recorder.RecordRoundMediaRequest]) (*connect.Response[recorder.RoundRecord], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("recorder.RecorderService.RecordRoundVideo is not implemented"))
 }

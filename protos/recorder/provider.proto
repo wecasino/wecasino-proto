@@ -1,96 +1,144 @@
 syntax = "proto3";
 package recorder;
 
+import "google/api/annotations.proto";
+import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
 import "recorder/record.proto";
+import "games/games.proto";
 
-message RecordQuery {
+message GetRequest {
+
+  // 資源代碼
+  string code = 1;
+ 
+}
+
+message GetCurrentRecordRequest {
+
+  // 遊戲代碼
+  string game_code = 1;
+ 
+}
+
+message ListRecordsRequest {
 
   // 查詢起時
   google.protobuf.Timestamp ts_from = 1;
+
   // 查詢終時
   google.protobuf.Timestamp ts_to = 2;
 
-  // 筆數 預設 100
-  optional int64 limit = 3;
-  // 頁面
-  optional int64 page = 4;
+  // 遊戲類型
+  optional games.GameType game_type = 3;
 
-}
-
-message FetchShiftRecordRequest {
-
-  // 紀錄ID
-  optional bytes record_id = 1;
+  // 遊戲子類型
+  optional int32 game_subtype = 4;
 
   // 遊戲代碼
-  string game_code = 6;
+  optional string game_code = 6;
 
-  // 班代碼
-  optional string shift_code = 8;
+  // pagination next page
+  optional string search_after = 8;
+  
+  // pagination previous page
+  optional string search_before = 9;
 
-  // 查詢限制
-  RecordQuery query = 36;
+  // 頁數 1開始，0表示未填，改為1
+  int64 page = 10;
+
+  // 每頁筆數
+  int64 page_size = 11;
 
 }
 
-message FetchShiftRecordResponse {
+message ListShiftsResponse {
+
+  // shifts
   repeated ShiftRecord shift_record = 1;
-}
-
-message FetchShoeRecordRequest {
-
-  // 遊戲代碼
-  string game_code = 6;
-
-  // 靴代碼
-  optional string shoe_code = 10;
-
-  // 查詢限制
-  RecordQuery query = 36;
 
 }
 
-message FetchShoeRecordResponse {
+message ListShoesRecordResponse {
+
+  // shoes
   repeated ShoeRecord shoe_record = 1;
-}
-
-message FetchRoundRecordRequest {
-
-  // 遊戲代碼
-  string game_code = 6;
-
-  // 局代碼
-  optional string round_code = 12;
-
-  // 查詢限制
-  RecordQuery query = 36;
 
 }
 
-message FetchRoundRecordResponse {
+message ListRoundsRecordResponse {
+
+  // rounds
   repeated RoundRecord round_record = 1;
+
 }
 
+// gateway option 設定說明參照：https://github.com/googleapis/googleapis/blob/master/google/api/http.proto
 service RecorderReadService {
   
-  // 讀取班次紀錄list
-  rpc FetchShiftRecord(FetchShiftRecordRequest) returns (FetchShiftRecordResponse);
+  // 讀取班次紀錄List
+  rpc ListShifts(ListRecordsRequest) returns (ListShiftsResponse){
+    option (google.api.http) = {
+      get: "/v1/recorder/shifts"
+    };
+  };
 
-  // 讀取最新班次紀錄
-  rpc FetchLastOneShiftRecord(FetchShiftRecordRequest) returns (FetchShiftRecordResponse);
+  // 讀取指定班次紀錄
+  rpc GetShift(GetRequest) returns (ShiftRecord){
+    option (google.api.http) = {
+      get: "/v1/recorder/shifts/{code}"
+    };
+  };
+
+  // 讀取目前指定班次紀錄
+  rpc GetCurrentShift(GetCurrentRecordRequest) returns (ShiftRecord){
+    option (google.api.http) = {
+      get: "/v1/recorder/shifts:current"
+    };
+  };
 
   // 讀牌靴紀錄list
-  rpc FetchShoeRecord(FetchShoeRecordRequest) returns (FetchShoeRecordResponse);
+  rpc ListShoe(ListRecordsRequest) returns (ListShoesRecordResponse){
+    option (google.api.http) = {
+      get: "/v1/provider/shoes"
+    };
+  };
 
-  // 讀最新牌靴紀錄
-  rpc FetchLastOneShoeRecord(FetchShoeRecordRequest) returns (FetchShoeRecordResponse);
+  // 讀取指定靴紀錄
+  rpc GetShoe(GetRequest) returns (ShoeRecord){
+    option (google.api.http) = {
+      get: "/v1/recorder/shoes/{code}"
+    };
+  };
 
-  // 讀遊戲局號紀錄list
-  rpc FetchRoundRecord(FetchRoundRecordRequest) returns (FetchRoundRecordResponse);
+  // 讀取目前指定靴紀錄
+  rpc GetCurrentShoe(GetCurrentRecordRequest) returns (ShoeRecord){
+    option (google.api.http) = {
+      get: "/v1/recorder/shoes:current"
+    };
+  };
 
-  // 讀最新遊戲局號紀錄
-  rpc FetchLastOneRoundRecord(FetchRoundRecordRequest) returns (FetchRoundRecordResponse);
+  // 讀牌靴紀錄list
+  rpc ListRounds(ListRecordsRequest) returns (ListRoundsRecordResponse){
+    option (google.api.http) = {
+      get: "/v1/provider/rounds"
+    };
+  };
+  
+  // 讀取指定靴紀錄
+  rpc GetRound(GetRequest) returns (RoundRecord){
+    option (google.api.http) = {
+      get: "/v1/recorder/rounds/{code}"
+    };
+  };
+
+  // 讀取目前指定靴紀錄
+  rpc GetCurrentRound(GetCurrentRecordRequest) returns (RoundRecord){
+    option (google.api.http) = {
+      get: "/v1/recorder/rounds:current"
+    };
+  };
+
 }
 
 enum GameNotifyType {
@@ -100,6 +148,9 @@ enum GameNotifyType {
 
   // 通知遊戲供應狀況改變
   NOTIFY_GAME_PROVIDE_STATE_CHANGE = 1;
+
+  // 通知遊戲流程截圖
+  NOTIFY_GAME_CAPTURE = 5;
 
   // 通知遊戲流程荷官登入
   NOTIFY_GAME_DEALER_LOGIN = 6;
@@ -143,6 +194,9 @@ enum GameNotifyType {
   // 通知遊戲局回放連結
   NOTIFY_ROUND_PLAYBACK = 19;
 
+  // 通知遊戲局事後取消
+  NOTIFY_ROUND_CANCEL_AFTER_ROUND = 20;
+  
 }
 
 enum GameProvideState {
@@ -219,69 +273,14 @@ message GameProvide {
 
 }
 
-message FetchGameProvideListRequest {
-
-  // 平台
-  string platform = 1;
+message ListGamesRequest {
 
 }
 
-message FetchGameProvideListResponse {
+message ListGamesResponse {
   
-  // 桌列表
+  // 遊戲列表
   repeated GameProvide game_provides = 1;
-
-}
-
-message CurrentGame {
-
-  // 遊戲代碼
-  string game_code = 6;
-
-  // 班
-  optional ShiftRecord shift = 8;
-
-  // 洗牌
-  optional ShoeRecord shoe = 11;
-
-  // 遊戲局
-  optional RoundRecord round = 12;
-
-}
-
-message FetchCurrentGameRequest {
-
-  // 查詢的遊戲代號
-  repeated string game_codes = 1;
-
-  // 返回班表資訊
-  bool shift = 8;
-
-  // 返回牌靴資訊
-  bool shoe = 10;
-  
-}
-
-message FetchCurrentGameResponse {
-
-  // Table Code 對應的當下 Current Table
-  map<string, CurrentGame> map_current_games = 1;
-
-  // 時間戳
-  google.protobuf.Timestamp ts = 2;
-
-}
-
-message FetchGameProvideRequest {
-  string platform = 1;
-
-  string game_code = 2;
-}
-
-message FetchGameProvideResponse {
-  
-  // 桌列表
-  GameProvide game_provide = 1;
 
 }
 
@@ -339,36 +338,64 @@ message Dealer {
 
 }
 
-message GetDealerRequest {
+message ListDealersRequest {
 
-  // 荷官代碼陣列
-  repeated string dealer_codes = 1;
+  // 代碼陣列
+  repeated string codes = 1;
+
+  // 開始
+  int64 skip = 2;
+
+  // 筆數 預設 100
+  int64 limit = 3;
 
 }
 
-message GetDealerResponse {
+message ListDealersResponse {
 
   // 荷官資料
   repeated Dealer dealers = 1;
-
+  
 }
 
 // 遊戲供應商需要開放出來的被動接口
+// gateway option 設定說明參照：https://github.com/googleapis/googleapis/blob/master/google/api/http.proto
 service ProviderService {
   
   // 取得即時遊戲列表
-  rpc FetchGameProvideList(FetchGameProvideListRequest) returns (FetchGameProvideListResponse);
+  rpc ListGames(ListGamesRequest) returns (ListGamesResponse){
+    option (google.api.http) = {
+      get: "/v1/provider/games"
+    };
+  };
 
   // 取得單一即時遊戲資訊
-  rpc FetchGameProvide(FetchGameProvideRequest) returns (FetchGameProvideResponse);
-
-  // 讀即時遊戲桌資訊
-  rpc FetchCurrentGame(FetchCurrentGameRequest) returns (FetchCurrentGameResponse);
+  rpc GetGames(GetRequest) returns (GameProvide){
+    option (google.api.http) = {
+      get: "/v1/provider/games/{code}"
+    };
+  };
 
   // 驗證
-  rpc VerifyGame(VerifyGameRequest) returns (FetchCurrentGameResponse);
+  rpc VerifyGame(VerifyGameRequest) returns (google.protobuf.Empty){
+    option (google.api.http) = {
+      post: "/v1/provider/games/{game_code}:verify"
+      body: "*"
+    };
+  };
 
   // 荷官資料
-  rpc GetDealers(GetDealerRequest) returns (GetDealerResponse);
+  rpc ListDealers(ListDealersRequest) returns (ListDealersResponse){
+    option (google.api.http) = {
+      get: "/v1/provider/dealers"
+    };
+  };
+
+  // 荷官資料
+  rpc GetDealer(GetRequest) returns (Dealer){
+    option (google.api.http) = {
+      get: "/v1/provider/dealers/{code}"
+    };
+  };
 
 }

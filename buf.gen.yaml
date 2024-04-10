@@ -8,6 +8,12 @@ managed:
   java_package_prefix:
     default: "com.wecasino.proto"
 plugins:
+
+  - plugin: buf.build/grpc-ecosystem/gateway:v2.19.1
+    out: pbgo
+    opt:
+      - paths=source_relative
+
   - plugin: buf.build/protocolbuffers/go
     out: pbgo
     opt:

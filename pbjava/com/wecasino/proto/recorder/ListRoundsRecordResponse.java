@@ -5,12 +5,12 @@
 package com.wecasino.proto.recorder;
 
 /**
- * Protobuf type {@code recorder.FetchRoundRecordResponse}
+ * Protobuf type {@code recorder.ListRoundsRecordResponse}
  */
-public final class FetchRoundRecordResponse extends
+public final class ListRoundsRecordResponse extends
     com.google.protobuf.GeneratedMessage implements
-    // @@protoc_insertion_point(message_implements:recorder.FetchRoundRecordResponse)
-    FetchRoundRecordResponseOrBuilder {
+    // @@protoc_insertion_point(message_implements:recorder.ListRoundsRecordResponse)
+    ListRoundsRecordResponseOrBuilder {
 private static final long serialVersionUID = 0L;
   static {
     com.google.protobuf.RuntimeVersion.validateProtobufGencodeVersion(
@@ -19,33 +19,37 @@ private static final long serialVersionUID = 0L;
       /* minor= */ 26,
       /* patch= */ 1,
       /* suffix= */ "",
-      FetchRoundRecordResponse.class.getName());
+      ListRoundsRecordResponse.class.getName());
   }
-  // Use FetchRoundRecordResponse.newBuilder() to construct.
-  private FetchRoundRecordResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+  // Use ListRoundsRecordResponse.newBuilder() to construct.
+  private ListRoundsRecordResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
     super(builder);
   }
-  private FetchRoundRecordResponse() {
+  private ListRoundsRecordResponse() {
     roundRecord_ = java.util.Collections.emptyList();
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.wecasino.proto.recorder.ProviderProto.internal_static_recorder_FetchRoundRecordResponse_descriptor;
+    return com.wecasino.proto.recorder.ProviderProto.internal_static_recorder_ListRoundsRecordResponse_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.wecasino.proto.recorder.ProviderProto.internal_static_recorder_FetchRoundRecordResponse_fieldAccessorTable
+    return com.wecasino.proto.recorder.ProviderProto.internal_static_recorder_ListRoundsRecordResponse_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.wecasino.proto.recorder.FetchRoundRecordResponse.class, com.wecasino.proto.recorder.FetchRoundRecordResponse.Builder.class);
+            com.wecasino.proto.recorder.ListRoundsRecordResponse.class, com.wecasino.proto.recorder.ListRoundsRecordResponse.Builder.class);
   }
 
   public static final int ROUND_RECORD_FIELD_NUMBER = 1;
   @SuppressWarnings("serial")
   private java.util.List<com.wecasino.proto.recorder.RoundRecord> roundRecord_;
   /**
+   * <pre>
+   * rounds
+   * </pre>
+   *
    * <code>repeated .recorder.RoundRecord round_record = 1 [json_name = "roundRecord"];</code>
    */
   @java.lang.Override
@@ -53,6 +57,10 @@ private static final long serialVersionUID = 0L;
     return roundRecord_;
   }
   /**
+   * <pre>
+   * rounds
+   * </pre>
+   *
    * <code>repeated .recorder.RoundRecord round_record = 1 [json_name = "roundRecord"];</code>
    */
   @java.lang.Override
@@ -61,6 +69,10 @@ private static final long serialVersionUID = 0L;
     return roundRecord_;
   }
   /**
+   * <pre>
+   * rounds
+   * </pre>
+   *
    * <code>repeated .recorder.RoundRecord round_record = 1 [json_name = "roundRecord"];</code>
    */
   @java.lang.Override
@@ -68,6 +80,10 @@ private static final long serialVersionUID = 0L;
     return roundRecord_.size();
   }
   /**
+   * <pre>
+   * rounds
+   * </pre>
+   *
    * <code>repeated .recorder.RoundRecord round_record = 1 [json_name = "roundRecord"];</code>
    */
   @java.lang.Override
@@ -75,6 +91,10 @@ private static final long serialVersionUID = 0L;
     return roundRecord_.get(index);
   }
   /**
+   * <pre>
+   * rounds
+   * </pre>
+   *
    * <code>repeated .recorder.RoundRecord round_record = 1 [json_name = "roundRecord"];</code>
    */
   @java.lang.Override
@@ -123,10 +143,10 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.wecasino.proto.recorder.FetchRoundRecordResponse)) {
+    if (!(obj instanceof com.wecasino.proto.recorder.ListRoundsRecordResponse)) {
       return super.equals(obj);
     }
-    com.wecasino.proto.recorder.FetchRoundRecordResponse other = (com.wecasino.proto.recorder.FetchRoundRecordResponse) obj;
+    com.wecasino.proto.recorder.ListRoundsRecordResponse other = (com.wecasino.proto.recorder.ListRoundsRecordResponse) obj;
 
     if (!getRoundRecordList()
         .equals(other.getRoundRecordList())) return false;
@@ -150,44 +170,44 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static com.wecasino.proto.recorder.FetchRoundRecordResponse parseFrom(
+  public static com.wecasino.proto.recorder.ListRoundsRecordResponse parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.wecasino.proto.recorder.FetchRoundRecordResponse parseFrom(
+  public static com.wecasino.proto.recorder.ListRoundsRecordResponse parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.wecasino.proto.recorder.FetchRoundRecordResponse parseFrom(
+  public static com.wecasino.proto.recorder.ListRoundsRecordResponse parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.wecasino.proto.recorder.FetchRoundRecordResponse parseFrom(
+  public static com.wecasino.proto.recorder.ListRoundsRecordResponse parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.wecasino.proto.recorder.FetchRoundRecordResponse parseFrom(byte[] data)
+  public static com.wecasino.proto.recorder.ListRoundsRecordResponse parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.wecasino.proto.recorder.FetchRoundRecordResponse parseFrom(
+  public static com.wecasino.proto.recorder.ListRoundsRecordResponse parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.wecasino.proto.recorder.FetchRoundRecordResponse parseFrom(java.io.InputStream input)
+  public static com.wecasino.proto.recorder.ListRoundsRecordResponse parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessage
         .parseWithIOException(PARSER, input);
   }
-  public static com.wecasino.proto.recorder.FetchRoundRecordResponse parseFrom(
+  public static com.wecasino.proto.recorder.ListRoundsRecordResponse parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -195,26 +215,26 @@ private static final long serialVersionUID = 0L;
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
 
-  public static com.wecasino.proto.recorder.FetchRoundRecordResponse parseDelimitedFrom(java.io.InputStream input)
+  public static com.wecasino.proto.recorder.ListRoundsRecordResponse parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessage
         .parseDelimitedWithIOException(PARSER, input);
   }
 
-  public static com.wecasino.proto.recorder.FetchRoundRecordResponse parseDelimitedFrom(
+  public static com.wecasino.proto.recorder.ListRoundsRecordResponse parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessage
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.wecasino.proto.recorder.FetchRoundRecordResponse parseFrom(
+  public static com.wecasino.proto.recorder.ListRoundsRecordResponse parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessage
         .parseWithIOException(PARSER, input);
   }
-  public static com.wecasino.proto.recorder.FetchRoundRecordResponse parseFrom(
+  public static com.wecasino.proto.recorder.ListRoundsRecordResponse parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -227,7 +247,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.wecasino.proto.recorder.FetchRoundRecordResponse prototype) {
+  public static Builder newBuilder(com.wecasino.proto.recorder.ListRoundsRecordResponse prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -243,26 +263,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code recorder.FetchRoundRecordResponse}
+   * Protobuf type {@code recorder.ListRoundsRecordResponse}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:recorder.FetchRoundRecordResponse)
-      com.wecasino.proto.recorder.FetchRoundRecordResponseOrBuilder {
+      // @@protoc_insertion_point(builder_implements:recorder.ListRoundsRecordResponse)
+      com.wecasino.proto.recorder.ListRoundsRecordResponseOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.wecasino.proto.recorder.ProviderProto.internal_static_recorder_FetchRoundRecordResponse_descriptor;
+      return com.wecasino.proto.recorder.ProviderProto.internal_static_recorder_ListRoundsRecordResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.wecasino.proto.recorder.ProviderProto.internal_static_recorder_FetchRoundRecordResponse_fieldAccessorTable
+      return com.wecasino.proto.recorder.ProviderProto.internal_static_recorder_ListRoundsRecordResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.wecasino.proto.recorder.FetchRoundRecordResponse.class, com.wecasino.proto.recorder.FetchRoundRecordResponse.Builder.class);
+              com.wecasino.proto.recorder.ListRoundsRecordResponse.class, com.wecasino.proto.recorder.ListRoundsRecordResponse.Builder.class);
     }
 
-    // Construct using com.wecasino.proto.recorder.FetchRoundRecordResponse.newBuilder()
+    // Construct using com.wecasino.proto.recorder.ListRoundsRecordResponse.newBuilder()
     private Builder() {
 
     }
@@ -289,17 +309,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.wecasino.proto.recorder.ProviderProto.internal_static_recorder_FetchRoundRecordResponse_descriptor;
+      return com.wecasino.proto.recorder.ProviderProto.internal_static_recorder_ListRoundsRecordResponse_descriptor;
     }
 
     @java.lang.Override
-    public com.wecasino.proto.recorder.FetchRoundRecordResponse getDefaultInstanceForType() {
-      return com.wecasino.proto.recorder.FetchRoundRecordResponse.getDefaultInstance();
+    public com.wecasino.proto.recorder.ListRoundsRecordResponse getDefaultInstanceForType() {
+      return com.wecasino.proto.recorder.ListRoundsRecordResponse.getDefaultInstance();
     }
 
     @java.lang.Override
-    public com.wecasino.proto.recorder.FetchRoundRecordResponse build() {
-      com.wecasino.proto.recorder.FetchRoundRecordResponse result = buildPartial();
+    public com.wecasino.proto.recorder.ListRoundsRecordResponse build() {
+      com.wecasino.proto.recorder.ListRoundsRecordResponse result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -307,15 +327,15 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public com.wecasino.proto.recorder.FetchRoundRecordResponse buildPartial() {
-      com.wecasino.proto.recorder.FetchRoundRecordResponse result = new com.wecasino.proto.recorder.FetchRoundRecordResponse(this);
+    public com.wecasino.proto.recorder.ListRoundsRecordResponse buildPartial() {
+      com.wecasino.proto.recorder.ListRoundsRecordResponse result = new com.wecasino.proto.recorder.ListRoundsRecordResponse(this);
       buildPartialRepeatedFields(result);
       if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
     }
 
-    private void buildPartialRepeatedFields(com.wecasino.proto.recorder.FetchRoundRecordResponse result) {
+    private void buildPartialRepeatedFields(com.wecasino.proto.recorder.ListRoundsRecordResponse result) {
       if (roundRecordBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           roundRecord_ = java.util.Collections.unmodifiableList(roundRecord_);
@@ -327,22 +347,22 @@ private static final long serialVersionUID = 0L;
       }
     }
 
-    private void buildPartial0(com.wecasino.proto.recorder.FetchRoundRecordResponse result) {
+    private void buildPartial0(com.wecasino.proto.recorder.ListRoundsRecordResponse result) {
       int from_bitField0_ = bitField0_;
     }
 
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.wecasino.proto.recorder.FetchRoundRecordResponse) {
-        return mergeFrom((com.wecasino.proto.recorder.FetchRoundRecordResponse)other);
+      if (other instanceof com.wecasino.proto.recorder.ListRoundsRecordResponse) {
+        return mergeFrom((com.wecasino.proto.recorder.ListRoundsRecordResponse)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.wecasino.proto.recorder.FetchRoundRecordResponse other) {
-      if (other == com.wecasino.proto.recorder.FetchRoundRecordResponse.getDefaultInstance()) return this;
+    public Builder mergeFrom(com.wecasino.proto.recorder.ListRoundsRecordResponse other) {
+      if (other == com.wecasino.proto.recorder.ListRoundsRecordResponse.getDefaultInstance()) return this;
       if (roundRecordBuilder_ == null) {
         if (!other.roundRecord_.isEmpty()) {
           if (roundRecord_.isEmpty()) {
@@ -438,6 +458,10 @@ private static final long serialVersionUID = 0L;
         com.wecasino.proto.recorder.RoundRecord, com.wecasino.proto.recorder.RoundRecord.Builder, com.wecasino.proto.recorder.RoundRecordOrBuilder> roundRecordBuilder_;
 
     /**
+     * <pre>
+     * rounds
+     * </pre>
+     *
      * <code>repeated .recorder.RoundRecord round_record = 1 [json_name = "roundRecord"];</code>
      */
     public java.util.List<com.wecasino.proto.recorder.RoundRecord> getRoundRecordList() {
@@ -448,6 +472,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * rounds
+     * </pre>
+     *
      * <code>repeated .recorder.RoundRecord round_record = 1 [json_name = "roundRecord"];</code>
      */
     public int getRoundRecordCount() {
@@ -458,6 +486,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * rounds
+     * </pre>
+     *
      * <code>repeated .recorder.RoundRecord round_record = 1 [json_name = "roundRecord"];</code>
      */
     public com.wecasino.proto.recorder.RoundRecord getRoundRecord(int index) {
@@ -468,6 +500,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * rounds
+     * </pre>
+     *
      * <code>repeated .recorder.RoundRecord round_record = 1 [json_name = "roundRecord"];</code>
      */
     public Builder setRoundRecord(
@@ -485,6 +521,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * rounds
+     * </pre>
+     *
      * <code>repeated .recorder.RoundRecord round_record = 1 [json_name = "roundRecord"];</code>
      */
     public Builder setRoundRecord(
@@ -499,6 +539,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * rounds
+     * </pre>
+     *
      * <code>repeated .recorder.RoundRecord round_record = 1 [json_name = "roundRecord"];</code>
      */
     public Builder addRoundRecord(com.wecasino.proto.recorder.RoundRecord value) {
@@ -515,6 +559,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * rounds
+     * </pre>
+     *
      * <code>repeated .recorder.RoundRecord round_record = 1 [json_name = "roundRecord"];</code>
      */
     public Builder addRoundRecord(
@@ -532,6 +580,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * rounds
+     * </pre>
+     *
      * <code>repeated .recorder.RoundRecord round_record = 1 [json_name = "roundRecord"];</code>
      */
     public Builder addRoundRecord(
@@ -546,6 +598,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * rounds
+     * </pre>
+     *
      * <code>repeated .recorder.RoundRecord round_record = 1 [json_name = "roundRecord"];</code>
      */
     public Builder addRoundRecord(
@@ -560,6 +616,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * rounds
+     * </pre>
+     *
      * <code>repeated .recorder.RoundRecord round_record = 1 [json_name = "roundRecord"];</code>
      */
     public Builder addAllRoundRecord(
@@ -575,6 +635,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * rounds
+     * </pre>
+     *
      * <code>repeated .recorder.RoundRecord round_record = 1 [json_name = "roundRecord"];</code>
      */
     public Builder clearRoundRecord() {
@@ -588,6 +652,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * rounds
+     * </pre>
+     *
      * <code>repeated .recorder.RoundRecord round_record = 1 [json_name = "roundRecord"];</code>
      */
     public Builder removeRoundRecord(int index) {
@@ -601,6 +669,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * rounds
+     * </pre>
+     *
      * <code>repeated .recorder.RoundRecord round_record = 1 [json_name = "roundRecord"];</code>
      */
     public com.wecasino.proto.recorder.RoundRecord.Builder getRoundRecordBuilder(
@@ -608,6 +680,10 @@ private static final long serialVersionUID = 0L;
       return getRoundRecordFieldBuilder().getBuilder(index);
     }
     /**
+     * <pre>
+     * rounds
+     * </pre>
+     *
      * <code>repeated .recorder.RoundRecord round_record = 1 [json_name = "roundRecord"];</code>
      */
     public com.wecasino.proto.recorder.RoundRecordOrBuilder getRoundRecordOrBuilder(
@@ -618,6 +694,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * rounds
+     * </pre>
+     *
      * <code>repeated .recorder.RoundRecord round_record = 1 [json_name = "roundRecord"];</code>
      */
     public java.util.List<? extends com.wecasino.proto.recorder.RoundRecordOrBuilder> 
@@ -629,6 +709,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * rounds
+     * </pre>
+     *
      * <code>repeated .recorder.RoundRecord round_record = 1 [json_name = "roundRecord"];</code>
      */
     public com.wecasino.proto.recorder.RoundRecord.Builder addRoundRecordBuilder() {
@@ -636,6 +720,10 @@ private static final long serialVersionUID = 0L;
           com.wecasino.proto.recorder.RoundRecord.getDefaultInstance());
     }
     /**
+     * <pre>
+     * rounds
+     * </pre>
+     *
      * <code>repeated .recorder.RoundRecord round_record = 1 [json_name = "roundRecord"];</code>
      */
     public com.wecasino.proto.recorder.RoundRecord.Builder addRoundRecordBuilder(
@@ -644,6 +732,10 @@ private static final long serialVersionUID = 0L;
           index, com.wecasino.proto.recorder.RoundRecord.getDefaultInstance());
     }
     /**
+     * <pre>
+     * rounds
+     * </pre>
+     *
      * <code>repeated .recorder.RoundRecord round_record = 1 [json_name = "roundRecord"];</code>
      */
     public java.util.List<com.wecasino.proto.recorder.RoundRecord.Builder> 
@@ -665,23 +757,23 @@ private static final long serialVersionUID = 0L;
       return roundRecordBuilder_;
     }
 
-    // @@protoc_insertion_point(builder_scope:recorder.FetchRoundRecordResponse)
+    // @@protoc_insertion_point(builder_scope:recorder.ListRoundsRecordResponse)
   }
 
-  // @@protoc_insertion_point(class_scope:recorder.FetchRoundRecordResponse)
-  private static final com.wecasino.proto.recorder.FetchRoundRecordResponse DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:recorder.ListRoundsRecordResponse)
+  private static final com.wecasino.proto.recorder.ListRoundsRecordResponse DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.wecasino.proto.recorder.FetchRoundRecordResponse();
+    DEFAULT_INSTANCE = new com.wecasino.proto.recorder.ListRoundsRecordResponse();
   }
 
-  public static com.wecasino.proto.recorder.FetchRoundRecordResponse getDefaultInstance() {
+  public static com.wecasino.proto.recorder.ListRoundsRecordResponse getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<FetchRoundRecordResponse>
-      PARSER = new com.google.protobuf.AbstractParser<FetchRoundRecordResponse>() {
+  private static final com.google.protobuf.Parser<ListRoundsRecordResponse>
+      PARSER = new com.google.protobuf.AbstractParser<ListRoundsRecordResponse>() {
     @java.lang.Override
-    public FetchRoundRecordResponse parsePartialFrom(
+    public ListRoundsRecordResponse parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -700,17 +792,17 @@ private static final long serialVersionUID = 0L;
     }
   };
 
-  public static com.google.protobuf.Parser<FetchRoundRecordResponse> parser() {
+  public static com.google.protobuf.Parser<ListRoundsRecordResponse> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<FetchRoundRecordResponse> getParserForType() {
+  public com.google.protobuf.Parser<ListRoundsRecordResponse> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.wecasino.proto.recorder.FetchRoundRecordResponse getDefaultInstanceForType() {
+  public com.wecasino.proto.recorder.ListRoundsRecordResponse getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

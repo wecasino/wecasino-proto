@@ -110,100 +110,99 @@ public final class RecorderProto {
     java.lang.String[] descriptorData = {
       "\n\027recorder/recorder.proto\022\010recorder\032\025rec" +
       "order/record.proto\032\037google/protobuf/time" +
-      "stamp.proto\032\033google/protobuf/empty.proto" +
-      "\"/\n\020RecordIDResponse\022\033\n\trecord_id\030\001 \001(\014R" +
-      "\010recordId\"\250\003\n\031RecordShiftStartedRequest\022" +
-      "\032\n\010supplier\030\002 \001(\tR\010supplier\022\033\n\tgame_type" +
-      "\030\003 \001(\tR\010gameType\022!\n\014game_subtype\030\004 \001(\tR\013" +
-      "gameSubtype\022!\n\014game_version\030\005 \001(\tR\013gameV" +
-      "ersion\022\033\n\tgame_code\030\006 \001(\tR\010gameCode\022\035\n\nt" +
-      "able_code\030\007 \001(\tR\ttableCode\022\035\n\nshift_code" +
-      "\030\010 \001(\tR\tshiftCode\0225\n\010ts_start\030\020 \001(\0132\032.go" +
-      "ogle.protobuf.TimestampR\007tsStart\022A\n\004tags" +
-      "\030\r \003(\0132-.recorder.RecordShiftStartedRequ" +
-      "est.TagsEntryR\004tags\0327\n\tTagsEntry\022\020\n\003key\030" +
-      "\001 \001(\tR\003key\022\024\n\005value\030\002 \001(\tR\005value:\0028\001\"i\n\027" +
-      "RecordShiftEndedRequest\022\033\n\trecord_id\030\001 \001" +
-      "(\014R\010recordId\0221\n\006ts_end\030\023 \001(\0132\032.google.pr" +
-      "otobuf.TimestampR\005tsEnd\"\327\003\n\030RecordShoeSt" +
-      "artedRequest\022\032\n\010supplier\030\002 \001(\tR\010supplier" +
-      "\022\033\n\tgame_type\030\003 \001(\tR\010gameType\022!\n\014game_su" +
-      "btype\030\004 \001(\tR\013gameSubtype\022!\n\014game_version" +
-      "\030\005 \001(\tR\013gameVersion\022\033\n\tgame_code\030\006 \001(\tR\010" +
-      "gameCode\022\035\n\ntable_code\030\007 \001(\tR\ttableCode\022" +
-      "\035\n\nshift_code\030\010 \001(\tR\tshiftCode\022\033\n\tshoe_c" +
-      "ode\030\n \001(\tR\010shoeCode\0225\n\010ts_start\030\020 \001(\0132\032." +
-      "google.protobuf.TimestampR\007tsStart\022C\n\005de" +
-      "cks\030\030 \003(\0132-.recorder.RecordShoeStartedRe" +
-      "quest.DecksEntryR\005decks\032H\n\nDecksEntry\022\020\n" +
-      "\003key\030\001 \001(\005R\003key\022$\n\005value\030\002 \001(\0132\016.recorde" +
-      "r.DeckR\005value:\0028\001\"h\n\026RecordShoeEndedRequ" +
-      "est\022\033\n\trecord_id\030\001 \001(\014R\010recordId\0221\n\006ts_e" +
-      "nd\030\023 \001(\0132\032.google.protobuf.TimestampR\005ts" +
-      "End\"\244\004\n\031RecordRoundStartedRequest\022\032\n\010sup" +
-      "plier\030\002 \001(\tR\010supplier\022\033\n\tgame_type\030\003 \001(\t" +
-      "R\010gameType\022!\n\014game_subtype\030\004 \001(\tR\013gameSu" +
-      "btype\022!\n\014game_version\030\005 \001(\tR\013gameVersion" +
-      "\022\033\n\tgame_code\030\006 \001(\tR\010gameCode\022\035\n\ntable_c" +
-      "ode\030\007 \001(\tR\ttableCode\022\035\n\nshift_code\030\010 \001(\t" +
-      "R\tshiftCode\022\037\n\013shift_round\030\t \001(\003R\nshiftR" +
-      "ound\022\033\n\tshoe_code\030\n \001(\tR\010shoeCode\022\035\n\nsho" +
-      "e_round\030\013 \001(\003R\tshoeRound\022\035\n\nround_code\030\014" +
-      " \001(\tR\troundCode\022A\n\004tags\030\r \003(\0132-.recorder" +
-      ".RecordRoundStartedRequest.TagsEntryR\004ta" +
-      "gs\0225\n\010ts_start\030\020 \001(\0132\032.google.protobuf.T" +
-      "imestampR\007tsStart\0327\n\tTagsEntry\022\020\n\003key\030\001 " +
-      "\001(\tR\003key\022\024\n\005value\030\002 \001(\tR\005value:\0028\001\"\\\n\027Re" +
-      "cordRoundStepsRequest\022\033\n\trecord_id\030\001 \001(\014" +
-      "R\010recordId\022$\n\005steps\030\032 \003(\0132\016.recorder.Ste" +
-      "pR\005steps\"\266\001\n\034RecordRoundBeCanceledReques" +
-      "t\022\033\n\trecord_id\030\001 \001(\014R\010recordId\0221\n\006ts_end" +
-      "\030\023 \001(\0132\032.google.protobuf.TimestampR\005tsEn" +
-      "d\022\037\n\013cancel_code\030\025 \001(\tR\ncancelCode\022%\n\016ca" +
-      "ncel_message\030\026 \001(\tR\rcancelMessage\"l\n\032Rec" +
-      "ordRoundFinishedRequest\022\033\n\trecord_id\030\001 \001" +
-      "(\014R\010recordId\0221\n\006ts_end\030\023 \001(\0132\032.google.pr" +
-      "otobuf.TimestampR\005tsEnd\"\272\002\n\027RecordRoundM" +
-      "ediaRequest\022\033\n\trecord_id\030\001 \001(\014R\010recordId" +
-      "\022<\n\003set\030\002 \003(\0132*.recorder.RecordRoundMedi" +
-      "aRequest.SetEntryR\003set\022<\n\003add\030\003 \003(\0132*.re" +
-      "corder.RecordRoundMediaRequest.AddEntryR" +
-      "\003add\022\026\n\006remove\030\004 \003(\tR\006remove\0326\n\010SetEntry" +
-      "\022\020\n\003key\030\001 \001(\tR\003key\022\024\n\005value\030\002 \001(\tR\005value" +
-      ":\0028\001\0326\n\010AddEntry\022\020\n\003key\030\001 \001(\tR\003key\022\024\n\005va" +
-      "lue\030\002 \001(\tR\005value:\0028\0012\270\006\n\017RecorderService" +
-      "\022P\n\022RecordShiftStarted\022#.recorder.Record" +
-      "ShiftStartedRequest\032\025.recorder.ShiftReco" +
-      "rd\022L\n\020RecordShiftEnded\022!.recorder.Record" +
-      "ShiftEndedRequest\032\025.recorder.ShiftRecord" +
-      "\022M\n\021RecordShoeStarted\022\".recorder.RecordS" +
-      "hoeStartedRequest\032\024.recorder.ShoeRecord\022" +
-      "I\n\017RecordShoeEnded\022 .recorder.RecordShoe" +
-      "EndedRequest\032\024.recorder.ShoeRecord\022P\n\022Re" +
-      "cordRoundStarted\022#.recorder.RecordRoundS" +
-      "tartedRequest\032\025.recorder.RoundRecord\022L\n\020" +
-      "RecordRoundSteps\022!.recorder.RecordRoundS" +
-      "tepsRequest\032\025.recorder.RoundRecord\022V\n\025Re" +
-      "cordRoundBeCanceled\022&.recorder.RecordRou" +
-      "ndBeCanceledRequest\032\025.recorder.RoundReco" +
-      "rd\022R\n\023RecordRoundFinished\022$.recorder.Rec" +
-      "ordRoundFinishedRequest\032\025.recorder.Round" +
-      "Record\022L\n\020RecordRoundVideo\022!.recorder.Re" +
-      "cordRoundMediaRequest\032\025.recorder.RoundRe" +
-      "cord\022Q\n\022RecordCaptureFrame\022#.recorder.Re" +
-      "cordRoundStartedRequest\032\026.google.protobu" +
-      "f.EmptyB\236\001\n\033com.wecasino.proto.recorderB" +
-      "\rRecorderProtoP\001Z0github.com/wecasino/we" +
-      "casino-proto/pbgo/recorder\242\002\003RXX\252\002\010Recor" +
-      "der\312\002\010Recorder\342\002\024Recorder\\GPBMetadata\352\002\010" +
-      "Recorderb\006proto3"
+      "stamp.proto\"/\n\020RecordIDResponse\022\033\n\trecor" +
+      "d_id\030\001 \001(\014R\010recordId\"\250\003\n\031RecordShiftStar" +
+      "tedRequest\022\032\n\010supplier\030\002 \001(\tR\010supplier\022\033" +
+      "\n\tgame_type\030\003 \001(\tR\010gameType\022!\n\014game_subt" +
+      "ype\030\004 \001(\tR\013gameSubtype\022!\n\014game_version\030\005" +
+      " \001(\tR\013gameVersion\022\033\n\tgame_code\030\006 \001(\tR\010ga" +
+      "meCode\022\035\n\ntable_code\030\007 \001(\tR\ttableCode\022\035\n" +
+      "\nshift_code\030\010 \001(\tR\tshiftCode\0225\n\010ts_start" +
+      "\030\020 \001(\0132\032.google.protobuf.TimestampR\007tsSt" +
+      "art\022A\n\004tags\030\r \003(\0132-.recorder.RecordShift" +
+      "StartedRequest.TagsEntryR\004tags\0327\n\tTagsEn" +
+      "try\022\020\n\003key\030\001 \001(\tR\003key\022\024\n\005value\030\002 \001(\tR\005va" +
+      "lue:\0028\001\"i\n\027RecordShiftEndedRequest\022\033\n\tre" +
+      "cord_id\030\001 \001(\014R\010recordId\0221\n\006ts_end\030\023 \001(\0132" +
+      "\032.google.protobuf.TimestampR\005tsEnd\"\327\003\n\030R" +
+      "ecordShoeStartedRequest\022\032\n\010supplier\030\002 \001(" +
+      "\tR\010supplier\022\033\n\tgame_type\030\003 \001(\tR\010gameType" +
+      "\022!\n\014game_subtype\030\004 \001(\tR\013gameSubtype\022!\n\014g" +
+      "ame_version\030\005 \001(\tR\013gameVersion\022\033\n\tgame_c" +
+      "ode\030\006 \001(\tR\010gameCode\022\035\n\ntable_code\030\007 \001(\tR" +
+      "\ttableCode\022\035\n\nshift_code\030\010 \001(\tR\tshiftCod" +
+      "e\022\033\n\tshoe_code\030\n \001(\tR\010shoeCode\0225\n\010ts_sta" +
+      "rt\030\020 \001(\0132\032.google.protobuf.TimestampR\007ts" +
+      "Start\022C\n\005decks\030\030 \003(\0132-.recorder.RecordSh" +
+      "oeStartedRequest.DecksEntryR\005decks\032H\n\nDe" +
+      "cksEntry\022\020\n\003key\030\001 \001(\005R\003key\022$\n\005value\030\002 \001(" +
+      "\0132\016.recorder.DeckR\005value:\0028\001\"h\n\026RecordSh" +
+      "oeEndedRequest\022\033\n\trecord_id\030\001 \001(\014R\010recor" +
+      "dId\0221\n\006ts_end\030\023 \001(\0132\032.google.protobuf.Ti" +
+      "mestampR\005tsEnd\"\244\004\n\031RecordRoundStartedReq" +
+      "uest\022\032\n\010supplier\030\002 \001(\tR\010supplier\022\033\n\tgame" +
+      "_type\030\003 \001(\tR\010gameType\022!\n\014game_subtype\030\004 " +
+      "\001(\tR\013gameSubtype\022!\n\014game_version\030\005 \001(\tR\013" +
+      "gameVersion\022\033\n\tgame_code\030\006 \001(\tR\010gameCode" +
+      "\022\035\n\ntable_code\030\007 \001(\tR\ttableCode\022\035\n\nshift" +
+      "_code\030\010 \001(\tR\tshiftCode\022\037\n\013shift_round\030\t " +
+      "\001(\003R\nshiftRound\022\033\n\tshoe_code\030\n \001(\tR\010shoe" +
+      "Code\022\035\n\nshoe_round\030\013 \001(\003R\tshoeRound\022\035\n\nr" +
+      "ound_code\030\014 \001(\tR\troundCode\022A\n\004tags\030\r \003(\013" +
+      "2-.recorder.RecordRoundStartedRequest.Ta" +
+      "gsEntryR\004tags\0225\n\010ts_start\030\020 \001(\0132\032.google" +
+      ".protobuf.TimestampR\007tsStart\0327\n\tTagsEntr" +
+      "y\022\020\n\003key\030\001 \001(\tR\003key\022\024\n\005value\030\002 \001(\tR\005valu" +
+      "e:\0028\001\"\\\n\027RecordRoundStepsRequest\022\033\n\treco" +
+      "rd_id\030\001 \001(\014R\010recordId\022$\n\005steps\030\032 \003(\0132\016.r" +
+      "ecorder.StepR\005steps\"\266\001\n\034RecordRoundBeCan" +
+      "celedRequest\022\033\n\trecord_id\030\001 \001(\014R\010recordI" +
+      "d\0221\n\006ts_end\030\023 \001(\0132\032.google.protobuf.Time" +
+      "stampR\005tsEnd\022\037\n\013cancel_code\030\025 \001(\tR\ncance" +
+      "lCode\022%\n\016cancel_message\030\026 \001(\tR\rcancelMes" +
+      "sage\"l\n\032RecordRoundFinishedRequest\022\033\n\tre" +
+      "cord_id\030\001 \001(\014R\010recordId\0221\n\006ts_end\030\023 \001(\0132" +
+      "\032.google.protobuf.TimestampR\005tsEnd\"\272\002\n\027R" +
+      "ecordRoundMediaRequest\022\033\n\trecord_id\030\001 \001(" +
+      "\014R\010recordId\022<\n\003set\030\002 \003(\0132*.recorder.Reco" +
+      "rdRoundMediaRequest.SetEntryR\003set\022<\n\003add" +
+      "\030\003 \003(\0132*.recorder.RecordRoundMediaReques" +
+      "t.AddEntryR\003add\022\026\n\006remove\030\004 \003(\tR\006remove\032" +
+      "6\n\010SetEntry\022\020\n\003key\030\001 \001(\tR\003key\022\024\n\005value\030\002" +
+      " \001(\tR\005value:\0028\001\0326\n\010AddEntry\022\020\n\003key\030\001 \001(\t" +
+      "R\003key\022\024\n\005value\030\002 \001(\tR\005value:\0028\0012\312\006\n\017Reco" +
+      "rderService\022P\n\022RecordShiftStarted\022#.reco" +
+      "rder.RecordShiftStartedRequest\032\025.recorde" +
+      "r.ShiftRecord\022L\n\020RecordShiftEnded\022!.reco" +
+      "rder.RecordShiftEndedRequest\032\025.recorder." +
+      "ShiftRecord\022M\n\021RecordShoeStarted\022\".recor" +
+      "der.RecordShoeStartedRequest\032\024.recorder." +
+      "ShoeRecord\022I\n\017RecordShoeEnded\022 .recorder" +
+      ".RecordShoeEndedRequest\032\024.recorder.ShoeR" +
+      "ecord\022P\n\022RecordRoundStarted\022#.recorder.R" +
+      "ecordRoundStartedRequest\032\025.recorder.Roun" +
+      "dRecord\022L\n\020RecordRoundSteps\022!.recorder.R" +
+      "ecordRoundStepsRequest\032\025.recorder.RoundR" +
+      "ecord\022V\n\025RecordRoundBeCanceled\022&.recorde" +
+      "r.RecordRoundBeCanceledRequest\032\025.recorde" +
+      "r.RoundRecord\022R\n\023RecordRoundFinished\022$.r" +
+      "ecorder.RecordRoundFinishedRequest\032\025.rec" +
+      "order.RoundRecord\022c\n\"RecordRoundBeCancel" +
+      "edAfterFinished\022&.recorder.RecordRoundBe" +
+      "CanceledRequest\032\025.recorder.RoundRecord\022L" +
+      "\n\020RecordRoundVideo\022!.recorder.RecordRoun" +
+      "dMediaRequest\032\025.recorder.RoundRecordB\236\001\n" +
+      "\033com.wecasino.proto.recorderB\rRecorderPr" +
+      "otoP\001Z0github.com/wecasino/wecasino-prot" +
+      "o/pbgo/recorder\242\002\003RXX\252\002\010Recorder\312\002\010Recor" +
+      "der\342\002\024Recorder\\GPBMetadata\352\002\010Recorderb\006p" +
+      "roto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.wecasino.proto.recorder.RecordProto.getDescriptor(),
           com.google.protobuf.TimestampProto.getDescriptor(),
-          com.google.protobuf.EmptyProto.getDescriptor(),
         });
     internal_static_recorder_RecordIDResponse_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -298,7 +297,6 @@ public final class RecorderProto {
     descriptor.resolveAllFeaturesImmutable();
     com.wecasino.proto.recorder.RecordProto.getDescriptor();
     com.google.protobuf.TimestampProto.getDescriptor();
-    com.google.protobuf.EmptyProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

@@ -5,12 +5,12 @@
 package com.wecasino.proto.recorder;
 
 /**
- * Protobuf type {@code recorder.FetchShiftRecordResponse}
+ * Protobuf type {@code recorder.ListShiftsResponse}
  */
-public final class FetchShiftRecordResponse extends
+public final class ListShiftsResponse extends
     com.google.protobuf.GeneratedMessage implements
-    // @@protoc_insertion_point(message_implements:recorder.FetchShiftRecordResponse)
-    FetchShiftRecordResponseOrBuilder {
+    // @@protoc_insertion_point(message_implements:recorder.ListShiftsResponse)
+    ListShiftsResponseOrBuilder {
 private static final long serialVersionUID = 0L;
   static {
     com.google.protobuf.RuntimeVersion.validateProtobufGencodeVersion(
@@ -19,33 +19,37 @@ private static final long serialVersionUID = 0L;
       /* minor= */ 26,
       /* patch= */ 1,
       /* suffix= */ "",
-      FetchShiftRecordResponse.class.getName());
+      ListShiftsResponse.class.getName());
   }
-  // Use FetchShiftRecordResponse.newBuilder() to construct.
-  private FetchShiftRecordResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+  // Use ListShiftsResponse.newBuilder() to construct.
+  private ListShiftsResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
     super(builder);
   }
-  private FetchShiftRecordResponse() {
+  private ListShiftsResponse() {
     shiftRecord_ = java.util.Collections.emptyList();
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.wecasino.proto.recorder.ProviderProto.internal_static_recorder_FetchShiftRecordResponse_descriptor;
+    return com.wecasino.proto.recorder.ProviderProto.internal_static_recorder_ListShiftsResponse_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.wecasino.proto.recorder.ProviderProto.internal_static_recorder_FetchShiftRecordResponse_fieldAccessorTable
+    return com.wecasino.proto.recorder.ProviderProto.internal_static_recorder_ListShiftsResponse_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.wecasino.proto.recorder.FetchShiftRecordResponse.class, com.wecasino.proto.recorder.FetchShiftRecordResponse.Builder.class);
+            com.wecasino.proto.recorder.ListShiftsResponse.class, com.wecasino.proto.recorder.ListShiftsResponse.Builder.class);
   }
 
   public static final int SHIFT_RECORD_FIELD_NUMBER = 1;
   @SuppressWarnings("serial")
   private java.util.List<com.wecasino.proto.recorder.ShiftRecord> shiftRecord_;
   /**
+   * <pre>
+   * shifts
+   * </pre>
+   *
    * <code>repeated .recorder.ShiftRecord shift_record = 1 [json_name = "shiftRecord"];</code>
    */
   @java.lang.Override
@@ -53,6 +57,10 @@ private static final long serialVersionUID = 0L;
     return shiftRecord_;
   }
   /**
+   * <pre>
+   * shifts
+   * </pre>
+   *
    * <code>repeated .recorder.ShiftRecord shift_record = 1 [json_name = "shiftRecord"];</code>
    */
   @java.lang.Override
@@ -61,6 +69,10 @@ private static final long serialVersionUID = 0L;
     return shiftRecord_;
   }
   /**
+   * <pre>
+   * shifts
+   * </pre>
+   *
    * <code>repeated .recorder.ShiftRecord shift_record = 1 [json_name = "shiftRecord"];</code>
    */
   @java.lang.Override
@@ -68,6 +80,10 @@ private static final long serialVersionUID = 0L;
     return shiftRecord_.size();
   }
   /**
+   * <pre>
+   * shifts
+   * </pre>
+   *
    * <code>repeated .recorder.ShiftRecord shift_record = 1 [json_name = "shiftRecord"];</code>
    */
   @java.lang.Override
@@ -75,6 +91,10 @@ private static final long serialVersionUID = 0L;
     return shiftRecord_.get(index);
   }
   /**
+   * <pre>
+   * shifts
+   * </pre>
+   *
    * <code>repeated .recorder.ShiftRecord shift_record = 1 [json_name = "shiftRecord"];</code>
    */
   @java.lang.Override
@@ -123,10 +143,10 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.wecasino.proto.recorder.FetchShiftRecordResponse)) {
+    if (!(obj instanceof com.wecasino.proto.recorder.ListShiftsResponse)) {
       return super.equals(obj);
     }
-    com.wecasino.proto.recorder.FetchShiftRecordResponse other = (com.wecasino.proto.recorder.FetchShiftRecordResponse) obj;
+    com.wecasino.proto.recorder.ListShiftsResponse other = (com.wecasino.proto.recorder.ListShiftsResponse) obj;
 
     if (!getShiftRecordList()
         .equals(other.getShiftRecordList())) return false;
@@ -150,44 +170,44 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static com.wecasino.proto.recorder.FetchShiftRecordResponse parseFrom(
+  public static com.wecasino.proto.recorder.ListShiftsResponse parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.wecasino.proto.recorder.FetchShiftRecordResponse parseFrom(
+  public static com.wecasino.proto.recorder.ListShiftsResponse parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.wecasino.proto.recorder.FetchShiftRecordResponse parseFrom(
+  public static com.wecasino.proto.recorder.ListShiftsResponse parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.wecasino.proto.recorder.FetchShiftRecordResponse parseFrom(
+  public static com.wecasino.proto.recorder.ListShiftsResponse parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.wecasino.proto.recorder.FetchShiftRecordResponse parseFrom(byte[] data)
+  public static com.wecasino.proto.recorder.ListShiftsResponse parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.wecasino.proto.recorder.FetchShiftRecordResponse parseFrom(
+  public static com.wecasino.proto.recorder.ListShiftsResponse parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.wecasino.proto.recorder.FetchShiftRecordResponse parseFrom(java.io.InputStream input)
+  public static com.wecasino.proto.recorder.ListShiftsResponse parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessage
         .parseWithIOException(PARSER, input);
   }
-  public static com.wecasino.proto.recorder.FetchShiftRecordResponse parseFrom(
+  public static com.wecasino.proto.recorder.ListShiftsResponse parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -195,26 +215,26 @@ private static final long serialVersionUID = 0L;
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
 
-  public static com.wecasino.proto.recorder.FetchShiftRecordResponse parseDelimitedFrom(java.io.InputStream input)
+  public static com.wecasino.proto.recorder.ListShiftsResponse parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessage
         .parseDelimitedWithIOException(PARSER, input);
   }
 
-  public static com.wecasino.proto.recorder.FetchShiftRecordResponse parseDelimitedFrom(
+  public static com.wecasino.proto.recorder.ListShiftsResponse parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessage
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.wecasino.proto.recorder.FetchShiftRecordResponse parseFrom(
+  public static com.wecasino.proto.recorder.ListShiftsResponse parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessage
         .parseWithIOException(PARSER, input);
   }
-  public static com.wecasino.proto.recorder.FetchShiftRecordResponse parseFrom(
+  public static com.wecasino.proto.recorder.ListShiftsResponse parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -227,7 +247,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.wecasino.proto.recorder.FetchShiftRecordResponse prototype) {
+  public static Builder newBuilder(com.wecasino.proto.recorder.ListShiftsResponse prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -243,26 +263,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code recorder.FetchShiftRecordResponse}
+   * Protobuf type {@code recorder.ListShiftsResponse}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:recorder.FetchShiftRecordResponse)
-      com.wecasino.proto.recorder.FetchShiftRecordResponseOrBuilder {
+      // @@protoc_insertion_point(builder_implements:recorder.ListShiftsResponse)
+      com.wecasino.proto.recorder.ListShiftsResponseOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.wecasino.proto.recorder.ProviderProto.internal_static_recorder_FetchShiftRecordResponse_descriptor;
+      return com.wecasino.proto.recorder.ProviderProto.internal_static_recorder_ListShiftsResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.wecasino.proto.recorder.ProviderProto.internal_static_recorder_FetchShiftRecordResponse_fieldAccessorTable
+      return com.wecasino.proto.recorder.ProviderProto.internal_static_recorder_ListShiftsResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.wecasino.proto.recorder.FetchShiftRecordResponse.class, com.wecasino.proto.recorder.FetchShiftRecordResponse.Builder.class);
+              com.wecasino.proto.recorder.ListShiftsResponse.class, com.wecasino.proto.recorder.ListShiftsResponse.Builder.class);
     }
 
-    // Construct using com.wecasino.proto.recorder.FetchShiftRecordResponse.newBuilder()
+    // Construct using com.wecasino.proto.recorder.ListShiftsResponse.newBuilder()
     private Builder() {
 
     }
@@ -289,17 +309,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.wecasino.proto.recorder.ProviderProto.internal_static_recorder_FetchShiftRecordResponse_descriptor;
+      return com.wecasino.proto.recorder.ProviderProto.internal_static_recorder_ListShiftsResponse_descriptor;
     }
 
     @java.lang.Override
-    public com.wecasino.proto.recorder.FetchShiftRecordResponse getDefaultInstanceForType() {
-      return com.wecasino.proto.recorder.FetchShiftRecordResponse.getDefaultInstance();
+    public com.wecasino.proto.recorder.ListShiftsResponse getDefaultInstanceForType() {
+      return com.wecasino.proto.recorder.ListShiftsResponse.getDefaultInstance();
     }
 
     @java.lang.Override
-    public com.wecasino.proto.recorder.FetchShiftRecordResponse build() {
-      com.wecasino.proto.recorder.FetchShiftRecordResponse result = buildPartial();
+    public com.wecasino.proto.recorder.ListShiftsResponse build() {
+      com.wecasino.proto.recorder.ListShiftsResponse result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -307,15 +327,15 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public com.wecasino.proto.recorder.FetchShiftRecordResponse buildPartial() {
-      com.wecasino.proto.recorder.FetchShiftRecordResponse result = new com.wecasino.proto.recorder.FetchShiftRecordResponse(this);
+    public com.wecasino.proto.recorder.ListShiftsResponse buildPartial() {
+      com.wecasino.proto.recorder.ListShiftsResponse result = new com.wecasino.proto.recorder.ListShiftsResponse(this);
       buildPartialRepeatedFields(result);
       if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
     }
 
-    private void buildPartialRepeatedFields(com.wecasino.proto.recorder.FetchShiftRecordResponse result) {
+    private void buildPartialRepeatedFields(com.wecasino.proto.recorder.ListShiftsResponse result) {
       if (shiftRecordBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           shiftRecord_ = java.util.Collections.unmodifiableList(shiftRecord_);
@@ -327,22 +347,22 @@ private static final long serialVersionUID = 0L;
       }
     }
 
-    private void buildPartial0(com.wecasino.proto.recorder.FetchShiftRecordResponse result) {
+    private void buildPartial0(com.wecasino.proto.recorder.ListShiftsResponse result) {
       int from_bitField0_ = bitField0_;
     }
 
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.wecasino.proto.recorder.FetchShiftRecordResponse) {
-        return mergeFrom((com.wecasino.proto.recorder.FetchShiftRecordResponse)other);
+      if (other instanceof com.wecasino.proto.recorder.ListShiftsResponse) {
+        return mergeFrom((com.wecasino.proto.recorder.ListShiftsResponse)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.wecasino.proto.recorder.FetchShiftRecordResponse other) {
-      if (other == com.wecasino.proto.recorder.FetchShiftRecordResponse.getDefaultInstance()) return this;
+    public Builder mergeFrom(com.wecasino.proto.recorder.ListShiftsResponse other) {
+      if (other == com.wecasino.proto.recorder.ListShiftsResponse.getDefaultInstance()) return this;
       if (shiftRecordBuilder_ == null) {
         if (!other.shiftRecord_.isEmpty()) {
           if (shiftRecord_.isEmpty()) {
@@ -438,6 +458,10 @@ private static final long serialVersionUID = 0L;
         com.wecasino.proto.recorder.ShiftRecord, com.wecasino.proto.recorder.ShiftRecord.Builder, com.wecasino.proto.recorder.ShiftRecordOrBuilder> shiftRecordBuilder_;
 
     /**
+     * <pre>
+     * shifts
+     * </pre>
+     *
      * <code>repeated .recorder.ShiftRecord shift_record = 1 [json_name = "shiftRecord"];</code>
      */
     public java.util.List<com.wecasino.proto.recorder.ShiftRecord> getShiftRecordList() {
@@ -448,6 +472,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * shifts
+     * </pre>
+     *
      * <code>repeated .recorder.ShiftRecord shift_record = 1 [json_name = "shiftRecord"];</code>
      */
     public int getShiftRecordCount() {
@@ -458,6 +486,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * shifts
+     * </pre>
+     *
      * <code>repeated .recorder.ShiftRecord shift_record = 1 [json_name = "shiftRecord"];</code>
      */
     public com.wecasino.proto.recorder.ShiftRecord getShiftRecord(int index) {
@@ -468,6 +500,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * shifts
+     * </pre>
+     *
      * <code>repeated .recorder.ShiftRecord shift_record = 1 [json_name = "shiftRecord"];</code>
      */
     public Builder setShiftRecord(
@@ -485,6 +521,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * shifts
+     * </pre>
+     *
      * <code>repeated .recorder.ShiftRecord shift_record = 1 [json_name = "shiftRecord"];</code>
      */
     public Builder setShiftRecord(
@@ -499,6 +539,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * shifts
+     * </pre>
+     *
      * <code>repeated .recorder.ShiftRecord shift_record = 1 [json_name = "shiftRecord"];</code>
      */
     public Builder addShiftRecord(com.wecasino.proto.recorder.ShiftRecord value) {
@@ -515,6 +559,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * shifts
+     * </pre>
+     *
      * <code>repeated .recorder.ShiftRecord shift_record = 1 [json_name = "shiftRecord"];</code>
      */
     public Builder addShiftRecord(
@@ -532,6 +580,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * shifts
+     * </pre>
+     *
      * <code>repeated .recorder.ShiftRecord shift_record = 1 [json_name = "shiftRecord"];</code>
      */
     public Builder addShiftRecord(
@@ -546,6 +598,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * shifts
+     * </pre>
+     *
      * <code>repeated .recorder.ShiftRecord shift_record = 1 [json_name = "shiftRecord"];</code>
      */
     public Builder addShiftRecord(
@@ -560,6 +616,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * shifts
+     * </pre>
+     *
      * <code>repeated .recorder.ShiftRecord shift_record = 1 [json_name = "shiftRecord"];</code>
      */
     public Builder addAllShiftRecord(
@@ -575,6 +635,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * shifts
+     * </pre>
+     *
      * <code>repeated .recorder.ShiftRecord shift_record = 1 [json_name = "shiftRecord"];</code>
      */
     public Builder clearShiftRecord() {
@@ -588,6 +652,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * shifts
+     * </pre>
+     *
      * <code>repeated .recorder.ShiftRecord shift_record = 1 [json_name = "shiftRecord"];</code>
      */
     public Builder removeShiftRecord(int index) {
@@ -601,6 +669,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * shifts
+     * </pre>
+     *
      * <code>repeated .recorder.ShiftRecord shift_record = 1 [json_name = "shiftRecord"];</code>
      */
     public com.wecasino.proto.recorder.ShiftRecord.Builder getShiftRecordBuilder(
@@ -608,6 +680,10 @@ private static final long serialVersionUID = 0L;
       return getShiftRecordFieldBuilder().getBuilder(index);
     }
     /**
+     * <pre>
+     * shifts
+     * </pre>
+     *
      * <code>repeated .recorder.ShiftRecord shift_record = 1 [json_name = "shiftRecord"];</code>
      */
     public com.wecasino.proto.recorder.ShiftRecordOrBuilder getShiftRecordOrBuilder(
@@ -618,6 +694,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * shifts
+     * </pre>
+     *
      * <code>repeated .recorder.ShiftRecord shift_record = 1 [json_name = "shiftRecord"];</code>
      */
     public java.util.List<? extends com.wecasino.proto.recorder.ShiftRecordOrBuilder> 
@@ -629,6 +709,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * shifts
+     * </pre>
+     *
      * <code>repeated .recorder.ShiftRecord shift_record = 1 [json_name = "shiftRecord"];</code>
      */
     public com.wecasino.proto.recorder.ShiftRecord.Builder addShiftRecordBuilder() {
@@ -636,6 +720,10 @@ private static final long serialVersionUID = 0L;
           com.wecasino.proto.recorder.ShiftRecord.getDefaultInstance());
     }
     /**
+     * <pre>
+     * shifts
+     * </pre>
+     *
      * <code>repeated .recorder.ShiftRecord shift_record = 1 [json_name = "shiftRecord"];</code>
      */
     public com.wecasino.proto.recorder.ShiftRecord.Builder addShiftRecordBuilder(
@@ -644,6 +732,10 @@ private static final long serialVersionUID = 0L;
           index, com.wecasino.proto.recorder.ShiftRecord.getDefaultInstance());
     }
     /**
+     * <pre>
+     * shifts
+     * </pre>
+     *
      * <code>repeated .recorder.ShiftRecord shift_record = 1 [json_name = "shiftRecord"];</code>
      */
     public java.util.List<com.wecasino.proto.recorder.ShiftRecord.Builder> 
@@ -665,23 +757,23 @@ private static final long serialVersionUID = 0L;
       return shiftRecordBuilder_;
     }
 
-    // @@protoc_insertion_point(builder_scope:recorder.FetchShiftRecordResponse)
+    // @@protoc_insertion_point(builder_scope:recorder.ListShiftsResponse)
   }
 
-  // @@protoc_insertion_point(class_scope:recorder.FetchShiftRecordResponse)
-  private static final com.wecasino.proto.recorder.FetchShiftRecordResponse DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:recorder.ListShiftsResponse)
+  private static final com.wecasino.proto.recorder.ListShiftsResponse DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.wecasino.proto.recorder.FetchShiftRecordResponse();
+    DEFAULT_INSTANCE = new com.wecasino.proto.recorder.ListShiftsResponse();
   }
 
-  public static com.wecasino.proto.recorder.FetchShiftRecordResponse getDefaultInstance() {
+  public static com.wecasino.proto.recorder.ListShiftsResponse getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<FetchShiftRecordResponse>
-      PARSER = new com.google.protobuf.AbstractParser<FetchShiftRecordResponse>() {
+  private static final com.google.protobuf.Parser<ListShiftsResponse>
+      PARSER = new com.google.protobuf.AbstractParser<ListShiftsResponse>() {
     @java.lang.Override
-    public FetchShiftRecordResponse parsePartialFrom(
+    public ListShiftsResponse parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -700,17 +792,17 @@ private static final long serialVersionUID = 0L;
     }
   };
 
-  public static com.google.protobuf.Parser<FetchShiftRecordResponse> parser() {
+  public static com.google.protobuf.Parser<ListShiftsResponse> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<FetchShiftRecordResponse> getParserForType() {
+  public com.google.protobuf.Parser<ListShiftsResponse> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.wecasino.proto.recorder.FetchShiftRecordResponse getDefaultInstanceForType() {
+  public com.wecasino.proto.recorder.ListShiftsResponse getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 
