@@ -596,6 +596,94 @@ java.lang.String defaultValue);
 
   /**
    * <pre>
+   * 贏方
+   * </pre>
+   *
+   * <code>map&lt;int32, .games.WinType&gt; win_type = 27 [json_name = "winType", (.tagger.tags) = "bson:&#92;"winType,omitempty&#92;""];</code>
+   */
+  int getWinTypeCount();
+  /**
+   * <pre>
+   * 贏方
+   * </pre>
+   *
+   * <code>map&lt;int32, .games.WinType&gt; win_type = 27 [json_name = "winType", (.tagger.tags) = "bson:&#92;"winType,omitempty&#92;""];</code>
+   */
+  boolean containsWinType(
+      int key);
+  /**
+   * Use {@link #getWinTypeMap()} instead.
+   */
+  @java.lang.Deprecated
+  java.util.Map<java.lang.Integer, com.wecasino.proto.games.WinType>
+  getWinType();
+  /**
+   * <pre>
+   * 贏方
+   * </pre>
+   *
+   * <code>map&lt;int32, .games.WinType&gt; win_type = 27 [json_name = "winType", (.tagger.tags) = "bson:&#92;"winType,omitempty&#92;""];</code>
+   */
+  java.util.Map<java.lang.Integer, com.wecasino.proto.games.WinType>
+  getWinTypeMap();
+  /**
+   * <pre>
+   * 贏方
+   * </pre>
+   *
+   * <code>map&lt;int32, .games.WinType&gt; win_type = 27 [json_name = "winType", (.tagger.tags) = "bson:&#92;"winType,omitempty&#92;""];</code>
+   */
+  /* nullable */
+com.wecasino.proto.games.WinType getWinTypeOrDefault(
+      int key,
+      /* nullable */
+com.wecasino.proto.games.WinType         defaultValue);
+  /**
+   * <pre>
+   * 贏方
+   * </pre>
+   *
+   * <code>map&lt;int32, .games.WinType&gt; win_type = 27 [json_name = "winType", (.tagger.tags) = "bson:&#92;"winType,omitempty&#92;""];</code>
+   */
+  com.wecasino.proto.games.WinType getWinTypeOrThrow(
+      int key);
+  /**
+   * Use {@link #getWinTypeValueMap()} instead.
+   */
+  @java.lang.Deprecated
+  java.util.Map<java.lang.Integer, java.lang.Integer>
+  getWinTypeValue();
+  /**
+   * <pre>
+   * 贏方
+   * </pre>
+   *
+   * <code>map&lt;int32, .games.WinType&gt; win_type = 27 [json_name = "winType", (.tagger.tags) = "bson:&#92;"winType,omitempty&#92;""];</code>
+   */
+  java.util.Map<java.lang.Integer, java.lang.Integer>
+  getWinTypeValueMap();
+  /**
+   * <pre>
+   * 贏方
+   * </pre>
+   *
+   * <code>map&lt;int32, .games.WinType&gt; win_type = 27 [json_name = "winType", (.tagger.tags) = "bson:&#92;"winType,omitempty&#92;""];</code>
+   */
+  int getWinTypeValueOrDefault(
+      int key,
+      int defaultValue);
+  /**
+   * <pre>
+   * 贏方
+   * </pre>
+   *
+   * <code>map&lt;int32, .games.WinType&gt; win_type = 27 [json_name = "winType", (.tagger.tags) = "bson:&#92;"winType,omitempty&#92;""];</code>
+   */
+  int getWinTypeValueOrThrow(
+      int key);
+
+  /**
+   * <pre>
    * 附加媒體：key: 媒體資源代碼；value: 媒體內容。
    * </pre>
    *

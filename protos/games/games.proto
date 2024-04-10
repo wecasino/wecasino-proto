@@ -90,3 +90,19 @@ enum ResourceType {
   DISCARD = 69;
 
 }
+
+enum WinType {
+
+  // 未指定
+  WIN_TYPE_UNSPECIFIED = 0;
+
+  // 輸
+  LOSE = 1;
+
+  // 贏
+  WIN = 2;
+
+  // 和
+  TIE = 3;
+  
+}

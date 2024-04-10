@@ -4,6 +4,7 @@ package recorder;
 import "google/protobuf/any.proto";
 import "google/protobuf/timestamp.proto";
 import "tagger/tagger.proto";
+import "games/games.proto";
 
 // 卡牌，代表在此局中使用的各類物品
 message Card {
@@ -66,6 +67,8 @@ enum StepActionType {
   STATUS = 9;
   // 此步驟不須修改資源
   NONE = 10;
+  // 決定輸贏
+  WIN = 11;
 
 }
 
@@ -185,7 +188,6 @@ message RoundRecord {
   // key: SeatCode, value: 玩家code。
   map<int32, string> players = 25 [(tagger.tags) = "bson:\"players,omitempty\""];
 
-
   // 歷程
   repeated Step process = 26 [(tagger.tags) = "bson:\"process,omitempty\""];
 
@@ -200,6 +202,9 @@ message RoundRecord {
   optional string cancel_code = 21 [(tagger.tags) = "bson:\"cancelCode,omitempty\""];
   // 取消備註
   optional string cancel_message = 22 [(tagger.tags) = "bson:\"cancelMessage,omitempty\""];
+
+  // 贏方
+  map<int32, games.WinType> win_type = 27 [(tagger.tags) = "bson:\"winType,omitempty\""];
 
   // 附加媒體：key: 媒體資源代碼；value: 媒體內容。
   map<string, string> medias = 28;
