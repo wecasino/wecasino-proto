@@ -5,7 +5,6 @@ managed:
     default: github.com/wecasino/wecasino-proto/pbgo
     except:
       - buf.build/googleapis/googleapis
-      - buf.build/srikrsna/protoc-gen-gotag
   java_package_prefix:
     default: "com.wecasino.proto"
 plugins:

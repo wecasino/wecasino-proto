@@ -4,7 +4,6 @@ go 1.21
 
 require (
 	connectrpc.com/connect v1.16.0
-	github.com/srikrsna/protoc-gen-gotag v0.6.2
 	google.golang.org/grpc v1.58.2
 	google.golang.org/protobuf v1.33.0
 )
