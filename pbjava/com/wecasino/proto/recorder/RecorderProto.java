@@ -70,6 +70,16 @@ public final class RecorderProto {
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_recorder_RecordRoundStartedRequest_TagsEntry_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_recorder_RecordRoundStartedRequest_PlayersEntry_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_recorder_RecordRoundStartedRequest_PlayersEntry_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_recorder_RecordRoundStartedRequest_PlayersNameEntry_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_recorder_RecordRoundStartedRequest_PlayersNameEntry_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_recorder_RecordRoundStepsRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -139,7 +149,7 @@ public final class RecorderProto {
       "\0132\016.recorder.DeckR\005value:\0028\001\"h\n\026RecordSh" +
       "oeEndedRequest\022\033\n\trecord_id\030\001 \001(\014R\010recor" +
       "dId\0221\n\006ts_end\030\023 \001(\0132\032.google.protobuf.Ti" +
-      "mestampR\005tsEnd\"\244\004\n\031RecordRoundStartedReq" +
+      "mestampR\005tsEnd\"\305\006\n\031RecordRoundStartedReq" +
       "uest\022\032\n\010supplier\030\002 \001(\tR\010supplier\022\033\n\tgame" +
       "_type\030\003 \001(\tR\010gameType\022!\n\014game_subtype\030\004 " +
       "\001(\tR\013gameSubtype\022!\n\014game_version\030\005 \001(\tR\013" +
@@ -151,52 +161,59 @@ public final class RecorderProto {
       "ound_code\030\014 \001(\tR\troundCode\022A\n\004tags\030\r \003(\013" +
       "2-.recorder.RecordRoundStartedRequest.Ta" +
       "gsEntryR\004tags\0225\n\010ts_start\030\020 \001(\0132\032.google" +
-      ".protobuf.TimestampR\007tsStart\0327\n\tTagsEntr" +
-      "y\022\020\n\003key\030\001 \001(\tR\003key\022\024\n\005value\030\002 \001(\tR\005valu" +
-      "e:\0028\001\"\\\n\027RecordRoundStepsRequest\022\033\n\treco" +
-      "rd_id\030\001 \001(\014R\010recordId\022$\n\005steps\030\032 \003(\0132\016.r" +
-      "ecorder.StepR\005steps\"\266\001\n\034RecordRoundBeCan" +
-      "celedRequest\022\033\n\trecord_id\030\001 \001(\014R\010recordI" +
-      "d\0221\n\006ts_end\030\023 \001(\0132\032.google.protobuf.Time" +
-      "stampR\005tsEnd\022\037\n\013cancel_code\030\025 \001(\tR\ncance" +
-      "lCode\022%\n\016cancel_message\030\026 \001(\tR\rcancelMes" +
-      "sage\"l\n\032RecordRoundFinishedRequest\022\033\n\tre" +
-      "cord_id\030\001 \001(\014R\010recordId\0221\n\006ts_end\030\023 \001(\0132" +
-      "\032.google.protobuf.TimestampR\005tsEnd\"\272\002\n\027R" +
-      "ecordRoundMediaRequest\022\033\n\trecord_id\030\001 \001(" +
-      "\014R\010recordId\022<\n\003set\030\002 \003(\0132*.recorder.Reco" +
-      "rdRoundMediaRequest.SetEntryR\003set\022<\n\003add" +
-      "\030\003 \003(\0132*.recorder.RecordRoundMediaReques" +
-      "t.AddEntryR\003add\022\026\n\006remove\030\004 \003(\tR\006remove\032" +
-      "6\n\010SetEntry\022\020\n\003key\030\001 \001(\tR\003key\022\024\n\005value\030\002" +
-      " \001(\tR\005value:\0028\001\0326\n\010AddEntry\022\020\n\003key\030\001 \001(\t" +
-      "R\003key\022\024\n\005value\030\002 \001(\tR\005value:\0028\0012\312\006\n\017Reco" +
-      "rderService\022P\n\022RecordShiftStarted\022#.reco" +
-      "rder.RecordShiftStartedRequest\032\025.recorde" +
-      "r.ShiftRecord\022L\n\020RecordShiftEnded\022!.reco" +
-      "rder.RecordShiftEndedRequest\032\025.recorder." +
-      "ShiftRecord\022M\n\021RecordShoeStarted\022\".recor" +
-      "der.RecordShoeStartedRequest\032\024.recorder." +
-      "ShoeRecord\022I\n\017RecordShoeEnded\022 .recorder" +
-      ".RecordShoeEndedRequest\032\024.recorder.ShoeR" +
-      "ecord\022P\n\022RecordRoundStarted\022#.recorder.R" +
-      "ecordRoundStartedRequest\032\025.recorder.Roun" +
-      "dRecord\022L\n\020RecordRoundSteps\022!.recorder.R" +
-      "ecordRoundStepsRequest\032\025.recorder.RoundR" +
-      "ecord\022V\n\025RecordRoundBeCanceled\022&.recorde" +
-      "r.RecordRoundBeCanceledRequest\032\025.recorde" +
-      "r.RoundRecord\022R\n\023RecordRoundFinished\022$.r" +
-      "ecorder.RecordRoundFinishedRequest\032\025.rec" +
-      "order.RoundRecord\022c\n\"RecordRoundBeCancel" +
-      "edAfterFinished\022&.recorder.RecordRoundBe" +
-      "CanceledRequest\032\025.recorder.RoundRecord\022L" +
-      "\n\020RecordRoundVideo\022!.recorder.RecordRoun" +
-      "dMediaRequest\032\025.recorder.RoundRecordB\236\001\n" +
-      "\033com.wecasino.proto.recorderB\rRecorderPr" +
-      "otoP\001Z0github.com/wecasino/wecasino-prot" +
-      "o/pbgo/recorder\242\002\003RXX\252\002\010Recorder\312\002\010Recor" +
-      "der\342\002\024Recorder\\GPBMetadata\352\002\010Recorderb\006p" +
-      "roto3"
+      ".protobuf.TimestampR\007tsStart\022J\n\007players\030" +
+      "\031 \003(\01320.recorder.RecordRoundStartedReque" +
+      "st.PlayersEntryR\007players\022W\n\014players_name" +
+      "\030\036 \003(\01324.recorder.RecordRoundStartedRequ" +
+      "est.PlayersNameEntryR\013playersName\0327\n\tTag" +
+      "sEntry\022\020\n\003key\030\001 \001(\tR\003key\022\024\n\005value\030\002 \001(\tR" +
+      "\005value:\0028\001\032:\n\014PlayersEntry\022\020\n\003key\030\001 \001(\005R" +
+      "\003key\022\024\n\005value\030\002 \001(\tR\005value:\0028\001\032>\n\020Player" +
+      "sNameEntry\022\020\n\003key\030\001 \001(\tR\003key\022\024\n\005value\030\002 " +
+      "\001(\tR\005value:\0028\001\"\\\n\027RecordRoundStepsReques" +
+      "t\022\033\n\trecord_id\030\001 \001(\014R\010recordId\022$\n\005steps\030" +
+      "\032 \003(\0132\016.recorder.StepR\005steps\"\266\001\n\034RecordR" +
+      "oundBeCanceledRequest\022\033\n\trecord_id\030\001 \001(\014" +
+      "R\010recordId\0221\n\006ts_end\030\023 \001(\0132\032.google.prot" +
+      "obuf.TimestampR\005tsEnd\022\037\n\013cancel_code\030\025 \001" +
+      "(\tR\ncancelCode\022%\n\016cancel_message\030\026 \001(\tR\r" +
+      "cancelMessage\"l\n\032RecordRoundFinishedRequ" +
+      "est\022\033\n\trecord_id\030\001 \001(\014R\010recordId\0221\n\006ts_e" +
+      "nd\030\023 \001(\0132\032.google.protobuf.TimestampR\005ts" +
+      "End\"\272\002\n\027RecordRoundMediaRequest\022\033\n\trecor" +
+      "d_id\030\001 \001(\014R\010recordId\022<\n\003set\030\002 \003(\0132*.reco" +
+      "rder.RecordRoundMediaRequest.SetEntryR\003s" +
+      "et\022<\n\003add\030\003 \003(\0132*.recorder.RecordRoundMe" +
+      "diaRequest.AddEntryR\003add\022\026\n\006remove\030\004 \003(\t" +
+      "R\006remove\0326\n\010SetEntry\022\020\n\003key\030\001 \001(\tR\003key\022\024" +
+      "\n\005value\030\002 \001(\tR\005value:\0028\001\0326\n\010AddEntry\022\020\n\003" +
+      "key\030\001 \001(\tR\003key\022\024\n\005value\030\002 \001(\tR\005value:\0028\001" +
+      "2\312\006\n\017RecorderService\022P\n\022RecordShiftStart" +
+      "ed\022#.recorder.RecordShiftStartedRequest\032" +
+      "\025.recorder.ShiftRecord\022L\n\020RecordShiftEnd" +
+      "ed\022!.recorder.RecordShiftEndedRequest\032\025." +
+      "recorder.ShiftRecord\022M\n\021RecordShoeStarte" +
+      "d\022\".recorder.RecordShoeStartedRequest\032\024." +
+      "recorder.ShoeRecord\022I\n\017RecordShoeEnded\022 " +
+      ".recorder.RecordShoeEndedRequest\032\024.recor" +
+      "der.ShoeRecord\022P\n\022RecordRoundStarted\022#.r" +
+      "ecorder.RecordRoundStartedRequest\032\025.reco" +
+      "rder.RoundRecord\022L\n\020RecordRoundSteps\022!.r" +
+      "ecorder.RecordRoundStepsRequest\032\025.record" +
+      "er.RoundRecord\022V\n\025RecordRoundBeCanceled\022" +
+      "&.recorder.RecordRoundBeCanceledRequest\032" +
+      "\025.recorder.RoundRecord\022R\n\023RecordRoundFin" +
+      "ished\022$.recorder.RecordRoundFinishedRequ" +
+      "est\032\025.recorder.RoundRecord\022c\n\"RecordRoun" +
+      "dBeCanceledAfterFinished\022&.recorder.Reco" +
+      "rdRoundBeCanceledRequest\032\025.recorder.Roun" +
+      "dRecord\022L\n\020RecordRoundVideo\022!.recorder.R" +
+      "ecordRoundMediaRequest\032\025.recorder.RoundR" +
+      "ecordB\236\001\n\033com.wecasino.proto.recorderB\rR" +
+      "ecorderProtoP\001Z0github.com/wecasino/weca" +
+      "sino-proto/pbgo/recorder\242\002\003RXX\252\002\010Recorde" +
+      "r\312\002\010Recorder\342\002\024Recorder\\GPBMetadata\352\002\010Re" +
+      "corderb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -251,12 +268,24 @@ public final class RecorderProto {
     internal_static_recorder_RecordRoundStartedRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_recorder_RecordRoundStartedRequest_descriptor,
-        new java.lang.String[] { "Supplier", "GameType", "GameSubtype", "GameVersion", "GameCode", "TableCode", "ShiftCode", "ShiftRound", "ShoeCode", "ShoeRound", "RoundCode", "Tags", "TsStart", });
+        new java.lang.String[] { "Supplier", "GameType", "GameSubtype", "GameVersion", "GameCode", "TableCode", "ShiftCode", "ShiftRound", "ShoeCode", "ShoeRound", "RoundCode", "Tags", "TsStart", "Players", "PlayersName", });
     internal_static_recorder_RecordRoundStartedRequest_TagsEntry_descriptor =
       internal_static_recorder_RecordRoundStartedRequest_descriptor.getNestedTypes().get(0);
     internal_static_recorder_RecordRoundStartedRequest_TagsEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_recorder_RecordRoundStartedRequest_TagsEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
+    internal_static_recorder_RecordRoundStartedRequest_PlayersEntry_descriptor =
+      internal_static_recorder_RecordRoundStartedRequest_descriptor.getNestedTypes().get(1);
+    internal_static_recorder_RecordRoundStartedRequest_PlayersEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_recorder_RecordRoundStartedRequest_PlayersEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
+    internal_static_recorder_RecordRoundStartedRequest_PlayersNameEntry_descriptor =
+      internal_static_recorder_RecordRoundStartedRequest_descriptor.getNestedTypes().get(2);
+    internal_static_recorder_RecordRoundStartedRequest_PlayersNameEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_recorder_RecordRoundStartedRequest_PlayersNameEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_recorder_RecordRoundStepsRequest_descriptor =
       getDescriptor().getMessageTypes().get(6);

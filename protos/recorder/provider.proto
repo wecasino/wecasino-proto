@@ -262,6 +262,9 @@ message GameProvide {
   // 玩家入座
   map<int32, string> players = 25;
 
+  // 玩家姓名
+  map<string, string> players_name = 30;
+
   // 附加媒體：key: 媒體資源代碼；value: 媒體內容。
   map<string, string> medias = 28;
 
