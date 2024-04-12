@@ -27,6 +27,7 @@ private static final long serialVersionUID = 0L;
   }
   private ListRecordsRequest() {
     gameType_ = 0;
+    supplier_ = "";
     gameCode_ = "";
     searchAfter_ = "";
     searchBefore_ = "";
@@ -186,6 +187,65 @@ private static final long serialVersionUID = 0L;
     return gameSubtype_;
   }
 
+  public static final int SUPPLIER_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object supplier_ = "";
+  /**
+   * <pre>
+   * 遊戲供應
+   * </pre>
+   *
+   * <code>optional string supplier = 5 [json_name = "supplier"];</code>
+   * @return Whether the supplier field is set.
+   */
+  @java.lang.Override
+  public boolean hasSupplier() {
+    return ((bitField0_ & 0x00000010) != 0);
+  }
+  /**
+   * <pre>
+   * 遊戲供應
+   * </pre>
+   *
+   * <code>optional string supplier = 5 [json_name = "supplier"];</code>
+   * @return The supplier.
+   */
+  @java.lang.Override
+  public java.lang.String getSupplier() {
+    java.lang.Object ref = supplier_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      supplier_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * 遊戲供應
+   * </pre>
+   *
+   * <code>optional string supplier = 5 [json_name = "supplier"];</code>
+   * @return The bytes for supplier.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getSupplierBytes() {
+    java.lang.Object ref = supplier_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      supplier_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   public static final int GAME_CODE_FIELD_NUMBER = 6;
   @SuppressWarnings("serial")
   private volatile java.lang.Object gameCode_ = "";
@@ -199,7 +259,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public boolean hasGameCode() {
-    return ((bitField0_ & 0x00000010) != 0);
+    return ((bitField0_ & 0x00000020) != 0);
   }
   /**
    * <pre>
@@ -258,7 +318,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public boolean hasSearchAfter() {
-    return ((bitField0_ & 0x00000020) != 0);
+    return ((bitField0_ & 0x00000040) != 0);
   }
   /**
    * <pre>
@@ -317,7 +377,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public boolean hasSearchBefore() {
-    return ((bitField0_ & 0x00000040) != 0);
+    return ((bitField0_ & 0x00000080) != 0);
   }
   /**
    * <pre>
@@ -420,12 +480,15 @@ private static final long serialVersionUID = 0L;
       output.writeInt32(4, gameSubtype_);
     }
     if (((bitField0_ & 0x00000010) != 0)) {
-      com.google.protobuf.GeneratedMessage.writeString(output, 6, gameCode_);
+      com.google.protobuf.GeneratedMessage.writeString(output, 5, supplier_);
     }
     if (((bitField0_ & 0x00000020) != 0)) {
-      com.google.protobuf.GeneratedMessage.writeString(output, 8, searchAfter_);
+      com.google.protobuf.GeneratedMessage.writeString(output, 6, gameCode_);
     }
     if (((bitField0_ & 0x00000040) != 0)) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 8, searchAfter_);
+    }
+    if (((bitField0_ & 0x00000080) != 0)) {
       com.google.protobuf.GeneratedMessage.writeString(output, 9, searchBefore_);
     }
     if (page_ != 0L) {
@@ -460,12 +523,15 @@ private static final long serialVersionUID = 0L;
         .computeInt32Size(4, gameSubtype_);
     }
     if (((bitField0_ & 0x00000010) != 0)) {
-      size += com.google.protobuf.GeneratedMessage.computeStringSize(6, gameCode_);
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(5, supplier_);
     }
     if (((bitField0_ & 0x00000020) != 0)) {
-      size += com.google.protobuf.GeneratedMessage.computeStringSize(8, searchAfter_);
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(6, gameCode_);
     }
     if (((bitField0_ & 0x00000040) != 0)) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(8, searchAfter_);
+    }
+    if (((bitField0_ & 0x00000080) != 0)) {
       size += com.google.protobuf.GeneratedMessage.computeStringSize(9, searchBefore_);
     }
     if (page_ != 0L) {
@@ -509,6 +575,11 @@ private static final long serialVersionUID = 0L;
     if (hasGameSubtype()) {
       if (getGameSubtype()
           != other.getGameSubtype()) return false;
+    }
+    if (hasSupplier() != other.hasSupplier()) return false;
+    if (hasSupplier()) {
+      if (!getSupplier()
+          .equals(other.getSupplier())) return false;
     }
     if (hasGameCode() != other.hasGameCode()) return false;
     if (hasGameCode()) {
@@ -555,6 +626,10 @@ private static final long serialVersionUID = 0L;
     if (hasGameSubtype()) {
       hash = (37 * hash) + GAME_SUBTYPE_FIELD_NUMBER;
       hash = (53 * hash) + getGameSubtype();
+    }
+    if (hasSupplier()) {
+      hash = (37 * hash) + SUPPLIER_FIELD_NUMBER;
+      hash = (53 * hash) + getSupplier().hashCode();
     }
     if (hasGameCode()) {
       hash = (37 * hash) + GAME_CODE_FIELD_NUMBER;
@@ -724,6 +799,7 @@ private static final long serialVersionUID = 0L;
       }
       gameType_ = 0;
       gameSubtype_ = 0;
+      supplier_ = "";
       gameCode_ = "";
       searchAfter_ = "";
       searchBefore_ = "";
@@ -784,21 +860,25 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x00000008;
       }
       if (((from_bitField0_ & 0x00000010) != 0)) {
-        result.gameCode_ = gameCode_;
+        result.supplier_ = supplier_;
         to_bitField0_ |= 0x00000010;
       }
       if (((from_bitField0_ & 0x00000020) != 0)) {
-        result.searchAfter_ = searchAfter_;
+        result.gameCode_ = gameCode_;
         to_bitField0_ |= 0x00000020;
       }
       if (((from_bitField0_ & 0x00000040) != 0)) {
-        result.searchBefore_ = searchBefore_;
+        result.searchAfter_ = searchAfter_;
         to_bitField0_ |= 0x00000040;
       }
       if (((from_bitField0_ & 0x00000080) != 0)) {
-        result.page_ = page_;
+        result.searchBefore_ = searchBefore_;
+        to_bitField0_ |= 0x00000080;
       }
       if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.page_ = page_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
         result.pageSize_ = pageSize_;
       }
       result.bitField0_ |= to_bitField0_;
@@ -828,19 +908,24 @@ private static final long serialVersionUID = 0L;
       if (other.hasGameSubtype()) {
         setGameSubtype(other.getGameSubtype());
       }
+      if (other.hasSupplier()) {
+        supplier_ = other.supplier_;
+        bitField0_ |= 0x00000010;
+        onChanged();
+      }
       if (other.hasGameCode()) {
         gameCode_ = other.gameCode_;
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (other.hasSearchAfter()) {
         searchAfter_ = other.searchAfter_;
-        bitField0_ |= 0x00000020;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
       if (other.hasSearchBefore()) {
         searchBefore_ = other.searchBefore_;
-        bitField0_ |= 0x00000040;
+        bitField0_ |= 0x00000080;
         onChanged();
       }
       if (other.getPage() != 0L) {
@@ -899,29 +984,34 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000008;
               break;
             } // case 32
+            case 42: {
+              supplier_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
             case 50: {
               gameCode_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000010;
+              bitField0_ |= 0x00000020;
               break;
             } // case 50
             case 66: {
               searchAfter_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000020;
+              bitField0_ |= 0x00000040;
               break;
             } // case 66
             case 74: {
               searchBefore_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000040;
+              bitField0_ |= 0x00000080;
               break;
             } // case 74
             case 80: {
               page_ = input.readInt64();
-              bitField0_ |= 0x00000080;
+              bitField0_ |= 0x00000100;
               break;
             } // case 80
             case 88: {
               pageSize_ = input.readInt64();
-              bitField0_ |= 0x00000100;
+              bitField0_ |= 0x00000200;
               break;
             } // case 88
             default: {
@@ -1395,6 +1485,109 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private java.lang.Object supplier_ = "";
+    /**
+     * <pre>
+     * 遊戲供應
+     * </pre>
+     *
+     * <code>optional string supplier = 5 [json_name = "supplier"];</code>
+     * @return Whether the supplier field is set.
+     */
+    public boolean hasSupplier() {
+      return ((bitField0_ & 0x00000010) != 0);
+    }
+    /**
+     * <pre>
+     * 遊戲供應
+     * </pre>
+     *
+     * <code>optional string supplier = 5 [json_name = "supplier"];</code>
+     * @return The supplier.
+     */
+    public java.lang.String getSupplier() {
+      java.lang.Object ref = supplier_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        supplier_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 遊戲供應
+     * </pre>
+     *
+     * <code>optional string supplier = 5 [json_name = "supplier"];</code>
+     * @return The bytes for supplier.
+     */
+    public com.google.protobuf.ByteString
+        getSupplierBytes() {
+      java.lang.Object ref = supplier_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        supplier_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 遊戲供應
+     * </pre>
+     *
+     * <code>optional string supplier = 5 [json_name = "supplier"];</code>
+     * @param value The supplier to set.
+     * @return This builder for chaining.
+     */
+    public Builder setSupplier(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      supplier_ = value;
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 遊戲供應
+     * </pre>
+     *
+     * <code>optional string supplier = 5 [json_name = "supplier"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearSupplier() {
+      supplier_ = getDefaultInstance().getSupplier();
+      bitField0_ = (bitField0_ & ~0x00000010);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 遊戲供應
+     * </pre>
+     *
+     * <code>optional string supplier = 5 [json_name = "supplier"];</code>
+     * @param value The bytes for supplier to set.
+     * @return This builder for chaining.
+     */
+    public Builder setSupplierBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      supplier_ = value;
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+
     private java.lang.Object gameCode_ = "";
     /**
      * <pre>
@@ -1405,7 +1598,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the gameCode field is set.
      */
     public boolean hasGameCode() {
-      return ((bitField0_ & 0x00000010) != 0);
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -1461,7 +1654,7 @@ private static final long serialVersionUID = 0L;
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
       gameCode_ = value;
-      bitField0_ |= 0x00000010;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1475,7 +1668,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearGameCode() {
       gameCode_ = getDefaultInstance().getGameCode();
-      bitField0_ = (bitField0_ & ~0x00000010);
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1493,7 +1686,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
       gameCode_ = value;
-      bitField0_ |= 0x00000010;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1508,7 +1701,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the searchAfter field is set.
      */
     public boolean hasSearchAfter() {
-      return ((bitField0_ & 0x00000020) != 0);
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -1564,7 +1757,7 @@ private static final long serialVersionUID = 0L;
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
       searchAfter_ = value;
-      bitField0_ |= 0x00000020;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1578,7 +1771,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearSearchAfter() {
       searchAfter_ = getDefaultInstance().getSearchAfter();
-      bitField0_ = (bitField0_ & ~0x00000020);
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -1596,7 +1789,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
       searchAfter_ = value;
-      bitField0_ |= 0x00000020;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1611,7 +1804,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the searchBefore field is set.
      */
     public boolean hasSearchBefore() {
-      return ((bitField0_ & 0x00000040) != 0);
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <pre>
@@ -1667,7 +1860,7 @@ private static final long serialVersionUID = 0L;
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
       searchBefore_ = value;
-      bitField0_ |= 0x00000040;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -1681,7 +1874,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearSearchBefore() {
       searchBefore_ = getDefaultInstance().getSearchBefore();
-      bitField0_ = (bitField0_ & ~0x00000040);
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -1699,7 +1892,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
       searchBefore_ = value;
-      bitField0_ |= 0x00000040;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -1729,7 +1922,7 @@ private static final long serialVersionUID = 0L;
     public Builder setPage(long value) {
 
       page_ = value;
-      bitField0_ |= 0x00000080;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -1742,7 +1935,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPage() {
-      bitField0_ = (bitField0_ & ~0x00000080);
+      bitField0_ = (bitField0_ & ~0x00000100);
       page_ = 0L;
       onChanged();
       return this;
@@ -1773,7 +1966,7 @@ private static final long serialVersionUID = 0L;
     public Builder setPageSize(long value) {
 
       pageSize_ = value;
-      bitField0_ |= 0x00000100;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -1786,7 +1979,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPageSize() {
-      bitField0_ = (bitField0_ & ~0x00000100);
+      bitField0_ = (bitField0_ & ~0x00000200);
       pageSize_ = 0L;
       onChanged();
       return this;

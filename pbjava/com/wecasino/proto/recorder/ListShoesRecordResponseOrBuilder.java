@@ -51,4 +51,14 @@ public interface ListShoesRecordResponseOrBuilder extends
    */
   com.wecasino.proto.recorder.ShoeRecordOrBuilder getShoeRecordOrBuilder(
       int index);
+
+  /**
+   * <pre>
+   * 總數
+   * </pre>
+   *
+   * <code>int64 total = 2 [json_name = "total"];</code>
+   * @return The total.
+   */
+  long getTotal();
 }

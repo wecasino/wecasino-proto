@@ -35,6 +35,9 @@ message ListRecordsRequest {
   // 遊戲子類型
   optional int32 game_subtype = 4;
 
+  // 遊戲供應
+  optional string supplier = 5;
+
   // 遊戲代碼
   optional string game_code = 6;
 
@@ -57,6 +60,9 @@ message ListShiftsResponse {
   // shifts
   repeated ShiftRecord shift_record = 1;
 
+  // 總數
+  int64 total = 2;
+
 }
 
 message ListShoesRecordResponse {
@@ -64,12 +70,18 @@ message ListShoesRecordResponse {
   // shoes
   repeated ShoeRecord shoe_record = 1;
 
+  // 總數
+  int64 total = 2;
+
 }
 
 message ListRoundsRecordResponse {
 
   // rounds
   repeated RoundRecord round_record = 1;
+
+  // 總數
+  int64 total = 2;
 
 }
 

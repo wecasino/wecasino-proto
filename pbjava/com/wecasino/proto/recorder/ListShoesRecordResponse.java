@@ -103,6 +103,21 @@ private static final long serialVersionUID = 0L;
     return shoeRecord_.get(index);
   }
 
+  public static final int TOTAL_FIELD_NUMBER = 2;
+  private long total_ = 0L;
+  /**
+   * <pre>
+   * 總數
+   * </pre>
+   *
+   * <code>int64 total = 2 [json_name = "total"];</code>
+   * @return The total.
+   */
+  @java.lang.Override
+  public long getTotal() {
+    return total_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -120,6 +135,9 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < shoeRecord_.size(); i++) {
       output.writeMessage(1, shoeRecord_.get(i));
     }
+    if (total_ != 0L) {
+      output.writeInt64(2, total_);
+    }
     getUnknownFields().writeTo(output);
   }
 
@@ -132,6 +150,10 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < shoeRecord_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, shoeRecord_.get(i));
+    }
+    if (total_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(2, total_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -150,6 +172,8 @@ private static final long serialVersionUID = 0L;
 
     if (!getShoeRecordList()
         .equals(other.getShoeRecordList())) return false;
+    if (getTotal()
+        != other.getTotal()) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -165,6 +189,9 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SHOE_RECORD_FIELD_NUMBER;
       hash = (53 * hash) + getShoeRecordList().hashCode();
     }
+    hash = (37 * hash) + TOTAL_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getTotal());
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -303,6 +330,7 @@ private static final long serialVersionUID = 0L;
         shoeRecordBuilder_.clear();
       }
       bitField0_ = (bitField0_ & ~0x00000001);
+      total_ = 0L;
       return this;
     }
 
@@ -349,6 +377,9 @@ private static final long serialVersionUID = 0L;
 
     private void buildPartial0(com.wecasino.proto.recorder.ListShoesRecordResponse result) {
       int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.total_ = total_;
+      }
     }
 
     @java.lang.Override
@@ -389,6 +420,9 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
+      if (other.getTotal() != 0L) {
+        setTotal(other.getTotal());
+      }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
@@ -428,6 +462,11 @@ private static final long serialVersionUID = 0L;
               }
               break;
             } // case 10
+            case 16: {
+              total_ = input.readInt64();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -755,6 +794,50 @@ private static final long serialVersionUID = 0L;
         shoeRecord_ = null;
       }
       return shoeRecordBuilder_;
+    }
+
+    private long total_ ;
+    /**
+     * <pre>
+     * 總數
+     * </pre>
+     *
+     * <code>int64 total = 2 [json_name = "total"];</code>
+     * @return The total.
+     */
+    @java.lang.Override
+    public long getTotal() {
+      return total_;
+    }
+    /**
+     * <pre>
+     * 總數
+     * </pre>
+     *
+     * <code>int64 total = 2 [json_name = "total"];</code>
+     * @param value The total to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTotal(long value) {
+
+      total_ = value;
+      bitField0_ |= 0x00000002;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 總數
+     * </pre>
+     *
+     * <code>int64 total = 2 [json_name = "total"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearTotal() {
+      bitField0_ = (bitField0_ & ~0x00000002);
+      total_ = 0L;
+      onChanged();
+      return this;
     }
 
     // @@protoc_insertion_point(builder_scope:recorder.ListShoesRecordResponse)
