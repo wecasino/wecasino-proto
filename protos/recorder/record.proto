@@ -86,10 +86,6 @@ message StepAction {
   // 目標卡牌資源
   // key: ResourceTypeCode, value: 卡牌陣列
   map<int32, CardList> cards = 6 [(tagger.tags) = "bson:\"cards,omitempty\""];
-  // 目標分數資源
-  // key: ResourceTypeCode, value: 分數值。
-  map<int32, int64> scores = 7 [(tagger.tags) = "bson:\"scores,omitempty\""];
-
   // （可選）附加資料
   google.protobuf.Any data = 8 [(tagger.tags) = "bson:\"data,omitempty\""];
 
@@ -141,9 +137,6 @@ message Seat {
   // 各類手牌
   // key: ResourceTypeCode, value: 卡牌陣列
   map<int32, CardList> cards = 3 [(tagger.tags) = "bson:\"cards,omitempty\""];
-  // 各類分數
-  // key: ResourceTypeCode, value: 分數值。
-  map<int32, int64> scores = 4 [(tagger.tags) = "bson:\"scores,omitempty\""];
 
 }
 
