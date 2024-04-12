@@ -51,4 +51,14 @@ public interface ListShiftsResponseOrBuilder extends
    */
   com.wecasino.proto.recorder.ShiftRecordOrBuilder getShiftRecordOrBuilder(
       int index);
+
+  /**
+   * <pre>
+   * 總數
+   * </pre>
+   *
+   * <code>int64 total = 2 [json_name = "total"];</code>
+   * @return The total.
+   */
+  long getTotal();
 }

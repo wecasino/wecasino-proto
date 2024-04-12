@@ -111,6 +111,35 @@ public interface ListRecordsRequestOrBuilder extends
 
   /**
    * <pre>
+   * 遊戲供應
+   * </pre>
+   *
+   * <code>optional string supplier = 5 [json_name = "supplier"];</code>
+   * @return Whether the supplier field is set.
+   */
+  boolean hasSupplier();
+  /**
+   * <pre>
+   * 遊戲供應
+   * </pre>
+   *
+   * <code>optional string supplier = 5 [json_name = "supplier"];</code>
+   * @return The supplier.
+   */
+  java.lang.String getSupplier();
+  /**
+   * <pre>
+   * 遊戲供應
+   * </pre>
+   *
+   * <code>optional string supplier = 5 [json_name = "supplier"];</code>
+   * @return The bytes for supplier.
+   */
+  com.google.protobuf.ByteString
+      getSupplierBytes();
+
+  /**
+   * <pre>
    * 遊戲代碼
    * </pre>
    *
