@@ -1,0 +1,562 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "recorder/recorder.proto",
+    "version": "version not set"
+  },
+  "tags": [
+    {
+      "name": "RecorderService"
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {},
+  "definitions": {
+    "gamesWinType": {
+      "type": "string",
+      "enum": [
+        "WIN_TYPE_UNSPECIFIED",
+        "LOSE",
+        "WIN",
+        "TIE"
+      ],
+      "default": "WIN_TYPE_UNSPECIFIED",
+      "title": "- WIN_TYPE_UNSPECIFIED: 未指定\n - LOSE: 輸\n - WIN: 贏\n - TIE: 和"
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string",
+          "description": "A URL/resource name that uniquely identifies the type of the serialized\nprotocol buffer message. This string must contain at least\none \"/\" character. The last segment of the URL's path must represent\nthe fully qualified name of the type (as in\n`path/google.protobuf.Duration`). The name should be in a canonical form\n(e.g., leading \".\" is not accepted).\n\nIn practice, teams usually precompile into the binary all types that they\nexpect it to use in the context of Any. However, for URLs which use the\nscheme `http`, `https`, or no scheme, one can optionally set up a type\nserver that maps type URLs to message definitions as follows:\n\n* If no scheme is provided, `https` is assumed.\n* An HTTP GET on the URL must yield a [google.protobuf.Type][]\n  value in binary format, or produce an error.\n* Applications are allowed to cache lookup results based on the\n  URL, or have them precompiled into a binary to avoid any\n  lookup. Therefore, binary compatibility needs to be preserved\n  on changes to types. (Use versioned type names to manage\n  breaking changes.)\n\nNote: this functionality is not currently available in the official\nprotobuf release, and it is not used for type URLs beginning with\ntype.googleapis.com.\n\nSchemes other than `http`, `https` (or the empty scheme) might be\nused with implementation specific semantics."
+        }
+      },
+      "additionalProperties": {},
+      "description": "`Any` contains an arbitrary serialized protocol buffer message along with a\nURL that describes the type of the serialized message.\n\nProtobuf library provides support to pack/unpack Any values in the form\nof utility functions or additional generated methods of the Any type.\n\nExample 1: Pack and unpack a message in C++.\n\n    Foo foo = ...;\n    Any any;\n    any.PackFrom(foo);\n    ...\n    if (any.UnpackTo(\u0026foo)) {\n      ...\n    }\n\nExample 2: Pack and unpack a message in Java.\n\n    Foo foo = ...;\n    Any any = Any.pack(foo);\n    ...\n    if (any.is(Foo.class)) {\n      foo = any.unpack(Foo.class);\n    }\n    // or ...\n    if (any.isSameTypeAs(Foo.getDefaultInstance())) {\n      foo = any.unpack(Foo.getDefaultInstance());\n    }\n\nExample 3: Pack and unpack a message in Python.\n\n    foo = Foo(...)\n    any = Any()\n    any.Pack(foo)\n    ...\n    if any.Is(Foo.DESCRIPTOR):\n      any.Unpack(foo)\n      ...\n\nExample 4: Pack and unpack a message in Go\n\n     foo := \u0026pb.Foo{...}\n     any, err := anypb.New(foo)\n     if err != nil {\n       ...\n     }\n     ...\n     foo := \u0026pb.Foo{}\n     if err := any.UnmarshalTo(foo); err != nil {\n       ...\n     }\n\nThe pack methods provided by protobuf library will by default use\n'type.googleapis.com/full.type.name' as the type URL and the unpack\nmethods only use the fully qualified type name after the last '/'\nin the type URL, for example \"foo.bar.com/x/y.z\" will yield type\nname \"y.z\".\n\nJSON\n\nThe JSON representation of an `Any` value uses the regular\nrepresentation of the deserialized, embedded message, with an\nadditional field `@type` which contains the type URL. Example:\n\n    package google.profile;\n    message Person {\n      string first_name = 1;\n      string last_name = 2;\n    }\n\n    {\n      \"@type\": \"type.googleapis.com/google.profile.Person\",\n      \"firstName\": \u003cstring\u003e,\n      \"lastName\": \u003cstring\u003e\n    }\n\nIf the embedded message type is well-known and has a custom JSON\nrepresentation, that representation will be embedded adding a field\n`value` which holds the custom JSON in addition to the `@type`\nfield. Example (for message [google.protobuf.Duration][]):\n\n    {\n      \"@type\": \"type.googleapis.com/google.protobuf.Duration\",\n      \"value\": \"1.212s\"\n    }"
+    },
+    "recorderBetStep": {
+      "type": "string",
+      "enum": [
+        "BET_STEP_UNSPECIFIED",
+        "ROUND_BET",
+        "NO_MORE_BET",
+        "CARD"
+      ],
+      "default": "BET_STEP_UNSPECIFIED",
+      "description": "- BET_STEP_UNSPECIFIED: 未指定，此步驟與下注無關\n - ROUND_BET: 開始下注\n - NO_MORE_BET: 停止下注\n - CARD: 牌異動",
+      "title": "下注步驟"
+    },
+    "recorderCard": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "卡牌ID：牌唯一碼"
+        },
+        "code": {
+          "type": "string",
+          "title": "卡牌代碼"
+        },
+        "index": {
+          "type": "string",
+          "format": "int64",
+          "title": "順序"
+        },
+        "visible": {
+          "type": "boolean",
+          "title": "可見"
+        },
+        "status": {
+          "type": "string",
+          "format": "int64",
+          "description": "橫放、直放..."
+        },
+        "plainText": {
+          "type": "string",
+          "title": "明文"
+        },
+        "signature": {
+          "type": "string",
+          "title": "簽章"
+        },
+        "signAlgorithm": {
+          "type": "string",
+          "title": "簽章方法"
+        }
+      },
+      "title": "卡牌，代表在此局中使用的各類物品"
+    },
+    "recorderCardList": {
+      "type": "object",
+      "properties": {
+        "cardType": {
+          "type": "string"
+        },
+        "list": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/recorderCard"
+          },
+          "title": "列表"
+        },
+        "pattern": {
+          "type": "integer",
+          "format": "int32",
+          "title": "牌型"
+        }
+      },
+      "title": "卡牌列表"
+    },
+    "recorderDeck": {
+      "type": "object",
+      "properties": {
+        "cards": {
+          "$ref": "#/definitions/recorderCardList",
+          "title": "卡牌"
+        },
+        "startIndex": {
+          "type": "string",
+          "format": "int64",
+          "title": "起始位置（削牌後）"
+        },
+        "cutIndex": {
+          "type": "string",
+          "format": "int64",
+          "title": "切牌位置"
+        },
+        "index": {
+          "type": "string",
+          "format": "int64",
+          "title": "目前位置"
+        }
+      }
+    },
+    "recorderRoundRecord": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "byte",
+          "title": "紀錄ID"
+        },
+        "supplier": {
+          "type": "string",
+          "title": "遊戲供應"
+        },
+        "gameType": {
+          "type": "string",
+          "title": "遊戲類型"
+        },
+        "gameSubtype": {
+          "type": "string",
+          "title": "遊戲子類型"
+        },
+        "gameVersion": {
+          "type": "string",
+          "title": "遊戲版本"
+        },
+        "gameCode": {
+          "type": "string",
+          "title": "遊戲代碼"
+        },
+        "tableCode": {
+          "type": "string",
+          "title": "桌代碼"
+        },
+        "shiftCode": {
+          "type": "string",
+          "title": "班代碼"
+        },
+        "shiftRound": {
+          "type": "string",
+          "format": "int64",
+          "title": "此排班局數"
+        },
+        "shoeCode": {
+          "type": "string",
+          "title": "使用靴代碼"
+        },
+        "shoeRound": {
+          "type": "string",
+          "format": "int64",
+          "title": "使用此洗牌第幾局，從1開始計算"
+        },
+        "roundCode": {
+          "type": "string",
+          "title": "局代碼"
+        },
+        "tags": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "標籤"
+        },
+        "tsStart": {
+          "type": "string",
+          "format": "date-time",
+          "title": "開始時間"
+        },
+        "betStep": {
+          "$ref": "#/definitions/recorderBetStep",
+          "title": "下注狀態"
+        },
+        "seats": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/recorderSeat"
+          },
+          "title": "座位組\nkey: SeatCode, value: Seat"
+        },
+        "players": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "玩家入座\nkey: SeatCode, value: 玩家code。"
+        },
+        "playersName": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "玩家姓名\nkey: 玩家code, value: 玩家名稱。"
+        },
+        "process": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/recorderStep"
+          },
+          "title": "歷程"
+        },
+        "isEnd": {
+          "type": "boolean",
+          "title": "結束"
+        },
+        "tsEnd": {
+          "type": "string",
+          "format": "date-time",
+          "title": "結束時間"
+        },
+        "cancel": {
+          "type": "boolean",
+          "title": "取消"
+        },
+        "cancelCode": {
+          "type": "string",
+          "title": "取消代碼：CancelReasonCode"
+        },
+        "cancelMessage": {
+          "type": "string",
+          "title": "取消備註"
+        },
+        "winType": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/gamesWinType"
+          },
+          "title": "贏方"
+        },
+        "medias": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "附加媒體：key: 媒體資源代碼；value: 媒體內容。"
+        },
+        "fortuneRates": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "format": "int64"
+          },
+          "title": "財神倍率"
+        }
+      },
+      "title": "紀錄"
+    },
+    "recorderSeat": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "title": "座位功能代碼：SeatCode"
+        },
+        "cards": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/recorderCardList"
+          },
+          "title": "各類手牌\nkey: ResourceTypeCode, value: 卡牌陣列"
+        }
+      },
+      "title": "座位"
+    },
+    "recorderShiftRecord": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "byte",
+          "title": "紀錄ID"
+        },
+        "supplier": {
+          "type": "string",
+          "title": "遊戲供應"
+        },
+        "gameType": {
+          "type": "string",
+          "title": "遊戲類型"
+        },
+        "gameSubtype": {
+          "type": "string",
+          "title": "遊戲子類型"
+        },
+        "gameVersion": {
+          "type": "string",
+          "title": "遊戲版本"
+        },
+        "gameCode": {
+          "type": "string",
+          "title": "遊戲代碼"
+        },
+        "tableCode": {
+          "type": "string",
+          "title": "桌代碼"
+        },
+        "shiftCode": {
+          "type": "string",
+          "title": "班代碼"
+        },
+        "tsStart": {
+          "type": "string",
+          "format": "date-time",
+          "title": "開始時間"
+        },
+        "tags": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "標籤"
+        },
+        "roundCodes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "執行遊戲局"
+        },
+        "shoeCodes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "洗牌"
+        },
+        "isEnd": {
+          "type": "boolean",
+          "title": "結束"
+        },
+        "tsEnd": {
+          "type": "string",
+          "format": "date-time",
+          "title": "結束時間"
+        }
+      },
+      "title": "排班"
+    },
+    "recorderShoeRecord": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "byte",
+          "title": "紀錄ID"
+        },
+        "supplier": {
+          "type": "string",
+          "title": "遊戲供應"
+        },
+        "gameType": {
+          "type": "string",
+          "title": "遊戲類型"
+        },
+        "gameSubtype": {
+          "type": "string",
+          "title": "遊戲子類型"
+        },
+        "gameVersion": {
+          "type": "string",
+          "title": "遊戲版本"
+        },
+        "gameCode": {
+          "type": "string",
+          "title": "遊戲代碼"
+        },
+        "tableCode": {
+          "type": "string",
+          "title": "桌代碼"
+        },
+        "shiftCode": {
+          "type": "string",
+          "title": "班代碼"
+        },
+        "shoeCode": {
+          "type": "string",
+          "title": "使用洗牌代碼"
+        },
+        "tsStart": {
+          "type": "string",
+          "format": "date-time",
+          "title": "此牌靴開始使用時間"
+        },
+        "decks": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/recorderDeck"
+          },
+          "title": "cardList"
+        },
+        "isEnd": {
+          "type": "boolean",
+          "title": "此牌靴已使用完畢，不可再使用"
+        },
+        "tsEnd": {
+          "type": "string",
+          "format": "date-time",
+          "title": "牌靴使用完畢時間"
+        }
+      },
+      "title": "靴紀錄"
+    },
+    "recorderStep": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "title": "步驟代碼：StepCode"
+        },
+        "seat": {
+          "type": "integer",
+          "format": "int32",
+          "title": "玩家、執行者：SeatCode"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time",
+          "title": "時間戳"
+        },
+        "actions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/recorderStepAction"
+          },
+          "title": "執行動作"
+        },
+        "error": {
+          "type": "string",
+          "title": "執行錯誤"
+        },
+        "cancel": {
+          "type": "boolean",
+          "title": "取消"
+        },
+        "duration": {
+          "type": "string",
+          "format": "int64",
+          "title": "分配毫秒數"
+        },
+        "betStep": {
+          "$ref": "#/definitions/recorderBetStep",
+          "title": "下注動作"
+        }
+      },
+      "title": "遊戲步驟"
+    },
+    "recorderStepAction": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "title": "行為說明代碼"
+        },
+        "type": {
+          "$ref": "#/definitions/recorderStepActionType",
+          "title": "動作類型"
+        },
+        "sourceSeat": {
+          "type": "integer",
+          "format": "int32",
+          "title": "資源擁有座位。"
+        },
+        "targetSeat": {
+          "type": "integer",
+          "format": "int32",
+          "title": "資源轉移目標座位。"
+        },
+        "cards": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/recorderCardList"
+          },
+          "title": "目標卡牌資源\nkey: ResourceTypeCode, value: 卡牌陣列"
+        },
+        "data": {
+          "$ref": "#/definitions/protobufAny",
+          "title": "（可選）附加資料"
+        }
+      },
+      "title": "執行動作：對某些資源進行增、刪、移轉"
+    },
+    "recorderStepActionType": {
+      "type": "string",
+      "enum": [
+        "STEP_ACTION_TYPE_UNSPECIFIED",
+        "ADD",
+        "SET",
+        "SETALL",
+        "REMOVE",
+        "READ",
+        "READ_UNVISIBLE",
+        "TRANSFER",
+        "VISIBLE",
+        "STATUS",
+        "NONE",
+        "WIN"
+      ],
+      "default": "STEP_ACTION_TYPE_UNSPECIFIED",
+      "description": "- STEP_ACTION_TYPE_UNSPECIFIED: 未指定\n - ADD: 派發資源\n - SET: 設定指定資源\n - SETALL: 改寫全部資源;\n - REMOVE: 將資源從場上移除\n - READ: 讀取卡牌資料\n - READ_UNVISIBLE: 讀卡但不可見\n - TRANSFER: 移轉資源\n - VISIBLE: 卡片正反面\n - STATUS: 卡牌狀態改變\n - NONE: 此步驟不須修改資源\n - WIN: 決定輸贏",
+      "title": "動作類型"
+    },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    }
+  }
+}

@@ -9,6 +9,9 @@ managed:
     default: "com.wecasino.proto"
 plugins:
 
+  - plugin: buf.build/grpc-ecosystem/openapiv2
+    out: openapi
+
   - plugin: buf.build/grpc-ecosystem/gateway:v2.19.1
     out: pbgo
     opt:
