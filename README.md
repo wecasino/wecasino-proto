@@ -41,5 +41,7 @@ buf generate
 buf generate --template buf.gen.tag.yaml
 ```
 ### swagger doc 流程
+產生 openpi/swagger json 文件
 pnpm gen:buf
+開啟 docker 利用 swagger ui 顯示 provider.swagger.json 文件
 pnpm swagger
