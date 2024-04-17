@@ -13,7 +13,7 @@ public interface GetRequestOrBuilder extends
    * 資源代碼
    * </pre>
    *
-   * <code>string code = 1 [json_name = "code"];</code>
+   * <code>string code = 1 [json_name = "code", (.google.api.field_behavior) = REQUIRED];</code>
    * @return The code.
    */
   java.lang.String getCode();
@@ -22,7 +22,7 @@ public interface GetRequestOrBuilder extends
    * 資源代碼
    * </pre>
    *
-   * <code>string code = 1 [json_name = "code"];</code>
+   * <code>string code = 1 [json_name = "code", (.google.api.field_behavior) = REQUIRED];</code>
    * @return The bytes for code.
    */
   com.google.protobuf.ByteString

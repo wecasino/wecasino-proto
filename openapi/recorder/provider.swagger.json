@@ -478,7 +478,7 @@
             "name": "gameCode",
             "description": "遊戲代碼",
             "in": "query",
-            "required": false,
+            "required": true,
             "type": "string"
           }
         ],
@@ -654,7 +654,7 @@
             "name": "gameCode",
             "description": "遊戲代碼",
             "in": "query",
-            "required": false,
+            "required": true,
             "type": "string"
           }
         ],
@@ -718,7 +718,7 @@
             "name": "gameCode",
             "description": "遊戲代碼",
             "in": "query",
-            "required": false,
+            "required": true,
             "type": "string"
           }
         ],

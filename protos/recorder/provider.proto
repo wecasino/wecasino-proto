@@ -6,18 +6,19 @@ import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
 import "recorder/record.proto";
 import "games/games.proto";
+import "google/api/field_behavior.proto";
 
 message GetRequest {
 
   // 資源代碼
-  string code = 1;
+  string code = 1 [(google.api.field_behavior) = REQUIRED];
  
 }
 
 message GetCurrentRecordRequest {
 
   // 遊戲代碼
-  string game_code = 1;
+  string game_code = 1 [(google.api.field_behavior) = REQUIRED];
  
 }
 

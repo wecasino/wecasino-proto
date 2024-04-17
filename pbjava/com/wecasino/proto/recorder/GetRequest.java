@@ -50,7 +50,7 @@ private static final long serialVersionUID = 0L;
    * 資源代碼
    * </pre>
    *
-   * <code>string code = 1 [json_name = "code"];</code>
+   * <code>string code = 1 [json_name = "code", (.google.api.field_behavior) = REQUIRED];</code>
    * @return The code.
    */
   @java.lang.Override
@@ -71,7 +71,7 @@ private static final long serialVersionUID = 0L;
    * 資源代碼
    * </pre>
    *
-   * <code>string code = 1 [json_name = "code"];</code>
+   * <code>string code = 1 [json_name = "code", (.google.api.field_behavior) = REQUIRED];</code>
    * @return The bytes for code.
    */
   @java.lang.Override
@@ -389,7 +389,7 @@ private static final long serialVersionUID = 0L;
      * 資源代碼
      * </pre>
      *
-     * <code>string code = 1 [json_name = "code"];</code>
+     * <code>string code = 1 [json_name = "code", (.google.api.field_behavior) = REQUIRED];</code>
      * @return The code.
      */
     public java.lang.String getCode() {
@@ -409,7 +409,7 @@ private static final long serialVersionUID = 0L;
      * 資源代碼
      * </pre>
      *
-     * <code>string code = 1 [json_name = "code"];</code>
+     * <code>string code = 1 [json_name = "code", (.google.api.field_behavior) = REQUIRED];</code>
      * @return The bytes for code.
      */
     public com.google.protobuf.ByteString
@@ -430,7 +430,7 @@ private static final long serialVersionUID = 0L;
      * 資源代碼
      * </pre>
      *
-     * <code>string code = 1 [json_name = "code"];</code>
+     * <code>string code = 1 [json_name = "code", (.google.api.field_behavior) = REQUIRED];</code>
      * @param value The code to set.
      * @return This builder for chaining.
      */
@@ -447,7 +447,7 @@ private static final long serialVersionUID = 0L;
      * 資源代碼
      * </pre>
      *
-     * <code>string code = 1 [json_name = "code"];</code>
+     * <code>string code = 1 [json_name = "code", (.google.api.field_behavior) = REQUIRED];</code>
      * @return This builder for chaining.
      */
     public Builder clearCode() {
@@ -461,7 +461,7 @@ private static final long serialVersionUID = 0L;
      * 資源代碼
      * </pre>
      *
-     * <code>string code = 1 [json_name = "code"];</code>
+     * <code>string code = 1 [json_name = "code", (.google.api.field_behavior) = REQUIRED];</code>
      * @param value The bytes for code to set.
      * @return This builder for chaining.
      */

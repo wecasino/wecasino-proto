@@ -40,3 +40,6 @@ pnpm prepare
 buf generate 
 buf generate --template buf.gen.tag.yaml
 ```
+### swagger doc 流程
+pnpm gen:buf
+pnpm swagger
