@@ -5,12 +5,18 @@ managed:
     default: github.com/wecasino/wecasino-proto/pbgo
     except:
       - buf.build/googleapis/googleapis
+      - buf.build/grpc-ecosystem/grpc-gateway
   java_package_prefix:
     default: "com.wecasino.proto"
 plugins:
 
   - plugin: buf.build/grpc-ecosystem/openapiv2
-    out: openapi
+    out: docs
+    opt:
+      - output_format=yaml
+      - enums_as_ints=true
+      - disable_service_tags=true
+      - remove_internal_comments=true
 
   - plugin: buf.build/grpc-ecosystem/gateway:v2.19.1
     out: pbgo

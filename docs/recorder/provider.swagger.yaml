@@ -1,0 +1,1292 @@
+swagger: "2.0"
+info:
+  title: WECasino Provider API
+  version: "1.0"
+  contact:
+    name: WECasino Project
+    url: www.wecasino.live
+host: https://provider.wecasino.live
+schemes:
+  - https
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /v1/provider/dealers:
+    get:
+      summary: 荷官資料
+      operationId: ProviderService_ListDealers
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/recorderListDealersResponse'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/rpcStatus'
+      parameters:
+        - name: codes
+          description: 代碼陣列
+          in: query
+          required: false
+          type: array
+          items:
+            type: string
+          collectionFormat: multi
+        - name: skip
+          description: 開始
+          in: query
+          required: false
+          type: string
+          format: int64
+        - name: limit
+          description: 筆數 預設 100
+          in: query
+          required: false
+          type: string
+          format: int64
+  /v1/provider/dealers/{code}:
+    get:
+      summary: 荷官資料
+      operationId: ProviderService_GetDealer
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/recorderDealer'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/rpcStatus'
+      parameters:
+        - name: code
+          description: 資源代碼
+          in: path
+          required: true
+          type: string
+  /v1/provider/games:
+    get:
+      summary: 取得即時遊戲列表
+      operationId: ProviderService_ListGames
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/recorderListGamesResponse'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/rpcStatus'
+  /v1/provider/games/{code}:
+    get:
+      summary: 取得單一即時遊戲資訊
+      operationId: ProviderService_GetGames
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/recorderGameProvide'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/rpcStatus'
+      parameters:
+        - name: code
+          description: 資源代碼
+          in: path
+          required: true
+          type: string
+  /v1/provider/games/{gameCode}:verify:
+    post:
+      summary: 驗證
+      operationId: ProviderService_VerifyGame
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            type: object
+            properties: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/rpcStatus'
+      parameters:
+        - name: gameCode
+          description: 遊戲代碼
+          in: path
+          required: true
+          type: string
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/ProviderServiceVerifyGameBody'
+  /v1/provider/rounds:
+    get:
+      summary: 讀牌靴紀錄list
+      operationId: RecorderReadService_ListRounds
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/recorderListRoundsRecordResponse'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/rpcStatus'
+      parameters:
+        - name: tsFrom
+          description: 查詢起時
+          in: query
+          required: false
+          type: string
+          format: date-time
+        - name: tsTo
+          description: 查詢終時
+          in: query
+          required: false
+          type: string
+          format: date-time
+        - name: gameType
+          description: |-
+            遊戲類型
+
+             - 0: 未指定
+             - 16: 百家樂
+             - 17: 龍虎鬥
+             - 18: 炸金花
+             - 19: 牛牛
+             - 20: 番攤
+             - 32: 骰寶
+             - 36: 輪盤
+             - 40: 幸運輪
+          in: query
+          required: false
+          type: integer
+          enum:
+            - 0
+            - 16
+            - 17
+            - 18
+            - 19
+            - 20
+            - 32
+            - 36
+            - 40
+          default: 0
+        - name: gameSubtype
+          description: 遊戲子類型
+          in: query
+          required: false
+          type: integer
+          format: int32
+        - name: supplier
+          description: 遊戲供應
+          in: query
+          required: false
+          type: string
+        - name: gameCode
+          description: 遊戲代碼
+          in: query
+          required: false
+          type: string
+        - name: searchAfter
+          description: pagination next page
+          in: query
+          required: false
+          type: string
+        - name: searchBefore
+          description: pagination previous page
+          in: query
+          required: false
+          type: string
+        - name: page
+          description: 頁數 1開始，0表示未填，改為1
+          in: query
+          required: false
+          type: string
+          format: int64
+        - name: pageSize
+          description: 每頁筆數
+          in: query
+          required: false
+          type: string
+          format: int64
+  /v1/provider/shoes:
+    get:
+      summary: 讀牌靴紀錄list
+      operationId: RecorderReadService_ListShoe
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/recorderListShoesRecordResponse'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/rpcStatus'
+      parameters:
+        - name: tsFrom
+          description: 查詢起時
+          in: query
+          required: false
+          type: string
+          format: date-time
+        - name: tsTo
+          description: 查詢終時
+          in: query
+          required: false
+          type: string
+          format: date-time
+        - name: gameType
+          description: |-
+            遊戲類型
+
+             - 0: 未指定
+             - 16: 百家樂
+             - 17: 龍虎鬥
+             - 18: 炸金花
+             - 19: 牛牛
+             - 20: 番攤
+             - 32: 骰寶
+             - 36: 輪盤
+             - 40: 幸運輪
+          in: query
+          required: false
+          type: integer
+          enum:
+            - 0
+            - 16
+            - 17
+            - 18
+            - 19
+            - 20
+            - 32
+            - 36
+            - 40
+          default: 0
+        - name: gameSubtype
+          description: 遊戲子類型
+          in: query
+          required: false
+          type: integer
+          format: int32
+        - name: supplier
+          description: 遊戲供應
+          in: query
+          required: false
+          type: string
+        - name: gameCode
+          description: 遊戲代碼
+          in: query
+          required: false
+          type: string
+        - name: searchAfter
+          description: pagination next page
+          in: query
+          required: false
+          type: string
+        - name: searchBefore
+          description: pagination previous page
+          in: query
+          required: false
+          type: string
+        - name: page
+          description: 頁數 1開始，0表示未填，改為1
+          in: query
+          required: false
+          type: string
+          format: int64
+        - name: pageSize
+          description: 每頁筆數
+          in: query
+          required: false
+          type: string
+          format: int64
+  /v1/recorder/rounds/{code}:
+    get:
+      summary: 讀取指定靴紀錄
+      operationId: RecorderReadService_GetRound
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/recorderRoundRecord'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/rpcStatus'
+      parameters:
+        - name: code
+          description: 資源代碼
+          in: path
+          required: true
+          type: string
+  /v1/recorder/rounds:current:
+    get:
+      summary: 讀取目前指定靴紀錄
+      operationId: RecorderReadService_GetCurrentRound
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/recorderRoundRecord'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/rpcStatus'
+      parameters:
+        - name: gameCode
+          description: 遊戲代碼
+          in: query
+          required: true
+          type: string
+  /v1/recorder/shifts:
+    get:
+      summary: 讀取班次紀錄List
+      operationId: RecorderReadService_ListShifts
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/recorderListShiftsResponse'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/rpcStatus'
+      parameters:
+        - name: tsFrom
+          description: 查詢起時
+          in: query
+          required: false
+          type: string
+          format: date-time
+        - name: tsTo
+          description: 查詢終時
+          in: query
+          required: false
+          type: string
+          format: date-time
+        - name: gameType
+          description: |-
+            遊戲類型
+
+             - 0: 未指定
+             - 16: 百家樂
+             - 17: 龍虎鬥
+             - 18: 炸金花
+             - 19: 牛牛
+             - 20: 番攤
+             - 32: 骰寶
+             - 36: 輪盤
+             - 40: 幸運輪
+          in: query
+          required: false
+          type: integer
+          enum:
+            - 0
+            - 16
+            - 17
+            - 18
+            - 19
+            - 20
+            - 32
+            - 36
+            - 40
+          default: 0
+        - name: gameSubtype
+          description: 遊戲子類型
+          in: query
+          required: false
+          type: integer
+          format: int32
+        - name: supplier
+          description: 遊戲供應
+          in: query
+          required: false
+          type: string
+        - name: gameCode
+          description: 遊戲代碼
+          in: query
+          required: false
+          type: string
+        - name: searchAfter
+          description: pagination next page
+          in: query
+          required: false
+          type: string
+        - name: searchBefore
+          description: pagination previous page
+          in: query
+          required: false
+          type: string
+        - name: page
+          description: 頁數 1開始，0表示未填，改為1
+          in: query
+          required: false
+          type: string
+          format: int64
+        - name: pageSize
+          description: 每頁筆數
+          in: query
+          required: false
+          type: string
+          format: int64
+  /v1/recorder/shifts/{code}:
+    get:
+      summary: 讀取指定班次紀錄
+      operationId: RecorderReadService_GetShift
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/recorderShiftRecord'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/rpcStatus'
+      parameters:
+        - name: code
+          description: 資源代碼
+          in: path
+          required: true
+          type: string
+  /v1/recorder/shifts:current:
+    get:
+      summary: 讀取目前指定班次紀錄
+      operationId: RecorderReadService_GetCurrentShift
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/recorderShiftRecord'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/rpcStatus'
+      parameters:
+        - name: gameCode
+          description: 遊戲代碼
+          in: query
+          required: true
+          type: string
+  /v1/recorder/shoes/{code}:
+    get:
+      summary: 讀取指定靴紀錄
+      operationId: RecorderReadService_GetShoe
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/recorderShoeRecord'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/rpcStatus'
+      parameters:
+        - name: code
+          description: 資源代碼
+          in: path
+          required: true
+          type: string
+  /v1/recorder/shoes:current:
+    get:
+      summary: 讀取目前指定靴紀錄
+      operationId: RecorderReadService_GetCurrentShoe
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/recorderShoeRecord'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/rpcStatus'
+      parameters:
+        - name: gameCode
+          description: 遊戲代碼
+          in: query
+          required: true
+          type: string
+definitions:
+  ProviderServiceVerifyGameBody:
+    type: object
+    properties:
+      pattern:
+        type: array
+        items:
+          type: string
+        title: 驗證傳送接收的代碼
+      name:
+        type: string
+        title: 顯示名稱
+  gamesGameType:
+    type: integer
+    format: int32
+    enum:
+      - 0
+      - 16
+      - 17
+      - 18
+      - 19
+      - 20
+      - 32
+      - 36
+      - 40
+    default: 0
+    title: |-
+      - 0: 未指定
+       - 16: 百家樂
+       - 17: 龍虎鬥
+       - 18: 炸金花
+       - 19: 牛牛
+       - 20: 番攤
+       - 32: 骰寶
+       - 36: 輪盤
+       - 40: 幸運輪
+  gamesWinType:
+    type: integer
+    format: int32
+    enum:
+      - 0
+      - 1
+      - 2
+      - 3
+    default: 0
+    title: |-
+      - 0: 未指定
+       - 1: 輸
+       - 2: 贏
+       - 3: 和
+  protobufAny:
+    type: object
+    properties:
+      '@type':
+        type: string
+        description: |-
+          A URL/resource name that uniquely identifies the type of the serialized
+          protocol buffer message. This string must contain at least
+          one "/" character. The last segment of the URL's path must represent
+          the fully qualified name of the type (as in
+          `path/google.protobuf.Duration`). The name should be in a canonical form
+          (e.g., leading "." is not accepted).
+
+          In practice, teams usually precompile into the binary all types that they
+          expect it to use in the context of Any. However, for URLs which use the
+          scheme `http`, `https`, or no scheme, one can optionally set up a type
+          server that maps type URLs to message definitions as follows:
+
+          * If no scheme is provided, `https` is assumed.
+          * An HTTP GET on the URL must yield a [google.protobuf.Type][]
+            value in binary format, or produce an error.
+          * Applications are allowed to cache lookup results based on the
+            URL, or have them precompiled into a binary to avoid any
+            lookup. Therefore, binary compatibility needs to be preserved
+            on changes to types. (Use versioned type names to manage
+            breaking changes.)
+
+          Note: this functionality is not currently available in the official
+          protobuf release, and it is not used for type URLs beginning with
+          type.googleapis.com.
+
+          Schemes other than `http`, `https` (or the empty scheme) might be
+          used with implementation specific semantics.
+    additionalProperties: {}
+    description: |-
+      `Any` contains an arbitrary serialized protocol buffer message along with a
+      URL that describes the type of the serialized message.
+
+      Protobuf library provides support to pack/unpack Any values in the form
+      of utility functions or additional generated methods of the Any type.
+
+      Example 1: Pack and unpack a message in C++.
+
+          Foo foo = ...;
+          Any any;
+          any.PackFrom(foo);
+          ...
+          if (any.UnpackTo(&foo)) {
+            ...
+          }
+
+      Example 2: Pack and unpack a message in Java.
+
+          Foo foo = ...;
+          Any any = Any.pack(foo);
+          ...
+          if (any.is(Foo.class)) {
+            foo = any.unpack(Foo.class);
+          }
+          // or ...
+          if (any.isSameTypeAs(Foo.getDefaultInstance())) {
+            foo = any.unpack(Foo.getDefaultInstance());
+          }
+
+      Example 3: Pack and unpack a message in Python.
+
+          foo = Foo(...)
+          any = Any()
+          any.Pack(foo)
+          ...
+          if any.Is(Foo.DESCRIPTOR):
+            any.Unpack(foo)
+            ...
+
+      Example 4: Pack and unpack a message in Go
+
+           foo := &pb.Foo{...}
+           any, err := anypb.New(foo)
+           if err != nil {
+             ...
+           }
+           ...
+           foo := &pb.Foo{}
+           if err := any.UnmarshalTo(foo); err != nil {
+             ...
+           }
+
+      The pack methods provided by protobuf library will by default use
+      'type.googleapis.com/full.type.name' as the type URL and the unpack
+      methods only use the fully qualified type name after the last '/'
+      in the type URL, for example "foo.bar.com/x/y.z" will yield type
+      name "y.z".
+
+      JSON
+
+      The JSON representation of an `Any` value uses the regular
+      representation of the deserialized, embedded message, with an
+      additional field `@type` which contains the type URL. Example:
+
+          package google.profile;
+          message Person {
+            string first_name = 1;
+            string last_name = 2;
+          }
+
+          {
+            "@type": "type.googleapis.com/google.profile.Person",
+            "firstName": <string>,
+            "lastName": <string>
+          }
+
+      If the embedded message type is well-known and has a custom JSON
+      representation, that representation will be embedded adding a field
+      `value` which holds the custom JSON in addition to the `@type`
+      field. Example (for message [google.protobuf.Duration][]):
+
+          {
+            "@type": "type.googleapis.com/google.protobuf.Duration",
+            "value": "1.212s"
+          }
+  recorderArticle:
+    type: object
+    properties:
+      title:
+        type: string
+        title: 標題
+      subtitle:
+        type: string
+        title: 副標
+      text:
+        type: string
+        title: 內文
+      medias:
+        type: object
+        additionalProperties:
+          type: string
+        title: '附加媒體：key: 媒體資源代碼；value: 媒體內容。'
+      sections:
+        type: object
+        additionalProperties:
+          $ref: '#/definitions/recorderArticle'
+        title: 子文檔
+  recorderBetStep:
+    type: integer
+    format: int32
+    enum:
+      - 0
+      - 1
+      - 3
+      - 4
+    default: 0
+    description: |-
+      - 0: 未指定，此步驟與下注無關
+       - 1: 開始下注
+       - 3: 停止下注
+       - 4: 牌異動
+    title: 下注步驟
+  recorderCard:
+    type: object
+    properties:
+      id:
+        type: string
+        title: 卡牌ID：牌唯一碼
+      code:
+        type: string
+        title: 卡牌代碼
+      index:
+        type: string
+        format: int64
+        title: 順序
+      visible:
+        type: boolean
+        title: 可見
+      status:
+        type: string
+        format: int64
+        description: 橫放、直放...
+      plainText:
+        type: string
+        title: 明文
+      signature:
+        type: string
+        title: 簽章
+      signAlgorithm:
+        type: string
+        title: 簽章方法
+    title: 卡牌，代表在此局中使用的各類物品
+  recorderCardList:
+    type: object
+    properties:
+      cardType:
+        type: string
+      list:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/recorderCard'
+        title: 列表
+      pattern:
+        type: integer
+        format: int32
+        title: 牌型
+    title: 卡牌列表
+  recorderDealer:
+    type: object
+    properties:
+      code:
+        type: string
+        title: 代碼
+      name:
+        type: string
+        title: 名稱
+      age:
+        type: string
+        title: 年齡
+      tags:
+        type: object
+        additionalProperties:
+          type: string
+        title: Tags
+      intro:
+        $ref: '#/definitions/recorderArticle'
+        title: 介紹
+      posts:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/recorderArticle'
+        title: 貼文
+  recorderDeck:
+    type: object
+    properties:
+      cards:
+        $ref: '#/definitions/recorderCardList'
+        title: 卡牌
+      startIndex:
+        type: string
+        format: int64
+        title: 起始位置（削牌後）
+      cutIndex:
+        type: string
+        format: int64
+        title: 切牌位置
+      index:
+        type: string
+        format: int64
+        title: 目前位置
+  recorderGameProvide:
+    type: object
+    properties:
+      supplier:
+        type: string
+        title: 遊戲供應
+      gameType:
+        type: string
+        title: 遊戲類型
+      gameSubtype:
+        type: string
+        title: 遊戲子類型
+      gameCode:
+        type: string
+        title: 遊戲代碼
+      tags:
+        type: object
+        additionalProperties:
+          type: string
+        title: 標籤
+      state:
+        $ref: '#/definitions/recorderGameProvideState'
+        title: 狀態
+      players:
+        type: object
+        additionalProperties:
+          type: string
+        title: 玩家入座
+      playersName:
+        type: object
+        additionalProperties:
+          type: string
+        title: 玩家姓名
+      medias:
+        type: object
+        additionalProperties:
+          type: string
+        title: '附加媒體：key: 媒體資源代碼；value: 媒體內容。'
+      liveStreams:
+        type: object
+        additionalProperties:
+          $ref: '#/definitions/recorderLiveStreamParams'
+        title: 直播參數
+      lastRoundCode:
+        type: string
+        title: 最後一局
+    title: 遊戲供應
+  recorderGameProvideState:
+    type: integer
+    format: int32
+    enum:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+    default: 0
+    title: |-
+      - 0: 未指定
+       - 1: 提供
+       - 2: 此局結束後維護
+       - 3: 維護
+       - 4: 此局結束後關閉
+       - 5: 此局結束後關閉
+       - 6: 此局結束後關閉
+  recorderListDealersResponse:
+    type: object
+    properties:
+      dealers:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/recorderDealer'
+        title: 荷官資料
+  recorderListGamesResponse:
+    type: object
+    properties:
+      gameProvides:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/recorderGameProvide'
+        title: 遊戲列表
+  recorderListRoundsRecordResponse:
+    type: object
+    properties:
+      roundRecord:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/recorderRoundRecord'
+        title: rounds
+      total:
+        type: string
+        format: int64
+        title: 總數
+  recorderListShiftsResponse:
+    type: object
+    properties:
+      shiftRecord:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/recorderShiftRecord'
+        title: shifts
+      total:
+        type: string
+        format: int64
+        title: 總數
+  recorderListShoesRecordResponse:
+    type: object
+    properties:
+      shoeRecord:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/recorderShoeRecord'
+        title: shoes
+      total:
+        type: string
+        format: int64
+        title: 總數
+  recorderLiveStreamParams:
+    type: object
+    properties:
+      code:
+        type: string
+        title: 串流代碼
+      app:
+        type: string
+        title: 應用
+      channel:
+        type: string
+        title: 頻道
+    title: 直播資訊
+  recorderRoundRecord:
+    type: object
+    properties:
+      id:
+        type: string
+        format: byte
+        title: 紀錄ID
+      supplier:
+        type: string
+        title: 遊戲供應
+      gameType:
+        type: string
+        title: 遊戲類型
+      gameSubtype:
+        type: string
+        title: 遊戲子類型
+      gameVersion:
+        type: string
+        title: 遊戲版本
+      gameCode:
+        type: string
+        title: 遊戲代碼
+      tableCode:
+        type: string
+        title: 桌代碼
+      shiftCode:
+        type: string
+        title: 班代碼
+      shiftRound:
+        type: string
+        format: int64
+        title: 此排班局數
+      shoeCode:
+        type: string
+        title: 使用靴代碼
+      shoeRound:
+        type: string
+        format: int64
+        title: 使用此洗牌第幾局，從1開始計算
+      roundCode:
+        type: string
+        title: 局代碼
+      tags:
+        type: object
+        additionalProperties:
+          type: string
+        title: 標籤
+      tsStart:
+        type: string
+        format: date-time
+        title: 開始時間
+      betStep:
+        $ref: '#/definitions/recorderBetStep'
+        title: 下注狀態
+      seats:
+        type: object
+        additionalProperties:
+          $ref: '#/definitions/recorderSeat'
+        title: |-
+          座位組
+          key: SeatCode, value: Seat
+      players:
+        type: object
+        additionalProperties:
+          type: string
+        title: |-
+          玩家入座
+          key: SeatCode, value: 玩家code。
+      playersName:
+        type: object
+        additionalProperties:
+          type: string
+        title: |-
+          玩家姓名
+          key: 玩家code, value: 玩家名稱。
+      process:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/recorderStep'
+        title: 歷程
+      isEnd:
+        type: boolean
+        title: 結束
+      tsEnd:
+        type: string
+        format: date-time
+        title: 結束時間
+      cancel:
+        type: boolean
+        title: 取消
+      cancelCode:
+        type: string
+        title: 取消代碼：CancelReasonCode
+      cancelMessage:
+        type: string
+        title: 取消備註
+      winType:
+        type: object
+        additionalProperties:
+          $ref: '#/definitions/gamesWinType'
+        title: 贏方
+      medias:
+        type: object
+        additionalProperties:
+          type: string
+        title: '附加媒體：key: 媒體資源代碼；value: 媒體內容。'
+      fortuneRates:
+        type: object
+        additionalProperties:
+          type: string
+          format: int64
+        title: 財神倍率
+    title: 紀錄
+  recorderSeat:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: 座位功能代碼：SeatCode
+      cards:
+        type: object
+        additionalProperties:
+          $ref: '#/definitions/recorderCardList'
+        title: |-
+          各類手牌
+          key: ResourceTypeCode, value: 卡牌陣列
+    title: 座位
+  recorderShiftRecord:
+    type: object
+    properties:
+      id:
+        type: string
+        format: byte
+        title: 紀錄ID
+      supplier:
+        type: string
+        title: 遊戲供應
+      gameType:
+        type: string
+        title: 遊戲類型
+      gameSubtype:
+        type: string
+        title: 遊戲子類型
+      gameVersion:
+        type: string
+        title: 遊戲版本
+      gameCode:
+        type: string
+        title: 遊戲代碼
+      tableCode:
+        type: string
+        title: 桌代碼
+      shiftCode:
+        type: string
+        title: 班代碼
+      tsStart:
+        type: string
+        format: date-time
+        title: 開始時間
+      tags:
+        type: object
+        additionalProperties:
+          type: string
+        title: 標籤
+      roundCodes:
+        type: array
+        items:
+          type: string
+        title: 執行遊戲局
+      shoeCodes:
+        type: array
+        items:
+          type: string
+        title: 洗牌
+      isEnd:
+        type: boolean
+        title: 結束
+      tsEnd:
+        type: string
+        format: date-time
+        title: 結束時間
+    title: 排班
+  recorderShoeRecord:
+    type: object
+    properties:
+      id:
+        type: string
+        format: byte
+        title: 紀錄ID
+      supplier:
+        type: string
+        title: 遊戲供應
+      gameType:
+        type: string
+        title: 遊戲類型
+      gameSubtype:
+        type: string
+        title: 遊戲子類型
+      gameVersion:
+        type: string
+        title: 遊戲版本
+      gameCode:
+        type: string
+        title: 遊戲代碼
+      tableCode:
+        type: string
+        title: 桌代碼
+      shiftCode:
+        type: string
+        title: 班代碼
+      shoeCode:
+        type: string
+        title: 使用洗牌代碼
+      tsStart:
+        type: string
+        format: date-time
+        title: 此牌靴開始使用時間
+      decks:
+        type: object
+        additionalProperties:
+          $ref: '#/definitions/recorderDeck'
+        title: cardList
+      isEnd:
+        type: boolean
+        title: 此牌靴已使用完畢，不可再使用
+      tsEnd:
+        type: string
+        format: date-time
+        title: 牌靴使用完畢時間
+    title: 靴紀錄
+  recorderStep:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+        title: 步驟代碼：StepCode
+      seat:
+        type: integer
+        format: int32
+        title: 玩家、執行者：SeatCode
+      timestamp:
+        type: string
+        format: date-time
+        title: 時間戳
+      actions:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/recorderStepAction'
+        title: 執行動作
+      error:
+        type: string
+        title: 執行錯誤
+      cancel:
+        type: boolean
+        title: 取消
+      duration:
+        type: string
+        format: int64
+        title: 分配毫秒數
+      betStep:
+        $ref: '#/definitions/recorderBetStep'
+        title: 下注動作
+    title: 遊戲步驟
+  recorderStepAction:
+    type: object
+    properties:
+      code:
+        type: string
+        title: 行為說明代碼
+      type:
+        $ref: '#/definitions/recorderStepActionType'
+        title: 動作類型
+      sourceSeat:
+        type: integer
+        format: int32
+        title: 資源擁有座位。
+      targetSeat:
+        type: integer
+        format: int32
+        title: 資源轉移目標座位。
+      cards:
+        type: object
+        additionalProperties:
+          $ref: '#/definitions/recorderCardList'
+        title: |-
+          目標卡牌資源
+          key: ResourceTypeCode, value: 卡牌陣列
+      data:
+        $ref: '#/definitions/protobufAny'
+        title: （可選）附加資料
+    title: 執行動作：對某些資源進行增、刪、移轉
+  recorderStepActionType:
+    type: integer
+    format: int32
+    enum:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 8
+      - 9
+      - 10
+      - 11
+    default: 0
+    description: |-
+      - 0: 未指定
+       - 1: 派發資源
+       - 2: 設定指定資源
+       - 3: 改寫全部資源;
+       - 4: 將資源從場上移除
+       - 5: 讀取卡牌資料
+       - 6: 讀卡但不可見
+       - 7: 移轉資源
+       - 8: 卡片正反面
+       - 9: 卡牌狀態改變
+       - 10: 此步驟不須修改資源
+       - 11: 決定輸贏
+    title: 動作類型
+  rpcStatus:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+      details:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/protobufAny'
+securityDefinitions:
+  ApiKeyAuth:
+    type: apiKey
+    name: X-API-Key
+    in: header
+security:
+  - ApiKeyAuth: []
