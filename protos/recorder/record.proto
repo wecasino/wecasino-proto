@@ -6,6 +6,7 @@ import "google/protobuf/timestamp.proto";
 import "tagger/tagger.proto";
 import "games/games.proto";
 
+// Card
 // 卡牌，代表在此局中使用的各類物品
 message Card {
 
@@ -29,6 +30,7 @@ message Card {
 
 }
 
+// CardList
 // 卡牌列表
 message CardList {
 
@@ -42,6 +44,7 @@ message CardList {
 
 }
 
+// StepActionType
 // 動作類型
 enum StepActionType {
 
@@ -72,6 +75,7 @@ enum StepActionType {
 
 }
 
+// StepAction
 // 執行動作：對某些資源進行增、刪、移轉
 message StepAction {
 
@@ -91,6 +95,7 @@ message StepAction {
 
 }
 
+// BetStep
 // 下注步驟
 enum BetStep {
 
@@ -107,6 +112,7 @@ enum BetStep {
   CARD = 4;
 }
 
+// Step
 // 遊戲步驟
 message Step {
 
@@ -129,6 +135,7 @@ message Step {
 
 }
 
+// Seat
 // 座位
 message Seat {
 
@@ -140,7 +147,8 @@ message Seat {
 
 }
 
-// 紀錄
+// RoundRecord
+// 局紀錄
 message RoundRecord {
 
   // 紀錄ID
@@ -211,6 +219,8 @@ message RoundRecord {
 
 }
 
+// Deck
+// 一副牌
 message Deck {
 
   // 卡牌
@@ -224,6 +234,7 @@ message Deck {
 
 }
 
+// ShoeRecord
 // 靴紀錄
 message ShoeRecord {
 
@@ -257,7 +268,8 @@ message ShoeRecord {
 
 }
 
-// 排班
+// ShiftRecord
+// 排班記錄
 message ShiftRecord {
 
   // 紀錄ID

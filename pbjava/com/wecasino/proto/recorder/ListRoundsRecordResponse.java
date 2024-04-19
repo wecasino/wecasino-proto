@@ -5,6 +5,11 @@
 package com.wecasino.proto.recorder;
 
 /**
+ * <pre>
+ * ListRoundsRecordResponse
+ * 取得局記錄列表
+ * </pre>
+ *
  * Protobuf type {@code recorder.ListRoundsRecordResponse}
  */
 public final class ListRoundsRecordResponse extends
@@ -406,6 +411,11 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   * ListRoundsRecordResponse
+   * 取得局記錄列表
+   * </pre>
+   *
    * Protobuf type {@code recorder.ListRoundsRecordResponse}
    */
   public static final class Builder extends

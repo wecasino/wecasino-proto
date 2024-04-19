@@ -17,11 +17,12 @@ definitions:
       - 2
       - 3
     default: 0
-    title: |-
+    description: |-
       - 0: 未指定
        - 1: 輸
        - 2: 贏
        - 3: 和
+    title: "WinType \n遊戲輸贏類型"
   protobufAny:
     type: object
     properties:
@@ -156,7 +157,9 @@ definitions:
        - 1: 開始下注
        - 3: 停止下注
        - 4: 牌異動
-    title: 下注步驟
+    title: |-
+      BetStep
+      下注步驟
   recorderCard:
     type: object
     properties:
@@ -186,7 +189,9 @@ definitions:
       signAlgorithm:
         type: string
         title: 簽章方法
-    title: 卡牌，代表在此局中使用的各類物品
+    title: |-
+      Card
+      卡牌，代表在此局中使用的各類物品
   recorderCardList:
     type: object
     properties:
@@ -202,7 +207,9 @@ definitions:
         type: integer
         format: int32
         title: 牌型
-    title: 卡牌列表
+    title: |-
+      CardList
+      卡牌列表
   recorderDeck:
     type: object
     properties:
@@ -221,6 +228,9 @@ definitions:
         type: string
         format: int64
         title: 目前位置
+    title: |-
+      Deck
+      一副牌
   recorderRoundRecord:
     type: object
     properties:
@@ -334,7 +344,9 @@ definitions:
           type: string
           format: int64
         title: 財神倍率
-    title: 紀錄
+    title: |-
+      RoundRecord
+      局紀錄
   recorderSeat:
     type: object
     properties:
@@ -349,7 +361,9 @@ definitions:
         title: |-
           各類手牌
           key: ResourceTypeCode, value: 卡牌陣列
-    title: 座位
+    title: |-
+      Seat
+      座位
   recorderShiftRecord:
     type: object
     properties:
@@ -404,7 +418,9 @@ definitions:
         type: string
         format: date-time
         title: 結束時間
-    title: 排班
+    title: |-
+      ShiftRecord
+      排班記錄
   recorderShoeRecord:
     type: object
     properties:
@@ -452,7 +468,9 @@ definitions:
         type: string
         format: date-time
         title: 牌靴使用完畢時間
-    title: 靴紀錄
+    title: |-
+      ShoeRecord
+      靴紀錄
   recorderStep:
     type: object
     properties:
@@ -487,7 +505,9 @@ definitions:
       betStep:
         $ref: '#/definitions/recorderBetStep'
         title: 下注動作
-    title: 遊戲步驟
+    title: |-
+      Step
+      遊戲步驟
   recorderStepAction:
     type: object
     properties:
@@ -515,7 +535,9 @@ definitions:
       data:
         $ref: '#/definitions/protobufAny'
         title: （可選）附加資料
-    title: 執行動作：對某些資源進行增、刪、移轉
+    title: |-
+      StepAction
+      執行動作：對某些資源進行增、刪、移轉
   recorderStepActionType:
     type: integer
     format: int32
@@ -546,7 +568,9 @@ definitions:
        - 9: 卡牌狀態改變
        - 10: 此步驟不須修改資源
        - 11: 決定輸贏
-    title: 動作類型
+    title: |-
+      StepActionType
+      動作類型
   rpcStatus:
     type: object
     properties:

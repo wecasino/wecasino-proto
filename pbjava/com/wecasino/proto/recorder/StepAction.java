@@ -6,6 +6,7 @@ package com.wecasino.proto.recorder;
 
 /**
  * <pre>
+ * StepAction
  * 執行動作：對某些資源進行增、刪、移轉
  * </pre>
  *
@@ -562,6 +563,7 @@ com.wecasino.proto.recorder.CardList defaultValue) {
   }
   /**
    * <pre>
+   * StepAction
    * 執行動作：對某些資源進行增、刪、移轉
    * </pre>
    *

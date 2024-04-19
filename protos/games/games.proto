@@ -1,6 +1,8 @@
 syntax = "proto3";
 package games;
 
+// GameType 
+// 遊戲類型
 enum GameType {
 
   // 未指定
@@ -91,6 +93,8 @@ enum ResourceType {
 
 }
 
+// WinType 
+// 遊戲輸贏類型
 enum WinType {
 
   // 未指定
