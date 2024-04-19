@@ -1,0 +1,16 @@
+syntax = "proto3";
+package cards;
+
+enum ColorCard {
+
+  // 未指定
+  Color_CARD_UNSPECIFIED = 0;
+  
+  Color_1 = 1;
+  Color_2 = 2;
+  Color_3 = 3;
+  Color_4 = 4;
+  Color_5 = 5;
+  Color_6 = 6;
+
+}
