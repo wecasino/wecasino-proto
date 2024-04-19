@@ -27,6 +27,8 @@ private static final long serialVersionUID = 0L;
   }
   private ListShoesRecordResponse() {
     shoeRecord_ = java.util.Collections.emptyList();
+    searchAfter_ = "";
+    searchBefore_ = "";
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
@@ -118,6 +120,100 @@ private static final long serialVersionUID = 0L;
     return total_;
   }
 
+  public static final int SEARCH_AFTER_FIELD_NUMBER = 8;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object searchAfter_ = "";
+  /**
+   * <pre>
+   * pagination next page
+   * </pre>
+   *
+   * <code>string search_after = 8 [json_name = "searchAfter"];</code>
+   * @return The searchAfter.
+   */
+  @java.lang.Override
+  public java.lang.String getSearchAfter() {
+    java.lang.Object ref = searchAfter_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      searchAfter_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * pagination next page
+   * </pre>
+   *
+   * <code>string search_after = 8 [json_name = "searchAfter"];</code>
+   * @return The bytes for searchAfter.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getSearchAfterBytes() {
+    java.lang.Object ref = searchAfter_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      searchAfter_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int SEARCH_BEFORE_FIELD_NUMBER = 9;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object searchBefore_ = "";
+  /**
+   * <pre>
+   * pagination previous page
+   * </pre>
+   *
+   * <code>string search_before = 9 [json_name = "searchBefore"];</code>
+   * @return The searchBefore.
+   */
+  @java.lang.Override
+  public java.lang.String getSearchBefore() {
+    java.lang.Object ref = searchBefore_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      searchBefore_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * pagination previous page
+   * </pre>
+   *
+   * <code>string search_before = 9 [json_name = "searchBefore"];</code>
+   * @return The bytes for searchBefore.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getSearchBeforeBytes() {
+    java.lang.Object ref = searchBefore_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      searchBefore_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -138,6 +234,12 @@ private static final long serialVersionUID = 0L;
     if (total_ != 0L) {
       output.writeInt64(2, total_);
     }
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(searchAfter_)) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 8, searchAfter_);
+    }
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(searchBefore_)) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 9, searchBefore_);
+    }
     getUnknownFields().writeTo(output);
   }
 
@@ -154,6 +256,12 @@ private static final long serialVersionUID = 0L;
     if (total_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(2, total_);
+    }
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(searchAfter_)) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(8, searchAfter_);
+    }
+    if (!com.google.protobuf.GeneratedMessage.isStringEmpty(searchBefore_)) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(9, searchBefore_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -174,6 +282,10 @@ private static final long serialVersionUID = 0L;
         .equals(other.getShoeRecordList())) return false;
     if (getTotal()
         != other.getTotal()) return false;
+    if (!getSearchAfter()
+        .equals(other.getSearchAfter())) return false;
+    if (!getSearchBefore()
+        .equals(other.getSearchBefore())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -192,6 +304,10 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + TOTAL_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getTotal());
+    hash = (37 * hash) + SEARCH_AFTER_FIELD_NUMBER;
+    hash = (53 * hash) + getSearchAfter().hashCode();
+    hash = (37 * hash) + SEARCH_BEFORE_FIELD_NUMBER;
+    hash = (53 * hash) + getSearchBefore().hashCode();
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -331,6 +447,8 @@ private static final long serialVersionUID = 0L;
       }
       bitField0_ = (bitField0_ & ~0x00000001);
       total_ = 0L;
+      searchAfter_ = "";
+      searchBefore_ = "";
       return this;
     }
 
@@ -380,6 +498,12 @@ private static final long serialVersionUID = 0L;
       if (((from_bitField0_ & 0x00000002) != 0)) {
         result.total_ = total_;
       }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.searchAfter_ = searchAfter_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.searchBefore_ = searchBefore_;
+      }
     }
 
     @java.lang.Override
@@ -422,6 +546,16 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getTotal() != 0L) {
         setTotal(other.getTotal());
+      }
+      if (!other.getSearchAfter().isEmpty()) {
+        searchAfter_ = other.searchAfter_;
+        bitField0_ |= 0x00000004;
+        onChanged();
+      }
+      if (!other.getSearchBefore().isEmpty()) {
+        searchBefore_ = other.searchBefore_;
+        bitField0_ |= 0x00000008;
+        onChanged();
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -467,6 +601,16 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000002;
               break;
             } // case 16
+            case 66: {
+              searchAfter_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 66
+            case 74: {
+              searchBefore_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 74
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -836,6 +980,190 @@ private static final long serialVersionUID = 0L;
     public Builder clearTotal() {
       bitField0_ = (bitField0_ & ~0x00000002);
       total_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object searchAfter_ = "";
+    /**
+     * <pre>
+     * pagination next page
+     * </pre>
+     *
+     * <code>string search_after = 8 [json_name = "searchAfter"];</code>
+     * @return The searchAfter.
+     */
+    public java.lang.String getSearchAfter() {
+      java.lang.Object ref = searchAfter_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        searchAfter_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * pagination next page
+     * </pre>
+     *
+     * <code>string search_after = 8 [json_name = "searchAfter"];</code>
+     * @return The bytes for searchAfter.
+     */
+    public com.google.protobuf.ByteString
+        getSearchAfterBytes() {
+      java.lang.Object ref = searchAfter_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        searchAfter_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * pagination next page
+     * </pre>
+     *
+     * <code>string search_after = 8 [json_name = "searchAfter"];</code>
+     * @param value The searchAfter to set.
+     * @return This builder for chaining.
+     */
+    public Builder setSearchAfter(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      searchAfter_ = value;
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * pagination next page
+     * </pre>
+     *
+     * <code>string search_after = 8 [json_name = "searchAfter"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearSearchAfter() {
+      searchAfter_ = getDefaultInstance().getSearchAfter();
+      bitField0_ = (bitField0_ & ~0x00000004);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * pagination next page
+     * </pre>
+     *
+     * <code>string search_after = 8 [json_name = "searchAfter"];</code>
+     * @param value The bytes for searchAfter to set.
+     * @return This builder for chaining.
+     */
+    public Builder setSearchAfterBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      searchAfter_ = value;
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object searchBefore_ = "";
+    /**
+     * <pre>
+     * pagination previous page
+     * </pre>
+     *
+     * <code>string search_before = 9 [json_name = "searchBefore"];</code>
+     * @return The searchBefore.
+     */
+    public java.lang.String getSearchBefore() {
+      java.lang.Object ref = searchBefore_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        searchBefore_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * pagination previous page
+     * </pre>
+     *
+     * <code>string search_before = 9 [json_name = "searchBefore"];</code>
+     * @return The bytes for searchBefore.
+     */
+    public com.google.protobuf.ByteString
+        getSearchBeforeBytes() {
+      java.lang.Object ref = searchBefore_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        searchBefore_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * pagination previous page
+     * </pre>
+     *
+     * <code>string search_before = 9 [json_name = "searchBefore"];</code>
+     * @param value The searchBefore to set.
+     * @return This builder for chaining.
+     */
+    public Builder setSearchBefore(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      searchBefore_ = value;
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * pagination previous page
+     * </pre>
+     *
+     * <code>string search_before = 9 [json_name = "searchBefore"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearSearchBefore() {
+      searchBefore_ = getDefaultInstance().getSearchBefore();
+      bitField0_ = (bitField0_ & ~0x00000008);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * pagination previous page
+     * </pre>
+     *
+     * <code>string search_before = 9 [json_name = "searchBefore"];</code>
+     * @param value The bytes for searchBefore to set.
+     * @return This builder for chaining.
+     */
+    public Builder setSearchBeforeBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      searchBefore_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }

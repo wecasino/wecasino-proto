@@ -61,4 +61,44 @@ public interface ListShiftsResponseOrBuilder extends
    * @return The total.
    */
   long getTotal();
+
+  /**
+   * <pre>
+   * pagination next page
+   * </pre>
+   *
+   * <code>string search_after = 8 [json_name = "searchAfter"];</code>
+   * @return The searchAfter.
+   */
+  java.lang.String getSearchAfter();
+  /**
+   * <pre>
+   * pagination next page
+   * </pre>
+   *
+   * <code>string search_after = 8 [json_name = "searchAfter"];</code>
+   * @return The bytes for searchAfter.
+   */
+  com.google.protobuf.ByteString
+      getSearchAfterBytes();
+
+  /**
+   * <pre>
+   * pagination previous page
+   * </pre>
+   *
+   * <code>string search_before = 9 [json_name = "searchBefore"];</code>
+   * @return The searchBefore.
+   */
+  java.lang.String getSearchBefore();
+  /**
+   * <pre>
+   * pagination previous page
+   * </pre>
+   *
+   * <code>string search_before = 9 [json_name = "searchBefore"];</code>
+   * @return The bytes for searchBefore.
+   */
+  com.google.protobuf.ByteString
+      getSearchBeforeBytes();
 }

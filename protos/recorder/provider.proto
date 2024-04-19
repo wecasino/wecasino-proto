@@ -95,6 +95,12 @@ message ListShiftsResponse {
 
   // 總數
   int64 total = 2;
+  
+  // pagination next page
+  string search_after = 8;
+
+  // pagination previous page
+  string search_before = 9;
 
 }
 
@@ -106,6 +112,12 @@ message ListShoesRecordResponse {
   // 總數
   int64 total = 2;
 
+  // pagination next page
+  string search_after = 8;
+  
+  // pagination previous page
+  string search_before = 9;
+
 }
 
 message ListRoundsRecordResponse {
@@ -115,6 +127,12 @@ message ListRoundsRecordResponse {
 
   // 總數
   int64 total = 2;
+
+  // pagination next page
+  string search_after = 8;
+  
+  // pagination previous page
+  string search_before = 9;
 
 }
 

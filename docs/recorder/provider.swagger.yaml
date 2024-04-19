@@ -905,6 +905,12 @@ definitions:
         type: string
         format: int64
         title: 總數
+      searchAfter:
+        type: string
+        title: pagination next page
+      searchBefore:
+        type: string
+        title: pagination previous page
   recorderListShiftsResponse:
     type: object
     properties:
@@ -918,6 +924,12 @@ definitions:
         type: string
         format: int64
         title: 總數
+      searchAfter:
+        type: string
+        title: pagination next page
+      searchBefore:
+        type: string
+        title: pagination previous page
   recorderListShoesRecordResponse:
     type: object
     properties:
@@ -931,6 +943,12 @@ definitions:
         type: string
         format: int64
         title: 總數
+      searchAfter:
+        type: string
+        title: pagination next page
+      searchBefore:
+        type: string
+        title: pagination previous page
   recorderLiveStreamParams:
     type: object
     properties:
