@@ -20,6 +20,8 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// GameType
+// 遊戲類型
 type GameType int32
 
 const (
@@ -244,6 +246,8 @@ func (ResourceType) EnumDescriptor() ([]byte, []int) {
 	return file_games_games_proto_rawDescGZIP(), []int{2}
 }
 
+// WinType
+// 遊戲輸贏類型
 type WinType int32
 
 const (

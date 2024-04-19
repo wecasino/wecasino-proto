@@ -137,6 +137,8 @@ func (GameNotifyType) EnumDescriptor() ([]byte, []int) {
 	return file_recorder_provider_proto_rawDescGZIP(), []int{0}
 }
 
+// GameProvideState
+// 遊戲供應狀態類型
 type GameProvideState int32
 
 const (
@@ -211,7 +213,7 @@ type GetRequest struct {
 	unknownFields protoimpl.UnknownFields
 
 	// 資源代碼
-	Code string `protobuf:"bytes,1,opt,name=code,proto3" json:"code" bson:"code" yaml:"code"`
+	Code string `protobuf:"bytes,1,opt,name=code,proto3" json:"code,omitempty"`
 }
 
 func (x *GetRequest) Reset() {
@@ -259,7 +261,7 @@ type GetCurrentRecordRequest struct {
 	unknownFields protoimpl.UnknownFields
 
 	// 遊戲代碼
-	GameCode string `protobuf:"bytes,1,opt,name=game_code,json=gameCode,proto3" json:"gameCode" bson:"gameCode" yaml:"gameCode"`
+	GameCode string `protobuf:"bytes,1,opt,name=game_code,json=gameCode,proto3" json:"game_code,omitempty"`
 }
 
 func (x *GetCurrentRecordRequest) Reset() {
@@ -307,25 +309,25 @@ type ListRecordsRequest struct {
 	unknownFields protoimpl.UnknownFields
 
 	// 查詢起時
-	TsFrom *timestamppb.Timestamp `protobuf:"bytes,1,opt,name=ts_from,json=tsFrom,proto3" json:"tsFrom" yaml:"tsFrom" bson:"tsFrom"`
+	TsFrom *timestamppb.Timestamp `protobuf:"bytes,1,opt,name=ts_from,json=tsFrom,proto3" json:"ts_from,omitempty"`
 	// 查詢終時
-	TsTo *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=ts_to,json=tsTo,proto3" json:"tsTo" bson:"tsTo" yaml:"tsTo"`
+	TsTo *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=ts_to,json=tsTo,proto3" json:"ts_to,omitempty"`
 	// 遊戲類型
-	GameType *games.GameType `protobuf:"varint,3,opt,name=game_type,json=gameType,proto3,enum=games.GameType,oneof" json:"gameType" bson:"gameType" yaml:"gameType"`
+	GameType *games.GameType `protobuf:"varint,3,opt,name=game_type,json=gameType,proto3,enum=games.GameType,oneof" json:"game_type,omitempty"`
 	// 遊戲子類型
-	GameSubtype *int32 `protobuf:"varint,4,opt,name=game_subtype,json=gameSubtype,proto3,oneof" json:"gameSubtype" yaml:"gameSubtype" bson:"gameSubtype"`
+	GameSubtype *int32 `protobuf:"varint,4,opt,name=game_subtype,json=gameSubtype,proto3,oneof" json:"game_subtype,omitempty"`
 	// 遊戲供應
-	Supplier *string `protobuf:"bytes,5,opt,name=supplier,proto3,oneof" json:"supplier" bson:"supplier" yaml:"supplier"`
+	Supplier *string `protobuf:"bytes,5,opt,name=supplier,proto3,oneof" json:"supplier,omitempty"`
 	// 遊戲代碼
-	GameCode *string `protobuf:"bytes,6,opt,name=game_code,json=gameCode,proto3,oneof" json:"gameCode" bson:"gameCode" yaml:"gameCode"`
+	GameCode *string `protobuf:"bytes,6,opt,name=game_code,json=gameCode,proto3,oneof" json:"game_code,omitempty"`
 	// pagination next page
-	SearchAfter *string `protobuf:"bytes,8,opt,name=search_after,json=searchAfter,proto3,oneof" json:"searchAfter" bson:"searchAfter" yaml:"searchAfter"`
+	SearchAfter *string `protobuf:"bytes,8,opt,name=search_after,json=searchAfter,proto3,oneof" json:"search_after,omitempty"`
 	// pagination previous page
-	SearchBefore *string `protobuf:"bytes,9,opt,name=search_before,json=searchBefore,proto3,oneof" json:"searchBefore" bson:"searchBefore" yaml:"searchBefore"`
+	SearchBefore *string `protobuf:"bytes,9,opt,name=search_before,json=searchBefore,proto3,oneof" json:"search_before,omitempty"`
 	// 頁數 1開始，0表示未填，改為1
-	Page int64 `protobuf:"varint,10,opt,name=page,proto3" json:"page" yaml:"page" bson:"page"`
+	Page int64 `protobuf:"varint,10,opt,name=page,proto3" json:"page,omitempty"`
 	// 每頁筆數
-	PageSize int64 `protobuf:"varint,11,opt,name=page_size,json=pageSize,proto3" json:"pageSize" bson:"pageSize" yaml:"pageSize"`
+	PageSize int64 `protobuf:"varint,11,opt,name=page_size,json=pageSize,proto3" json:"page_size,omitempty"`
 }
 
 func (x *ListRecordsRequest) Reset() {
@@ -430,19 +432,21 @@ func (x *ListRecordsRequest) GetPageSize() int64 {
 	return 0
 }
 
+// ListShiftsResponse
+// 取得排班記錄列表
 type ListShiftsResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
 	// shifts
-	ShiftRecord []*ShiftRecord `protobuf:"bytes,1,rep,name=shift_record,json=shiftRecord,proto3" json:"shiftRecord" bson:"shiftRecord" yaml:"shiftRecord"`
+	ShiftRecord []*ShiftRecord `protobuf:"bytes,1,rep,name=shift_record,json=shiftRecord,proto3" json:"shift_record,omitempty"`
 	// 總數
-	Total int64 `protobuf:"varint,2,opt,name=total,proto3" json:"total" yaml:"total" bson:"total"`
+	Total int64 `protobuf:"varint,2,opt,name=total,proto3" json:"total,omitempty"`
 	// pagination next page
-	SearchAfter string `protobuf:"bytes,8,opt,name=search_after,json=searchAfter,proto3" json:"searchAfter" bson:"searchAfter" yaml:"searchAfter"`
+	SearchAfter string `protobuf:"bytes,8,opt,name=search_after,json=searchAfter,proto3" json:"search_after,omitempty"`
 	// pagination previous page
-	SearchBefore string `protobuf:"bytes,9,opt,name=search_before,json=searchBefore,proto3" json:"searchBefore" bson:"searchBefore" yaml:"searchBefore"`
+	SearchBefore string `protobuf:"bytes,9,opt,name=search_before,json=searchBefore,proto3" json:"search_before,omitempty"`
 }
 
 func (x *ListShiftsResponse) Reset() {
@@ -505,19 +509,21 @@ func (x *ListShiftsResponse) GetSearchBefore() string {
 	return ""
 }
 
+// ListShoesRecordResponse
+// 取得靴記錄列表
 type ListShoesRecordResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
 	// shoes
-	ShoeRecord []*ShoeRecord `protobuf:"bytes,1,rep,name=shoe_record,json=shoeRecord,proto3" json:"shoeRecord" bson:"shoeRecord" yaml:"shoeRecord"`
+	ShoeRecord []*ShoeRecord `protobuf:"bytes,1,rep,name=shoe_record,json=shoeRecord,proto3" json:"shoe_record,omitempty"`
 	// 總數
-	Total int64 `protobuf:"varint,2,opt,name=total,proto3" json:"total" bson:"total" yaml:"total"`
+	Total int64 `protobuf:"varint,2,opt,name=total,proto3" json:"total,omitempty"`
 	// pagination next page
-	SearchAfter string `protobuf:"bytes,8,opt,name=search_after,json=searchAfter,proto3" json:"searchAfter" bson:"searchAfter" yaml:"searchAfter"`
+	SearchAfter string `protobuf:"bytes,8,opt,name=search_after,json=searchAfter,proto3" json:"search_after,omitempty"`
 	// pagination previous page
-	SearchBefore string `protobuf:"bytes,9,opt,name=search_before,json=searchBefore,proto3" json:"searchBefore" bson:"searchBefore" yaml:"searchBefore"`
+	SearchBefore string `protobuf:"bytes,9,opt,name=search_before,json=searchBefore,proto3" json:"search_before,omitempty"`
 }
 
 func (x *ListShoesRecordResponse) Reset() {
@@ -580,19 +586,21 @@ func (x *ListShoesRecordResponse) GetSearchBefore() string {
 	return ""
 }
 
+// ListRoundsRecordResponse
+// 取得局記錄列表
 type ListRoundsRecordResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
 	// rounds
-	RoundRecord []*RoundRecord `protobuf:"bytes,1,rep,name=round_record,json=roundRecord,proto3" json:"roundRecord" bson:"roundRecord" yaml:"roundRecord"`
+	RoundRecord []*RoundRecord `protobuf:"bytes,1,rep,name=round_record,json=roundRecord,proto3" json:"round_record,omitempty"`
 	// 總數
-	Total int64 `protobuf:"varint,2,opt,name=total,proto3" json:"total" bson:"total" yaml:"total"`
+	Total int64 `protobuf:"varint,2,opt,name=total,proto3" json:"total,omitempty"`
 	// pagination next page
-	SearchAfter string `protobuf:"bytes,8,opt,name=search_after,json=searchAfter,proto3" json:"searchAfter" bson:"searchAfter" yaml:"searchAfter"`
+	SearchAfter string `protobuf:"bytes,8,opt,name=search_after,json=searchAfter,proto3" json:"search_after,omitempty"`
 	// pagination previous page
-	SearchBefore string `protobuf:"bytes,9,opt,name=search_before,json=searchBefore,proto3" json:"searchBefore" bson:"searchBefore" yaml:"searchBefore"`
+	SearchBefore string `protobuf:"bytes,9,opt,name=search_before,json=searchBefore,proto3" json:"search_before,omitempty"`
 }
 
 func (x *ListRoundsRecordResponse) Reset() {
@@ -655,6 +663,7 @@ func (x *ListRoundsRecordResponse) GetSearchBefore() string {
 	return ""
 }
 
+// LiveStreamParams
 // 直播資訊
 type LiveStreamParams struct {
 	state         protoimpl.MessageState
@@ -662,11 +671,11 @@ type LiveStreamParams struct {
 	unknownFields protoimpl.UnknownFields
 
 	// 串流代碼
-	Code string `protobuf:"bytes,1,opt,name=code,proto3" json:"code" bson:"code" yaml:"code"`
+	Code string `protobuf:"bytes,1,opt,name=code,proto3" json:"code,omitempty"`
 	// 應用
-	App string `protobuf:"bytes,2,opt,name=app,proto3" json:"app" bson:"app" yaml:"app"`
+	App string `protobuf:"bytes,2,opt,name=app,proto3" json:"app,omitempty"`
 	// 頻道
-	Channel string `protobuf:"bytes,3,opt,name=channel,proto3" json:"channel" bson:"channel" yaml:"channel"`
+	Channel string `protobuf:"bytes,3,opt,name=channel,proto3" json:"channel,omitempty"`
 }
 
 func (x *LiveStreamParams) Reset() {
@@ -722,6 +731,7 @@ func (x *LiveStreamParams) GetChannel() string {
 	return ""
 }
 
+// GameProvide
 // 遊戲供應
 type GameProvide struct {
 	state         protoimpl.MessageState
@@ -729,27 +739,27 @@ type GameProvide struct {
 	unknownFields protoimpl.UnknownFields
 
 	// 遊戲供應
-	Supplier string `protobuf:"bytes,2,opt,name=supplier,proto3" json:"supplier" bson:"supplier" yaml:"supplier"`
+	Supplier string `protobuf:"bytes,2,opt,name=supplier,proto3" json:"supplier,omitempty"`
 	// 遊戲類型
-	GameType string `protobuf:"bytes,3,opt,name=game_type,json=gameType,proto3" json:"gameType" bson:"gameType" yaml:"gameType"`
+	GameType string `protobuf:"bytes,3,opt,name=game_type,json=gameType,proto3" json:"game_type,omitempty"`
 	// 遊戲子類型
-	GameSubtype string `protobuf:"bytes,4,opt,name=game_subtype,json=gameSubtype,proto3" json:"gameSubtype" bson:"gameSubtype" yaml:"gameSubtype"`
+	GameSubtype string `protobuf:"bytes,4,opt,name=game_subtype,json=gameSubtype,proto3" json:"game_subtype,omitempty"`
 	// 遊戲代碼
-	GameCode string `protobuf:"bytes,6,opt,name=game_code,json=gameCode,proto3" json:"gameCode" yaml:"gameCode" bson:"gameCode"`
+	GameCode string `protobuf:"bytes,6,opt,name=game_code,json=gameCode,proto3" json:"game_code,omitempty"`
 	// 標籤
-	Tags map[string]string `protobuf:"bytes,13,rep,name=tags,proto3" json:"tags" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3" bson:"tags" yaml:"tags"`
+	Tags map[string]string `protobuf:"bytes,13,rep,name=tags,proto3" json:"tags,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
 	// 狀態
-	State GameProvideState `protobuf:"varint,17,opt,name=state,proto3,enum=recorder.GameProvideState" json:"state" bson:"state" yaml:"state"`
+	State GameProvideState `protobuf:"varint,17,opt,name=state,proto3,enum=recorder.GameProvideState" json:"state,omitempty"`
 	// 玩家入座
-	Players map[int32]string `protobuf:"bytes,25,rep,name=players,proto3" json:"players" protobuf_key:"varint,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3" bson:"players" yaml:"players"`
+	Players map[int32]string `protobuf:"bytes,25,rep,name=players,proto3" json:"players,omitempty" protobuf_key:"varint,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
 	// 玩家姓名
-	PlayersName map[string]string `protobuf:"bytes,30,rep,name=players_name,json=playersName,proto3" json:"playersName" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3" yaml:"playersName" bson:"playersName"`
+	PlayersName map[string]string `protobuf:"bytes,30,rep,name=players_name,json=playersName,proto3" json:"players_name,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
 	// 附加媒體：key: 媒體資源代碼；value: 媒體內容。
-	Medias map[string]string `protobuf:"bytes,28,rep,name=medias,proto3" json:"medias" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3" bson:"medias" yaml:"medias"`
+	Medias map[string]string `protobuf:"bytes,28,rep,name=medias,proto3" json:"medias,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
 	// 直播參數
-	LiveStreams map[string]*LiveStreamParams `protobuf:"bytes,29,rep,name=live_streams,json=liveStreams,proto3" json:"liveStreams" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3" bson:"liveStreams" yaml:"liveStreams"`
+	LiveStreams map[string]*LiveStreamParams `protobuf:"bytes,29,rep,name=live_streams,json=liveStreams,proto3" json:"live_streams,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
 	// 最後一局
-	LastRoundCode string `protobuf:"bytes,12,opt,name=last_round_code,json=lastRoundCode,proto3" json:"lastRoundCode" yaml:"lastRoundCode" bson:"lastRoundCode"`
+	LastRoundCode string `protobuf:"bytes,12,opt,name=last_round_code,json=lastRoundCode,proto3" json:"last_round_code,omitempty"`
 }
 
 func (x *GameProvide) Reset() {
@@ -899,13 +909,15 @@ func (*ListGamesRequest) Descriptor() ([]byte, []int) {
 	return file_recorder_provider_proto_rawDescGZIP(), []int{8}
 }
 
+// ListGamesResponse
+// 取得遊戲列表
 type ListGamesResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
 	// 遊戲列表
-	GameProvides []*GameProvide `protobuf:"bytes,1,rep,name=game_provides,json=gameProvides,proto3" json:"gameProvides" bson:"gameProvides" yaml:"gameProvides"`
+	GameProvides []*GameProvide `protobuf:"bytes,1,rep,name=game_provides,json=gameProvides,proto3" json:"game_provides,omitempty"`
 }
 
 func (x *ListGamesResponse) Reset() {
@@ -947,17 +959,19 @@ func (x *ListGamesResponse) GetGameProvides() []*GameProvide {
 	return nil
 }
 
+// VerifyGameRequest
+// 驗證遊戲需求
 type VerifyGameRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
 	// 遊戲代碼
-	GameCode string `protobuf:"bytes,1,opt,name=game_code,json=gameCode,proto3" json:"gameCode" bson:"gameCode" yaml:"gameCode"`
+	GameCode string `protobuf:"bytes,1,opt,name=game_code,json=gameCode,proto3" json:"game_code,omitempty"`
 	// 驗證傳送接收的代碼
-	Pattern []string `protobuf:"bytes,2,rep,name=pattern,proto3" json:"pattern" bson:"pattern" yaml:"pattern"`
+	Pattern []string `protobuf:"bytes,2,rep,name=pattern,proto3" json:"pattern,omitempty"`
 	// 顯示名稱
-	Name string `protobuf:"bytes,3,opt,name=name,proto3" json:"name" bson:"name" yaml:"name"`
+	Name string `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
 }
 
 func (x *VerifyGameRequest) Reset() {
@@ -1013,21 +1027,23 @@ func (x *VerifyGameRequest) GetName() string {
 	return ""
 }
 
+// Artcle
+// 文章
 type Article struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
 	// 標題
-	Title string `protobuf:"bytes,1,opt,name=title,proto3" json:"title" bson:"title" yaml:"title"`
+	Title string `protobuf:"bytes,1,opt,name=title,proto3" json:"title,omitempty"`
 	// 副標
-	Subtitle string `protobuf:"bytes,2,opt,name=subtitle,proto3" json:"subtitle" bson:"subtitle" yaml:"subtitle"`
+	Subtitle string `protobuf:"bytes,2,opt,name=subtitle,proto3" json:"subtitle,omitempty"`
 	// 內文
-	Text string `protobuf:"bytes,3,opt,name=text,proto3" json:"text" yaml:"text" bson:"text"`
+	Text string `protobuf:"bytes,3,opt,name=text,proto3" json:"text,omitempty"`
 	// 附加媒體：key: 媒體資源代碼；value: 媒體內容。
-	Medias map[string]string `protobuf:"bytes,4,rep,name=medias,proto3" json:"medias" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3" bson:"medias" yaml:"medias"`
+	Medias map[string]string `protobuf:"bytes,4,rep,name=medias,proto3" json:"medias,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
 	// 子文檔
-	Sections map[string]*Article `protobuf:"bytes,5,rep,name=sections,proto3" json:"sections" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3" yaml:"sections" bson:"sections"`
+	Sections map[string]*Article `protobuf:"bytes,5,rep,name=sections,proto3" json:"sections,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
 }
 
 func (x *Article) Reset() {
@@ -1097,23 +1113,25 @@ func (x *Article) GetSections() map[string]*Article {
 	return nil
 }
 
+// Dealer
+// 荷官資訊
 type Dealer struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
 	// 代碼
-	Code string `protobuf:"bytes,1,opt,name=code,proto3" json:"code" bson:"code" yaml:"code"`
+	Code string `protobuf:"bytes,1,opt,name=code,proto3" json:"code,omitempty"`
 	// 名稱
-	Name string `protobuf:"bytes,2,opt,name=name,proto3" json:"name" bson:"name" yaml:"name"`
+	Name string `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
 	// 年齡
-	Age string `protobuf:"bytes,3,opt,name=age,proto3" json:"age" bson:"age" yaml:"age"`
+	Age string `protobuf:"bytes,3,opt,name=age,proto3" json:"age,omitempty"`
 	// Tags
-	Tags map[string]string `protobuf:"bytes,4,rep,name=tags,proto3" json:"tags" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3" bson:"tags" yaml:"tags"`
+	Tags map[string]string `protobuf:"bytes,4,rep,name=tags,proto3" json:"tags,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
 	// 介紹
-	Intro *Article `protobuf:"bytes,5,opt,name=intro,proto3" json:"intro" bson:"intro" yaml:"intro"`
+	Intro *Article `protobuf:"bytes,5,opt,name=intro,proto3" json:"intro,omitempty"`
 	// 貼文
-	Posts []*Article `protobuf:"bytes,6,rep,name=posts,proto3" json:"posts" bson:"posts" yaml:"posts"`
+	Posts []*Article `protobuf:"bytes,6,rep,name=posts,proto3" json:"posts,omitempty"`
 }
 
 func (x *Dealer) Reset() {
@@ -1196,11 +1214,11 @@ type ListDealersRequest struct {
 	unknownFields protoimpl.UnknownFields
 
 	// 代碼陣列
-	Codes []string `protobuf:"bytes,1,rep,name=codes,proto3" json:"codes" bson:"codes" yaml:"codes"`
+	Codes []string `protobuf:"bytes,1,rep,name=codes,proto3" json:"codes,omitempty"`
 	// 開始
-	Skip int64 `protobuf:"varint,2,opt,name=skip,proto3" json:"skip" bson:"skip" yaml:"skip"`
+	Skip int64 `protobuf:"varint,2,opt,name=skip,proto3" json:"skip,omitempty"`
 	// 筆數 預設 100
-	Limit int64 `protobuf:"varint,3,opt,name=limit,proto3" json:"limit" bson:"limit" yaml:"limit"`
+	Limit int64 `protobuf:"varint,3,opt,name=limit,proto3" json:"limit,omitempty"`
 }
 
 func (x *ListDealersRequest) Reset() {
@@ -1256,13 +1274,15 @@ func (x *ListDealersRequest) GetLimit() int64 {
 	return 0
 }
 
+// ListDealersResponse
+// 取得荷官列表
 type ListDealersResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
 	// 荷官資料
-	Dealers []*Dealer `protobuf:"bytes,1,rep,name=dealers,proto3" json:"dealers" bson:"dealers" yaml:"dealers"`
+	Dealers []*Dealer `protobuf:"bytes,1,rep,name=dealers,proto3" json:"dealers,omitempty"`
 }
 
 func (x *ListDealersResponse) Reset() {
@@ -1653,28 +1673,26 @@ var file_recorder_provider_proto_rawDesc = []byte{
 	0x65, 0x73, 0x74, 0x1a, 0x10, 0x2e, 0x72, 0x65, 0x63, 0x6f, 0x72, 0x64, 0x65, 0x72, 0x2e, 0x44,
 	0x65, 0x61, 0x6c, 0x65, 0x72, 0x22, 0x23, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x1d, 0x12, 0x1b, 0x2f,
 	0x76, 0x31, 0x2f, 0x70, 0x72, 0x6f, 0x76, 0x69, 0x64, 0x65, 0x72, 0x2f, 0x64, 0x65, 0x61, 0x6c,
-	0x65, 0x72, 0x73, 0x2f, 0x7b, 0x63, 0x6f, 0x64, 0x65, 0x7d, 0x42, 0xbd, 0x02, 0x92, 0x41, 0x9b,
-	0x01, 0x12, 0x43, 0x0a, 0x15, 0x57, 0x45, 0x43, 0x61, 0x73, 0x69, 0x6e, 0x6f, 0x20, 0x50, 0x72,
-	0x6f, 0x76, 0x69, 0x64, 0x65, 0x72, 0x20, 0x41, 0x50, 0x49, 0x22, 0x25, 0x0a, 0x10, 0x57, 0x45,
-	0x43, 0x61, 0x73, 0x69, 0x6e, 0x6f, 0x20, 0x50, 0x72, 0x6f, 0x6a, 0x65, 0x63, 0x74, 0x12, 0x11,
-	0x77, 0x77, 0x77, 0x2e, 0x77, 0x65, 0x63, 0x61, 0x73, 0x69, 0x6e, 0x6f, 0x2e, 0x6c, 0x69, 0x76,
-	0x65, 0x32, 0x03, 0x31, 0x2e, 0x30, 0x1a, 0x1e, 0x68, 0x74, 0x74, 0x70, 0x73, 0x3a, 0x2f, 0x2f,
-	0x70, 0x72, 0x6f, 0x76, 0x69, 0x64, 0x65, 0x72, 0x2e, 0x77, 0x65, 0x63, 0x61, 0x73, 0x69, 0x6e,
-	0x6f, 0x2e, 0x6c, 0x69, 0x76, 0x65, 0x2a, 0x01, 0x02, 0x5a, 0x1f, 0x0a, 0x1d, 0x0a, 0x0a, 0x41,
-	0x70, 0x69, 0x4b, 0x65, 0x79, 0x41, 0x75, 0x74, 0x68, 0x12, 0x0f, 0x08, 0x02, 0x1a, 0x09, 0x58,
-	0x2d, 0x41, 0x50, 0x49, 0x2d, 0x4b, 0x65, 0x79, 0x20, 0x02, 0x62, 0x10, 0x0a, 0x0e, 0x0a, 0x0a,
-	0x41, 0x70, 0x69, 0x4b, 0x65, 0x79, 0x41, 0x75, 0x74, 0x68, 0x12, 0x00, 0x0a, 0x1b, 0x63, 0x6f,
-	0x6d, 0x2e, 0x77, 0x65, 0x63, 0x61, 0x73, 0x69, 0x6e, 0x6f, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f,
-	0x2e, 0x72, 0x65, 0x63, 0x6f, 0x72, 0x64, 0x65, 0x72, 0x42, 0x0d, 0x50, 0x72, 0x6f, 0x76, 0x69,
-	0x64, 0x65, 0x72, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x50, 0x01, 0x5a, 0x30, 0x67, 0x69, 0x74, 0x68,
-	0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x77, 0x65, 0x63, 0x61, 0x73, 0x69, 0x6e, 0x6f, 0x2f,
-	0x77, 0x65, 0x63, 0x61, 0x73, 0x69, 0x6e, 0x6f, 0x2d, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2f, 0x70,
-	0x62, 0x67, 0x6f, 0x2f, 0x72, 0x65, 0x63, 0x6f, 0x72, 0x64, 0x65, 0x72, 0xa2, 0x02, 0x03, 0x52,
-	0x58, 0x58, 0xaa, 0x02, 0x08, 0x52, 0x65, 0x63, 0x6f, 0x72, 0x64, 0x65, 0x72, 0xca, 0x02, 0x08,
-	0x52, 0x65, 0x63, 0x6f, 0x72, 0x64, 0x65, 0x72, 0xe2, 0x02, 0x14, 0x52, 0x65, 0x63, 0x6f, 0x72,
-	0x64, 0x65, 0x72, 0x5c, 0x47, 0x50, 0x42, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0xea,
-	0x02, 0x08, 0x52, 0x65, 0x63, 0x6f, 0x72, 0x64, 0x65, 0x72, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74,
-	0x6f, 0x33,
+	0x65, 0x72, 0x73, 0x2f, 0x7b, 0x63, 0x6f, 0x64, 0x65, 0x7d, 0x42, 0xa2, 0x02, 0x92, 0x41, 0x80,
+	0x01, 0x12, 0x30, 0x0a, 0x15, 0x57, 0x45, 0x43, 0x61, 0x73, 0x69, 0x6e, 0x6f, 0x20, 0x50, 0x72,
+	0x6f, 0x76, 0x69, 0x64, 0x65, 0x72, 0x20, 0x41, 0x50, 0x49, 0x22, 0x12, 0x0a, 0x10, 0x57, 0x45,
+	0x43, 0x61, 0x73, 0x69, 0x6e, 0x6f, 0x20, 0x50, 0x72, 0x6f, 0x6a, 0x65, 0x63, 0x74, 0x32, 0x03,
+	0x31, 0x2e, 0x30, 0x1a, 0x16, 0x70, 0x72, 0x6f, 0x76, 0x69, 0x64, 0x65, 0x72, 0x2e, 0x77, 0x65,
+	0x63, 0x61, 0x73, 0x69, 0x6e, 0x6f, 0x2e, 0x6c, 0x69, 0x76, 0x65, 0x2a, 0x01, 0x02, 0x5a, 0x1f,
+	0x0a, 0x1d, 0x0a, 0x0a, 0x41, 0x70, 0x69, 0x4b, 0x65, 0x79, 0x41, 0x75, 0x74, 0x68, 0x12, 0x0f,
+	0x08, 0x02, 0x1a, 0x09, 0x58, 0x2d, 0x41, 0x50, 0x49, 0x2d, 0x4b, 0x65, 0x79, 0x20, 0x02, 0x62,
+	0x10, 0x0a, 0x0e, 0x0a, 0x0a, 0x41, 0x70, 0x69, 0x4b, 0x65, 0x79, 0x41, 0x75, 0x74, 0x68, 0x12,
+	0x00, 0x0a, 0x1b, 0x63, 0x6f, 0x6d, 0x2e, 0x77, 0x65, 0x63, 0x61, 0x73, 0x69, 0x6e, 0x6f, 0x2e,
+	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2e, 0x72, 0x65, 0x63, 0x6f, 0x72, 0x64, 0x65, 0x72, 0x42, 0x0d,
+	0x50, 0x72, 0x6f, 0x76, 0x69, 0x64, 0x65, 0x72, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x50, 0x01, 0x5a,
+	0x30, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x77, 0x65, 0x63, 0x61,
+	0x73, 0x69, 0x6e, 0x6f, 0x2f, 0x77, 0x65, 0x63, 0x61, 0x73, 0x69, 0x6e, 0x6f, 0x2d, 0x70, 0x72,
+	0x6f, 0x74, 0x6f, 0x2f, 0x70, 0x62, 0x67, 0x6f, 0x2f, 0x72, 0x65, 0x63, 0x6f, 0x72, 0x64, 0x65,
+	0x72, 0xa2, 0x02, 0x03, 0x52, 0x58, 0x58, 0xaa, 0x02, 0x08, 0x52, 0x65, 0x63, 0x6f, 0x72, 0x64,
+	0x65, 0x72, 0xca, 0x02, 0x08, 0x52, 0x65, 0x63, 0x6f, 0x72, 0x64, 0x65, 0x72, 0xe2, 0x02, 0x14,
+	0x52, 0x65, 0x63, 0x6f, 0x72, 0x64, 0x65, 0x72, 0x5c, 0x47, 0x50, 0x42, 0x4d, 0x65, 0x74, 0x61,
+	0x64, 0x61, 0x74, 0x61, 0xea, 0x02, 0x08, 0x52, 0x65, 0x63, 0x6f, 0x72, 0x64, 0x65, 0x72, 0x62,
+	0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (

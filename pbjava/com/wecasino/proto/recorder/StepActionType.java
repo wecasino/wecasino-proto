@@ -6,6 +6,7 @@ package com.wecasino.proto.recorder;
 
 /**
  * <pre>
+ * StepActionType
  * 動作類型
  * </pre>
  *

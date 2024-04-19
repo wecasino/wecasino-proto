@@ -16,10 +16,9 @@ option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
     version: "1.0";
     contact: {
       name: "WECasino Project";
-      url: "www.wecasino.live";
     };
   }
-  host: "https://provider.wecasino.live";
+  host: "provider.wecasino.live";
   schemes: HTTPS;
   security_definitions: {
     security: {
@@ -88,6 +87,8 @@ message ListRecordsRequest {
 
 }
 
+// ListShiftsResponse
+// 取得排班記錄列表
 message ListShiftsResponse {
 
   // shifts
@@ -104,6 +105,8 @@ message ListShiftsResponse {
 
 }
 
+// ListShoesRecordResponse
+// 取得靴記錄列表
 message ListShoesRecordResponse {
 
   // shoes
@@ -120,6 +123,8 @@ message ListShoesRecordResponse {
 
 }
 
+// ListRoundsRecordResponse
+// 取得局記錄列表
 message ListRoundsRecordResponse {
 
   // rounds
@@ -262,6 +267,8 @@ enum GameNotifyType {
   
 }
 
+// GameProvideState
+// 遊戲供應狀態類型
 enum GameProvideState {
 
   // 未指定
@@ -287,6 +294,7 @@ enum GameProvideState {
 
 }
 
+// LiveStreamParams
 // 直播資訊
 message LiveStreamParams {
 
@@ -301,6 +309,7 @@ message LiveStreamParams {
 
 }
 
+// GameProvide
 // 遊戲供應
 message GameProvide {
 
@@ -343,6 +352,8 @@ message ListGamesRequest {
 
 }
 
+// ListGamesResponse
+// 取得遊戲列表
 message ListGamesResponse {
   
   // 遊戲列表
@@ -350,8 +361,10 @@ message ListGamesResponse {
 
 }
 
+// VerifyGameRequest
+// 驗證遊戲需求
 message VerifyGameRequest {
-  
+
   // 遊戲代碼
   string game_code = 1;
 
@@ -363,6 +376,8 @@ message VerifyGameRequest {
   
 }
 
+// Artcle
+// 文章
 message Article {
 
   // 標題
@@ -382,6 +397,8 @@ message Article {
 
 }
 
+// Dealer
+// 荷官資訊
 message Dealer {
 
   // 代碼
@@ -417,6 +434,8 @@ message ListDealersRequest {
 
 }
 
+// ListDealersResponse
+// 取得荷官列表
 message ListDealersResponse {
 
   // 荷官資料

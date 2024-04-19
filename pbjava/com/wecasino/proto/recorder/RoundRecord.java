@@ -6,7 +6,8 @@ package com.wecasino.proto.recorder;
 
 /**
  * <pre>
- * 紀錄
+ * RoundRecord
+ * 局紀錄
  * </pre>
  *
  * Protobuf type {@code recorder.RoundRecord}
@@ -2163,7 +2164,8 @@ java.lang.String defaultValue) {
   }
   /**
    * <pre>
-   * 紀錄
+   * RoundRecord
+   * 局紀錄
    * </pre>
    *
    * Protobuf type {@code recorder.RoundRecord}

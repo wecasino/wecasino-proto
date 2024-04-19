@@ -6,6 +6,7 @@ package com.wecasino.proto.recorder;
 
 /**
  * <pre>
+ * CardList
  * 卡牌列表
  * </pre>
  *
@@ -344,6 +345,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
+   * CardList
    * 卡牌列表
    * </pre>
    *

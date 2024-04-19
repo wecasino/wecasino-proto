@@ -286,15 +286,15 @@ public final class ProviderProto {
       "corder.ListDealersResponse\"\034\202\323\344\223\002\026\022\024/v1/" +
       "provider/dealers\022X\n\tGetDealer\022\024.recorder" +
       ".GetRequest\032\020.recorder.Dealer\"#\202\323\344\223\002\035\022\033/" +
-      "v1/provider/dealers/{code}B\275\002\n\033com.wecas" +
+      "v1/provider/dealers/{code}B\242\002\n\033com.wecas" +
       "ino.proto.recorderB\rProviderProtoP\001Z0git" +
       "hub.com/wecasino/wecasino-proto/pbgo/rec" +
       "order\242\002\003RXX\252\002\010Recorder\312\002\010Recorder\342\002\024Reco" +
-      "rder\\GPBMetadata\352\002\010Recorder\222A\233\001\022C\n\025WECas" +
-      "ino Provider API\"%\n\020WECasino Project\022\021ww" +
-      "w.wecasino.live2\0031.0\032\036https://provider.w" +
-      "ecasino.live*\001\002Z\037\n\035\n\nApiKeyAuth\022\017\010\002\032\tX-A" +
-      "PI-Key \002b\020\n\016\n\nApiKeyAuth\022\000b\006proto3"
+      "rder\\GPBMetadata\352\002\010Recorder\222A\200\001\0220\n\025WECas" +
+      "ino Provider API\"\022\n\020WECasino Project2\0031." +
+      "0\032\026provider.wecasino.live*\001\002Z\037\n\035\n\nApiKey" +
+      "Auth\022\017\010\002\032\tX-API-Key \002b\020\n\016\n\nApiKeyAuth\022\000b" +
+      "\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

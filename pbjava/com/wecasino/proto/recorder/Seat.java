@@ -6,6 +6,7 @@ package com.wecasino.proto.recorder;
 
 /**
  * <pre>
+ * Seat
  * 座位
  * </pre>
  *
@@ -352,6 +353,7 @@ com.wecasino.proto.recorder.CardList defaultValue) {
   }
   /**
    * <pre>
+   * Seat
    * 座位
    * </pre>
    *

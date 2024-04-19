@@ -4,8 +4,7 @@ info:
   version: "1.0"
   contact:
     name: WECasino Project
-    url: www.wecasino.live
-host: https://provider.wecasino.live
+host: provider.wecasino.live
 schemes:
   - https
 consumes:
@@ -522,6 +521,9 @@ definitions:
       name:
         type: string
         title: 顯示名稱
+    title: |-
+      VerifyGameRequest
+      驗證遊戲需求
   gamesGameType:
     type: integer
     format: int32
@@ -536,7 +538,7 @@ definitions:
       - 36
       - 40
     default: 0
-    title: |-
+    description: |-
       - 0: 未指定
        - 16: 百家樂
        - 17: 龍虎鬥
@@ -546,6 +548,7 @@ definitions:
        - 32: 骰寶
        - 36: 輪盤
        - 40: 幸運輪
+    title: "GameType \n遊戲類型"
   gamesWinType:
     type: integer
     format: int32
@@ -555,11 +558,12 @@ definitions:
       - 2
       - 3
     default: 0
-    title: |-
+    description: |-
       - 0: 未指定
        - 1: 輸
        - 2: 贏
        - 3: 和
+    title: "WinType \n遊戲輸贏類型"
   protobufAny:
     type: object
     properties:
@@ -702,6 +706,9 @@ definitions:
         additionalProperties:
           $ref: '#/definitions/recorderArticle'
         title: 子文檔
+    title: |-
+      Artcle
+      文章
   recorderBetStep:
     type: integer
     format: int32
@@ -716,7 +723,9 @@ definitions:
        - 1: 開始下注
        - 3: 停止下注
        - 4: 牌異動
-    title: 下注步驟
+    title: |-
+      BetStep
+      下注步驟
   recorderCard:
     type: object
     properties:
@@ -746,7 +755,9 @@ definitions:
       signAlgorithm:
         type: string
         title: 簽章方法
-    title: 卡牌，代表在此局中使用的各類物品
+    title: |-
+      Card
+      卡牌，代表在此局中使用的各類物品
   recorderCardList:
     type: object
     properties:
@@ -762,7 +773,9 @@ definitions:
         type: integer
         format: int32
         title: 牌型
-    title: 卡牌列表
+    title: |-
+      CardList
+      卡牌列表
   recorderDealer:
     type: object
     properties:
@@ -789,6 +802,9 @@ definitions:
           type: object
           $ref: '#/definitions/recorderArticle'
         title: 貼文
+    title: |-
+      Dealer
+      荷官資訊
   recorderDeck:
     type: object
     properties:
@@ -807,6 +823,9 @@ definitions:
         type: string
         format: int64
         title: 目前位置
+    title: |-
+      Deck
+      一副牌
   recorderGameProvide:
     type: object
     properties:
@@ -853,7 +872,9 @@ definitions:
       lastRoundCode:
         type: string
         title: 最後一局
-    title: 遊戲供應
+    title: |-
+      GameProvide
+      遊戲供應
   recorderGameProvideState:
     type: integer
     format: int32
@@ -866,7 +887,7 @@ definitions:
       - 5
       - 6
     default: 0
-    title: |-
+    description: |-
       - 0: 未指定
        - 1: 提供
        - 2: 此局結束後維護
@@ -874,6 +895,9 @@ definitions:
        - 4: 此局結束後關閉
        - 5: 此局結束後關閉
        - 6: 此局結束後關閉
+    title: |-
+      GameProvideState
+      遊戲供應狀態類型
   recorderListDealersResponse:
     type: object
     properties:
@@ -883,6 +907,9 @@ definitions:
           type: object
           $ref: '#/definitions/recorderDealer'
         title: 荷官資料
+    title: |-
+      ListDealersResponse
+      取得荷官列表
   recorderListGamesResponse:
     type: object
     properties:
@@ -892,6 +919,9 @@ definitions:
           type: object
           $ref: '#/definitions/recorderGameProvide'
         title: 遊戲列表
+    title: |-
+      ListGamesResponse
+      取得遊戲列表
   recorderListRoundsRecordResponse:
     type: object
     properties:
@@ -911,6 +941,9 @@ definitions:
       searchBefore:
         type: string
         title: pagination previous page
+    title: |-
+      ListRoundsRecordResponse
+      取得局記錄列表
   recorderListShiftsResponse:
     type: object
     properties:
@@ -930,6 +963,9 @@ definitions:
       searchBefore:
         type: string
         title: pagination previous page
+    title: |-
+      ListShiftsResponse
+      取得排班記錄列表
   recorderListShoesRecordResponse:
     type: object
     properties:
@@ -949,6 +985,9 @@ definitions:
       searchBefore:
         type: string
         title: pagination previous page
+    title: |-
+      ListShoesRecordResponse
+      取得靴記錄列表
   recorderLiveStreamParams:
     type: object
     properties:
@@ -961,7 +1000,9 @@ definitions:
       channel:
         type: string
         title: 頻道
-    title: 直播資訊
+    title: |-
+      LiveStreamParams
+      直播資訊
   recorderRoundRecord:
     type: object
     properties:
@@ -1075,7 +1116,9 @@ definitions:
           type: string
           format: int64
         title: 財神倍率
-    title: 紀錄
+    title: |-
+      RoundRecord
+      局紀錄
   recorderSeat:
     type: object
     properties:
@@ -1090,7 +1133,9 @@ definitions:
         title: |-
           各類手牌
           key: ResourceTypeCode, value: 卡牌陣列
-    title: 座位
+    title: |-
+      Seat
+      座位
   recorderShiftRecord:
     type: object
     properties:
@@ -1145,7 +1190,9 @@ definitions:
         type: string
         format: date-time
         title: 結束時間
-    title: 排班
+    title: |-
+      ShiftRecord
+      排班記錄
   recorderShoeRecord:
     type: object
     properties:
@@ -1193,7 +1240,9 @@ definitions:
         type: string
         format: date-time
         title: 牌靴使用完畢時間
-    title: 靴紀錄
+    title: |-
+      ShoeRecord
+      靴紀錄
   recorderStep:
     type: object
     properties:
@@ -1228,7 +1277,9 @@ definitions:
       betStep:
         $ref: '#/definitions/recorderBetStep'
         title: 下注動作
-    title: 遊戲步驟
+    title: |-
+      Step
+      遊戲步驟
   recorderStepAction:
     type: object
     properties:
@@ -1256,7 +1307,9 @@ definitions:
       data:
         $ref: '#/definitions/protobufAny'
         title: （可選）附加資料
-    title: 執行動作：對某些資源進行增、刪、移轉
+    title: |-
+      StepAction
+      執行動作：對某些資源進行增、刪、移轉
   recorderStepActionType:
     type: integer
     format: int32
@@ -1287,7 +1340,9 @@ definitions:
        - 9: 卡牌狀態改變
        - 10: 此步驟不須修改資源
        - 11: 決定輸贏
-    title: 動作類型
+    title: |-
+      StepActionType
+      動作類型
   rpcStatus:
     type: object
     properties:

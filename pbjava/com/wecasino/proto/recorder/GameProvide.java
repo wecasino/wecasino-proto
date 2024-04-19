@@ -6,6 +6,7 @@ package com.wecasino.proto.recorder;
 
 /**
  * <pre>
+ * GameProvide
  * 遊戲供應
  * </pre>
  *
@@ -1125,6 +1126,7 @@ com.wecasino.proto.recorder.LiveStreamParams defaultValue) {
   }
   /**
    * <pre>
+   * GameProvide
    * 遊戲供應
    * </pre>
    *
