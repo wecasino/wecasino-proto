@@ -50,7 +50,7 @@ private static final long serialVersionUID = 0L;
    * 遊戲代碼
    * </pre>
    *
-   * <code>string game_code = 1 [json_name = "gameCode"];</code>
+   * <code>string game_code = 1 [json_name = "gameCode", (.google.api.field_behavior) = REQUIRED];</code>
    * @return The gameCode.
    */
   @java.lang.Override
@@ -71,7 +71,7 @@ private static final long serialVersionUID = 0L;
    * 遊戲代碼
    * </pre>
    *
-   * <code>string game_code = 1 [json_name = "gameCode"];</code>
+   * <code>string game_code = 1 [json_name = "gameCode", (.google.api.field_behavior) = REQUIRED];</code>
    * @return The bytes for gameCode.
    */
   @java.lang.Override
@@ -389,7 +389,7 @@ private static final long serialVersionUID = 0L;
      * 遊戲代碼
      * </pre>
      *
-     * <code>string game_code = 1 [json_name = "gameCode"];</code>
+     * <code>string game_code = 1 [json_name = "gameCode", (.google.api.field_behavior) = REQUIRED];</code>
      * @return The gameCode.
      */
     public java.lang.String getGameCode() {
@@ -409,7 +409,7 @@ private static final long serialVersionUID = 0L;
      * 遊戲代碼
      * </pre>
      *
-     * <code>string game_code = 1 [json_name = "gameCode"];</code>
+     * <code>string game_code = 1 [json_name = "gameCode", (.google.api.field_behavior) = REQUIRED];</code>
      * @return The bytes for gameCode.
      */
     public com.google.protobuf.ByteString
@@ -430,7 +430,7 @@ private static final long serialVersionUID = 0L;
      * 遊戲代碼
      * </pre>
      *
-     * <code>string game_code = 1 [json_name = "gameCode"];</code>
+     * <code>string game_code = 1 [json_name = "gameCode", (.google.api.field_behavior) = REQUIRED];</code>
      * @param value The gameCode to set.
      * @return This builder for chaining.
      */
@@ -447,7 +447,7 @@ private static final long serialVersionUID = 0L;
      * 遊戲代碼
      * </pre>
      *
-     * <code>string game_code = 1 [json_name = "gameCode"];</code>
+     * <code>string game_code = 1 [json_name = "gameCode", (.google.api.field_behavior) = REQUIRED];</code>
      * @return This builder for chaining.
      */
     public Builder clearGameCode() {
@@ -461,7 +461,7 @@ private static final long serialVersionUID = 0L;
      * 遊戲代碼
      * </pre>
      *
-     * <code>string game_code = 1 [json_name = "gameCode"];</code>
+     * <code>string game_code = 1 [json_name = "gameCode", (.google.api.field_behavior) = REQUIRED];</code>
      * @param value The bytes for gameCode to set.
      * @return This builder for chaining.
      */

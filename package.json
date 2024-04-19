@@ -13,10 +13,11 @@
   "main": "es/lib/index.js",
   "types": "es/lib/index.d.ts",
   "scripts": {
-    "gen:go": "buf generate",
+    "gen:buf": "buf generate",
     "gen:gotag": "buf generate --template buf.gen.tag.yaml",
     "prepare": "rm -rf es/lib & rm -rf es/src/pb & buf generate --template buf.gen.eslib.yaml && tsc",
-    "clean:es": "rm -rf es/lib & rm -rf es/src/pb"
+    "clean:es": "rm -rf es/lib & rm -rf es/src/pb",
+    "swagger": "docker run -p 8080:8080 -e SWAGGER_JSON=/docs/recorder/provider.swagger.yaml -v ${PWD}/docs:/docs swaggerapi/swagger-ui"
   },
   "devDependencies": {
     "typescript": "^5.3.3"
