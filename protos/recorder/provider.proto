@@ -18,7 +18,7 @@ option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
       name: "WECasino Project";
     };
   }
-  host: "provider.wecasino.live";
+  host: "gateway.beta.wecasino.live";
   schemes: HTTPS;
   security_definitions: {
     security: {
