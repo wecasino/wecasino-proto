@@ -4,7 +4,7 @@ info:
   version: "1.0"
   contact:
     name: WECasino Project
-host: provider.wecasino.live
+host: gateway.beta.wecasino.live
 schemes:
   - https
 consumes:
