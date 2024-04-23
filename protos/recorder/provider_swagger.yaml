@@ -1,0 +1,27 @@
+openapiOptions:
+  file:
+    # the file name must be the same as one passed to protoc when generating generating .swagger.json
+    - file: "recorder/provider.proto"
+      option:
+        info:
+          title: WECasino Provider API
+          contact:
+            name: WECasino Project
+            url: https://www.wecasino.live
+            email: sky.sqa@pgpg.la
+          version: "1.0"
+        schemes:
+          - HTTPS
+        securityDefinitions:
+          security:
+            ApiKeyAuth:
+              type: TYPE_API_KEY
+              name: X-API-Key
+              in: IN_HEADER
+        security:
+          - securityRequirement:
+              ApiKeyAuth: {}
+        externalDocs:
+          description: More about WECasino
+          url: https://www.wecasino.live
+  

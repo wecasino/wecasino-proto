@@ -8,6 +8,8 @@ managed:
       - buf.build/grpc-ecosystem/grpc-gateway
   java_package_prefix:
     default: "com.wecasino.proto"
+    except:
+      - buf.build/googleapis/googleapis
 plugins:
 
   - plugin: buf.build/grpc-ecosystem/openapiv2
