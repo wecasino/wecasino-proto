@@ -7,37 +7,6 @@ import "google/protobuf/timestamp.proto";
 import "recorder/record.proto";
 import "games/games.proto";
 import "google/api/field_behavior.proto";
-import "protoc-gen-openapiv2/options/annotations.proto";
-
-option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
-
-  info: {
-    title: "WECasino Provider API";
-    version: "1.0";
-    contact: {
-      name: "WECasino Project";
-    };
-  }
-  host: "gateway.beta.wecasino.live";
-  schemes: HTTPS;
-  security_definitions: {
-    security: {
-      key: "ApiKeyAuth"
-      value: {
-        type: TYPE_API_KEY;
-        in: IN_HEADER;
-        name: "X-API-Key";
-      }
-    }
-  }
-  security:{
-    security_requirement: {
-      key: "ApiKeyAuth";
-      value: {};
-    }
-  }
-
-};
 
 message GetRequest {
 
@@ -158,7 +127,7 @@ service RecorderReadService {
     };
   };
 
-  // 讀取目前指定班次紀錄
+  // 讀取目前班次紀錄
   rpc GetCurrentShift(GetCurrentRecordRequest) returns (ShiftRecord){
     option (google.api.http) = {
       get: "/v1/recorder/shifts:current"
@@ -179,28 +148,28 @@ service RecorderReadService {
     };
   };
 
-  // 讀取目前指定靴紀錄
+  // 讀取目前靴紀錄
   rpc GetCurrentShoe(GetCurrentRecordRequest) returns (ShoeRecord){
     option (google.api.http) = {
       get: "/v1/recorder/shoes:current"
     };
   };
 
-  // 讀牌靴紀錄list
+  // 讀牌局紀錄list
   rpc ListRounds(ListRecordsRequest) returns (ListRoundsRecordResponse){
     option (google.api.http) = {
       get: "/v1/provider/rounds"
     };
   };
   
-  // 讀取指定靴紀錄
+  // 讀取指定局紀錄
   rpc GetRound(GetRequest) returns (RoundRecord){
     option (google.api.http) = {
       get: "/v1/recorder/rounds/{code}"
     };
   };
 
-  // 讀取目前指定靴紀錄
+  // 讀取目前局紀錄
   rpc GetCurrentRound(GetCurrentRecordRequest) returns (RoundRecord){
     option (google.api.http) = {
       get: "/v1/recorder/rounds:current"

@@ -39,19 +39,19 @@ type RecorderReadServiceClient interface {
 	ListShifts(ctx context.Context, in *ListRecordsRequest, opts ...grpc.CallOption) (*ListShiftsResponse, error)
 	// 讀取指定班次紀錄
 	GetShift(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*ShiftRecord, error)
-	// 讀取目前指定班次紀錄
+	// 讀取目前班次紀錄
 	GetCurrentShift(ctx context.Context, in *GetCurrentRecordRequest, opts ...grpc.CallOption) (*ShiftRecord, error)
 	// 讀牌靴紀錄list
 	ListShoe(ctx context.Context, in *ListRecordsRequest, opts ...grpc.CallOption) (*ListShoesRecordResponse, error)
 	// 讀取指定靴紀錄
 	GetShoe(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*ShoeRecord, error)
-	// 讀取目前指定靴紀錄
+	// 讀取目前靴紀錄
 	GetCurrentShoe(ctx context.Context, in *GetCurrentRecordRequest, opts ...grpc.CallOption) (*ShoeRecord, error)
-	// 讀牌靴紀錄list
+	// 讀牌局紀錄list
 	ListRounds(ctx context.Context, in *ListRecordsRequest, opts ...grpc.CallOption) (*ListRoundsRecordResponse, error)
-	// 讀取指定靴紀錄
+	// 讀取指定局紀錄
 	GetRound(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*RoundRecord, error)
-	// 讀取目前指定靴紀錄
+	// 讀取目前局紀錄
 	GetCurrentRound(ctx context.Context, in *GetCurrentRecordRequest, opts ...grpc.CallOption) (*RoundRecord, error)
 }
 
@@ -152,19 +152,19 @@ type RecorderReadServiceServer interface {
 	ListShifts(context.Context, *ListRecordsRequest) (*ListShiftsResponse, error)
 	// 讀取指定班次紀錄
 	GetShift(context.Context, *GetRequest) (*ShiftRecord, error)
-	// 讀取目前指定班次紀錄
+	// 讀取目前班次紀錄
 	GetCurrentShift(context.Context, *GetCurrentRecordRequest) (*ShiftRecord, error)
 	// 讀牌靴紀錄list
 	ListShoe(context.Context, *ListRecordsRequest) (*ListShoesRecordResponse, error)
 	// 讀取指定靴紀錄
 	GetShoe(context.Context, *GetRequest) (*ShoeRecord, error)
-	// 讀取目前指定靴紀錄
+	// 讀取目前靴紀錄
 	GetCurrentShoe(context.Context, *GetCurrentRecordRequest) (*ShoeRecord, error)
-	// 讀牌靴紀錄list
+	// 讀牌局紀錄list
 	ListRounds(context.Context, *ListRecordsRequest) (*ListRoundsRecordResponse, error)
-	// 讀取指定靴紀錄
+	// 讀取指定局紀錄
 	GetRound(context.Context, *GetRequest) (*RoundRecord, error)
-	// 讀取目前指定靴紀錄
+	// 讀取目前局紀錄
 	GetCurrentRound(context.Context, *GetCurrentRecordRequest) (*RoundRecord, error)
 	mustEmbedUnimplementedRecorderReadServiceServer()
 }

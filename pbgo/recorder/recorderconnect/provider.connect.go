@@ -106,19 +106,19 @@ type RecorderReadServiceClient interface {
 	ListShifts(context.Context, *connect.Request[recorder.ListRecordsRequest]) (*connect.Response[recorder.ListShiftsResponse], error)
 	// 讀取指定班次紀錄
 	GetShift(context.Context, *connect.Request[recorder.GetRequest]) (*connect.Response[recorder.ShiftRecord], error)
-	// 讀取目前指定班次紀錄
+	// 讀取目前班次紀錄
 	GetCurrentShift(context.Context, *connect.Request[recorder.GetCurrentRecordRequest]) (*connect.Response[recorder.ShiftRecord], error)
 	// 讀牌靴紀錄list
 	ListShoe(context.Context, *connect.Request[recorder.ListRecordsRequest]) (*connect.Response[recorder.ListShoesRecordResponse], error)
 	// 讀取指定靴紀錄
 	GetShoe(context.Context, *connect.Request[recorder.GetRequest]) (*connect.Response[recorder.ShoeRecord], error)
-	// 讀取目前指定靴紀錄
+	// 讀取目前靴紀錄
 	GetCurrentShoe(context.Context, *connect.Request[recorder.GetCurrentRecordRequest]) (*connect.Response[recorder.ShoeRecord], error)
-	// 讀牌靴紀錄list
+	// 讀牌局紀錄list
 	ListRounds(context.Context, *connect.Request[recorder.ListRecordsRequest]) (*connect.Response[recorder.ListRoundsRecordResponse], error)
-	// 讀取指定靴紀錄
+	// 讀取指定局紀錄
 	GetRound(context.Context, *connect.Request[recorder.GetRequest]) (*connect.Response[recorder.RoundRecord], error)
-	// 讀取目前指定靴紀錄
+	// 讀取目前局紀錄
 	GetCurrentRound(context.Context, *connect.Request[recorder.GetCurrentRecordRequest]) (*connect.Response[recorder.RoundRecord], error)
 }
 
@@ -253,19 +253,19 @@ type RecorderReadServiceHandler interface {
 	ListShifts(context.Context, *connect.Request[recorder.ListRecordsRequest]) (*connect.Response[recorder.ListShiftsResponse], error)
 	// 讀取指定班次紀錄
 	GetShift(context.Context, *connect.Request[recorder.GetRequest]) (*connect.Response[recorder.ShiftRecord], error)
-	// 讀取目前指定班次紀錄
+	// 讀取目前班次紀錄
 	GetCurrentShift(context.Context, *connect.Request[recorder.GetCurrentRecordRequest]) (*connect.Response[recorder.ShiftRecord], error)
 	// 讀牌靴紀錄list
 	ListShoe(context.Context, *connect.Request[recorder.ListRecordsRequest]) (*connect.Response[recorder.ListShoesRecordResponse], error)
 	// 讀取指定靴紀錄
 	GetShoe(context.Context, *connect.Request[recorder.GetRequest]) (*connect.Response[recorder.ShoeRecord], error)
-	// 讀取目前指定靴紀錄
+	// 讀取目前靴紀錄
 	GetCurrentShoe(context.Context, *connect.Request[recorder.GetCurrentRecordRequest]) (*connect.Response[recorder.ShoeRecord], error)
-	// 讀牌靴紀錄list
+	// 讀牌局紀錄list
 	ListRounds(context.Context, *connect.Request[recorder.ListRecordsRequest]) (*connect.Response[recorder.ListRoundsRecordResponse], error)
-	// 讀取指定靴紀錄
+	// 讀取指定局紀錄
 	GetRound(context.Context, *connect.Request[recorder.GetRequest]) (*connect.Response[recorder.RoundRecord], error)
-	// 讀取目前指定靴紀錄
+	// 讀取目前局紀錄
 	GetCurrentRound(context.Context, *connect.Request[recorder.GetCurrentRecordRequest]) (*connect.Response[recorder.RoundRecord], error)
 }
 
