@@ -4,7 +4,9 @@ package recorder;
 import "google/protobuf/any.proto";
 import "google/protobuf/timestamp.proto";
 import "tagger/tagger.proto";
+import "games/games.proto";
 
+// Card
 // 卡牌，代表在此局中使用的各類物品
 message Card {
 
@@ -28,6 +30,7 @@ message Card {
 
 }
 
+// CardList
 // 卡牌列表
 message CardList {
 
@@ -37,10 +40,11 @@ message CardList {
   repeated Card list = 2;
 
   // 牌型
-  repeated string patterns = 3;
+  int32 pattern = 3;
 
 }
 
+// StepActionType
 // 動作類型
 enum StepActionType {
 
@@ -66,9 +70,12 @@ enum StepActionType {
   STATUS = 9;
   // 此步驟不須修改資源
   NONE = 10;
+  // 決定輸贏
+  WIN = 11;
 
 }
 
+// StepAction
 // 執行動作：對某些資源進行增、刪、移轉
 message StepAction {
 
@@ -83,15 +90,12 @@ message StepAction {
   // 目標卡牌資源
   // key: ResourceTypeCode, value: 卡牌陣列
   map<int32, CardList> cards = 6 [(tagger.tags) = "bson:\"cards,omitempty\""];
-  // 目標分數資源
-  // key: ResourceTypeCode, value: 分數值。
-  map<int32, int64> scores = 7 [(tagger.tags) = "bson:\"scores,omitempty\""];
-
   // （可選）附加資料
   google.protobuf.Any data = 8 [(tagger.tags) = "bson:\"data,omitempty\""];
 
 }
 
+// BetStep
 // 下注步驟
 enum BetStep {
 
@@ -108,6 +112,7 @@ enum BetStep {
   CARD = 4;
 }
 
+// Step
 // 遊戲步驟
 message Step {
 
@@ -130,6 +135,7 @@ message Step {
 
 }
 
+// Seat
 // 座位
 message Seat {
 
@@ -138,13 +144,11 @@ message Seat {
   // 各類手牌
   // key: ResourceTypeCode, value: 卡牌陣列
   map<int32, CardList> cards = 3 [(tagger.tags) = "bson:\"cards,omitempty\""];
-  // 各類分數
-  // key: ResourceTypeCode, value: 分數值。
-  map<int32, int64> scores = 4 [(tagger.tags) = "bson:\"scores,omitempty\""];
 
 }
 
-// 紀錄
+// RoundRecord
+// 局紀錄
 message RoundRecord {
 
   // 紀錄ID
@@ -185,6 +189,9 @@ message RoundRecord {
   // key: SeatCode, value: 玩家code。
   map<int32, string> players = 25 [(tagger.tags) = "bson:\"players,omitempty\""];
 
+  // 玩家姓名
+  // key: 玩家code, value: 玩家名稱。
+  map<string, string> players_name = 30 [(tagger.tags) = "bson:\"playersName,omitempty\""];
 
   // 歷程
   repeated Step process = 26 [(tagger.tags) = "bson:\"process,omitempty\""];
@@ -201,6 +208,9 @@ message RoundRecord {
   // 取消備註
   optional string cancel_message = 22 [(tagger.tags) = "bson:\"cancelMessage,omitempty\""];
 
+  // 贏方
+  map<int32, games.WinType> win_type = 27 [(tagger.tags) = "bson:\"winType,omitempty\""];
+
   // 附加媒體：key: 媒體資源代碼；value: 媒體內容。
   map<string, string> medias = 28;
 
@@ -209,6 +219,8 @@ message RoundRecord {
 
 }
 
+// Deck
+// 一副牌
 message Deck {
 
   // 卡牌
@@ -222,6 +234,7 @@ message Deck {
 
 }
 
+// ShoeRecord
 // 靴紀錄
 message ShoeRecord {
 
@@ -255,7 +268,8 @@ message ShoeRecord {
 
 }
 
-// 排班
+// ShiftRecord
+// 排班記錄
 message ShiftRecord {
 
   // 紀錄ID

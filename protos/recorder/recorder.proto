@@ -3,7 +3,6 @@ package recorder;
 
 import "recorder/record.proto";
 import "google/protobuf/timestamp.proto";
-import "google/protobuf/empty.proto";
 
 message RecordIDResponse {
 
@@ -82,31 +81,48 @@ message RecordRoundStartedRequest {
 
   // 遊戲供應
   string supplier = 2;
+
   // 遊戲類型
   string game_type = 3;
+
   // 遊戲子類型
   string game_subtype = 4;
+
   // 遊戲版本
   string game_version = 5;
+
   // 遊戲代碼
   string game_code = 6;
+
   // 桌代碼
   string table_code = 7;
+
   // 班代碼
   string shift_code = 8;
+
   // 此排班局數
   int64 shift_round = 9;
+
   // 使用洗牌代碼
   string shoe_code = 10;
+
     // 使用此洗牌第幾局，從1開始計算
   int64 shoe_round = 11;
+
   // 局代碼
   string round_code = 12;
+
   // 標籤
   map<string, string> tags = 13;
+
   // 開始時間
   google.protobuf.Timestamp ts_start = 16;
 
+  // 玩家入座
+  map<int32, string> players = 25;
+
+  // 玩家姓名
+  map<string, string> players_name = 30;
 }
 
 message RecordRoundStepsRequest {
@@ -183,10 +199,10 @@ service RecorderService {
   // 結束此局
   rpc RecordRoundFinished(RecordRoundFinishedRequest) returns (RoundRecord);
 
+  // 事後取消此局
+  rpc RecordRoundBeCanceledAfterFinished(RecordRoundBeCanceledRequest) returns (RoundRecord);
+
   // 紀錄回放
   rpc RecordRoundVideo(RecordRoundMediaRequest) returns (RoundRecord);
 
-  //捕獲單幀。玩家登入時使用
-  rpc RecordCaptureFrame(RecordRoundStartedRequest) returns (google.protobuf.Empty);
-  
 }

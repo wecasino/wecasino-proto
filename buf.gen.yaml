@@ -1,18 +1,17 @@
 version: v1
 managed:
   enabled: true
-  go_package_prefix:
-    default: github.com/wecasino/wecasino-proto/pbgo
-    except:
-      - buf.build/googleapis/googleapis
-      - buf.build/srikrsna/protoc-gen-gotag
+  java_package_prefix:
+    default: "com.wecasino.proto"
 plugins:
-  - plugin: buf.build/protocolbuffers/go
-    out: pbgo
-    opt:
-      - paths=source_relative
 
-  - plugin: buf.build/grpc/go
-    out: pbgo
+  - plugin: buf.build/grpc-ecosystem/openapiv2
+    out: docs
     opt:
-      - paths=source_relative
+      - output_format=yaml
+      - enums_as_ints=true
+      - disable_service_tags=true
+      - remove_internal_comments=true
+
+  - plugin: buf.build/protocolbuffers/java
+    out: pbjava
