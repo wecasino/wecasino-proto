@@ -124,7 +124,7 @@ paths:
             $ref: '#/definitions/ProviderServiceVerifyGameBody'
   /v1/provider/rounds:
     get:
-      summary: 讀牌靴紀錄list
+      summary: 讀牌局紀錄list
       operationId: RecorderReadService_ListRounds
       responses:
         "200":
@@ -306,7 +306,7 @@ paths:
           format: int64
   /v1/recorder/rounds/{code}:
     get:
-      summary: 讀取指定靴紀錄
+      summary: 讀取指定局紀錄
       operationId: RecorderReadService_GetRound
       responses:
         "200":
@@ -325,7 +325,7 @@ paths:
           type: string
   /v1/recorder/rounds:current:
     get:
-      summary: 讀取目前指定靴紀錄
+      summary: 讀取目前局紀錄
       operationId: RecorderReadService_GetCurrentRound
       responses:
         "200":
@@ -454,7 +454,7 @@ paths:
           type: string
   /v1/recorder/shifts:current:
     get:
-      summary: 讀取目前指定班次紀錄
+      summary: 讀取目前班次紀錄
       operationId: RecorderReadService_GetCurrentShift
       responses:
         "200":
@@ -492,7 +492,7 @@ paths:
           type: string
   /v1/recorder/shoes:current:
     get:
-      summary: 讀取目前指定靴紀錄
+      summary: 讀取目前靴紀錄
       operationId: RecorderReadService_GetCurrentShoe
       responses:
         "200":
@@ -1356,10 +1356,3 @@ definitions:
         items:
           type: object
           $ref: '#/definitions/protobufAny'
-securityDefinitions:
-  ApiKeyAuth:
-    type: apiKey
-    name: X-API-Key
-    in: header
-security:
-  - ApiKeyAuth: []
