@@ -40,5 +40,5 @@ plugins:
     opt:
       - paths=source_relative
 
-  - plugin: buf.build/protocolbuffers/java
+  - plugin: buf.build/protocolbuffers/java:v25.3
     out: pbjava
