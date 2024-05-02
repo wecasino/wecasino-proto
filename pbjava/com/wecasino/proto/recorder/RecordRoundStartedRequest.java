@@ -49,6 +49,8 @@ private static final long serialVersionUID = 0L;
         return internalGetTags();
       case 25:
         return internalGetPlayers();
+      case 29:
+        return internalGetFortuneRates();
       case 30:
         return internalGetPlayersName();
       default:
@@ -746,6 +748,99 @@ java.lang.String defaultValue) {
     return map.get(key);
   }
 
+  public static final int FORTUNE_RATES_FIELD_NUMBER = 29;
+  private static final class FortuneRatesDefaultEntryHolder {
+    static final com.google.protobuf.MapEntry<
+        java.lang.String, java.lang.Long> defaultEntry =
+            com.google.protobuf.MapEntry
+            .<java.lang.String, java.lang.Long>newDefaultInstance(
+                com.wecasino.proto.recorder.RecorderProto.internal_static_recorder_RecordRoundStartedRequest_FortuneRatesEntry_descriptor, 
+                com.google.protobuf.WireFormat.FieldType.STRING,
+                "",
+                com.google.protobuf.WireFormat.FieldType.INT64,
+                0L);
+  }
+  @SuppressWarnings("serial")
+  private com.google.protobuf.MapField<
+      java.lang.String, java.lang.Long> fortuneRates_;
+  private com.google.protobuf.MapField<java.lang.String, java.lang.Long>
+  internalGetFortuneRates() {
+    if (fortuneRates_ == null) {
+      return com.google.protobuf.MapField.emptyMapField(
+          FortuneRatesDefaultEntryHolder.defaultEntry);
+    }
+    return fortuneRates_;
+  }
+  public int getFortuneRatesCount() {
+    return internalGetFortuneRates().getMap().size();
+  }
+  /**
+   * <pre>
+   * 財神倍率
+   * </pre>
+   *
+   * <code>map&lt;string, int64&gt; fortune_rates = 29 [json_name = "fortuneRates"];</code>
+   */
+  @java.lang.Override
+  public boolean containsFortuneRates(
+      java.lang.String key) {
+    if (key == null) { throw new NullPointerException("map key"); }
+    return internalGetFortuneRates().getMap().containsKey(key);
+  }
+  /**
+   * Use {@link #getFortuneRatesMap()} instead.
+   */
+  @java.lang.Override
+  @java.lang.Deprecated
+  public java.util.Map<java.lang.String, java.lang.Long> getFortuneRates() {
+    return getFortuneRatesMap();
+  }
+  /**
+   * <pre>
+   * 財神倍率
+   * </pre>
+   *
+   * <code>map&lt;string, int64&gt; fortune_rates = 29 [json_name = "fortuneRates"];</code>
+   */
+  @java.lang.Override
+  public java.util.Map<java.lang.String, java.lang.Long> getFortuneRatesMap() {
+    return internalGetFortuneRates().getMap();
+  }
+  /**
+   * <pre>
+   * 財神倍率
+   * </pre>
+   *
+   * <code>map&lt;string, int64&gt; fortune_rates = 29 [json_name = "fortuneRates"];</code>
+   */
+  @java.lang.Override
+  public long getFortuneRatesOrDefault(
+      java.lang.String key,
+      long defaultValue) {
+    if (key == null) { throw new NullPointerException("map key"); }
+    java.util.Map<java.lang.String, java.lang.Long> map =
+        internalGetFortuneRates().getMap();
+    return map.containsKey(key) ? map.get(key) : defaultValue;
+  }
+  /**
+   * <pre>
+   * 財神倍率
+   * </pre>
+   *
+   * <code>map&lt;string, int64&gt; fortune_rates = 29 [json_name = "fortuneRates"];</code>
+   */
+  @java.lang.Override
+  public long getFortuneRatesOrThrow(
+      java.lang.String key) {
+    if (key == null) { throw new NullPointerException("map key"); }
+    java.util.Map<java.lang.String, java.lang.Long> map =
+        internalGetFortuneRates().getMap();
+    if (!map.containsKey(key)) {
+      throw new java.lang.IllegalArgumentException();
+    }
+    return map.get(key);
+  }
+
   public static final int PLAYERS_NAME_FIELD_NUMBER = 30;
   private static final class PlayersNameDefaultEntryHolder {
     static final com.google.protobuf.MapEntry<
@@ -906,6 +1001,12 @@ java.lang.String defaultValue) {
     com.google.protobuf.GeneratedMessageV3
       .serializeStringMapTo(
         output,
+        internalGetFortuneRates(),
+        FortuneRatesDefaultEntryHolder.defaultEntry,
+        29);
+    com.google.protobuf.GeneratedMessageV3
+      .serializeStringMapTo(
+        output,
         internalGetPlayersName(),
         PlayersNameDefaultEntryHolder.defaultEntry,
         30);
@@ -977,6 +1078,16 @@ java.lang.String defaultValue) {
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(25, players__);
     }
+    for (java.util.Map.Entry<java.lang.String, java.lang.Long> entry
+         : internalGetFortuneRates().getMap().entrySet()) {
+      com.google.protobuf.MapEntry<java.lang.String, java.lang.Long>
+      fortuneRates__ = FortuneRatesDefaultEntryHolder.defaultEntry.newBuilderForType()
+          .setKey(entry.getKey())
+          .setValue(entry.getValue())
+          .build();
+      size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(29, fortuneRates__);
+    }
     for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
          : internalGetPlayersName().getMap().entrySet()) {
       com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
@@ -1033,6 +1144,8 @@ java.lang.String defaultValue) {
     }
     if (!internalGetPlayers().equals(
         other.internalGetPlayers())) return false;
+    if (!internalGetFortuneRates().equals(
+        other.internalGetFortuneRates())) return false;
     if (!internalGetPlayersName().equals(
         other.internalGetPlayersName())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
@@ -1081,6 +1194,10 @@ java.lang.String defaultValue) {
     if (!internalGetPlayers().getMap().isEmpty()) {
       hash = (37 * hash) + PLAYERS_FIELD_NUMBER;
       hash = (53 * hash) + internalGetPlayers().hashCode();
+    }
+    if (!internalGetFortuneRates().getMap().isEmpty()) {
+      hash = (37 * hash) + FORTUNE_RATES_FIELD_NUMBER;
+      hash = (53 * hash) + internalGetFortuneRates().hashCode();
     }
     if (!internalGetPlayersName().getMap().isEmpty()) {
       hash = (37 * hash) + PLAYERS_NAME_FIELD_NUMBER;
@@ -1203,6 +1320,8 @@ java.lang.String defaultValue) {
           return internalGetTags();
         case 25:
           return internalGetPlayers();
+        case 29:
+          return internalGetFortuneRates();
         case 30:
           return internalGetPlayersName();
         default:
@@ -1218,6 +1337,8 @@ java.lang.String defaultValue) {
           return internalGetMutableTags();
         case 25:
           return internalGetMutablePlayers();
+        case 29:
+          return internalGetMutableFortuneRates();
         case 30:
           return internalGetMutablePlayersName();
         default:
@@ -1271,6 +1392,7 @@ java.lang.String defaultValue) {
         tsStartBuilder_ = null;
       }
       internalGetMutablePlayers().clear();
+      internalGetMutableFortuneRates().clear();
       internalGetMutablePlayersName().clear();
       return this;
     }
@@ -1354,6 +1476,10 @@ java.lang.String defaultValue) {
         result.players_.makeImmutable();
       }
       if (((from_bitField0_ & 0x00004000) != 0)) {
+        result.fortuneRates_ = internalGetFortuneRates();
+        result.fortuneRates_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00008000) != 0)) {
         result.playersName_ = internalGetPlayersName();
         result.playersName_.makeImmutable();
       }
@@ -1464,9 +1590,12 @@ java.lang.String defaultValue) {
       internalGetMutablePlayers().mergeFrom(
           other.internalGetPlayers());
       bitField0_ |= 0x00002000;
+      internalGetMutableFortuneRates().mergeFrom(
+          other.internalGetFortuneRates());
+      bitField0_ |= 0x00004000;
       internalGetMutablePlayersName().mergeFrom(
           other.internalGetPlayersName());
-      bitField0_ |= 0x00004000;
+      bitField0_ |= 0x00008000;
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
@@ -1573,13 +1702,22 @@ java.lang.String defaultValue) {
               bitField0_ |= 0x00002000;
               break;
             } // case 202
+            case 234: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.Long>
+              fortuneRates__ = input.readMessage(
+                  FortuneRatesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableFortuneRates().getMutableMap().put(
+                  fortuneRates__.getKey(), fortuneRates__.getValue());
+              bitField0_ |= 0x00004000;
+              break;
+            } // case 234
             case 242: {
               com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
               playersName__ = input.readMessage(
                   PlayersNameDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
               internalGetMutablePlayersName().getMutableMap().put(
                   playersName__.getKey(), playersName__.getValue());
-              bitField0_ |= 0x00004000;
+              bitField0_ |= 0x00008000;
               break;
             } // case 242
             default: {
@@ -2983,6 +3121,159 @@ java.lang.String defaultValue) {
     }
 
     private com.google.protobuf.MapField<
+        java.lang.String, java.lang.Long> fortuneRates_;
+    private com.google.protobuf.MapField<java.lang.String, java.lang.Long>
+        internalGetFortuneRates() {
+      if (fortuneRates_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            FortuneRatesDefaultEntryHolder.defaultEntry);
+      }
+      return fortuneRates_;
+    }
+    private com.google.protobuf.MapField<java.lang.String, java.lang.Long>
+        internalGetMutableFortuneRates() {
+      if (fortuneRates_ == null) {
+        fortuneRates_ = com.google.protobuf.MapField.newMapField(
+            FortuneRatesDefaultEntryHolder.defaultEntry);
+      }
+      if (!fortuneRates_.isMutable()) {
+        fortuneRates_ = fortuneRates_.copy();
+      }
+      bitField0_ |= 0x00004000;
+      onChanged();
+      return fortuneRates_;
+    }
+    public int getFortuneRatesCount() {
+      return internalGetFortuneRates().getMap().size();
+    }
+    /**
+     * <pre>
+     * 財神倍率
+     * </pre>
+     *
+     * <code>map&lt;string, int64&gt; fortune_rates = 29 [json_name = "fortuneRates"];</code>
+     */
+    @java.lang.Override
+    public boolean containsFortuneRates(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      return internalGetFortuneRates().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getFortuneRatesMap()} instead.
+     */
+    @java.lang.Override
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.Long> getFortuneRates() {
+      return getFortuneRatesMap();
+    }
+    /**
+     * <pre>
+     * 財神倍率
+     * </pre>
+     *
+     * <code>map&lt;string, int64&gt; fortune_rates = 29 [json_name = "fortuneRates"];</code>
+     */
+    @java.lang.Override
+    public java.util.Map<java.lang.String, java.lang.Long> getFortuneRatesMap() {
+      return internalGetFortuneRates().getMap();
+    }
+    /**
+     * <pre>
+     * 財神倍率
+     * </pre>
+     *
+     * <code>map&lt;string, int64&gt; fortune_rates = 29 [json_name = "fortuneRates"];</code>
+     */
+    @java.lang.Override
+    public long getFortuneRatesOrDefault(
+        java.lang.String key,
+        long defaultValue) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      java.util.Map<java.lang.String, java.lang.Long> map =
+          internalGetFortuneRates().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <pre>
+     * 財神倍率
+     * </pre>
+     *
+     * <code>map&lt;string, int64&gt; fortune_rates = 29 [json_name = "fortuneRates"];</code>
+     */
+    @java.lang.Override
+    public long getFortuneRatesOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      java.util.Map<java.lang.String, java.lang.Long> map =
+          internalGetFortuneRates().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+    public Builder clearFortuneRates() {
+      bitField0_ = (bitField0_ & ~0x00004000);
+      internalGetMutableFortuneRates().getMutableMap()
+          .clear();
+      return this;
+    }
+    /**
+     * <pre>
+     * 財神倍率
+     * </pre>
+     *
+     * <code>map&lt;string, int64&gt; fortune_rates = 29 [json_name = "fortuneRates"];</code>
+     */
+    public Builder removeFortuneRates(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      internalGetMutableFortuneRates().getMutableMap()
+          .remove(key);
+      return this;
+    }
+    /**
+     * Use alternate mutation accessors instead.
+     */
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.Long>
+        getMutableFortuneRates() {
+      bitField0_ |= 0x00004000;
+      return internalGetMutableFortuneRates().getMutableMap();
+    }
+    /**
+     * <pre>
+     * 財神倍率
+     * </pre>
+     *
+     * <code>map&lt;string, int64&gt; fortune_rates = 29 [json_name = "fortuneRates"];</code>
+     */
+    public Builder putFortuneRates(
+        java.lang.String key,
+        long value) {
+      if (key == null) { throw new NullPointerException("map key"); }
+
+      internalGetMutableFortuneRates().getMutableMap()
+          .put(key, value);
+      bitField0_ |= 0x00004000;
+      return this;
+    }
+    /**
+     * <pre>
+     * 財神倍率
+     * </pre>
+     *
+     * <code>map&lt;string, int64&gt; fortune_rates = 29 [json_name = "fortuneRates"];</code>
+     */
+    public Builder putAllFortuneRates(
+        java.util.Map<java.lang.String, java.lang.Long> values) {
+      internalGetMutableFortuneRates().getMutableMap()
+          .putAll(values);
+      bitField0_ |= 0x00004000;
+      return this;
+    }
+
+    private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> playersName_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
         internalGetPlayersName() {
@@ -3001,7 +3292,7 @@ java.lang.String defaultValue) {
       if (!playersName_.isMutable()) {
         playersName_ = playersName_.copy();
       }
-      bitField0_ |= 0x00004000;
+      bitField0_ |= 0x00008000;
       onChanged();
       return playersName_;
     }
@@ -3077,7 +3368,7 @@ java.lang.String defaultValue) {
       return map.get(key);
     }
     public Builder clearPlayersName() {
-      bitField0_ = (bitField0_ & ~0x00004000);
+      bitField0_ = (bitField0_ & ~0x00008000);
       internalGetMutablePlayersName().getMutableMap()
           .clear();
       return this;
@@ -3102,7 +3393,7 @@ java.lang.String defaultValue) {
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
         getMutablePlayersName() {
-      bitField0_ |= 0x00004000;
+      bitField0_ |= 0x00008000;
       return internalGetMutablePlayersName().getMutableMap();
     }
     /**
@@ -3119,7 +3410,7 @@ java.lang.String defaultValue) {
       if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutablePlayersName().getMutableMap()
           .put(key, value);
-      bitField0_ |= 0x00004000;
+      bitField0_ |= 0x00008000;
       return this;
     }
     /**
@@ -3133,7 +3424,7 @@ java.lang.String defaultValue) {
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutablePlayersName().getMutableMap()
           .putAll(values);
-      bitField0_ |= 0x00004000;
+      bitField0_ |= 0x00008000;
       return this;
     }
     @java.lang.Override
