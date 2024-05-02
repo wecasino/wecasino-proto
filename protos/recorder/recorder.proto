@@ -121,6 +121,9 @@ message RecordRoundStartedRequest {
   // 玩家入座
   map<int32, string> players = 25;
 
+  // 財神倍率
+  map<string, int64> fortune_rates = 29;
+
   // 玩家姓名
   map<string, string> players_name = 30;
 }

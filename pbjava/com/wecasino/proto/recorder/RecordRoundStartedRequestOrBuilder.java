@@ -345,6 +345,58 @@ java.lang.String defaultValue);
 
   /**
    * <pre>
+   * 財神倍率
+   * </pre>
+   *
+   * <code>map&lt;string, int64&gt; fortune_rates = 29 [json_name = "fortuneRates"];</code>
+   */
+  int getFortuneRatesCount();
+  /**
+   * <pre>
+   * 財神倍率
+   * </pre>
+   *
+   * <code>map&lt;string, int64&gt; fortune_rates = 29 [json_name = "fortuneRates"];</code>
+   */
+  boolean containsFortuneRates(
+      java.lang.String key);
+  /**
+   * Use {@link #getFortuneRatesMap()} instead.
+   */
+  @java.lang.Deprecated
+  java.util.Map<java.lang.String, java.lang.Long>
+  getFortuneRates();
+  /**
+   * <pre>
+   * 財神倍率
+   * </pre>
+   *
+   * <code>map&lt;string, int64&gt; fortune_rates = 29 [json_name = "fortuneRates"];</code>
+   */
+  java.util.Map<java.lang.String, java.lang.Long>
+  getFortuneRatesMap();
+  /**
+   * <pre>
+   * 財神倍率
+   * </pre>
+   *
+   * <code>map&lt;string, int64&gt; fortune_rates = 29 [json_name = "fortuneRates"];</code>
+   */
+  long getFortuneRatesOrDefault(
+      java.lang.String key,
+      long defaultValue);
+  /**
+   * <pre>
+   * 財神倍率
+   * </pre>
+   *
+   * <code>map&lt;string, int64&gt; fortune_rates = 29 [json_name = "fortuneRates"];</code>
+   */
+  long getFortuneRatesOrThrow(
+      java.lang.String key);
+
+  /**
+   * <pre>
    * 玩家姓名
    * </pre>
    *
