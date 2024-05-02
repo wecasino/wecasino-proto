@@ -95,6 +95,10 @@ public enum Step
    */
   SUPER_GAME_NO_MORE_BET(12),
   /**
+   * <code>SUPER_GAME_THROW_COLOR = 13;</code>
+   */
+  SUPER_GAME_THROW_COLOR(13),
+  /**
    * <pre>
    * PITBOSS 修改骰點
    * </pre>
@@ -187,6 +191,10 @@ public enum Step
    */
   public static final int SUPER_GAME_NO_MORE_BET_VALUE = 12;
   /**
+   * <code>SUPER_GAME_THROW_COLOR = 13;</code>
+   */
+  public static final int SUPER_GAME_THROW_COLOR_VALUE = 13;
+  /**
    * <pre>
    * PITBOSS 修改骰點
    * </pre>
@@ -230,6 +238,7 @@ public enum Step
       case 10: return SUPER_GAME_ROUND_START;
       case 11: return SUPER_GAME_ROUND_BET;
       case 12: return SUPER_GAME_NO_MORE_BET;
+      case 13: return SUPER_GAME_THROW_COLOR;
       case 16: return PITBOSS_MODIFY_BOWL;
       default: return null;
     }

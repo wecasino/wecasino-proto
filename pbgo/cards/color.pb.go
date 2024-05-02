@@ -25,12 +25,19 @@ type ColorCard int32
 const (
 	// 未指定
 	ColorCard_Color_CARD_UNSPECIFIED ColorCard = 0
-	ColorCard_Color_1                ColorCard = 1
-	ColorCard_Color_2                ColorCard = 2
-	ColorCard_Color_3                ColorCard = 3
-	ColorCard_Color_4                ColorCard = 4
-	ColorCard_Color_5                ColorCard = 5
-	ColorCard_Color_6                ColorCard = 6
+	// 綠、紅、藍、粉、白、黃
+	// 黃
+	ColorCard_Color_1 ColorCard = 1
+	// 藍
+	ColorCard_Color_2 ColorCard = 2
+	// 粉
+	ColorCard_Color_3 ColorCard = 3
+	// 綠
+	ColorCard_Color_4 ColorCard = 4
+	// 紅
+	ColorCard_Color_5 ColorCard = 5
+	// 白
+	ColorCard_Color_6 ColorCard = 6
 )
 
 // Enum value maps for ColorCard.

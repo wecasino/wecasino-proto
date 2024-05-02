@@ -5,12 +5,18 @@ enum ColorCard {
 
   // 未指定
   Color_CARD_UNSPECIFIED = 0;
-  
+  // 綠、紅、藍、粉、白、黃
+  //黃
   Color_1 = 1;
+  //藍
   Color_2 = 2;
+  //粉
   Color_3 = 3;
+  //綠
   Color_4 = 4;
+  //紅
   Color_5 = 5;
+  //白
   Color_6 = 6;
 
 }

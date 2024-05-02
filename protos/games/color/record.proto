@@ -44,6 +44,8 @@ enum Step {
   // 停止下注
   SUPER_GAME_NO_MORE_BET = 12;
 
+  SUPER_GAME_THROW_COLOR = 13;
+
   // PITBOSS 修改骰點
   PITBOSS_MODIFY_BOWL = 16;
 

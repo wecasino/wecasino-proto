@@ -18,26 +18,51 @@ public enum ColorCard
    */
   Color_CARD_UNSPECIFIED(0),
   /**
+   * <pre>
+   * 綠、紅、藍、粉、白、黃
+   *黃
+   * </pre>
+   *
    * <code>Color_1 = 1;</code>
    */
   Color_1(1),
   /**
+   * <pre>
+   *藍
+   * </pre>
+   *
    * <code>Color_2 = 2;</code>
    */
   Color_2(2),
   /**
+   * <pre>
+   *粉
+   * </pre>
+   *
    * <code>Color_3 = 3;</code>
    */
   Color_3(3),
   /**
+   * <pre>
+   *綠
+   * </pre>
+   *
    * <code>Color_4 = 4;</code>
    */
   Color_4(4),
   /**
+   * <pre>
+   *紅
+   * </pre>
+   *
    * <code>Color_5 = 5;</code>
    */
   Color_5(5),
   /**
+   * <pre>
+   *白
+   * </pre>
+   *
    * <code>Color_6 = 6;</code>
    */
   Color_6(6),
@@ -53,26 +78,51 @@ public enum ColorCard
    */
   public static final int Color_CARD_UNSPECIFIED_VALUE = 0;
   /**
+   * <pre>
+   * 綠、紅、藍、粉、白、黃
+   *黃
+   * </pre>
+   *
    * <code>Color_1 = 1;</code>
    */
   public static final int Color_1_VALUE = 1;
   /**
+   * <pre>
+   *藍
+   * </pre>
+   *
    * <code>Color_2 = 2;</code>
    */
   public static final int Color_2_VALUE = 2;
   /**
+   * <pre>
+   *粉
+   * </pre>
+   *
    * <code>Color_3 = 3;</code>
    */
   public static final int Color_3_VALUE = 3;
   /**
+   * <pre>
+   *綠
+   * </pre>
+   *
    * <code>Color_4 = 4;</code>
    */
   public static final int Color_4_VALUE = 4;
   /**
+   * <pre>
+   *紅
+   * </pre>
+   *
    * <code>Color_5 = 5;</code>
    */
   public static final int Color_5_VALUE = 5;
   /**
+   * <pre>
+   *白
+   * </pre>
+   *
    * <code>Color_6 = 6;</code>
    */
   public static final int Color_6_VALUE = 6;
