@@ -36,6 +36,14 @@ enum Step {
   // 擲骰
   THROW_COLOR = 8;
 
+  // SUPER_GAME
+  // 開始
+  SUPER_GAME_ROUND_START = 10;
+  // 開放下注
+  SUPER_GAME_ROUND_BET = 11;
+  // 停止下注
+  SUPER_GAME_NO_MORE_BET = 12;
+
   // PITBOSS 修改骰點
   PITBOSS_MODIFY_BOWL = 16;
 
