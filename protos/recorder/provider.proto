@@ -22,6 +22,15 @@ message GetCurrentRecordRequest {
  
 }
 
+message GetRoundPlayBackRequest {
+
+  // 資源代碼
+  string code = 1 [(google.api.field_behavior) = REQUIRED];
+ 
+  string platform = 2 [(google.api.field_behavior) = REQUIRED];
+
+}
+
 message ListRecordsRequest {
 
   // 查詢起時
@@ -110,6 +119,18 @@ message ListRoundsRecordResponse {
 
 }
 
+// GetRoundPlayBackResponse
+// 取得局回放記錄
+message GetRoundPlayBackResponse {
+
+  // round code
+  string code = 1;
+
+  // 回放url
+  map<string, string> medias = 28;
+
+}
+
 // gateway option 設定說明參照：https://github.com/googleapis/googleapis/blob/master/google/api/http.proto
 service RecorderReadService {
   
@@ -173,6 +194,13 @@ service RecorderReadService {
   rpc GetCurrentRound(GetCurrentRecordRequest) returns (RoundRecord){
     option (google.api.http) = {
       get: "/v1/recorder/rounds:current"
+    };
+  };
+
+  //
+  rpc GetPlayBackRound(GetRoundPlayBackRequest) returns (GetRoundPlayBackResponse){
+    option (google.api.http) = {
+      get: "/v1/recorder/playback/{code}"
     };
   };
 
