@@ -304,6 +304,28 @@ paths:
           required: false
           type: string
           format: int64
+  /v1/recorder/playback/{code}:
+    get:
+      operationId: RecorderReadService_GetPlayBackRound
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/recorderGetRoundPlayBackResponse'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/rpcStatus'
+      parameters:
+        - name: code
+          description: 資源代碼
+          in: path
+          required: true
+          type: string
+        - name: platform
+          in: query
+          required: true
+          type: string
   /v1/recorder/rounds/{code}:
     get:
       summary: 讀取指定局紀錄
@@ -898,6 +920,20 @@ definitions:
     title: |-
       GameProvideState
       遊戲供應狀態類型
+  recorderGetRoundPlayBackResponse:
+    type: object
+    properties:
+      code:
+        type: string
+        title: round code
+      medias:
+        type: object
+        additionalProperties:
+          type: string
+        title: 回放url
+    title: |-
+      GetRoundPlayBackResponse
+      取得局回放記錄
   recorderListDealersResponse:
     type: object
     properties:

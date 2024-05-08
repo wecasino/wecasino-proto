@@ -20,15 +20,16 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	RecorderReadService_ListShifts_FullMethodName      = "/recorder.RecorderReadService/ListShifts"
-	RecorderReadService_GetShift_FullMethodName        = "/recorder.RecorderReadService/GetShift"
-	RecorderReadService_GetCurrentShift_FullMethodName = "/recorder.RecorderReadService/GetCurrentShift"
-	RecorderReadService_ListShoe_FullMethodName        = "/recorder.RecorderReadService/ListShoe"
-	RecorderReadService_GetShoe_FullMethodName         = "/recorder.RecorderReadService/GetShoe"
-	RecorderReadService_GetCurrentShoe_FullMethodName  = "/recorder.RecorderReadService/GetCurrentShoe"
-	RecorderReadService_ListRounds_FullMethodName      = "/recorder.RecorderReadService/ListRounds"
-	RecorderReadService_GetRound_FullMethodName        = "/recorder.RecorderReadService/GetRound"
-	RecorderReadService_GetCurrentRound_FullMethodName = "/recorder.RecorderReadService/GetCurrentRound"
+	RecorderReadService_ListShifts_FullMethodName       = "/recorder.RecorderReadService/ListShifts"
+	RecorderReadService_GetShift_FullMethodName         = "/recorder.RecorderReadService/GetShift"
+	RecorderReadService_GetCurrentShift_FullMethodName  = "/recorder.RecorderReadService/GetCurrentShift"
+	RecorderReadService_ListShoe_FullMethodName         = "/recorder.RecorderReadService/ListShoe"
+	RecorderReadService_GetShoe_FullMethodName          = "/recorder.RecorderReadService/GetShoe"
+	RecorderReadService_GetCurrentShoe_FullMethodName   = "/recorder.RecorderReadService/GetCurrentShoe"
+	RecorderReadService_ListRounds_FullMethodName       = "/recorder.RecorderReadService/ListRounds"
+	RecorderReadService_GetRound_FullMethodName         = "/recorder.RecorderReadService/GetRound"
+	RecorderReadService_GetCurrentRound_FullMethodName  = "/recorder.RecorderReadService/GetCurrentRound"
+	RecorderReadService_GetPlayBackRound_FullMethodName = "/recorder.RecorderReadService/GetPlayBackRound"
 )
 
 // RecorderReadServiceClient is the client API for RecorderReadService service.
@@ -53,6 +54,7 @@ type RecorderReadServiceClient interface {
 	GetRound(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*RoundRecord, error)
 	// 讀取目前局紀錄
 	GetCurrentRound(ctx context.Context, in *GetCurrentRecordRequest, opts ...grpc.CallOption) (*RoundRecord, error)
+	GetPlayBackRound(ctx context.Context, in *GetRoundPlayBackRequest, opts ...grpc.CallOption) (*GetRoundPlayBackResponse, error)
 }
 
 type recorderReadServiceClient struct {
@@ -144,6 +146,15 @@ func (c *recorderReadServiceClient) GetCurrentRound(ctx context.Context, in *Get
 	return out, nil
 }
 
+func (c *recorderReadServiceClient) GetPlayBackRound(ctx context.Context, in *GetRoundPlayBackRequest, opts ...grpc.CallOption) (*GetRoundPlayBackResponse, error) {
+	out := new(GetRoundPlayBackResponse)
+	err := c.cc.Invoke(ctx, RecorderReadService_GetPlayBackRound_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // RecorderReadServiceServer is the server API for RecorderReadService service.
 // All implementations must embed UnimplementedRecorderReadServiceServer
 // for forward compatibility
@@ -166,6 +177,7 @@ type RecorderReadServiceServer interface {
 	GetRound(context.Context, *GetRequest) (*RoundRecord, error)
 	// 讀取目前局紀錄
 	GetCurrentRound(context.Context, *GetCurrentRecordRequest) (*RoundRecord, error)
+	GetPlayBackRound(context.Context, *GetRoundPlayBackRequest) (*GetRoundPlayBackResponse, error)
 	mustEmbedUnimplementedRecorderReadServiceServer()
 }
 
@@ -199,6 +211,9 @@ func (UnimplementedRecorderReadServiceServer) GetRound(context.Context, *GetRequ
 }
 func (UnimplementedRecorderReadServiceServer) GetCurrentRound(context.Context, *GetCurrentRecordRequest) (*RoundRecord, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetCurrentRound not implemented")
+}
+func (UnimplementedRecorderReadServiceServer) GetPlayBackRound(context.Context, *GetRoundPlayBackRequest) (*GetRoundPlayBackResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPlayBackRound not implemented")
 }
 func (UnimplementedRecorderReadServiceServer) mustEmbedUnimplementedRecorderReadServiceServer() {}
 
@@ -375,6 +390,24 @@ func _RecorderReadService_GetCurrentRound_Handler(srv interface{}, ctx context.C
 	return interceptor(ctx, in, info, handler)
 }
 
+func _RecorderReadService_GetPlayBackRound_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRoundPlayBackRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecorderReadServiceServer).GetPlayBackRound(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecorderReadService_GetPlayBackRound_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecorderReadServiceServer).GetPlayBackRound(ctx, req.(*GetRoundPlayBackRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // RecorderReadService_ServiceDesc is the grpc.ServiceDesc for RecorderReadService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -417,6 +450,10 @@ var RecorderReadService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetCurrentRound",
 			Handler:    _RecorderReadService_GetCurrentRound_Handler,
+		},
+		{
+			MethodName: "GetPlayBackRound",
+			Handler:    _RecorderReadService_GetPlayBackRound_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

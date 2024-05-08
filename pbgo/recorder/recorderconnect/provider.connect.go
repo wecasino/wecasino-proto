@@ -63,6 +63,9 @@ const (
 	// RecorderReadServiceGetCurrentRoundProcedure is the fully-qualified name of the
 	// RecorderReadService's GetCurrentRound RPC.
 	RecorderReadServiceGetCurrentRoundProcedure = "/recorder.RecorderReadService/GetCurrentRound"
+	// RecorderReadServiceGetPlayBackRoundProcedure is the fully-qualified name of the
+	// RecorderReadService's GetPlayBackRound RPC.
+	RecorderReadServiceGetPlayBackRoundProcedure = "/recorder.RecorderReadService/GetPlayBackRound"
 	// ProviderServiceListGamesProcedure is the fully-qualified name of the ProviderService's ListGames
 	// RPC.
 	ProviderServiceListGamesProcedure = "/recorder.ProviderService/ListGames"
@@ -82,22 +85,23 @@ const (
 
 // These variables are the protoreflect.Descriptor objects for the RPCs defined in this package.
 var (
-	recorderReadServiceServiceDescriptor               = recorder.File_recorder_provider_proto.Services().ByName("RecorderReadService")
-	recorderReadServiceListShiftsMethodDescriptor      = recorderReadServiceServiceDescriptor.Methods().ByName("ListShifts")
-	recorderReadServiceGetShiftMethodDescriptor        = recorderReadServiceServiceDescriptor.Methods().ByName("GetShift")
-	recorderReadServiceGetCurrentShiftMethodDescriptor = recorderReadServiceServiceDescriptor.Methods().ByName("GetCurrentShift")
-	recorderReadServiceListShoeMethodDescriptor        = recorderReadServiceServiceDescriptor.Methods().ByName("ListShoe")
-	recorderReadServiceGetShoeMethodDescriptor         = recorderReadServiceServiceDescriptor.Methods().ByName("GetShoe")
-	recorderReadServiceGetCurrentShoeMethodDescriptor  = recorderReadServiceServiceDescriptor.Methods().ByName("GetCurrentShoe")
-	recorderReadServiceListRoundsMethodDescriptor      = recorderReadServiceServiceDescriptor.Methods().ByName("ListRounds")
-	recorderReadServiceGetRoundMethodDescriptor        = recorderReadServiceServiceDescriptor.Methods().ByName("GetRound")
-	recorderReadServiceGetCurrentRoundMethodDescriptor = recorderReadServiceServiceDescriptor.Methods().ByName("GetCurrentRound")
-	providerServiceServiceDescriptor                   = recorder.File_recorder_provider_proto.Services().ByName("ProviderService")
-	providerServiceListGamesMethodDescriptor           = providerServiceServiceDescriptor.Methods().ByName("ListGames")
-	providerServiceGetGamesMethodDescriptor            = providerServiceServiceDescriptor.Methods().ByName("GetGames")
-	providerServiceVerifyGameMethodDescriptor          = providerServiceServiceDescriptor.Methods().ByName("VerifyGame")
-	providerServiceListDealersMethodDescriptor         = providerServiceServiceDescriptor.Methods().ByName("ListDealers")
-	providerServiceGetDealerMethodDescriptor           = providerServiceServiceDescriptor.Methods().ByName("GetDealer")
+	recorderReadServiceServiceDescriptor                = recorder.File_recorder_provider_proto.Services().ByName("RecorderReadService")
+	recorderReadServiceListShiftsMethodDescriptor       = recorderReadServiceServiceDescriptor.Methods().ByName("ListShifts")
+	recorderReadServiceGetShiftMethodDescriptor         = recorderReadServiceServiceDescriptor.Methods().ByName("GetShift")
+	recorderReadServiceGetCurrentShiftMethodDescriptor  = recorderReadServiceServiceDescriptor.Methods().ByName("GetCurrentShift")
+	recorderReadServiceListShoeMethodDescriptor         = recorderReadServiceServiceDescriptor.Methods().ByName("ListShoe")
+	recorderReadServiceGetShoeMethodDescriptor          = recorderReadServiceServiceDescriptor.Methods().ByName("GetShoe")
+	recorderReadServiceGetCurrentShoeMethodDescriptor   = recorderReadServiceServiceDescriptor.Methods().ByName("GetCurrentShoe")
+	recorderReadServiceListRoundsMethodDescriptor       = recorderReadServiceServiceDescriptor.Methods().ByName("ListRounds")
+	recorderReadServiceGetRoundMethodDescriptor         = recorderReadServiceServiceDescriptor.Methods().ByName("GetRound")
+	recorderReadServiceGetCurrentRoundMethodDescriptor  = recorderReadServiceServiceDescriptor.Methods().ByName("GetCurrentRound")
+	recorderReadServiceGetPlayBackRoundMethodDescriptor = recorderReadServiceServiceDescriptor.Methods().ByName("GetPlayBackRound")
+	providerServiceServiceDescriptor                    = recorder.File_recorder_provider_proto.Services().ByName("ProviderService")
+	providerServiceListGamesMethodDescriptor            = providerServiceServiceDescriptor.Methods().ByName("ListGames")
+	providerServiceGetGamesMethodDescriptor             = providerServiceServiceDescriptor.Methods().ByName("GetGames")
+	providerServiceVerifyGameMethodDescriptor           = providerServiceServiceDescriptor.Methods().ByName("VerifyGame")
+	providerServiceListDealersMethodDescriptor          = providerServiceServiceDescriptor.Methods().ByName("ListDealers")
+	providerServiceGetDealerMethodDescriptor            = providerServiceServiceDescriptor.Methods().ByName("GetDealer")
 )
 
 // RecorderReadServiceClient is a client for the recorder.RecorderReadService service.
@@ -120,6 +124,7 @@ type RecorderReadServiceClient interface {
 	GetRound(context.Context, *connect.Request[recorder.GetRequest]) (*connect.Response[recorder.RoundRecord], error)
 	// 讀取目前局紀錄
 	GetCurrentRound(context.Context, *connect.Request[recorder.GetCurrentRecordRequest]) (*connect.Response[recorder.RoundRecord], error)
+	GetPlayBackRound(context.Context, *connect.Request[recorder.GetRoundPlayBackRequest]) (*connect.Response[recorder.GetRoundPlayBackResponse], error)
 }
 
 // NewRecorderReadServiceClient constructs a client for the recorder.RecorderReadService service. By
@@ -186,20 +191,27 @@ func NewRecorderReadServiceClient(httpClient connect.HTTPClient, baseURL string,
 			connect.WithSchema(recorderReadServiceGetCurrentRoundMethodDescriptor),
 			connect.WithClientOptions(opts...),
 		),
+		getPlayBackRound: connect.NewClient[recorder.GetRoundPlayBackRequest, recorder.GetRoundPlayBackResponse](
+			httpClient,
+			baseURL+RecorderReadServiceGetPlayBackRoundProcedure,
+			connect.WithSchema(recorderReadServiceGetPlayBackRoundMethodDescriptor),
+			connect.WithClientOptions(opts...),
+		),
 	}
 }
 
 // recorderReadServiceClient implements RecorderReadServiceClient.
 type recorderReadServiceClient struct {
-	listShifts      *connect.Client[recorder.ListRecordsRequest, recorder.ListShiftsResponse]
-	getShift        *connect.Client[recorder.GetRequest, recorder.ShiftRecord]
-	getCurrentShift *connect.Client[recorder.GetCurrentRecordRequest, recorder.ShiftRecord]
-	listShoe        *connect.Client[recorder.ListRecordsRequest, recorder.ListShoesRecordResponse]
-	getShoe         *connect.Client[recorder.GetRequest, recorder.ShoeRecord]
-	getCurrentShoe  *connect.Client[recorder.GetCurrentRecordRequest, recorder.ShoeRecord]
-	listRounds      *connect.Client[recorder.ListRecordsRequest, recorder.ListRoundsRecordResponse]
-	getRound        *connect.Client[recorder.GetRequest, recorder.RoundRecord]
-	getCurrentRound *connect.Client[recorder.GetCurrentRecordRequest, recorder.RoundRecord]
+	listShifts       *connect.Client[recorder.ListRecordsRequest, recorder.ListShiftsResponse]
+	getShift         *connect.Client[recorder.GetRequest, recorder.ShiftRecord]
+	getCurrentShift  *connect.Client[recorder.GetCurrentRecordRequest, recorder.ShiftRecord]
+	listShoe         *connect.Client[recorder.ListRecordsRequest, recorder.ListShoesRecordResponse]
+	getShoe          *connect.Client[recorder.GetRequest, recorder.ShoeRecord]
+	getCurrentShoe   *connect.Client[recorder.GetCurrentRecordRequest, recorder.ShoeRecord]
+	listRounds       *connect.Client[recorder.ListRecordsRequest, recorder.ListRoundsRecordResponse]
+	getRound         *connect.Client[recorder.GetRequest, recorder.RoundRecord]
+	getCurrentRound  *connect.Client[recorder.GetCurrentRecordRequest, recorder.RoundRecord]
+	getPlayBackRound *connect.Client[recorder.GetRoundPlayBackRequest, recorder.GetRoundPlayBackResponse]
 }
 
 // ListShifts calls recorder.RecorderReadService.ListShifts.
@@ -247,6 +259,11 @@ func (c *recorderReadServiceClient) GetCurrentRound(ctx context.Context, req *co
 	return c.getCurrentRound.CallUnary(ctx, req)
 }
 
+// GetPlayBackRound calls recorder.RecorderReadService.GetPlayBackRound.
+func (c *recorderReadServiceClient) GetPlayBackRound(ctx context.Context, req *connect.Request[recorder.GetRoundPlayBackRequest]) (*connect.Response[recorder.GetRoundPlayBackResponse], error) {
+	return c.getPlayBackRound.CallUnary(ctx, req)
+}
+
 // RecorderReadServiceHandler is an implementation of the recorder.RecorderReadService service.
 type RecorderReadServiceHandler interface {
 	// 讀取班次紀錄List
@@ -267,6 +284,7 @@ type RecorderReadServiceHandler interface {
 	GetRound(context.Context, *connect.Request[recorder.GetRequest]) (*connect.Response[recorder.RoundRecord], error)
 	// 讀取目前局紀錄
 	GetCurrentRound(context.Context, *connect.Request[recorder.GetCurrentRecordRequest]) (*connect.Response[recorder.RoundRecord], error)
+	GetPlayBackRound(context.Context, *connect.Request[recorder.GetRoundPlayBackRequest]) (*connect.Response[recorder.GetRoundPlayBackResponse], error)
 }
 
 // NewRecorderReadServiceHandler builds an HTTP handler from the service implementation. It returns
@@ -329,6 +347,12 @@ func NewRecorderReadServiceHandler(svc RecorderReadServiceHandler, opts ...conne
 		connect.WithSchema(recorderReadServiceGetCurrentRoundMethodDescriptor),
 		connect.WithHandlerOptions(opts...),
 	)
+	recorderReadServiceGetPlayBackRoundHandler := connect.NewUnaryHandler(
+		RecorderReadServiceGetPlayBackRoundProcedure,
+		svc.GetPlayBackRound,
+		connect.WithSchema(recorderReadServiceGetPlayBackRoundMethodDescriptor),
+		connect.WithHandlerOptions(opts...),
+	)
 	return "/recorder.RecorderReadService/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
 		case RecorderReadServiceListShiftsProcedure:
@@ -349,6 +373,8 @@ func NewRecorderReadServiceHandler(svc RecorderReadServiceHandler, opts ...conne
 			recorderReadServiceGetRoundHandler.ServeHTTP(w, r)
 		case RecorderReadServiceGetCurrentRoundProcedure:
 			recorderReadServiceGetCurrentRoundHandler.ServeHTTP(w, r)
+		case RecorderReadServiceGetPlayBackRoundProcedure:
+			recorderReadServiceGetPlayBackRoundHandler.ServeHTTP(w, r)
 		default:
 			http.NotFound(w, r)
 		}
@@ -392,6 +418,10 @@ func (UnimplementedRecorderReadServiceHandler) GetRound(context.Context, *connec
 
 func (UnimplementedRecorderReadServiceHandler) GetCurrentRound(context.Context, *connect.Request[recorder.GetCurrentRecordRequest]) (*connect.Response[recorder.RoundRecord], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("recorder.RecorderReadService.GetCurrentRound is not implemented"))
+}
+
+func (UnimplementedRecorderReadServiceHandler) GetPlayBackRound(context.Context, *connect.Request[recorder.GetRoundPlayBackRequest]) (*connect.Response[recorder.GetRoundPlayBackResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("recorder.RecorderReadService.GetPlayBackRound is not implemented"))
 }
 
 // ProviderServiceClient is a client for the recorder.ProviderService service.
