@@ -923,7 +923,7 @@ definitions:
   recorderGetRoundPlayBackResponse:
     type: object
     properties:
-      code:
+      roundCode:
         type: string
         title: round code
       medias:
