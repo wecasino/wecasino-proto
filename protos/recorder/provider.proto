@@ -124,7 +124,7 @@ message ListRoundsRecordResponse {
 message GetRoundPlayBackResponse {
 
   // round code
-  string code = 1;
+  string round_code = 1;
 
   // 回放url
   map<string, string> medias = 28;
