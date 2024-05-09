@@ -72,12 +72,12 @@ public enum GameType
   SICBO(32),
   /**
    * <pre>
-   * COLOR
+   * COLORGAME
    * </pre>
    *
-   * <code>COLOR = 33;</code>
+   * <code>COLORGAME = 33;</code>
    */
-  COLOR(33),
+  COLORGAME(33),
   /**
    * <pre>
    * 輪盤
@@ -155,12 +155,12 @@ public enum GameType
   public static final int SICBO_VALUE = 32;
   /**
    * <pre>
-   * COLOR
+   * COLORGAME
    * </pre>
    *
-   * <code>COLOR = 33;</code>
+   * <code>COLORGAME = 33;</code>
    */
-  public static final int COLOR_VALUE = 33;
+  public static final int COLORGAME_VALUE = 33;
   /**
    * <pre>
    * 輪盤
@@ -210,7 +210,7 @@ public enum GameType
       case 19: return BULLFIGHT;
       case 20: return FANTAN;
       case 32: return SICBO;
-      case 33: return COLOR;
+      case 33: return COLORGAME;
       case 36: return ROULETTE;
       case 40: return LUCKYWHEEL;
       default: return null;
