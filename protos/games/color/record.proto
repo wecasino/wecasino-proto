@@ -1,0 +1,52 @@
+syntax = "proto3";
+package games.color;
+
+enum GameSubtype {
+
+  // 未指定
+  COLOR_TYPE_UNSPECIFIED = 0;
+
+  // color
+  COLOR_CLASSIC = 1;
+
+  // 財神color
+  //  COLOR_FORTUNE = 2;
+
+  // 區塊鏈color
+  COLOR_BLOCKCHAIN = 16;
+}
+
+// 步驟，依據遊戲供應商邏輯，不是每個步驟都會走到
+enum Step {
+
+  // 未指定
+  STEP_UNSPECIFIED = 0;
+  // 本局開始
+  ROUND_START = 1;
+  // 本局完成
+  ROUND_FINISHED = 2;
+  // 本局取消
+  ROUND_CANCELED = 3;
+
+  // 開放下注
+  ROUND_BET = 4;
+  // 停止下注
+  NO_MORE_BET = 5;
+
+  // 擲骰
+  THROW_COLOR = 8;
+
+  // SUPER_GAME
+  // 開始
+  SUPER_GAME_ROUND_START = 10;
+  // 開放下注
+  SUPER_GAME_ROUND_BET = 11;
+  // 停止下注
+  SUPER_GAME_NO_MORE_BET = 12;
+
+  SUPER_GAME_THROW_COLOR = 13;
+
+  // PITBOSS 修改骰點
+  PITBOSS_MODIFY_BOWL = 16;
+
+}

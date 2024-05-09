@@ -1,12 +1,7 @@
 swagger: "2.0"
 info:
-  title: WECasino Provider API
-  version: "1.0"
-  contact:
-    name: WECasino Project
-host: gateway.beta.wecasino.live
-schemes:
-  - https
+  title: recorder/provider.proto
+  version: version not set
 consumes:
   - application/json
 produces:
@@ -159,6 +154,7 @@ paths:
              - 19: 牛牛
              - 20: 番攤
              - 32: 骰寶
+             - 33: 色彩遊戲
              - 36: 輪盤
              - 40: 幸運輪
           in: query
@@ -172,6 +168,7 @@ paths:
             - 19
             - 20
             - 32
+            - 33
             - 36
             - 40
           default: 0
@@ -250,6 +247,7 @@ paths:
              - 19: 牛牛
              - 20: 番攤
              - 32: 骰寶
+             - 33: 色彩遊戲
              - 36: 輪盤
              - 40: 幸運輪
           in: query
@@ -263,6 +261,7 @@ paths:
             - 19
             - 20
             - 32
+            - 33
             - 36
             - 40
           default: 0
@@ -401,6 +400,7 @@ paths:
              - 19: 牛牛
              - 20: 番攤
              - 32: 骰寶
+             - 33: 色彩遊戲
              - 36: 輪盤
              - 40: 幸運輪
           in: query
@@ -414,6 +414,7 @@ paths:
             - 19
             - 20
             - 32
+            - 33
             - 36
             - 40
           default: 0
@@ -557,6 +558,7 @@ definitions:
       - 19
       - 20
       - 32
+      - 33
       - 36
       - 40
     default: 0
@@ -568,6 +570,7 @@ definitions:
        - 19: 牛牛
        - 20: 番攤
        - 32: 骰寶
+       - 33: 色彩遊戲
        - 36: 輪盤
        - 40: 幸運輪
     title: "GameType \n遊戲類型"

@@ -26,6 +26,9 @@ enum GameType {
   // 骰寶
   SICBO = 32;
 
+  // 色彩遊戲
+  COLORGAME = 33;
+
   // 輪盤
   ROULETTE = 36;
 
