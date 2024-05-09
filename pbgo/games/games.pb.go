@@ -39,7 +39,7 @@ const (
 	GameType_FANTAN GameType = 20
 	// 骰寶
 	GameType_SICBO GameType = 32
-	// COLORGAME
+	// 色彩遊戲
 	GameType_COLORGAME GameType = 33
 	// 輪盤
 	GameType_ROULETTE GameType = 36

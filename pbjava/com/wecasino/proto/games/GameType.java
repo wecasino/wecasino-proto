@@ -72,7 +72,7 @@ public enum GameType
   SICBO(32),
   /**
    * <pre>
-   * COLORGAME
+   * 色彩遊戲
    * </pre>
    *
    * <code>COLORGAME = 33;</code>
@@ -155,7 +155,7 @@ public enum GameType
   public static final int SICBO_VALUE = 32;
   /**
    * <pre>
-   * COLORGAME
+   * 色彩遊戲
    * </pre>
    *
    * <code>COLORGAME = 33;</code>
