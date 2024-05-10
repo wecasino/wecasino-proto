@@ -72,6 +72,13 @@ public enum Step
   /**
    * <pre>
    * SUPER_GAME
+   * </pre>
+   *
+   * <code>SUPER_GAME_ROUND_READY = 9;</code>
+   */
+  SUPER_GAME_ROUND_READY(9),
+  /**
+   * <pre>
    * 開始
    * </pre>
    *
@@ -168,6 +175,13 @@ public enum Step
   /**
    * <pre>
    * SUPER_GAME
+   * </pre>
+   *
+   * <code>SUPER_GAME_ROUND_READY = 9;</code>
+   */
+  public static final int SUPER_GAME_ROUND_READY_VALUE = 9;
+  /**
+   * <pre>
    * 開始
    * </pre>
    *
@@ -235,6 +249,7 @@ public enum Step
       case 4: return ROUND_BET;
       case 5: return NO_MORE_BET;
       case 8: return THROW_COLOR;
+      case 9: return SUPER_GAME_ROUND_READY;
       case 10: return SUPER_GAME_ROUND_START;
       case 11: return SUPER_GAME_ROUND_BET;
       case 12: return SUPER_GAME_NO_MORE_BET;
