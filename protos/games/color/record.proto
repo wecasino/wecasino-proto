@@ -37,6 +37,7 @@ enum Step {
   THROW_COLOR = 8;
 
   // SUPER_GAME
+  SUPER_GAME_ROUND_READY = 9;
   // 開始
   SUPER_GAME_ROUND_START = 10;
   // 開放下注
