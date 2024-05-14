@@ -57,6 +57,7 @@ private static final long serialVersionUID = 0L;
             com.wecasino.proto.recorder.GetRoundPlayBackResponse.class, com.wecasino.proto.recorder.GetRoundPlayBackResponse.Builder.class);
   }
 
+  private int bitField0_;
   public static final int ROUND_CODE_FIELD_NUMBER = 1;
   @SuppressWarnings("serial")
   private volatile java.lang.Object roundCode_ = "";
@@ -102,6 +103,44 @@ private static final long serialVersionUID = 0L;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
+  }
+
+  public static final int TS_START_FIELD_NUMBER = 16;
+  private com.google.protobuf.Timestamp tsStart_;
+  /**
+   * <pre>
+   * 開始時間
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp ts_start = 16 [json_name = "tsStart"];</code>
+   * @return Whether the tsStart field is set.
+   */
+  @java.lang.Override
+  public boolean hasTsStart() {
+    return ((bitField0_ & 0x00000001) != 0);
+  }
+  /**
+   * <pre>
+   * 開始時間
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp ts_start = 16 [json_name = "tsStart"];</code>
+   * @return The tsStart.
+   */
+  @java.lang.Override
+  public com.google.protobuf.Timestamp getTsStart() {
+    return tsStart_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : tsStart_;
+  }
+  /**
+   * <pre>
+   * 開始時間
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp ts_start = 16 [json_name = "tsStart"];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.TimestampOrBuilder getTsStartOrBuilder() {
+    return tsStart_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : tsStart_;
   }
 
   public static final int MEDIAS_FIELD_NUMBER = 28;
@@ -216,6 +255,9 @@ java.lang.String defaultValue) {
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(roundCode_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, roundCode_);
     }
+    if (((bitField0_ & 0x00000001) != 0)) {
+      output.writeMessage(16, getTsStart());
+    }
     com.google.protobuf.GeneratedMessageV3
       .serializeStringMapTo(
         output,
@@ -233,6 +275,10 @@ java.lang.String defaultValue) {
     size = 0;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(roundCode_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, roundCode_);
+    }
+    if (((bitField0_ & 0x00000001) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(16, getTsStart());
     }
     for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
          : internalGetMedias().getMap().entrySet()) {
@@ -261,6 +307,11 @@ java.lang.String defaultValue) {
 
     if (!getRoundCode()
         .equals(other.getRoundCode())) return false;
+    if (hasTsStart() != other.hasTsStart()) return false;
+    if (hasTsStart()) {
+      if (!getTsStart()
+          .equals(other.getTsStart())) return false;
+    }
     if (!internalGetMedias().equals(
         other.internalGetMedias())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
@@ -276,6 +327,10 @@ java.lang.String defaultValue) {
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + ROUND_CODE_FIELD_NUMBER;
     hash = (53 * hash) + getRoundCode().hashCode();
+    if (hasTsStart()) {
+      hash = (37 * hash) + TS_START_FIELD_NUMBER;
+      hash = (53 * hash) + getTsStart().hashCode();
+    }
     if (!internalGetMedias().getMap().isEmpty()) {
       hash = (37 * hash) + MEDIAS_FIELD_NUMBER;
       hash = (53 * hash) + internalGetMedias().hashCode();
@@ -426,19 +481,30 @@ java.lang.String defaultValue) {
 
     // Construct using com.wecasino.proto.recorder.GetRoundPlayBackResponse.newBuilder()
     private Builder() {
-
+      maybeForceBuilderInitialization();
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-
+      maybeForceBuilderInitialization();
+    }
+    private void maybeForceBuilderInitialization() {
+      if (com.google.protobuf.GeneratedMessageV3
+              .alwaysUseFieldBuilders) {
+        getTsStartFieldBuilder();
+      }
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
       bitField0_ = 0;
       roundCode_ = "";
+      tsStart_ = null;
+      if (tsStartBuilder_ != null) {
+        tsStartBuilder_.dispose();
+        tsStartBuilder_ = null;
+      }
       internalGetMutableMedias().clear();
       return this;
     }
@@ -476,10 +542,18 @@ java.lang.String defaultValue) {
       if (((from_bitField0_ & 0x00000001) != 0)) {
         result.roundCode_ = roundCode_;
       }
+      int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.tsStart_ = tsStartBuilder_ == null
+            ? tsStart_
+            : tsStartBuilder_.build();
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
         result.medias_ = internalGetMedias();
         result.medias_.makeImmutable();
       }
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -531,9 +605,12 @@ java.lang.String defaultValue) {
         bitField0_ |= 0x00000001;
         onChanged();
       }
+      if (other.hasTsStart()) {
+        mergeTsStart(other.getTsStart());
+      }
       internalGetMutableMedias().mergeFrom(
           other.internalGetMedias());
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000004;
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
@@ -565,13 +642,20 @@ java.lang.String defaultValue) {
               bitField0_ |= 0x00000001;
               break;
             } // case 10
+            case 130: {
+              input.readMessage(
+                  getTsStartFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 130
             case 226: {
               com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
               medias__ = input.readMessage(
                   MediasDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
               internalGetMutableMedias().getMutableMap().put(
                   medias__.getKey(), medias__.getValue());
-              bitField0_ |= 0x00000002;
+              bitField0_ |= 0x00000004;
               break;
             } // case 226
             default: {
@@ -683,6 +767,163 @@ java.lang.String defaultValue) {
       return this;
     }
 
+    private com.google.protobuf.Timestamp tsStart_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> tsStartBuilder_;
+    /**
+     * <pre>
+     * 開始時間
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp ts_start = 16 [json_name = "tsStart"];</code>
+     * @return Whether the tsStart field is set.
+     */
+    public boolean hasTsStart() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <pre>
+     * 開始時間
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp ts_start = 16 [json_name = "tsStart"];</code>
+     * @return The tsStart.
+     */
+    public com.google.protobuf.Timestamp getTsStart() {
+      if (tsStartBuilder_ == null) {
+        return tsStart_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : tsStart_;
+      } else {
+        return tsStartBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * 開始時間
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp ts_start = 16 [json_name = "tsStart"];</code>
+     */
+    public Builder setTsStart(com.google.protobuf.Timestamp value) {
+      if (tsStartBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        tsStart_ = value;
+      } else {
+        tsStartBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000002;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 開始時間
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp ts_start = 16 [json_name = "tsStart"];</code>
+     */
+    public Builder setTsStart(
+        com.google.protobuf.Timestamp.Builder builderForValue) {
+      if (tsStartBuilder_ == null) {
+        tsStart_ = builderForValue.build();
+      } else {
+        tsStartBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000002;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 開始時間
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp ts_start = 16 [json_name = "tsStart"];</code>
+     */
+    public Builder mergeTsStart(com.google.protobuf.Timestamp value) {
+      if (tsStartBuilder_ == null) {
+        if (((bitField0_ & 0x00000002) != 0) &&
+          tsStart_ != null &&
+          tsStart_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getTsStartBuilder().mergeFrom(value);
+        } else {
+          tsStart_ = value;
+        }
+      } else {
+        tsStartBuilder_.mergeFrom(value);
+      }
+      if (tsStart_ != null) {
+        bitField0_ |= 0x00000002;
+        onChanged();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * 開始時間
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp ts_start = 16 [json_name = "tsStart"];</code>
+     */
+    public Builder clearTsStart() {
+      bitField0_ = (bitField0_ & ~0x00000002);
+      tsStart_ = null;
+      if (tsStartBuilder_ != null) {
+        tsStartBuilder_.dispose();
+        tsStartBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 開始時間
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp ts_start = 16 [json_name = "tsStart"];</code>
+     */
+    public com.google.protobuf.Timestamp.Builder getTsStartBuilder() {
+      bitField0_ |= 0x00000002;
+      onChanged();
+      return getTsStartFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * 開始時間
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp ts_start = 16 [json_name = "tsStart"];</code>
+     */
+    public com.google.protobuf.TimestampOrBuilder getTsStartOrBuilder() {
+      if (tsStartBuilder_ != null) {
+        return tsStartBuilder_.getMessageOrBuilder();
+      } else {
+        return tsStart_ == null ?
+            com.google.protobuf.Timestamp.getDefaultInstance() : tsStart_;
+      }
+    }
+    /**
+     * <pre>
+     * 開始時間
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp ts_start = 16 [json_name = "tsStart"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+        getTsStartFieldBuilder() {
+      if (tsStartBuilder_ == null) {
+        tsStartBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                getTsStart(),
+                getParentForChildren(),
+                isClean());
+        tsStart_ = null;
+      }
+      return tsStartBuilder_;
+    }
+
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> medias_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -702,7 +943,7 @@ java.lang.String defaultValue) {
       if (!medias_.isMutable()) {
         medias_ = medias_.copy();
       }
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000004;
       onChanged();
       return medias_;
     }
@@ -778,7 +1019,7 @@ java.lang.String defaultValue) {
       return map.get(key);
     }
     public Builder clearMedias() {
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000004);
       internalGetMutableMedias().getMutableMap()
           .clear();
       return this;
@@ -803,7 +1044,7 @@ java.lang.String defaultValue) {
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
         getMutableMedias() {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000004;
       return internalGetMutableMedias().getMutableMap();
     }
     /**
@@ -820,7 +1061,7 @@ java.lang.String defaultValue) {
       if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableMedias().getMutableMap()
           .put(key, value);
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000004;
       return this;
     }
     /**
@@ -834,7 +1075,7 @@ java.lang.String defaultValue) {
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableMedias().getMutableMap()
           .putAll(values);
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000004;
       return this;
     }
     @java.lang.Override

@@ -126,6 +126,9 @@ message GetRoundPlayBackResponse {
   // round code
   string round_code = 1;
 
+  // 開始時間
+  google.protobuf.Timestamp ts_start = 16;
+  
   // 回放url
   map<string, string> medias = 28;
 
