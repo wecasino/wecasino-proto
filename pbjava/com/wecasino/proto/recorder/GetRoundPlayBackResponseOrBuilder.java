@@ -30,6 +30,33 @@ public interface GetRoundPlayBackResponseOrBuilder extends
 
   /**
    * <pre>
+   * 開始時間
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp ts_start = 16 [json_name = "tsStart"];</code>
+   * @return Whether the tsStart field is set.
+   */
+  boolean hasTsStart();
+  /**
+   * <pre>
+   * 開始時間
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp ts_start = 16 [json_name = "tsStart"];</code>
+   * @return The tsStart.
+   */
+  com.google.protobuf.Timestamp getTsStart();
+  /**
+   * <pre>
+   * 開始時間
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp ts_start = 16 [json_name = "tsStart"];</code>
+   */
+  com.google.protobuf.TimestampOrBuilder getTsStartOrBuilder();
+
+  /**
+   * <pre>
    * 回放url
    * </pre>
    *

@@ -929,6 +929,10 @@ definitions:
       roundCode:
         type: string
         title: round code
+      tsStart:
+        type: string
+        format: date-time
+        title: 開始時間
       medias:
         type: object
         additionalProperties:
