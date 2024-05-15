@@ -34,12 +34,14 @@ public final class RecordProto {
       "_READY\020\t\022\032\n\026SUPER_GAME_ROUND_START\020\n\022\030\n\024" +
       "SUPER_GAME_ROUND_BET\020\013\022\032\n\026SUPER_GAME_NO_" +
       "MORE_BET\020\014\022\032\n\026SUPER_GAME_THROW_COLOR\020\r\022\027" +
-      "\n\023PITBOSS_MODIFY_BOWL\020\020B\257\001\n\036com.wecasino" +
-      ".proto.games.colorB\013RecordProtoP\001Z3githu" +
-      "b.com/wecasino/wecasino-proto/pbgo/games" +
-      "/color\242\002\003GCX\252\002\013Games.Color\312\002\013Games\\Color" +
-      "\342\002\027Games\\Color\\GPBMetadata\352\002\014Games::Colo" +
-      "rb\006proto3"
+      "\n\023PITBOSS_MODIFY_BOWL\020\020*I\n\014ResourceType\022" +
+      "\035\n\031RESOURCE_TYPE_UNSPECIFIED\020\000\022\n\n\006NORMAL" +
+      "\020\001\022\016\n\nSUPER_GAME\020\002B\257\001\n\036com.wecasino.prot" +
+      "o.games.colorB\013RecordProtoP\001Z3github.com" +
+      "/wecasino/wecasino-proto/pbgo/games/colo" +
+      "r\242\002\003GCX\252\002\013Games.Color\312\002\013Games\\Color\342\002\027Ga" +
+      "mes\\Color\\GPBMetadata\352\002\014Games::Colorb\006pr" +
+      "oto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
