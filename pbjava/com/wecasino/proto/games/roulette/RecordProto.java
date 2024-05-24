@@ -28,18 +28,19 @@ public final class RecordProto {
       "lette*y\n\013GameSubtype\022\035\n\031ROULETTE_TYPE_UN" +
       "SPECIFIED\020\000\022\024\n\020ROULETTE_CLASSIC\020\001\022\024\n\020ROU" +
       "LETTE_FORTUNE\020\002\022\037\n\033ROULETTE_CLASSIC_BLOC" +
-      "KCHAIN\020\020*\236\001\n\004Step\022\024\n\020STEP_UNSPECIFIED\020\000\022" +
+      "KCHAIN\020\020*\262\001\n\004Step\022\024\n\020STEP_UNSPECIFIED\020\000\022" +
       "\017\n\013ROUND_START\020\001\022\022\n\016ROUND_FINISHED\020\002\022\022\n\016" +
       "ROUND_CANCELED\020\003\022\r\n\tROUND_BET\020\004\022\017\n\013NO_MO" +
-      "RE_BET\020\005\022\016\n\nSPIN_WHEEL\020\010\022\027\n\023PITBOSS_MODI" +
-      "FY_BOWL\020\020*c\n\020ResultRecordType\022\"\n\036RESULT_" +
-      "RECORD_TYPE_UNSPECIFIED\020\000\022\020\n\014ROUND_FINIS" +
-      "H\020\001\022\031\n\025PITBOSS_MODIFY_RESULT\020\002B\301\001\n!com.w" +
-      "ecasino.proto.games.rouletteB\013RecordProt" +
-      "oP\001Z6github.com/wecasino/wecasino-proto/" +
-      "pbgo/games/roulette\242\002\003GRX\252\002\016Games.Roulet" +
-      "te\312\002\016Games\\Roulette\342\002\032Games\\Roulette\\GPB" +
-      "Metadata\352\002\017Games::Rouletteb\006proto3"
+      "RE_BET\020\005\022\016\n\nSPIN_WHEEL\020\010\022\022\n\016DEALER_CONFI" +
+      "RM\020\n\022\027\n\023PITBOSS_MODIFY_BOWL\020\020*c\n\020ResultR" +
+      "ecordType\022\"\n\036RESULT_RECORD_TYPE_UNSPECIF" +
+      "IED\020\000\022\020\n\014ROUND_FINISH\020\001\022\031\n\025PITBOSS_MODIF" +
+      "Y_RESULT\020\002B\301\001\n!com.wecasino.proto.games." +
+      "rouletteB\013RecordProtoP\001Z6github.com/weca" +
+      "sino/wecasino-proto/pbgo/games/roulette\242" +
+      "\002\003GRX\252\002\016Games.Roulette\312\002\016Games\\Roulette\342" +
+      "\002\032Games\\Roulette\\GPBMetadata\352\002\017Games::Ro" +
+      "uletteb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

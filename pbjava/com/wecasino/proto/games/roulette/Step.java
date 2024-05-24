@@ -71,6 +71,14 @@ public enum Step
   SPIN_WHEEL(8),
   /**
    * <pre>
+   * 荷官確認
+   * </pre>
+   *
+   * <code>DEALER_CONFIRM = 10;</code>
+   */
+  DEALER_CONFIRM(10),
+  /**
+   * <pre>
    * PITBOSS 修改骰點
    * </pre>
    *
@@ -138,6 +146,14 @@ public enum Step
   public static final int SPIN_WHEEL_VALUE = 8;
   /**
    * <pre>
+   * 荷官確認
+   * </pre>
+   *
+   * <code>DEALER_CONFIRM = 10;</code>
+   */
+  public static final int DEALER_CONFIRM_VALUE = 10;
+  /**
+   * <pre>
    * PITBOSS 修改骰點
    * </pre>
    *
@@ -177,6 +193,7 @@ public enum Step
       case 4: return ROUND_BET;
       case 5: return NO_MORE_BET;
       case 8: return SPIN_WHEEL;
+      case 10: return DEALER_CONFIRM;
       case 16: return PITBOSS_MODIFY_BOWL;
       default: return null;
     }
