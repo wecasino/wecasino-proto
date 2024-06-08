@@ -176,6 +176,36 @@ message RecordRoundMediaRequest {
 
 }
 
+message RecordModifyCardRequest {
+
+  // 主持代碼
+  string host_code = 1;
+
+  // 遊戲代碼
+  string game_code = 2;
+
+  // 改牌
+  string round_code = 3;
+
+  // 修改牌
+  repeated CardModify modifies = 4;
+
+  // 修改原因
+  string modify_message = 5;
+}
+
+message CardModify {
+
+  int32 seat = 1;
+
+  int32 resource_type = 2;
+
+  int64 card_list_index = 3;
+
+  string card_code = 4;
+
+}
+
 service RecorderService {
   
   // 建立新排班
@@ -204,6 +234,9 @@ service RecorderService {
 
   // 事後取消此局
   rpc RecordRoundBeCanceledAfterFinished(RecordRoundBeCanceledRequest) returns (RoundRecord);
+
+  // 事後修改此局
+  rpc RecordModifyResultAfterRound(RecordModifyCardRequest) returns (RoundRecord);
 
   // 紀錄回放
   rpc RecordRoundVideo(RecordRoundMediaRequest) returns (RoundRecord);
