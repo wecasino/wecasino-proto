@@ -264,6 +264,9 @@ enum GameNotifyType {
 
   // 通知遊戲局事後取消
   NOTIFY_ROUND_CANCEL_AFTER_ROUND = 20;
+
+  // 通知遊戲局事後改牌
+  NOTIFY_ROUND_MODITY_AFTER_ROUND = 21;
   
 }
 
