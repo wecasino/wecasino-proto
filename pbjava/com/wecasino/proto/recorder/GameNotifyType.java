@@ -153,6 +153,14 @@ public enum GameNotifyType
    * <code>NOTIFY_ROUND_CANCEL_AFTER_ROUND = 20;</code>
    */
   NOTIFY_ROUND_CANCEL_AFTER_ROUND(20),
+  /**
+   * <pre>
+   * 通知遊戲局事後改牌
+   * </pre>
+   *
+   * <code>NOTIFY_ROUND_MODITY_AFTER_ROUND = 21;</code>
+   */
+  NOTIFY_ROUND_MODITY_AFTER_ROUND(21),
   UNRECOGNIZED(-1),
   ;
 
@@ -300,6 +308,14 @@ public enum GameNotifyType
    * <code>NOTIFY_ROUND_CANCEL_AFTER_ROUND = 20;</code>
    */
   public static final int NOTIFY_ROUND_CANCEL_AFTER_ROUND_VALUE = 20;
+  /**
+   * <pre>
+   * 通知遊戲局事後改牌
+   * </pre>
+   *
+   * <code>NOTIFY_ROUND_MODITY_AFTER_ROUND = 21;</code>
+   */
+  public static final int NOTIFY_ROUND_MODITY_AFTER_ROUND_VALUE = 21;
 
 
   public final int getNumber() {
@@ -344,6 +360,7 @@ public enum GameNotifyType
       case 18: return NOTIFY_ROUND_CANCEL;
       case 19: return NOTIFY_ROUND_PLAYBACK;
       case 20: return NOTIFY_ROUND_CANCEL_AFTER_ROUND;
+      case 21: return NOTIFY_ROUND_MODITY_AFTER_ROUND;
       default: return null;
     }
   }
