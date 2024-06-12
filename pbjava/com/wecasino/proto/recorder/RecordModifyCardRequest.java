@@ -17,7 +17,6 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private RecordModifyCardRequest() {
-    hostCode_ = "";
     gameCode_ = "";
     roundCode_ = "";
     modifies_ = java.util.Collections.emptyList();
@@ -42,53 +41,6 @@ private static final long serialVersionUID = 0L;
     return com.wecasino.proto.recorder.RecorderProto.internal_static_recorder_RecordModifyCardRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             com.wecasino.proto.recorder.RecordModifyCardRequest.class, com.wecasino.proto.recorder.RecordModifyCardRequest.Builder.class);
-  }
-
-  public static final int HOST_CODE_FIELD_NUMBER = 1;
-  @SuppressWarnings("serial")
-  private volatile java.lang.Object hostCode_ = "";
-  /**
-   * <pre>
-   * 主持代碼
-   * </pre>
-   *
-   * <code>string host_code = 1 [json_name = "hostCode"];</code>
-   * @return The hostCode.
-   */
-  @java.lang.Override
-  public java.lang.String getHostCode() {
-    java.lang.Object ref = hostCode_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      hostCode_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * 主持代碼
-   * </pre>
-   *
-   * <code>string host_code = 1 [json_name = "hostCode"];</code>
-   * @return The bytes for hostCode.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getHostCodeBytes() {
-    java.lang.Object ref = hostCode_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      hostCode_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
   }
 
   public static final int GAME_CODE_FIELD_NUMBER = 2;
@@ -307,9 +259,6 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(hostCode_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, hostCode_);
-    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(gameCode_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, gameCode_);
     }
@@ -331,9 +280,6 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(hostCode_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, hostCode_);
-    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(gameCode_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, gameCode_);
     }
@@ -362,8 +308,6 @@ private static final long serialVersionUID = 0L;
     }
     com.wecasino.proto.recorder.RecordModifyCardRequest other = (com.wecasino.proto.recorder.RecordModifyCardRequest) obj;
 
-    if (!getHostCode()
-        .equals(other.getHostCode())) return false;
     if (!getGameCode()
         .equals(other.getGameCode())) return false;
     if (!getRoundCode()
@@ -383,8 +327,6 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + HOST_CODE_FIELD_NUMBER;
-    hash = (53 * hash) + getHostCode().hashCode();
     hash = (37 * hash) + GAME_CODE_FIELD_NUMBER;
     hash = (53 * hash) + getGameCode().hashCode();
     hash = (37 * hash) + ROUND_CODE_FIELD_NUMBER;
@@ -526,7 +468,6 @@ private static final long serialVersionUID = 0L;
     public Builder clear() {
       super.clear();
       bitField0_ = 0;
-      hostCode_ = "";
       gameCode_ = "";
       roundCode_ = "";
       if (modifiesBuilder_ == null) {
@@ -535,7 +476,7 @@ private static final long serialVersionUID = 0L;
         modifies_ = null;
         modifiesBuilder_.clear();
       }
-      bitField0_ = (bitField0_ & ~0x00000008);
+      bitField0_ = (bitField0_ & ~0x00000004);
       modifyMessage_ = "";
       return this;
     }
@@ -571,9 +512,9 @@ private static final long serialVersionUID = 0L;
 
     private void buildPartialRepeatedFields(com.wecasino.proto.recorder.RecordModifyCardRequest result) {
       if (modifiesBuilder_ == null) {
-        if (((bitField0_ & 0x00000008) != 0)) {
+        if (((bitField0_ & 0x00000004) != 0)) {
           modifies_ = java.util.Collections.unmodifiableList(modifies_);
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.modifies_ = modifies_;
       } else {
@@ -584,15 +525,12 @@ private static final long serialVersionUID = 0L;
     private void buildPartial0(com.wecasino.proto.recorder.RecordModifyCardRequest result) {
       int from_bitField0_ = bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.hostCode_ = hostCode_;
-      }
-      if (((from_bitField0_ & 0x00000002) != 0)) {
         result.gameCode_ = gameCode_;
       }
-      if (((from_bitField0_ & 0x00000004) != 0)) {
+      if (((from_bitField0_ & 0x00000002) != 0)) {
         result.roundCode_ = roundCode_;
       }
-      if (((from_bitField0_ & 0x00000010) != 0)) {
+      if (((from_bitField0_ & 0x00000008) != 0)) {
         result.modifyMessage_ = modifyMessage_;
       }
     }
@@ -641,26 +579,21 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.wecasino.proto.recorder.RecordModifyCardRequest other) {
       if (other == com.wecasino.proto.recorder.RecordModifyCardRequest.getDefaultInstance()) return this;
-      if (!other.getHostCode().isEmpty()) {
-        hostCode_ = other.hostCode_;
-        bitField0_ |= 0x00000001;
-        onChanged();
-      }
       if (!other.getGameCode().isEmpty()) {
         gameCode_ = other.gameCode_;
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getRoundCode().isEmpty()) {
         roundCode_ = other.roundCode_;
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (modifiesBuilder_ == null) {
         if (!other.modifies_.isEmpty()) {
           if (modifies_.isEmpty()) {
             modifies_ = other.modifies_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureModifiesIsMutable();
             modifies_.addAll(other.modifies_);
@@ -673,7 +606,7 @@ private static final long serialVersionUID = 0L;
             modifiesBuilder_.dispose();
             modifiesBuilder_ = null;
             modifies_ = other.modifies_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000004);
             modifiesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getModifiesFieldBuilder() : null;
@@ -684,7 +617,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getModifyMessage().isEmpty()) {
         modifyMessage_ = other.modifyMessage_;
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       this.mergeUnknownFields(other.getUnknownFields());
@@ -713,19 +646,14 @@ private static final long serialVersionUID = 0L;
             case 0:
               done = true;
               break;
-            case 10: {
-              hostCode_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000001;
-              break;
-            } // case 10
             case 18: {
               gameCode_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000002;
+              bitField0_ |= 0x00000001;
               break;
             } // case 18
             case 26: {
               roundCode_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000004;
+              bitField0_ |= 0x00000002;
               break;
             } // case 26
             case 34: {
@@ -743,7 +671,7 @@ private static final long serialVersionUID = 0L;
             } // case 34
             case 42: {
               modifyMessage_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000010;
+              bitField0_ |= 0x00000008;
               break;
             } // case 42
             default: {
@@ -762,98 +690,6 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     private int bitField0_;
-
-    private java.lang.Object hostCode_ = "";
-    /**
-     * <pre>
-     * 主持代碼
-     * </pre>
-     *
-     * <code>string host_code = 1 [json_name = "hostCode"];</code>
-     * @return The hostCode.
-     */
-    public java.lang.String getHostCode() {
-      java.lang.Object ref = hostCode_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        hostCode_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * 主持代碼
-     * </pre>
-     *
-     * <code>string host_code = 1 [json_name = "hostCode"];</code>
-     * @return The bytes for hostCode.
-     */
-    public com.google.protobuf.ByteString
-        getHostCodeBytes() {
-      java.lang.Object ref = hostCode_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        hostCode_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * 主持代碼
-     * </pre>
-     *
-     * <code>string host_code = 1 [json_name = "hostCode"];</code>
-     * @param value The hostCode to set.
-     * @return This builder for chaining.
-     */
-    public Builder setHostCode(
-        java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
-      hostCode_ = value;
-      bitField0_ |= 0x00000001;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * 主持代碼
-     * </pre>
-     *
-     * <code>string host_code = 1 [json_name = "hostCode"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearHostCode() {
-      hostCode_ = getDefaultInstance().getHostCode();
-      bitField0_ = (bitField0_ & ~0x00000001);
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * 主持代碼
-     * </pre>
-     *
-     * <code>string host_code = 1 [json_name = "hostCode"];</code>
-     * @param value The bytes for hostCode to set.
-     * @return This builder for chaining.
-     */
-    public Builder setHostCodeBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
-      hostCode_ = value;
-      bitField0_ |= 0x00000001;
-      onChanged();
-      return this;
-    }
 
     private java.lang.Object gameCode_ = "";
     /**
@@ -910,7 +746,7 @@ private static final long serialVersionUID = 0L;
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
       gameCode_ = value;
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -924,7 +760,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearGameCode() {
       gameCode_ = getDefaultInstance().getGameCode();
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -942,7 +778,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
       gameCode_ = value;
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1002,7 +838,7 @@ private static final long serialVersionUID = 0L;
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
       roundCode_ = value;
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1016,7 +852,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearRoundCode() {
       roundCode_ = getDefaultInstance().getRoundCode();
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1034,7 +870,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
       roundCode_ = value;
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1042,9 +878,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.wecasino.proto.recorder.CardModify> modifies_ =
       java.util.Collections.emptyList();
     private void ensureModifiesIsMutable() {
-      if (!((bitField0_ & 0x00000008) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         modifies_ = new java.util.ArrayList<com.wecasino.proto.recorder.CardModify>(modifies_);
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000004;
        }
     }
 
@@ -1238,7 +1074,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearModifies() {
       if (modifiesBuilder_ == null) {
         modifies_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
       } else {
         modifiesBuilder_.clear();
@@ -1343,7 +1179,7 @@ private static final long serialVersionUID = 0L;
         modifiesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.wecasino.proto.recorder.CardModify, com.wecasino.proto.recorder.CardModify.Builder, com.wecasino.proto.recorder.CardModifyOrBuilder>(
                 modifies_,
-                ((bitField0_ & 0x00000008) != 0),
+                ((bitField0_ & 0x00000004) != 0),
                 getParentForChildren(),
                 isClean());
         modifies_ = null;
@@ -1406,7 +1242,7 @@ private static final long serialVersionUID = 0L;
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
       modifyMessage_ = value;
-      bitField0_ |= 0x00000010;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1420,7 +1256,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearModifyMessage() {
       modifyMessage_ = getDefaultInstance().getModifyMessage();
-      bitField0_ = (bitField0_ & ~0x00000010);
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1438,7 +1274,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
       modifyMessage_ = value;
-      bitField0_ |= 0x00000010;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }

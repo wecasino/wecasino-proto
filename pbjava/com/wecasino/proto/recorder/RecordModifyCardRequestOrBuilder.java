@@ -10,26 +10,6 @@ public interface RecordModifyCardRequestOrBuilder extends
 
   /**
    * <pre>
-   * 主持代碼
-   * </pre>
-   *
-   * <code>string host_code = 1 [json_name = "hostCode"];</code>
-   * @return The hostCode.
-   */
-  java.lang.String getHostCode();
-  /**
-   * <pre>
-   * 主持代碼
-   * </pre>
-   *
-   * <code>string host_code = 1 [json_name = "hostCode"];</code>
-   * @return The bytes for hostCode.
-   */
-  com.google.protobuf.ByteString
-      getHostCodeBytes();
-
-  /**
-   * <pre>
    * 遊戲代碼
    * </pre>
    *

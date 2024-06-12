@@ -8,6 +8,17 @@ import "recorder/record.proto";
 import "games/games.proto";
 import "google/api/field_behavior.proto";
 
+enum RoundStatusType {
+  // 未指定
+  NONE_ROUND_STATUS_TYPE_UNSPECIFIED = 0;
+  // 以取消
+  ROUND_STATUS_TYPE_CANCEL = 1;
+  // 以結算
+  ROUND_STATUS_TYPE_END = 2;
+  // 未結算
+  ROUND_STATUS_TYPE_NOT_END = 3;
+}
+
 message GetRequest {
 
   // 資源代碼
@@ -63,6 +74,7 @@ message ListRecordsRequest {
   // 每頁筆數
   int64 page_size = 11;
 
+  RoundStatusType roundResultType = 12;
 }
 
 // ListShiftsResponse

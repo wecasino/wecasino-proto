@@ -210,6 +210,21 @@ paths:
           required: false
           type: string
           format: int64
+        - name: roundResultType
+          description: |2-
+             - 0: 未指定
+             - 1: 以取消
+             - 2: 以結算
+             - 3: 未結算
+          in: query
+          required: false
+          type: integer
+          enum:
+            - 0
+            - 1
+            - 2
+            - 3
+          default: 0
   /v1/provider/shoes:
     get:
       summary: 讀牌靴紀錄list
@@ -303,6 +318,21 @@ paths:
           required: false
           type: string
           format: int64
+        - name: roundResultType
+          description: |2-
+             - 0: 未指定
+             - 1: 以取消
+             - 2: 以結算
+             - 3: 未結算
+          in: query
+          required: false
+          type: integer
+          enum:
+            - 0
+            - 1
+            - 2
+            - 3
+          default: 0
   /v1/recorder/playback/{code}:
     get:
       operationId: RecorderReadService_GetPlayBackRound
@@ -456,6 +486,21 @@ paths:
           required: false
           type: string
           format: int64
+        - name: roundResultType
+          description: |2-
+             - 0: 未指定
+             - 1: 以取消
+             - 2: 以結算
+             - 3: 未結算
+          in: query
+          required: false
+          type: integer
+          enum:
+            - 0
+            - 1
+            - 2
+            - 3
+          default: 0
   /v1/recorder/shifts/{code}:
     get:
       summary: 讀取指定班次紀錄
@@ -1162,6 +1207,20 @@ definitions:
     title: |-
       RoundRecord
       局紀錄
+  recorderRoundStatusType:
+    type: integer
+    format: int32
+    enum:
+      - 0
+      - 1
+      - 2
+      - 3
+    default: 0
+    title: |-
+      - 0: 未指定
+       - 1: 以取消
+       - 2: 以結算
+       - 3: 未結算
   recorderSeat:
     type: object
     properties:

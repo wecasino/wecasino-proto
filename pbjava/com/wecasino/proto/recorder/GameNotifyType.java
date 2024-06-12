@@ -391,7 +391,7 @@ public enum GameNotifyType
   }
   public static final com.google.protobuf.Descriptors.EnumDescriptor
       getDescriptor() {
-    return com.wecasino.proto.recorder.ProviderProto.getDescriptor().getEnumTypes().get(0);
+    return com.wecasino.proto.recorder.ProviderProto.getDescriptor().getEnumTypes().get(1);
   }
 
   private static final GameNotifyType[] VALUES = values();
