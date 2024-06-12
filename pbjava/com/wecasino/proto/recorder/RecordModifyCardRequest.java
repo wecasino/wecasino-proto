@@ -95,7 +95,7 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object roundCode_ = "";
   /**
    * <pre>
-   * 改牌
+   * 局代碼牌
    * </pre>
    *
    * <code>string round_code = 3 [json_name = "roundCode"];</code>
@@ -116,7 +116,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 改牌
+   * 局代碼牌
    * </pre>
    *
    * <code>string round_code = 3 [json_name = "roundCode"];</code>
@@ -786,7 +786,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object roundCode_ = "";
     /**
      * <pre>
-     * 改牌
+     * 局代碼牌
      * </pre>
      *
      * <code>string round_code = 3 [json_name = "roundCode"];</code>
@@ -806,7 +806,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 改牌
+     * 局代碼牌
      * </pre>
      *
      * <code>string round_code = 3 [json_name = "roundCode"];</code>
@@ -827,7 +827,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 改牌
+     * 局代碼牌
      * </pre>
      *
      * <code>string round_code = 3 [json_name = "roundCode"];</code>
@@ -844,7 +844,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 改牌
+     * 局代碼牌
      * </pre>
      *
      * <code>string round_code = 3 [json_name = "roundCode"];</code>
@@ -858,7 +858,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 改牌
+     * 局代碼牌
      * </pre>
      *
      * <code>string round_code = 3 [json_name = "roundCode"];</code>

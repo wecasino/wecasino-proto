@@ -174,8 +174,8 @@ public final class ProviderProto {
       "_after\030\010 \001(\tH\004R\013searchAfter\210\001\001\022(\n\rsearch" +
       "_before\030\t \001(\tH\005R\014searchBefore\210\001\001\022\022\n\004page" +
       "\030\n \001(\003R\004page\022\033\n\tpage_size\030\013 \001(\003R\010pageSiz" +
-      "e\022C\n\017roundResultType\030\014 \001(\0162\031.recorder.Ro" +
-      "undStatusTypeR\017roundResultTypeB\014\n\n_game_" +
+      "e\022C\n\017roundStatusType\030\014 \001(\0162\031.recorder.Ro" +
+      "undStatusTypeR\017roundStatusTypeB\014\n\n_game_" +
       "typeB\017\n\r_game_subtypeB\013\n\t_supplierB\014\n\n_g" +
       "ame_codeB\017\n\r_search_afterB\020\n\016_search_bef" +
       "ore\"\254\001\n\022ListShiftsResponse\0228\n\014shift_reco" +
@@ -348,7 +348,7 @@ public final class ProviderProto {
     internal_static_recorder_ListRecordsRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_recorder_ListRecordsRequest_descriptor,
-        new java.lang.String[] { "TsFrom", "TsTo", "GameType", "GameSubtype", "Supplier", "GameCode", "SearchAfter", "SearchBefore", "Page", "PageSize", "RoundResultType", });
+        new java.lang.String[] { "TsFrom", "TsTo", "GameType", "GameSubtype", "Supplier", "GameCode", "SearchAfter", "SearchBefore", "Page", "PageSize", "RoundStatusType", });
     internal_static_recorder_ListShiftsResponse_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_recorder_ListShiftsResponse_fieldAccessorTable = new

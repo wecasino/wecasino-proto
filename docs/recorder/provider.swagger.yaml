@@ -210,7 +210,7 @@ paths:
           required: false
           type: string
           format: int64
-        - name: roundResultType
+        - name: roundStatusType
           description: |2-
              - 0: 未指定
              - 1: 以取消
@@ -318,7 +318,7 @@ paths:
           required: false
           type: string
           format: int64
-        - name: roundResultType
+        - name: roundStatusType
           description: |2-
              - 0: 未指定
              - 1: 以取消
@@ -486,7 +486,7 @@ paths:
           required: false
           type: string
           format: int64
-        - name: roundResultType
+        - name: roundStatusType
           description: |2-
              - 0: 未指定
              - 1: 以取消

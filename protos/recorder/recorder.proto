@@ -181,7 +181,7 @@ message RecordModifyCardRequest {
   // 遊戲代碼
   string game_code = 2;
 
-  // 改牌
+  // 局代碼牌
   string round_code = 3;
 
   // 修改牌
