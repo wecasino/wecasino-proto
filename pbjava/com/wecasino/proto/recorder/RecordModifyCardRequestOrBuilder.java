@@ -30,7 +30,7 @@ public interface RecordModifyCardRequestOrBuilder extends
 
   /**
    * <pre>
-   * 改牌
+   * 局代碼牌
    * </pre>
    *
    * <code>string round_code = 3 [json_name = "roundCode"];</code>
@@ -39,7 +39,7 @@ public interface RecordModifyCardRequestOrBuilder extends
   java.lang.String getRoundCode();
   /**
    * <pre>
-   * 改牌
+   * 局代碼牌
    * </pre>
    *
    * <code>string round_code = 3 [json_name = "roundCode"];</code>
