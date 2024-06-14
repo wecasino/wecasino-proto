@@ -205,7 +205,7 @@ public final class RecorderProto {
       "\rmodifyMessage\"\212\001\n\nCardModify\022\022\n\004seat\030\001 " +
       "\001(\005R\004seat\022#\n\rresource_type\030\002 \001(\005R\014resour" +
       "ceType\022&\n\017card_list_index\030\003 \001(\003R\rcardLis" +
-      "tIndex\022\033\n\tcard_code\030\004 \001(\tR\010cardCode2\244\007\n\017" +
+      "tIndex\022\033\n\tcard_code\030\004 \001(\tR\010cardCode2\376\007\n\017" +
       "RecorderService\022P\n\022RecordShiftStarted\022#." +
       "recorder.RecordShiftStartedRequest\032\025.rec" +
       "order.ShiftRecord\022L\n\020RecordShiftEnded\022!." +
@@ -227,13 +227,15 @@ public final class RecorderProto {
       "ndBeCanceledRequest\032\025.recorder.RoundReco" +
       "rd\022X\n\034RecordModifyResultAfterRound\022!.rec" +
       "order.RecordModifyCardRequest\032\025.recorder" +
-      ".RoundRecord\022L\n\020RecordRoundVideo\022!.recor" +
-      "der.RecordRoundMediaRequest\032\025.recorder.R" +
-      "oundRecordB\236\001\n\033com.wecasino.proto.record" +
-      "erB\rRecorderProtoP\001Z0github.com/wecasino" +
-      "/wecasino-proto/pbgo/recorder\242\002\003RXX\252\002\010Re" +
-      "corder\312\002\010Recorder\342\002\024Recorder\\GPBMetadata" +
-      "\352\002\010Recorderb\006proto3"
+      ".RoundRecord\022X\n\034RecordFinishResultAfterR" +
+      "ound\022!.recorder.RecordModifyCardRequest\032" +
+      "\025.recorder.RoundRecord\022L\n\020RecordRoundVid" +
+      "eo\022!.recorder.RecordRoundMediaRequest\032\025." +
+      "recorder.RoundRecordB\236\001\n\033com.wecasino.pr" +
+      "oto.recorderB\rRecorderProtoP\001Z0github.co" +
+      "m/wecasino/wecasino-proto/pbgo/recorder\242" +
+      "\002\003RXX\252\002\010Recorder\312\002\010Recorder\342\002\024Recorder\\G" +
+      "PBMetadata\352\002\010Recorderb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

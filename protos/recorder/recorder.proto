@@ -229,11 +229,14 @@ service RecorderService {
   // 結束此局
   rpc RecordRoundFinished(RecordRoundFinishedRequest) returns (RoundRecord);
 
-  // 事後取消此局
+  // 事後取消此局(未結算取消)
   rpc RecordRoundBeCanceledAfterFinished(RecordRoundBeCanceledRequest) returns (RoundRecord);
 
-  // 事後修改此局
+  // 事後修改此局(以結算改牌)
   rpc RecordModifyResultAfterRound(RecordModifyCardRequest) returns (RoundRecord);
+
+  // 事後結束此局(未結算發結算)
+  rpc RecordFinishResultAfterRound(RecordModifyCardRequest) returns (RoundRecord);
 
   // 紀錄回放
   rpc RecordRoundVideo(RecordRoundMediaRequest) returns (RoundRecord);

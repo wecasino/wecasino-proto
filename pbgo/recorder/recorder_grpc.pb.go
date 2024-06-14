@@ -29,6 +29,7 @@ const (
 	RecorderService_RecordRoundFinished_FullMethodName                = "/recorder.RecorderService/RecordRoundFinished"
 	RecorderService_RecordRoundBeCanceledAfterFinished_FullMethodName = "/recorder.RecorderService/RecordRoundBeCanceledAfterFinished"
 	RecorderService_RecordModifyResultAfterRound_FullMethodName       = "/recorder.RecorderService/RecordModifyResultAfterRound"
+	RecorderService_RecordFinishResultAfterRound_FullMethodName       = "/recorder.RecorderService/RecordFinishResultAfterRound"
 	RecorderService_RecordRoundVideo_FullMethodName                   = "/recorder.RecorderService/RecordRoundVideo"
 )
 
@@ -52,10 +53,12 @@ type RecorderServiceClient interface {
 	RecordRoundBeCanceled(ctx context.Context, in *RecordRoundBeCanceledRequest, opts ...grpc.CallOption) (*RoundRecord, error)
 	// 結束此局
 	RecordRoundFinished(ctx context.Context, in *RecordRoundFinishedRequest, opts ...grpc.CallOption) (*RoundRecord, error)
-	// 事後取消此局
+	// 事後取消此局(未結算取消)
 	RecordRoundBeCanceledAfterFinished(ctx context.Context, in *RecordRoundBeCanceledRequest, opts ...grpc.CallOption) (*RoundRecord, error)
-	// 事後修改此局
+	// 事後修改此局(以結算改牌)
 	RecordModifyResultAfterRound(ctx context.Context, in *RecordModifyCardRequest, opts ...grpc.CallOption) (*RoundRecord, error)
+	// 事後結束此局(未結算發結算)
+	RecordFinishResultAfterRound(ctx context.Context, in *RecordModifyCardRequest, opts ...grpc.CallOption) (*RoundRecord, error)
 	// 紀錄回放
 	RecordRoundVideo(ctx context.Context, in *RecordRoundMediaRequest, opts ...grpc.CallOption) (*RoundRecord, error)
 }
@@ -168,6 +171,16 @@ func (c *recorderServiceClient) RecordModifyResultAfterRound(ctx context.Context
 	return out, nil
 }
 
+func (c *recorderServiceClient) RecordFinishResultAfterRound(ctx context.Context, in *RecordModifyCardRequest, opts ...grpc.CallOption) (*RoundRecord, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RoundRecord)
+	err := c.cc.Invoke(ctx, RecorderService_RecordFinishResultAfterRound_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *recorderServiceClient) RecordRoundVideo(ctx context.Context, in *RecordRoundMediaRequest, opts ...grpc.CallOption) (*RoundRecord, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(RoundRecord)
@@ -198,10 +211,12 @@ type RecorderServiceServer interface {
 	RecordRoundBeCanceled(context.Context, *RecordRoundBeCanceledRequest) (*RoundRecord, error)
 	// 結束此局
 	RecordRoundFinished(context.Context, *RecordRoundFinishedRequest) (*RoundRecord, error)
-	// 事後取消此局
+	// 事後取消此局(未結算取消)
 	RecordRoundBeCanceledAfterFinished(context.Context, *RecordRoundBeCanceledRequest) (*RoundRecord, error)
-	// 事後修改此局
+	// 事後修改此局(以結算改牌)
 	RecordModifyResultAfterRound(context.Context, *RecordModifyCardRequest) (*RoundRecord, error)
+	// 事後結束此局(未結算發結算)
+	RecordFinishResultAfterRound(context.Context, *RecordModifyCardRequest) (*RoundRecord, error)
 	// 紀錄回放
 	RecordRoundVideo(context.Context, *RecordRoundMediaRequest) (*RoundRecord, error)
 	mustEmbedUnimplementedRecorderServiceServer()
@@ -240,6 +255,9 @@ func (UnimplementedRecorderServiceServer) RecordRoundBeCanceledAfterFinished(con
 }
 func (UnimplementedRecorderServiceServer) RecordModifyResultAfterRound(context.Context, *RecordModifyCardRequest) (*RoundRecord, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RecordModifyResultAfterRound not implemented")
+}
+func (UnimplementedRecorderServiceServer) RecordFinishResultAfterRound(context.Context, *RecordModifyCardRequest) (*RoundRecord, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RecordFinishResultAfterRound not implemented")
 }
 func (UnimplementedRecorderServiceServer) RecordRoundVideo(context.Context, *RecordRoundMediaRequest) (*RoundRecord, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RecordRoundVideo not implemented")
@@ -437,6 +455,24 @@ func _RecorderService_RecordModifyResultAfterRound_Handler(srv interface{}, ctx 
 	return interceptor(ctx, in, info, handler)
 }
 
+func _RecorderService_RecordFinishResultAfterRound_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RecordModifyCardRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecorderServiceServer).RecordFinishResultAfterRound(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecorderService_RecordFinishResultAfterRound_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecorderServiceServer).RecordFinishResultAfterRound(ctx, req.(*RecordModifyCardRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _RecorderService_RecordRoundVideo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(RecordRoundMediaRequest)
 	if err := dec(in); err != nil {
@@ -501,6 +537,10 @@ var RecorderService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "RecordModifyResultAfterRound",
 			Handler:    _RecorderService_RecordModifyResultAfterRound_Handler,
+		},
+		{
+			MethodName: "RecordFinishResultAfterRound",
+			Handler:    _RecorderService_RecordFinishResultAfterRound_Handler,
 		},
 		{
 			MethodName: "RecordRoundVideo",
