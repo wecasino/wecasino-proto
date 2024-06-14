@@ -280,6 +280,8 @@ enum GameNotifyType {
   // 通知遊戲局事後改牌
   NOTIFY_ROUND_MODIFY_AFTER_ROUND = 21;
   
+  // 通知遊戲局事後結束
+  NOTIFY_ROUND_FINISH_AFTER_ROUND = 22;
 }
 
 // GameProvideState

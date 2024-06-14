@@ -249,7 +249,7 @@ public final class ProviderProto {
       "_ROUND_STATUS_TYPE_UNSPECIFIED\020\000\022\034\n\030ROUN" +
       "D_STATUS_TYPE_CANCEL\020\001\022\031\n\025ROUND_STATUS_T" +
       "YPE_END\020\002\022\035\n\031ROUND_STATUS_TYPE_NOT_END\020\003" +
-      "*\241\004\n\016GameNotifyType\022 \n\034GAME_NOTIFY_TYPE_" +
+      "*\306\004\n\016GameNotifyType\022 \n\034GAME_NOTIFY_TYPE_" +
       "UNSPECIFIED\020\000\022$\n NOTIFY_GAME_PROVIDE_STA" +
       "TE_CHANGE\020\001\022\027\n\023NOTIFY_GAME_CAPTURE\020\005\022\034\n\030" +
       "NOTIFY_GAME_DEALER_LOGIN\020\006\022\035\n\031NOTIFY_GAM" +
@@ -262,58 +262,59 @@ public final class ProviderProto {
       "\023NOTIFY_ROUND_FINISH\020\021\022\027\n\023NOTIFY_ROUND_C" +
       "ANCEL\020\022\022\031\n\025NOTIFY_ROUND_PLAYBACK\020\023\022#\n\037NO" +
       "TIFY_ROUND_CANCEL_AFTER_ROUND\020\024\022#\n\037NOTIF" +
-      "Y_ROUND_MODIFY_AFTER_ROUND\020\025*\375\001\n\020GamePro" +
-      "videState\022\"\n\036GAME_PROVIDE_STATE_UNSPECIF" +
-      "IED\020\000\022\032\n\026GAME_PROVIDE_AVAILABLE\020\001\022$\n GAM" +
-      "E_PROVIDE_MAINTEN_AFTER_ROUND\020\002\022\037\n\033GAME_" +
-      "PROVIDE_IN_MAINTENANCE\020\003\022\"\n\036GAME_PROVIDE" +
-      "_CLOSE_AFTER_ROUND\020\004\022\026\n\022GAME_PROVIDE_CLO" +
-      "SE\020\005\022&\n\"GAME_PROVIDE_AVAILABLE_AFTER_ROU" +
-      "ND\020\0062\272\010\n\023RecorderReadService\022e\n\nListShif" +
-      "ts\022\034.recorder.ListRecordsRequest\032\034.recor" +
-      "der.ListShiftsResponse\"\033\202\323\344\223\002\025\022\023/v1/reco" +
-      "rder/shifts\022[\n\010GetShift\022\024.recorder.GetRe" +
-      "quest\032\025.recorder.ShiftRecord\"\"\202\323\344\223\002\034\022\032/v" +
-      "1/recorder/shifts/{code}\022p\n\017GetCurrentSh" +
-      "ift\022!.recorder.GetCurrentRecordRequest\032\025" +
-      ".recorder.ShiftRecord\"#\202\323\344\223\002\035\022\033/v1/recor" +
-      "der/shifts:current\022g\n\010ListShoe\022\034.recorde" +
-      "r.ListRecordsRequest\032!.recorder.ListShoe" +
-      "sRecordResponse\"\032\202\323\344\223\002\024\022\022/v1/provider/sh" +
-      "oes\022X\n\007GetShoe\022\024.recorder.GetRequest\032\024.r" +
-      "ecorder.ShoeRecord\"!\202\323\344\223\002\033\022\031/v1/recorder" +
-      "/shoes/{code}\022m\n\016GetCurrentShoe\022!.record" +
-      "er.GetCurrentRecordRequest\032\024.recorder.Sh" +
-      "oeRecord\"\"\202\323\344\223\002\034\022\032/v1/recorder/shoes:cur" +
-      "rent\022k\n\nListRounds\022\034.recorder.ListRecord" +
-      "sRequest\032\".recorder.ListRoundsRecordResp" +
-      "onse\"\033\202\323\344\223\002\025\022\023/v1/provider/rounds\022[\n\010Get" +
-      "Round\022\024.recorder.GetRequest\032\025.recorder.R" +
-      "oundRecord\"\"\202\323\344\223\002\034\022\032/v1/recorder/rounds/" +
-      "{code}\022p\n\017GetCurrentRound\022!.recorder.Get" +
-      "CurrentRecordRequest\032\025.recorder.RoundRec" +
-      "ord\"#\202\323\344\223\002\035\022\033/v1/recorder/rounds:current" +
-      "\022\177\n\020GetPlayBackRound\022!.recorder.GetRound" +
-      "PlayBackRequest\032\".recorder.GetRoundPlayB" +
-      "ackResponse\"$\202\323\344\223\002\036\022\034/v1/recorder/playba" +
-      "ck/{code}2\210\004\n\017ProviderService\022`\n\tListGam" +
-      "es\022\032.recorder.ListGamesRequest\032\033.recorde" +
-      "r.ListGamesResponse\"\032\202\323\344\223\002\024\022\022/v1/provide" +
-      "r/games\022Z\n\010GetGames\022\024.recorder.GetReques" +
-      "t\032\025.recorder.GameProvide\"!\202\323\344\223\002\033\022\031/v1/pr" +
-      "ovider/games/{code}\022s\n\nVerifyGame\022\033.reco" +
-      "rder.VerifyGameRequest\032\026.google.protobuf" +
-      ".Empty\"0\202\323\344\223\002*\"%/v1/provider/games/{game" +
-      "_code}:verify:\001*\022h\n\013ListDealers\022\034.record" +
-      "er.ListDealersRequest\032\035.recorder.ListDea" +
-      "lersResponse\"\034\202\323\344\223\002\026\022\024/v1/provider/deale" +
-      "rs\022X\n\tGetDealer\022\024.recorder.GetRequest\032\020." +
-      "recorder.Dealer\"#\202\323\344\223\002\035\022\033/v1/provider/de" +
-      "alers/{code}B\236\001\n\033com.wecasino.proto.reco" +
-      "rderB\rProviderProtoP\001Z0github.com/wecasi" +
-      "no/wecasino-proto/pbgo/recorder\242\002\003RXX\252\002\010" +
-      "Recorder\312\002\010Recorder\342\002\024Recorder\\GPBMetada" +
-      "ta\352\002\010Recorderb\006proto3"
+      "Y_ROUND_MODIFY_AFTER_ROUND\020\025\022#\n\037NOTIFY_R" +
+      "OUND_FINISH_AFTER_ROUND\020\026*\375\001\n\020GameProvid" +
+      "eState\022\"\n\036GAME_PROVIDE_STATE_UNSPECIFIED" +
+      "\020\000\022\032\n\026GAME_PROVIDE_AVAILABLE\020\001\022$\n GAME_P" +
+      "ROVIDE_MAINTEN_AFTER_ROUND\020\002\022\037\n\033GAME_PRO" +
+      "VIDE_IN_MAINTENANCE\020\003\022\"\n\036GAME_PROVIDE_CL" +
+      "OSE_AFTER_ROUND\020\004\022\026\n\022GAME_PROVIDE_CLOSE\020" +
+      "\005\022&\n\"GAME_PROVIDE_AVAILABLE_AFTER_ROUND\020" +
+      "\0062\272\010\n\023RecorderReadService\022e\n\nListShifts\022" +
+      "\034.recorder.ListRecordsRequest\032\034.recorder" +
+      ".ListShiftsResponse\"\033\202\323\344\223\002\025\022\023/v1/recorde" +
+      "r/shifts\022[\n\010GetShift\022\024.recorder.GetReque" +
+      "st\032\025.recorder.ShiftRecord\"\"\202\323\344\223\002\034\022\032/v1/r" +
+      "ecorder/shifts/{code}\022p\n\017GetCurrentShift" +
+      "\022!.recorder.GetCurrentRecordRequest\032\025.re" +
+      "corder.ShiftRecord\"#\202\323\344\223\002\035\022\033/v1/recorder" +
+      "/shifts:current\022g\n\010ListShoe\022\034.recorder.L" +
+      "istRecordsRequest\032!.recorder.ListShoesRe" +
+      "cordResponse\"\032\202\323\344\223\002\024\022\022/v1/provider/shoes" +
+      "\022X\n\007GetShoe\022\024.recorder.GetRequest\032\024.reco" +
+      "rder.ShoeRecord\"!\202\323\344\223\002\033\022\031/v1/recorder/sh" +
+      "oes/{code}\022m\n\016GetCurrentShoe\022!.recorder." +
+      "GetCurrentRecordRequest\032\024.recorder.ShoeR" +
+      "ecord\"\"\202\323\344\223\002\034\022\032/v1/recorder/shoes:curren" +
+      "t\022k\n\nListRounds\022\034.recorder.ListRecordsRe" +
+      "quest\032\".recorder.ListRoundsRecordRespons" +
+      "e\"\033\202\323\344\223\002\025\022\023/v1/provider/rounds\022[\n\010GetRou" +
+      "nd\022\024.recorder.GetRequest\032\025.recorder.Roun" +
+      "dRecord\"\"\202\323\344\223\002\034\022\032/v1/recorder/rounds/{co" +
+      "de}\022p\n\017GetCurrentRound\022!.recorder.GetCur" +
+      "rentRecordRequest\032\025.recorder.RoundRecord" +
+      "\"#\202\323\344\223\002\035\022\033/v1/recorder/rounds:current\022\177\n" +
+      "\020GetPlayBackRound\022!.recorder.GetRoundPla" +
+      "yBackRequest\032\".recorder.GetRoundPlayBack" +
+      "Response\"$\202\323\344\223\002\036\022\034/v1/recorder/playback/" +
+      "{code}2\210\004\n\017ProviderService\022`\n\tListGames\022" +
+      "\032.recorder.ListGamesRequest\032\033.recorder.L" +
+      "istGamesResponse\"\032\202\323\344\223\002\024\022\022/v1/provider/g" +
+      "ames\022Z\n\010GetGames\022\024.recorder.GetRequest\032\025" +
+      ".recorder.GameProvide\"!\202\323\344\223\002\033\022\031/v1/provi" +
+      "der/games/{code}\022s\n\nVerifyGame\022\033.recorde" +
+      "r.VerifyGameRequest\032\026.google.protobuf.Em" +
+      "pty\"0\202\323\344\223\002*\"%/v1/provider/games/{game_co" +
+      "de}:verify:\001*\022h\n\013ListDealers\022\034.recorder." +
+      "ListDealersRequest\032\035.recorder.ListDealer" +
+      "sResponse\"\034\202\323\344\223\002\026\022\024/v1/provider/dealers\022" +
+      "X\n\tGetDealer\022\024.recorder.GetRequest\032\020.rec" +
+      "order.Dealer\"#\202\323\344\223\002\035\022\033/v1/provider/deale" +
+      "rs/{code}B\236\001\n\033com.wecasino.proto.recorde" +
+      "rB\rProviderProtoP\001Z0github.com/wecasino/" +
+      "wecasino-proto/pbgo/recorder\242\002\003RXX\252\002\010Rec" +
+      "order\312\002\010Recorder\342\002\024Recorder\\GPBMetadata\352" +
+      "\002\010Recorderb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
