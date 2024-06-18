@@ -643,6 +643,21 @@ com.wecasino.proto.recorder.Deck defaultValue) {
     return tsEnd_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : tsEnd_;
   }
 
+  public static final int IS_TEST_FIELD_NUMBER = 31;
+  private boolean isTest_ = false;
+  /**
+   * <pre>
+   * 是否測試
+   * </pre>
+   *
+   * <code>bool is_test = 31 [json_name = "isTest"];</code>
+   * @return The isTest.
+   */
+  @java.lang.Override
+  public boolean getIsTest() {
+    return isTest_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -699,6 +714,9 @@ com.wecasino.proto.recorder.Deck defaultValue) {
         internalGetDecks(),
         DecksDefaultEntryHolder.defaultEntry,
         24);
+    if (isTest_ != false) {
+      output.writeBool(31, isTest_);
+    }
     getUnknownFields().writeTo(output);
   }
 
@@ -758,6 +776,10 @@ com.wecasino.proto.recorder.Deck defaultValue) {
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(24, decks__);
     }
+    if (isTest_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(31, isTest_);
+    }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
@@ -805,6 +827,8 @@ com.wecasino.proto.recorder.Deck defaultValue) {
       if (!getTsEnd()
           .equals(other.getTsEnd())) return false;
     }
+    if (getIsTest()
+        != other.getIsTest()) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -849,6 +873,9 @@ com.wecasino.proto.recorder.Deck defaultValue) {
       hash = (37 * hash) + TS_END_FIELD_NUMBER;
       hash = (53 * hash) + getTsEnd().hashCode();
     }
+    hash = (37 * hash) + IS_TEST_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getIsTest());
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -1035,6 +1062,7 @@ com.wecasino.proto.recorder.Deck defaultValue) {
         tsEndBuilder_.dispose();
         tsEndBuilder_ = null;
       }
+      isTest_ = false;
       return this;
     }
 
@@ -1113,6 +1141,9 @@ com.wecasino.proto.recorder.Deck defaultValue) {
             ? tsEnd_
             : tsEndBuilder_.build();
         to_bitField0_ |= 0x00000002;
+      }
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.isTest_ = isTest_;
       }
       result.bitField0_ |= to_bitField0_;
     }
@@ -1216,6 +1247,9 @@ com.wecasino.proto.recorder.Deck defaultValue) {
       if (other.hasTsEnd()) {
         mergeTsEnd(other.getTsEnd());
       }
+      if (other.getIsTest() != false) {
+        setIsTest(other.getIsTest());
+      }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
@@ -1315,6 +1349,11 @@ com.wecasino.proto.recorder.Deck defaultValue) {
               bitField0_ |= 0x00000400;
               break;
             } // case 194
+            case 248: {
+              isTest_ = input.readBool();
+              bitField0_ |= 0x00002000;
+              break;
+            } // case 248
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -2655,6 +2694,50 @@ com.wecasino.proto.recorder.Deck defaultValue) {
         tsEnd_ = null;
       }
       return tsEndBuilder_;
+    }
+
+    private boolean isTest_ ;
+    /**
+     * <pre>
+     * 是否測試
+     * </pre>
+     *
+     * <code>bool is_test = 31 [json_name = "isTest"];</code>
+     * @return The isTest.
+     */
+    @java.lang.Override
+    public boolean getIsTest() {
+      return isTest_;
+    }
+    /**
+     * <pre>
+     * 是否測試
+     * </pre>
+     *
+     * <code>bool is_test = 31 [json_name = "isTest"];</code>
+     * @param value The isTest to set.
+     * @return This builder for chaining.
+     */
+    public Builder setIsTest(boolean value) {
+
+      isTest_ = value;
+      bitField0_ |= 0x00002000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 是否測試
+     * </pre>
+     *
+     * <code>bool is_test = 31 [json_name = "isTest"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearIsTest() {
+      bitField0_ = (bitField0_ & ~0x00002000);
+      isTest_ = false;
+      onChanged();
+      return this;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

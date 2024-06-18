@@ -846,4 +846,14 @@ java.lang.String defaultValue);
    */
   long getFortuneRatesOrThrow(
       java.lang.String key);
+
+  /**
+   * <pre>
+   * 是否測試
+   * </pre>
+   *
+   * <code>bool is_test = 31 [json_name = "isTest"];</code>
+   * @return The isTest.
+   */
+  boolean getIsTest();
 }
