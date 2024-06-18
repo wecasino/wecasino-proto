@@ -1621,19 +1621,31 @@ java.lang.String defaultValue) {
     return map.get(key);
   }
 
-  public static final int IS_TEST_FIELD_NUMBER = 31;
-  private boolean isTest_ = false;
+  public static final int TEST_FIELD_NUMBER = 31;
+  private boolean test_ = false;
   /**
    * <pre>
    * 是否測試
    * </pre>
    *
-   * <code>bool is_test = 31 [json_name = "isTest"];</code>
-   * @return The isTest.
+   * <code>optional bool test = 31 [json_name = "test", (.tagger.tags) = "bson:&#92;"test,omitempty&#92;""];</code>
+   * @return Whether the test field is set.
    */
   @java.lang.Override
-  public boolean getIsTest() {
-    return isTest_;
+  public boolean hasTest() {
+    return ((bitField0_ & 0x00000020) != 0);
+  }
+  /**
+   * <pre>
+   * 是否測試
+   * </pre>
+   *
+   * <code>optional bool test = 31 [json_name = "test", (.tagger.tags) = "bson:&#92;"test,omitempty&#92;""];</code>
+   * @return The test.
+   */
+  @java.lang.Override
+  public boolean getTest() {
+    return test_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -1752,8 +1764,8 @@ java.lang.String defaultValue) {
         internalGetPlayersName(),
         PlayersNameDefaultEntryHolder.defaultEntry,
         30);
-    if (isTest_ != false) {
-      output.writeBool(31, isTest_);
+    if (((bitField0_ & 0x00000020) != 0)) {
+      output.writeBool(31, test_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -1903,9 +1915,9 @@ java.lang.String defaultValue) {
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(30, playersName__);
     }
-    if (isTest_ != false) {
+    if (((bitField0_ & 0x00000020) != 0)) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(31, isTest_);
+        .computeBoolSize(31, test_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -1990,8 +2002,11 @@ java.lang.String defaultValue) {
         other.internalGetMedias())) return false;
     if (!internalGetFortuneRates().equals(
         other.internalGetFortuneRates())) return false;
-    if (getIsTest()
-        != other.getIsTest()) return false;
+    if (hasTest() != other.hasTest()) return false;
+    if (hasTest()) {
+      if (getTest()
+          != other.getTest()) return false;
+    }
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -2087,9 +2102,11 @@ java.lang.String defaultValue) {
       hash = (37 * hash) + FORTUNE_RATES_FIELD_NUMBER;
       hash = (53 * hash) + internalGetFortuneRates().hashCode();
     }
-    hash = (37 * hash) + IS_TEST_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getIsTest());
+    if (hasTest()) {
+      hash = (37 * hash) + TEST_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getTest());
+    }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -2321,7 +2338,7 @@ java.lang.String defaultValue) {
       internalGetMutableWinType().clear();
       internalGetMutableMedias().clear();
       internalGetMutableFortuneRates().clear();
-      isTest_ = false;
+      test_ = false;
       return this;
     }
 
@@ -2463,7 +2480,8 @@ java.lang.String defaultValue) {
         result.fortuneRates_.makeImmutable();
       }
       if (((from_bitField0_ & 0x08000000) != 0)) {
-        result.isTest_ = isTest_;
+        result.test_ = test_;
+        to_bitField0_ |= 0x00000020;
       }
       result.bitField0_ |= to_bitField0_;
     }
@@ -2638,8 +2656,8 @@ java.lang.String defaultValue) {
       internalGetMutableFortuneRates().mergeFrom(
           other.internalGetFortuneRates());
       bitField0_ |= 0x04000000;
-      if (other.getIsTest() != false) {
-        setIsTest(other.getIsTest());
+      if (other.hasTest()) {
+        setTest(other.getTest());
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -2843,7 +2861,7 @@ java.lang.String defaultValue) {
               break;
             } // case 242
             case 248: {
-              isTest_ = input.readBool();
+              test_ = input.readBool();
               bitField0_ |= 0x08000000;
               break;
             } // case 248
@@ -6067,31 +6085,43 @@ java.lang.String defaultValue) {
       return this;
     }
 
-    private boolean isTest_ ;
+    private boolean test_ ;
     /**
      * <pre>
      * 是否測試
      * </pre>
      *
-     * <code>bool is_test = 31 [json_name = "isTest"];</code>
-     * @return The isTest.
+     * <code>optional bool test = 31 [json_name = "test", (.tagger.tags) = "bson:&#92;"test,omitempty&#92;""];</code>
+     * @return Whether the test field is set.
      */
     @java.lang.Override
-    public boolean getIsTest() {
-      return isTest_;
+    public boolean hasTest() {
+      return ((bitField0_ & 0x08000000) != 0);
     }
     /**
      * <pre>
      * 是否測試
      * </pre>
      *
-     * <code>bool is_test = 31 [json_name = "isTest"];</code>
-     * @param value The isTest to set.
+     * <code>optional bool test = 31 [json_name = "test", (.tagger.tags) = "bson:&#92;"test,omitempty&#92;""];</code>
+     * @return The test.
+     */
+    @java.lang.Override
+    public boolean getTest() {
+      return test_;
+    }
+    /**
+     * <pre>
+     * 是否測試
+     * </pre>
+     *
+     * <code>optional bool test = 31 [json_name = "test", (.tagger.tags) = "bson:&#92;"test,omitempty&#92;""];</code>
+     * @param value The test to set.
      * @return This builder for chaining.
      */
-    public Builder setIsTest(boolean value) {
+    public Builder setTest(boolean value) {
 
-      isTest_ = value;
+      test_ = value;
       bitField0_ |= 0x08000000;
       onChanged();
       return this;
@@ -6101,12 +6131,12 @@ java.lang.String defaultValue) {
      * 是否測試
      * </pre>
      *
-     * <code>bool is_test = 31 [json_name = "isTest"];</code>
+     * <code>optional bool test = 31 [json_name = "test", (.tagger.tags) = "bson:&#92;"test,omitempty&#92;""];</code>
      * @return This builder for chaining.
      */
-    public Builder clearIsTest() {
+    public Builder clearTest() {
       bitField0_ = (bitField0_ & ~0x08000000);
-      isTest_ = false;
+      test_ = false;
       onChanged();
       return this;
     }
