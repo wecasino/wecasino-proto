@@ -295,4 +295,14 @@ com.wecasino.proto.recorder.Deck defaultValue);
    * <code>.google.protobuf.Timestamp ts_end = 19 [json_name = "tsEnd", (.tagger.tags) = "bson:&#92;"tsEnd,omitempty&#92;""];</code>
    */
   com.google.protobuf.TimestampOrBuilder getTsEndOrBuilder();
+
+  /**
+   * <pre>
+   * 是否測試
+   * </pre>
+   *
+   * <code>bool is_test = 31 [json_name = "isTest"];</code>
+   * @return The isTest.
+   */
+  boolean getIsTest();
 }

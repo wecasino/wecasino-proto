@@ -217,6 +217,9 @@ message RoundRecord {
   // 財神倍率
   map<string, int64> fortune_rates = 29;
 
+  // 是否測試
+  bool is_test = 31;
+
 }
 
 // Deck
@@ -266,6 +269,9 @@ message ShoeRecord {
   // 牌靴使用完畢時間
   google.protobuf.Timestamp ts_end = 19 [(tagger.tags) = "bson:\"tsEnd,omitempty\""];
 
+  // 是否測試
+  bool is_test = 31;
+
 }
 
 // ShiftRecord
@@ -303,4 +309,6 @@ message ShiftRecord {
   // 結束時間
   google.protobuf.Timestamp ts_end = 19 [(tagger.tags) = "bson:\"tsEnd,omitempty\"" ];
 
+  // 是否測試
+  bool is_test = 31;
 }

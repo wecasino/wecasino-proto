@@ -1204,6 +1204,9 @@ definitions:
           type: string
           format: int64
         title: 財神倍率
+      isTest:
+        type: boolean
+        title: 是否測試
     title: |-
       RoundRecord
       局紀錄
@@ -1292,6 +1295,9 @@ definitions:
         type: string
         format: date-time
         title: 結束時間
+      isTest:
+        type: boolean
+        title: 是否測試
     title: |-
       ShiftRecord
       排班記錄
@@ -1342,6 +1348,9 @@ definitions:
         type: string
         format: date-time
         title: 牌靴使用完畢時間
+      isTest:
+        type: boolean
+        title: 是否測試
     title: |-
       ShoeRecord
       靴紀錄
