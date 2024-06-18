@@ -363,8 +363,17 @@ java.lang.String defaultValue);
    * 是否測試
    * </pre>
    *
-   * <code>bool is_test = 31 [json_name = "isTest"];</code>
-   * @return The isTest.
+   * <code>optional bool test = 31 [json_name = "test", (.tagger.tags) = "bson:&#92;"test,omitempty&#92;""];</code>
+   * @return Whether the test field is set.
    */
-  boolean getIsTest();
+  boolean hasTest();
+  /**
+   * <pre>
+   * 是否測試
+   * </pre>
+   *
+   * <code>optional bool test = 31 [json_name = "test", (.tagger.tags) = "bson:&#92;"test,omitempty&#92;""];</code>
+   * @return The test.
+   */
+  boolean getTest();
 }

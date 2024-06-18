@@ -218,7 +218,7 @@ message RoundRecord {
   map<string, int64> fortune_rates = 29;
 
   // 是否測試
-  bool is_test = 31;
+  optional bool test = 31 [(tagger.tags) = "bson:\"test,omitempty\""];
 
 }
 
@@ -270,7 +270,7 @@ message ShoeRecord {
   google.protobuf.Timestamp ts_end = 19 [(tagger.tags) = "bson:\"tsEnd,omitempty\""];
 
   // 是否測試
-  bool is_test = 31;
+  optional bool test = 31 [(tagger.tags) = "bson:\"test,omitempty\""];
 
 }
 
@@ -310,5 +310,5 @@ message ShiftRecord {
   google.protobuf.Timestamp ts_end = 19 [(tagger.tags) = "bson:\"tsEnd,omitempty\"" ];
 
   // 是否測試
-  bool is_test = 31;
+  optional bool test = 31 [(tagger.tags) = "bson:\"test,omitempty\""];
 }

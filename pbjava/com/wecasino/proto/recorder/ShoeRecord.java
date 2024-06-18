@@ -643,19 +643,31 @@ com.wecasino.proto.recorder.Deck defaultValue) {
     return tsEnd_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : tsEnd_;
   }
 
-  public static final int IS_TEST_FIELD_NUMBER = 31;
-  private boolean isTest_ = false;
+  public static final int TEST_FIELD_NUMBER = 31;
+  private boolean test_ = false;
   /**
    * <pre>
    * 是否測試
    * </pre>
    *
-   * <code>bool is_test = 31 [json_name = "isTest"];</code>
-   * @return The isTest.
+   * <code>optional bool test = 31 [json_name = "test", (.tagger.tags) = "bson:&#92;"test,omitempty&#92;""];</code>
+   * @return Whether the test field is set.
    */
   @java.lang.Override
-  public boolean getIsTest() {
-    return isTest_;
+  public boolean hasTest() {
+    return ((bitField0_ & 0x00000004) != 0);
+  }
+  /**
+   * <pre>
+   * 是否測試
+   * </pre>
+   *
+   * <code>optional bool test = 31 [json_name = "test", (.tagger.tags) = "bson:&#92;"test,omitempty&#92;""];</code>
+   * @return The test.
+   */
+  @java.lang.Override
+  public boolean getTest() {
+    return test_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -714,8 +726,8 @@ com.wecasino.proto.recorder.Deck defaultValue) {
         internalGetDecks(),
         DecksDefaultEntryHolder.defaultEntry,
         24);
-    if (isTest_ != false) {
-      output.writeBool(31, isTest_);
+    if (((bitField0_ & 0x00000004) != 0)) {
+      output.writeBool(31, test_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -776,9 +788,9 @@ com.wecasino.proto.recorder.Deck defaultValue) {
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(24, decks__);
     }
-    if (isTest_ != false) {
+    if (((bitField0_ & 0x00000004) != 0)) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(31, isTest_);
+        .computeBoolSize(31, test_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -827,8 +839,11 @@ com.wecasino.proto.recorder.Deck defaultValue) {
       if (!getTsEnd()
           .equals(other.getTsEnd())) return false;
     }
-    if (getIsTest()
-        != other.getIsTest()) return false;
+    if (hasTest() != other.hasTest()) return false;
+    if (hasTest()) {
+      if (getTest()
+          != other.getTest()) return false;
+    }
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -873,9 +888,11 @@ com.wecasino.proto.recorder.Deck defaultValue) {
       hash = (37 * hash) + TS_END_FIELD_NUMBER;
       hash = (53 * hash) + getTsEnd().hashCode();
     }
-    hash = (37 * hash) + IS_TEST_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getIsTest());
+    if (hasTest()) {
+      hash = (37 * hash) + TEST_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getTest());
+    }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -1062,7 +1079,7 @@ com.wecasino.proto.recorder.Deck defaultValue) {
         tsEndBuilder_.dispose();
         tsEndBuilder_ = null;
       }
-      isTest_ = false;
+      test_ = false;
       return this;
     }
 
@@ -1143,7 +1160,8 @@ com.wecasino.proto.recorder.Deck defaultValue) {
         to_bitField0_ |= 0x00000002;
       }
       if (((from_bitField0_ & 0x00002000) != 0)) {
-        result.isTest_ = isTest_;
+        result.test_ = test_;
+        to_bitField0_ |= 0x00000004;
       }
       result.bitField0_ |= to_bitField0_;
     }
@@ -1247,8 +1265,8 @@ com.wecasino.proto.recorder.Deck defaultValue) {
       if (other.hasTsEnd()) {
         mergeTsEnd(other.getTsEnd());
       }
-      if (other.getIsTest() != false) {
-        setIsTest(other.getIsTest());
+      if (other.hasTest()) {
+        setTest(other.getTest());
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -1350,7 +1368,7 @@ com.wecasino.proto.recorder.Deck defaultValue) {
               break;
             } // case 194
             case 248: {
-              isTest_ = input.readBool();
+              test_ = input.readBool();
               bitField0_ |= 0x00002000;
               break;
             } // case 248
@@ -2696,31 +2714,43 @@ com.wecasino.proto.recorder.Deck defaultValue) {
       return tsEndBuilder_;
     }
 
-    private boolean isTest_ ;
+    private boolean test_ ;
     /**
      * <pre>
      * 是否測試
      * </pre>
      *
-     * <code>bool is_test = 31 [json_name = "isTest"];</code>
-     * @return The isTest.
+     * <code>optional bool test = 31 [json_name = "test", (.tagger.tags) = "bson:&#92;"test,omitempty&#92;""];</code>
+     * @return Whether the test field is set.
      */
     @java.lang.Override
-    public boolean getIsTest() {
-      return isTest_;
+    public boolean hasTest() {
+      return ((bitField0_ & 0x00002000) != 0);
     }
     /**
      * <pre>
      * 是否測試
      * </pre>
      *
-     * <code>bool is_test = 31 [json_name = "isTest"];</code>
-     * @param value The isTest to set.
+     * <code>optional bool test = 31 [json_name = "test", (.tagger.tags) = "bson:&#92;"test,omitempty&#92;""];</code>
+     * @return The test.
+     */
+    @java.lang.Override
+    public boolean getTest() {
+      return test_;
+    }
+    /**
+     * <pre>
+     * 是否測試
+     * </pre>
+     *
+     * <code>optional bool test = 31 [json_name = "test", (.tagger.tags) = "bson:&#92;"test,omitempty&#92;""];</code>
+     * @param value The test to set.
      * @return This builder for chaining.
      */
-    public Builder setIsTest(boolean value) {
+    public Builder setTest(boolean value) {
 
-      isTest_ = value;
+      test_ = value;
       bitField0_ |= 0x00002000;
       onChanged();
       return this;
@@ -2730,12 +2760,12 @@ com.wecasino.proto.recorder.Deck defaultValue) {
      * 是否測試
      * </pre>
      *
-     * <code>bool is_test = 31 [json_name = "isTest"];</code>
+     * <code>optional bool test = 31 [json_name = "test", (.tagger.tags) = "bson:&#92;"test,omitempty&#92;""];</code>
      * @return This builder for chaining.
      */
-    public Builder clearIsTest() {
+    public Builder clearTest() {
       bitField0_ = (bitField0_ & ~0x00002000);
-      isTest_ = false;
+      test_ = false;
       onChanged();
       return this;
     }

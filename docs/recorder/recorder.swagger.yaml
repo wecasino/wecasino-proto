@@ -358,7 +358,7 @@ definitions:
           type: string
           format: int64
         title: 財神倍率
-      isTest:
+      test:
         type: boolean
         title: 是否測試
     title: |-
@@ -435,7 +435,7 @@ definitions:
         type: string
         format: date-time
         title: 結束時間
-      isTest:
+      test:
         type: boolean
         title: 是否測試
     title: |-
@@ -488,7 +488,7 @@ definitions:
         type: string
         format: date-time
         title: 牌靴使用完畢時間
-      isTest:
+      test:
         type: boolean
         title: 是否測試
     title: |-
