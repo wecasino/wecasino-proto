@@ -24,10 +24,10 @@ public final class ColorProto {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\021cards/color.proto\022\005cards*u\n\tColorCard\022" +
-      "\032\n\026Color_CARD_UNSPECIFIED\020\000\022\013\n\007Color_1\020\001" +
-      "\022\013\n\007Color_2\020\002\022\013\n\007Color_3\020\003\022\013\n\007Color_4\020\004\022" +
-      "\013\n\007Color_5\020\005\022\013\n\007Color_6\020\006B\211\001\n\030com.wecasi" +
+      "\n\021cards/color.proto\022\005cards*u\n\tCOLORCard\022" +
+      "\032\n\026COLOR_CARD_UNSPECIFIED\020\000\022\013\n\007COLOR_1\020\001" +
+      "\022\013\n\007COLOR_2\020\002\022\013\n\007COLOR_3\020\003\022\013\n\007COLOR_4\020\004\022" +
+      "\013\n\007COLOR_5\020\005\022\013\n\007COLOR_6\020\006B\211\001\n\030com.wecasi" +
       "no.proto.cardsB\nColorProtoP\001Z-github.com" +
       "/wecasino/wecasino-proto/pbgo/cards\242\002\003CX" +
       "X\252\002\005Cards\312\002\005Cards\342\002\021Cards\\GPBMetadata\352\002\005" +
