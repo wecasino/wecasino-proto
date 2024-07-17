@@ -80,6 +80,14 @@ public enum GameType
   COLORGAME(33),
   /**
    * <pre>
+   * 丟球遊戲
+   * </pre>
+   *
+   * <code>DROPBALL = 34;</code>
+   */
+  DROPBALL(34),
+  /**
+   * <pre>
    * 輪盤
    * </pre>
    *
@@ -163,6 +171,14 @@ public enum GameType
   public static final int COLORGAME_VALUE = 33;
   /**
    * <pre>
+   * 丟球遊戲
+   * </pre>
+   *
+   * <code>DROPBALL = 34;</code>
+   */
+  public static final int DROPBALL_VALUE = 34;
+  /**
+   * <pre>
    * 輪盤
    * </pre>
    *
@@ -211,6 +227,7 @@ public enum GameType
       case 20: return FANTAN;
       case 32: return SICBO;
       case 33: return COLORGAME;
+      case 34: return DROPBALL;
       case 36: return ROULETTE;
       case 40: return LUCKYWHEEL;
       default: return null;
