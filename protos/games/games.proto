@@ -29,6 +29,9 @@ enum GameType {
   // 色彩遊戲
   COLORGAME = 33;
 
+  // 丟球遊戲
+  DROPBALL = 34;
+
   // 輪盤
   ROULETTE = 36;
 
