@@ -1,0 +1,50 @@
+syntax = "proto3";
+package games.dropball;
+
+enum GameSubtype {
+
+  // 未指定
+  DROPBALL_TYPE_UNSPECIFIED = 0;
+
+  // DROPBALL
+  DROPBALL_CLASSIC = 1;
+
+  // 財神DROPBALL
+  //  DROPBALL_FORTUNE = 2;
+
+  // 區塊鏈color
+  DROPBALL_BLOCKCHAIN = 16;
+}
+
+// 步驟，依據遊戲供應商邏輯，不是每個步驟都會走到
+enum Step {
+
+  // 未指定
+  STEP_UNSPECIFIED = 0;
+  // 本局開始
+  ROUND_START = 1;
+  // 本局完成
+  ROUND_FINISHED = 2;
+  // 本局取消
+  ROUND_CANCELED = 3;
+
+  // 開放下注
+  ROUND_BET = 4;
+  // 停止下注
+  NO_MORE_BET = 5;
+
+  // 擲骰
+  THROW_BALL = 8;
+
+  // PITBOSS 修改骰點
+  PITBOSS_MODIFY_BOWL = 16;
+
+}
+
+enum ResourceType {
+
+  // 未指定
+  RESOURCE_TYPE_UNSPECIFIED = 0;
+  // 一般
+  NORMAL = 1;
+}
