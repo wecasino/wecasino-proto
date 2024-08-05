@@ -1,6 +1,22 @@
 syntax = "proto3";
 package games.color;
 
+enum GamblerInstructionType {
+  
+  // 未指定
+  GAMBLER_INSTRUCTION_UNSPECIFIED = 0;
+
+  // 左側骰子
+  LEFT_UP = 1;
+
+  // 中間骰子
+  MIDDLE_UP = 2;
+
+  // 右邊骰子
+  RIGHT_UP = 3;
+
+}
+
 enum GameSubtype {
 
   // 未指定

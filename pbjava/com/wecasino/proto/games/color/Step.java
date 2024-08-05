@@ -285,7 +285,7 @@ public enum Step
   }
   public static final com.google.protobuf.Descriptors.EnumDescriptor
       getDescriptor() {
-    return com.wecasino.proto.games.color.RecordProto.getDescriptor().getEnumTypes().get(1);
+    return com.wecasino.proto.games.color.RecordProto.getDescriptor().getEnumTypes().get(2);
   }
 
   private static final Step[] VALUES = values();
