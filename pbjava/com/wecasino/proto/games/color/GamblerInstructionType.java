@@ -5,34 +5,42 @@
 package com.wecasino.proto.games.color;
 
 /**
- * Protobuf enum {@code games.color.GameSubtype}
+ * Protobuf enum {@code games.color.GamblerInstructionType}
  */
-public enum GameSubtype
+public enum GamblerInstructionType
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
    * <pre>
    * 未指定
    * </pre>
    *
-   * <code>COLOR_TYPE_UNSPECIFIED = 0;</code>
+   * <code>GAMBLER_INSTRUCTION_UNSPECIFIED = 0;</code>
    */
-  COLOR_TYPE_UNSPECIFIED(0),
+  GAMBLER_INSTRUCTION_UNSPECIFIED(0),
   /**
    * <pre>
-   * color
+   * 左側骰子
    * </pre>
    *
-   * <code>COLOR_CLASSIC = 1;</code>
+   * <code>LEFT_UP = 1;</code>
    */
-  COLOR_CLASSIC(1),
+  LEFT_UP(1),
   /**
    * <pre>
-   * 區塊鏈color
+   * 中間骰子
    * </pre>
    *
-   * <code>COLOR_BLOCKCHAIN = 16;</code>
+   * <code>MIDDLE_UP = 2;</code>
    */
-  COLOR_BLOCKCHAIN(16),
+  MIDDLE_UP(2),
+  /**
+   * <pre>
+   * 右邊骰子
+   * </pre>
+   *
+   * <code>RIGHT_UP = 3;</code>
+   */
+  RIGHT_UP(3),
   UNRECOGNIZED(-1),
   ;
 
@@ -41,25 +49,33 @@ public enum GameSubtype
    * 未指定
    * </pre>
    *
-   * <code>COLOR_TYPE_UNSPECIFIED = 0;</code>
+   * <code>GAMBLER_INSTRUCTION_UNSPECIFIED = 0;</code>
    */
-  public static final int COLOR_TYPE_UNSPECIFIED_VALUE = 0;
+  public static final int GAMBLER_INSTRUCTION_UNSPECIFIED_VALUE = 0;
   /**
    * <pre>
-   * color
+   * 左側骰子
    * </pre>
    *
-   * <code>COLOR_CLASSIC = 1;</code>
+   * <code>LEFT_UP = 1;</code>
    */
-  public static final int COLOR_CLASSIC_VALUE = 1;
+  public static final int LEFT_UP_VALUE = 1;
   /**
    * <pre>
-   * 區塊鏈color
+   * 中間骰子
    * </pre>
    *
-   * <code>COLOR_BLOCKCHAIN = 16;</code>
+   * <code>MIDDLE_UP = 2;</code>
    */
-  public static final int COLOR_BLOCKCHAIN_VALUE = 16;
+  public static final int MIDDLE_UP_VALUE = 2;
+  /**
+   * <pre>
+   * 右邊骰子
+   * </pre>
+   *
+   * <code>RIGHT_UP = 3;</code>
+   */
+  public static final int RIGHT_UP_VALUE = 3;
 
 
   public final int getNumber() {
@@ -76,7 +92,7 @@ public enum GameSubtype
    * @deprecated Use {@link #forNumber(int)} instead.
    */
   @java.lang.Deprecated
-  public static GameSubtype valueOf(int value) {
+  public static GamblerInstructionType valueOf(int value) {
     return forNumber(value);
   }
 
@@ -84,24 +100,25 @@ public enum GameSubtype
    * @param value The numeric wire value of the corresponding enum entry.
    * @return The enum associated with the given numeric wire value.
    */
-  public static GameSubtype forNumber(int value) {
+  public static GamblerInstructionType forNumber(int value) {
     switch (value) {
-      case 0: return COLOR_TYPE_UNSPECIFIED;
-      case 1: return COLOR_CLASSIC;
-      case 16: return COLOR_BLOCKCHAIN;
+      case 0: return GAMBLER_INSTRUCTION_UNSPECIFIED;
+      case 1: return LEFT_UP;
+      case 2: return MIDDLE_UP;
+      case 3: return RIGHT_UP;
       default: return null;
     }
   }
 
-  public static com.google.protobuf.Internal.EnumLiteMap<GameSubtype>
+  public static com.google.protobuf.Internal.EnumLiteMap<GamblerInstructionType>
       internalGetValueMap() {
     return internalValueMap;
   }
   private static final com.google.protobuf.Internal.EnumLiteMap<
-      GameSubtype> internalValueMap =
-        new com.google.protobuf.Internal.EnumLiteMap<GameSubtype>() {
-          public GameSubtype findValueByNumber(int number) {
-            return GameSubtype.forNumber(number);
+      GamblerInstructionType> internalValueMap =
+        new com.google.protobuf.Internal.EnumLiteMap<GamblerInstructionType>() {
+          public GamblerInstructionType findValueByNumber(int number) {
+            return GamblerInstructionType.forNumber(number);
           }
         };
 
@@ -119,12 +136,12 @@ public enum GameSubtype
   }
   public static final com.google.protobuf.Descriptors.EnumDescriptor
       getDescriptor() {
-    return com.wecasino.proto.games.color.RecordProto.getDescriptor().getEnumTypes().get(1);
+    return com.wecasino.proto.games.color.RecordProto.getDescriptor().getEnumTypes().get(0);
   }
 
-  private static final GameSubtype[] VALUES = values();
+  private static final GamblerInstructionType[] VALUES = values();
 
-  public static GameSubtype valueOf(
+  public static GamblerInstructionType valueOf(
       com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
     if (desc.getType() != getDescriptor()) {
       throw new java.lang.IllegalArgumentException(
@@ -138,10 +155,10 @@ public enum GameSubtype
 
   private final int value;
 
-  private GameSubtype(int value) {
+  private GamblerInstructionType(int value) {
     this.value = value;
   }
 
-  // @@protoc_insertion_point(enum_scope:games.color.GameSubtype)
+  // @@protoc_insertion_point(enum_scope:games.color.GamblerInstructionType)
 }
 
