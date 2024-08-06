@@ -486,11 +486,12 @@ var RecorderReadService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	ProviderService_ListGames_FullMethodName   = "/recorder.ProviderService/ListGames"
-	ProviderService_GetGames_FullMethodName    = "/recorder.ProviderService/GetGames"
-	ProviderService_VerifyGame_FullMethodName  = "/recorder.ProviderService/VerifyGame"
-	ProviderService_ListDealers_FullMethodName = "/recorder.ProviderService/ListDealers"
-	ProviderService_GetDealer_FullMethodName   = "/recorder.ProviderService/GetDealer"
+	ProviderService_ListGames_FullMethodName           = "/recorder.ProviderService/ListGames"
+	ProviderService_GetGames_FullMethodName            = "/recorder.ProviderService/GetGames"
+	ProviderService_VerifyGame_FullMethodName          = "/recorder.ProviderService/VerifyGame"
+	ProviderService_GamblerInstructions_FullMethodName = "/recorder.ProviderService/GamblerInstructions"
+	ProviderService_ListDealers_FullMethodName         = "/recorder.ProviderService/ListDealers"
+	ProviderService_GetDealer_FullMethodName           = "/recorder.ProviderService/GetDealer"
 )
 
 // ProviderServiceClient is the client API for ProviderService service.
@@ -506,6 +507,8 @@ type ProviderServiceClient interface {
 	GetGames(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GameProvide, error)
 	// 驗證
 	VerifyGame(ctx context.Context, in *VerifyGameRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	// 玩家指示
+	GamblerInstructions(ctx context.Context, in *GamblerInstructionsRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	// 荷官資料
 	ListDealers(ctx context.Context, in *ListDealersRequest, opts ...grpc.CallOption) (*ListDealersResponse, error)
 	// 荷官資料
@@ -550,6 +553,16 @@ func (c *providerServiceClient) VerifyGame(ctx context.Context, in *VerifyGameRe
 	return out, nil
 }
 
+func (c *providerServiceClient) GamblerInstructions(ctx context.Context, in *GamblerInstructionsRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, ProviderService_GamblerInstructions_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *providerServiceClient) ListDealers(ctx context.Context, in *ListDealersRequest, opts ...grpc.CallOption) (*ListDealersResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ListDealersResponse)
@@ -583,6 +596,8 @@ type ProviderServiceServer interface {
 	GetGames(context.Context, *GetRequest) (*GameProvide, error)
 	// 驗證
 	VerifyGame(context.Context, *VerifyGameRequest) (*emptypb.Empty, error)
+	// 玩家指示
+	GamblerInstructions(context.Context, *GamblerInstructionsRequest) (*emptypb.Empty, error)
 	// 荷官資料
 	ListDealers(context.Context, *ListDealersRequest) (*ListDealersResponse, error)
 	// 荷官資料
@@ -605,6 +620,9 @@ func (UnimplementedProviderServiceServer) GetGames(context.Context, *GetRequest)
 }
 func (UnimplementedProviderServiceServer) VerifyGame(context.Context, *VerifyGameRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method VerifyGame not implemented")
+}
+func (UnimplementedProviderServiceServer) GamblerInstructions(context.Context, *GamblerInstructionsRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GamblerInstructions not implemented")
 }
 func (UnimplementedProviderServiceServer) ListDealers(context.Context, *ListDealersRequest) (*ListDealersResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListDealers not implemented")
@@ -687,6 +705,24 @@ func _ProviderService_VerifyGame_Handler(srv interface{}, ctx context.Context, d
 	return interceptor(ctx, in, info, handler)
 }
 
+func _ProviderService_GamblerInstructions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GamblerInstructionsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProviderServiceServer).GamblerInstructions(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProviderService_GamblerInstructions_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProviderServiceServer).GamblerInstructions(ctx, req.(*GamblerInstructionsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _ProviderService_ListDealers_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ListDealersRequest)
 	if err := dec(in); err != nil {
@@ -741,6 +777,10 @@ var ProviderService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "VerifyGame",
 			Handler:    _ProviderService_VerifyGame_Handler,
+		},
+		{
+			MethodName: "GamblerInstructions",
+			Handler:    _ProviderService_GamblerInstructions_Handler,
 		},
 		{
 			MethodName: "ListDealers",

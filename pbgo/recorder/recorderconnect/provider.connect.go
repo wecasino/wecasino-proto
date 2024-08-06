@@ -75,6 +75,9 @@ const (
 	// ProviderServiceVerifyGameProcedure is the fully-qualified name of the ProviderService's
 	// VerifyGame RPC.
 	ProviderServiceVerifyGameProcedure = "/recorder.ProviderService/VerifyGame"
+	// ProviderServiceGamblerInstructionsProcedure is the fully-qualified name of the ProviderService's
+	// GamblerInstructions RPC.
+	ProviderServiceGamblerInstructionsProcedure = "/recorder.ProviderService/GamblerInstructions"
 	// ProviderServiceListDealersProcedure is the fully-qualified name of the ProviderService's
 	// ListDealers RPC.
 	ProviderServiceListDealersProcedure = "/recorder.ProviderService/ListDealers"
@@ -100,6 +103,7 @@ var (
 	providerServiceListGamesMethodDescriptor            = providerServiceServiceDescriptor.Methods().ByName("ListGames")
 	providerServiceGetGamesMethodDescriptor             = providerServiceServiceDescriptor.Methods().ByName("GetGames")
 	providerServiceVerifyGameMethodDescriptor           = providerServiceServiceDescriptor.Methods().ByName("VerifyGame")
+	providerServiceGamblerInstructionsMethodDescriptor  = providerServiceServiceDescriptor.Methods().ByName("GamblerInstructions")
 	providerServiceListDealersMethodDescriptor          = providerServiceServiceDescriptor.Methods().ByName("ListDealers")
 	providerServiceGetDealerMethodDescriptor            = providerServiceServiceDescriptor.Methods().ByName("GetDealer")
 )
@@ -432,6 +436,8 @@ type ProviderServiceClient interface {
 	GetGames(context.Context, *connect.Request[recorder.GetRequest]) (*connect.Response[recorder.GameProvide], error)
 	// 驗證
 	VerifyGame(context.Context, *connect.Request[recorder.VerifyGameRequest]) (*connect.Response[emptypb.Empty], error)
+	// 玩家指示
+	GamblerInstructions(context.Context, *connect.Request[recorder.GamblerInstructionsRequest]) (*connect.Response[emptypb.Empty], error)
 	// 荷官資料
 	ListDealers(context.Context, *connect.Request[recorder.ListDealersRequest]) (*connect.Response[recorder.ListDealersResponse], error)
 	// 荷官資料
@@ -466,6 +472,12 @@ func NewProviderServiceClient(httpClient connect.HTTPClient, baseURL string, opt
 			connect.WithSchema(providerServiceVerifyGameMethodDescriptor),
 			connect.WithClientOptions(opts...),
 		),
+		gamblerInstructions: connect.NewClient[recorder.GamblerInstructionsRequest, emptypb.Empty](
+			httpClient,
+			baseURL+ProviderServiceGamblerInstructionsProcedure,
+			connect.WithSchema(providerServiceGamblerInstructionsMethodDescriptor),
+			connect.WithClientOptions(opts...),
+		),
 		listDealers: connect.NewClient[recorder.ListDealersRequest, recorder.ListDealersResponse](
 			httpClient,
 			baseURL+ProviderServiceListDealersProcedure,
@@ -483,11 +495,12 @@ func NewProviderServiceClient(httpClient connect.HTTPClient, baseURL string, opt
 
 // providerServiceClient implements ProviderServiceClient.
 type providerServiceClient struct {
-	listGames   *connect.Client[recorder.ListGamesRequest, recorder.ListGamesResponse]
-	getGames    *connect.Client[recorder.GetRequest, recorder.GameProvide]
-	verifyGame  *connect.Client[recorder.VerifyGameRequest, emptypb.Empty]
-	listDealers *connect.Client[recorder.ListDealersRequest, recorder.ListDealersResponse]
-	getDealer   *connect.Client[recorder.GetRequest, recorder.Dealer]
+	listGames           *connect.Client[recorder.ListGamesRequest, recorder.ListGamesResponse]
+	getGames            *connect.Client[recorder.GetRequest, recorder.GameProvide]
+	verifyGame          *connect.Client[recorder.VerifyGameRequest, emptypb.Empty]
+	gamblerInstructions *connect.Client[recorder.GamblerInstructionsRequest, emptypb.Empty]
+	listDealers         *connect.Client[recorder.ListDealersRequest, recorder.ListDealersResponse]
+	getDealer           *connect.Client[recorder.GetRequest, recorder.Dealer]
 }
 
 // ListGames calls recorder.ProviderService.ListGames.
@@ -503,6 +516,11 @@ func (c *providerServiceClient) GetGames(ctx context.Context, req *connect.Reque
 // VerifyGame calls recorder.ProviderService.VerifyGame.
 func (c *providerServiceClient) VerifyGame(ctx context.Context, req *connect.Request[recorder.VerifyGameRequest]) (*connect.Response[emptypb.Empty], error) {
 	return c.verifyGame.CallUnary(ctx, req)
+}
+
+// GamblerInstructions calls recorder.ProviderService.GamblerInstructions.
+func (c *providerServiceClient) GamblerInstructions(ctx context.Context, req *connect.Request[recorder.GamblerInstructionsRequest]) (*connect.Response[emptypb.Empty], error) {
+	return c.gamblerInstructions.CallUnary(ctx, req)
 }
 
 // ListDealers calls recorder.ProviderService.ListDealers.
@@ -523,6 +541,8 @@ type ProviderServiceHandler interface {
 	GetGames(context.Context, *connect.Request[recorder.GetRequest]) (*connect.Response[recorder.GameProvide], error)
 	// 驗證
 	VerifyGame(context.Context, *connect.Request[recorder.VerifyGameRequest]) (*connect.Response[emptypb.Empty], error)
+	// 玩家指示
+	GamblerInstructions(context.Context, *connect.Request[recorder.GamblerInstructionsRequest]) (*connect.Response[emptypb.Empty], error)
 	// 荷官資料
 	ListDealers(context.Context, *connect.Request[recorder.ListDealersRequest]) (*connect.Response[recorder.ListDealersResponse], error)
 	// 荷官資料
@@ -553,6 +573,12 @@ func NewProviderServiceHandler(svc ProviderServiceHandler, opts ...connect.Handl
 		connect.WithSchema(providerServiceVerifyGameMethodDescriptor),
 		connect.WithHandlerOptions(opts...),
 	)
+	providerServiceGamblerInstructionsHandler := connect.NewUnaryHandler(
+		ProviderServiceGamblerInstructionsProcedure,
+		svc.GamblerInstructions,
+		connect.WithSchema(providerServiceGamblerInstructionsMethodDescriptor),
+		connect.WithHandlerOptions(opts...),
+	)
 	providerServiceListDealersHandler := connect.NewUnaryHandler(
 		ProviderServiceListDealersProcedure,
 		svc.ListDealers,
@@ -573,6 +599,8 @@ func NewProviderServiceHandler(svc ProviderServiceHandler, opts ...connect.Handl
 			providerServiceGetGamesHandler.ServeHTTP(w, r)
 		case ProviderServiceVerifyGameProcedure:
 			providerServiceVerifyGameHandler.ServeHTTP(w, r)
+		case ProviderServiceGamblerInstructionsProcedure:
+			providerServiceGamblerInstructionsHandler.ServeHTTP(w, r)
 		case ProviderServiceListDealersProcedure:
 			providerServiceListDealersHandler.ServeHTTP(w, r)
 		case ProviderServiceGetDealerProcedure:
@@ -596,6 +624,10 @@ func (UnimplementedProviderServiceHandler) GetGames(context.Context, *connect.Re
 
 func (UnimplementedProviderServiceHandler) VerifyGame(context.Context, *connect.Request[recorder.VerifyGameRequest]) (*connect.Response[emptypb.Empty], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("recorder.ProviderService.VerifyGame is not implemented"))
+}
+
+func (UnimplementedProviderServiceHandler) GamblerInstructions(context.Context, *connect.Request[recorder.GamblerInstructionsRequest]) (*connect.Response[emptypb.Empty], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("recorder.ProviderService.GamblerInstructions is not implemented"))
 }
 
 func (UnimplementedProviderServiceHandler) ListDealers(context.Context, *connect.Request[recorder.ListDealersRequest]) (*connect.Response[recorder.ListDealersResponse], error) {

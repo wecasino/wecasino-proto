@@ -92,6 +92,31 @@ paths:
           in: path
           required: true
           type: string
+  /v1/provider/games/{gameCode}:instructions:
+    post:
+      summary: 玩家指示
+      operationId: ProviderService_GamblerInstructions
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            type: object
+            properties: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/rpcStatus'
+      parameters:
+        - name: gameCode
+          description: 遊戲代碼
+          in: path
+          required: true
+          type: string
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/ProviderServiceGamblerInstructionsBody'
   /v1/provider/games/{gameCode}:verify:
     post:
       summary: 驗證
@@ -584,6 +609,18 @@ paths:
           required: true
           type: string
 definitions:
+  ProviderServiceGamblerInstructionsBody:
+    type: object
+    properties:
+      player:
+        type: string
+        title: 玩家帳號
+      instrction:
+        type: object
+        additionalProperties:
+          type: string
+        title: 指示傳送接收的代碼  position card
+    title: 玩家指示
   ProviderServiceVerifyGameBody:
     type: object
     properties:
@@ -671,8 +708,7 @@ definitions:
 
           Note: this functionality is not currently available in the official
           protobuf release, and it is not used for type URLs beginning with
-          type.googleapis.com. As of May 2023, there are no widely used type server
-          implementations and no plans to implement one.
+          type.googleapis.com.
 
           Schemes other than `http`, `https` (or the empty scheme) might be
           used with implementation specific semantics.
@@ -707,7 +743,7 @@ definitions:
             foo = any.unpack(Foo.getDefaultInstance());
           }
 
-       Example 3: Pack and unpack a message in Python.
+      Example 3: Pack and unpack a message in Python.
 
           foo = Foo(...)
           any = Any()
@@ -717,7 +753,7 @@ definitions:
             any.Unpack(foo)
             ...
 
-       Example 4: Pack and unpack a message in Go
+      Example 4: Pack and unpack a message in Go
 
            foo := &pb.Foo{...}
            any, err := anypb.New(foo)
@@ -737,7 +773,7 @@ definitions:
       name "y.z".
 
       JSON
-      ====
+
       The JSON representation of an `Any` value uses the regular
       representation of the deserialized, embedded message, with an
       additional field `@type` which contains the type URL. Example:

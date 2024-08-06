@@ -393,6 +393,20 @@ message VerifyGameRequest {
   
 }
 
+// 玩家指示
+message GamblerInstructionsRequest {
+
+  // 遊戲代碼
+  string game_code = 1;
+
+  // 玩家帳號
+  string player = 2;
+
+  // 指示傳送接收的代碼  position card
+  map<string, string> instrction = 3;
+  
+}
+
 // Artcle
 // 文章
 message Article {
@@ -482,6 +496,14 @@ service ProviderService {
   rpc VerifyGame(VerifyGameRequest) returns (google.protobuf.Empty){
     option (google.api.http) = {
       post: "/v1/provider/games/{game_code}:verify"
+      body: "*"
+    };
+  };
+
+  // 玩家指示
+  rpc GamblerInstructions(GamblerInstructionsRequest) returns (google.protobuf.Empty){
+    option (google.api.http) = {
+      post: "/v1/provider/games/{game_code}:instructions"
       body: "*"
     };
   };
