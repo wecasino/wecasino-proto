@@ -615,7 +615,7 @@ definitions:
       player:
         type: string
         title: 玩家帳號
-      instrction:
+      instructions:
         type: object
         additionalProperties:
           type: string

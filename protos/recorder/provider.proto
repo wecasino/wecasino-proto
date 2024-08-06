@@ -403,7 +403,7 @@ message GamblerInstructionsRequest {
   string player = 2;
 
   // 指示傳送接收的代碼  position card
-  map<string, string> instrction = 3;
+  map<string, string> instructions = 3;
   
 }
 

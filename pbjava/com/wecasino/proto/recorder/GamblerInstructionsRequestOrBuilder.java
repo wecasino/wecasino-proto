@@ -53,42 +53,42 @@ public interface GamblerInstructionsRequestOrBuilder extends
    * 指示傳送接收的代碼  position card
    * </pre>
    *
-   * <code>map&lt;string, string&gt; instrction = 3 [json_name = "instrction"];</code>
+   * <code>map&lt;string, string&gt; instructions = 3 [json_name = "instructions"];</code>
    */
-  int getInstrctionCount();
+  int getInstructionsCount();
   /**
    * <pre>
    * 指示傳送接收的代碼  position card
    * </pre>
    *
-   * <code>map&lt;string, string&gt; instrction = 3 [json_name = "instrction"];</code>
+   * <code>map&lt;string, string&gt; instructions = 3 [json_name = "instructions"];</code>
    */
-  boolean containsInstrction(
+  boolean containsInstructions(
       java.lang.String key);
   /**
-   * Use {@link #getInstrctionMap()} instead.
+   * Use {@link #getInstructionsMap()} instead.
    */
   @java.lang.Deprecated
   java.util.Map<java.lang.String, java.lang.String>
-  getInstrction();
+  getInstructions();
   /**
    * <pre>
    * 指示傳送接收的代碼  position card
    * </pre>
    *
-   * <code>map&lt;string, string&gt; instrction = 3 [json_name = "instrction"];</code>
+   * <code>map&lt;string, string&gt; instructions = 3 [json_name = "instructions"];</code>
    */
   java.util.Map<java.lang.String, java.lang.String>
-  getInstrctionMap();
+  getInstructionsMap();
   /**
    * <pre>
    * 指示傳送接收的代碼  position card
    * </pre>
    *
-   * <code>map&lt;string, string&gt; instrction = 3 [json_name = "instrction"];</code>
+   * <code>map&lt;string, string&gt; instructions = 3 [json_name = "instructions"];</code>
    */
   /* nullable */
-java.lang.String getInstrctionOrDefault(
+java.lang.String getInstructionsOrDefault(
       java.lang.String key,
       /* nullable */
 java.lang.String defaultValue);
@@ -97,8 +97,8 @@ java.lang.String defaultValue);
    * 指示傳送接收的代碼  position card
    * </pre>
    *
-   * <code>map&lt;string, string&gt; instrction = 3 [json_name = "instrction"];</code>
+   * <code>map&lt;string, string&gt; instructions = 3 [json_name = "instructions"];</code>
    */
-  java.lang.String getInstrctionOrThrow(
+  java.lang.String getInstructionsOrThrow(
       java.lang.String key);
 }
