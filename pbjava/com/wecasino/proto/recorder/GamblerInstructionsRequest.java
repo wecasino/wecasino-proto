@@ -43,7 +43,7 @@ private static final long serialVersionUID = 0L;
       int number) {
     switch (number) {
       case 3:
-        return internalGetInstrction();
+        return internalGetInstructions();
       default:
         throw new RuntimeException(
             "Invalid map field number: " + number);
@@ -151,13 +151,13 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int INSTRCTION_FIELD_NUMBER = 3;
-  private static final class InstrctionDefaultEntryHolder {
+  public static final int INSTRUCTIONS_FIELD_NUMBER = 3;
+  private static final class InstructionsDefaultEntryHolder {
     static final com.google.protobuf.MapEntry<
         java.lang.String, java.lang.String> defaultEntry =
             com.google.protobuf.MapEntry
             .<java.lang.String, java.lang.String>newDefaultInstance(
-                com.wecasino.proto.recorder.ProviderProto.internal_static_recorder_GamblerInstructionsRequest_InstrctionEntry_descriptor, 
+                com.wecasino.proto.recorder.ProviderProto.internal_static_recorder_GamblerInstructionsRequest_InstructionsEntry_descriptor, 
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "",
                 com.google.protobuf.WireFormat.FieldType.STRING,
@@ -165,66 +165,66 @@ private static final long serialVersionUID = 0L;
   }
   @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
-      java.lang.String, java.lang.String> instrction_;
+      java.lang.String, java.lang.String> instructions_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-  internalGetInstrction() {
-    if (instrction_ == null) {
+  internalGetInstructions() {
+    if (instructions_ == null) {
       return com.google.protobuf.MapField.emptyMapField(
-          InstrctionDefaultEntryHolder.defaultEntry);
+          InstructionsDefaultEntryHolder.defaultEntry);
     }
-    return instrction_;
+    return instructions_;
   }
-  public int getInstrctionCount() {
-    return internalGetInstrction().getMap().size();
+  public int getInstructionsCount() {
+    return internalGetInstructions().getMap().size();
   }
   /**
    * <pre>
    * 指示傳送接收的代碼  position card
    * </pre>
    *
-   * <code>map&lt;string, string&gt; instrction = 3 [json_name = "instrction"];</code>
+   * <code>map&lt;string, string&gt; instructions = 3 [json_name = "instructions"];</code>
    */
   @java.lang.Override
-  public boolean containsInstrction(
+  public boolean containsInstructions(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
-    return internalGetInstrction().getMap().containsKey(key);
+    return internalGetInstructions().getMap().containsKey(key);
   }
   /**
-   * Use {@link #getInstrctionMap()} instead.
+   * Use {@link #getInstructionsMap()} instead.
    */
   @java.lang.Override
   @java.lang.Deprecated
-  public java.util.Map<java.lang.String, java.lang.String> getInstrction() {
-    return getInstrctionMap();
+  public java.util.Map<java.lang.String, java.lang.String> getInstructions() {
+    return getInstructionsMap();
   }
   /**
    * <pre>
    * 指示傳送接收的代碼  position card
    * </pre>
    *
-   * <code>map&lt;string, string&gt; instrction = 3 [json_name = "instrction"];</code>
+   * <code>map&lt;string, string&gt; instructions = 3 [json_name = "instructions"];</code>
    */
   @java.lang.Override
-  public java.util.Map<java.lang.String, java.lang.String> getInstrctionMap() {
-    return internalGetInstrction().getMap();
+  public java.util.Map<java.lang.String, java.lang.String> getInstructionsMap() {
+    return internalGetInstructions().getMap();
   }
   /**
    * <pre>
    * 指示傳送接收的代碼  position card
    * </pre>
    *
-   * <code>map&lt;string, string&gt; instrction = 3 [json_name = "instrction"];</code>
+   * <code>map&lt;string, string&gt; instructions = 3 [json_name = "instructions"];</code>
    */
   @java.lang.Override
   public /* nullable */
-java.lang.String getInstrctionOrDefault(
+java.lang.String getInstructionsOrDefault(
       java.lang.String key,
       /* nullable */
 java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
-        internalGetInstrction().getMap();
+        internalGetInstructions().getMap();
     return map.containsKey(key) ? map.get(key) : defaultValue;
   }
   /**
@@ -232,14 +232,14 @@ java.lang.String defaultValue) {
    * 指示傳送接收的代碼  position card
    * </pre>
    *
-   * <code>map&lt;string, string&gt; instrction = 3 [json_name = "instrction"];</code>
+   * <code>map&lt;string, string&gt; instructions = 3 [json_name = "instructions"];</code>
    */
   @java.lang.Override
-  public java.lang.String getInstrctionOrThrow(
+  public java.lang.String getInstructionsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
-        internalGetInstrction().getMap();
+        internalGetInstructions().getMap();
     if (!map.containsKey(key)) {
       throw new java.lang.IllegalArgumentException();
     }
@@ -269,8 +269,8 @@ java.lang.String defaultValue) {
     com.google.protobuf.GeneratedMessageV3
       .serializeStringMapTo(
         output,
-        internalGetInstrction(),
-        InstrctionDefaultEntryHolder.defaultEntry,
+        internalGetInstructions(),
+        InstructionsDefaultEntryHolder.defaultEntry,
         3);
     getUnknownFields().writeTo(output);
   }
@@ -288,14 +288,14 @@ java.lang.String defaultValue) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, player_);
     }
     for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
-         : internalGetInstrction().getMap().entrySet()) {
+         : internalGetInstructions().getMap().entrySet()) {
       com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-      instrction__ = InstrctionDefaultEntryHolder.defaultEntry.newBuilderForType()
+      instructions__ = InstructionsDefaultEntryHolder.defaultEntry.newBuilderForType()
           .setKey(entry.getKey())
           .setValue(entry.getValue())
           .build();
       size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, instrction__);
+          .computeMessageSize(3, instructions__);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -316,8 +316,8 @@ java.lang.String defaultValue) {
         .equals(other.getGameCode())) return false;
     if (!getPlayer()
         .equals(other.getPlayer())) return false;
-    if (!internalGetInstrction().equals(
-        other.internalGetInstrction())) return false;
+    if (!internalGetInstructions().equals(
+        other.internalGetInstructions())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -333,9 +333,9 @@ java.lang.String defaultValue) {
     hash = (53 * hash) + getGameCode().hashCode();
     hash = (37 * hash) + PLAYER_FIELD_NUMBER;
     hash = (53 * hash) + getPlayer().hashCode();
-    if (!internalGetInstrction().getMap().isEmpty()) {
-      hash = (37 * hash) + INSTRCTION_FIELD_NUMBER;
-      hash = (53 * hash) + internalGetInstrction().hashCode();
+    if (!internalGetInstructions().getMap().isEmpty()) {
+      hash = (37 * hash) + INSTRUCTIONS_FIELD_NUMBER;
+      hash = (53 * hash) + internalGetInstructions().hashCode();
     }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
@@ -455,7 +455,7 @@ java.lang.String defaultValue) {
         int number) {
       switch (number) {
         case 3:
-          return internalGetInstrction();
+          return internalGetInstructions();
         default:
           throw new RuntimeException(
               "Invalid map field number: " + number);
@@ -466,7 +466,7 @@ java.lang.String defaultValue) {
         int number) {
       switch (number) {
         case 3:
-          return internalGetMutableInstrction();
+          return internalGetMutableInstructions();
         default:
           throw new RuntimeException(
               "Invalid map field number: " + number);
@@ -496,7 +496,7 @@ java.lang.String defaultValue) {
       bitField0_ = 0;
       gameCode_ = "";
       player_ = "";
-      internalGetMutableInstrction().clear();
+      internalGetMutableInstructions().clear();
       return this;
     }
 
@@ -537,8 +537,8 @@ java.lang.String defaultValue) {
         result.player_ = player_;
       }
       if (((from_bitField0_ & 0x00000004) != 0)) {
-        result.instrction_ = internalGetInstrction();
-        result.instrction_.makeImmutable();
+        result.instructions_ = internalGetInstructions();
+        result.instructions_.makeImmutable();
       }
     }
 
@@ -596,8 +596,8 @@ java.lang.String defaultValue) {
         bitField0_ |= 0x00000002;
         onChanged();
       }
-      internalGetMutableInstrction().mergeFrom(
-          other.internalGetInstrction());
+      internalGetMutableInstructions().mergeFrom(
+          other.internalGetInstructions());
       bitField0_ |= 0x00000004;
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -637,10 +637,10 @@ java.lang.String defaultValue) {
             } // case 18
             case 26: {
               com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-              instrction__ = input.readMessage(
-                  InstrctionDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              internalGetMutableInstrction().getMutableMap().put(
-                  instrction__.getKey(), instrction__.getValue());
+              instructions__ = input.readMessage(
+                  InstructionsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableInstructions().getMutableMap().put(
+                  instructions__.getKey(), instructions__.getValue());
               bitField0_ |= 0x00000004;
               break;
             } // case 26
@@ -846,79 +846,79 @@ java.lang.String defaultValue) {
     }
 
     private com.google.protobuf.MapField<
-        java.lang.String, java.lang.String> instrction_;
+        java.lang.String, java.lang.String> instructions_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-        internalGetInstrction() {
-      if (instrction_ == null) {
+        internalGetInstructions() {
+      if (instructions_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
-            InstrctionDefaultEntryHolder.defaultEntry);
+            InstructionsDefaultEntryHolder.defaultEntry);
       }
-      return instrction_;
+      return instructions_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-        internalGetMutableInstrction() {
-      if (instrction_ == null) {
-        instrction_ = com.google.protobuf.MapField.newMapField(
-            InstrctionDefaultEntryHolder.defaultEntry);
+        internalGetMutableInstructions() {
+      if (instructions_ == null) {
+        instructions_ = com.google.protobuf.MapField.newMapField(
+            InstructionsDefaultEntryHolder.defaultEntry);
       }
-      if (!instrction_.isMutable()) {
-        instrction_ = instrction_.copy();
+      if (!instructions_.isMutable()) {
+        instructions_ = instructions_.copy();
       }
       bitField0_ |= 0x00000004;
       onChanged();
-      return instrction_;
+      return instructions_;
     }
-    public int getInstrctionCount() {
-      return internalGetInstrction().getMap().size();
+    public int getInstructionsCount() {
+      return internalGetInstructions().getMap().size();
     }
     /**
      * <pre>
      * 指示傳送接收的代碼  position card
      * </pre>
      *
-     * <code>map&lt;string, string&gt; instrction = 3 [json_name = "instrction"];</code>
+     * <code>map&lt;string, string&gt; instructions = 3 [json_name = "instructions"];</code>
      */
     @java.lang.Override
-    public boolean containsInstrction(
+    public boolean containsInstructions(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
-      return internalGetInstrction().getMap().containsKey(key);
+      return internalGetInstructions().getMap().containsKey(key);
     }
     /**
-     * Use {@link #getInstrctionMap()} instead.
+     * Use {@link #getInstructionsMap()} instead.
      */
     @java.lang.Override
     @java.lang.Deprecated
-    public java.util.Map<java.lang.String, java.lang.String> getInstrction() {
-      return getInstrctionMap();
+    public java.util.Map<java.lang.String, java.lang.String> getInstructions() {
+      return getInstructionsMap();
     }
     /**
      * <pre>
      * 指示傳送接收的代碼  position card
      * </pre>
      *
-     * <code>map&lt;string, string&gt; instrction = 3 [json_name = "instrction"];</code>
+     * <code>map&lt;string, string&gt; instructions = 3 [json_name = "instructions"];</code>
      */
     @java.lang.Override
-    public java.util.Map<java.lang.String, java.lang.String> getInstrctionMap() {
-      return internalGetInstrction().getMap();
+    public java.util.Map<java.lang.String, java.lang.String> getInstructionsMap() {
+      return internalGetInstructions().getMap();
     }
     /**
      * <pre>
      * 指示傳送接收的代碼  position card
      * </pre>
      *
-     * <code>map&lt;string, string&gt; instrction = 3 [json_name = "instrction"];</code>
+     * <code>map&lt;string, string&gt; instructions = 3 [json_name = "instructions"];</code>
      */
     @java.lang.Override
     public /* nullable */
-java.lang.String getInstrctionOrDefault(
+java.lang.String getInstructionsOrDefault(
         java.lang.String key,
         /* nullable */
 java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetInstrction().getMap();
+          internalGetInstructions().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
     }
     /**
@@ -926,22 +926,22 @@ java.lang.String defaultValue) {
      * 指示傳送接收的代碼  position card
      * </pre>
      *
-     * <code>map&lt;string, string&gt; instrction = 3 [json_name = "instrction"];</code>
+     * <code>map&lt;string, string&gt; instructions = 3 [json_name = "instructions"];</code>
      */
     @java.lang.Override
-    public java.lang.String getInstrctionOrThrow(
+    public java.lang.String getInstructionsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetInstrction().getMap();
+          internalGetInstructions().getMap();
       if (!map.containsKey(key)) {
         throw new java.lang.IllegalArgumentException();
       }
       return map.get(key);
     }
-    public Builder clearInstrction() {
+    public Builder clearInstructions() {
       bitField0_ = (bitField0_ & ~0x00000004);
-      internalGetMutableInstrction().getMutableMap()
+      internalGetMutableInstructions().getMutableMap()
           .clear();
       return this;
     }
@@ -950,12 +950,12 @@ java.lang.String defaultValue) {
      * 指示傳送接收的代碼  position card
      * </pre>
      *
-     * <code>map&lt;string, string&gt; instrction = 3 [json_name = "instrction"];</code>
+     * <code>map&lt;string, string&gt; instructions = 3 [json_name = "instructions"];</code>
      */
-    public Builder removeInstrction(
+    public Builder removeInstructions(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
-      internalGetMutableInstrction().getMutableMap()
+      internalGetMutableInstructions().getMutableMap()
           .remove(key);
       return this;
     }
@@ -964,23 +964,23 @@ java.lang.String defaultValue) {
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-        getMutableInstrction() {
+        getMutableInstructions() {
       bitField0_ |= 0x00000004;
-      return internalGetMutableInstrction().getMutableMap();
+      return internalGetMutableInstructions().getMutableMap();
     }
     /**
      * <pre>
      * 指示傳送接收的代碼  position card
      * </pre>
      *
-     * <code>map&lt;string, string&gt; instrction = 3 [json_name = "instrction"];</code>
+     * <code>map&lt;string, string&gt; instructions = 3 [json_name = "instructions"];</code>
      */
-    public Builder putInstrction(
+    public Builder putInstructions(
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
       if (value == null) { throw new NullPointerException("map value"); }
-      internalGetMutableInstrction().getMutableMap()
+      internalGetMutableInstructions().getMutableMap()
           .put(key, value);
       bitField0_ |= 0x00000004;
       return this;
@@ -990,11 +990,11 @@ java.lang.String defaultValue) {
      * 指示傳送接收的代碼  position card
      * </pre>
      *
-     * <code>map&lt;string, string&gt; instrction = 3 [json_name = "instrction"];</code>
+     * <code>map&lt;string, string&gt; instructions = 3 [json_name = "instructions"];</code>
      */
-    public Builder putAllInstrction(
+    public Builder putAllInstructions(
         java.util.Map<java.lang.String, java.lang.String> values) {
-      internalGetMutableInstrction().getMutableMap()
+      internalGetMutableInstructions().getMutableMap()
           .putAll(values);
       bitField0_ |= 0x00000004;
       return this;
