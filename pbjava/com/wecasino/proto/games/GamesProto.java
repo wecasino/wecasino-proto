@@ -29,20 +29,20 @@ public final class GamesProto {
       "\022\020\n\014THEBIGBATTLE\020\021\022\016\n\nTHREECARDS\020\022\022\r\n\tBU" +
       "LLFIGHT\020\023\022\n\n\006FANTAN\020\024\022\t\n\005SICBO\020 \022\r\n\tCOLO" +
       "RGAME\020!\022\014\n\010DROPBALL\020\"\022\014\n\010ROULETTE\020$\022\016\n\nL" +
-      "UCKYWHEEL\020(*\236\001\n\010FlowSeat\022\024\n\020SEAT_UNSPECI" +
+      "UCKYWHEEL\020(*\260\001\n\010FlowSeat\022\024\n\020SEAT_UNSPECI" +
       "FIED\020\000\022\n\n\006DEALER\020@\022\023\n\017PREVIOUS_DEALER\020A\022" +
       "\013\n\007PITBOSS\020B\022\024\n\020PREVIOUS_PITBOSS\020C\022\n\n\006PL" +
       "AYER\020D\022\n\n\006BANKER\020E\022\010\n\004LEFT\020F\022\t\n\005RIGHT\020G\022" +
-      "\013\n\007CONTROL\020`*\211\001\n\014ResourceType\022\035\n\031RESOURC" +
-      "E_TYPE_UNSPECIFIED\020\000\022\010\n\004SHOE\020@\022\010\n\004HAND\020A" +
-      "\022\t\n\005FIELD\020B\022\016\n\nFIRST_CARD\020C\022\014\n\010SHOE_CUT\020" +
-      "D\022\013\n\007DISCARD\020E\022\020\n\014Instructions\020F*?\n\007WinT" +
-      "ype\022\030\n\024WIN_TYPE_UNSPECIFIED\020\000\022\010\n\004LOSE\020\001\022" +
-      "\007\n\003WIN\020\002\022\007\n\003TIE\020\003B\211\001\n\030com.wecasino.proto" +
-      ".gamesB\nGamesProtoP\001Z-github.com/wecasin" +
-      "o/wecasino-proto/pbgo/games\242\002\003GXX\252\002\005Game" +
-      "s\312\002\005Games\342\002\021Games\\GPBMetadata\352\002\005Gamesb\006p" +
-      "roto3"
+      "\013\n\007CONTROL\020`\022\020\n\014Instructions\020c*w\n\014Resour" +
+      "ceType\022\035\n\031RESOURCE_TYPE_UNSPECIFIED\020\000\022\010\n" +
+      "\004SHOE\020@\022\010\n\004HAND\020A\022\t\n\005FIELD\020B\022\016\n\nFIRST_CA" +
+      "RD\020C\022\014\n\010SHOE_CUT\020D\022\013\n\007DISCARD\020E*?\n\007WinTy" +
+      "pe\022\030\n\024WIN_TYPE_UNSPECIFIED\020\000\022\010\n\004LOSE\020\001\022\007" +
+      "\n\003WIN\020\002\022\007\n\003TIE\020\003B\211\001\n\030com.wecasino.proto." +
+      "gamesB\nGamesProtoP\001Z-github.com/wecasino" +
+      "/wecasino-proto/pbgo/games\242\002\003GXX\252\002\005Games" +
+      "\312\002\005Games\342\002\021Games\\GPBMetadata\352\002\005Gamesb\006pr" +
+      "oto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
