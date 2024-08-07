@@ -97,6 +97,8 @@ enum ResourceType {
   // 棄牌
   DISCARD = 69;
 
+  // 玩家指示
+  Instructions = 70;
 }
 
 // WinType 
