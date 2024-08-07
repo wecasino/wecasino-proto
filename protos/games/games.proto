@@ -72,6 +72,8 @@ enum FlowSeat {
   // 流程控制牌
   CONTROL = 96;
 
+  // 玩家指示
+  Instructions = 99;
 }
 
 enum ResourceType {
@@ -97,8 +99,6 @@ enum ResourceType {
   // 棄牌
   DISCARD = 69;
 
-  // 玩家指示
-  Instructions = 70;
 }
 
 // WinType 
