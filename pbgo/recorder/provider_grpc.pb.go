@@ -508,7 +508,7 @@ type ProviderServiceClient interface {
 	// 驗證
 	VerifyGame(ctx context.Context, in *VerifyGameRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	// 玩家指示
-	GamblerInstructions(ctx context.Context, in *GamblerInstructionsRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	GamblerInstructions(ctx context.Context, in *GamblerInstructionsRequest, opts ...grpc.CallOption) (*RoundRecord, error)
 	// 荷官資料
 	ListDealers(ctx context.Context, in *ListDealersRequest, opts ...grpc.CallOption) (*ListDealersResponse, error)
 	// 荷官資料
@@ -553,9 +553,9 @@ func (c *providerServiceClient) VerifyGame(ctx context.Context, in *VerifyGameRe
 	return out, nil
 }
 
-func (c *providerServiceClient) GamblerInstructions(ctx context.Context, in *GamblerInstructionsRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+func (c *providerServiceClient) GamblerInstructions(ctx context.Context, in *GamblerInstructionsRequest, opts ...grpc.CallOption) (*RoundRecord, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(emptypb.Empty)
+	out := new(RoundRecord)
 	err := c.cc.Invoke(ctx, ProviderService_GamblerInstructions_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -597,7 +597,7 @@ type ProviderServiceServer interface {
 	// 驗證
 	VerifyGame(context.Context, *VerifyGameRequest) (*emptypb.Empty, error)
 	// 玩家指示
-	GamblerInstructions(context.Context, *GamblerInstructionsRequest) (*emptypb.Empty, error)
+	GamblerInstructions(context.Context, *GamblerInstructionsRequest) (*RoundRecord, error)
 	// 荷官資料
 	ListDealers(context.Context, *ListDealersRequest) (*ListDealersResponse, error)
 	// 荷官資料
@@ -621,7 +621,7 @@ func (UnimplementedProviderServiceServer) GetGames(context.Context, *GetRequest)
 func (UnimplementedProviderServiceServer) VerifyGame(context.Context, *VerifyGameRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method VerifyGame not implemented")
 }
-func (UnimplementedProviderServiceServer) GamblerInstructions(context.Context, *GamblerInstructionsRequest) (*emptypb.Empty, error) {
+func (UnimplementedProviderServiceServer) GamblerInstructions(context.Context, *GamblerInstructionsRequest) (*RoundRecord, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GamblerInstructions not implemented")
 }
 func (UnimplementedProviderServiceServer) ListDealers(context.Context, *ListDealersRequest) (*ListDealersResponse, error) {

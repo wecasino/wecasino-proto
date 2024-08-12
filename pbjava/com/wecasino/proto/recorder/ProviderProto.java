@@ -313,7 +313,7 @@ public final class ProviderProto {
       "\n\020GetPlayBackRound\022!.recorder.GetRoundPl" +
       "ayBackRequest\032\".recorder.GetRoundPlayBac" +
       "kResponse\"$\202\323\344\223\002\036\022\034/v1/recorder/playback" +
-      "/{code}2\226\005\n\017ProviderService\022`\n\tListGames" +
+      "/{code}2\225\005\n\017ProviderService\022`\n\tListGames" +
       "\022\032.recorder.ListGamesRequest\032\033.recorder." +
       "ListGamesResponse\"\032\202\323\344\223\002\024\022\022/v1/provider/" +
       "games\022Z\n\010GetGames\022\024.recorder.GetRequest\032" +
@@ -321,20 +321,19 @@ public final class ProviderProto {
       "ider/games/{code}\022s\n\nVerifyGame\022\033.record" +
       "er.VerifyGameRequest\032\026.google.protobuf.E" +
       "mpty\"0\202\323\344\223\002*\"%/v1/provider/games/{game_c" +
-      "ode}:verify:\001*\022\213\001\n\023GamblerInstructions\022$" +
-      ".recorder.GamblerInstructionsRequest\032\026.g" +
-      "oogle.protobuf.Empty\"6\202\323\344\223\0020\"+/v1/provid" +
-      "er/games/{game_code}:instructions:\001*\022h\n\013" +
-      "ListDealers\022\034.recorder.ListDealersReques" +
-      "t\032\035.recorder.ListDealersResponse\"\034\202\323\344\223\002\026" +
-      "\022\024/v1/provider/dealers\022X\n\tGetDealer\022\024.re" +
-      "corder.GetRequest\032\020.recorder.Dealer\"#\202\323\344" +
-      "\223\002\035\022\033/v1/provider/dealers/{code}B\236\001\n\033com" +
-      ".wecasino.proto.recorderB\rProviderProtoP" +
-      "\001Z0github.com/wecasino/wecasino-proto/pb" +
-      "go/recorder\242\002\003RXX\252\002\010Recorder\312\002\010Recorder\342" +
-      "\002\024Recorder\\GPBMetadata\352\002\010Recorderb\006proto" +
-      "3"
+      "ode}:verify:\001*\022\212\001\n\023GamblerInstructions\022$" +
+      ".recorder.GamblerInstructionsRequest\032\025.r" +
+      "ecorder.RoundRecord\"6\202\323\344\223\0020\"+/v1/provide" +
+      "r/games/{game_code}:instructions:\001*\022h\n\013L" +
+      "istDealers\022\034.recorder.ListDealersRequest" +
+      "\032\035.recorder.ListDealersResponse\"\034\202\323\344\223\002\026\022" +
+      "\024/v1/provider/dealers\022X\n\tGetDealer\022\024.rec" +
+      "order.GetRequest\032\020.recorder.Dealer\"#\202\323\344\223" +
+      "\002\035\022\033/v1/provider/dealers/{code}B\236\001\n\033com." +
+      "wecasino.proto.recorderB\rProviderProtoP\001" +
+      "Z0github.com/wecasino/wecasino-proto/pbg" +
+      "o/recorder\242\002\003RXX\252\002\010Recorder\312\002\010Recorder\342\002" +
+      "\024Recorder\\GPBMetadata\352\002\010Recorderb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

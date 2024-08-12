@@ -437,7 +437,7 @@ type ProviderServiceClient interface {
 	// 驗證
 	VerifyGame(context.Context, *connect.Request[recorder.VerifyGameRequest]) (*connect.Response[emptypb.Empty], error)
 	// 玩家指示
-	GamblerInstructions(context.Context, *connect.Request[recorder.GamblerInstructionsRequest]) (*connect.Response[emptypb.Empty], error)
+	GamblerInstructions(context.Context, *connect.Request[recorder.GamblerInstructionsRequest]) (*connect.Response[recorder.RoundRecord], error)
 	// 荷官資料
 	ListDealers(context.Context, *connect.Request[recorder.ListDealersRequest]) (*connect.Response[recorder.ListDealersResponse], error)
 	// 荷官資料
@@ -472,7 +472,7 @@ func NewProviderServiceClient(httpClient connect.HTTPClient, baseURL string, opt
 			connect.WithSchema(providerServiceVerifyGameMethodDescriptor),
 			connect.WithClientOptions(opts...),
 		),
-		gamblerInstructions: connect.NewClient[recorder.GamblerInstructionsRequest, emptypb.Empty](
+		gamblerInstructions: connect.NewClient[recorder.GamblerInstructionsRequest, recorder.RoundRecord](
 			httpClient,
 			baseURL+ProviderServiceGamblerInstructionsProcedure,
 			connect.WithSchema(providerServiceGamblerInstructionsMethodDescriptor),
@@ -498,7 +498,7 @@ type providerServiceClient struct {
 	listGames           *connect.Client[recorder.ListGamesRequest, recorder.ListGamesResponse]
 	getGames            *connect.Client[recorder.GetRequest, recorder.GameProvide]
 	verifyGame          *connect.Client[recorder.VerifyGameRequest, emptypb.Empty]
-	gamblerInstructions *connect.Client[recorder.GamblerInstructionsRequest, emptypb.Empty]
+	gamblerInstructions *connect.Client[recorder.GamblerInstructionsRequest, recorder.RoundRecord]
 	listDealers         *connect.Client[recorder.ListDealersRequest, recorder.ListDealersResponse]
 	getDealer           *connect.Client[recorder.GetRequest, recorder.Dealer]
 }
@@ -519,7 +519,7 @@ func (c *providerServiceClient) VerifyGame(ctx context.Context, req *connect.Req
 }
 
 // GamblerInstructions calls recorder.ProviderService.GamblerInstructions.
-func (c *providerServiceClient) GamblerInstructions(ctx context.Context, req *connect.Request[recorder.GamblerInstructionsRequest]) (*connect.Response[emptypb.Empty], error) {
+func (c *providerServiceClient) GamblerInstructions(ctx context.Context, req *connect.Request[recorder.GamblerInstructionsRequest]) (*connect.Response[recorder.RoundRecord], error) {
 	return c.gamblerInstructions.CallUnary(ctx, req)
 }
 
@@ -542,7 +542,7 @@ type ProviderServiceHandler interface {
 	// 驗證
 	VerifyGame(context.Context, *connect.Request[recorder.VerifyGameRequest]) (*connect.Response[emptypb.Empty], error)
 	// 玩家指示
-	GamblerInstructions(context.Context, *connect.Request[recorder.GamblerInstructionsRequest]) (*connect.Response[emptypb.Empty], error)
+	GamblerInstructions(context.Context, *connect.Request[recorder.GamblerInstructionsRequest]) (*connect.Response[recorder.RoundRecord], error)
 	// 荷官資料
 	ListDealers(context.Context, *connect.Request[recorder.ListDealersRequest]) (*connect.Response[recorder.ListDealersResponse], error)
 	// 荷官資料
@@ -626,7 +626,7 @@ func (UnimplementedProviderServiceHandler) VerifyGame(context.Context, *connect.
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("recorder.ProviderService.VerifyGame is not implemented"))
 }
 
-func (UnimplementedProviderServiceHandler) GamblerInstructions(context.Context, *connect.Request[recorder.GamblerInstructionsRequest]) (*connect.Response[emptypb.Empty], error) {
+func (UnimplementedProviderServiceHandler) GamblerInstructions(context.Context, *connect.Request[recorder.GamblerInstructionsRequest]) (*connect.Response[recorder.RoundRecord], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("recorder.ProviderService.GamblerInstructions is not implemented"))
 }
 
