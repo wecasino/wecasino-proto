@@ -501,7 +501,7 @@ service ProviderService {
   };
 
   // 玩家指示
-  rpc GamblerInstructions(GamblerInstructionsRequest) returns (google.protobuf.Empty){
+  rpc GamblerInstructions(GamblerInstructionsRequest) returns (RoundRecord){
     option (google.api.http) = {
       post: "/v1/provider/games/{game_code}:instructions"
       body: "*"
