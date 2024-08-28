@@ -30,7 +30,7 @@ message GetRequest {
 message GetRoundsBySheoRequest {
 
   // 資源代碼
-  string code = 1 [(google.api.field_behavior) = REQUIRED];
+  string sheo_code = 1 [(google.api.field_behavior) = REQUIRED];
  
   // 遊戲代碼
   string game_code = 2 [(google.api.field_behavior) = REQUIRED];
@@ -248,7 +248,7 @@ service RecorderReadService {
   // 讀取整靴局紀錄
   rpc GetRoundsBySheo(GetRoundsBySheoRequest) returns (GetRoundsBySheoResponse){
     option (google.api.http) = {
-      get: "/v1/recorder/shoes/{code}/rounds"
+      get: "/v1/recorder/shoes/{sheo_code}/rounds"
     };
   };
 

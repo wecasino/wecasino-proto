@@ -588,7 +588,7 @@ paths:
           in: path
           required: true
           type: string
-  /v1/recorder/shoes/{code}/rounds:
+  /v1/recorder/shoes/{sheoCode}/rounds:
     get:
       summary: 讀取整靴局紀錄
       operationId: RecorderReadService_GetRoundsBySheo
@@ -602,7 +602,7 @@ paths:
           schema:
             $ref: '#/definitions/rpcStatus'
       parameters:
-        - name: code
+        - name: sheoCode
           description: 資源代碼
           in: path
           required: true

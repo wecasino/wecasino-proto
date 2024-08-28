@@ -280,7 +280,7 @@ func local_request_RecorderReadService_GetCurrentShoe_0(ctx context.Context, mar
 }
 
 var (
-	filter_RecorderReadService_GetRoundsBySheo_0 = &utilities.DoubleArray{Encoding: map[string]int{"code": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
+	filter_RecorderReadService_GetRoundsBySheo_0 = &utilities.DoubleArray{Encoding: map[string]int{"sheo_code": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
 )
 
 func request_RecorderReadService_GetRoundsBySheo_0(ctx context.Context, marshaler runtime.Marshaler, client RecorderReadServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
@@ -294,14 +294,14 @@ func request_RecorderReadService_GetRoundsBySheo_0(ctx context.Context, marshale
 		_   = err
 	)
 
-	val, ok = pathParams["code"]
+	val, ok = pathParams["sheo_code"]
 	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "code")
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "sheo_code")
 	}
 
-	protoReq.Code, err = runtime.String(val)
+	protoReq.SheoCode, err = runtime.String(val)
 	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "code", err)
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "sheo_code", err)
 	}
 
 	if err := req.ParseForm(); err != nil {
@@ -327,14 +327,14 @@ func local_request_RecorderReadService_GetRoundsBySheo_0(ctx context.Context, ma
 		_   = err
 	)
 
-	val, ok = pathParams["code"]
+	val, ok = pathParams["sheo_code"]
 	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "code")
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "sheo_code")
 	}
 
-	protoReq.Code, err = runtime.String(val)
+	protoReq.SheoCode, err = runtime.String(val)
 	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "code", err)
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "sheo_code", err)
 	}
 
 	if err := req.ParseForm(); err != nil {
@@ -985,7 +985,7 @@ func RegisterRecorderReadServiceHandlerServer(ctx context.Context, mux *runtime.
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/recorder.RecorderReadService/GetRoundsBySheo", runtime.WithHTTPPathPattern("/v1/recorder/shoes/{code}/rounds"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/recorder.RecorderReadService/GetRoundsBySheo", runtime.WithHTTPPathPattern("/v1/recorder/shoes/{sheo_code}/rounds"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1440,7 +1440,7 @@ func RegisterRecorderReadServiceHandlerClient(ctx context.Context, mux *runtime.
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/recorder.RecorderReadService/GetRoundsBySheo", runtime.WithHTTPPathPattern("/v1/recorder/shoes/{code}/rounds"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/recorder.RecorderReadService/GetRoundsBySheo", runtime.WithHTTPPathPattern("/v1/recorder/shoes/{sheo_code}/rounds"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -1560,7 +1560,7 @@ var (
 
 	pattern_RecorderReadService_GetCurrentShoe_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "recorder", "shoes"}, "current"))
 
-	pattern_RecorderReadService_GetRoundsBySheo_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4}, []string{"v1", "recorder", "shoes", "code", "rounds"}, ""))
+	pattern_RecorderReadService_GetRoundsBySheo_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4}, []string{"v1", "recorder", "shoes", "sheo_code", "rounds"}, ""))
 
 	pattern_RecorderReadService_ListRounds_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "provider", "rounds"}, ""))
 

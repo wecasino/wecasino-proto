@@ -13,20 +13,20 @@ public interface GetRoundsBySheoRequestOrBuilder extends
    * 資源代碼
    * </pre>
    *
-   * <code>string code = 1 [json_name = "code", (.google.api.field_behavior) = REQUIRED];</code>
-   * @return The code.
+   * <code>string sheo_code = 1 [json_name = "sheoCode", (.google.api.field_behavior) = REQUIRED];</code>
+   * @return The sheoCode.
    */
-  java.lang.String getCode();
+  java.lang.String getSheoCode();
   /**
    * <pre>
    * 資源代碼
    * </pre>
    *
-   * <code>string code = 1 [json_name = "code", (.google.api.field_behavior) = REQUIRED];</code>
-   * @return The bytes for code.
+   * <code>string sheo_code = 1 [json_name = "sheoCode", (.google.api.field_behavior) = REQUIRED];</code>
+   * @return The bytes for sheoCode.
    */
   com.google.protobuf.ByteString
-      getCodeBytes();
+      getSheoCodeBytes();
 
   /**
    * <pre>
