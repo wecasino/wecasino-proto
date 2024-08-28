@@ -17,7 +17,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private GetRoundsBySheoRequest() {
-    code_ = "";
+    sheoCode_ = "";
     gameCode_ = "";
   }
 
@@ -41,27 +41,27 @@ private static final long serialVersionUID = 0L;
             com.wecasino.proto.recorder.GetRoundsBySheoRequest.class, com.wecasino.proto.recorder.GetRoundsBySheoRequest.Builder.class);
   }
 
-  public static final int CODE_FIELD_NUMBER = 1;
+  public static final int SHEO_CODE_FIELD_NUMBER = 1;
   @SuppressWarnings("serial")
-  private volatile java.lang.Object code_ = "";
+  private volatile java.lang.Object sheoCode_ = "";
   /**
    * <pre>
    * 資源代碼
    * </pre>
    *
-   * <code>string code = 1 [json_name = "code", (.google.api.field_behavior) = REQUIRED];</code>
-   * @return The code.
+   * <code>string sheo_code = 1 [json_name = "sheoCode", (.google.api.field_behavior) = REQUIRED];</code>
+   * @return The sheoCode.
    */
   @java.lang.Override
-  public java.lang.String getCode() {
-    java.lang.Object ref = code_;
+  public java.lang.String getSheoCode() {
+    java.lang.Object ref = sheoCode_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      code_ = s;
+      sheoCode_ = s;
       return s;
     }
   }
@@ -70,18 +70,18 @@ private static final long serialVersionUID = 0L;
    * 資源代碼
    * </pre>
    *
-   * <code>string code = 1 [json_name = "code", (.google.api.field_behavior) = REQUIRED];</code>
-   * @return The bytes for code.
+   * <code>string sheo_code = 1 [json_name = "sheoCode", (.google.api.field_behavior) = REQUIRED];</code>
+   * @return The bytes for sheoCode.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getCodeBytes() {
-    java.lang.Object ref = code_;
+      getSheoCodeBytes() {
+    java.lang.Object ref = sheoCode_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      code_ = b;
+      sheoCode_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -149,8 +149,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(code_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, code_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sheoCode_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, sheoCode_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(gameCode_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, gameCode_);
@@ -164,8 +164,8 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(code_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, code_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sheoCode_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, sheoCode_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(gameCode_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, gameCode_);
@@ -185,8 +185,8 @@ private static final long serialVersionUID = 0L;
     }
     com.wecasino.proto.recorder.GetRoundsBySheoRequest other = (com.wecasino.proto.recorder.GetRoundsBySheoRequest) obj;
 
-    if (!getCode()
-        .equals(other.getCode())) return false;
+    if (!getSheoCode()
+        .equals(other.getSheoCode())) return false;
     if (!getGameCode()
         .equals(other.getGameCode())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
@@ -200,8 +200,8 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + CODE_FIELD_NUMBER;
-    hash = (53 * hash) + getCode().hashCode();
+    hash = (37 * hash) + SHEO_CODE_FIELD_NUMBER;
+    hash = (53 * hash) + getSheoCode().hashCode();
     hash = (37 * hash) + GAME_CODE_FIELD_NUMBER;
     hash = (53 * hash) + getGameCode().hashCode();
     hash = (29 * hash) + getUnknownFields().hashCode();
@@ -335,7 +335,7 @@ private static final long serialVersionUID = 0L;
     public Builder clear() {
       super.clear();
       bitField0_ = 0;
-      code_ = "";
+      sheoCode_ = "";
       gameCode_ = "";
       return this;
     }
@@ -371,7 +371,7 @@ private static final long serialVersionUID = 0L;
     private void buildPartial0(com.wecasino.proto.recorder.GetRoundsBySheoRequest result) {
       int from_bitField0_ = bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.code_ = code_;
+        result.sheoCode_ = sheoCode_;
       }
       if (((from_bitField0_ & 0x00000002) != 0)) {
         result.gameCode_ = gameCode_;
@@ -422,8 +422,8 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.wecasino.proto.recorder.GetRoundsBySheoRequest other) {
       if (other == com.wecasino.proto.recorder.GetRoundsBySheoRequest.getDefaultInstance()) return this;
-      if (!other.getCode().isEmpty()) {
-        code_ = other.code_;
+      if (!other.getSheoCode().isEmpty()) {
+        sheoCode_ = other.sheoCode_;
         bitField0_ |= 0x00000001;
         onChanged();
       }
@@ -459,7 +459,7 @@ private static final long serialVersionUID = 0L;
               done = true;
               break;
             case 10: {
-              code_ = input.readStringRequireUtf8();
+              sheoCode_ = input.readStringRequireUtf8();
               bitField0_ |= 0x00000001;
               break;
             } // case 10
@@ -485,22 +485,22 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private java.lang.Object code_ = "";
+    private java.lang.Object sheoCode_ = "";
     /**
      * <pre>
      * 資源代碼
      * </pre>
      *
-     * <code>string code = 1 [json_name = "code", (.google.api.field_behavior) = REQUIRED];</code>
-     * @return The code.
+     * <code>string sheo_code = 1 [json_name = "sheoCode", (.google.api.field_behavior) = REQUIRED];</code>
+     * @return The sheoCode.
      */
-    public java.lang.String getCode() {
-      java.lang.Object ref = code_;
+    public java.lang.String getSheoCode() {
+      java.lang.Object ref = sheoCode_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        code_ = s;
+        sheoCode_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
@@ -511,17 +511,17 @@ private static final long serialVersionUID = 0L;
      * 資源代碼
      * </pre>
      *
-     * <code>string code = 1 [json_name = "code", (.google.api.field_behavior) = REQUIRED];</code>
-     * @return The bytes for code.
+     * <code>string sheo_code = 1 [json_name = "sheoCode", (.google.api.field_behavior) = REQUIRED];</code>
+     * @return The bytes for sheoCode.
      */
     public com.google.protobuf.ByteString
-        getCodeBytes() {
-      java.lang.Object ref = code_;
+        getSheoCodeBytes() {
+      java.lang.Object ref = sheoCode_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        code_ = b;
+        sheoCode_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -532,14 +532,14 @@ private static final long serialVersionUID = 0L;
      * 資源代碼
      * </pre>
      *
-     * <code>string code = 1 [json_name = "code", (.google.api.field_behavior) = REQUIRED];</code>
-     * @param value The code to set.
+     * <code>string sheo_code = 1 [json_name = "sheoCode", (.google.api.field_behavior) = REQUIRED];</code>
+     * @param value The sheoCode to set.
      * @return This builder for chaining.
      */
-    public Builder setCode(
+    public Builder setSheoCode(
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
-      code_ = value;
+      sheoCode_ = value;
       bitField0_ |= 0x00000001;
       onChanged();
       return this;
@@ -549,11 +549,11 @@ private static final long serialVersionUID = 0L;
      * 資源代碼
      * </pre>
      *
-     * <code>string code = 1 [json_name = "code", (.google.api.field_behavior) = REQUIRED];</code>
+     * <code>string sheo_code = 1 [json_name = "sheoCode", (.google.api.field_behavior) = REQUIRED];</code>
      * @return This builder for chaining.
      */
-    public Builder clearCode() {
-      code_ = getDefaultInstance().getCode();
+    public Builder clearSheoCode() {
+      sheoCode_ = getDefaultInstance().getSheoCode();
       bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
@@ -563,15 +563,15 @@ private static final long serialVersionUID = 0L;
      * 資源代碼
      * </pre>
      *
-     * <code>string code = 1 [json_name = "code", (.google.api.field_behavior) = REQUIRED];</code>
-     * @param value The bytes for code to set.
+     * <code>string sheo_code = 1 [json_name = "sheoCode", (.google.api.field_behavior) = REQUIRED];</code>
+     * @param value The bytes for sheoCode to set.
      * @return This builder for chaining.
      */
-    public Builder setCodeBytes(
+    public Builder setSheoCodeBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
-      code_ = value;
+      sheoCode_ = value;
       bitField0_ |= 0x00000001;
       onChanged();
       return this;
