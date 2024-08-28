@@ -5,6 +5,7 @@ import "google/api/annotations.proto";
 import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
 import "recorder/record.proto";
+import "tagger/tagger.proto";
 import "games/games.proto";
 import "google/api/field_behavior.proto";
 
@@ -24,6 +25,15 @@ message GetRequest {
   // 資源代碼
   string code = 1 [(google.api.field_behavior) = REQUIRED];
  
+}
+
+message GetRoundsBySheoRequest {
+
+  // 資源代碼
+  string code = 1 [(google.api.field_behavior) = REQUIRED];
+ 
+  // 遊戲代碼
+  string game_code = 2 [(google.api.field_behavior) = REQUIRED];
 }
 
 message GetCurrentRecordRequest {
@@ -146,6 +156,50 @@ message GetRoundPlayBackResponse {
 
 }
 
+
+message GetRoundsBySheoResponse {
+  // roundResults
+  repeated RoundResult round_records = 1;
+}
+
+message RoundResult {
+
+  // 遊戲代碼
+  string game_code = 6;
+  // 班代碼
+  string shift_code = 8;
+  // 此排班局數
+  int64 shift_round = 9;
+  // 使用靴代碼
+  string shoe_code = 10;
+  // 使用此洗牌第幾局，從1開始計算
+  int64 shoe_round = 11;
+  // 局代碼
+  string round_code = 12;
+  // 開始時間
+  google.protobuf.Timestamp ts_start = 16;
+  
+  // 座位組
+  // key: SeatCode, value: Seat
+  map<int32, Seat> seats = 24 [(tagger.tags) = "bson:\"seats,omitempty\""];
+
+  // 結束
+  bool is_end = 18;
+  // 結束時間
+  google.protobuf.Timestamp ts_end = 19 [(tagger.tags) = "bson:\"tsEnd,omitempty\"" ];
+
+  // 取消
+  optional bool cancel = 20 [(tagger.tags) = "bson:\"cancel,omitempty\""];
+  // 取消代碼：CancelReasonCode
+  optional string cancel_code = 21 [(tagger.tags) = "bson:\"cancelCode,omitempty\""];
+  // 取消備註
+  optional string cancel_message = 22 [(tagger.tags) = "bson:\"cancelMessage,omitempty\""];
+
+  // 附加媒體：key: 媒體資源代碼；value: 媒體內容。
+  map<string, string> medias = 28;
+}
+
+
 // gateway option 設定說明參照：https://github.com/googleapis/googleapis/blob/master/google/api/http.proto
 service RecorderReadService {
   
@@ -190,6 +244,14 @@ service RecorderReadService {
       get: "/v1/recorder/shoes:current"
     };
   };
+
+  // 讀取整靴局紀錄
+  rpc GetRoundsBySheo(GetRoundsBySheoRequest) returns (GetRoundsBySheoResponse){
+    option (google.api.http) = {
+      get: "/v1/recorder/shoes/{code}/rounds"
+    };
+  };
+
 
   // 讀牌局紀錄list
   rpc ListRounds(ListRecordsRequest) returns (ListRoundsRecordResponse){

@@ -588,6 +588,30 @@ paths:
           in: path
           required: true
           type: string
+  /v1/recorder/shoes/{code}/rounds:
+    get:
+      summary: 讀取整靴局紀錄
+      operationId: RecorderReadService_GetRoundsBySheo
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/recorderGetRoundsBySheoResponse'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/rpcStatus'
+      parameters:
+        - name: code
+          description: 資源代碼
+          in: path
+          required: true
+          type: string
+        - name: gameCode
+          description: 遊戲代碼
+          in: query
+          required: true
+          type: string
   /v1/recorder/shoes:current:
     get:
       summary: 讀取目前靴紀錄
@@ -1030,6 +1054,15 @@ definitions:
     title: |-
       GetRoundPlayBackResponse
       取得局回放記錄
+  recorderGetRoundsBySheoResponse:
+    type: object
+    properties:
+      roundRecords:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/recorderRoundResult'
+        title: roundResults
   recorderListDealersResponse:
     type: object
     properties:
@@ -1254,6 +1287,61 @@ definitions:
     title: |-
       RoundRecord
       局紀錄
+  recorderRoundResult:
+    type: object
+    properties:
+      gameCode:
+        type: string
+        title: 遊戲代碼
+      shiftCode:
+        type: string
+        title: 班代碼
+      shiftRound:
+        type: string
+        format: int64
+        title: 此排班局數
+      shoeCode:
+        type: string
+        title: 使用靴代碼
+      shoeRound:
+        type: string
+        format: int64
+        title: 使用此洗牌第幾局，從1開始計算
+      roundCode:
+        type: string
+        title: 局代碼
+      tsStart:
+        type: string
+        format: date-time
+        title: 開始時間
+      seats:
+        type: object
+        additionalProperties:
+          $ref: '#/definitions/recorderSeat'
+        title: |-
+          座位組
+          key: SeatCode, value: Seat
+      isEnd:
+        type: boolean
+        title: 結束
+      tsEnd:
+        type: string
+        format: date-time
+        title: 結束時間
+      cancel:
+        type: boolean
+        title: 取消
+      cancelCode:
+        type: string
+        title: 取消代碼：CancelReasonCode
+      cancelMessage:
+        type: string
+        title: 取消備註
+      medias:
+        type: object
+        additionalProperties:
+          type: string
+        title: '附加媒體：key: 媒體資源代碼；value: 媒體內容。'
   recorderRoundStatusType:
     type: integer
     format: int32

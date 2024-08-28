@@ -54,6 +54,9 @@ const (
 	// RecorderReadServiceGetCurrentShoeProcedure is the fully-qualified name of the
 	// RecorderReadService's GetCurrentShoe RPC.
 	RecorderReadServiceGetCurrentShoeProcedure = "/recorder.RecorderReadService/GetCurrentShoe"
+	// RecorderReadServiceGetRoundsBySheoProcedure is the fully-qualified name of the
+	// RecorderReadService's GetRoundsBySheo RPC.
+	RecorderReadServiceGetRoundsBySheoProcedure = "/recorder.RecorderReadService/GetRoundsBySheo"
 	// RecorderReadServiceListRoundsProcedure is the fully-qualified name of the RecorderReadService's
 	// ListRounds RPC.
 	RecorderReadServiceListRoundsProcedure = "/recorder.RecorderReadService/ListRounds"
@@ -95,6 +98,7 @@ var (
 	recorderReadServiceListShoeMethodDescriptor         = recorderReadServiceServiceDescriptor.Methods().ByName("ListShoe")
 	recorderReadServiceGetShoeMethodDescriptor          = recorderReadServiceServiceDescriptor.Methods().ByName("GetShoe")
 	recorderReadServiceGetCurrentShoeMethodDescriptor   = recorderReadServiceServiceDescriptor.Methods().ByName("GetCurrentShoe")
+	recorderReadServiceGetRoundsBySheoMethodDescriptor  = recorderReadServiceServiceDescriptor.Methods().ByName("GetRoundsBySheo")
 	recorderReadServiceListRoundsMethodDescriptor       = recorderReadServiceServiceDescriptor.Methods().ByName("ListRounds")
 	recorderReadServiceGetRoundMethodDescriptor         = recorderReadServiceServiceDescriptor.Methods().ByName("GetRound")
 	recorderReadServiceGetCurrentRoundMethodDescriptor  = recorderReadServiceServiceDescriptor.Methods().ByName("GetCurrentRound")
@@ -122,6 +126,8 @@ type RecorderReadServiceClient interface {
 	GetShoe(context.Context, *connect.Request[recorder.GetRequest]) (*connect.Response[recorder.ShoeRecord], error)
 	// 讀取目前靴紀錄
 	GetCurrentShoe(context.Context, *connect.Request[recorder.GetCurrentRecordRequest]) (*connect.Response[recorder.ShoeRecord], error)
+	// 讀取整靴局紀錄
+	GetRoundsBySheo(context.Context, *connect.Request[recorder.GetRoundsBySheoRequest]) (*connect.Response[recorder.GetRoundsBySheoResponse], error)
 	// 讀牌局紀錄list
 	ListRounds(context.Context, *connect.Request[recorder.ListRecordsRequest]) (*connect.Response[recorder.ListRoundsRecordResponse], error)
 	// 讀取指定局紀錄
@@ -177,6 +183,12 @@ func NewRecorderReadServiceClient(httpClient connect.HTTPClient, baseURL string,
 			connect.WithSchema(recorderReadServiceGetCurrentShoeMethodDescriptor),
 			connect.WithClientOptions(opts...),
 		),
+		getRoundsBySheo: connect.NewClient[recorder.GetRoundsBySheoRequest, recorder.GetRoundsBySheoResponse](
+			httpClient,
+			baseURL+RecorderReadServiceGetRoundsBySheoProcedure,
+			connect.WithSchema(recorderReadServiceGetRoundsBySheoMethodDescriptor),
+			connect.WithClientOptions(opts...),
+		),
 		listRounds: connect.NewClient[recorder.ListRecordsRequest, recorder.ListRoundsRecordResponse](
 			httpClient,
 			baseURL+RecorderReadServiceListRoundsProcedure,
@@ -212,6 +224,7 @@ type recorderReadServiceClient struct {
 	listShoe         *connect.Client[recorder.ListRecordsRequest, recorder.ListShoesRecordResponse]
 	getShoe          *connect.Client[recorder.GetRequest, recorder.ShoeRecord]
 	getCurrentShoe   *connect.Client[recorder.GetCurrentRecordRequest, recorder.ShoeRecord]
+	getRoundsBySheo  *connect.Client[recorder.GetRoundsBySheoRequest, recorder.GetRoundsBySheoResponse]
 	listRounds       *connect.Client[recorder.ListRecordsRequest, recorder.ListRoundsRecordResponse]
 	getRound         *connect.Client[recorder.GetRequest, recorder.RoundRecord]
 	getCurrentRound  *connect.Client[recorder.GetCurrentRecordRequest, recorder.RoundRecord]
@@ -248,6 +261,11 @@ func (c *recorderReadServiceClient) GetCurrentShoe(ctx context.Context, req *con
 	return c.getCurrentShoe.CallUnary(ctx, req)
 }
 
+// GetRoundsBySheo calls recorder.RecorderReadService.GetRoundsBySheo.
+func (c *recorderReadServiceClient) GetRoundsBySheo(ctx context.Context, req *connect.Request[recorder.GetRoundsBySheoRequest]) (*connect.Response[recorder.GetRoundsBySheoResponse], error) {
+	return c.getRoundsBySheo.CallUnary(ctx, req)
+}
+
 // ListRounds calls recorder.RecorderReadService.ListRounds.
 func (c *recorderReadServiceClient) ListRounds(ctx context.Context, req *connect.Request[recorder.ListRecordsRequest]) (*connect.Response[recorder.ListRoundsRecordResponse], error) {
 	return c.listRounds.CallUnary(ctx, req)
@@ -282,6 +300,8 @@ type RecorderReadServiceHandler interface {
 	GetShoe(context.Context, *connect.Request[recorder.GetRequest]) (*connect.Response[recorder.ShoeRecord], error)
 	// 讀取目前靴紀錄
 	GetCurrentShoe(context.Context, *connect.Request[recorder.GetCurrentRecordRequest]) (*connect.Response[recorder.ShoeRecord], error)
+	// 讀取整靴局紀錄
+	GetRoundsBySheo(context.Context, *connect.Request[recorder.GetRoundsBySheoRequest]) (*connect.Response[recorder.GetRoundsBySheoResponse], error)
 	// 讀牌局紀錄list
 	ListRounds(context.Context, *connect.Request[recorder.ListRecordsRequest]) (*connect.Response[recorder.ListRoundsRecordResponse], error)
 	// 讀取指定局紀錄
@@ -333,6 +353,12 @@ func NewRecorderReadServiceHandler(svc RecorderReadServiceHandler, opts ...conne
 		connect.WithSchema(recorderReadServiceGetCurrentShoeMethodDescriptor),
 		connect.WithHandlerOptions(opts...),
 	)
+	recorderReadServiceGetRoundsBySheoHandler := connect.NewUnaryHandler(
+		RecorderReadServiceGetRoundsBySheoProcedure,
+		svc.GetRoundsBySheo,
+		connect.WithSchema(recorderReadServiceGetRoundsBySheoMethodDescriptor),
+		connect.WithHandlerOptions(opts...),
+	)
 	recorderReadServiceListRoundsHandler := connect.NewUnaryHandler(
 		RecorderReadServiceListRoundsProcedure,
 		svc.ListRounds,
@@ -371,6 +397,8 @@ func NewRecorderReadServiceHandler(svc RecorderReadServiceHandler, opts ...conne
 			recorderReadServiceGetShoeHandler.ServeHTTP(w, r)
 		case RecorderReadServiceGetCurrentShoeProcedure:
 			recorderReadServiceGetCurrentShoeHandler.ServeHTTP(w, r)
+		case RecorderReadServiceGetRoundsBySheoProcedure:
+			recorderReadServiceGetRoundsBySheoHandler.ServeHTTP(w, r)
 		case RecorderReadServiceListRoundsProcedure:
 			recorderReadServiceListRoundsHandler.ServeHTTP(w, r)
 		case RecorderReadServiceGetRoundProcedure:
@@ -410,6 +438,10 @@ func (UnimplementedRecorderReadServiceHandler) GetShoe(context.Context, *connect
 
 func (UnimplementedRecorderReadServiceHandler) GetCurrentShoe(context.Context, *connect.Request[recorder.GetCurrentRecordRequest]) (*connect.Response[recorder.ShoeRecord], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("recorder.RecorderReadService.GetCurrentShoe is not implemented"))
+}
+
+func (UnimplementedRecorderReadServiceHandler) GetRoundsBySheo(context.Context, *connect.Request[recorder.GetRoundsBySheoRequest]) (*connect.Response[recorder.GetRoundsBySheoResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("recorder.RecorderReadService.GetRoundsBySheo is not implemented"))
 }
 
 func (UnimplementedRecorderReadServiceHandler) ListRounds(context.Context, *connect.Request[recorder.ListRecordsRequest]) (*connect.Response[recorder.ListRoundsRecordResponse], error) {

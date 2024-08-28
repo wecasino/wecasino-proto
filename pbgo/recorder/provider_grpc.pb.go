@@ -26,6 +26,7 @@ const (
 	RecorderReadService_ListShoe_FullMethodName         = "/recorder.RecorderReadService/ListShoe"
 	RecorderReadService_GetShoe_FullMethodName          = "/recorder.RecorderReadService/GetShoe"
 	RecorderReadService_GetCurrentShoe_FullMethodName   = "/recorder.RecorderReadService/GetCurrentShoe"
+	RecorderReadService_GetRoundsBySheo_FullMethodName  = "/recorder.RecorderReadService/GetRoundsBySheo"
 	RecorderReadService_ListRounds_FullMethodName       = "/recorder.RecorderReadService/ListRounds"
 	RecorderReadService_GetRound_FullMethodName         = "/recorder.RecorderReadService/GetRound"
 	RecorderReadService_GetCurrentRound_FullMethodName  = "/recorder.RecorderReadService/GetCurrentRound"
@@ -50,6 +51,8 @@ type RecorderReadServiceClient interface {
 	GetShoe(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*ShoeRecord, error)
 	// 讀取目前靴紀錄
 	GetCurrentShoe(ctx context.Context, in *GetCurrentRecordRequest, opts ...grpc.CallOption) (*ShoeRecord, error)
+	// 讀取整靴局紀錄
+	GetRoundsBySheo(ctx context.Context, in *GetRoundsBySheoRequest, opts ...grpc.CallOption) (*GetRoundsBySheoResponse, error)
 	// 讀牌局紀錄list
 	ListRounds(ctx context.Context, in *ListRecordsRequest, opts ...grpc.CallOption) (*ListRoundsRecordResponse, error)
 	// 讀取指定局紀錄
@@ -127,6 +130,16 @@ func (c *recorderReadServiceClient) GetCurrentShoe(ctx context.Context, in *GetC
 	return out, nil
 }
 
+func (c *recorderReadServiceClient) GetRoundsBySheo(ctx context.Context, in *GetRoundsBySheoRequest, opts ...grpc.CallOption) (*GetRoundsBySheoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRoundsBySheoResponse)
+	err := c.cc.Invoke(ctx, RecorderReadService_GetRoundsBySheo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *recorderReadServiceClient) ListRounds(ctx context.Context, in *ListRecordsRequest, opts ...grpc.CallOption) (*ListRoundsRecordResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ListRoundsRecordResponse)
@@ -185,6 +198,8 @@ type RecorderReadServiceServer interface {
 	GetShoe(context.Context, *GetRequest) (*ShoeRecord, error)
 	// 讀取目前靴紀錄
 	GetCurrentShoe(context.Context, *GetCurrentRecordRequest) (*ShoeRecord, error)
+	// 讀取整靴局紀錄
+	GetRoundsBySheo(context.Context, *GetRoundsBySheoRequest) (*GetRoundsBySheoResponse, error)
 	// 讀牌局紀錄list
 	ListRounds(context.Context, *ListRecordsRequest) (*ListRoundsRecordResponse, error)
 	// 讀取指定局紀錄
@@ -219,6 +234,9 @@ func (UnimplementedRecorderReadServiceServer) GetShoe(context.Context, *GetReque
 }
 func (UnimplementedRecorderReadServiceServer) GetCurrentShoe(context.Context, *GetCurrentRecordRequest) (*ShoeRecord, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetCurrentShoe not implemented")
+}
+func (UnimplementedRecorderReadServiceServer) GetRoundsBySheo(context.Context, *GetRoundsBySheoRequest) (*GetRoundsBySheoResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetRoundsBySheo not implemented")
 }
 func (UnimplementedRecorderReadServiceServer) ListRounds(context.Context, *ListRecordsRequest) (*ListRoundsRecordResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListRounds not implemented")
@@ -361,6 +379,24 @@ func _RecorderReadService_GetCurrentShoe_Handler(srv interface{}, ctx context.Co
 	return interceptor(ctx, in, info, handler)
 }
 
+func _RecorderReadService_GetRoundsBySheo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRoundsBySheoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecorderReadServiceServer).GetRoundsBySheo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecorderReadService_GetRoundsBySheo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecorderReadServiceServer).GetRoundsBySheo(ctx, req.(*GetRoundsBySheoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _RecorderReadService_ListRounds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ListRecordsRequest)
 	if err := dec(in); err != nil {
@@ -463,6 +499,10 @@ var RecorderReadService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetCurrentShoe",
 			Handler:    _RecorderReadService_GetCurrentShoe_Handler,
+		},
+		{
+			MethodName: "GetRoundsBySheo",
+			Handler:    _RecorderReadService_GetRoundsBySheo_Handler,
 		},
 		{
 			MethodName: "ListRounds",
