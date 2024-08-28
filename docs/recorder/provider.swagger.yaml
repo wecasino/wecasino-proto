@@ -2,6 +2,7 @@ swagger: "2.0"
 info:
   title: recorder/provider.proto
   version: version not set
+  host: gateway.beta.wecasino.live
 consumes:
   - application/json
 produces:
@@ -1599,3 +1600,10 @@ definitions:
         items:
           type: object
           $ref: '#/definitions/protobufAny'
+securityDefinitions:
+  ApiKeyAuth:
+    type: apiKey
+    name: X-API-Key
+    in: header
+security:
+  - ApiKeyAuth: []
