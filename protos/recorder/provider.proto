@@ -27,10 +27,10 @@ message GetRequest {
  
 }
 
-message GetRoundsBySheoRequest {
+message GetRoundsByShoeRequest {
 
   // 資源代碼
-  string sheo_code = 1 [(google.api.field_behavior) = REQUIRED];
+  string shoe_code = 1 [(google.api.field_behavior) = REQUIRED];
  
   // 遊戲代碼
   string game_code = 2 [(google.api.field_behavior) = REQUIRED];
@@ -157,7 +157,7 @@ message GetRoundPlayBackResponse {
 }
 
 
-message GetRoundsBySheoResponse {
+message GetRoundsByShoeResponse {
   // roundResults
   repeated RoundResult round_records = 1;
 }
@@ -246,9 +246,9 @@ service RecorderReadService {
   };
 
   // 讀取整靴局紀錄
-  rpc GetRoundsBySheo(GetRoundsBySheoRequest) returns (GetRoundsBySheoResponse){
+  rpc GetRoundsByShoe(GetRoundsByShoeRequest) returns (GetRoundsByShoeResponse){
     option (google.api.http) = {
-      get: "/v1/recorder/shoes/{sheo_code}/rounds"
+      get: "/v1/recorder/shoes/{shoe_code}/rounds"
     };
   };
 

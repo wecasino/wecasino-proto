@@ -319,19 +319,19 @@ func (x *GetRequest) GetCode() string {
 	return ""
 }
 
-type GetRoundsBySheoRequest struct {
+type GetRoundsByShoeRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
 	// 資源代碼
-	SheoCode string `protobuf:"bytes,1,opt,name=sheo_code,json=sheoCode,proto3" json:"sheoCode" yaml:"sheoCode" bson:"sheoCode"`
+	ShoeCode string `protobuf:"bytes,1,opt,name=shoe_code,json=shoeCode,proto3" json:"shoeCode" bson:"shoeCode" yaml:"shoeCode"`
 	// 遊戲代碼
-	GameCode string `protobuf:"bytes,2,opt,name=game_code,json=gameCode,proto3" json:"gameCode" bson:"gameCode" yaml:"gameCode"`
+	GameCode string `protobuf:"bytes,2,opt,name=game_code,json=gameCode,proto3" json:"gameCode" yaml:"gameCode" bson:"gameCode"`
 }
 
-func (x *GetRoundsBySheoRequest) Reset() {
-	*x = GetRoundsBySheoRequest{}
+func (x *GetRoundsByShoeRequest) Reset() {
+	*x = GetRoundsByShoeRequest{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_recorder_provider_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -339,13 +339,13 @@ func (x *GetRoundsBySheoRequest) Reset() {
 	}
 }
 
-func (x *GetRoundsBySheoRequest) String() string {
+func (x *GetRoundsByShoeRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetRoundsBySheoRequest) ProtoMessage() {}
+func (*GetRoundsByShoeRequest) ProtoMessage() {}
 
-func (x *GetRoundsBySheoRequest) ProtoReflect() protoreflect.Message {
+func (x *GetRoundsByShoeRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_recorder_provider_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -357,19 +357,19 @@ func (x *GetRoundsBySheoRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetRoundsBySheoRequest.ProtoReflect.Descriptor instead.
-func (*GetRoundsBySheoRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetRoundsByShoeRequest.ProtoReflect.Descriptor instead.
+func (*GetRoundsByShoeRequest) Descriptor() ([]byte, []int) {
 	return file_recorder_provider_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *GetRoundsBySheoRequest) GetSheoCode() string {
+func (x *GetRoundsByShoeRequest) GetShoeCode() string {
 	if x != nil {
-		return x.SheoCode
+		return x.ShoeCode
 	}
 	return ""
 }
 
-func (x *GetRoundsBySheoRequest) GetGameCode() string {
+func (x *GetRoundsByShoeRequest) GetGameCode() string {
 	if x != nil {
 		return x.GameCode
 	}
@@ -490,7 +490,7 @@ type ListRecordsRequest struct {
 	// 查詢終時
 	TsTo *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=ts_to,json=tsTo,proto3" json:"tsTo" bson:"tsTo" yaml:"tsTo"`
 	// 遊戲類型
-	GameType *games.GameType `protobuf:"varint,3,opt,name=game_type,json=gameType,proto3,enum=games.GameType,oneof" json:"gameType" bson:"gameType" yaml:"gameType"`
+	GameType *games.GameType `protobuf:"varint,3,opt,name=game_type,json=gameType,proto3,enum=games.GameType,oneof" json:"gameType" yaml:"gameType" bson:"gameType"`
 	// 遊戲子類型
 	GameSubtype *int32 `protobuf:"varint,4,opt,name=game_subtype,json=gameSubtype,proto3,oneof" json:"gameSubtype" bson:"gameSubtype" yaml:"gameSubtype"`
 	// 遊戲供應
@@ -779,13 +779,13 @@ type ListRoundsRecordResponse struct {
 	unknownFields protoimpl.UnknownFields
 
 	// rounds
-	RoundRecord []*RoundRecord `protobuf:"bytes,1,rep,name=round_record,json=roundRecord,proto3" json:"roundRecord" yaml:"roundRecord" bson:"roundRecord"`
+	RoundRecord []*RoundRecord `protobuf:"bytes,1,rep,name=round_record,json=roundRecord,proto3" json:"roundRecord" bson:"roundRecord" yaml:"roundRecord"`
 	// 總數
-	Total int64 `protobuf:"varint,2,opt,name=total,proto3" json:"total" yaml:"total" bson:"total"`
+	Total int64 `protobuf:"varint,2,opt,name=total,proto3" json:"total" bson:"total" yaml:"total"`
 	// pagination next page
-	SearchAfter string `protobuf:"bytes,8,opt,name=search_after,json=searchAfter,proto3" json:"searchAfter" bson:"searchAfter" yaml:"searchAfter"`
+	SearchAfter string `protobuf:"bytes,8,opt,name=search_after,json=searchAfter,proto3" json:"searchAfter" yaml:"searchAfter" bson:"searchAfter"`
 	// pagination previous page
-	SearchBefore string `protobuf:"bytes,9,opt,name=search_before,json=searchBefore,proto3" json:"searchBefore" yaml:"searchBefore" bson:"searchBefore"`
+	SearchBefore string `protobuf:"bytes,9,opt,name=search_before,json=searchBefore,proto3" json:"searchBefore" bson:"searchBefore" yaml:"searchBefore"`
 }
 
 func (x *ListRoundsRecordResponse) Reset() {
@@ -856,7 +856,7 @@ type GetRoundPlayBackResponse struct {
 	unknownFields protoimpl.UnknownFields
 
 	// round code
-	RoundCode string `protobuf:"bytes,1,opt,name=round_code,json=roundCode,proto3" json:"roundCode" bson:"roundCode" yaml:"roundCode"`
+	RoundCode string `protobuf:"bytes,1,opt,name=round_code,json=roundCode,proto3" json:"roundCode" yaml:"roundCode" bson:"roundCode"`
 	// 開始時間
 	TsStart *timestamppb.Timestamp `protobuf:"bytes,16,opt,name=ts_start,json=tsStart,proto3" json:"tsStart" bson:"tsStart" yaml:"tsStart"`
 	// 回放url
@@ -916,7 +916,7 @@ func (x *GetRoundPlayBackResponse) GetMedias() map[string]string {
 	return nil
 }
 
-type GetRoundsBySheoResponse struct {
+type GetRoundsByShoeResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -925,8 +925,8 @@ type GetRoundsBySheoResponse struct {
 	RoundRecords []*RoundResult `protobuf:"bytes,1,rep,name=round_records,json=roundRecords,proto3" json:"roundRecords" bson:"roundRecords" yaml:"roundRecords"`
 }
 
-func (x *GetRoundsBySheoResponse) Reset() {
-	*x = GetRoundsBySheoResponse{}
+func (x *GetRoundsByShoeResponse) Reset() {
+	*x = GetRoundsByShoeResponse{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_recorder_provider_proto_msgTypes[9]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -934,13 +934,13 @@ func (x *GetRoundsBySheoResponse) Reset() {
 	}
 }
 
-func (x *GetRoundsBySheoResponse) String() string {
+func (x *GetRoundsByShoeResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetRoundsBySheoResponse) ProtoMessage() {}
+func (*GetRoundsByShoeResponse) ProtoMessage() {}
 
-func (x *GetRoundsBySheoResponse) ProtoReflect() protoreflect.Message {
+func (x *GetRoundsByShoeResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_recorder_provider_proto_msgTypes[9]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -952,12 +952,12 @@ func (x *GetRoundsBySheoResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetRoundsBySheoResponse.ProtoReflect.Descriptor instead.
-func (*GetRoundsBySheoResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetRoundsByShoeResponse.ProtoReflect.Descriptor instead.
+func (*GetRoundsByShoeResponse) Descriptor() ([]byte, []int) {
 	return file_recorder_provider_proto_rawDescGZIP(), []int{9}
 }
 
-func (x *GetRoundsBySheoResponse) GetRoundRecords() []*RoundResult {
+func (x *GetRoundsByShoeResponse) GetRoundRecords() []*RoundResult {
 	if x != nil {
 		return x.RoundRecords
 	}
@@ -978,11 +978,11 @@ type RoundResult struct {
 	// 使用靴代碼
 	ShoeCode string `protobuf:"bytes,10,opt,name=shoe_code,json=shoeCode,proto3" json:"shoeCode" bson:"shoeCode" yaml:"shoeCode"`
 	// 使用此洗牌第幾局，從1開始計算
-	ShoeRound int64 `protobuf:"varint,11,opt,name=shoe_round,json=shoeRound,proto3" json:"shoeRound" yaml:"shoeRound" bson:"shoeRound"`
+	ShoeRound int64 `protobuf:"varint,11,opt,name=shoe_round,json=shoeRound,proto3" json:"shoeRound" bson:"shoeRound" yaml:"shoeRound"`
 	// 局代碼
-	RoundCode string `protobuf:"bytes,12,opt,name=round_code,json=roundCode,proto3" json:"roundCode" yaml:"roundCode" bson:"roundCode"`
+	RoundCode string `protobuf:"bytes,12,opt,name=round_code,json=roundCode,proto3" json:"roundCode" bson:"roundCode" yaml:"roundCode"`
 	// 開始時間
-	TsStart *timestamppb.Timestamp `protobuf:"bytes,16,opt,name=ts_start,json=tsStart,proto3" json:"tsStart" bson:"tsStart" yaml:"tsStart"`
+	TsStart *timestamppb.Timestamp `protobuf:"bytes,16,opt,name=ts_start,json=tsStart,proto3" json:"tsStart" yaml:"tsStart" bson:"tsStart"`
 	// 座位組
 	// key: SeatCode, value: Seat
 	Seats map[int32]*Seat `protobuf:"bytes,24,rep,name=seats,proto3" json:"seats" protobuf_key:"varint,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3" bson:"seats,omitempty" yaml:"seats"`
@@ -1214,7 +1214,7 @@ type GameProvide struct {
 	// 遊戲代碼
 	GameCode string `protobuf:"bytes,6,opt,name=game_code,json=gameCode,proto3" json:"gameCode" bson:"gameCode" yaml:"gameCode"`
 	// 標籤
-	Tags map[string]string `protobuf:"bytes,13,rep,name=tags,proto3" json:"tags" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3" bson:"tags" yaml:"tags"`
+	Tags map[string]string `protobuf:"bytes,13,rep,name=tags,proto3" json:"tags" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3" yaml:"tags" bson:"tags"`
 	// 狀態
 	State GameProvideState `protobuf:"varint,17,opt,name=state,proto3,enum=recorder.GameProvideState" json:"state" bson:"state" yaml:"state"`
 	// 玩家入座
@@ -1224,7 +1224,7 @@ type GameProvide struct {
 	// 附加媒體：key: 媒體資源代碼；value: 媒體內容。
 	Medias map[string]string `protobuf:"bytes,28,rep,name=medias,proto3" json:"medias" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3" bson:"medias" yaml:"medias"`
 	// 直播參數
-	LiveStreams map[string]*LiveStreamParams `protobuf:"bytes,29,rep,name=live_streams,json=liveStreams,proto3" json:"liveStreams" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3" bson:"liveStreams" yaml:"liveStreams"`
+	LiveStreams map[string]*LiveStreamParams `protobuf:"bytes,29,rep,name=live_streams,json=liveStreams,proto3" json:"liveStreams" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3" yaml:"liveStreams" bson:"liveStreams"`
 	// 最後一局
 	LastRoundCode string `protobuf:"bytes,12,opt,name=last_round_code,json=lastRoundCode,proto3" json:"lastRoundCode" bson:"lastRoundCode" yaml:"lastRoundCode"`
 }
@@ -1505,7 +1505,7 @@ type GamblerInstructionsRequest struct {
 	// 玩家帳號
 	Player string `protobuf:"bytes,2,opt,name=player,proto3" json:"player" bson:"player" yaml:"player"`
 	// 指示傳送接收的代碼  position card
-	Instructions map[string]string `protobuf:"bytes,3,rep,name=instructions,proto3" json:"instructions" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3" yaml:"instructions" bson:"instructions"`
+	Instructions map[string]string `protobuf:"bytes,3,rep,name=instructions,proto3" json:"instructions" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3" bson:"instructions" yaml:"instructions"`
 }
 
 func (x *GamblerInstructionsRequest) Reset() {
@@ -1575,7 +1575,7 @@ type Article struct {
 	// 內文
 	Text string `protobuf:"bytes,3,opt,name=text,proto3" json:"text" bson:"text" yaml:"text"`
 	// 附加媒體：key: 媒體資源代碼；value: 媒體內容。
-	Medias map[string]string `protobuf:"bytes,4,rep,name=medias,proto3" json:"medias" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3" yaml:"medias" bson:"medias"`
+	Medias map[string]string `protobuf:"bytes,4,rep,name=medias,proto3" json:"medias" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3" bson:"medias" yaml:"medias"`
 	// 子文檔
 	Sections map[string]*Article `protobuf:"bytes,5,rep,name=sections,proto3" json:"sections" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3" bson:"sections" yaml:"sections"`
 }
@@ -1655,11 +1655,11 @@ type Dealer struct {
 	unknownFields protoimpl.UnknownFields
 
 	// 代碼
-	Code string `protobuf:"bytes,1,opt,name=code,proto3" json:"code" yaml:"code" bson:"code"`
+	Code string `protobuf:"bytes,1,opt,name=code,proto3" json:"code" bson:"code" yaml:"code"`
 	// 名稱
 	Name string `protobuf:"bytes,2,opt,name=name,proto3" json:"name" bson:"name" yaml:"name"`
 	// 年齡
-	Age string `protobuf:"bytes,3,opt,name=age,proto3" json:"age" yaml:"age" bson:"age"`
+	Age string `protobuf:"bytes,3,opt,name=age,proto3" json:"age" bson:"age" yaml:"age"`
 	// Tags
 	Tags map[string]string `protobuf:"bytes,4,rep,name=tags,proto3" json:"tags" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3" yaml:"tags" bson:"tags"`
 	// 介紹
@@ -1748,7 +1748,7 @@ type ListDealersRequest struct {
 	unknownFields protoimpl.UnknownFields
 
 	// 代碼陣列
-	Codes []string `protobuf:"bytes,1,rep,name=codes,proto3" json:"codes" bson:"codes" yaml:"codes"`
+	Codes []string `protobuf:"bytes,1,rep,name=codes,proto3" json:"codes" yaml:"codes" bson:"codes"`
 	// 開始
 	Skip int64 `protobuf:"varint,2,opt,name=skip,proto3" json:"skip" bson:"skip" yaml:"skip"`
 	// 筆數 預設 100
@@ -1816,7 +1816,7 @@ type ListDealersResponse struct {
 	unknownFields protoimpl.UnknownFields
 
 	// 荷官資料
-	Dealers []*Dealer `protobuf:"bytes,1,rep,name=dealers,proto3" json:"dealers" yaml:"dealers" bson:"dealers"`
+	Dealers []*Dealer `protobuf:"bytes,1,rep,name=dealers,proto3" json:"dealers" bson:"dealers" yaml:"dealers"`
 }
 
 func (x *ListDealersResponse) Reset() {
@@ -1878,9 +1878,9 @@ var file_recorder_provider_proto_rawDesc = []byte{
 	0x25, 0x0a, 0x0a, 0x47, 0x65, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x17, 0x0a,
 	0x04, 0x63, 0x6f, 0x64, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x42, 0x03, 0xe0, 0x41, 0x02,
 	0x52, 0x04, 0x63, 0x6f, 0x64, 0x65, 0x22, 0x5c, 0x0a, 0x16, 0x47, 0x65, 0x74, 0x52, 0x6f, 0x75,
-	0x6e, 0x64, 0x73, 0x42, 0x79, 0x53, 0x68, 0x65, 0x6f, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
-	0x12, 0x20, 0x0a, 0x09, 0x73, 0x68, 0x65, 0x6f, 0x5f, 0x63, 0x6f, 0x64, 0x65, 0x18, 0x01, 0x20,
-	0x01, 0x28, 0x09, 0x42, 0x03, 0xe0, 0x41, 0x02, 0x52, 0x08, 0x73, 0x68, 0x65, 0x6f, 0x43, 0x6f,
+	0x6e, 0x64, 0x73, 0x42, 0x79, 0x53, 0x68, 0x6f, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
+	0x12, 0x20, 0x0a, 0x09, 0x73, 0x68, 0x6f, 0x65, 0x5f, 0x63, 0x6f, 0x64, 0x65, 0x18, 0x01, 0x20,
+	0x01, 0x28, 0x09, 0x42, 0x03, 0xe0, 0x41, 0x02, 0x52, 0x08, 0x73, 0x68, 0x6f, 0x65, 0x43, 0x6f,
 	0x64, 0x65, 0x12, 0x20, 0x0a, 0x09, 0x67, 0x61, 0x6d, 0x65, 0x5f, 0x63, 0x6f, 0x64, 0x65, 0x18,
 	0x02, 0x20, 0x01, 0x28, 0x09, 0x42, 0x03, 0xe0, 0x41, 0x02, 0x52, 0x08, 0x67, 0x61, 0x6d, 0x65,
 	0x43, 0x6f, 0x64, 0x65, 0x22, 0x3b, 0x0a, 0x17, 0x47, 0x65, 0x74, 0x43, 0x75, 0x72, 0x72, 0x65,
@@ -1978,7 +1978,7 @@ var file_recorder_provider_proto_rawDesc = []byte{
 	0x28, 0x09, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x12, 0x14, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
 	0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x3a, 0x02, 0x38,
 	0x01, 0x22, 0x55, 0x0a, 0x17, 0x47, 0x65, 0x74, 0x52, 0x6f, 0x75, 0x6e, 0x64, 0x73, 0x42, 0x79,
-	0x53, 0x68, 0x65, 0x6f, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x3a, 0x0a, 0x0d,
+	0x53, 0x68, 0x6f, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x3a, 0x0a, 0x0d,
 	0x72, 0x6f, 0x75, 0x6e, 0x64, 0x5f, 0x72, 0x65, 0x63, 0x6f, 0x72, 0x64, 0x73, 0x18, 0x01, 0x20,
 	0x03, 0x28, 0x0b, 0x32, 0x15, 0x2e, 0x72, 0x65, 0x63, 0x6f, 0x72, 0x64, 0x65, 0x72, 0x2e, 0x52,
 	0x6f, 0x75, 0x6e, 0x64, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x52, 0x0c, 0x72, 0x6f, 0x75, 0x6e,
@@ -2275,14 +2275,14 @@ var file_recorder_provider_proto_rawDesc = []byte{
 	0x65, 0x63, 0x6f, 0x72, 0x64, 0x22, 0x22, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x1c, 0x12, 0x1a, 0x2f,
 	0x76, 0x31, 0x2f, 0x72, 0x65, 0x63, 0x6f, 0x72, 0x64, 0x65, 0x72, 0x2f, 0x73, 0x68, 0x6f, 0x65,
 	0x73, 0x3a, 0x63, 0x75, 0x72, 0x72, 0x65, 0x6e, 0x74, 0x12, 0x85, 0x01, 0x0a, 0x0f, 0x47, 0x65,
-	0x74, 0x52, 0x6f, 0x75, 0x6e, 0x64, 0x73, 0x42, 0x79, 0x53, 0x68, 0x65, 0x6f, 0x12, 0x20, 0x2e,
+	0x74, 0x52, 0x6f, 0x75, 0x6e, 0x64, 0x73, 0x42, 0x79, 0x53, 0x68, 0x6f, 0x65, 0x12, 0x20, 0x2e,
 	0x72, 0x65, 0x63, 0x6f, 0x72, 0x64, 0x65, 0x72, 0x2e, 0x47, 0x65, 0x74, 0x52, 0x6f, 0x75, 0x6e,
-	0x64, 0x73, 0x42, 0x79, 0x53, 0x68, 0x65, 0x6f, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a,
+	0x64, 0x73, 0x42, 0x79, 0x53, 0x68, 0x6f, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a,
 	0x21, 0x2e, 0x72, 0x65, 0x63, 0x6f, 0x72, 0x64, 0x65, 0x72, 0x2e, 0x47, 0x65, 0x74, 0x52, 0x6f,
-	0x75, 0x6e, 0x64, 0x73, 0x42, 0x79, 0x53, 0x68, 0x65, 0x6f, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
+	0x75, 0x6e, 0x64, 0x73, 0x42, 0x79, 0x53, 0x68, 0x6f, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
 	0x73, 0x65, 0x22, 0x2d, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x27, 0x12, 0x25, 0x2f, 0x76, 0x31, 0x2f,
 	0x72, 0x65, 0x63, 0x6f, 0x72, 0x64, 0x65, 0x72, 0x2f, 0x73, 0x68, 0x6f, 0x65, 0x73, 0x2f, 0x7b,
-	0x73, 0x68, 0x65, 0x6f, 0x5f, 0x63, 0x6f, 0x64, 0x65, 0x7d, 0x2f, 0x72, 0x6f, 0x75, 0x6e, 0x64,
+	0x73, 0x68, 0x6f, 0x65, 0x5f, 0x63, 0x6f, 0x64, 0x65, 0x7d, 0x2f, 0x72, 0x6f, 0x75, 0x6e, 0x64,
 	0x73, 0x12, 0x6b, 0x0a, 0x0a, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x6f, 0x75, 0x6e, 0x64, 0x73, 0x12,
 	0x1c, 0x2e, 0x72, 0x65, 0x63, 0x6f, 0x72, 0x64, 0x65, 0x72, 0x2e, 0x4c, 0x69, 0x73, 0x74, 0x52,
 	0x65, 0x63, 0x6f, 0x72, 0x64, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x22, 0x2e,
@@ -2384,7 +2384,7 @@ var file_recorder_provider_proto_goTypes = []any{
 	(GameNotifyType)(0),                // 1: recorder.GameNotifyType
 	(GameProvideState)(0),              // 2: recorder.GameProvideState
 	(*GetRequest)(nil),                 // 3: recorder.GetRequest
-	(*GetRoundsBySheoRequest)(nil),     // 4: recorder.GetRoundsBySheoRequest
+	(*GetRoundsByShoeRequest)(nil),     // 4: recorder.GetRoundsByShoeRequest
 	(*GetCurrentRecordRequest)(nil),    // 5: recorder.GetCurrentRecordRequest
 	(*GetRoundPlayBackRequest)(nil),    // 6: recorder.GetRoundPlayBackRequest
 	(*ListRecordsRequest)(nil),         // 7: recorder.ListRecordsRequest
@@ -2392,7 +2392,7 @@ var file_recorder_provider_proto_goTypes = []any{
 	(*ListShoesRecordResponse)(nil),    // 9: recorder.ListShoesRecordResponse
 	(*ListRoundsRecordResponse)(nil),   // 10: recorder.ListRoundsRecordResponse
 	(*GetRoundPlayBackResponse)(nil),   // 11: recorder.GetRoundPlayBackResponse
-	(*GetRoundsBySheoResponse)(nil),    // 12: recorder.GetRoundsBySheoResponse
+	(*GetRoundsByShoeResponse)(nil),    // 12: recorder.GetRoundsByShoeResponse
 	(*RoundResult)(nil),                // 13: recorder.RoundResult
 	(*LiveStreamParams)(nil),           // 14: recorder.LiveStreamParams
 	(*GameProvide)(nil),                // 15: recorder.GameProvide
@@ -2434,7 +2434,7 @@ var file_recorder_provider_proto_depIdxs = []int32{
 	40, // 6: recorder.ListRoundsRecordResponse.round_record:type_name -> recorder.RoundRecord
 	36, // 7: recorder.GetRoundPlayBackResponse.ts_start:type_name -> google.protobuf.Timestamp
 	24, // 8: recorder.GetRoundPlayBackResponse.medias:type_name -> recorder.GetRoundPlayBackResponse.MediasEntry
-	13, // 9: recorder.GetRoundsBySheoResponse.round_records:type_name -> recorder.RoundResult
+	13, // 9: recorder.GetRoundsByShoeResponse.round_records:type_name -> recorder.RoundResult
 	36, // 10: recorder.RoundResult.ts_start:type_name -> google.protobuf.Timestamp
 	25, // 11: recorder.RoundResult.seats:type_name -> recorder.RoundResult.SeatsEntry
 	36, // 12: recorder.RoundResult.ts_end:type_name -> google.protobuf.Timestamp
@@ -2462,7 +2462,7 @@ var file_recorder_provider_proto_depIdxs = []int32{
 	7,  // 34: recorder.RecorderReadService.ListShoe:input_type -> recorder.ListRecordsRequest
 	3,  // 35: recorder.RecorderReadService.GetShoe:input_type -> recorder.GetRequest
 	5,  // 36: recorder.RecorderReadService.GetCurrentShoe:input_type -> recorder.GetCurrentRecordRequest
-	4,  // 37: recorder.RecorderReadService.GetRoundsBySheo:input_type -> recorder.GetRoundsBySheoRequest
+	4,  // 37: recorder.RecorderReadService.GetRoundsByShoe:input_type -> recorder.GetRoundsByShoeRequest
 	7,  // 38: recorder.RecorderReadService.ListRounds:input_type -> recorder.ListRecordsRequest
 	3,  // 39: recorder.RecorderReadService.GetRound:input_type -> recorder.GetRequest
 	5,  // 40: recorder.RecorderReadService.GetCurrentRound:input_type -> recorder.GetCurrentRecordRequest
@@ -2479,7 +2479,7 @@ var file_recorder_provider_proto_depIdxs = []int32{
 	9,  // 51: recorder.RecorderReadService.ListShoe:output_type -> recorder.ListShoesRecordResponse
 	39, // 52: recorder.RecorderReadService.GetShoe:output_type -> recorder.ShoeRecord
 	39, // 53: recorder.RecorderReadService.GetCurrentShoe:output_type -> recorder.ShoeRecord
-	12, // 54: recorder.RecorderReadService.GetRoundsBySheo:output_type -> recorder.GetRoundsBySheoResponse
+	12, // 54: recorder.RecorderReadService.GetRoundsByShoe:output_type -> recorder.GetRoundsByShoeResponse
 	10, // 55: recorder.RecorderReadService.ListRounds:output_type -> recorder.ListRoundsRecordResponse
 	40, // 56: recorder.RecorderReadService.GetRound:output_type -> recorder.RoundRecord
 	40, // 57: recorder.RecorderReadService.GetCurrentRound:output_type -> recorder.RoundRecord
@@ -2517,7 +2517,7 @@ func file_recorder_provider_proto_init() {
 			}
 		}
 		file_recorder_provider_proto_msgTypes[1].Exporter = func(v any, i int) any {
-			switch v := v.(*GetRoundsBySheoRequest); i {
+			switch v := v.(*GetRoundsByShoeRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2613,7 +2613,7 @@ func file_recorder_provider_proto_init() {
 			}
 		}
 		file_recorder_provider_proto_msgTypes[9].Exporter = func(v any, i int) any {
-			switch v := v.(*GetRoundsBySheoResponse); i {
+			switch v := v.(*GetRoundsByShoeResponse); i {
 			case 0:
 				return &v.state
 			case 1:

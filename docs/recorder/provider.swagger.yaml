@@ -588,21 +588,21 @@ paths:
           in: path
           required: true
           type: string
-  /v1/recorder/shoes/{sheoCode}/rounds:
+  /v1/recorder/shoes/{shoeCode}/rounds:
     get:
       summary: 讀取整靴局紀錄
-      operationId: RecorderReadService_GetRoundsBySheo
+      operationId: RecorderReadService_GetRoundsByShoe
       responses:
         "200":
           description: A successful response.
           schema:
-            $ref: '#/definitions/recorderGetRoundsBySheoResponse'
+            $ref: '#/definitions/recorderGetRoundsByShoeResponse'
         default:
           description: An unexpected error response.
           schema:
             $ref: '#/definitions/rpcStatus'
       parameters:
-        - name: sheoCode
+        - name: shoeCode
           description: 資源代碼
           in: path
           required: true
@@ -1054,7 +1054,7 @@ definitions:
     title: |-
       GetRoundPlayBackResponse
       取得局回放記錄
-  recorderGetRoundsBySheoResponse:
+  recorderGetRoundsByShoeResponse:
     type: object
     properties:
       roundRecords:

@@ -21,10 +21,10 @@ public final class ProviderProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_recorder_GetRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_recorder_GetRoundsBySheoRequest_descriptor;
+    internal_static_recorder_GetRoundsByShoeRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_recorder_GetRoundsBySheoRequest_fieldAccessorTable;
+      internal_static_recorder_GetRoundsByShoeRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_recorder_GetCurrentRecordRequest_descriptor;
   static final 
@@ -66,10 +66,10 @@ public final class ProviderProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_recorder_GetRoundPlayBackResponse_MediasEntry_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_recorder_GetRoundsBySheoResponse_descriptor;
+    internal_static_recorder_GetRoundsByShoeResponse_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_recorder_GetRoundsBySheoResponse_fieldAccessorTable;
+      internal_static_recorder_GetRoundsByShoeResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_recorder_RoundResult_descriptor;
   static final 
@@ -195,8 +195,8 @@ public final class ProviderProto {
       "p.proto\032\025recorder/record.proto\032\023tagger/t" +
       "agger.proto\032\021games/games.proto\032\037google/a" +
       "pi/field_behavior.proto\"%\n\nGetRequest\022\027\n" +
-      "\004code\030\001 \001(\tB\003\340A\002R\004code\"\\\n\026GetRoundsByShe" +
-      "oRequest\022 \n\tsheo_code\030\001 \001(\tB\003\340A\002R\010sheoCo" +
+      "\004code\030\001 \001(\tB\003\340A\002R\004code\"\\\n\026GetRoundsBySho" +
+      "eRequest\022 \n\tshoe_code\030\001 \001(\tB\003\340A\002R\010shoeCo" +
       "de\022 \n\tgame_code\030\002 \001(\tB\003\340A\002R\010gameCode\";\n\027" +
       "GetCurrentRecordRequest\022 \n\tgame_code\030\001 \001" +
       "(\tB\003\340A\002R\010gameCode\"S\n\027GetRoundPlayBackReq" +
@@ -235,7 +235,7 @@ public final class ProviderProto {
       "sStart\022F\n\006medias\030\034 \003(\0132..recorder.GetRou" +
       "ndPlayBackResponse.MediasEntryR\006medias\0329" +
       "\n\013MediasEntry\022\020\n\003key\030\001 \001(\tR\003key\022\024\n\005value" +
-      "\030\002 \001(\tR\005value:\0028\001\"U\n\027GetRoundsBySheoResp" +
+      "\030\002 \001(\tR\005value:\0028\001\"U\n\027GetRoundsByShoeResp" +
       "onse\022:\n\rround_records\030\001 \003(\0132\025.recorder.R" +
       "oundResultR\014roundRecords\"\372\006\n\013RoundResult" +
       "\022\033\n\tgame_code\030\006 \001(\tR\010gameCode\022\035\n\nshift_c" +
@@ -354,10 +354,10 @@ public final class ProviderProto {
       "\031/v1/recorder/shoes/{code}\022m\n\016GetCurrent" +
       "Shoe\022!.recorder.GetCurrentRecordRequest\032" +
       "\024.recorder.ShoeRecord\"\"\202\323\344\223\002\034\022\032/v1/recor" +
-      "der/shoes:current\022\205\001\n\017GetRoundsBySheo\022 ." +
-      "recorder.GetRoundsBySheoRequest\032!.record" +
-      "er.GetRoundsBySheoResponse\"-\202\323\344\223\002\'\022%/v1/" +
-      "recorder/shoes/{sheo_code}/rounds\022k\n\nLis" +
+      "der/shoes:current\022\205\001\n\017GetRoundsByShoe\022 ." +
+      "recorder.GetRoundsByShoeRequest\032!.record" +
+      "er.GetRoundsByShoeResponse\"-\202\323\344\223\002\'\022%/v1/" +
+      "recorder/shoes/{shoe_code}/rounds\022k\n\nLis" +
       "tRounds\022\034.recorder.ListRecordsRequest\032\"." +
       "recorder.ListRoundsRecordResponse\"\033\202\323\344\223\002" +
       "\025\022\023/v1/provider/rounds\022[\n\010GetRound\022\024.rec" +
@@ -408,12 +408,12 @@ public final class ProviderProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_recorder_GetRequest_descriptor,
         new java.lang.String[] { "Code", });
-    internal_static_recorder_GetRoundsBySheoRequest_descriptor =
+    internal_static_recorder_GetRoundsByShoeRequest_descriptor =
       getDescriptor().getMessageTypes().get(1);
-    internal_static_recorder_GetRoundsBySheoRequest_fieldAccessorTable = new
+    internal_static_recorder_GetRoundsByShoeRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_recorder_GetRoundsBySheoRequest_descriptor,
-        new java.lang.String[] { "SheoCode", "GameCode", });
+        internal_static_recorder_GetRoundsByShoeRequest_descriptor,
+        new java.lang.String[] { "ShoeCode", "GameCode", });
     internal_static_recorder_GetCurrentRecordRequest_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_recorder_GetCurrentRecordRequest_fieldAccessorTable = new
@@ -462,11 +462,11 @@ public final class ProviderProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_recorder_GetRoundPlayBackResponse_MediasEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
-    internal_static_recorder_GetRoundsBySheoResponse_descriptor =
+    internal_static_recorder_GetRoundsByShoeResponse_descriptor =
       getDescriptor().getMessageTypes().get(9);
-    internal_static_recorder_GetRoundsBySheoResponse_fieldAccessorTable = new
+    internal_static_recorder_GetRoundsByShoeResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_recorder_GetRoundsBySheoResponse_descriptor,
+        internal_static_recorder_GetRoundsByShoeResponse_descriptor,
         new java.lang.String[] { "RoundRecords", });
     internal_static_recorder_RoundResult_descriptor =
       getDescriptor().getMessageTypes().get(10);
