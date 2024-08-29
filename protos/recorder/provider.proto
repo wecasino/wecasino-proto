@@ -32,8 +32,6 @@ message GetRoundsByShoeRequest {
   // 資源代碼
   string shoe_code = 1 [(google.api.field_behavior) = REQUIRED];
  
-  // 遊戲代碼
-  string game_code = 2 [(google.api.field_behavior) = REQUIRED];
 }
 
 message GetCurrentRecordRequest {

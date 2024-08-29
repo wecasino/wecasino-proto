@@ -27,24 +27,4 @@ public interface GetRoundsByShoeRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getShoeCodeBytes();
-
-  /**
-   * <pre>
-   * 遊戲代碼
-   * </pre>
-   *
-   * <code>string game_code = 2 [json_name = "gameCode", (.google.api.field_behavior) = REQUIRED];</code>
-   * @return The gameCode.
-   */
-  java.lang.String getGameCode();
-  /**
-   * <pre>
-   * 遊戲代碼
-   * </pre>
-   *
-   * <code>string game_code = 2 [json_name = "gameCode", (.google.api.field_behavior) = REQUIRED];</code>
-   * @return The bytes for gameCode.
-   */
-  com.google.protobuf.ByteString
-      getGameCodeBytes();
 }
