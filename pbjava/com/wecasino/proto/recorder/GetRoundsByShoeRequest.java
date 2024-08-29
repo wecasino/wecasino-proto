@@ -18,7 +18,6 @@ private static final long serialVersionUID = 0L;
   }
   private GetRoundsByShoeRequest() {
     shoeCode_ = "";
-    gameCode_ = "";
   }
 
   @java.lang.Override
@@ -88,53 +87,6 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int GAME_CODE_FIELD_NUMBER = 2;
-  @SuppressWarnings("serial")
-  private volatile java.lang.Object gameCode_ = "";
-  /**
-   * <pre>
-   * 遊戲代碼
-   * </pre>
-   *
-   * <code>string game_code = 2 [json_name = "gameCode", (.google.api.field_behavior) = REQUIRED];</code>
-   * @return The gameCode.
-   */
-  @java.lang.Override
-  public java.lang.String getGameCode() {
-    java.lang.Object ref = gameCode_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      gameCode_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   * 遊戲代碼
-   * </pre>
-   *
-   * <code>string game_code = 2 [json_name = "gameCode", (.google.api.field_behavior) = REQUIRED];</code>
-   * @return The bytes for gameCode.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getGameCodeBytes() {
-    java.lang.Object ref = gameCode_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      gameCode_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -152,9 +104,6 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(shoeCode_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, shoeCode_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(gameCode_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, gameCode_);
-    }
     getUnknownFields().writeTo(output);
   }
 
@@ -166,9 +115,6 @@ private static final long serialVersionUID = 0L;
     size = 0;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(shoeCode_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, shoeCode_);
-    }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(gameCode_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, gameCode_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -187,8 +133,6 @@ private static final long serialVersionUID = 0L;
 
     if (!getShoeCode()
         .equals(other.getShoeCode())) return false;
-    if (!getGameCode()
-        .equals(other.getGameCode())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -202,8 +146,6 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + SHOE_CODE_FIELD_NUMBER;
     hash = (53 * hash) + getShoeCode().hashCode();
-    hash = (37 * hash) + GAME_CODE_FIELD_NUMBER;
-    hash = (53 * hash) + getGameCode().hashCode();
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -336,7 +278,6 @@ private static final long serialVersionUID = 0L;
       super.clear();
       bitField0_ = 0;
       shoeCode_ = "";
-      gameCode_ = "";
       return this;
     }
 
@@ -372,9 +313,6 @@ private static final long serialVersionUID = 0L;
       int from_bitField0_ = bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         result.shoeCode_ = shoeCode_;
-      }
-      if (((from_bitField0_ & 0x00000002) != 0)) {
-        result.gameCode_ = gameCode_;
       }
     }
 
@@ -427,11 +365,6 @@ private static final long serialVersionUID = 0L;
         bitField0_ |= 0x00000001;
         onChanged();
       }
-      if (!other.getGameCode().isEmpty()) {
-        gameCode_ = other.gameCode_;
-        bitField0_ |= 0x00000002;
-        onChanged();
-      }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
@@ -463,11 +396,6 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000001;
               break;
             } // case 10
-            case 18: {
-              gameCode_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000002;
-              break;
-            } // case 18
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -573,98 +501,6 @@ private static final long serialVersionUID = 0L;
       checkByteStringIsUtf8(value);
       shoeCode_ = value;
       bitField0_ |= 0x00000001;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object gameCode_ = "";
-    /**
-     * <pre>
-     * 遊戲代碼
-     * </pre>
-     *
-     * <code>string game_code = 2 [json_name = "gameCode", (.google.api.field_behavior) = REQUIRED];</code>
-     * @return The gameCode.
-     */
-    public java.lang.String getGameCode() {
-      java.lang.Object ref = gameCode_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        gameCode_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * 遊戲代碼
-     * </pre>
-     *
-     * <code>string game_code = 2 [json_name = "gameCode", (.google.api.field_behavior) = REQUIRED];</code>
-     * @return The bytes for gameCode.
-     */
-    public com.google.protobuf.ByteString
-        getGameCodeBytes() {
-      java.lang.Object ref = gameCode_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        gameCode_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * 遊戲代碼
-     * </pre>
-     *
-     * <code>string game_code = 2 [json_name = "gameCode", (.google.api.field_behavior) = REQUIRED];</code>
-     * @param value The gameCode to set.
-     * @return This builder for chaining.
-     */
-    public Builder setGameCode(
-        java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
-      gameCode_ = value;
-      bitField0_ |= 0x00000002;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * 遊戲代碼
-     * </pre>
-     *
-     * <code>string game_code = 2 [json_name = "gameCode", (.google.api.field_behavior) = REQUIRED];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearGameCode() {
-      gameCode_ = getDefaultInstance().getGameCode();
-      bitField0_ = (bitField0_ & ~0x00000002);
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * 遊戲代碼
-     * </pre>
-     *
-     * <code>string game_code = 2 [json_name = "gameCode", (.google.api.field_behavior) = REQUIRED];</code>
-     * @param value The bytes for gameCode to set.
-     * @return This builder for chaining.
-     */
-    public Builder setGameCodeBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
-      gameCode_ = value;
-      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }

@@ -608,11 +608,6 @@ paths:
           in: path
           required: true
           type: string
-        - name: gameCode
-          description: 遊戲代碼
-          in: query
-          required: true
-          type: string
   /v1/recorder/shoes:current:
     get:
       summary: 讀取目前靴紀錄
