@@ -1,0 +1,11 @@
+syntax = "proto3";
+package cards;
+
+enum Xocdia{
+  // 未指定
+  XOCDIA_CARD_UNSPECIFIED = 0;
+  // 白
+  XOCDIA_WITHE = 1;
+  // 紅
+  XOCDIA_RED = 3;
+}
