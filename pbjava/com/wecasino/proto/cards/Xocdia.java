@@ -22,9 +22,9 @@ public enum Xocdia
    * 白
    * </pre>
    *
-   * <code>XOCDIA_WITHE = 1;</code>
+   * <code>XOCDIA_WHITE = 1;</code>
    */
-  XOCDIA_WITHE(1),
+  XOCDIA_WHITE(1),
   /**
    * <pre>
    * 紅
@@ -49,9 +49,9 @@ public enum Xocdia
    * 白
    * </pre>
    *
-   * <code>XOCDIA_WITHE = 1;</code>
+   * <code>XOCDIA_WHITE = 1;</code>
    */
-  public static final int XOCDIA_WITHE_VALUE = 1;
+  public static final int XOCDIA_WHITE_VALUE = 1;
   /**
    * <pre>
    * 紅
@@ -87,7 +87,7 @@ public enum Xocdia
   public static Xocdia forNumber(int value) {
     switch (value) {
       case 0: return XOCDIA_CARD_UNSPECIFIED;
-      case 1: return XOCDIA_WITHE;
+      case 1: return XOCDIA_WHITE;
       case 3: return XOCDIA_RED;
       default: return null;
     }
