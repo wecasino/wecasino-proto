@@ -25,18 +25,18 @@ public final class RecordProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\030games/sicbo/record.proto\022\013games.sicbo*" +
-      "{\n\013GameSubtype\022\032\n\026SICBO_TYPE_UNSPECIFIED" +
+      "e\n\013GameSubtype\022\032\n\026SICBO_TYPE_UNSPECIFIED" +
       "\020\000\022\021\n\rSICBO_CLASSIC\020\001\022\021\n\rSICBO_FORTUNE\020\002" +
-      "\022\024\n\020SICBO_THAISICBAO\020\003\022\024\n\020SICBO_BLOCKCHA" +
-      "IN\020\020*\236\001\n\004Step\022\024\n\020STEP_UNSPECIFIED\020\000\022\017\n\013R" +
-      "OUND_START\020\001\022\022\n\016ROUND_FINISHED\020\002\022\022\n\016ROUN" +
-      "D_CANCELED\020\003\022\r\n\tROUND_BET\020\004\022\017\n\013NO_MORE_B" +
-      "ET\020\005\022\016\n\nTHROW_DICE\020\010\022\027\n\023PITBOSS_MODIFY_B" +
-      "OWL\020\020B\257\001\n\036com.wecasino.proto.games.sicbo" +
-      "B\013RecordProtoP\001Z3github.com/wecasino/wec" +
-      "asino-proto/pbgo/games/sicbo\242\002\003GSX\252\002\013Gam" +
-      "es.Sicbo\312\002\013Games\\Sicbo\342\002\027Games\\Sicbo\\GPB" +
-      "Metadata\352\002\014Games::Sicbob\006proto3"
+      "\022\024\n\020SICBO_BLOCKCHAIN\020\020*\236\001\n\004Step\022\024\n\020STEP_" +
+      "UNSPECIFIED\020\000\022\017\n\013ROUND_START\020\001\022\022\n\016ROUND_" +
+      "FINISHED\020\002\022\022\n\016ROUND_CANCELED\020\003\022\r\n\tROUND_" +
+      "BET\020\004\022\017\n\013NO_MORE_BET\020\005\022\016\n\nTHROW_DICE\020\010\022\027" +
+      "\n\023PITBOSS_MODIFY_BOWL\020\020B\257\001\n\036com.wecasino" +
+      ".proto.games.sicboB\013RecordProtoP\001Z3githu" +
+      "b.com/wecasino/wecasino-proto/pbgo/games" +
+      "/sicbo\242\002\003GSX\252\002\013Games.Sicbo\312\002\013Games\\Sicbo" +
+      "\342\002\027Games\\Sicbo\\GPBMetadata\352\002\014Games::Sicb" +
+      "ob\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
