@@ -102,6 +102,14 @@ public enum GameType
    * <code>LUCKYWHEEL = 40;</code>
    */
   LUCKYWHEEL(40),
+  /**
+   * <pre>
+   * 越南色碟
+   * </pre>
+   *
+   * <code>XOCDIA = 41;</code>
+   */
+  XOCDIA(41),
   UNRECOGNIZED(-1),
   ;
 
@@ -193,6 +201,14 @@ public enum GameType
    * <code>LUCKYWHEEL = 40;</code>
    */
   public static final int LUCKYWHEEL_VALUE = 40;
+  /**
+   * <pre>
+   * 越南色碟
+   * </pre>
+   *
+   * <code>XOCDIA = 41;</code>
+   */
+  public static final int XOCDIA_VALUE = 41;
 
 
   public final int getNumber() {
@@ -230,6 +246,7 @@ public enum GameType
       case 34: return DROPBALL;
       case 36: return ROULETTE;
       case 40: return LUCKYWHEEL;
+      case 41: return XOCDIA;
       default: return null;
     }
   }
