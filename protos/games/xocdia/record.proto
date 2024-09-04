@@ -8,9 +8,6 @@ enum GameSubtype {
 
   // 色碟
   XOCDIA_CLASSIC = 1;
-
-  // 區塊鏈色碟
-  XOCDIA_BLOCKCHAIN = 16;
 }
 
 // 步驟，依據遊戲供應商邏輯，不是每個步驟都會走到

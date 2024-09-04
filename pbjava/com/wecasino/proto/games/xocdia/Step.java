@@ -63,7 +63,7 @@ public enum Step
   NO_MORE_BET(5),
   /**
    * <pre>
-   * 擲骰
+   * 擲色碟
    * </pre>
    *
    * <code>THROW_DICE = 8;</code>
@@ -130,7 +130,7 @@ public enum Step
   public static final int NO_MORE_BET_VALUE = 5;
   /**
    * <pre>
-   * 擲骰
+   * 擲色碟
    * </pre>
    *
    * <code>THROW_DICE = 8;</code>

@@ -25,14 +25,6 @@ public enum GameSubtype
    * <code>XOCDIA_CLASSIC = 1;</code>
    */
   XOCDIA_CLASSIC(1),
-  /**
-   * <pre>
-   * 區塊鏈色碟
-   * </pre>
-   *
-   * <code>XOCDIA_BLOCKCHAIN = 16;</code>
-   */
-  XOCDIA_BLOCKCHAIN(16),
   UNRECOGNIZED(-1),
   ;
 
@@ -52,14 +44,6 @@ public enum GameSubtype
    * <code>XOCDIA_CLASSIC = 1;</code>
    */
   public static final int XOCDIA_CLASSIC_VALUE = 1;
-  /**
-   * <pre>
-   * 區塊鏈色碟
-   * </pre>
-   *
-   * <code>XOCDIA_BLOCKCHAIN = 16;</code>
-   */
-  public static final int XOCDIA_BLOCKCHAIN_VALUE = 16;
 
 
   public final int getNumber() {
@@ -88,7 +72,6 @@ public enum GameSubtype
     switch (value) {
       case 0: return XOCDIA_TYPE_UNSPECIFIED;
       case 1: return XOCDIA_CLASSIC;
-      case 16: return XOCDIA_BLOCKCHAIN;
       default: return null;
     }
   }
