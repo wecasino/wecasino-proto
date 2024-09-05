@@ -2,7 +2,6 @@ swagger: "2.0"
 info:
   title: recorder/provider.proto
   version: version not set
-host: gateway.beta.wecasino.live
 consumes:
   - application/json
 produces:
@@ -174,6 +173,7 @@ paths:
 
              - 0: 未指定
              - 16: 百家樂
+             - 50: 百家樂新發牌方式
              - 17: 龍虎鬥
              - 18: 炸金花
              - 19: 牛牛
@@ -183,12 +183,14 @@ paths:
              - 34: 丟球遊戲
              - 36: 輪盤
              - 40: 幸運輪
+             - 41: 越南色碟
           in: query
           required: false
           type: integer
           enum:
             - 0
             - 16
+            - 50
             - 17
             - 18
             - 19
@@ -198,6 +200,7 @@ paths:
             - 34
             - 36
             - 40
+            - 41
           default: 0
         - name: gameSubtype
           description: 遊戲子類型
@@ -284,6 +287,7 @@ paths:
 
              - 0: 未指定
              - 16: 百家樂
+             - 50: 百家樂新發牌方式
              - 17: 龍虎鬥
              - 18: 炸金花
              - 19: 牛牛
@@ -293,12 +297,14 @@ paths:
              - 34: 丟球遊戲
              - 36: 輪盤
              - 40: 幸運輪
+             - 41: 越南色碟
           in: query
           required: false
           type: integer
           enum:
             - 0
             - 16
+            - 50
             - 17
             - 18
             - 19
@@ -308,6 +314,7 @@ paths:
             - 34
             - 36
             - 40
+            - 41
           default: 0
         - name: gameSubtype
           description: 遊戲子類型
@@ -454,6 +461,7 @@ paths:
 
              - 0: 未指定
              - 16: 百家樂
+             - 50: 百家樂新發牌方式
              - 17: 龍虎鬥
              - 18: 炸金花
              - 19: 牛牛
@@ -463,12 +471,14 @@ paths:
              - 34: 丟球遊戲
              - 36: 輪盤
              - 40: 幸運輪
+             - 41: 越南色碟
           in: query
           required: false
           type: integer
           enum:
             - 0
             - 16
+            - 50
             - 17
             - 18
             - 19
@@ -478,6 +488,7 @@ paths:
             - 34
             - 36
             - 40
+            - 41
           default: 0
         - name: gameSubtype
           description: 遊戲子類型
@@ -660,6 +671,7 @@ definitions:
     enum:
       - 0
       - 16
+      - 50
       - 17
       - 18
       - 19
@@ -669,10 +681,12 @@ definitions:
       - 34
       - 36
       - 40
+      - 41
     default: 0
     description: |-
       - 0: 未指定
        - 16: 百家樂
+       - 50: 百家樂新發牌方式
        - 17: 龍虎鬥
        - 18: 炸金花
        - 19: 牛牛
@@ -682,6 +696,7 @@ definitions:
        - 34: 丟球遊戲
        - 36: 輪盤
        - 40: 幸運輪
+       - 41: 越南色碟
     title: "GameType \n遊戲類型"
   gamesWinType:
     type: integer
@@ -1595,10 +1610,3 @@ definitions:
         items:
           type: object
           $ref: '#/definitions/protobufAny'
-securityDefinitions:
-  ApiKeyAuth:
-    type: apiKey
-    name: X-API-Key
-    in: header
-security:
-  - ApiKeyAuth: []
