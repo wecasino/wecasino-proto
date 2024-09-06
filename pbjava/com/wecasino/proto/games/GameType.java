@@ -32,6 +32,14 @@ public enum GameType
   BACCARAT(16),
   /**
    * <pre>
+   * 百家樂新發牌方式
+   * </pre>
+   *
+   * <code>BACCARAT2 = 50;</code>
+   */
+  BACCARAT2(50),
+  /**
+   * <pre>
    * 龍虎鬥
    * </pre>
    *
@@ -129,6 +137,14 @@ public enum GameType
    * <code>BACCARAT = 16;</code>
    */
   public static final int BACCARAT_VALUE = 16;
+  /**
+   * <pre>
+   * 百家樂新發牌方式
+   * </pre>
+   *
+   * <code>BACCARAT2 = 50;</code>
+   */
+  public static final int BACCARAT2_VALUE = 50;
   /**
    * <pre>
    * 龍虎鬥
@@ -237,6 +253,7 @@ public enum GameType
     switch (value) {
       case 0: return GAME_TYPE_UNSPECIFIED;
       case 16: return BACCARAT;
+      case 50: return BACCARAT2;
       case 17: return THEBIGBATTLE;
       case 18: return THREECARDS;
       case 19: return BULLFIGHT;
