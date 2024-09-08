@@ -5,8 +5,20 @@ import "google/api/annotations.proto";
 import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
 import "recorder/record.proto";
+import "tagger/tagger.proto";
 import "games/games.proto";
 import "google/api/field_behavior.proto";
+
+enum RoundStatusType {
+  // 未指定
+  NONE_ROUND_STATUS_TYPE_UNSPECIFIED = 0;
+  // 以取消
+  ROUND_STATUS_TYPE_CANCEL = 1;
+  // 以結算
+  ROUND_STATUS_TYPE_END = 2;
+  // 未結算
+  ROUND_STATUS_TYPE_NOT_END = 3;
+}
 
 message GetRequest {
 
@@ -15,11 +27,27 @@ message GetRequest {
  
 }
 
+message GetRoundsByShoeRequest {
+
+  // 資源代碼
+  string shoe_code = 1 [(google.api.field_behavior) = REQUIRED];
+ 
+}
+
 message GetCurrentRecordRequest {
 
   // 遊戲代碼
   string game_code = 1 [(google.api.field_behavior) = REQUIRED];
  
+}
+
+message GetRoundPlayBackRequest {
+
+  // 資源代碼
+  string code = 1 [(google.api.field_behavior) = REQUIRED];
+ 
+  string platform = 2 [(google.api.field_behavior) = REQUIRED];
+
 }
 
 message ListRecordsRequest {
@@ -54,6 +82,7 @@ message ListRecordsRequest {
   // 每頁筆數
   int64 page_size = 11;
 
+  RoundStatusType roundStatusType = 12;
 }
 
 // ListShiftsResponse
@@ -110,6 +139,65 @@ message ListRoundsRecordResponse {
 
 }
 
+// GetRoundPlayBackResponse
+// 取得局回放記錄
+message GetRoundPlayBackResponse {
+
+  // round code
+  string round_code = 1;
+
+  // 開始時間
+  google.protobuf.Timestamp ts_start = 16;
+  
+  // 回放url
+  map<string, string> medias = 28;
+
+}
+
+
+message GetRoundsByShoeResponse {
+  // roundResults
+  repeated RoundResult round_records = 1;
+}
+
+message RoundResult {
+
+  // 遊戲代碼
+  string game_code = 6;
+  // 班代碼
+  string shift_code = 8;
+  // 此排班局數
+  int64 shift_round = 9;
+  // 使用靴代碼
+  string shoe_code = 10;
+  // 使用此洗牌第幾局，從1開始計算
+  int64 shoe_round = 11;
+  // 局代碼
+  string round_code = 12;
+  // 開始時間
+  google.protobuf.Timestamp ts_start = 16;
+  
+  // 座位組
+  // key: SeatCode, value: Seat
+  map<int32, Seat> seats = 24 [(tagger.tags) = "bson:\"seats,omitempty\""];
+
+  // 結束
+  bool is_end = 18;
+  // 結束時間
+  google.protobuf.Timestamp ts_end = 19 [(tagger.tags) = "bson:\"tsEnd,omitempty\"" ];
+
+  // 取消
+  optional bool cancel = 20 [(tagger.tags) = "bson:\"cancel,omitempty\""];
+  // 取消代碼：CancelReasonCode
+  optional string cancel_code = 21 [(tagger.tags) = "bson:\"cancelCode,omitempty\""];
+  // 取消備註
+  optional string cancel_message = 22 [(tagger.tags) = "bson:\"cancelMessage,omitempty\""];
+
+  // 附加媒體：key: 媒體資源代碼；value: 媒體內容。
+  map<string, string> medias = 28;
+}
+
+
 // gateway option 設定說明參照：https://github.com/googleapis/googleapis/blob/master/google/api/http.proto
 service RecorderReadService {
   
@@ -155,6 +243,14 @@ service RecorderReadService {
     };
   };
 
+  // 讀取整靴局紀錄
+  rpc GetRoundsByShoe(GetRoundsByShoeRequest) returns (GetRoundsByShoeResponse){
+    option (google.api.http) = {
+      get: "/v1/recorder/shoes/{shoe_code}/rounds"
+    };
+  };
+
+
   // 讀牌局紀錄list
   rpc ListRounds(ListRecordsRequest) returns (ListRoundsRecordResponse){
     option (google.api.http) = {
@@ -173,6 +269,13 @@ service RecorderReadService {
   rpc GetCurrentRound(GetCurrentRecordRequest) returns (RoundRecord){
     option (google.api.http) = {
       get: "/v1/recorder/rounds:current"
+    };
+  };
+
+  //
+  rpc GetPlayBackRound(GetRoundPlayBackRequest) returns (GetRoundPlayBackResponse){
+    option (google.api.http) = {
+      get: "/v1/recorder/playback/{code}"
     };
   };
 
@@ -233,7 +336,12 @@ enum GameNotifyType {
 
   // 通知遊戲局事後取消
   NOTIFY_ROUND_CANCEL_AFTER_ROUND = 20;
+
+  // 通知遊戲局事後改牌
+  NOTIFY_ROUND_MODIFY_AFTER_ROUND = 21;
   
+  // 通知遊戲局事後結束
+  NOTIFY_ROUND_FINISH_AFTER_ROUND = 22;
 }
 
 // GameProvideState
@@ -345,6 +453,20 @@ message VerifyGameRequest {
   
 }
 
+// 玩家指示
+message GamblerInstructionsRequest {
+
+  // 遊戲代碼
+  string game_code = 1;
+
+  // 玩家帳號
+  string player = 2;
+
+  // 指示傳送接收的代碼  position card
+  map<string, string> instructions = 3;
+  
+}
+
 // Artcle
 // 文章
 message Article {
@@ -434,6 +556,14 @@ service ProviderService {
   rpc VerifyGame(VerifyGameRequest) returns (google.protobuf.Empty){
     option (google.api.http) = {
       post: "/v1/provider/games/{game_code}:verify"
+      body: "*"
+    };
+  };
+
+  // 玩家指示
+  rpc GamblerInstructions(GamblerInstructionsRequest) returns (RoundRecord){
+    option (google.api.http) = {
+      post: "/v1/provider/games/{game_code}:instructions"
       body: "*"
     };
   };

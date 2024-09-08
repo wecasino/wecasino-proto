@@ -153,6 +153,22 @@ public enum GameNotifyType
    * <code>NOTIFY_ROUND_CANCEL_AFTER_ROUND = 20;</code>
    */
   NOTIFY_ROUND_CANCEL_AFTER_ROUND(20),
+  /**
+   * <pre>
+   * 通知遊戲局事後改牌
+   * </pre>
+   *
+   * <code>NOTIFY_ROUND_MODIFY_AFTER_ROUND = 21;</code>
+   */
+  NOTIFY_ROUND_MODIFY_AFTER_ROUND(21),
+  /**
+   * <pre>
+   * 通知遊戲局事後結束
+   * </pre>
+   *
+   * <code>NOTIFY_ROUND_FINISH_AFTER_ROUND = 22;</code>
+   */
+  NOTIFY_ROUND_FINISH_AFTER_ROUND(22),
   UNRECOGNIZED(-1),
   ;
 
@@ -300,6 +316,22 @@ public enum GameNotifyType
    * <code>NOTIFY_ROUND_CANCEL_AFTER_ROUND = 20;</code>
    */
   public static final int NOTIFY_ROUND_CANCEL_AFTER_ROUND_VALUE = 20;
+  /**
+   * <pre>
+   * 通知遊戲局事後改牌
+   * </pre>
+   *
+   * <code>NOTIFY_ROUND_MODIFY_AFTER_ROUND = 21;</code>
+   */
+  public static final int NOTIFY_ROUND_MODIFY_AFTER_ROUND_VALUE = 21;
+  /**
+   * <pre>
+   * 通知遊戲局事後結束
+   * </pre>
+   *
+   * <code>NOTIFY_ROUND_FINISH_AFTER_ROUND = 22;</code>
+   */
+  public static final int NOTIFY_ROUND_FINISH_AFTER_ROUND_VALUE = 22;
 
 
   public final int getNumber() {
@@ -344,6 +376,8 @@ public enum GameNotifyType
       case 18: return NOTIFY_ROUND_CANCEL;
       case 19: return NOTIFY_ROUND_PLAYBACK;
       case 20: return NOTIFY_ROUND_CANCEL_AFTER_ROUND;
+      case 21: return NOTIFY_ROUND_MODIFY_AFTER_ROUND;
+      case 22: return NOTIFY_ROUND_FINISH_AFTER_ROUND;
       default: return null;
     }
   }
@@ -374,7 +408,7 @@ public enum GameNotifyType
   }
   public static final com.google.protobuf.Descriptors.EnumDescriptor
       getDescriptor() {
-    return com.wecasino.proto.recorder.ProviderProto.getDescriptor().getEnumTypes().get(0);
+    return com.wecasino.proto.recorder.ProviderProto.getDescriptor().getEnumTypes().get(1);
   }
 
   private static final GameNotifyType[] VALUES = values();

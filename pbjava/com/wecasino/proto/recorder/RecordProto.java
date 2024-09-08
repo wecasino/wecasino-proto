@@ -169,7 +169,7 @@ public final class RecordProto {
       "\003 \003(\0132\031.recorder.Seat.CardsEntryB\033\232\204\236\003\026b" +
       "son:\"cards,omitempty\"R\005cards\032L\n\nCardsEnt" +
       "ry\022\020\n\003key\030\001 \001(\005R\003key\022(\n\005value\030\002 \001(\0132\022.re" +
-      "corder.CardListR\005value:\0028\001\"\250\017\n\013RoundReco" +
+      "corder.CardListR\005value:\0028\001\"\346\017\n\013RoundReco" +
       "rd\022)\n\002id\030\001 \001(\014B\031\232\204\236\003\024bson:\"_id,omitempty" +
       "\"R\002id\022\032\n\010supplier\030\002 \001(\tR\010supplier\022\033\n\tgam" +
       "e_type\030\003 \001(\tR\010gameType\022!\n\014game_subtype\030\004" +
@@ -206,65 +206,70 @@ public final class RecordProto {
       "s\030\034 \003(\0132!.recorder.RoundRecord.MediasEnt" +
       "ryR\006medias\022L\n\rfortune_rates\030\035 \003(\0132\'.reco" +
       "rder.RoundRecord.FortuneRatesEntryR\014fort" +
-      "uneRates\0327\n\tTagsEntry\022\020\n\003key\030\001 \001(\tR\003key\022" +
-      "\024\n\005value\030\002 \001(\tR\005value:\0028\001\032H\n\nSeatsEntry\022" +
-      "\020\n\003key\030\001 \001(\005R\003key\022$\n\005value\030\002 \001(\0132\016.recor" +
-      "der.SeatR\005value:\0028\001\032:\n\014PlayersEntry\022\020\n\003k" +
-      "ey\030\001 \001(\005R\003key\022\024\n\005value\030\002 \001(\tR\005value:\0028\001\032" +
-      ">\n\020PlayersNameEntry\022\020\n\003key\030\001 \001(\tR\003key\022\024\n" +
-      "\005value\030\002 \001(\tR\005value:\0028\001\032J\n\014WinTypeEntry\022" +
-      "\020\n\003key\030\001 \001(\005R\003key\022$\n\005value\030\002 \001(\0162\016.games" +
-      ".WinTypeR\005value:\0028\001\0329\n\013MediasEntry\022\020\n\003ke" +
-      "y\030\001 \001(\tR\003key\022\024\n\005value\030\002 \001(\tR\005value:\0028\001\032?" +
-      "\n\021FortuneRatesEntry\022\020\n\003key\030\001 \001(\tR\003key\022\024\n" +
-      "\005value\030\002 \001(\003R\005value:\0028\001B\t\n\007_cancelB\016\n\014_c" +
-      "ancel_codeB\021\n\017_cancel_message\"\267\001\n\004Deck\022(" +
-      "\n\005cards\030\001 \001(\0132\022.recorder.CardListR\005cards" +
-      "\022\037\n\013start_index\030\002 \001(\003R\nstartIndex\022@\n\tcut" +
-      "_index\030\003 \001(\003B\036\232\204\236\003\031bson:\"cutIndex,omitem" +
-      "pty\"H\000R\010cutIndex\210\001\001\022\024\n\005index\030\004 \001(\003R\005inde" +
-      "xB\014\n\n_cut_index\"\352\004\n\nShoeRecord\022)\n\002id\030\001 \001" +
-      "(\014B\031\232\204\236\003\024bson:\"_id,omitempty\"R\002id\022\032\n\010sup" +
-      "plier\030\002 \001(\tR\010supplier\022\033\n\tgame_type\030\003 \001(\t" +
-      "R\010gameType\022!\n\014game_subtype\030\004 \001(\tR\013gameSu" +
-      "btype\022!\n\014game_version\030\005 \001(\tR\013gameVersion" +
-      "\022\033\n\tgame_code\030\006 \001(\tR\010gameCode\022\035\n\ntable_c" +
-      "ode\030\007 \001(\tR\ttableCode\022\035\n\nshift_code\030\010 \001(\t" +
-      "R\tshiftCode\022\033\n\tshoe_code\030\n \001(\tR\010shoeCode" +
-      "\0225\n\010ts_start\030\020 \001(\0132\032.google.protobuf.Tim" +
-      "estampR\007tsStart\022R\n\005decks\030\030 \003(\0132\037.recorde" +
-      "r.ShoeRecord.DecksEntryB\033\232\204\236\003\026bson:\"deck" +
-      "s,omitempty\"R\005decks\022\025\n\006is_end\030\022 \001(\010R\005isE" +
-      "nd\022N\n\006ts_end\030\023 \001(\0132\032.google.protobuf.Tim" +
-      "estampB\033\232\204\236\003\026bson:\"tsEnd,omitempty\"R\005tsE" +
-      "nd\032H\n\nDecksEntry\022\020\n\003key\030\001 \001(\005R\003key\022$\n\005va" +
-      "lue\030\002 \001(\0132\016.recorder.DeckR\005value:\0028\001\"\336\004\n" +
-      "\013ShiftRecord\022)\n\002id\030\001 \001(\014B\031\232\204\236\003\024bson:\"_id" +
+      "uneRates\0223\n\004test\030\037 \001(\010B\032\232\204\236\003\025bson:\"test," +
+      "omitempty\"H\003R\004test\210\001\001\0327\n\tTagsEntry\022\020\n\003ke" +
+      "y\030\001 \001(\tR\003key\022\024\n\005value\030\002 \001(\tR\005value:\0028\001\032H" +
+      "\n\nSeatsEntry\022\020\n\003key\030\001 \001(\005R\003key\022$\n\005value\030" +
+      "\002 \001(\0132\016.recorder.SeatR\005value:\0028\001\032:\n\014Play" +
+      "ersEntry\022\020\n\003key\030\001 \001(\005R\003key\022\024\n\005value\030\002 \001(" +
+      "\tR\005value:\0028\001\032>\n\020PlayersNameEntry\022\020\n\003key\030" +
+      "\001 \001(\tR\003key\022\024\n\005value\030\002 \001(\tR\005value:\0028\001\032J\n\014" +
+      "WinTypeEntry\022\020\n\003key\030\001 \001(\005R\003key\022$\n\005value\030" +
+      "\002 \001(\0162\016.games.WinTypeR\005value:\0028\001\0329\n\013Medi" +
+      "asEntry\022\020\n\003key\030\001 \001(\tR\003key\022\024\n\005value\030\002 \001(\t" +
+      "R\005value:\0028\001\032?\n\021FortuneRatesEntry\022\020\n\003key\030" +
+      "\001 \001(\tR\003key\022\024\n\005value\030\002 \001(\003R\005value:\0028\001B\t\n\007" +
+      "_cancelB\016\n\014_cancel_codeB\021\n\017_cancel_messa" +
+      "geB\007\n\005_test\"\267\001\n\004Deck\022(\n\005cards\030\001 \001(\0132\022.re" +
+      "corder.CardListR\005cards\022\037\n\013start_index\030\002 " +
+      "\001(\003R\nstartIndex\022@\n\tcut_index\030\003 \001(\003B\036\232\204\236\003" +
+      "\031bson:\"cutIndex,omitempty\"H\000R\010cutIndex\210\001" +
+      "\001\022\024\n\005index\030\004 \001(\003R\005indexB\014\n\n_cut_index\"\250\005" +
+      "\n\nShoeRecord\022)\n\002id\030\001 \001(\014B\031\232\204\236\003\024bson:\"_id" +
       ",omitempty\"R\002id\022\032\n\010supplier\030\002 \001(\tR\010suppl" +
       "ier\022\033\n\tgame_type\030\003 \001(\tR\010gameType\022!\n\014game" +
       "_subtype\030\004 \001(\tR\013gameSubtype\022!\n\014game_vers" +
       "ion\030\005 \001(\tR\013gameVersion\022\033\n\tgame_code\030\006 \001(" +
       "\tR\010gameCode\022\035\n\ntable_code\030\007 \001(\tR\ttableCo" +
-      "de\022\035\n\nshift_code\030\010 \001(\tR\tshiftCode\0225\n\010ts_" +
-      "start\030\020 \001(\0132\032.google.protobuf.TimestampR" +
-      "\007tsStart\0223\n\004tags\030\r \003(\0132\037.recorder.ShiftR" +
-      "ecord.TagsEntryR\004tags\022\037\n\013round_codes\030\030 \003" +
-      "(\tR\nroundCodes\022\035\n\nshoe_codes\030\031 \003(\tR\tshoe" +
-      "Codes\022\025\n\006is_end\030\022 \001(\010R\005isEnd\022N\n\006ts_end\030\023" +
-      " \001(\0132\032.google.protobuf.TimestampB\033\232\204\236\003\026b" +
-      "son:\"tsEnd,omitempty\"R\005tsEnd\0327\n\tTagsEntr" +
-      "y\022\020\n\003key\030\001 \001(\tR\003key\022\024\n\005value\030\002 \001(\tR\005valu" +
-      "e:\0028\001*\264\001\n\016StepActionType\022 \n\034STEP_ACTION_" +
-      "TYPE_UNSPECIFIED\020\000\022\007\n\003ADD\020\001\022\007\n\003SET\020\002\022\n\n\006" +
-      "SETALL\020\003\022\n\n\006REMOVE\020\004\022\010\n\004READ\020\005\022\022\n\016READ_U" +
-      "NVISIBLE\020\006\022\014\n\010TRANSFER\020\007\022\013\n\007VISIBLE\020\010\022\n\n" +
-      "\006STATUS\020\t\022\010\n\004NONE\020\n\022\007\n\003WIN\020\013*M\n\007BetStep\022" +
-      "\030\n\024BET_STEP_UNSPECIFIED\020\000\022\r\n\tROUND_BET\020\001" +
-      "\022\017\n\013NO_MORE_BET\020\003\022\010\n\004CARD\020\004B\234\001\n\033com.weca" +
-      "sino.proto.recorderB\013RecordProtoP\001Z0gith" +
-      "ub.com/wecasino/wecasino-proto/pbgo/reco" +
-      "rder\242\002\003RXX\252\002\010Recorder\312\002\010Recorder\342\002\024Recor" +
-      "der\\GPBMetadata\352\002\010Recorderb\006proto3"
+      "de\022\035\n\nshift_code\030\010 \001(\tR\tshiftCode\022\033\n\tsho" +
+      "e_code\030\n \001(\tR\010shoeCode\0225\n\010ts_start\030\020 \001(\013" +
+      "2\032.google.protobuf.TimestampR\007tsStart\022R\n" +
+      "\005decks\030\030 \003(\0132\037.recorder.ShoeRecord.Decks" +
+      "EntryB\033\232\204\236\003\026bson:\"decks,omitempty\"R\005deck" +
+      "s\022\025\n\006is_end\030\022 \001(\010R\005isEnd\022N\n\006ts_end\030\023 \001(\013" +
+      "2\032.google.protobuf.TimestampB\033\232\204\236\003\026bson:" +
+      "\"tsEnd,omitempty\"R\005tsEnd\0223\n\004test\030\037 \001(\010B\032" +
+      "\232\204\236\003\025bson:\"test,omitempty\"H\000R\004test\210\001\001\032H\n" +
+      "\nDecksEntry\022\020\n\003key\030\001 \001(\005R\003key\022$\n\005value\030\002" +
+      " \001(\0132\016.recorder.DeckR\005value:\0028\001B\007\n\005_test" +
+      "\"\234\005\n\013ShiftRecord\022)\n\002id\030\001 \001(\014B\031\232\204\236\003\024bson:" +
+      "\"_id,omitempty\"R\002id\022\032\n\010supplier\030\002 \001(\tR\010s" +
+      "upplier\022\033\n\tgame_type\030\003 \001(\tR\010gameType\022!\n\014" +
+      "game_subtype\030\004 \001(\tR\013gameSubtype\022!\n\014game_" +
+      "version\030\005 \001(\tR\013gameVersion\022\033\n\tgame_code\030" +
+      "\006 \001(\tR\010gameCode\022\035\n\ntable_code\030\007 \001(\tR\ttab" +
+      "leCode\022\035\n\nshift_code\030\010 \001(\tR\tshiftCode\0225\n" +
+      "\010ts_start\030\020 \001(\0132\032.google.protobuf.Timest" +
+      "ampR\007tsStart\0223\n\004tags\030\r \003(\0132\037.recorder.Sh" +
+      "iftRecord.TagsEntryR\004tags\022\037\n\013round_codes" +
+      "\030\030 \003(\tR\nroundCodes\022\035\n\nshoe_codes\030\031 \003(\tR\t" +
+      "shoeCodes\022\025\n\006is_end\030\022 \001(\010R\005isEnd\022N\n\006ts_e" +
+      "nd\030\023 \001(\0132\032.google.protobuf.TimestampB\033\232\204" +
+      "\236\003\026bson:\"tsEnd,omitempty\"R\005tsEnd\0223\n\004test" +
+      "\030\037 \001(\010B\032\232\204\236\003\025bson:\"test,omitempty\"H\000R\004te" +
+      "st\210\001\001\0327\n\tTagsEntry\022\020\n\003key\030\001 \001(\tR\003key\022\024\n\005" +
+      "value\030\002 \001(\tR\005value:\0028\001B\007\n\005_test*\264\001\n\016Step" +
+      "ActionType\022 \n\034STEP_ACTION_TYPE_UNSPECIFI" +
+      "ED\020\000\022\007\n\003ADD\020\001\022\007\n\003SET\020\002\022\n\n\006SETALL\020\003\022\n\n\006RE" +
+      "MOVE\020\004\022\010\n\004READ\020\005\022\022\n\016READ_UNVISIBLE\020\006\022\014\n\010" +
+      "TRANSFER\020\007\022\013\n\007VISIBLE\020\010\022\n\n\006STATUS\020\t\022\010\n\004N" +
+      "ONE\020\n\022\007\n\003WIN\020\013*M\n\007BetStep\022\030\n\024BET_STEP_UN" +
+      "SPECIFIED\020\000\022\r\n\tROUND_BET\020\001\022\017\n\013NO_MORE_BE" +
+      "T\020\003\022\010\n\004CARD\020\004B\234\001\n\033com.wecasino.proto.rec" +
+      "orderB\013RecordProtoP\001Z0github.com/wecasin" +
+      "o/wecasino-proto/pbgo/recorder\242\002\003RXX\252\002\010R" +
+      "ecorder\312\002\010Recorder\342\002\024Recorder\\GPBMetadat" +
+      "a\352\002\010Recorderb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -321,7 +326,7 @@ public final class RecordProto {
     internal_static_recorder_RoundRecord_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_recorder_RoundRecord_descriptor,
-        new java.lang.String[] { "Id", "Supplier", "GameType", "GameSubtype", "GameVersion", "GameCode", "TableCode", "ShiftCode", "ShiftRound", "ShoeCode", "ShoeRound", "RoundCode", "Tags", "TsStart", "BetStep", "Seats", "Players", "PlayersName", "Process", "IsEnd", "TsEnd", "Cancel", "CancelCode", "CancelMessage", "WinType", "Medias", "FortuneRates", });
+        new java.lang.String[] { "Id", "Supplier", "GameType", "GameSubtype", "GameVersion", "GameCode", "TableCode", "ShiftCode", "ShiftRound", "ShoeCode", "ShoeRound", "RoundCode", "Tags", "TsStart", "BetStep", "Seats", "Players", "PlayersName", "Process", "IsEnd", "TsEnd", "Cancel", "CancelCode", "CancelMessage", "WinType", "Medias", "FortuneRates", "Test", });
     internal_static_recorder_RoundRecord_TagsEntry_descriptor =
       internal_static_recorder_RoundRecord_descriptor.getNestedTypes().get(0);
     internal_static_recorder_RoundRecord_TagsEntry_fieldAccessorTable = new
@@ -375,7 +380,7 @@ public final class RecordProto {
     internal_static_recorder_ShoeRecord_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_recorder_ShoeRecord_descriptor,
-        new java.lang.String[] { "Id", "Supplier", "GameType", "GameSubtype", "GameVersion", "GameCode", "TableCode", "ShiftCode", "ShoeCode", "TsStart", "Decks", "IsEnd", "TsEnd", });
+        new java.lang.String[] { "Id", "Supplier", "GameType", "GameSubtype", "GameVersion", "GameCode", "TableCode", "ShiftCode", "ShoeCode", "TsStart", "Decks", "IsEnd", "TsEnd", "Test", });
     internal_static_recorder_ShoeRecord_DecksEntry_descriptor =
       internal_static_recorder_ShoeRecord_descriptor.getNestedTypes().get(0);
     internal_static_recorder_ShoeRecord_DecksEntry_fieldAccessorTable = new
@@ -387,7 +392,7 @@ public final class RecordProto {
     internal_static_recorder_ShiftRecord_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_recorder_ShiftRecord_descriptor,
-        new java.lang.String[] { "Id", "Supplier", "GameType", "GameSubtype", "GameVersion", "GameCode", "TableCode", "ShiftCode", "TsStart", "Tags", "RoundCodes", "ShoeCodes", "IsEnd", "TsEnd", });
+        new java.lang.String[] { "Id", "Supplier", "GameType", "GameSubtype", "GameVersion", "GameCode", "TableCode", "ShiftCode", "TsStart", "Tags", "RoundCodes", "ShoeCodes", "IsEnd", "TsEnd", "Test", });
     internal_static_recorder_ShiftRecord_TagsEntry_descriptor =
       internal_static_recorder_ShiftRecord_descriptor.getNestedTypes().get(0);
     internal_static_recorder_ShiftRecord_TagsEntry_fieldAccessorTable = new

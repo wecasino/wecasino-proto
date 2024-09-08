@@ -244,4 +244,15 @@ public interface ListRecordsRequestOrBuilder extends
    * @return The pageSize.
    */
   long getPageSize();
+
+  /**
+   * <code>.recorder.RoundStatusType roundStatusType = 12 [json_name = "roundStatusType"];</code>
+   * @return The enum numeric value on the wire for roundStatusType.
+   */
+  int getRoundStatusTypeValue();
+  /**
+   * <code>.recorder.RoundStatusType roundStatusType = 12 [json_name = "roundStatusType"];</code>
+   * @return The roundStatusType.
+   */
+  com.wecasino.proto.recorder.RoundStatusType getRoundStatusType();
 }

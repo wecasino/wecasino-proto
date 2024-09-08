@@ -60,6 +60,12 @@ const (
 	// RecorderServiceRecordRoundBeCanceledAfterFinishedProcedure is the fully-qualified name of the
 	// RecorderService's RecordRoundBeCanceledAfterFinished RPC.
 	RecorderServiceRecordRoundBeCanceledAfterFinishedProcedure = "/recorder.RecorderService/RecordRoundBeCanceledAfterFinished"
+	// RecorderServiceRecordModifyResultAfterRoundProcedure is the fully-qualified name of the
+	// RecorderService's RecordModifyResultAfterRound RPC.
+	RecorderServiceRecordModifyResultAfterRoundProcedure = "/recorder.RecorderService/RecordModifyResultAfterRound"
+	// RecorderServiceRecordFinishResultAfterRoundProcedure is the fully-qualified name of the
+	// RecorderService's RecordFinishResultAfterRound RPC.
+	RecorderServiceRecordFinishResultAfterRoundProcedure = "/recorder.RecorderService/RecordFinishResultAfterRound"
 	// RecorderServiceRecordRoundVideoProcedure is the fully-qualified name of the RecorderService's
 	// RecordRoundVideo RPC.
 	RecorderServiceRecordRoundVideoProcedure = "/recorder.RecorderService/RecordRoundVideo"
@@ -77,6 +83,8 @@ var (
 	recorderServiceRecordRoundBeCanceledMethodDescriptor              = recorderServiceServiceDescriptor.Methods().ByName("RecordRoundBeCanceled")
 	recorderServiceRecordRoundFinishedMethodDescriptor                = recorderServiceServiceDescriptor.Methods().ByName("RecordRoundFinished")
 	recorderServiceRecordRoundBeCanceledAfterFinishedMethodDescriptor = recorderServiceServiceDescriptor.Methods().ByName("RecordRoundBeCanceledAfterFinished")
+	recorderServiceRecordModifyResultAfterRoundMethodDescriptor       = recorderServiceServiceDescriptor.Methods().ByName("RecordModifyResultAfterRound")
+	recorderServiceRecordFinishResultAfterRoundMethodDescriptor       = recorderServiceServiceDescriptor.Methods().ByName("RecordFinishResultAfterRound")
 	recorderServiceRecordRoundVideoMethodDescriptor                   = recorderServiceServiceDescriptor.Methods().ByName("RecordRoundVideo")
 )
 
@@ -98,8 +106,12 @@ type RecorderServiceClient interface {
 	RecordRoundBeCanceled(context.Context, *connect.Request[recorder.RecordRoundBeCanceledRequest]) (*connect.Response[recorder.RoundRecord], error)
 	// 結束此局
 	RecordRoundFinished(context.Context, *connect.Request[recorder.RecordRoundFinishedRequest]) (*connect.Response[recorder.RoundRecord], error)
-	// 事後取消此局
+	// 事後取消此局(未結算取消)
 	RecordRoundBeCanceledAfterFinished(context.Context, *connect.Request[recorder.RecordRoundBeCanceledRequest]) (*connect.Response[recorder.RoundRecord], error)
+	// 事後修改此局(以結算改牌)
+	RecordModifyResultAfterRound(context.Context, *connect.Request[recorder.RecordModifyCardRequest]) (*connect.Response[recorder.RoundRecord], error)
+	// 事後結束此局(未結算發結算)
+	RecordFinishResultAfterRound(context.Context, *connect.Request[recorder.RecordModifyCardRequest]) (*connect.Response[recorder.RoundRecord], error)
 	// 紀錄回放
 	RecordRoundVideo(context.Context, *connect.Request[recorder.RecordRoundMediaRequest]) (*connect.Response[recorder.RoundRecord], error)
 }
@@ -168,6 +180,18 @@ func NewRecorderServiceClient(httpClient connect.HTTPClient, baseURL string, opt
 			connect.WithSchema(recorderServiceRecordRoundBeCanceledAfterFinishedMethodDescriptor),
 			connect.WithClientOptions(opts...),
 		),
+		recordModifyResultAfterRound: connect.NewClient[recorder.RecordModifyCardRequest, recorder.RoundRecord](
+			httpClient,
+			baseURL+RecorderServiceRecordModifyResultAfterRoundProcedure,
+			connect.WithSchema(recorderServiceRecordModifyResultAfterRoundMethodDescriptor),
+			connect.WithClientOptions(opts...),
+		),
+		recordFinishResultAfterRound: connect.NewClient[recorder.RecordModifyCardRequest, recorder.RoundRecord](
+			httpClient,
+			baseURL+RecorderServiceRecordFinishResultAfterRoundProcedure,
+			connect.WithSchema(recorderServiceRecordFinishResultAfterRoundMethodDescriptor),
+			connect.WithClientOptions(opts...),
+		),
 		recordRoundVideo: connect.NewClient[recorder.RecordRoundMediaRequest, recorder.RoundRecord](
 			httpClient,
 			baseURL+RecorderServiceRecordRoundVideoProcedure,
@@ -188,6 +212,8 @@ type recorderServiceClient struct {
 	recordRoundBeCanceled              *connect.Client[recorder.RecordRoundBeCanceledRequest, recorder.RoundRecord]
 	recordRoundFinished                *connect.Client[recorder.RecordRoundFinishedRequest, recorder.RoundRecord]
 	recordRoundBeCanceledAfterFinished *connect.Client[recorder.RecordRoundBeCanceledRequest, recorder.RoundRecord]
+	recordModifyResultAfterRound       *connect.Client[recorder.RecordModifyCardRequest, recorder.RoundRecord]
+	recordFinishResultAfterRound       *connect.Client[recorder.RecordModifyCardRequest, recorder.RoundRecord]
 	recordRoundVideo                   *connect.Client[recorder.RecordRoundMediaRequest, recorder.RoundRecord]
 }
 
@@ -237,6 +263,16 @@ func (c *recorderServiceClient) RecordRoundBeCanceledAfterFinished(ctx context.C
 	return c.recordRoundBeCanceledAfterFinished.CallUnary(ctx, req)
 }
 
+// RecordModifyResultAfterRound calls recorder.RecorderService.RecordModifyResultAfterRound.
+func (c *recorderServiceClient) RecordModifyResultAfterRound(ctx context.Context, req *connect.Request[recorder.RecordModifyCardRequest]) (*connect.Response[recorder.RoundRecord], error) {
+	return c.recordModifyResultAfterRound.CallUnary(ctx, req)
+}
+
+// RecordFinishResultAfterRound calls recorder.RecorderService.RecordFinishResultAfterRound.
+func (c *recorderServiceClient) RecordFinishResultAfterRound(ctx context.Context, req *connect.Request[recorder.RecordModifyCardRequest]) (*connect.Response[recorder.RoundRecord], error) {
+	return c.recordFinishResultAfterRound.CallUnary(ctx, req)
+}
+
 // RecordRoundVideo calls recorder.RecorderService.RecordRoundVideo.
 func (c *recorderServiceClient) RecordRoundVideo(ctx context.Context, req *connect.Request[recorder.RecordRoundMediaRequest]) (*connect.Response[recorder.RoundRecord], error) {
 	return c.recordRoundVideo.CallUnary(ctx, req)
@@ -260,8 +296,12 @@ type RecorderServiceHandler interface {
 	RecordRoundBeCanceled(context.Context, *connect.Request[recorder.RecordRoundBeCanceledRequest]) (*connect.Response[recorder.RoundRecord], error)
 	// 結束此局
 	RecordRoundFinished(context.Context, *connect.Request[recorder.RecordRoundFinishedRequest]) (*connect.Response[recorder.RoundRecord], error)
-	// 事後取消此局
+	// 事後取消此局(未結算取消)
 	RecordRoundBeCanceledAfterFinished(context.Context, *connect.Request[recorder.RecordRoundBeCanceledRequest]) (*connect.Response[recorder.RoundRecord], error)
+	// 事後修改此局(以結算改牌)
+	RecordModifyResultAfterRound(context.Context, *connect.Request[recorder.RecordModifyCardRequest]) (*connect.Response[recorder.RoundRecord], error)
+	// 事後結束此局(未結算發結算)
+	RecordFinishResultAfterRound(context.Context, *connect.Request[recorder.RecordModifyCardRequest]) (*connect.Response[recorder.RoundRecord], error)
 	// 紀錄回放
 	RecordRoundVideo(context.Context, *connect.Request[recorder.RecordRoundMediaRequest]) (*connect.Response[recorder.RoundRecord], error)
 }
@@ -326,6 +366,18 @@ func NewRecorderServiceHandler(svc RecorderServiceHandler, opts ...connect.Handl
 		connect.WithSchema(recorderServiceRecordRoundBeCanceledAfterFinishedMethodDescriptor),
 		connect.WithHandlerOptions(opts...),
 	)
+	recorderServiceRecordModifyResultAfterRoundHandler := connect.NewUnaryHandler(
+		RecorderServiceRecordModifyResultAfterRoundProcedure,
+		svc.RecordModifyResultAfterRound,
+		connect.WithSchema(recorderServiceRecordModifyResultAfterRoundMethodDescriptor),
+		connect.WithHandlerOptions(opts...),
+	)
+	recorderServiceRecordFinishResultAfterRoundHandler := connect.NewUnaryHandler(
+		RecorderServiceRecordFinishResultAfterRoundProcedure,
+		svc.RecordFinishResultAfterRound,
+		connect.WithSchema(recorderServiceRecordFinishResultAfterRoundMethodDescriptor),
+		connect.WithHandlerOptions(opts...),
+	)
 	recorderServiceRecordRoundVideoHandler := connect.NewUnaryHandler(
 		RecorderServiceRecordRoundVideoProcedure,
 		svc.RecordRoundVideo,
@@ -352,6 +404,10 @@ func NewRecorderServiceHandler(svc RecorderServiceHandler, opts ...connect.Handl
 			recorderServiceRecordRoundFinishedHandler.ServeHTTP(w, r)
 		case RecorderServiceRecordRoundBeCanceledAfterFinishedProcedure:
 			recorderServiceRecordRoundBeCanceledAfterFinishedHandler.ServeHTTP(w, r)
+		case RecorderServiceRecordModifyResultAfterRoundProcedure:
+			recorderServiceRecordModifyResultAfterRoundHandler.ServeHTTP(w, r)
+		case RecorderServiceRecordFinishResultAfterRoundProcedure:
+			recorderServiceRecordFinishResultAfterRoundHandler.ServeHTTP(w, r)
 		case RecorderServiceRecordRoundVideoProcedure:
 			recorderServiceRecordRoundVideoHandler.ServeHTTP(w, r)
 		default:
@@ -397,6 +453,14 @@ func (UnimplementedRecorderServiceHandler) RecordRoundFinished(context.Context, 
 
 func (UnimplementedRecorderServiceHandler) RecordRoundBeCanceledAfterFinished(context.Context, *connect.Request[recorder.RecordRoundBeCanceledRequest]) (*connect.Response[recorder.RoundRecord], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("recorder.RecorderService.RecordRoundBeCanceledAfterFinished is not implemented"))
+}
+
+func (UnimplementedRecorderServiceHandler) RecordModifyResultAfterRound(context.Context, *connect.Request[recorder.RecordModifyCardRequest]) (*connect.Response[recorder.RoundRecord], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("recorder.RecorderService.RecordModifyResultAfterRound is not implemented"))
+}
+
+func (UnimplementedRecorderServiceHandler) RecordFinishResultAfterRound(context.Context, *connect.Request[recorder.RecordModifyCardRequest]) (*connect.Response[recorder.RoundRecord], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("recorder.RecorderService.RecordFinishResultAfterRound is not implemented"))
 }
 
 func (UnimplementedRecorderServiceHandler) RecordRoundVideo(context.Context, *connect.Request[recorder.RecordRoundMediaRequest]) (*connect.Response[recorder.RoundRecord], error) {

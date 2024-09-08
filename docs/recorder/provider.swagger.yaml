@@ -1,12 +1,8 @@
 swagger: "2.0"
 info:
-  title: WECasino Provider API
-  version: "1.0"
-  contact:
-    name: WECasino Project
+  title: recorder/provider.proto
+  version: version not set
 host: gateway.beta.wecasino.live
-schemes:
-  - https
 consumes:
   - application/json
 produces:
@@ -97,6 +93,30 @@ paths:
           in: path
           required: true
           type: string
+  /v1/provider/games/{gameCode}:instructions:
+    post:
+      summary: 玩家指示
+      operationId: ProviderService_GamblerInstructions
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/recorderRoundRecord'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/rpcStatus'
+      parameters:
+        - name: gameCode
+          description: 遊戲代碼
+          in: path
+          required: true
+          type: string
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/ProviderServiceGamblerInstructionsBody'
   /v1/provider/games/{gameCode}:verify:
     post:
       summary: 驗證
@@ -159,6 +179,8 @@ paths:
              - 19: 牛牛
              - 20: 番攤
              - 32: 骰寶
+             - 33: 色彩遊戲
+             - 34: 丟球遊戲
              - 36: 輪盤
              - 40: 幸運輪
           in: query
@@ -172,6 +194,8 @@ paths:
             - 19
             - 20
             - 32
+            - 33
+            - 34
             - 36
             - 40
           default: 0
@@ -213,6 +237,21 @@ paths:
           required: false
           type: string
           format: int64
+        - name: roundStatusType
+          description: |2-
+             - 0: 未指定
+             - 1: 以取消
+             - 2: 以結算
+             - 3: 未結算
+          in: query
+          required: false
+          type: integer
+          enum:
+            - 0
+            - 1
+            - 2
+            - 3
+          default: 0
   /v1/provider/shoes:
     get:
       summary: 讀牌靴紀錄list
@@ -250,6 +289,8 @@ paths:
              - 19: 牛牛
              - 20: 番攤
              - 32: 骰寶
+             - 33: 色彩遊戲
+             - 34: 丟球遊戲
              - 36: 輪盤
              - 40: 幸運輪
           in: query
@@ -263,6 +304,8 @@ paths:
             - 19
             - 20
             - 32
+            - 33
+            - 34
             - 36
             - 40
           default: 0
@@ -304,6 +347,43 @@ paths:
           required: false
           type: string
           format: int64
+        - name: roundStatusType
+          description: |2-
+             - 0: 未指定
+             - 1: 以取消
+             - 2: 以結算
+             - 3: 未結算
+          in: query
+          required: false
+          type: integer
+          enum:
+            - 0
+            - 1
+            - 2
+            - 3
+          default: 0
+  /v1/recorder/playback/{code}:
+    get:
+      operationId: RecorderReadService_GetPlayBackRound
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/recorderGetRoundPlayBackResponse'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/rpcStatus'
+      parameters:
+        - name: code
+          description: 資源代碼
+          in: path
+          required: true
+          type: string
+        - name: platform
+          in: query
+          required: true
+          type: string
   /v1/recorder/rounds/{code}:
     get:
       summary: 讀取指定局紀錄
@@ -379,6 +459,8 @@ paths:
              - 19: 牛牛
              - 20: 番攤
              - 32: 骰寶
+             - 33: 色彩遊戲
+             - 34: 丟球遊戲
              - 36: 輪盤
              - 40: 幸運輪
           in: query
@@ -392,6 +474,8 @@ paths:
             - 19
             - 20
             - 32
+            - 33
+            - 34
             - 36
             - 40
           default: 0
@@ -433,6 +517,21 @@ paths:
           required: false
           type: string
           format: int64
+        - name: roundStatusType
+          description: |2-
+             - 0: 未指定
+             - 1: 以取消
+             - 2: 以結算
+             - 3: 未結算
+          in: query
+          required: false
+          type: integer
+          enum:
+            - 0
+            - 1
+            - 2
+            - 3
+          default: 0
   /v1/recorder/shifts/{code}:
     get:
       summary: 讀取指定班次紀錄
@@ -490,6 +589,25 @@ paths:
           in: path
           required: true
           type: string
+  /v1/recorder/shoes/{shoeCode}/rounds:
+    get:
+      summary: 讀取整靴局紀錄
+      operationId: RecorderReadService_GetRoundsByShoe
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/recorderGetRoundsByShoeResponse'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/rpcStatus'
+      parameters:
+        - name: shoeCode
+          description: 資源代碼
+          in: path
+          required: true
+          type: string
   /v1/recorder/shoes:current:
     get:
       summary: 讀取目前靴紀錄
@@ -510,6 +628,18 @@ paths:
           required: true
           type: string
 definitions:
+  ProviderServiceGamblerInstructionsBody:
+    type: object
+    properties:
+      player:
+        type: string
+        title: 玩家帳號
+      instructions:
+        type: object
+        additionalProperties:
+          type: string
+        title: 指示傳送接收的代碼  position card
+    title: 玩家指示
   ProviderServiceVerifyGameBody:
     type: object
     properties:
@@ -535,6 +665,8 @@ definitions:
       - 19
       - 20
       - 32
+      - 33
+      - 34
       - 36
       - 40
     default: 0
@@ -546,6 +678,8 @@ definitions:
        - 19: 牛牛
        - 20: 番攤
        - 32: 骰寶
+       - 33: 色彩遊戲
+       - 34: 丟球遊戲
        - 36: 輪盤
        - 40: 幸運輪
     title: "GameType \n遊戲類型"
@@ -898,6 +1032,33 @@ definitions:
     title: |-
       GameProvideState
       遊戲供應狀態類型
+  recorderGetRoundPlayBackResponse:
+    type: object
+    properties:
+      roundCode:
+        type: string
+        title: round code
+      tsStart:
+        type: string
+        format: date-time
+        title: 開始時間
+      medias:
+        type: object
+        additionalProperties:
+          type: string
+        title: 回放url
+    title: |-
+      GetRoundPlayBackResponse
+      取得局回放記錄
+  recorderGetRoundsByShoeResponse:
+    type: object
+    properties:
+      roundRecords:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/recorderRoundResult'
+        title: roundResults
   recorderListDealersResponse:
     type: object
     properties:
@@ -1116,9 +1277,81 @@ definitions:
           type: string
           format: int64
         title: 財神倍率
+      test:
+        type: boolean
+        title: 是否測試
     title: |-
       RoundRecord
       局紀錄
+  recorderRoundResult:
+    type: object
+    properties:
+      gameCode:
+        type: string
+        title: 遊戲代碼
+      shiftCode:
+        type: string
+        title: 班代碼
+      shiftRound:
+        type: string
+        format: int64
+        title: 此排班局數
+      shoeCode:
+        type: string
+        title: 使用靴代碼
+      shoeRound:
+        type: string
+        format: int64
+        title: 使用此洗牌第幾局，從1開始計算
+      roundCode:
+        type: string
+        title: 局代碼
+      tsStart:
+        type: string
+        format: date-time
+        title: 開始時間
+      seats:
+        type: object
+        additionalProperties:
+          $ref: '#/definitions/recorderSeat'
+        title: |-
+          座位組
+          key: SeatCode, value: Seat
+      isEnd:
+        type: boolean
+        title: 結束
+      tsEnd:
+        type: string
+        format: date-time
+        title: 結束時間
+      cancel:
+        type: boolean
+        title: 取消
+      cancelCode:
+        type: string
+        title: 取消代碼：CancelReasonCode
+      cancelMessage:
+        type: string
+        title: 取消備註
+      medias:
+        type: object
+        additionalProperties:
+          type: string
+        title: '附加媒體：key: 媒體資源代碼；value: 媒體內容。'
+  recorderRoundStatusType:
+    type: integer
+    format: int32
+    enum:
+      - 0
+      - 1
+      - 2
+      - 3
+    default: 0
+    title: |-
+      - 0: 未指定
+       - 1: 以取消
+       - 2: 以結算
+       - 3: 未結算
   recorderSeat:
     type: object
     properties:
@@ -1190,6 +1423,9 @@ definitions:
         type: string
         format: date-time
         title: 結束時間
+      test:
+        type: boolean
+        title: 是否測試
     title: |-
       ShiftRecord
       排班記錄
@@ -1240,6 +1476,9 @@ definitions:
         type: string
         format: date-time
         title: 牌靴使用完畢時間
+      test:
+        type: boolean
+        title: 是否測試
     title: |-
       ShoeRecord
       靴紀錄
@@ -1356,3 +1595,10 @@ definitions:
         items:
           type: object
           $ref: '#/definitions/protobufAny'
+securityDefinitions:
+  ApiKeyAuth:
+    type: apiKey
+    name: X-API-Key
+    in: header
+security:
+  - ApiKeyAuth: []

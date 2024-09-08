@@ -279,6 +279,58 @@ func local_request_RecorderReadService_GetCurrentShoe_0(ctx context.Context, mar
 
 }
 
+func request_RecorderReadService_GetRoundsByShoe_0(ctx context.Context, marshaler runtime.Marshaler, client RecorderReadServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq GetRoundsByShoeRequest
+	var metadata runtime.ServerMetadata
+
+	var (
+		val string
+		ok  bool
+		err error
+		_   = err
+	)
+
+	val, ok = pathParams["shoe_code"]
+	if !ok {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "shoe_code")
+	}
+
+	protoReq.ShoeCode, err = runtime.String(val)
+	if err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "shoe_code", err)
+	}
+
+	msg, err := client.GetRoundsByShoe(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
+	return msg, metadata, err
+
+}
+
+func local_request_RecorderReadService_GetRoundsByShoe_0(ctx context.Context, marshaler runtime.Marshaler, server RecorderReadServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq GetRoundsByShoeRequest
+	var metadata runtime.ServerMetadata
+
+	var (
+		val string
+		ok  bool
+		err error
+		_   = err
+	)
+
+	val, ok = pathParams["shoe_code"]
+	if !ok {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "shoe_code")
+	}
+
+	protoReq.ShoeCode, err = runtime.String(val)
+	if err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "shoe_code", err)
+	}
+
+	msg, err := server.GetRoundsByShoe(ctx, &protoReq)
+	return msg, metadata, err
+
+}
+
 var (
 	filter_RecorderReadService_ListRounds_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
 )
@@ -399,6 +451,76 @@ func local_request_RecorderReadService_GetCurrentRound_0(ctx context.Context, ma
 	}
 
 	msg, err := server.GetCurrentRound(ctx, &protoReq)
+	return msg, metadata, err
+
+}
+
+var (
+	filter_RecorderReadService_GetPlayBackRound_0 = &utilities.DoubleArray{Encoding: map[string]int{"code": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
+)
+
+func request_RecorderReadService_GetPlayBackRound_0(ctx context.Context, marshaler runtime.Marshaler, client RecorderReadServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq GetRoundPlayBackRequest
+	var metadata runtime.ServerMetadata
+
+	var (
+		val string
+		ok  bool
+		err error
+		_   = err
+	)
+
+	val, ok = pathParams["code"]
+	if !ok {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "code")
+	}
+
+	protoReq.Code, err = runtime.String(val)
+	if err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "code", err)
+	}
+
+	if err := req.ParseForm(); err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_RecorderReadService_GetPlayBackRound_0); err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+
+	msg, err := client.GetPlayBackRound(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
+	return msg, metadata, err
+
+}
+
+func local_request_RecorderReadService_GetPlayBackRound_0(ctx context.Context, marshaler runtime.Marshaler, server RecorderReadServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq GetRoundPlayBackRequest
+	var metadata runtime.ServerMetadata
+
+	var (
+		val string
+		ok  bool
+		err error
+		_   = err
+	)
+
+	val, ok = pathParams["code"]
+	if !ok {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "code")
+	}
+
+	protoReq.Code, err = runtime.String(val)
+	if err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "code", err)
+	}
+
+	if err := req.ParseForm(); err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_RecorderReadService_GetPlayBackRound_0); err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+
+	msg, err := server.GetPlayBackRound(ctx, &protoReq)
 	return msg, metadata, err
 
 }
@@ -529,6 +651,66 @@ func local_request_ProviderService_VerifyGame_0(ctx context.Context, marshaler r
 	}
 
 	msg, err := server.VerifyGame(ctx, &protoReq)
+	return msg, metadata, err
+
+}
+
+func request_ProviderService_GamblerInstructions_0(ctx context.Context, marshaler runtime.Marshaler, client ProviderServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq GamblerInstructionsRequest
+	var metadata runtime.ServerMetadata
+
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+
+	var (
+		val string
+		ok  bool
+		err error
+		_   = err
+	)
+
+	val, ok = pathParams["game_code"]
+	if !ok {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "game_code")
+	}
+
+	protoReq.GameCode, err = runtime.String(val)
+	if err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "game_code", err)
+	}
+
+	msg, err := client.GamblerInstructions(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
+	return msg, metadata, err
+
+}
+
+func local_request_ProviderService_GamblerInstructions_0(ctx context.Context, marshaler runtime.Marshaler, server ProviderServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq GamblerInstructionsRequest
+	var metadata runtime.ServerMetadata
+
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+
+	var (
+		val string
+		ok  bool
+		err error
+		_   = err
+	)
+
+	val, ok = pathParams["game_code"]
+	if !ok {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "game_code")
+	}
+
+	protoReq.GameCode, err = runtime.String(val)
+	if err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "game_code", err)
+	}
+
+	msg, err := server.GamblerInstructions(ctx, &protoReq)
 	return msg, metadata, err
 
 }
@@ -777,6 +959,31 @@ func RegisterRecorderReadServiceHandlerServer(ctx context.Context, mux *runtime.
 
 	})
 
+	mux.Handle("GET", pattern_RecorderReadService_GetRoundsByShoe_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		var stream runtime.ServerTransportStream
+		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		var err error
+		var annotatedContext context.Context
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/recorder.RecorderReadService/GetRoundsByShoe", runtime.WithHTTPPathPattern("/v1/recorder/shoes/{shoe_code}/rounds"))
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := local_request_RecorderReadService_GetRoundsByShoe_0(annotatedContext, inboundMarshaler, server, req, pathParams)
+		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
+		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
+		if err != nil {
+			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
+			return
+		}
+
+		forward_RecorderReadService_GetRoundsByShoe_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+
+	})
+
 	mux.Handle("GET", pattern_RecorderReadService_ListRounds_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
@@ -849,6 +1056,31 @@ func RegisterRecorderReadServiceHandlerServer(ctx context.Context, mux *runtime.
 		}
 
 		forward_RecorderReadService_GetCurrentRound_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+
+	})
+
+	mux.Handle("GET", pattern_RecorderReadService_GetPlayBackRound_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		var stream runtime.ServerTransportStream
+		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		var err error
+		var annotatedContext context.Context
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/recorder.RecorderReadService/GetPlayBackRound", runtime.WithHTTPPathPattern("/v1/recorder/playback/{code}"))
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := local_request_RecorderReadService_GetPlayBackRound_0(annotatedContext, inboundMarshaler, server, req, pathParams)
+		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
+		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
+		if err != nil {
+			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
+			return
+		}
+
+		forward_RecorderReadService_GetPlayBackRound_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
@@ -933,6 +1165,31 @@ func RegisterProviderServiceHandlerServer(ctx context.Context, mux *runtime.Serv
 		}
 
 		forward_ProviderService_VerifyGame_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+
+	})
+
+	mux.Handle("POST", pattern_ProviderService_GamblerInstructions_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		var stream runtime.ServerTransportStream
+		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		var err error
+		var annotatedContext context.Context
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/recorder.ProviderService/GamblerInstructions", runtime.WithHTTPPathPattern("/v1/provider/games/{game_code}:instructions"))
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := local_request_ProviderService_GamblerInstructions_0(annotatedContext, inboundMarshaler, server, req, pathParams)
+		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
+		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
+		if err != nil {
+			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
+			return
+		}
+
+		forward_ProviderService_GamblerInstructions_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
@@ -1159,6 +1416,28 @@ func RegisterRecorderReadServiceHandlerClient(ctx context.Context, mux *runtime.
 
 	})
 
+	mux.Handle("GET", pattern_RecorderReadService_GetRoundsByShoe_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		var err error
+		var annotatedContext context.Context
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/recorder.RecorderReadService/GetRoundsByShoe", runtime.WithHTTPPathPattern("/v1/recorder/shoes/{shoe_code}/rounds"))
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := request_RecorderReadService_GetRoundsByShoe_0(annotatedContext, inboundMarshaler, client, req, pathParams)
+		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
+		if err != nil {
+			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
+			return
+		}
+
+		forward_RecorderReadService_GetRoundsByShoe_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+
+	})
+
 	mux.Handle("GET", pattern_RecorderReadService_ListRounds_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
@@ -1225,6 +1504,28 @@ func RegisterRecorderReadServiceHandlerClient(ctx context.Context, mux *runtime.
 
 	})
 
+	mux.Handle("GET", pattern_RecorderReadService_GetPlayBackRound_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		var err error
+		var annotatedContext context.Context
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/recorder.RecorderReadService/GetPlayBackRound", runtime.WithHTTPPathPattern("/v1/recorder/playback/{code}"))
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := request_RecorderReadService_GetPlayBackRound_0(annotatedContext, inboundMarshaler, client, req, pathParams)
+		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
+		if err != nil {
+			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
+			return
+		}
+
+		forward_RecorderReadService_GetPlayBackRound_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+
+	})
+
 	return nil
 }
 
@@ -1241,11 +1542,15 @@ var (
 
 	pattern_RecorderReadService_GetCurrentShoe_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "recorder", "shoes"}, "current"))
 
+	pattern_RecorderReadService_GetRoundsByShoe_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 1, 0, 4, 1, 5, 3, 2, 4}, []string{"v1", "recorder", "shoes", "shoe_code", "rounds"}, ""))
+
 	pattern_RecorderReadService_ListRounds_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "provider", "rounds"}, ""))
 
 	pattern_RecorderReadService_GetRound_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 1, 0, 4, 1, 5, 3}, []string{"v1", "recorder", "rounds", "code"}, ""))
 
 	pattern_RecorderReadService_GetCurrentRound_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "recorder", "rounds"}, "current"))
+
+	pattern_RecorderReadService_GetPlayBackRound_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 1, 0, 4, 1, 5, 3}, []string{"v1", "recorder", "playback", "code"}, ""))
 )
 
 var (
@@ -1261,11 +1566,15 @@ var (
 
 	forward_RecorderReadService_GetCurrentShoe_0 = runtime.ForwardResponseMessage
 
+	forward_RecorderReadService_GetRoundsByShoe_0 = runtime.ForwardResponseMessage
+
 	forward_RecorderReadService_ListRounds_0 = runtime.ForwardResponseMessage
 
 	forward_RecorderReadService_GetRound_0 = runtime.ForwardResponseMessage
 
 	forward_RecorderReadService_GetCurrentRound_0 = runtime.ForwardResponseMessage
+
+	forward_RecorderReadService_GetPlayBackRound_0 = runtime.ForwardResponseMessage
 )
 
 // RegisterProviderServiceHandlerFromEndpoint is same as RegisterProviderServiceHandler but
@@ -1372,6 +1681,28 @@ func RegisterProviderServiceHandlerClient(ctx context.Context, mux *runtime.Serv
 
 	})
 
+	mux.Handle("POST", pattern_ProviderService_GamblerInstructions_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		var err error
+		var annotatedContext context.Context
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/recorder.ProviderService/GamblerInstructions", runtime.WithHTTPPathPattern("/v1/provider/games/{game_code}:instructions"))
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := request_ProviderService_GamblerInstructions_0(annotatedContext, inboundMarshaler, client, req, pathParams)
+		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
+		if err != nil {
+			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
+			return
+		}
+
+		forward_ProviderService_GamblerInstructions_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+
+	})
+
 	mux.Handle("GET", pattern_ProviderService_ListDealers_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
@@ -1426,6 +1757,8 @@ var (
 
 	pattern_ProviderService_VerifyGame_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 1, 0, 4, 1, 5, 3}, []string{"v1", "provider", "games", "game_code"}, "verify"))
 
+	pattern_ProviderService_GamblerInstructions_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 1, 0, 4, 1, 5, 3}, []string{"v1", "provider", "games", "game_code"}, "instructions"))
+
 	pattern_ProviderService_ListDealers_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "provider", "dealers"}, ""))
 
 	pattern_ProviderService_GetDealer_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 1, 0, 4, 1, 5, 3}, []string{"v1", "provider", "dealers", "code"}, ""))
@@ -1437,6 +1770,8 @@ var (
 	forward_ProviderService_GetGames_0 = runtime.ForwardResponseMessage
 
 	forward_ProviderService_VerifyGame_0 = runtime.ForwardResponseMessage
+
+	forward_ProviderService_GamblerInstructions_0 = runtime.ForwardResponseMessage
 
 	forward_ProviderService_ListDealers_0 = runtime.ForwardResponseMessage
 

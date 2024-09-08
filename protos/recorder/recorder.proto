@@ -121,6 +121,9 @@ message RecordRoundStartedRequest {
   // 玩家入座
   map<int32, string> players = 25;
 
+  // 財神倍率
+  map<string, int64> fortune_rates = 29;
+
   // 玩家姓名
   map<string, string> players_name = 30;
 }
@@ -173,6 +176,33 @@ message RecordRoundMediaRequest {
 
 }
 
+message RecordModifyCardRequest {
+
+  // 遊戲代碼
+  string game_code = 2;
+
+  // 局代碼牌
+  string round_code = 3;
+
+  // 修改牌
+  repeated CardModify modifies = 4;
+
+  // 修改原因
+  string modify_message = 5;
+}
+
+message CardModify {
+
+  int32 seat = 1;
+
+  int32 resource_type = 2;
+
+  int64 card_list_index = 3;
+
+  string card_code = 4;
+
+}
+
 service RecorderService {
   
   // 建立新排班
@@ -199,8 +229,14 @@ service RecorderService {
   // 結束此局
   rpc RecordRoundFinished(RecordRoundFinishedRequest) returns (RoundRecord);
 
-  // 事後取消此局
+  // 事後取消此局(未結算取消)
   rpc RecordRoundBeCanceledAfterFinished(RecordRoundBeCanceledRequest) returns (RoundRecord);
+
+  // 事後修改此局(以結算改牌)
+  rpc RecordModifyResultAfterRound(RecordModifyCardRequest) returns (RoundRecord);
+
+  // 事後結束此局(未結算發結算)
+  rpc RecordFinishResultAfterRound(RecordModifyCardRequest) returns (RoundRecord);
 
   // 紀錄回放
   rpc RecordRoundVideo(RecordRoundMediaRequest) returns (RoundRecord);

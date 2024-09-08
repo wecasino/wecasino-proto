@@ -12,7 +12,7 @@ plugins:
     out: es/lib/pb
 
   # dependencies
-  - plugin: buf.build/bufbuild/es
+  - plugin: buf.build/bufbuild/es:v1.10.0
     out: es/src/pb
     opt:
       - target=ts

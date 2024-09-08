@@ -210,6 +210,20 @@ definitions:
     title: |-
       CardList
       卡牌列表
+  recorderCardModify:
+    type: object
+    properties:
+      seat:
+        type: integer
+        format: int32
+      resourceType:
+        type: integer
+        format: int32
+      cardListIndex:
+        type: string
+        format: int64
+      cardCode:
+        type: string
   recorderDeck:
     type: object
     properties:
@@ -344,6 +358,9 @@ definitions:
           type: string
           format: int64
         title: 財神倍率
+      test:
+        type: boolean
+        title: 是否測試
     title: |-
       RoundRecord
       局紀錄
@@ -418,6 +435,9 @@ definitions:
         type: string
         format: date-time
         title: 結束時間
+      test:
+        type: boolean
+        title: 是否測試
     title: |-
       ShiftRecord
       排班記錄
@@ -468,6 +488,9 @@ definitions:
         type: string
         format: date-time
         title: 牌靴使用完畢時間
+      test:
+        type: boolean
+        title: 是否測試
     title: |-
       ShoeRecord
       靴紀錄

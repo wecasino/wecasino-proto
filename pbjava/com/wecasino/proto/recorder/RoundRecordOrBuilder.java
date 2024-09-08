@@ -846,4 +846,23 @@ java.lang.String defaultValue);
    */
   long getFortuneRatesOrThrow(
       java.lang.String key);
+
+  /**
+   * <pre>
+   * 是否測試
+   * </pre>
+   *
+   * <code>optional bool test = 31 [json_name = "test", (.tagger.tags) = "bson:&#92;"test,omitempty&#92;""];</code>
+   * @return Whether the test field is set.
+   */
+  boolean hasTest();
+  /**
+   * <pre>
+   * 是否測試
+   * </pre>
+   *
+   * <code>optional bool test = 31 [json_name = "test", (.tagger.tags) = "bson:&#92;"test,omitempty&#92;""];</code>
+   * @return The test.
+   */
+  boolean getTest();
 }

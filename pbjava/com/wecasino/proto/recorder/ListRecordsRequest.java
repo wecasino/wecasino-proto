@@ -22,6 +22,7 @@ private static final long serialVersionUID = 0L;
     gameCode_ = "";
     searchAfter_ = "";
     searchBefore_ = "";
+    roundStatusType_ = 0;
   }
 
   @java.lang.Override
@@ -451,6 +452,24 @@ private static final long serialVersionUID = 0L;
     return pageSize_;
   }
 
+  public static final int ROUNDSTATUSTYPE_FIELD_NUMBER = 12;
+  private int roundStatusType_ = 0;
+  /**
+   * <code>.recorder.RoundStatusType roundStatusType = 12 [json_name = "roundStatusType"];</code>
+   * @return The enum numeric value on the wire for roundStatusType.
+   */
+  @java.lang.Override public int getRoundStatusTypeValue() {
+    return roundStatusType_;
+  }
+  /**
+   * <code>.recorder.RoundStatusType roundStatusType = 12 [json_name = "roundStatusType"];</code>
+   * @return The roundStatusType.
+   */
+  @java.lang.Override public com.wecasino.proto.recorder.RoundStatusType getRoundStatusType() {
+    com.wecasino.proto.recorder.RoundStatusType result = com.wecasino.proto.recorder.RoundStatusType.forNumber(roundStatusType_);
+    return result == null ? com.wecasino.proto.recorder.RoundStatusType.UNRECOGNIZED : result;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -494,6 +513,9 @@ private static final long serialVersionUID = 0L;
     }
     if (pageSize_ != 0L) {
       output.writeInt64(11, pageSize_);
+    }
+    if (roundStatusType_ != com.wecasino.proto.recorder.RoundStatusType.NONE_ROUND_STATUS_TYPE_UNSPECIFIED.getNumber()) {
+      output.writeEnum(12, roundStatusType_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -539,6 +561,10 @@ private static final long serialVersionUID = 0L;
     if (pageSize_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(11, pageSize_);
+    }
+    if (roundStatusType_ != com.wecasino.proto.recorder.RoundStatusType.NONE_ROUND_STATUS_TYPE_UNSPECIFIED.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(12, roundStatusType_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -598,6 +624,7 @@ private static final long serialVersionUID = 0L;
         != other.getPage()) return false;
     if (getPageSize()
         != other.getPageSize()) return false;
+    if (roundStatusType_ != other.roundStatusType_) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -647,6 +674,8 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + PAGE_SIZE_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getPageSize());
+    hash = (37 * hash) + ROUNDSTATUSTYPE_FIELD_NUMBER;
+    hash = (53 * hash) + roundStatusType_;
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -803,6 +832,7 @@ private static final long serialVersionUID = 0L;
       searchBefore_ = "";
       page_ = 0L;
       pageSize_ = 0L;
+      roundStatusType_ = 0;
       return this;
     }
 
@@ -878,6 +908,9 @@ private static final long serialVersionUID = 0L;
       }
       if (((from_bitField0_ & 0x00000200) != 0)) {
         result.pageSize_ = pageSize_;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.roundStatusType_ = roundStatusType_;
       }
       result.bitField0_ |= to_bitField0_;
     }
@@ -964,6 +997,9 @@ private static final long serialVersionUID = 0L;
       if (other.getPageSize() != 0L) {
         setPageSize(other.getPageSize());
       }
+      if (other.roundStatusType_ != 0) {
+        setRoundStatusTypeValue(other.getRoundStatusTypeValue());
+      }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
@@ -1044,6 +1080,11 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000200;
               break;
             } // case 88
+            case 96: {
+              roundStatusType_ = input.readEnum();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 96
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -2011,6 +2052,59 @@ private static final long serialVersionUID = 0L;
     public Builder clearPageSize() {
       bitField0_ = (bitField0_ & ~0x00000200);
       pageSize_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private int roundStatusType_ = 0;
+    /**
+     * <code>.recorder.RoundStatusType roundStatusType = 12 [json_name = "roundStatusType"];</code>
+     * @return The enum numeric value on the wire for roundStatusType.
+     */
+    @java.lang.Override public int getRoundStatusTypeValue() {
+      return roundStatusType_;
+    }
+    /**
+     * <code>.recorder.RoundStatusType roundStatusType = 12 [json_name = "roundStatusType"];</code>
+     * @param value The enum numeric value on the wire for roundStatusType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setRoundStatusTypeValue(int value) {
+      roundStatusType_ = value;
+      bitField0_ |= 0x00000400;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.recorder.RoundStatusType roundStatusType = 12 [json_name = "roundStatusType"];</code>
+     * @return The roundStatusType.
+     */
+    @java.lang.Override
+    public com.wecasino.proto.recorder.RoundStatusType getRoundStatusType() {
+      com.wecasino.proto.recorder.RoundStatusType result = com.wecasino.proto.recorder.RoundStatusType.forNumber(roundStatusType_);
+      return result == null ? com.wecasino.proto.recorder.RoundStatusType.UNRECOGNIZED : result;
+    }
+    /**
+     * <code>.recorder.RoundStatusType roundStatusType = 12 [json_name = "roundStatusType"];</code>
+     * @param value The roundStatusType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setRoundStatusType(com.wecasino.proto.recorder.RoundStatusType value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      bitField0_ |= 0x00000400;
+      roundStatusType_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.recorder.RoundStatusType roundStatusType = 12 [json_name = "roundStatusType"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearRoundStatusType() {
+      bitField0_ = (bitField0_ & ~0x00000400);
+      roundStatusType_ = 0;
       onChanged();
       return this;
     }
