@@ -27,6 +27,14 @@ public enum GameSubtype
   DROPBALL_CLASSIC(1),
   /**
    * <pre>
+   * Coconut Ball
+   * </pre>
+   *
+   * <code>DROPBALL_COCONUT_BALL = 3;</code>
+   */
+  DROPBALL_COCONUT_BALL(3),
+  /**
+   * <pre>
    * 區塊鏈color
    * </pre>
    *
@@ -52,6 +60,14 @@ public enum GameSubtype
    * <code>DROPBALL_CLASSIC = 1;</code>
    */
   public static final int DROPBALL_CLASSIC_VALUE = 1;
+  /**
+   * <pre>
+   * Coconut Ball
+   * </pre>
+   *
+   * <code>DROPBALL_COCONUT_BALL = 3;</code>
+   */
+  public static final int DROPBALL_COCONUT_BALL_VALUE = 3;
   /**
    * <pre>
    * 區塊鏈color
@@ -88,6 +104,7 @@ public enum GameSubtype
     switch (value) {
       case 0: return DROPBALL_TYPE_UNSPECIFIED;
       case 1: return DROPBALL_CLASSIC;
+      case 3: return DROPBALL_COCONUT_BALL;
       case 16: return DROPBALL_BLOCKCHAIN;
       default: return null;
     }
