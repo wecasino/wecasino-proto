@@ -9,8 +9,8 @@ enum GameSubtype {
   // DROPBALL
   DROPBALL_CLASSIC = 1;
 
-  // 財神DROPBALL
-  //  DROPBALL_FORTUNE = 2;
+  // Coconut Ball
+  DROPBALL_COCONUT_BALL = 3;
 
   // 區塊鏈color
   DROPBALL_BLOCKCHAIN = 16;
