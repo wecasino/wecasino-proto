@@ -19,4 +19,17 @@ enum ColorCard {
   //白
   Color_6 = 6;
 
+  //Purple
+  PURPLE = 51;
+  //Blue
+  BLUE = 52;
+  //Red
+  RED = 53;
+  //Yellow
+  YELLOW = 54;
+  //Orange
+  ORANGE = 55;
+  //Green
+  GREEN = 56;
+
 }
