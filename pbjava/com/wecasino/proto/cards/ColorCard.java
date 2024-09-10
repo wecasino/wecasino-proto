@@ -66,6 +66,54 @@ public enum ColorCard
    * <code>Color_6 = 6;</code>
    */
   Color_6(6),
+  /**
+   * <pre>
+   *Purple
+   * </pre>
+   *
+   * <code>PURPLE = 51;</code>
+   */
+  PURPLE(51),
+  /**
+   * <pre>
+   *Blue
+   * </pre>
+   *
+   * <code>BLUE = 52;</code>
+   */
+  BLUE(52),
+  /**
+   * <pre>
+   *Red
+   * </pre>
+   *
+   * <code>RED = 53;</code>
+   */
+  RED(53),
+  /**
+   * <pre>
+   *Yellow
+   * </pre>
+   *
+   * <code>YELLOW = 54;</code>
+   */
+  YELLOW(54),
+  /**
+   * <pre>
+   *Orange
+   * </pre>
+   *
+   * <code>ORANGE = 55;</code>
+   */
+  ORANGE(55),
+  /**
+   * <pre>
+   *Green
+   * </pre>
+   *
+   * <code>GREEN = 56;</code>
+   */
+  GREEN(56),
   UNRECOGNIZED(-1),
   ;
 
@@ -126,6 +174,54 @@ public enum ColorCard
    * <code>Color_6 = 6;</code>
    */
   public static final int Color_6_VALUE = 6;
+  /**
+   * <pre>
+   *Purple
+   * </pre>
+   *
+   * <code>PURPLE = 51;</code>
+   */
+  public static final int PURPLE_VALUE = 51;
+  /**
+   * <pre>
+   *Blue
+   * </pre>
+   *
+   * <code>BLUE = 52;</code>
+   */
+  public static final int BLUE_VALUE = 52;
+  /**
+   * <pre>
+   *Red
+   * </pre>
+   *
+   * <code>RED = 53;</code>
+   */
+  public static final int RED_VALUE = 53;
+  /**
+   * <pre>
+   *Yellow
+   * </pre>
+   *
+   * <code>YELLOW = 54;</code>
+   */
+  public static final int YELLOW_VALUE = 54;
+  /**
+   * <pre>
+   *Orange
+   * </pre>
+   *
+   * <code>ORANGE = 55;</code>
+   */
+  public static final int ORANGE_VALUE = 55;
+  /**
+   * <pre>
+   *Green
+   * </pre>
+   *
+   * <code>GREEN = 56;</code>
+   */
+  public static final int GREEN_VALUE = 56;
 
 
   public final int getNumber() {
@@ -159,6 +255,12 @@ public enum ColorCard
       case 4: return Color_4;
       case 5: return Color_5;
       case 6: return Color_6;
+      case 51: return PURPLE;
+      case 52: return BLUE;
+      case 53: return RED;
+      case 54: return YELLOW;
+      case 55: return ORANGE;
+      case 56: return GREEN;
       default: return null;
     }
   }
