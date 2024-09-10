@@ -41,6 +41,10 @@ public enum CardType
    * <code>FLOW = 6;</code>
    */
   FLOW(6),
+  /**
+   * <code>COLOR = 7;</code>
+   */
+  COLOR(7),
   UNRECOGNIZED(-1),
   ;
 
@@ -76,6 +80,10 @@ public enum CardType
    * <code>FLOW = 6;</code>
    */
   public static final int FLOW_VALUE = 6;
+  /**
+   * <code>COLOR = 7;</code>
+   */
+  public static final int COLOR_VALUE = 7;
 
 
   public final int getNumber() {
@@ -109,6 +117,7 @@ public enum CardType
       case 4: return ROULETTE;
       case 5: return WHEEL;
       case 6: return FLOW;
+      case 7: return COLOR;
       default: return null;
     }
   }
