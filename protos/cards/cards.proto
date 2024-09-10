@@ -12,5 +12,5 @@ enum CardType {
   WHEEL = 5;
 
   FLOW = 6;
-
+  COLOR = 7;
 }
