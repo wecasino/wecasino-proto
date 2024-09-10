@@ -252,7 +252,7 @@ type RecordShoeStartedRequest struct {
 	unknownFields protoimpl.UnknownFields
 
 	// 遊戲供應
-	Supplier string `protobuf:"bytes,2,opt,name=supplier,proto3" json:"supplier" bson:"supplier" yaml:"supplier"`
+	Supplier string `protobuf:"bytes,2,opt,name=supplier,proto3" json:"supplier" yaml:"supplier" bson:"supplier"`
 	// 遊戲類型
 	GameType string `protobuf:"bytes,3,opt,name=game_type,json=gameType,proto3" json:"gameType" bson:"gameType" yaml:"gameType"`
 	// 遊戲子類型
@@ -260,7 +260,7 @@ type RecordShoeStartedRequest struct {
 	// 遊戲版本
 	GameVersion string `protobuf:"bytes,5,opt,name=game_version,json=gameVersion,proto3" json:"gameVersion" bson:"gameVersion" yaml:"gameVersion"`
 	// 遊戲代碼
-	GameCode string `protobuf:"bytes,6,opt,name=game_code,json=gameCode,proto3" json:"gameCode" bson:"gameCode" yaml:"gameCode"`
+	GameCode string `protobuf:"bytes,6,opt,name=game_code,json=gameCode,proto3" json:"gameCode" yaml:"gameCode" bson:"gameCode"`
 	// 桌代碼
 	TableCode string `protobuf:"bytes,7,opt,name=table_code,json=tableCode,proto3" json:"tableCode" bson:"tableCode" yaml:"tableCode"`
 	// 班代碼
@@ -438,7 +438,7 @@ type RecordRoundStartedRequest struct {
 	unknownFields protoimpl.UnknownFields
 
 	// 遊戲供應
-	Supplier string `protobuf:"bytes,2,opt,name=supplier,proto3" json:"supplier" bson:"supplier" yaml:"supplier"`
+	Supplier string `protobuf:"bytes,2,opt,name=supplier,proto3" json:"supplier" yaml:"supplier" bson:"supplier"`
 	// 遊戲類型
 	GameType string `protobuf:"bytes,3,opt,name=game_type,json=gameType,proto3" json:"gameType" bson:"gameType" yaml:"gameType"`
 	// 遊戲子類型
@@ -753,7 +753,7 @@ type RecordRoundFinishedRequest struct {
 	unknownFields protoimpl.UnknownFields
 
 	// 紀錄ID
-	RecordId []byte `protobuf:"bytes,1,opt,name=record_id,json=recordId,proto3" json:"recordId" yaml:"recordId" bson:"recordId"`
+	RecordId []byte `protobuf:"bytes,1,opt,name=record_id,json=recordId,proto3" json:"recordId" bson:"recordId" yaml:"recordId"`
 	// 時間
 	TsEnd *timestamppb.Timestamp `protobuf:"bytes,19,opt,name=ts_end,json=tsEnd,proto3" json:"tsEnd" yaml:"tsEnd" bson:"tsEnd"`
 }
@@ -817,7 +817,7 @@ type RecordRoundMediaRequest struct {
 	// 附加媒體：key: 媒體資源代碼；value: 媒體內容。
 	Add map[string]string `protobuf:"bytes,3,rep,name=add,proto3" json:"add" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3" bson:"add" yaml:"add"`
 	// 移除
-	Remove []string `protobuf:"bytes,4,rep,name=remove,proto3" json:"remove" bson:"remove" yaml:"remove"`
+	Remove []string `protobuf:"bytes,4,rep,name=remove,proto3" json:"remove" yaml:"remove" bson:"remove"`
 }
 
 func (x *RecordRoundMediaRequest) Reset() {
@@ -890,7 +890,7 @@ type RecordModifyCardRequest struct {
 	// 局代碼牌
 	RoundCode string `protobuf:"bytes,3,opt,name=round_code,json=roundCode,proto3" json:"roundCode" bson:"roundCode" yaml:"roundCode"`
 	// 修改牌
-	Modifies []*CardModify `protobuf:"bytes,4,rep,name=modifies,proto3" json:"modifies" bson:"modifies" yaml:"modifies"`
+	Modifies []*CardModify `protobuf:"bytes,4,rep,name=modifies,proto3" json:"modifies" yaml:"modifies" bson:"modifies"`
 	// 修改原因
 	ModifyMessage string `protobuf:"bytes,5,opt,name=modify_message,json=modifyMessage,proto3" json:"modifyMessage" yaml:"modifyMessage" bson:"modifyMessage"`
 }

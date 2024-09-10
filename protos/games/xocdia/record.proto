@@ -1,22 +1,13 @@
 syntax = "proto3";
-package games.sicbo;
+package games.xocdia;
 
 enum GameSubtype {
   
   // 未指定
-  SICBO_TYPE_UNSPECIFIED = 0;
+  XOCDIA_TYPE_UNSPECIFIED = 0;
 
-  // 骰寶
-  SICBO_CLASSIC = 1;
-  
-  // 財神骰寶
-  SICBO_FORTUNE = 2;
-
-  // 泰式骰寶
-  SICBO_THAISICBAO = 3;
-
-  // 區塊鏈骰寶
-  SICBO_BLOCKCHAIN = 16;
+  // 色碟
+  XOCDIA_CLASSIC = 1;
 }
 
 // 步驟，依據遊戲供應商邏輯，不是每個步驟都會走到
@@ -36,7 +27,7 @@ enum Step {
   // 停止下注
   NO_MORE_BET = 5;
 
-  // 擲骰
+  // 擲色碟
   THROW_DICE = 8;
 
   // PITBOSS 修改骰點

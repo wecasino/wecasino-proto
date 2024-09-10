@@ -32,6 +32,14 @@ public enum GameType
   BACCARAT(16),
   /**
    * <pre>
+   * 百家樂新發牌方式
+   * </pre>
+   *
+   * <code>BACCARAT2 = 50;</code>
+   */
+  BACCARAT2(50),
+  /**
+   * <pre>
    * 龍虎鬥
    * </pre>
    *
@@ -102,6 +110,14 @@ public enum GameType
    * <code>LUCKYWHEEL = 40;</code>
    */
   LUCKYWHEEL(40),
+  /**
+   * <pre>
+   * 越南色碟
+   * </pre>
+   *
+   * <code>XOCDIA = 41;</code>
+   */
+  XOCDIA(41),
   UNRECOGNIZED(-1),
   ;
 
@@ -121,6 +137,14 @@ public enum GameType
    * <code>BACCARAT = 16;</code>
    */
   public static final int BACCARAT_VALUE = 16;
+  /**
+   * <pre>
+   * 百家樂新發牌方式
+   * </pre>
+   *
+   * <code>BACCARAT2 = 50;</code>
+   */
+  public static final int BACCARAT2_VALUE = 50;
   /**
    * <pre>
    * 龍虎鬥
@@ -193,6 +217,14 @@ public enum GameType
    * <code>LUCKYWHEEL = 40;</code>
    */
   public static final int LUCKYWHEEL_VALUE = 40;
+  /**
+   * <pre>
+   * 越南色碟
+   * </pre>
+   *
+   * <code>XOCDIA = 41;</code>
+   */
+  public static final int XOCDIA_VALUE = 41;
 
 
   public final int getNumber() {
@@ -221,6 +253,7 @@ public enum GameType
     switch (value) {
       case 0: return GAME_TYPE_UNSPECIFIED;
       case 16: return BACCARAT;
+      case 50: return BACCARAT2;
       case 17: return THEBIGBATTLE;
       case 18: return THREECARDS;
       case 19: return BULLFIGHT;
@@ -230,6 +263,7 @@ public enum GameType
       case 34: return DROPBALL;
       case 36: return ROULETTE;
       case 40: return LUCKYWHEEL;
+      case 41: return XOCDIA;
       default: return null;
     }
   }

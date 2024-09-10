@@ -10,6 +10,9 @@ enum GameType {
 
   // 百家樂
   BACCARAT = 16;
+  
+  // 百家樂新發牌方式
+  BACCARAT2 = 50;
 
   // 龍虎鬥
   THEBIGBATTLE = 17;
@@ -37,6 +40,9 @@ enum GameType {
 
   // 幸運輪
   LUCKYWHEEL = 40;
+
+  // 越南色碟
+  XOCDIA = 41;
 
 }
 
