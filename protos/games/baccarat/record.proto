@@ -76,6 +76,17 @@ enum Step {
   // 開 閒牌
   SHOW_PLAYER = 13;
 
+  // 開 莊牌
+  SHOW_BANKER_1 = 30;
+  // 開 莊牌
+  SHOW_BANKER_2 = 31;
+
+  // 開 閒牌
+  SHOW_PLAYER_1 = 33;
+  // 開 閒牌
+  SHOW_PLAYER_2 = 34;
+  
+
   // 瞇牌例牌
   PEEK_NORMAL = 14;
   // 瞇牌公布例牌

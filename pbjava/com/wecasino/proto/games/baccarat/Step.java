@@ -119,6 +119,38 @@ public enum Step
   SHOW_PLAYER(13),
   /**
    * <pre>
+   * 開 莊牌
+   * </pre>
+   *
+   * <code>SHOW_BANKER_1 = 30;</code>
+   */
+  SHOW_BANKER_1(30),
+  /**
+   * <pre>
+   * 開 莊牌
+   * </pre>
+   *
+   * <code>SHOW_BANKER_2 = 31;</code>
+   */
+  SHOW_BANKER_2(31),
+  /**
+   * <pre>
+   * 開 閒牌
+   * </pre>
+   *
+   * <code>SHOW_PLAYER_1 = 33;</code>
+   */
+  SHOW_PLAYER_1(33),
+  /**
+   * <pre>
+   * 開 閒牌
+   * </pre>
+   *
+   * <code>SHOW_PLAYER_2 = 34;</code>
+   */
+  SHOW_PLAYER_2(34),
+  /**
+   * <pre>
    * 瞇牌例牌
    * </pre>
    *
@@ -318,6 +350,38 @@ public enum Step
   public static final int SHOW_PLAYER_VALUE = 13;
   /**
    * <pre>
+   * 開 莊牌
+   * </pre>
+   *
+   * <code>SHOW_BANKER_1 = 30;</code>
+   */
+  public static final int SHOW_BANKER_1_VALUE = 30;
+  /**
+   * <pre>
+   * 開 莊牌
+   * </pre>
+   *
+   * <code>SHOW_BANKER_2 = 31;</code>
+   */
+  public static final int SHOW_BANKER_2_VALUE = 31;
+  /**
+   * <pre>
+   * 開 閒牌
+   * </pre>
+   *
+   * <code>SHOW_PLAYER_1 = 33;</code>
+   */
+  public static final int SHOW_PLAYER_1_VALUE = 33;
+  /**
+   * <pre>
+   * 開 閒牌
+   * </pre>
+   *
+   * <code>SHOW_PLAYER_2 = 34;</code>
+   */
+  public static final int SHOW_PLAYER_2_VALUE = 34;
+  /**
+   * <pre>
    * 瞇牌例牌
    * </pre>
    *
@@ -447,6 +511,10 @@ public enum Step
       case 11: return SHOW_NORMAL;
       case 12: return SHOW_BANKER;
       case 13: return SHOW_PLAYER;
+      case 30: return SHOW_BANKER_1;
+      case 31: return SHOW_BANKER_2;
+      case 33: return SHOW_PLAYER_1;
+      case 34: return SHOW_PLAYER_2;
       case 14: return PEEK_NORMAL;
       case 15: return PEEK_SHOW_NORMAL;
       case 16: return DEAL_PLAYER_EXTRA;
