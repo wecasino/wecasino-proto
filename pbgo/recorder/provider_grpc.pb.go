@@ -59,7 +59,6 @@ type RecorderReadServiceClient interface {
 	GetRound(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*RoundRecord, error)
 	// 讀取目前局紀錄
 	GetCurrentRound(ctx context.Context, in *GetCurrentRecordRequest, opts ...grpc.CallOption) (*RoundRecord, error)
-	//
 	GetPlayBackRound(ctx context.Context, in *GetRoundPlayBackRequest, opts ...grpc.CallOption) (*GetRoundPlayBackResponse, error)
 }
 
@@ -207,7 +206,6 @@ type RecorderReadServiceServer interface {
 	GetRound(context.Context, *GetRequest) (*RoundRecord, error)
 	// 讀取目前局紀錄
 	GetCurrentRound(context.Context, *GetCurrentRecordRequest) (*RoundRecord, error)
-	//
 	GetPlayBackRound(context.Context, *GetRoundPlayBackRequest) (*GetRoundPlayBackResponse, error)
 	mustEmbedUnimplementedRecorderReadServiceServer()
 }

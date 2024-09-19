@@ -26,29 +26,29 @@ const (
 	// 未指定
 	ColorCard_Color_CARD_UNSPECIFIED ColorCard = 0
 	// 綠、紅、藍、粉、白、黃
-	//黃
+	// 黃
 	ColorCard_Color_1 ColorCard = 1
-	//藍
+	// 藍
 	ColorCard_Color_2 ColorCard = 2
-	//粉
+	// 粉
 	ColorCard_Color_3 ColorCard = 3
-	//綠
+	// 綠
 	ColorCard_Color_4 ColorCard = 4
-	//紅
+	// 紅
 	ColorCard_Color_5 ColorCard = 5
-	//白
+	// 白
 	ColorCard_Color_6 ColorCard = 6
-	//Purple
+	// Purple
 	ColorCard_PURPLE ColorCard = 51
-	//Blue
+	// Blue
 	ColorCard_BLUE ColorCard = 52
-	//Red
+	// Red
 	ColorCard_RED ColorCard = 53
-	//Yellow
+	// Yellow
 	ColorCard_YELLOW ColorCard = 54
-	//Orange
+	// Orange
 	ColorCard_ORANGE ColorCard = 55
-	//Green
+	// Green
 	ColorCard_GREEN ColorCard = 56
 )
 
