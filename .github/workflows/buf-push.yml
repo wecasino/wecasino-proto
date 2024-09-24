@@ -14,7 +14,11 @@ jobs:
       - name: 02.Set version variable
         run: |
           echo "Full ref: ${{ github.ref }}"
-          BUILD_TAG=${GITHUB_REF#refs/heads/}
+          BUILD_TAG=${GITHUB_REF#refs/heads/} 去掉 'refs/heads' 的部分
+          if [[ "$BUILD_TAG" == *"/"* ]]; then
+            # 获取 '/' 后面的部分
+            BUILD_TAG=${BUILD_TAG#*/}  # 去掉 '/' 前面的部分
+          fi
           if [ "$BUILD_TAG" != "main" ]; then
             BUILD_TAG="v$BUILD_TAG"
           fi
