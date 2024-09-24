@@ -1,0 +1,38 @@
+name: buf-push
+
+on:
+  workflow_dispatch:
+
+jobs:
+  buf-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 01. Checkout
+        uses: actions/checkout@v4
+
+      - name: 02.Set version variable
+        run: |
+          echo "Full ref: ${{ github.ref }}"
+          BUILD_TAG=${GITHUB_REF#refs/heads/}
+          if [ "$BUILD_TAG" != "main" ]; then
+            BUILD_TAG="v$BUILD_TAG"
+          fi
+          echo "Version: $BUILD_TAG"
+          echo "BUILD_TAG=$BUILD_TAG" >> $GITHUB_ENV
+
+      - name: 03. Buf Login
+        uses: bufbuild/buf-action@v1
+        with:
+          token: ${{ secrets.BUF_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+
+      - name: 04. Buf Push to BSR
+        run: |
+          if [ "${{ env.BUILD_TAG }}" = "main" ]; then
+            buf push protos
+          else
+            buf push protos --label ${{ env.BUILD_TAG }}
+          fi
+    
