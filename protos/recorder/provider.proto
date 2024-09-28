@@ -82,7 +82,7 @@ message ListRecordsRequest {
   // 每頁筆數
   int64 page_size = 11;
 
-  RoundStatusType roundStatusType = 12;
+  RoundStatusType round_status_type = 12;
 }
 
 // ListShiftsResponse

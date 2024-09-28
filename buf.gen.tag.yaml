@@ -1,6 +1,6 @@
-version: v1
+version: v2
 plugins:  
-  - name: gotag
+  - local: protoc-gen-gotag
     out: .
     opt: 
       - outdir=pbgo

@@ -20,7 +20,8 @@
     "swagger": "docker run -p 8080:8080 -e SWAGGER_JSON=/docs/recorder/provider.swagger.yaml -v ${PWD}/docs:/docs swaggerapi/swagger-ui"
   },
   "devDependencies": {
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "@bufbuild/buf": "^1.42.0"
   },
   "dependencies": {
     "@bufbuild/protobuf": "^1.6.0",
