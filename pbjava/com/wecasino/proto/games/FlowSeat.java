@@ -94,9 +94,9 @@ public enum FlowSeat
    * 玩家指示
    * </pre>
    *
-   * <code>Instructions = 99;</code>
+   * <code>INSTRUCTIONS = 99;</code>
    */
-  Instructions(99),
+  INSTRUCTIONS(99),
   UNRECOGNIZED(-1),
   ;
 
@@ -185,9 +185,9 @@ public enum FlowSeat
    * 玩家指示
    * </pre>
    *
-   * <code>Instructions = 99;</code>
+   * <code>INSTRUCTIONS = 99;</code>
    */
-  public static final int Instructions_VALUE = 99;
+  public static final int INSTRUCTIONS_VALUE = 99;
 
 
   public final int getNumber() {
@@ -224,7 +224,7 @@ public enum FlowSeat
       case 70: return LEFT;
       case 71: return RIGHT;
       case 96: return CONTROL;
-      case 99: return Instructions;
+      case 99: return INSTRUCTIONS;
       default: return null;
     }
   }

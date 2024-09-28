@@ -79,7 +79,7 @@ enum FlowSeat {
   CONTROL = 96;
 
   // 玩家指示
-  Instructions = 99;
+  INSTRUCTIONS = 99;
 }
 
 enum ResourceType {

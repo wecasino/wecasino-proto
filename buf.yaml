@@ -1,0 +1,15 @@
+# For details on buf.yaml configuration, visit https://buf.build/docs/configuration/v2/buf-yaml
+version: v2
+modules:
+  - path: protos
+    name: buf.build/wecasino/wecasino
+lint:
+  use:
+    - BASIC
+    - FILE_LOWER_SNAKE_CASE
+    - SERVICE_SUFFIX
+breaking:
+  use:
+    - FILE
+deps:
+  - buf.build/googleapis/googleapis
