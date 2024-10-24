@@ -37,7 +37,7 @@ pnpm gen:gotag
 pnpm prepare
 
 
-buf version 1.45.0
+buf --version 1.45.0
 # npx 前置
 前置
 install nvm
@@ -51,8 +51,8 @@ npx buf generate --template buf.gen.tag.yaml
 # homebrew buf 方式
 brew install bufbuild/buf/buf
 
-npx buf generate 
-npx buf generate --template buf.gen.tag.yaml
+buf generate 
+buf generate --template buf.gen.tag.yaml
 ```
 ### swagger doc 流程
 產生 openpi/swagger json 文件
