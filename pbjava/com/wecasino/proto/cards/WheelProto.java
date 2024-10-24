@@ -24,14 +24,17 @@ public final class WheelProto {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\021cards/wheel.proto\022\005cards*\206\001\n\005Wheel\022\025\n\021" +
+      "\n\021cards/wheel.proto\022\005cards*\342\001\n\005Wheel\022\025\n\021" +
       "WHEEL_UNSPECIFIED\020\000\022\r\n\tWHEEL24X1\020\001\022\r\n\tWH" +
       "EEL12X3\020\002\022\014\n\010WHEEL8X5\020\003\022\r\n\tWHEEL4X10\020\004\022\r" +
       "\n\tWHEEL2X20\020\005\022\r\n\tWHEELAX45\020\006\022\r\n\tWHEELBX4" +
-      "5\020\007B\211\001\n\030com.wecasino.proto.cardsB\nWheelP" +
-      "rotoP\001Z-github.com/wecasino/wecasino-pro" +
-      "to/pbgo/cards\242\002\003CXX\252\002\005Cards\312\002\005Cards\342\002\021Ca" +
-      "rds\\GPBMetadata\352\002\005Cardsb\006proto3"
+      "5\020\007\022\r\n\tWHEEL28X3\0203\022\016\n\nWHEEL16X12\0204\022\r\n\tWH" +
+      "EEL6X16\0205\022\r\n\tWHEEL2X60\0206\022\r\n\tWHEELCX80\0207\022" +
+      "\016\n\nWHEELDX100\0208B\211\001\n\030com.wecasino.proto.c" +
+      "ardsB\nWheelProtoP\001Z-github.com/wecasino/" +
+      "wecasino-proto/pbgo/cards\242\002\003CXX\252\002\005Cards\312" +
+      "\002\005Cards\342\002\021Cards\\GPBMetadata\352\002\005Cardsb\006pro" +
+      "to3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
