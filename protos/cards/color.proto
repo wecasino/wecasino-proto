@@ -7,17 +7,17 @@ enum ColorCard {
   COLOR_CARD_UNSPECIFIED = 0;
   // 綠、紅、藍、粉、白、黃
   //黃
-  COLOR_1 = 1;
+  Color_1 = 1;
   //藍
-  COLOR_2 = 2;
+  Color_2 = 2;
   //粉
-  COLOR_3 = 3;
+  Color_3 = 3;
   //綠
-  COLOR_4 = 4;
+  Color_4 = 4;
   //紅
-  COLOR_5 = 5;
+  Color_5 = 5;
   //白
-  COLOR_6 = 6;
+  Color_6 = 6;
 
   //Purple
   PURPLE = 51;

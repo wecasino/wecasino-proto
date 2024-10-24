@@ -36,9 +36,15 @@ pnpm gen:gotag
 # 生成 es
 pnpm prepare
 
+# npx 前置
+前置
+install nvm
+install node 20
+npm install
+
 # buf 方式
-buf generate 
-buf generate --template buf.gen.tag.yaml
+npx buf generate 
+npx buf generate --template buf.gen.tag.yaml
 ```
 ### swagger doc 流程
 產生 openpi/swagger json 文件
