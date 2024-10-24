@@ -36,13 +36,21 @@ pnpm gen:gotag
 # 生成 es
 pnpm prepare
 
+
+buf version 1.45.0
 # npx 前置
 前置
 install nvm
 install node 20
 npm install
 
-# buf 方式
+# npm buf 方式
+npx buf generate 
+npx buf generate --template buf.gen.tag.yaml
+
+# homebrew buf 方式
+brew install bufbuild/buf/buf
+
 npx buf generate 
 npx buf generate --template buf.gen.tag.yaml
 ```
