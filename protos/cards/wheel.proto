@@ -20,18 +20,4 @@ enum Wheel {
   WHEELAX45 = 6;
   // 1格 45 倍
   WHEELBX45 = 7;
-
-  // 28格 3 倍
-  WHEEL28X3 = 51;
-  // 16格 12 倍
-  WHEEL16X12 = 52;
-  // 6格 16 倍
-  WHEEL6X16 = 53;
-  // 2格 69 倍
-  WHEEL2X60 = 54;
-  // 1格 80 倍
-  WHEELCX80 = 55;
-  // 1格 100 倍
-  WHEELDX100 = 56;
-
 }

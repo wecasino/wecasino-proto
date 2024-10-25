@@ -73,54 +73,6 @@ public enum Wheel
    * <code>WHEELBX45 = 7;</code>
    */
   WHEELBX45(7),
-  /**
-   * <pre>
-   * 28格 3 倍
-   * </pre>
-   *
-   * <code>WHEEL28X3 = 51;</code>
-   */
-  WHEEL28X3(51),
-  /**
-   * <pre>
-   * 16格 12 倍
-   * </pre>
-   *
-   * <code>WHEEL16X12 = 52;</code>
-   */
-  WHEEL16X12(52),
-  /**
-   * <pre>
-   * 6格 16 倍
-   * </pre>
-   *
-   * <code>WHEEL6X16 = 53;</code>
-   */
-  WHEEL6X16(53),
-  /**
-   * <pre>
-   * 2格 69 倍
-   * </pre>
-   *
-   * <code>WHEEL2X60 = 54;</code>
-   */
-  WHEEL2X60(54),
-  /**
-   * <pre>
-   * 1格 80 倍
-   * </pre>
-   *
-   * <code>WHEELCX80 = 55;</code>
-   */
-  WHEELCX80(55),
-  /**
-   * <pre>
-   * 1格 100 倍
-   * </pre>
-   *
-   * <code>WHEELDX100 = 56;</code>
-   */
-  WHEELDX100(56),
   UNRECOGNIZED(-1),
   ;
 
@@ -184,54 +136,6 @@ public enum Wheel
    * <code>WHEELBX45 = 7;</code>
    */
   public static final int WHEELBX45_VALUE = 7;
-  /**
-   * <pre>
-   * 28格 3 倍
-   * </pre>
-   *
-   * <code>WHEEL28X3 = 51;</code>
-   */
-  public static final int WHEEL28X3_VALUE = 51;
-  /**
-   * <pre>
-   * 16格 12 倍
-   * </pre>
-   *
-   * <code>WHEEL16X12 = 52;</code>
-   */
-  public static final int WHEEL16X12_VALUE = 52;
-  /**
-   * <pre>
-   * 6格 16 倍
-   * </pre>
-   *
-   * <code>WHEEL6X16 = 53;</code>
-   */
-  public static final int WHEEL6X16_VALUE = 53;
-  /**
-   * <pre>
-   * 2格 69 倍
-   * </pre>
-   *
-   * <code>WHEEL2X60 = 54;</code>
-   */
-  public static final int WHEEL2X60_VALUE = 54;
-  /**
-   * <pre>
-   * 1格 80 倍
-   * </pre>
-   *
-   * <code>WHEELCX80 = 55;</code>
-   */
-  public static final int WHEELCX80_VALUE = 55;
-  /**
-   * <pre>
-   * 1格 100 倍
-   * </pre>
-   *
-   * <code>WHEELDX100 = 56;</code>
-   */
-  public static final int WHEELDX100_VALUE = 56;
 
 
   public final int getNumber() {
@@ -266,12 +170,6 @@ public enum Wheel
       case 5: return WHEEL2X20;
       case 6: return WHEELAX45;
       case 7: return WHEELBX45;
-      case 51: return WHEEL28X3;
-      case 52: return WHEEL16X12;
-      case 53: return WHEEL6X16;
-      case 54: return WHEEL2X60;
-      case 55: return WHEELCX80;
-      case 56: return WHEELDX100;
       default: return null;
     }
   }

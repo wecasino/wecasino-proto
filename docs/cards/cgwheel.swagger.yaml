@@ -1,6 +1,6 @@
 swagger: "2.0"
 info:
-  title: cards/bingo.proto
+  title: cards/cgwheel.proto
   version: version not set
 consumes:
   - application/json

@@ -14,17 +14,17 @@ public enum GameSubtype
    * 未指定
    * </pre>
    *
-   * <code>COLOR_TYPE_UNSPECIFIED = 0;</code>
+   * <code>COLORJACKPOT_TYPE_UNSPECIFIED = 0;</code>
    */
-  COLOR_TYPE_UNSPECIFIED(0),
+  COLORJACKPOT_TYPE_UNSPECIFIED(0),
   /**
    * <pre>
    * color jackpot
    * </pre>
    *
-   * <code>COLOR_JACKPOT = 1;</code>
+   * <code>COLORJACKPOT_CLASSIC = 1;</code>
    */
-  COLOR_JACKPOT(1),
+  COLORJACKPOT_CLASSIC(1),
   UNRECOGNIZED(-1),
   ;
 
@@ -33,17 +33,17 @@ public enum GameSubtype
    * 未指定
    * </pre>
    *
-   * <code>COLOR_TYPE_UNSPECIFIED = 0;</code>
+   * <code>COLORJACKPOT_TYPE_UNSPECIFIED = 0;</code>
    */
-  public static final int COLOR_TYPE_UNSPECIFIED_VALUE = 0;
+  public static final int COLORJACKPOT_TYPE_UNSPECIFIED_VALUE = 0;
   /**
    * <pre>
    * color jackpot
    * </pre>
    *
-   * <code>COLOR_JACKPOT = 1;</code>
+   * <code>COLORJACKPOT_CLASSIC = 1;</code>
    */
-  public static final int COLOR_JACKPOT_VALUE = 1;
+  public static final int COLORJACKPOT_CLASSIC_VALUE = 1;
 
 
   public final int getNumber() {
@@ -70,8 +70,8 @@ public enum GameSubtype
    */
   public static GameSubtype forNumber(int value) {
     switch (value) {
-      case 0: return COLOR_TYPE_UNSPECIFIED;
-      case 1: return COLOR_JACKPOT;
+      case 0: return COLORJACKPOT_TYPE_UNSPECIFIED;
+      case 1: return COLORJACKPOT_CLASSIC;
       default: return null;
     }
   }

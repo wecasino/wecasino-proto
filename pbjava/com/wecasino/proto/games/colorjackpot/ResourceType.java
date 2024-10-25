@@ -27,7 +27,7 @@ public enum ResourceType
   NORMAL(1),
   /**
    * <pre>
-   * SUPER GAME
+   * LUCKY_WHEEL
    * </pre>
    *
    * <code>LUCKY_WHEEL = 2;</code>
@@ -62,7 +62,7 @@ public enum ResourceType
   public static final int NORMAL_VALUE = 1;
   /**
    * <pre>
-   * SUPER GAME
+   * LUCKY_WHEEL
    * </pre>
    *
    * <code>LUCKY_WHEEL = 2;</code>
