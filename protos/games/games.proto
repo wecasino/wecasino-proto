@@ -44,6 +44,9 @@ enum GameType {
   // 越南色碟
   XOCDIA = 41;
 
+  // 色彩遊戲JACKPOT
+  COLORGAME_JACKPOT = 42;
+
 }
 
 enum FlowSeat {

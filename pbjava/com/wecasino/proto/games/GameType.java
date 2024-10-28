@@ -118,6 +118,14 @@ public enum GameType
    * <code>XOCDIA = 41;</code>
    */
   XOCDIA(41),
+  /**
+   * <pre>
+   * 色彩遊戲JACKPOT
+   * </pre>
+   *
+   * <code>COLORGAME_JACKPOT = 42;</code>
+   */
+  COLORGAME_JACKPOT(42),
   UNRECOGNIZED(-1),
   ;
 
@@ -225,6 +233,14 @@ public enum GameType
    * <code>XOCDIA = 41;</code>
    */
   public static final int XOCDIA_VALUE = 41;
+  /**
+   * <pre>
+   * 色彩遊戲JACKPOT
+   * </pre>
+   *
+   * <code>COLORGAME_JACKPOT = 42;</code>
+   */
+  public static final int COLORGAME_JACKPOT_VALUE = 42;
 
 
   public final int getNumber() {
@@ -264,6 +280,7 @@ public enum GameType
       case 36: return ROULETTE;
       case 40: return LUCKYWHEEL;
       case 41: return XOCDIA;
+      case 42: return COLORGAME_JACKPOT;
       default: return null;
     }
   }
