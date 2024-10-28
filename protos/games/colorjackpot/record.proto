@@ -1,0 +1,71 @@
+syntax = "proto3";
+package games.colorjackpot;
+
+enum GameSubtype {
+
+  // 未指定
+  COLORJACKPOT_TYPE_UNSPECIFIED = 0;
+
+  // color jackpot
+  COLORJACKPOT_CLASSIC = 1;
+}
+
+// 步驟，依據遊戲供應商邏輯，不是每個步驟都會走到
+enum Step {
+
+  // 未指定
+  STEP_UNSPECIFIED = 0;
+  // 本局開始
+  ROUND_START = 1;
+  // 本局完成
+  ROUND_FINISHED = 2;
+  // 本局取消
+  ROUND_CANCELED = 3;
+
+  // 開放下注
+  ROUND_BET = 4;
+  // 停止下注
+  NO_MORE_BET = 5;
+
+  // 擲骰
+  THROW_COLOR = 8;
+
+  // LUCKY WHEEL
+  LUCKY_WHEEL_ROUND_READY = 9;
+  // 開始
+  LUCKY_WHEEL_ROUND_START = 10;
+  // 開放下注
+  LUCKY_WHEEL_ROUND_BET = 11;
+  // 停止下注
+  LUCKY_WHEEL_NO_MORE_BET = 12;
+
+  LUCKY_WHEEL_THROW_WHEEL = 13;
+
+  // BINGO
+  BINGO_ROUND_READY = 20;
+  // 開始
+  BINGO_ROUND_START = 21;
+  // 開放下注
+  BINGO_ROUND_BET = 22;
+  // 停止下注
+  BINGO_NO_MORE_BET = 23;
+
+  BINGO_THROW_BALL = 24;
+
+  // PITBOSS 修改骰點
+  PITBOSS_MODIFY_BOWL = 16;
+
+}
+
+enum ResourceType {
+
+  // 未指定
+  RESOURCE_TYPE_UNSPECIFIED = 0;
+  // 一般
+  NORMAL = 1;
+  // LUCKY_WHEEL
+  LUCKY_WHEEL = 2;
+  //BINGO
+  BINGO = 3;
+
+}

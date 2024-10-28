@@ -20,5 +20,4 @@ enum Wheel {
   WHEELAX45 = 6;
   // 1格 45 倍
   WHEELBX45 = 7;
-
 }
