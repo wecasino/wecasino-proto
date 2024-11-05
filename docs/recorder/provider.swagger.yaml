@@ -185,6 +185,7 @@ paths:
              - 40: 幸運輪
              - 41: 越南色碟
              - 42: 色彩遊戲JACKPOT
+             - 43: ONELUCKYNIGHT
           in: query
           required: false
           type: integer
@@ -203,6 +204,7 @@ paths:
             - 40
             - 41
             - 42
+            - 43
           default: 0
         - name: gameSubtype
           description: 遊戲子類型
@@ -301,6 +303,7 @@ paths:
              - 40: 幸運輪
              - 41: 越南色碟
              - 42: 色彩遊戲JACKPOT
+             - 43: ONELUCKYNIGHT
           in: query
           required: false
           type: integer
@@ -319,6 +322,7 @@ paths:
             - 40
             - 41
             - 42
+            - 43
           default: 0
         - name: gameSubtype
           description: 遊戲子類型
@@ -477,6 +481,7 @@ paths:
              - 40: 幸運輪
              - 41: 越南色碟
              - 42: 色彩遊戲JACKPOT
+             - 43: ONELUCKYNIGHT
           in: query
           required: false
           type: integer
@@ -495,6 +500,7 @@ paths:
             - 40
             - 41
             - 42
+            - 43
           default: 0
         - name: gameSubtype
           description: 遊戲子類型
@@ -689,6 +695,7 @@ definitions:
       - 40
       - 41
       - 42
+      - 43
     default: 0
     description: |-
       - 0: 未指定
@@ -705,6 +712,7 @@ definitions:
        - 40: 幸運輪
        - 41: 越南色碟
        - 42: 色彩遊戲JACKPOT
+       - 43: ONELUCKYNIGHT
     title: "GameType \n遊戲類型"
   gamesWinType:
     type: integer
