@@ -127,6 +127,14 @@ public enum Step
   SHOW_PLAYER_EXTRA(17),
   /**
    * <pre>
+   * 玩家選擇補第三張牌
+   * </pre>
+   *
+   * <code>PLAYER_DRAW_EXTRA = 18;</code>
+   */
+  PLAYER_DRAW_EXTRA(18),
+  /**
+   * <pre>
    * 補莊家牌
    * </pre>
    *
@@ -282,6 +290,14 @@ public enum Step
   public static final int SHOW_PLAYER_EXTRA_VALUE = 17;
   /**
    * <pre>
+   * 玩家選擇補第三張牌
+   * </pre>
+   *
+   * <code>PLAYER_DRAW_EXTRA = 18;</code>
+   */
+  public static final int PLAYER_DRAW_EXTRA_VALUE = 18;
+  /**
+   * <pre>
    * 補莊家牌
    * </pre>
    *
@@ -360,6 +376,7 @@ public enum Step
       case 13: return SHOW_PLAYER;
       case 16: return DEAL_PLAYER_EXTRA;
       case 17: return SHOW_PLAYER_EXTRA;
+      case 18: return PLAYER_DRAW_EXTRA;
       case 20: return DEAL_BANKER_EXTRA;
       case 23: return DEALER_CONFIRM;
       case 24: return PITBOSS_MODIFY_NORMAL;

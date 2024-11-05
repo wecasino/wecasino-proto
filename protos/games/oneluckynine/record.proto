@@ -54,6 +54,8 @@ enum Step {
   DEAL_PLAYER_EXTRA = 16;
   // 開閒家補牌
   SHOW_PLAYER_EXTRA = 17;
+  // 玩家選擇補第三張牌
+  PLAYER_DRAW_EXTRA = 18;
   // 補莊家牌
   DEAL_BANKER_EXTRA = 20;
   // 荷官確認
