@@ -128,12 +128,12 @@ public enum GameType
   COLORGAME_JACKPOT(42),
   /**
    * <pre>
-   * ONELUCKYNIGHT
+   * ONELUCKYNINE
    * </pre>
    *
-   * <code>ONELUCKYNIGHT = 43;</code>
+   * <code>ONELUCKYNINE = 43;</code>
    */
-  ONELUCKYNIGHT(43),
+  ONELUCKYNINE(43),
   UNRECOGNIZED(-1),
   ;
 
@@ -251,12 +251,12 @@ public enum GameType
   public static final int COLORGAME_JACKPOT_VALUE = 42;
   /**
    * <pre>
-   * ONELUCKYNIGHT
+   * ONELUCKYNINE
    * </pre>
    *
-   * <code>ONELUCKYNIGHT = 43;</code>
+   * <code>ONELUCKYNINE = 43;</code>
    */
-  public static final int ONELUCKYNIGHT_VALUE = 43;
+  public static final int ONELUCKYNINE_VALUE = 43;
 
 
   public final int getNumber() {
@@ -297,7 +297,7 @@ public enum GameType
       case 40: return LUCKYWHEEL;
       case 41: return XOCDIA;
       case 42: return COLORGAME_JACKPOT;
-      case 43: return ONELUCKYNIGHT;
+      case 43: return ONELUCKYNINE;
       default: return null;
     }
   }

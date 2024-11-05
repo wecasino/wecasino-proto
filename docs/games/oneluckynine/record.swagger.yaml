@@ -1,6 +1,6 @@
 swagger: "2.0"
 info:
-  title: games/oneluckynight/record.proto
+  title: games/oneluckynine/record.proto
   version: version not set
 consumes:
   - application/json

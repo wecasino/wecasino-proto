@@ -47,8 +47,8 @@ enum GameType {
   // 色彩遊戲JACKPOT
   COLORGAME_JACKPOT = 42;
 
-  // ONELUCKYNIGHT
-  ONELUCKYNIGHT = 43;
+  // ONELUCKYNINE
+  ONELUCKYNINE = 43;
 }
 
 enum FlowSeat {
