@@ -95,14 +95,6 @@ public enum Step
   NO_MORE_BET(9),
   /**
    * <pre>
-   * 開例牌
-   * </pre>
-   *
-   * <code>SHOW_NORMAL = 11;</code>
-   */
-  SHOW_NORMAL(11),
-  /**
-   * <pre>
    * 開 莊牌
    * </pre>
    *
@@ -125,6 +117,14 @@ public enum Step
    * <code>DEAL_PLAYER_EXTRA = 16;</code>
    */
   DEAL_PLAYER_EXTRA(16),
+  /**
+   * <pre>
+   * 開閒家補牌
+   * </pre>
+   *
+   * <code>SHOW_PLAYER_EXTRA = 17;</code>
+   */
+  SHOW_PLAYER_EXTRA(17),
   /**
    * <pre>
    * 補莊家牌
@@ -250,14 +250,6 @@ public enum Step
   public static final int NO_MORE_BET_VALUE = 9;
   /**
    * <pre>
-   * 開例牌
-   * </pre>
-   *
-   * <code>SHOW_NORMAL = 11;</code>
-   */
-  public static final int SHOW_NORMAL_VALUE = 11;
-  /**
-   * <pre>
    * 開 莊牌
    * </pre>
    *
@@ -280,6 +272,14 @@ public enum Step
    * <code>DEAL_PLAYER_EXTRA = 16;</code>
    */
   public static final int DEAL_PLAYER_EXTRA_VALUE = 16;
+  /**
+   * <pre>
+   * 開閒家補牌
+   * </pre>
+   *
+   * <code>SHOW_PLAYER_EXTRA = 17;</code>
+   */
+  public static final int SHOW_PLAYER_EXTRA_VALUE = 17;
   /**
    * <pre>
    * 補莊家牌
@@ -356,10 +356,10 @@ public enum Step
       case 7: return DEAL_BANKER_2;
       case 8: return ROUND_BET;
       case 9: return NO_MORE_BET;
-      case 11: return SHOW_NORMAL;
       case 12: return SHOW_BANKER;
       case 13: return SHOW_PLAYER;
       case 16: return DEAL_PLAYER_EXTRA;
+      case 17: return SHOW_PLAYER_EXTRA;
       case 20: return DEAL_BANKER_EXTRA;
       case 23: return DEALER_CONFIRM;
       case 24: return PITBOSS_MODIFY_NORMAL;

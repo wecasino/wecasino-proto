@@ -46,14 +46,14 @@ enum Step {
   ROUND_BET = 8;
   // 停止下注
   NO_MORE_BET = 9;
-  // 開例牌
-  SHOW_NORMAL = 11;
   // 開 莊牌
   SHOW_BANKER = 12;
   // 開 閒牌
   SHOW_PLAYER = 13;
   // 補閒家牌
   DEAL_PLAYER_EXTRA = 16;
+  // 開閒家補牌
+  SHOW_PLAYER_EXTRA = 17;
   // 補莊家牌
   DEAL_BANKER_EXTRA = 20;
   // 荷官確認
