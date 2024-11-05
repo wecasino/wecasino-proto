@@ -1,12 +1,12 @@
 syntax = "proto3";
-package games.oneluckynight;
+package games.oneluckynine;
 
 enum GameSubtype {
     // 未指定
-  ONELUCKYNIGHT_TYPE_UNSPECIFIED = 0;
+  ONELUCKYNINE_TYPE_UNSPECIFIED = 0;
 
-    // 經典oneluckynight
-  ONELUCKYNIGHT_CLASSIC = 1;
+    // 經典oneluckynine
+  ONELUCKYNINE_CLASSIC = 1;
 
 }
 
