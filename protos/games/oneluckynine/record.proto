@@ -34,6 +34,14 @@ enum Step {
   ROUND_FINISHED = 2;
   // 展示第一張牌
   SHOW_FIRST_CARD = 3;
+  // 派發閒家例牌1
+  DEAL_PLAYER_1 = 4;
+  // 派發莊家例牌1
+  DEAL_BANKER_1 = 5;
+  // 派發閒家例牌2
+  DEAL_PLAYER_2 = 6;
+  // 派發莊家例牌2
+  DEAL_BANKER_2 = 7;
   // 開放下注
   ROUND_BET = 8;
   // 停止下注

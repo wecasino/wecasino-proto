@@ -29,22 +29,24 @@ public final class RecordProto {
       "NINE_TYPE_UNSPECIFIED\020\000\022\030\n\024ONELUCKYNINE_" +
       "CLASSIC\020\001*D\n\014ResourceType\022\035\n\031RESOURCE_TY" +
       "PE_UNSPECIFIED\020\000\022\n\n\006NORMAL\020\001\022\t\n\005EXTRA\020\002*" +
-      "\310\002\n\004Step\022\024\n\020STEP_UNSPECIFIED\020\000\022\017\n\013ROUND_" +
+      "\224\003\n\004Step\022\024\n\020STEP_UNSPECIFIED\020\000\022\017\n\013ROUND_" +
       "START\020\001\022\022\n\016ROUND_FINISHED\020\002\022\023\n\017SHOW_FIRS" +
-      "T_CARD\020\003\022\r\n\tROUND_BET\020\010\022\017\n\013NO_MORE_BET\020\t" +
-      "\022\017\n\013SHOW_NORMAL\020\013\022\017\n\013SHOW_BANKER\020\014\022\017\n\013SH" +
-      "OW_PLAYER\020\r\022\025\n\021DEAL_PLAYER_EXTRA\020\020\022\025\n\021DE" +
-      "AL_BANKER_EXTRA\020\024\022\022\n\016DEALER_CONFIRM\020\027\022\031\n" +
-      "\025PITBOSS_MODIFY_NORMAL\020\030\022\037\n\033PITBOSS_MODI" +
-      "FY_PLAYER_EXTRA\020\031\022\037\n\033PITBOSS_MODIFY_BANK" +
-      "ER_EXTRA\020\032*8\n\010GameSeat\022\024\n\020SEAT_UNSPECIFI" +
-      "ED\020\000\022\n\n\006PLAYER\020\002\022\n\n\006BANKER\020\003B\331\001\n%com.wec" +
-      "asino.proto.games.oneluckynineB\013RecordPr" +
-      "otoP\001Z:github.com/wecasino/wecasino-prot" +
-      "o/pbgo/games/oneluckynine\242\002\003GOX\252\002\022Games." +
-      "Oneluckynine\312\002\022Games\\Oneluckynine\342\002\036Game" +
-      "s\\Oneluckynine\\GPBMetadata\352\002\023Games::Onel" +
-      "uckynineb\006proto3"
+      "T_CARD\020\003\022\021\n\rDEAL_PLAYER_1\020\004\022\021\n\rDEAL_BANK" +
+      "ER_1\020\005\022\021\n\rDEAL_PLAYER_2\020\006\022\021\n\rDEAL_BANKER" +
+      "_2\020\007\022\r\n\tROUND_BET\020\010\022\017\n\013NO_MORE_BET\020\t\022\017\n\013" +
+      "SHOW_NORMAL\020\013\022\017\n\013SHOW_BANKER\020\014\022\017\n\013SHOW_P" +
+      "LAYER\020\r\022\025\n\021DEAL_PLAYER_EXTRA\020\020\022\025\n\021DEAL_B" +
+      "ANKER_EXTRA\020\024\022\022\n\016DEALER_CONFIRM\020\027\022\031\n\025PIT" +
+      "BOSS_MODIFY_NORMAL\020\030\022\037\n\033PITBOSS_MODIFY_P" +
+      "LAYER_EXTRA\020\031\022\037\n\033PITBOSS_MODIFY_BANKER_E" +
+      "XTRA\020\032*8\n\010GameSeat\022\024\n\020SEAT_UNSPECIFIED\020\000" +
+      "\022\n\n\006PLAYER\020\002\022\n\n\006BANKER\020\003B\331\001\n%com.wecasin" +
+      "o.proto.games.oneluckynineB\013RecordProtoP" +
+      "\001Z:github.com/wecasino/wecasino-proto/pb" +
+      "go/games/oneluckynine\242\002\003GOX\252\002\022Games.Onel" +
+      "uckynine\312\002\022Games\\Oneluckynine\342\002\036Games\\On" +
+      "eluckynine\\GPBMetadata\352\002\023Games::Onelucky" +
+      "nineb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
