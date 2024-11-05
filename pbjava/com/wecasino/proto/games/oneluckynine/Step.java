@@ -47,6 +47,38 @@ public enum Step
   SHOW_FIRST_CARD(3),
   /**
    * <pre>
+   * 派發閒家例牌1
+   * </pre>
+   *
+   * <code>DEAL_PLAYER_1 = 4;</code>
+   */
+  DEAL_PLAYER_1(4),
+  /**
+   * <pre>
+   * 派發莊家例牌1
+   * </pre>
+   *
+   * <code>DEAL_BANKER_1 = 5;</code>
+   */
+  DEAL_BANKER_1(5),
+  /**
+   * <pre>
+   * 派發閒家例牌2
+   * </pre>
+   *
+   * <code>DEAL_PLAYER_2 = 6;</code>
+   */
+  DEAL_PLAYER_2(6),
+  /**
+   * <pre>
+   * 派發莊家例牌2
+   * </pre>
+   *
+   * <code>DEAL_BANKER_2 = 7;</code>
+   */
+  DEAL_BANKER_2(7),
+  /**
+   * <pre>
    * 開放下注
    * </pre>
    *
@@ -170,6 +202,38 @@ public enum Step
   public static final int SHOW_FIRST_CARD_VALUE = 3;
   /**
    * <pre>
+   * 派發閒家例牌1
+   * </pre>
+   *
+   * <code>DEAL_PLAYER_1 = 4;</code>
+   */
+  public static final int DEAL_PLAYER_1_VALUE = 4;
+  /**
+   * <pre>
+   * 派發莊家例牌1
+   * </pre>
+   *
+   * <code>DEAL_BANKER_1 = 5;</code>
+   */
+  public static final int DEAL_BANKER_1_VALUE = 5;
+  /**
+   * <pre>
+   * 派發閒家例牌2
+   * </pre>
+   *
+   * <code>DEAL_PLAYER_2 = 6;</code>
+   */
+  public static final int DEAL_PLAYER_2_VALUE = 6;
+  /**
+   * <pre>
+   * 派發莊家例牌2
+   * </pre>
+   *
+   * <code>DEAL_BANKER_2 = 7;</code>
+   */
+  public static final int DEAL_BANKER_2_VALUE = 7;
+  /**
+   * <pre>
    * 開放下注
    * </pre>
    *
@@ -286,6 +350,10 @@ public enum Step
       case 1: return ROUND_START;
       case 2: return ROUND_FINISHED;
       case 3: return SHOW_FIRST_CARD;
+      case 4: return DEAL_PLAYER_1;
+      case 5: return DEAL_BANKER_1;
+      case 6: return DEAL_PLAYER_2;
+      case 7: return DEAL_BANKER_2;
       case 8: return ROUND_BET;
       case 9: return NO_MORE_BET;
       case 11: return SHOW_NORMAL;
