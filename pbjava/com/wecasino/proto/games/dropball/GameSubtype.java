@@ -35,6 +35,14 @@ public enum GameSubtype
   DROPBALL_COCONUT_BALL(3),
   /**
    * <pre>
+   * DROPBALL JACKPOT
+   * </pre>
+   *
+   * <code>DROPBALL_JACKPOT = 4;</code>
+   */
+  DROPBALL_JACKPOT(4),
+  /**
+   * <pre>
    * 區塊鏈color
    * </pre>
    *
@@ -68,6 +76,14 @@ public enum GameSubtype
    * <code>DROPBALL_COCONUT_BALL = 3;</code>
    */
   public static final int DROPBALL_COCONUT_BALL_VALUE = 3;
+  /**
+   * <pre>
+   * DROPBALL JACKPOT
+   * </pre>
+   *
+   * <code>DROPBALL_JACKPOT = 4;</code>
+   */
+  public static final int DROPBALL_JACKPOT_VALUE = 4;
   /**
    * <pre>
    * 區塊鏈color
@@ -105,6 +121,7 @@ public enum GameSubtype
       case 0: return DROPBALL_TYPE_UNSPECIFIED;
       case 1: return DROPBALL_CLASSIC;
       case 3: return DROPBALL_COCONUT_BALL;
+      case 4: return DROPBALL_JACKPOT;
       case 16: return DROPBALL_BLOCKCHAIN;
       default: return null;
     }
