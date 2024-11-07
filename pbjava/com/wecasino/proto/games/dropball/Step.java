@@ -102,9 +102,9 @@ public enum Step
    */
   JACKPOT_NO_MORE_BET(12),
   /**
-   * <code>JACKPOT_THROW_BALL = 13;</code>
+   * <code>JACKPOT_THROW_COIN = 13;</code>
    */
-  JACKPOT_THROW_BALL(13),
+  JACKPOT_THROW_COIN(13),
   /**
    * <pre>
    * PITBOSS 修改骰點
@@ -205,9 +205,9 @@ public enum Step
    */
   public static final int JACKPOT_NO_MORE_BET_VALUE = 12;
   /**
-   * <code>JACKPOT_THROW_BALL = 13;</code>
+   * <code>JACKPOT_THROW_COIN = 13;</code>
    */
-  public static final int JACKPOT_THROW_BALL_VALUE = 13;
+  public static final int JACKPOT_THROW_COIN_VALUE = 13;
   /**
    * <pre>
    * PITBOSS 修改骰點
@@ -253,7 +253,7 @@ public enum Step
       case 10: return JACKPOT_ROUND_START;
       case 11: return JACKPOT_ROUND_BET;
       case 12: return JACKPOT_NO_MORE_BET;
-      case 13: return JACKPOT_THROW_BALL;
+      case 13: return JACKPOT_THROW_COIN;
       case 16: return PITBOSS_MODIFY_BOWL;
       default: return null;
     }

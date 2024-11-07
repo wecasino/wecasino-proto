@@ -48,7 +48,7 @@ enum Step {
   // 停止下注
   JACKPOT_NO_MORE_BET = 12;
 
-  JACKPOT_THROW_BALL = 13;
+  JACKPOT_THROW_COIN = 13;
 
   // PITBOSS 修改骰點
   PITBOSS_MODIFY_BOWL = 16;
