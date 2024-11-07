@@ -35,14 +35,14 @@ public final class RecordProto {
       "LL\020\010\022\027\n\023JACKPOT_ROUND_READY\020\t\022\027\n\023JACKPOT" +
       "_ROUND_START\020\n\022\025\n\021JACKPOT_ROUND_BET\020\013\022\027\n" +
       "\023JACKPOT_NO_MORE_BET\020\014\022\026\n\022JACKPOT_THROW_" +
-      "COIN\020\r\022\027\n\023PITBOSS_MODIFY_BOWL\020\020*9\n\014Resou" +
+      "COIN\020\r\022\027\n\023PITBOSS_MODIFY_BOWL\020\020*F\n\014Resou" +
       "rceType\022\035\n\031RESOURCE_TYPE_UNSPECIFIED\020\000\022\n" +
-      "\n\006NORMAL\020\001B\301\001\n!com.wecasino.proto.games." +
-      "dropballB\013RecordProtoP\001Z6github.com/weca" +
-      "sino/wecasino-proto/pbgo/games/dropball\242" +
-      "\002\003GDX\252\002\016Games.Dropball\312\002\016Games\\Dropball\342" +
-      "\002\032Games\\Dropball\\GPBMetadata\352\002\017Games::Dr" +
-      "opballb\006proto3"
+      "\n\006NORMAL\020\001\022\013\n\007JACKPOT\020\002B\301\001\n!com.wecasino" +
+      ".proto.games.dropballB\013RecordProtoP\001Z6gi" +
+      "thub.com/wecasino/wecasino-proto/pbgo/ga" +
+      "mes/dropball\242\002\003GDX\252\002\016Games.Dropball\312\002\016Ga" +
+      "mes\\Dropball\342\002\032Games\\Dropball\\GPBMetadat" +
+      "a\352\002\017Games::Dropballb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
