@@ -61,4 +61,7 @@ enum ResourceType {
   RESOURCE_TYPE_UNSPECIFIED = 0;
   // 一般
   NORMAL = 1;
+  // JACKPOT
+  JACKPOT = 2;
+
 }
