@@ -21,6 +21,9 @@ enum ResourceType {
   // 非例牌
   EXTRA = 2;
 
+  // JACKPOT
+  JACKPOT = 3;
+
 }
 
 // 步驟，依據遊戲供應商邏輯，不是每個步驟都會走到

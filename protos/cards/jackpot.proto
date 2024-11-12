@@ -1,0 +1,18 @@
+syntax = "proto3";
+package cards;
+
+// enum Jackpot
+enum Jackpot {
+
+  JACKPOT_UNSPECIFIED = 0;
+
+  // MINI
+  JACKPOT_MINI = 1;
+  // MINOR
+  JACKPOT_MINOR = 2;
+  // MAJOR
+  JACKPOT_MAJOR = 3;
+  // GRAND
+  JACKPOT_GRAND = 4;
+
+}
