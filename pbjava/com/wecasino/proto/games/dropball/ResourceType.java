@@ -33,6 +33,14 @@ public enum ResourceType
    * <code>COIN = 2;</code>
    */
   COIN(2),
+  /**
+   * <pre>
+   * JACKPOT
+   * </pre>
+   *
+   * <code>JACKPOT = 3;</code>
+   */
+  JACKPOT(3),
   UNRECOGNIZED(-1),
   ;
 
@@ -60,6 +68,14 @@ public enum ResourceType
    * <code>COIN = 2;</code>
    */
   public static final int COIN_VALUE = 2;
+  /**
+   * <pre>
+   * JACKPOT
+   * </pre>
+   *
+   * <code>JACKPOT = 3;</code>
+   */
+  public static final int JACKPOT_VALUE = 3;
 
 
   public final int getNumber() {
@@ -89,6 +105,7 @@ public enum ResourceType
       case 0: return RESOURCE_TYPE_UNSPECIFIED;
       case 1: return NORMAL;
       case 2: return COIN;
+      case 3: return JACKPOT;
       default: return null;
     }
   }

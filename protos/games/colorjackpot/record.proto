@@ -67,5 +67,6 @@ enum ResourceType {
   LUCKY_WHEEL = 2;
   //BINGO
   BINGO = 3;
-
+  // JACKPOT
+  JACKPOT = 4;
 }
