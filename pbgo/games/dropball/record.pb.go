@@ -179,7 +179,7 @@ const (
 	ResourceType_RESOURCE_TYPE_UNSPECIFIED ResourceType = 0
 	// 一般
 	ResourceType_NORMAL ResourceType = 1
-	// JACKPOT SUPER COIN
+	// SUPER COIN
 	ResourceType_COIN ResourceType = 2
 )
 

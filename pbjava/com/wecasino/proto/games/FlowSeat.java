@@ -83,6 +83,14 @@ public enum FlowSeat
   RIGHT(71),
   /**
    * <pre>
+   * JACKPOT
+   * </pre>
+   *
+   * <code>JACKPOT = 72;</code>
+   */
+  JACKPOT(72),
+  /**
+   * <pre>
    * 流程控制牌
    * </pre>
    *
@@ -174,6 +182,14 @@ public enum FlowSeat
   public static final int RIGHT_VALUE = 71;
   /**
    * <pre>
+   * JACKPOT
+   * </pre>
+   *
+   * <code>JACKPOT = 72;</code>
+   */
+  public static final int JACKPOT_VALUE = 72;
+  /**
+   * <pre>
    * 流程控制牌
    * </pre>
    *
@@ -223,6 +239,7 @@ public enum FlowSeat
       case 69: return BANKER;
       case 70: return LEFT;
       case 71: return RIGHT;
+      case 72: return JACKPOT;
       case 96: return CONTROL;
       case 99: return INSTRUCTIONS;
       default: return null;
