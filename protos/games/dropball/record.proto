@@ -63,6 +63,4 @@ enum ResourceType {
   NORMAL = 1;
   // SUPER COIN
   COIN = 2;
-  // JACKPOT
-  JACKPOT = 3;
 }

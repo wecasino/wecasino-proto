@@ -41,14 +41,6 @@ public enum ResourceType
    * <code>BINGO = 3;</code>
    */
   BINGO(3),
-  /**
-   * <pre>
-   * JACKPOT
-   * </pre>
-   *
-   * <code>JACKPOT = 4;</code>
-   */
-  JACKPOT(4),
   UNRECOGNIZED(-1),
   ;
 
@@ -84,14 +76,6 @@ public enum ResourceType
    * <code>BINGO = 3;</code>
    */
   public static final int BINGO_VALUE = 3;
-  /**
-   * <pre>
-   * JACKPOT
-   * </pre>
-   *
-   * <code>JACKPOT = 4;</code>
-   */
-  public static final int JACKPOT_VALUE = 4;
 
 
   public final int getNumber() {
@@ -122,7 +106,6 @@ public enum ResourceType
       case 1: return NORMAL;
       case 2: return LUCKY_WHEEL;
       case 3: return BINGO;
-      case 4: return JACKPOT;
       default: return null;
     }
   }

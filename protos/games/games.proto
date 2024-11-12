@@ -113,6 +113,8 @@ enum ResourceType {
   // 棄牌
   DISCARD = 69;
 
+  // JACKPOT
+  JACKPOT_RESOURCE = 70;
 }
 
 // WinType 

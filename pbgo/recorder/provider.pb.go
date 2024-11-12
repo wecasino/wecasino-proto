@@ -277,7 +277,7 @@ type GetRequest struct {
 	unknownFields protoimpl.UnknownFields
 
 	// 資源代碼
-	Code string `protobuf:"bytes,1,opt,name=code,proto3" json:"code" bson:"code" yaml:"code"`
+	Code string `protobuf:"bytes,1,opt,name=code,proto3" json:"code" yaml:"code" bson:"code"`
 }
 
 func (x *GetRequest) Reset() {
@@ -369,7 +369,7 @@ type GetCurrentRecordRequest struct {
 	unknownFields protoimpl.UnknownFields
 
 	// 遊戲代碼
-	GameCode string `protobuf:"bytes,1,opt,name=game_code,json=gameCode,proto3" json:"gameCode" bson:"gameCode" yaml:"gameCode"`
+	GameCode string `protobuf:"bytes,1,opt,name=game_code,json=gameCode,proto3" json:"gameCode" yaml:"gameCode" bson:"gameCode"`
 }
 
 func (x *GetCurrentRecordRequest) Reset() {
@@ -473,9 +473,9 @@ type ListRecordsRequest struct {
 	// 查詢終時
 	TsTo *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=ts_to,json=tsTo,proto3" json:"tsTo" bson:"tsTo" yaml:"tsTo"`
 	// 遊戲類型
-	GameType *games.GameType `protobuf:"varint,3,opt,name=game_type,json=gameType,proto3,enum=games.GameType,oneof" json:"gameType" yaml:"gameType" bson:"gameType"`
+	GameType *games.GameType `protobuf:"varint,3,opt,name=game_type,json=gameType,proto3,enum=games.GameType,oneof" json:"gameType" bson:"gameType" yaml:"gameType"`
 	// 遊戲子類型
-	GameSubtype *int32 `protobuf:"varint,4,opt,name=game_subtype,json=gameSubtype,proto3,oneof" json:"gameSubtype" yaml:"gameSubtype" bson:"gameSubtype"`
+	GameSubtype *int32 `protobuf:"varint,4,opt,name=game_subtype,json=gameSubtype,proto3,oneof" json:"gameSubtype" bson:"gameSubtype" yaml:"gameSubtype"`
 	// 遊戲供應
 	Supplier *string `protobuf:"bytes,5,opt,name=supplier,proto3,oneof" json:"supplier" bson:"supplier" yaml:"supplier"`
 	// 遊戲代碼
@@ -485,7 +485,7 @@ type ListRecordsRequest struct {
 	// pagination previous page
 	SearchBefore *string `protobuf:"bytes,9,opt,name=search_before,json=searchBefore,proto3,oneof" json:"searchBefore" bson:"searchBefore" yaml:"searchBefore"`
 	// 頁數 1開始，0表示未填，改為1
-	Page int64 `protobuf:"varint,10,opt,name=page,proto3" json:"page" yaml:"page" bson:"page"`
+	Page int64 `protobuf:"varint,10,opt,name=page,proto3" json:"page" bson:"page" yaml:"page"`
 	// 每頁筆數
 	PageSize        int64           `protobuf:"varint,11,opt,name=page_size,json=pageSize,proto3" json:"pageSize" bson:"pageSize" yaml:"pageSize"`
 	RoundStatusType RoundStatusType `protobuf:"varint,12,opt,name=round_status_type,json=roundStatusType,proto3,enum=recorder.RoundStatusType" json:"roundStatusType" bson:"roundStatusType" yaml:"roundStatusType"`
@@ -687,7 +687,7 @@ type ListShoesRecordResponse struct {
 	// pagination next page
 	SearchAfter string `protobuf:"bytes,8,opt,name=search_after,json=searchAfter,proto3" json:"searchAfter" bson:"searchAfter" yaml:"searchAfter"`
 	// pagination previous page
-	SearchBefore string `protobuf:"bytes,9,opt,name=search_before,json=searchBefore,proto3" json:"searchBefore" bson:"searchBefore" yaml:"searchBefore"`
+	SearchBefore string `protobuf:"bytes,9,opt,name=search_before,json=searchBefore,proto3" json:"searchBefore" yaml:"searchBefore" bson:"searchBefore"`
 }
 
 func (x *ListShoesRecordResponse) Reset() {
@@ -758,7 +758,7 @@ type ListRoundsRecordResponse struct {
 	// rounds
 	RoundRecord []*RoundRecord `protobuf:"bytes,1,rep,name=round_record,json=roundRecord,proto3" json:"roundRecord" bson:"roundRecord" yaml:"roundRecord"`
 	// 總數
-	Total int64 `protobuf:"varint,2,opt,name=total,proto3" json:"total" yaml:"total" bson:"total"`
+	Total int64 `protobuf:"varint,2,opt,name=total,proto3" json:"total" bson:"total" yaml:"total"`
 	// pagination next page
 	SearchAfter string `protobuf:"bytes,8,opt,name=search_after,json=searchAfter,proto3" json:"searchAfter" bson:"searchAfter" yaml:"searchAfter"`
 	// pagination previous page
@@ -833,7 +833,7 @@ type GetRoundPlayBackResponse struct {
 	// round code
 	RoundCode string `protobuf:"bytes,1,opt,name=round_code,json=roundCode,proto3" json:"roundCode" bson:"roundCode" yaml:"roundCode"`
 	// 開始時間
-	TsStart *timestamppb.Timestamp `protobuf:"bytes,16,opt,name=ts_start,json=tsStart,proto3" json:"tsStart" yaml:"tsStart" bson:"tsStart"`
+	TsStart *timestamppb.Timestamp `protobuf:"bytes,16,opt,name=ts_start,json=tsStart,proto3" json:"tsStart" bson:"tsStart" yaml:"tsStart"`
 	// 回放url
 	Medias map[string]string `protobuf:"bytes,28,rep,name=medias,proto3" json:"medias" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3" bson:"medias" yaml:"medias"`
 }
@@ -945,13 +945,13 @@ type RoundResult struct {
 	// 班代碼
 	ShiftCode string `protobuf:"bytes,8,opt,name=shift_code,json=shiftCode,proto3" json:"shiftCode" bson:"shiftCode" yaml:"shiftCode"`
 	// 此排班局數
-	ShiftRound int64 `protobuf:"varint,9,opt,name=shift_round,json=shiftRound,proto3" json:"shiftRound" bson:"shiftRound" yaml:"shiftRound"`
+	ShiftRound int64 `protobuf:"varint,9,opt,name=shift_round,json=shiftRound,proto3" json:"shiftRound" yaml:"shiftRound" bson:"shiftRound"`
 	// 使用靴代碼
 	ShoeCode string `protobuf:"bytes,10,opt,name=shoe_code,json=shoeCode,proto3" json:"shoeCode" bson:"shoeCode" yaml:"shoeCode"`
 	// 使用此洗牌第幾局，從1開始計算
 	ShoeRound int64 `protobuf:"varint,11,opt,name=shoe_round,json=shoeRound,proto3" json:"shoeRound" bson:"shoeRound" yaml:"shoeRound"`
 	// 局代碼
-	RoundCode string `protobuf:"bytes,12,opt,name=round_code,json=roundCode,proto3" json:"roundCode" yaml:"roundCode" bson:"roundCode"`
+	RoundCode string `protobuf:"bytes,12,opt,name=round_code,json=roundCode,proto3" json:"roundCode" bson:"roundCode" yaml:"roundCode"`
 	// 開始時間
 	TsStart *timestamppb.Timestamp `protobuf:"bytes,16,opt,name=ts_start,json=tsStart,proto3" json:"tsStart" bson:"tsStart" yaml:"tsStart"`
 	// 座位組
@@ -1109,7 +1109,7 @@ type LiveStreamParams struct {
 	// 串流代碼
 	Code string `protobuf:"bytes,1,opt,name=code,proto3" json:"code" bson:"code" yaml:"code"`
 	// 應用
-	App string `protobuf:"bytes,2,opt,name=app,proto3" json:"app" yaml:"app" bson:"app"`
+	App string `protobuf:"bytes,2,opt,name=app,proto3" json:"app" bson:"app" yaml:"app"`
 	// 頻道
 	Channel string `protobuf:"bytes,3,opt,name=channel,proto3" json:"channel" bson:"channel" yaml:"channel"`
 }
@@ -1177,7 +1177,7 @@ type GameProvide struct {
 	// 遊戲類型
 	GameType string `protobuf:"bytes,3,opt,name=game_type,json=gameType,proto3" json:"gameType" bson:"gameType" yaml:"gameType"`
 	// 遊戲子類型
-	GameSubtype string `protobuf:"bytes,4,opt,name=game_subtype,json=gameSubtype,proto3" json:"gameSubtype" bson:"gameSubtype" yaml:"gameSubtype"`
+	GameSubtype string `protobuf:"bytes,4,opt,name=game_subtype,json=gameSubtype,proto3" json:"gameSubtype" yaml:"gameSubtype" bson:"gameSubtype"`
 	// 遊戲代碼
 	GameCode string `protobuf:"bytes,6,opt,name=game_code,json=gameCode,proto3" json:"gameCode" bson:"gameCode" yaml:"gameCode"`
 	// 標籤
@@ -1189,7 +1189,7 @@ type GameProvide struct {
 	// 玩家姓名
 	PlayersName map[string]string `protobuf:"bytes,30,rep,name=players_name,json=playersName,proto3" json:"playersName" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3" bson:"playersName" yaml:"playersName"`
 	// 附加媒體：key: 媒體資源代碼；value: 媒體內容。
-	Medias map[string]string `protobuf:"bytes,28,rep,name=medias,proto3" json:"medias" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3" bson:"medias" yaml:"medias"`
+	Medias map[string]string `protobuf:"bytes,28,rep,name=medias,proto3" json:"medias" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3" yaml:"medias" bson:"medias"`
 	// 直播參數
 	LiveStreams map[string]*LiveStreamParams `protobuf:"bytes,29,rep,name=live_streams,json=liveStreams,proto3" json:"liveStreams" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3" bson:"liveStreams" yaml:"liveStreams"`
 	// 最後一局
@@ -1534,7 +1534,7 @@ type Article struct {
 	// 附加媒體：key: 媒體資源代碼；value: 媒體內容。
 	Medias map[string]string `protobuf:"bytes,4,rep,name=medias,proto3" json:"medias" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3" bson:"medias" yaml:"medias"`
 	// 子文檔
-	Sections map[string]*Article `protobuf:"bytes,5,rep,name=sections,proto3" json:"sections" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3" bson:"sections" yaml:"sections"`
+	Sections map[string]*Article `protobuf:"bytes,5,rep,name=sections,proto3" json:"sections" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3" yaml:"sections" bson:"sections"`
 }
 
 func (x *Article) Reset() {
@@ -1614,7 +1614,7 @@ type Dealer struct {
 	// 名稱
 	Name string `protobuf:"bytes,2,opt,name=name,proto3" json:"name" bson:"name" yaml:"name"`
 	// 年齡
-	Age string `protobuf:"bytes,3,opt,name=age,proto3" json:"age" bson:"age" yaml:"age"`
+	Age string `protobuf:"bytes,3,opt,name=age,proto3" json:"age" yaml:"age" bson:"age"`
 	// Tags
 	Tags map[string]string `protobuf:"bytes,4,rep,name=tags,proto3" json:"tags" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3" bson:"tags" yaml:"tags"`
 	// 介紹
