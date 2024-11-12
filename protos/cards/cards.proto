@@ -13,4 +13,6 @@ enum CardType {
 
   FLOW = 6;
   COLOR = 7;
+
+  JACKPOT = 8;
 }
