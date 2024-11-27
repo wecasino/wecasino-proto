@@ -1,0 +1,58 @@
+syntax = "proto3";
+package games.hilo;
+
+enum GameSubtype {
+  // 未指定
+  HILO_TYPE_UNSPECIFIED = 0;
+
+  // 經典HILO
+  HILO_CLASSIC = 1;
+
+}
+
+enum ResourceType {
+
+  // 未指定
+  RESOURCE_TYPE_UNSPECIFIED = 0;
+
+  NOW = 1;
+
+  NEXT = 2;
+
+}
+
+// 步驟，依據遊戲供應商邏輯，不是每個步驟都會走到
+enum Step {
+
+  // 未指定
+  STEP_UNSPECIFIED = 0;
+  // 本局開始
+  ROUND_START = 1;
+  // 本局完成
+  ROUND_FINISHED = 2;
+
+  // 派發NOW牌
+  DEAL_NOW = 4;
+  // 派發NEXT牌
+  DEAL_NEXT = 5;
+
+  // 開放下注
+  ROUND_BET = 8;
+  // 停止下注
+  NO_MORE_BET = 9;
+
+  // 開 NOW牌
+  SHOW_NOW = 12;
+  // 開 NEXT牌
+  SHOW_NEXT = 13;
+
+  DEALER_CONFIRM_NOW = 20;
+
+  DEALER_CONFIRM = 23;
+
+  // PITBOSS 修改NOW牌
+  PITBOSS_MODIFY_NOW = 24;
+  // PITBOSS 修改NEXT牌
+  PITBOSS_MODIFY_NEXT = 25;
+
+}

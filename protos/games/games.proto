@@ -49,6 +49,9 @@ enum GameType {
 
   // ONELUCKYNINE
   ONELUCKYNINE = 43;
+
+  // HILO
+  HILO = 44;
 }
 
 enum FlowSeat {
