@@ -134,6 +134,14 @@ public enum GameType
    * <code>ONELUCKYNINE = 43;</code>
    */
   ONELUCKYNINE(43),
+  /**
+   * <pre>
+   * HILO
+   * </pre>
+   *
+   * <code>HILO = 44;</code>
+   */
+  HILO(44),
   UNRECOGNIZED(-1),
   ;
 
@@ -257,6 +265,14 @@ public enum GameType
    * <code>ONELUCKYNINE = 43;</code>
    */
   public static final int ONELUCKYNINE_VALUE = 43;
+  /**
+   * <pre>
+   * HILO
+   * </pre>
+   *
+   * <code>HILO = 44;</code>
+   */
+  public static final int HILO_VALUE = 44;
 
 
   public final int getNumber() {
@@ -298,6 +314,7 @@ public enum GameType
       case 41: return XOCDIA;
       case 42: return COLORGAME_JACKPOT;
       case 43: return ONELUCKYNINE;
+      case 44: return HILO;
       default: return null;
     }
   }
