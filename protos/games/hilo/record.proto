@@ -41,6 +41,9 @@ enum Step {
   // 停止下注
   NO_MORE_BET = 9;
 
+  // 開NEXT牌
+  SHOW_NEXT = 13;
+
   DEALER_CONFIRM_NOW = 20;
 
   DEALER_CONFIRM = 23;

@@ -70,6 +70,14 @@ public enum Step
    */
   NO_MORE_BET(9),
   /**
+   * <pre>
+   * 開NEXT牌
+   * </pre>
+   *
+   * <code>SHOW_NEXT = 13;</code>
+   */
+  SHOW_NEXT(13),
+  /**
    * <code>DEALER_CONFIRM_NOW = 20;</code>
    */
   DEALER_CONFIRM_NOW(20),
@@ -153,6 +161,14 @@ public enum Step
    */
   public static final int NO_MORE_BET_VALUE = 9;
   /**
+   * <pre>
+   * 開NEXT牌
+   * </pre>
+   *
+   * <code>SHOW_NEXT = 13;</code>
+   */
+  public static final int SHOW_NEXT_VALUE = 13;
+  /**
    * <code>DEALER_CONFIRM_NOW = 20;</code>
    */
   public static final int DEALER_CONFIRM_NOW_VALUE = 20;
@@ -209,6 +225,7 @@ public enum Step
       case 5: return DEAL_NEXT;
       case 8: return ROUND_BET;
       case 9: return NO_MORE_BET;
+      case 13: return SHOW_NEXT;
       case 20: return DEALER_CONFIRM_NOW;
       case 23: return DEALER_CONFIRM;
       case 24: return PITBOSS_MODIFY_NOW;

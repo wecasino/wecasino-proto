@@ -28,17 +28,17 @@ public final class RecordProto {
       "\013GameSubtype\022\031\n\025HILO_TYPE_UNSPECIFIED\020\000\022" +
       "\020\n\014HILO_CLASSIC\020\001*@\n\014ResourceType\022\035\n\031RES" +
       "OURCE_TYPE_UNSPECIFIED\020\000\022\007\n\003NOW\020\001\022\010\n\004NEX" +
-      "T\020\002*\333\001\n\004Step\022\024\n\020STEP_UNSPECIFIED\020\000\022\017\n\013RO" +
+      "T\020\002*\352\001\n\004Step\022\024\n\020STEP_UNSPECIFIED\020\000\022\017\n\013RO" +
       "UND_START\020\001\022\022\n\016ROUND_FINISHED\020\002\022\014\n\010DEAL_" +
       "NOW\020\004\022\r\n\tDEAL_NEXT\020\005\022\r\n\tROUND_BET\020\010\022\017\n\013N" +
-      "O_MORE_BET\020\t\022\026\n\022DEALER_CONFIRM_NOW\020\024\022\022\n\016" +
-      "DEALER_CONFIRM\020\027\022\026\n\022PITBOSS_MODIFY_NOW\020\030" +
-      "\022\027\n\023PITBOSS_MODIFY_NEXT\020\031B\251\001\n\035com.wecasi" +
-      "no.proto.games.hiloB\013RecordProtoP\001Z2gith" +
-      "ub.com/wecasino/wecasino-proto/pbgo/game" +
-      "s/hilo\242\002\003GHX\252\002\nGames.Hilo\312\002\nGames\\Hilo\342\002" +
-      "\026Games\\Hilo\\GPBMetadata\352\002\013Games::Hilob\006p" +
-      "roto3"
+      "O_MORE_BET\020\t\022\r\n\tSHOW_NEXT\020\r\022\026\n\022DEALER_CO" +
+      "NFIRM_NOW\020\024\022\022\n\016DEALER_CONFIRM\020\027\022\026\n\022PITBO" +
+      "SS_MODIFY_NOW\020\030\022\027\n\023PITBOSS_MODIFY_NEXT\020\031" +
+      "B\251\001\n\035com.wecasino.proto.games.hiloB\013Reco" +
+      "rdProtoP\001Z2github.com/wecasino/wecasino-" +
+      "proto/pbgo/games/hilo\242\002\003GHX\252\002\nGames.Hilo" +
+      "\312\002\nGames\\Hilo\342\002\026Games\\Hilo\\GPBMetadata\352\002" +
+      "\013Games::Hilob\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
