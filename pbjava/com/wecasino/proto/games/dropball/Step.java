@@ -106,6 +106,10 @@ public enum Step
    */
   SUPERCOIN_THROW_COIN(13),
   /**
+   * <code>SUPERCOIN_SHOW_ANIMATION = 14;</code>
+   */
+  SUPERCOIN_SHOW_ANIMATION(14),
+  /**
    * <pre>
    * PITBOSS 修改骰點
    * </pre>
@@ -209,6 +213,10 @@ public enum Step
    */
   public static final int SUPERCOIN_THROW_COIN_VALUE = 13;
   /**
+   * <code>SUPERCOIN_SHOW_ANIMATION = 14;</code>
+   */
+  public static final int SUPERCOIN_SHOW_ANIMATION_VALUE = 14;
+  /**
    * <pre>
    * PITBOSS 修改骰點
    * </pre>
@@ -254,6 +262,7 @@ public enum Step
       case 11: return SUPERCOIN_ROUND_BET;
       case 12: return SUPERCOIN_NO_MORE_BET;
       case 13: return SUPERCOIN_THROW_COIN;
+      case 14: return SUPERCOIN_SHOW_ANIMATION;
       case 16: return PITBOSS_MODIFY_BOWL;
       default: return null;
     }

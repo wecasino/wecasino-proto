@@ -49,10 +49,6 @@ public enum CardType
    * <code>JACKPOT = 8;</code>
    */
   JACKPOT(8),
-  /**
-   * <code>COIN = 9;</code>
-   */
-  COIN(9),
   UNRECOGNIZED(-1),
   ;
 
@@ -96,10 +92,6 @@ public enum CardType
    * <code>JACKPOT = 8;</code>
    */
   public static final int JACKPOT_VALUE = 8;
-  /**
-   * <code>COIN = 9;</code>
-   */
-  public static final int COIN_VALUE = 9;
 
 
   public final int getNumber() {
@@ -135,7 +127,6 @@ public enum CardType
       case 6: return FLOW;
       case 7: return COLOR;
       case 8: return JACKPOT;
-      case 9: return COIN;
       default: return null;
     }
   }
