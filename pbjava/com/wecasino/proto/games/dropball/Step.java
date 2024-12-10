@@ -102,13 +102,29 @@ public enum Step
    */
   SUPERCOIN_NO_MORE_BET(12),
   /**
-   * <code>SUPERCOIN_THROW_COIN = 13;</code>
+   * <pre>
+   * 產生賠率
+   * </pre>
+   *
+   * <code>SUPERCOIN_GENERATE_CANDIDATE_ODDS = 13;</code>
    */
-  SUPERCOIN_THROW_COIN(13),
+  SUPERCOIN_GENERATE_CANDIDATE_ODDS(13),
   /**
-   * <code>SUPERCOIN_SHOW_ANIMATION = 14;</code>
+   * <pre>
+   * 轉場等待
+   * </pre>
+   *
+   * <code>SUPERCOIN_WAIT_TRANSITION = 14;</code>
    */
-  SUPERCOIN_SHOW_ANIMATION(14),
+  SUPERCOIN_WAIT_TRANSITION(14),
+  /**
+   * <pre>
+   * 擲硬幣
+   * </pre>
+   *
+   * <code>SUPERCOIN_THROW_COIN = 15;</code>
+   */
+  SUPERCOIN_THROW_COIN(15),
   /**
    * <pre>
    * PITBOSS 修改骰點
@@ -209,13 +225,29 @@ public enum Step
    */
   public static final int SUPERCOIN_NO_MORE_BET_VALUE = 12;
   /**
-   * <code>SUPERCOIN_THROW_COIN = 13;</code>
+   * <pre>
+   * 產生賠率
+   * </pre>
+   *
+   * <code>SUPERCOIN_GENERATE_CANDIDATE_ODDS = 13;</code>
    */
-  public static final int SUPERCOIN_THROW_COIN_VALUE = 13;
+  public static final int SUPERCOIN_GENERATE_CANDIDATE_ODDS_VALUE = 13;
   /**
-   * <code>SUPERCOIN_SHOW_ANIMATION = 14;</code>
+   * <pre>
+   * 轉場等待
+   * </pre>
+   *
+   * <code>SUPERCOIN_WAIT_TRANSITION = 14;</code>
    */
-  public static final int SUPERCOIN_SHOW_ANIMATION_VALUE = 14;
+  public static final int SUPERCOIN_WAIT_TRANSITION_VALUE = 14;
+  /**
+   * <pre>
+   * 擲硬幣
+   * </pre>
+   *
+   * <code>SUPERCOIN_THROW_COIN = 15;</code>
+   */
+  public static final int SUPERCOIN_THROW_COIN_VALUE = 15;
   /**
    * <pre>
    * PITBOSS 修改骰點
@@ -261,8 +293,9 @@ public enum Step
       case 10: return SUPERCOIN_ROUND_START;
       case 11: return SUPERCOIN_ROUND_BET;
       case 12: return SUPERCOIN_NO_MORE_BET;
-      case 13: return SUPERCOIN_THROW_COIN;
-      case 14: return SUPERCOIN_SHOW_ANIMATION;
+      case 13: return SUPERCOIN_GENERATE_CANDIDATE_ODDS;
+      case 14: return SUPERCOIN_WAIT_TRANSITION;
+      case 15: return SUPERCOIN_THROW_COIN;
       case 16: return PITBOSS_MODIFY_BOWL;
       default: return null;
     }
