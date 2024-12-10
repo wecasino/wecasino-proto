@@ -189,6 +189,9 @@ message RecordModifyCardRequest {
 
   // 修改原因
   string modify_message = 5;
+
+  // 修改fortune
+  map<string, int64> modify_fortune = 6;
 }
 
 message CardModify {
