@@ -35,6 +35,18 @@ private static final long serialVersionUID = 0L;
     return com.wecasino.proto.recorder.RecorderProto.internal_static_recorder_RecordModifyCardRequest_descriptor;
   }
 
+  @SuppressWarnings({"rawtypes"})
+  @java.lang.Override
+  protected com.google.protobuf.MapFieldReflectionAccessor internalGetMapFieldReflection(
+      int number) {
+    switch (number) {
+      case 6:
+        return internalGetModifyFortune();
+      default:
+        throw new RuntimeException(
+            "Invalid map field number: " + number);
+    }
+  }
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
@@ -245,6 +257,99 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int MODIFY_FORTUNE_FIELD_NUMBER = 6;
+  private static final class ModifyFortuneDefaultEntryHolder {
+    static final com.google.protobuf.MapEntry<
+        java.lang.String, java.lang.Long> defaultEntry =
+            com.google.protobuf.MapEntry
+            .<java.lang.String, java.lang.Long>newDefaultInstance(
+                com.wecasino.proto.recorder.RecorderProto.internal_static_recorder_RecordModifyCardRequest_ModifyFortuneEntry_descriptor, 
+                com.google.protobuf.WireFormat.FieldType.STRING,
+                "",
+                com.google.protobuf.WireFormat.FieldType.INT64,
+                0L);
+  }
+  @SuppressWarnings("serial")
+  private com.google.protobuf.MapField<
+      java.lang.String, java.lang.Long> modifyFortune_;
+  private com.google.protobuf.MapField<java.lang.String, java.lang.Long>
+  internalGetModifyFortune() {
+    if (modifyFortune_ == null) {
+      return com.google.protobuf.MapField.emptyMapField(
+          ModifyFortuneDefaultEntryHolder.defaultEntry);
+    }
+    return modifyFortune_;
+  }
+  public int getModifyFortuneCount() {
+    return internalGetModifyFortune().getMap().size();
+  }
+  /**
+   * <pre>
+   * 修改fortune
+   * </pre>
+   *
+   * <code>map&lt;string, int64&gt; modify_fortune = 6 [json_name = "modifyFortune"];</code>
+   */
+  @java.lang.Override
+  public boolean containsModifyFortune(
+      java.lang.String key) {
+    if (key == null) { throw new NullPointerException("map key"); }
+    return internalGetModifyFortune().getMap().containsKey(key);
+  }
+  /**
+   * Use {@link #getModifyFortuneMap()} instead.
+   */
+  @java.lang.Override
+  @java.lang.Deprecated
+  public java.util.Map<java.lang.String, java.lang.Long> getModifyFortune() {
+    return getModifyFortuneMap();
+  }
+  /**
+   * <pre>
+   * 修改fortune
+   * </pre>
+   *
+   * <code>map&lt;string, int64&gt; modify_fortune = 6 [json_name = "modifyFortune"];</code>
+   */
+  @java.lang.Override
+  public java.util.Map<java.lang.String, java.lang.Long> getModifyFortuneMap() {
+    return internalGetModifyFortune().getMap();
+  }
+  /**
+   * <pre>
+   * 修改fortune
+   * </pre>
+   *
+   * <code>map&lt;string, int64&gt; modify_fortune = 6 [json_name = "modifyFortune"];</code>
+   */
+  @java.lang.Override
+  public long getModifyFortuneOrDefault(
+      java.lang.String key,
+      long defaultValue) {
+    if (key == null) { throw new NullPointerException("map key"); }
+    java.util.Map<java.lang.String, java.lang.Long> map =
+        internalGetModifyFortune().getMap();
+    return map.containsKey(key) ? map.get(key) : defaultValue;
+  }
+  /**
+   * <pre>
+   * 修改fortune
+   * </pre>
+   *
+   * <code>map&lt;string, int64&gt; modify_fortune = 6 [json_name = "modifyFortune"];</code>
+   */
+  @java.lang.Override
+  public long getModifyFortuneOrThrow(
+      java.lang.String key) {
+    if (key == null) { throw new NullPointerException("map key"); }
+    java.util.Map<java.lang.String, java.lang.Long> map =
+        internalGetModifyFortune().getMap();
+    if (!map.containsKey(key)) {
+      throw new java.lang.IllegalArgumentException();
+    }
+    return map.get(key);
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -271,6 +376,12 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(modifyMessage_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, modifyMessage_);
     }
+    com.google.protobuf.GeneratedMessageV3
+      .serializeStringMapTo(
+        output,
+        internalGetModifyFortune(),
+        ModifyFortuneDefaultEntryHolder.defaultEntry,
+        6);
     getUnknownFields().writeTo(output);
   }
 
@@ -292,6 +403,16 @@ private static final long serialVersionUID = 0L;
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(modifyMessage_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, modifyMessage_);
+    }
+    for (java.util.Map.Entry<java.lang.String, java.lang.Long> entry
+         : internalGetModifyFortune().getMap().entrySet()) {
+      com.google.protobuf.MapEntry<java.lang.String, java.lang.Long>
+      modifyFortune__ = ModifyFortuneDefaultEntryHolder.defaultEntry.newBuilderForType()
+          .setKey(entry.getKey())
+          .setValue(entry.getValue())
+          .build();
+      size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(6, modifyFortune__);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -316,6 +437,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getModifiesList())) return false;
     if (!getModifyMessage()
         .equals(other.getModifyMessage())) return false;
+    if (!internalGetModifyFortune().equals(
+        other.internalGetModifyFortune())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -337,6 +460,10 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + MODIFY_MESSAGE_FIELD_NUMBER;
     hash = (53 * hash) + getModifyMessage().hashCode();
+    if (!internalGetModifyFortune().getMap().isEmpty()) {
+      hash = (37 * hash) + MODIFY_FORTUNE_FIELD_NUMBER;
+      hash = (53 * hash) + internalGetModifyFortune().hashCode();
+    }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -446,6 +573,28 @@ private static final long serialVersionUID = 0L;
       return com.wecasino.proto.recorder.RecorderProto.internal_static_recorder_RecordModifyCardRequest_descriptor;
     }
 
+    @SuppressWarnings({"rawtypes"})
+    protected com.google.protobuf.MapFieldReflectionAccessor internalGetMapFieldReflection(
+        int number) {
+      switch (number) {
+        case 6:
+          return internalGetModifyFortune();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
+    @SuppressWarnings({"rawtypes"})
+    protected com.google.protobuf.MapFieldReflectionAccessor internalGetMutableMapFieldReflection(
+        int number) {
+      switch (number) {
+        case 6:
+          return internalGetMutableModifyFortune();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
@@ -478,6 +627,7 @@ private static final long serialVersionUID = 0L;
       }
       bitField0_ = (bitField0_ & ~0x00000004);
       modifyMessage_ = "";
+      internalGetMutableModifyFortune().clear();
       return this;
     }
 
@@ -532,6 +682,10 @@ private static final long serialVersionUID = 0L;
       }
       if (((from_bitField0_ & 0x00000008) != 0)) {
         result.modifyMessage_ = modifyMessage_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.modifyFortune_ = internalGetModifyFortune();
+        result.modifyFortune_.makeImmutable();
       }
     }
 
@@ -620,6 +774,9 @@ private static final long serialVersionUID = 0L;
         bitField0_ |= 0x00000008;
         onChanged();
       }
+      internalGetMutableModifyFortune().mergeFrom(
+          other.internalGetModifyFortune());
+      bitField0_ |= 0x00000010;
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
@@ -674,6 +831,15 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000008;
               break;
             } // case 42
+            case 50: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.Long>
+              modifyFortune__ = input.readMessage(
+                  ModifyFortuneDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableModifyFortune().getMutableMap().put(
+                  modifyFortune__.getKey(), modifyFortune__.getValue());
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 50
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -1276,6 +1442,159 @@ private static final long serialVersionUID = 0L;
       modifyMessage_ = value;
       bitField0_ |= 0x00000008;
       onChanged();
+      return this;
+    }
+
+    private com.google.protobuf.MapField<
+        java.lang.String, java.lang.Long> modifyFortune_;
+    private com.google.protobuf.MapField<java.lang.String, java.lang.Long>
+        internalGetModifyFortune() {
+      if (modifyFortune_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            ModifyFortuneDefaultEntryHolder.defaultEntry);
+      }
+      return modifyFortune_;
+    }
+    private com.google.protobuf.MapField<java.lang.String, java.lang.Long>
+        internalGetMutableModifyFortune() {
+      if (modifyFortune_ == null) {
+        modifyFortune_ = com.google.protobuf.MapField.newMapField(
+            ModifyFortuneDefaultEntryHolder.defaultEntry);
+      }
+      if (!modifyFortune_.isMutable()) {
+        modifyFortune_ = modifyFortune_.copy();
+      }
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return modifyFortune_;
+    }
+    public int getModifyFortuneCount() {
+      return internalGetModifyFortune().getMap().size();
+    }
+    /**
+     * <pre>
+     * 修改fortune
+     * </pre>
+     *
+     * <code>map&lt;string, int64&gt; modify_fortune = 6 [json_name = "modifyFortune"];</code>
+     */
+    @java.lang.Override
+    public boolean containsModifyFortune(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      return internalGetModifyFortune().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getModifyFortuneMap()} instead.
+     */
+    @java.lang.Override
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.Long> getModifyFortune() {
+      return getModifyFortuneMap();
+    }
+    /**
+     * <pre>
+     * 修改fortune
+     * </pre>
+     *
+     * <code>map&lt;string, int64&gt; modify_fortune = 6 [json_name = "modifyFortune"];</code>
+     */
+    @java.lang.Override
+    public java.util.Map<java.lang.String, java.lang.Long> getModifyFortuneMap() {
+      return internalGetModifyFortune().getMap();
+    }
+    /**
+     * <pre>
+     * 修改fortune
+     * </pre>
+     *
+     * <code>map&lt;string, int64&gt; modify_fortune = 6 [json_name = "modifyFortune"];</code>
+     */
+    @java.lang.Override
+    public long getModifyFortuneOrDefault(
+        java.lang.String key,
+        long defaultValue) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      java.util.Map<java.lang.String, java.lang.Long> map =
+          internalGetModifyFortune().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <pre>
+     * 修改fortune
+     * </pre>
+     *
+     * <code>map&lt;string, int64&gt; modify_fortune = 6 [json_name = "modifyFortune"];</code>
+     */
+    @java.lang.Override
+    public long getModifyFortuneOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      java.util.Map<java.lang.String, java.lang.Long> map =
+          internalGetModifyFortune().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+    public Builder clearModifyFortune() {
+      bitField0_ = (bitField0_ & ~0x00000010);
+      internalGetMutableModifyFortune().getMutableMap()
+          .clear();
+      return this;
+    }
+    /**
+     * <pre>
+     * 修改fortune
+     * </pre>
+     *
+     * <code>map&lt;string, int64&gt; modify_fortune = 6 [json_name = "modifyFortune"];</code>
+     */
+    public Builder removeModifyFortune(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      internalGetMutableModifyFortune().getMutableMap()
+          .remove(key);
+      return this;
+    }
+    /**
+     * Use alternate mutation accessors instead.
+     */
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.Long>
+        getMutableModifyFortune() {
+      bitField0_ |= 0x00000010;
+      return internalGetMutableModifyFortune().getMutableMap();
+    }
+    /**
+     * <pre>
+     * 修改fortune
+     * </pre>
+     *
+     * <code>map&lt;string, int64&gt; modify_fortune = 6 [json_name = "modifyFortune"];</code>
+     */
+    public Builder putModifyFortune(
+        java.lang.String key,
+        long value) {
+      if (key == null) { throw new NullPointerException("map key"); }
+
+      internalGetMutableModifyFortune().getMutableMap()
+          .put(key, value);
+      bitField0_ |= 0x00000010;
+      return this;
+    }
+    /**
+     * <pre>
+     * 修改fortune
+     * </pre>
+     *
+     * <code>map&lt;string, int64&gt; modify_fortune = 6 [json_name = "modifyFortune"];</code>
+     */
+    public Builder putAllModifyFortune(
+        java.util.Map<java.lang.String, java.lang.Long> values) {
+      internalGetMutableModifyFortune().getMutableMap()
+          .putAll(values);
+      bitField0_ |= 0x00000010;
       return this;
     }
     @java.lang.Override
