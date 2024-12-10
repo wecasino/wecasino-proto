@@ -103,20 +103,20 @@ public enum Step
   SUPERCOIN_NO_MORE_BET(12),
   /**
    * <pre>
-   * 產生賠率
-   * </pre>
-   *
-   * <code>SUPERCOIN_GENERATE_CANDIDATE_ODDS = 13;</code>
-   */
-  SUPERCOIN_GENERATE_CANDIDATE_ODDS(13),
-  /**
-   * <pre>
    * 轉場等待
    * </pre>
    *
-   * <code>SUPERCOIN_WAIT_TRANSITION = 14;</code>
+   * <code>SUPERCOIN_ANIMATION_STOP = 13;</code>
    */
-  SUPERCOIN_WAIT_TRANSITION(14),
+  SUPERCOIN_ANIMATION_STOP(13),
+  /**
+   * <pre>
+   * 產生賠率
+   * </pre>
+   *
+   * <code>SUPERCOIN_CANDIDATE_ODDS = 14;</code>
+   */
+  SUPERCOIN_CANDIDATE_ODDS(14),
   /**
    * <pre>
    * 擲硬幣
@@ -226,20 +226,20 @@ public enum Step
   public static final int SUPERCOIN_NO_MORE_BET_VALUE = 12;
   /**
    * <pre>
-   * 產生賠率
-   * </pre>
-   *
-   * <code>SUPERCOIN_GENERATE_CANDIDATE_ODDS = 13;</code>
-   */
-  public static final int SUPERCOIN_GENERATE_CANDIDATE_ODDS_VALUE = 13;
-  /**
-   * <pre>
    * 轉場等待
    * </pre>
    *
-   * <code>SUPERCOIN_WAIT_TRANSITION = 14;</code>
+   * <code>SUPERCOIN_ANIMATION_STOP = 13;</code>
    */
-  public static final int SUPERCOIN_WAIT_TRANSITION_VALUE = 14;
+  public static final int SUPERCOIN_ANIMATION_STOP_VALUE = 13;
+  /**
+   * <pre>
+   * 產生賠率
+   * </pre>
+   *
+   * <code>SUPERCOIN_CANDIDATE_ODDS = 14;</code>
+   */
+  public static final int SUPERCOIN_CANDIDATE_ODDS_VALUE = 14;
   /**
    * <pre>
    * 擲硬幣
@@ -293,8 +293,8 @@ public enum Step
       case 10: return SUPERCOIN_ROUND_START;
       case 11: return SUPERCOIN_ROUND_BET;
       case 12: return SUPERCOIN_NO_MORE_BET;
-      case 13: return SUPERCOIN_GENERATE_CANDIDATE_ODDS;
-      case 14: return SUPERCOIN_WAIT_TRANSITION;
+      case 13: return SUPERCOIN_ANIMATION_STOP;
+      case 14: return SUPERCOIN_CANDIDATE_ODDS;
       case 15: return SUPERCOIN_THROW_COIN;
       case 16: return PITBOSS_MODIFY_BOWL;
       default: return null;
