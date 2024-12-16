@@ -127,12 +127,20 @@ public enum Step
   SUPERCOIN_THROW_COIN(15),
   /**
    * <pre>
+   * 擲硬幣
+   * </pre>
+   *
+   * <code>SUPERCOIN_ANIMATION_RESULT = 16;</code>
+   */
+  SUPERCOIN_ANIMATION_RESULT(16),
+  /**
+   * <pre>
    * PITBOSS 修改骰點
    * </pre>
    *
-   * <code>PITBOSS_MODIFY_BOWL = 16;</code>
+   * <code>PITBOSS_MODIFY_BOWL = 17;</code>
    */
-  PITBOSS_MODIFY_BOWL(16),
+  PITBOSS_MODIFY_BOWL(17),
   UNRECOGNIZED(-1),
   ;
 
@@ -250,12 +258,20 @@ public enum Step
   public static final int SUPERCOIN_THROW_COIN_VALUE = 15;
   /**
    * <pre>
+   * 擲硬幣
+   * </pre>
+   *
+   * <code>SUPERCOIN_ANIMATION_RESULT = 16;</code>
+   */
+  public static final int SUPERCOIN_ANIMATION_RESULT_VALUE = 16;
+  /**
+   * <pre>
    * PITBOSS 修改骰點
    * </pre>
    *
-   * <code>PITBOSS_MODIFY_BOWL = 16;</code>
+   * <code>PITBOSS_MODIFY_BOWL = 17;</code>
    */
-  public static final int PITBOSS_MODIFY_BOWL_VALUE = 16;
+  public static final int PITBOSS_MODIFY_BOWL_VALUE = 17;
 
 
   public final int getNumber() {
@@ -296,7 +312,8 @@ public enum Step
       case 13: return SUPERCOIN_ANIMATION_STOP;
       case 14: return SUPERCOIN_CANDIDATE_ODDS;
       case 15: return SUPERCOIN_THROW_COIN;
-      case 16: return PITBOSS_MODIFY_BOWL;
+      case 16: return SUPERCOIN_ANIMATION_RESULT;
+      case 17: return PITBOSS_MODIFY_BOWL;
       default: return null;
     }
   }
