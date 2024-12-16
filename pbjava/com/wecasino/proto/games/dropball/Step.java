@@ -127,7 +127,7 @@ public enum Step
   SUPERCOIN_THROW_COIN(15),
   /**
    * <pre>
-   * 擲硬幣
+   * 動畫結果
    * </pre>
    *
    * <code>SUPERCOIN_ANIMATION_RESULT = 16;</code>
@@ -258,7 +258,7 @@ public enum Step
   public static final int SUPERCOIN_THROW_COIN_VALUE = 15;
   /**
    * <pre>
-   * 擲硬幣
+   * 動畫結果
    * </pre>
    *
    * <code>SUPERCOIN_ANIMATION_RESULT = 16;</code>
