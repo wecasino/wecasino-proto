@@ -55,8 +55,6 @@ enum Step {
   SUPERCOIN_THROW_COIN = 15;
   // 動畫結果
   SUPERCOIN_ANIMATION_RESULT = 16;
-  // PITBOSS 修改骰點
-  PITBOSS_MODIFY_BOWL = 17;
 
 }
 
