@@ -112,7 +112,7 @@ const (
 	Step_SUPERCOIN_CANDIDATE_ODDS Step = 14
 	// 擲硬幣
 	Step_SUPERCOIN_THROW_COIN Step = 15
-	// 擲硬幣
+	// 動畫結果
 	Step_SUPERCOIN_ANIMATION_RESULT Step = 16
 	// PITBOSS 修改骰點
 	Step_PITBOSS_MODIFY_BOWL Step = 17
