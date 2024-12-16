@@ -28,7 +28,7 @@ public final class RecordProto {
       "pball*\214\001\n\013GameSubtype\022\035\n\031DROPBALL_TYPE_U" +
       "NSPECIFIED\020\000\022\024\n\020DROPBALL_CLASSIC\020\001\022\031\n\025DR" +
       "OPBALL_COCONUT_BALL\020\003\022\024\n\020DROPBALL_JACKPO" +
-      "T\020\004\022\027\n\023DROPBALL_BLOCKCHAIN\020\020*\376\002\n\004Step\022\024\n" +
+      "T\020\004\022\027\n\023DROPBALL_BLOCKCHAIN\020\020*\345\002\n\004Step\022\024\n" +
       "\020STEP_UNSPECIFIED\020\000\022\017\n\013ROUND_START\020\001\022\022\n\016" +
       "ROUND_FINISHED\020\002\022\022\n\016ROUND_CANCELED\020\003\022\r\n\t" +
       "ROUND_BET\020\004\022\017\n\013NO_MORE_BET\020\005\022\016\n\nTHROW_BA" +
@@ -37,15 +37,14 @@ public final class RecordProto {
       "T\020\013\022\031\n\025SUPERCOIN_NO_MORE_BET\020\014\022\034\n\030SUPERC" +
       "OIN_ANIMATION_STOP\020\r\022\034\n\030SUPERCOIN_CANDID" +
       "ATE_ODDS\020\016\022\030\n\024SUPERCOIN_THROW_COIN\020\017\022\036\n\032" +
-      "SUPERCOIN_ANIMATION_RESULT\020\020\022\027\n\023PITBOSS_" +
-      "MODIFY_BOWL\020\021*C\n\014ResourceType\022\035\n\031RESOURC" +
-      "E_TYPE_UNSPECIFIED\020\000\022\n\n\006NORMAL\020\001\022\010\n\004COIN" +
-      "\020\002B\301\001\n!com.wecasino.proto.games.dropball" +
-      "B\013RecordProtoP\001Z6github.com/wecasino/wec" +
-      "asino-proto/pbgo/games/dropball\242\002\003GDX\252\002\016" +
-      "Games.Dropball\312\002\016Games\\Dropball\342\002\032Games\\" +
-      "Dropball\\GPBMetadata\352\002\017Games::Dropballb\006" +
-      "proto3"
+      "SUPERCOIN_ANIMATION_RESULT\020\020*C\n\014Resource" +
+      "Type\022\035\n\031RESOURCE_TYPE_UNSPECIFIED\020\000\022\n\n\006N" +
+      "ORMAL\020\001\022\010\n\004COIN\020\002B\301\001\n!com.wecasino.proto" +
+      ".games.dropballB\013RecordProtoP\001Z6github.c" +
+      "om/wecasino/wecasino-proto/pbgo/games/dr" +
+      "opball\242\002\003GDX\252\002\016Games.Dropball\312\002\016Games\\Dr" +
+      "opball\342\002\032Games\\Dropball\\GPBMetadata\352\002\017Ga" +
+      "mes::Dropballb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

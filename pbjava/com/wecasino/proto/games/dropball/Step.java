@@ -133,14 +133,6 @@ public enum Step
    * <code>SUPERCOIN_ANIMATION_RESULT = 16;</code>
    */
   SUPERCOIN_ANIMATION_RESULT(16),
-  /**
-   * <pre>
-   * PITBOSS 修改骰點
-   * </pre>
-   *
-   * <code>PITBOSS_MODIFY_BOWL = 17;</code>
-   */
-  PITBOSS_MODIFY_BOWL(17),
   UNRECOGNIZED(-1),
   ;
 
@@ -264,14 +256,6 @@ public enum Step
    * <code>SUPERCOIN_ANIMATION_RESULT = 16;</code>
    */
   public static final int SUPERCOIN_ANIMATION_RESULT_VALUE = 16;
-  /**
-   * <pre>
-   * PITBOSS 修改骰點
-   * </pre>
-   *
-   * <code>PITBOSS_MODIFY_BOWL = 17;</code>
-   */
-  public static final int PITBOSS_MODIFY_BOWL_VALUE = 17;
 
 
   public final int getNumber() {
@@ -313,7 +297,6 @@ public enum Step
       case 14: return SUPERCOIN_CANDIDATE_ODDS;
       case 15: return SUPERCOIN_THROW_COIN;
       case 16: return SUPERCOIN_ANIMATION_RESULT;
-      case 17: return PITBOSS_MODIFY_BOWL;
       default: return null;
     }
   }
