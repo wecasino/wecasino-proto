@@ -1,0 +1,58 @@
+syntax = "proto3";
+package cards;
+
+// 撲克牌代碼
+enum SaklaCard {
+  // 未指定
+  SAKLA_CARD_UNSPECIFIED = 0;
+
+  // 寶劍
+  SWORDS_ANY = 16;
+  SWORDS_A = 17;
+  SWORDS_2 = 18;
+  SWORDS_3 = 19;
+  SWORDS_4 = 20;
+  SWORDS_5 = 21;
+  SWORDS_6 = 22;
+  SWORDS_7 = 23;
+  SWORDS_10 = 26;
+  SWORDS_J = 27;
+  SWORDS_Q = 28;
+  // 聖杯
+  CUPS_ANY = 32;
+  CUPS_A = 33;
+  CUPS_2 = 34;
+  CUPS_3 = 35;
+  CUPS_4 = 36;
+  CUPS_5 = 37;
+  CUPS_6 = 38;
+  CUPS_7 = 39;
+  CUPS_10 = 42;
+  CUPS_J = 43;
+  CUPS_Q = 44;
+  // 棍棒
+  CLUBS_ANY = 48;
+  CLUBS_A = 49;
+  CLUBS_2 = 50;
+  CLUBS_3 = 51;
+  CLUBS_4 = 52;
+  CLUBS_5 = 53;
+  CLUBS_6 = 54;
+  CLUBS_7 = 55;
+  CLUBS_10 = 58;
+  CLUBS_J = 59;
+  CLUBS_Q = 60;
+  // 鑽石
+  COINS_ANY = 64;
+  COINS_A = 65;
+  COINS_2 = 66;
+  COINS_3 = 67;
+  COINS_4 = 68;
+  COINS_5 = 69;
+  COINS_6 = 70;
+  COINS_7 = 71;
+  COINS_10 = 74;
+  COINS_J = 75;
+  COINS_Q = 76;
+
+}

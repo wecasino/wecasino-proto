@@ -52,6 +52,9 @@ enum GameType {
 
   // HILO
   HILO = 44;
+
+  // SAKLA
+  SAKLA = 45;
 }
 
 enum FlowSeat {
