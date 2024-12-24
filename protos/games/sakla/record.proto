@@ -1,0 +1,45 @@
+syntax = "proto3";
+package games.sakla;
+
+enum GameSubtype {
+    // 未指定
+    SAKLA_TYPE_UNSPECIFIED = 0;
+
+    // 經典sakla
+    SAKLA_CLASSIC = 1;
+
+}
+
+enum ResourceType {
+
+  // 未指定
+  RESOURCE_TYPE_UNSPECIFIED = 0;
+
+  // 例牌
+  NORMAL = 1;
+
+}
+
+// 步驟，依據遊戲供應商邏輯，不是每個步驟都會走到
+enum Step {
+
+  // 未指定
+  STEP_UNSPECIFIED = 0;
+  // 本局開始
+  ROUND_START = 1;
+  // 本局完成
+  ROUND_FINISHED = 2;
+
+  // 派發頂牌
+  DEAL_TOP = 4;
+  // 派發底牌
+  DEAL_BOTTOM = 5;
+
+  // 開放下注
+  ROUND_BET = 8;
+  // 停止下注
+  NO_MORE_BET = 9;
+
+  DEALER_CONFIRM = 23;
+
+}

@@ -142,6 +142,14 @@ public enum GameType
    * <code>HILO = 44;</code>
    */
   HILO(44),
+  /**
+   * <pre>
+   * SAKLA
+   * </pre>
+   *
+   * <code>SAKLA = 45;</code>
+   */
+  SAKLA(45),
   UNRECOGNIZED(-1),
   ;
 
@@ -273,6 +281,14 @@ public enum GameType
    * <code>HILO = 44;</code>
    */
   public static final int HILO_VALUE = 44;
+  /**
+   * <pre>
+   * SAKLA
+   * </pre>
+   *
+   * <code>SAKLA = 45;</code>
+   */
+  public static final int SAKLA_VALUE = 45;
 
 
   public final int getNumber() {
@@ -315,6 +331,7 @@ public enum GameType
       case 42: return COLORGAME_JACKPOT;
       case 43: return ONELUCKYNINE;
       case 44: return HILO;
+      case 45: return SAKLA;
       default: return null;
     }
   }
