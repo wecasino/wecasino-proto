@@ -23,6 +23,54 @@ public enum SaklaCard
   SAKLA_CARD_UNSPECIFIED(0),
   /**
    * <pre>
+   * 未指定花色
+   * </pre>
+   *
+   * <code>SAKLA_ANY_A = 1;</code>
+   */
+  SAKLA_ANY_A(1),
+  /**
+   * <code>SAKLA_ANY_2 = 2;</code>
+   */
+  SAKLA_ANY_2(2),
+  /**
+   * <code>SAKLA_ANY_3 = 3;</code>
+   */
+  SAKLA_ANY_3(3),
+  /**
+   * <code>SAKLA_ANY_4 = 4;</code>
+   */
+  SAKLA_ANY_4(4),
+  /**
+   * <code>SAKLA_ANY_5 = 5;</code>
+   */
+  SAKLA_ANY_5(5),
+  /**
+   * <code>SAKLA_ANY_6 = 6;</code>
+   */
+  SAKLA_ANY_6(6),
+  /**
+   * <code>SAKLA_ANY_7 = 7;</code>
+   */
+  SAKLA_ANY_7(7),
+  /**
+   * <code>SAKLA_ANY_10 = 10;</code>
+   */
+  SAKLA_ANY_10(10),
+  /**
+   * <code>SAKLA_ANY_J = 11;</code>
+   */
+  SAKLA_ANY_J(11),
+  /**
+   * <code>SAKLA_ANY_Q = 12;</code>
+   */
+  SAKLA_ANY_Q(12),
+  /**
+   * <code>SAKLA_MASK = 15;</code>
+   */
+  SAKLA_MASK(15),
+  /**
+   * <pre>
    * 寶劍
    * </pre>
    *
@@ -213,6 +261,10 @@ public enum SaklaCard
    * <code>COINS_Q = 76;</code>
    */
   COINS_Q(76),
+  /**
+   * <code>SAKLA_SUIT_MASK = 112;</code>
+   */
+  SAKLA_SUIT_MASK(112),
   UNRECOGNIZED(-1),
   ;
 
@@ -224,6 +276,54 @@ public enum SaklaCard
    * <code>SAKLA_CARD_UNSPECIFIED = 0;</code>
    */
   public static final int SAKLA_CARD_UNSPECIFIED_VALUE = 0;
+  /**
+   * <pre>
+   * 未指定花色
+   * </pre>
+   *
+   * <code>SAKLA_ANY_A = 1;</code>
+   */
+  public static final int SAKLA_ANY_A_VALUE = 1;
+  /**
+   * <code>SAKLA_ANY_2 = 2;</code>
+   */
+  public static final int SAKLA_ANY_2_VALUE = 2;
+  /**
+   * <code>SAKLA_ANY_3 = 3;</code>
+   */
+  public static final int SAKLA_ANY_3_VALUE = 3;
+  /**
+   * <code>SAKLA_ANY_4 = 4;</code>
+   */
+  public static final int SAKLA_ANY_4_VALUE = 4;
+  /**
+   * <code>SAKLA_ANY_5 = 5;</code>
+   */
+  public static final int SAKLA_ANY_5_VALUE = 5;
+  /**
+   * <code>SAKLA_ANY_6 = 6;</code>
+   */
+  public static final int SAKLA_ANY_6_VALUE = 6;
+  /**
+   * <code>SAKLA_ANY_7 = 7;</code>
+   */
+  public static final int SAKLA_ANY_7_VALUE = 7;
+  /**
+   * <code>SAKLA_ANY_10 = 10;</code>
+   */
+  public static final int SAKLA_ANY_10_VALUE = 10;
+  /**
+   * <code>SAKLA_ANY_J = 11;</code>
+   */
+  public static final int SAKLA_ANY_J_VALUE = 11;
+  /**
+   * <code>SAKLA_ANY_Q = 12;</code>
+   */
+  public static final int SAKLA_ANY_Q_VALUE = 12;
+  /**
+   * <code>SAKLA_MASK = 15;</code>
+   */
+  public static final int SAKLA_MASK_VALUE = 15;
   /**
    * <pre>
    * 寶劍
@@ -416,6 +516,10 @@ public enum SaklaCard
    * <code>COINS_Q = 76;</code>
    */
   public static final int COINS_Q_VALUE = 76;
+  /**
+   * <code>SAKLA_SUIT_MASK = 112;</code>
+   */
+  public static final int SAKLA_SUIT_MASK_VALUE = 112;
 
 
   public final int getNumber() {
@@ -443,6 +547,17 @@ public enum SaklaCard
   public static SaklaCard forNumber(int value) {
     switch (value) {
       case 0: return SAKLA_CARD_UNSPECIFIED;
+      case 1: return SAKLA_ANY_A;
+      case 2: return SAKLA_ANY_2;
+      case 3: return SAKLA_ANY_3;
+      case 4: return SAKLA_ANY_4;
+      case 5: return SAKLA_ANY_5;
+      case 6: return SAKLA_ANY_6;
+      case 7: return SAKLA_ANY_7;
+      case 10: return SAKLA_ANY_10;
+      case 11: return SAKLA_ANY_J;
+      case 12: return SAKLA_ANY_Q;
+      case 15: return SAKLA_MASK;
       case 16: return SWORDS_ANY;
       case 17: return SWORDS_A;
       case 18: return SWORDS_2;
@@ -487,6 +602,7 @@ public enum SaklaCard
       case 74: return COINS_10;
       case 75: return COINS_J;
       case 76: return COINS_Q;
+      case 112: return SAKLA_SUIT_MASK;
       default: return null;
     }
   }
