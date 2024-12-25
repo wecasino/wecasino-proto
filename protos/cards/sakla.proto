@@ -5,7 +5,18 @@ package cards;
 enum SaklaCard {
   // 未指定
   SAKLA_CARD_UNSPECIFIED = 0;
-
+  // 未指定花色
+  SAKLA_ANY_A = 1;
+  SAKLA_ANY_2 = 2;
+  SAKLA_ANY_3 = 3;
+  SAKLA_ANY_4 = 4;
+  SAKLA_ANY_5 = 5;
+  SAKLA_ANY_6 = 6;
+  SAKLA_ANY_7 = 7;
+  SAKLA_ANY_10 = 10;
+  SAKLA_ANY_J = 11;
+  SAKLA_ANY_Q = 12;
+  SAKLA_MASK = 15;
   // 寶劍
   SWORDS_ANY = 16;
   SWORDS_A = 17;
@@ -54,5 +65,7 @@ enum SaklaCard {
   COINS_10 = 74;
   COINS_J = 75;
   COINS_Q = 76;
+
+  SAKLA_SUIT_MASK = 112;
 
 }
