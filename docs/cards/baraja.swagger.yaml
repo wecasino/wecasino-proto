@@ -1,6 +1,6 @@
 swagger: "2.0"
 info:
-  title: cards/sakla.proto
+  title: cards/baraja.proto
   version: version not set
 consumes:
   - application/json
