@@ -2,21 +2,23 @@ syntax = "proto3";
 package cards;
 
 // 撲克牌代碼
-enum SaklaCard {
+enum BarajaCard {
   // 未指定
-  SAKLA_CARD_UNSPECIFIED = 0;
+  BARAJA_CARD_UNSPECIFIED = 0;
   // 未指定花色
-  SAKLA_ANY_A = 1;
-  SAKLA_ANY_2 = 2;
-  SAKLA_ANY_3 = 3;
-  SAKLA_ANY_4 = 4;
-  SAKLA_ANY_5 = 5;
-  SAKLA_ANY_6 = 6;
-  SAKLA_ANY_7 = 7;
-  SAKLA_ANY_10 = 10;
-  SAKLA_ANY_J = 11;
-  SAKLA_ANY_Q = 12;
-  SAKLA_MASK = 15;
+  BARAJA_ANY_A = 1;
+  BARAJA_ANY_2 = 2;
+  BARAJA_ANY_3 = 3;
+  BARAJA_ANY_4 = 4;
+  BARAJA_ANY_5 = 5;
+  BARAJA_ANY_6 = 6;
+  BARAJA_ANY_7 = 7;
+  BARAJA_ANY_8 = 8;
+  BARAJA_ANY_9 = 9;
+  BARAJA_ANY_10 = 10;
+  BARAJA_ANY_J = 11;
+  BARAJA_ANY_Q = 12;
+  BARAJA_MASK = 15;
   // 寶劍
   SWORDS_ANY = 16;
   SWORDS_A = 17;
@@ -26,6 +28,8 @@ enum SaklaCard {
   SWORDS_5 = 21;
   SWORDS_6 = 22;
   SWORDS_7 = 23;
+  SWORDS_8 = 24;
+  SWORDS_9 = 25;
   SWORDS_10 = 26;
   SWORDS_J = 27;
   SWORDS_Q = 28;
@@ -38,6 +42,8 @@ enum SaklaCard {
   CUPS_5 = 37;
   CUPS_6 = 38;
   CUPS_7 = 39;
+  CUPS_8 = 40;
+  CUPS_9 = 41;
   CUPS_10 = 42;
   CUPS_J = 43;
   CUPS_Q = 44;
@@ -50,6 +56,8 @@ enum SaklaCard {
   CLUBS_5 = 53;
   CLUBS_6 = 54;
   CLUBS_7 = 55;
+  CLUBS_8 = 56;
+  CLUBS_9 = 57;
   CLUBS_10 = 58;
   CLUBS_J = 59;
   CLUBS_Q = 60;
@@ -62,10 +70,16 @@ enum SaklaCard {
   COINS_5 = 69;
   COINS_6 = 70;
   COINS_7 = 71;
+  COINS_8 = 72;
+  COINS_9 = 73;
   COINS_10 = 74;
   COINS_J = 75;
   COINS_Q = 76;
 
-  SAKLA_SUIT_MASK = 112;
+  // 鬼牌
+  BARAJA_JOKER_COLOR = 94;
+  BARAJA_JOKER_BLACK = 95;
+
+  BARAJA_SUIT_MASK = 112;
 
 }

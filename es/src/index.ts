@@ -6,7 +6,7 @@ export * from "./pb/cards/wheel_pb"
 export * from "./pb/cards/color_pb"
 export * from "./pb/cards/xocdia_pb"
 export * from "./pb/cards/coin_pb"
-export * from "./pb/cards/sakla_pb"
+export * from "./pb/cards/baraja_pb"
 export * from "./pb/games/games_pb"
 
 export * as baccarat from "./pb/games/baccarat/record_pb"
