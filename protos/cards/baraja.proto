@@ -33,35 +33,35 @@ enum BarajaCard {
   SWORDS_10 = 26;
   SWORDS_J = 27;
   SWORDS_Q = 28;
-  // 聖杯
-  CUPS_ANY = 32;
-  CUPS_A = 33;
-  CUPS_2 = 34;
-  CUPS_3 = 35;
-  CUPS_4 = 36;
-  CUPS_5 = 37;
-  CUPS_6 = 38;
-  CUPS_7 = 39;
-  CUPS_8 = 40;
-  CUPS_9 = 41;
-  CUPS_10 = 42;
-  CUPS_J = 43;
-  CUPS_Q = 44;
   // 棍棒
-  CLUBS_ANY = 48;
-  CLUBS_A = 49;
-  CLUBS_2 = 50;
-  CLUBS_3 = 51;
-  CLUBS_4 = 52;
-  CLUBS_5 = 53;
-  CLUBS_6 = 54;
-  CLUBS_7 = 55;
-  CLUBS_8 = 56;
-  CLUBS_9 = 57;
-  CLUBS_10 = 58;
-  CLUBS_J = 59;
-  CLUBS_Q = 60;
-  // 鑽石
+  CLUBS_ANY = 32;
+  CLUBS_A = 33;
+  CLUBS_2 = 34;
+  CLUBS_3 = 35;
+  CLUBS_4 = 36;
+  CLUBS_5 = 37;
+  CLUBS_6 = 38;
+  CLUBS_7 = 39;
+  CLUBS_8 = 40;
+  CLUBS_9 = 41;
+  CLUBS_10 = 42;
+  CLUBS_J = 43;
+  CLUBS_Q = 44;
+  // 聖杯
+  CUPS_ANY = 48;
+  CUPS_A = 49;
+  CUPS_2 = 50;
+  CUPS_3 = 51;
+  CUPS_4 = 52;
+  CUPS_5 = 53;
+  CUPS_6 = 54;
+  CUPS_7 = 55;
+  CUPS_8 = 56;
+  CUPS_9 = 57;
+  CUPS_10 = 58;
+  CUPS_J = 59;
+  CUPS_Q = 60;
+  // coins
   COINS_ANY = 64;
   COINS_A = 65;
   COINS_2 = 66;

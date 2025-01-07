@@ -135,119 +135,119 @@ public enum BarajaCard
   SWORDS_Q(28),
   /**
    * <pre>
-   * 聖杯
-   * </pre>
-   *
-   * <code>CUPS_ANY = 32;</code>
-   */
-  CUPS_ANY(32),
-  /**
-   * <code>CUPS_A = 33;</code>
-   */
-  CUPS_A(33),
-  /**
-   * <code>CUPS_2 = 34;</code>
-   */
-  CUPS_2(34),
-  /**
-   * <code>CUPS_3 = 35;</code>
-   */
-  CUPS_3(35),
-  /**
-   * <code>CUPS_4 = 36;</code>
-   */
-  CUPS_4(36),
-  /**
-   * <code>CUPS_5 = 37;</code>
-   */
-  CUPS_5(37),
-  /**
-   * <code>CUPS_6 = 38;</code>
-   */
-  CUPS_6(38),
-  /**
-   * <code>CUPS_7 = 39;</code>
-   */
-  CUPS_7(39),
-  /**
-   * <code>CUPS_8 = 40;</code>
-   */
-  CUPS_8(40),
-  /**
-   * <code>CUPS_9 = 41;</code>
-   */
-  CUPS_9(41),
-  /**
-   * <code>CUPS_10 = 42;</code>
-   */
-  CUPS_10(42),
-  /**
-   * <code>CUPS_J = 43;</code>
-   */
-  CUPS_J(43),
-  /**
-   * <code>CUPS_Q = 44;</code>
-   */
-  CUPS_Q(44),
-  /**
-   * <pre>
    * 棍棒
    * </pre>
    *
-   * <code>CLUBS_ANY = 48;</code>
+   * <code>CLUBS_ANY = 32;</code>
    */
-  CLUBS_ANY(48),
+  CLUBS_ANY(32),
   /**
-   * <code>CLUBS_A = 49;</code>
+   * <code>CLUBS_A = 33;</code>
    */
-  CLUBS_A(49),
+  CLUBS_A(33),
   /**
-   * <code>CLUBS_2 = 50;</code>
+   * <code>CLUBS_2 = 34;</code>
    */
-  CLUBS_2(50),
+  CLUBS_2(34),
   /**
-   * <code>CLUBS_3 = 51;</code>
+   * <code>CLUBS_3 = 35;</code>
    */
-  CLUBS_3(51),
+  CLUBS_3(35),
   /**
-   * <code>CLUBS_4 = 52;</code>
+   * <code>CLUBS_4 = 36;</code>
    */
-  CLUBS_4(52),
+  CLUBS_4(36),
   /**
-   * <code>CLUBS_5 = 53;</code>
+   * <code>CLUBS_5 = 37;</code>
    */
-  CLUBS_5(53),
+  CLUBS_5(37),
   /**
-   * <code>CLUBS_6 = 54;</code>
+   * <code>CLUBS_6 = 38;</code>
    */
-  CLUBS_6(54),
+  CLUBS_6(38),
   /**
-   * <code>CLUBS_7 = 55;</code>
+   * <code>CLUBS_7 = 39;</code>
    */
-  CLUBS_7(55),
+  CLUBS_7(39),
   /**
-   * <code>CLUBS_8 = 56;</code>
+   * <code>CLUBS_8 = 40;</code>
    */
-  CLUBS_8(56),
+  CLUBS_8(40),
   /**
-   * <code>CLUBS_9 = 57;</code>
+   * <code>CLUBS_9 = 41;</code>
    */
-  CLUBS_9(57),
+  CLUBS_9(41),
   /**
-   * <code>CLUBS_10 = 58;</code>
+   * <code>CLUBS_10 = 42;</code>
    */
-  CLUBS_10(58),
+  CLUBS_10(42),
   /**
-   * <code>CLUBS_J = 59;</code>
+   * <code>CLUBS_J = 43;</code>
    */
-  CLUBS_J(59),
+  CLUBS_J(43),
   /**
-   * <code>CLUBS_Q = 60;</code>
+   * <code>CLUBS_Q = 44;</code>
    */
-  CLUBS_Q(60),
+  CLUBS_Q(44),
   /**
    * <pre>
-   * 鑽石
+   * 聖杯
+   * </pre>
+   *
+   * <code>CUPS_ANY = 48;</code>
+   */
+  CUPS_ANY(48),
+  /**
+   * <code>CUPS_A = 49;</code>
+   */
+  CUPS_A(49),
+  /**
+   * <code>CUPS_2 = 50;</code>
+   */
+  CUPS_2(50),
+  /**
+   * <code>CUPS_3 = 51;</code>
+   */
+  CUPS_3(51),
+  /**
+   * <code>CUPS_4 = 52;</code>
+   */
+  CUPS_4(52),
+  /**
+   * <code>CUPS_5 = 53;</code>
+   */
+  CUPS_5(53),
+  /**
+   * <code>CUPS_6 = 54;</code>
+   */
+  CUPS_6(54),
+  /**
+   * <code>CUPS_7 = 55;</code>
+   */
+  CUPS_7(55),
+  /**
+   * <code>CUPS_8 = 56;</code>
+   */
+  CUPS_8(56),
+  /**
+   * <code>CUPS_9 = 57;</code>
+   */
+  CUPS_9(57),
+  /**
+   * <code>CUPS_10 = 58;</code>
+   */
+  CUPS_10(58),
+  /**
+   * <code>CUPS_J = 59;</code>
+   */
+  CUPS_J(59),
+  /**
+   * <code>CUPS_Q = 60;</code>
+   */
+  CUPS_Q(60),
+  /**
+   * <pre>
+   * coins
    * </pre>
    *
    * <code>COINS_ANY = 64;</code>
@@ -442,119 +442,119 @@ public enum BarajaCard
   public static final int SWORDS_Q_VALUE = 28;
   /**
    * <pre>
-   * 聖杯
-   * </pre>
-   *
-   * <code>CUPS_ANY = 32;</code>
-   */
-  public static final int CUPS_ANY_VALUE = 32;
-  /**
-   * <code>CUPS_A = 33;</code>
-   */
-  public static final int CUPS_A_VALUE = 33;
-  /**
-   * <code>CUPS_2 = 34;</code>
-   */
-  public static final int CUPS_2_VALUE = 34;
-  /**
-   * <code>CUPS_3 = 35;</code>
-   */
-  public static final int CUPS_3_VALUE = 35;
-  /**
-   * <code>CUPS_4 = 36;</code>
-   */
-  public static final int CUPS_4_VALUE = 36;
-  /**
-   * <code>CUPS_5 = 37;</code>
-   */
-  public static final int CUPS_5_VALUE = 37;
-  /**
-   * <code>CUPS_6 = 38;</code>
-   */
-  public static final int CUPS_6_VALUE = 38;
-  /**
-   * <code>CUPS_7 = 39;</code>
-   */
-  public static final int CUPS_7_VALUE = 39;
-  /**
-   * <code>CUPS_8 = 40;</code>
-   */
-  public static final int CUPS_8_VALUE = 40;
-  /**
-   * <code>CUPS_9 = 41;</code>
-   */
-  public static final int CUPS_9_VALUE = 41;
-  /**
-   * <code>CUPS_10 = 42;</code>
-   */
-  public static final int CUPS_10_VALUE = 42;
-  /**
-   * <code>CUPS_J = 43;</code>
-   */
-  public static final int CUPS_J_VALUE = 43;
-  /**
-   * <code>CUPS_Q = 44;</code>
-   */
-  public static final int CUPS_Q_VALUE = 44;
-  /**
-   * <pre>
    * 棍棒
    * </pre>
    *
-   * <code>CLUBS_ANY = 48;</code>
+   * <code>CLUBS_ANY = 32;</code>
    */
-  public static final int CLUBS_ANY_VALUE = 48;
+  public static final int CLUBS_ANY_VALUE = 32;
   /**
-   * <code>CLUBS_A = 49;</code>
+   * <code>CLUBS_A = 33;</code>
    */
-  public static final int CLUBS_A_VALUE = 49;
+  public static final int CLUBS_A_VALUE = 33;
   /**
-   * <code>CLUBS_2 = 50;</code>
+   * <code>CLUBS_2 = 34;</code>
    */
-  public static final int CLUBS_2_VALUE = 50;
+  public static final int CLUBS_2_VALUE = 34;
   /**
-   * <code>CLUBS_3 = 51;</code>
+   * <code>CLUBS_3 = 35;</code>
    */
-  public static final int CLUBS_3_VALUE = 51;
+  public static final int CLUBS_3_VALUE = 35;
   /**
-   * <code>CLUBS_4 = 52;</code>
+   * <code>CLUBS_4 = 36;</code>
    */
-  public static final int CLUBS_4_VALUE = 52;
+  public static final int CLUBS_4_VALUE = 36;
   /**
-   * <code>CLUBS_5 = 53;</code>
+   * <code>CLUBS_5 = 37;</code>
    */
-  public static final int CLUBS_5_VALUE = 53;
+  public static final int CLUBS_5_VALUE = 37;
   /**
-   * <code>CLUBS_6 = 54;</code>
+   * <code>CLUBS_6 = 38;</code>
    */
-  public static final int CLUBS_6_VALUE = 54;
+  public static final int CLUBS_6_VALUE = 38;
   /**
-   * <code>CLUBS_7 = 55;</code>
+   * <code>CLUBS_7 = 39;</code>
    */
-  public static final int CLUBS_7_VALUE = 55;
+  public static final int CLUBS_7_VALUE = 39;
   /**
-   * <code>CLUBS_8 = 56;</code>
+   * <code>CLUBS_8 = 40;</code>
    */
-  public static final int CLUBS_8_VALUE = 56;
+  public static final int CLUBS_8_VALUE = 40;
   /**
-   * <code>CLUBS_9 = 57;</code>
+   * <code>CLUBS_9 = 41;</code>
    */
-  public static final int CLUBS_9_VALUE = 57;
+  public static final int CLUBS_9_VALUE = 41;
   /**
-   * <code>CLUBS_10 = 58;</code>
+   * <code>CLUBS_10 = 42;</code>
    */
-  public static final int CLUBS_10_VALUE = 58;
+  public static final int CLUBS_10_VALUE = 42;
   /**
-   * <code>CLUBS_J = 59;</code>
+   * <code>CLUBS_J = 43;</code>
    */
-  public static final int CLUBS_J_VALUE = 59;
+  public static final int CLUBS_J_VALUE = 43;
   /**
-   * <code>CLUBS_Q = 60;</code>
+   * <code>CLUBS_Q = 44;</code>
    */
-  public static final int CLUBS_Q_VALUE = 60;
+  public static final int CLUBS_Q_VALUE = 44;
   /**
    * <pre>
-   * 鑽石
+   * 聖杯
+   * </pre>
+   *
+   * <code>CUPS_ANY = 48;</code>
+   */
+  public static final int CUPS_ANY_VALUE = 48;
+  /**
+   * <code>CUPS_A = 49;</code>
+   */
+  public static final int CUPS_A_VALUE = 49;
+  /**
+   * <code>CUPS_2 = 50;</code>
+   */
+  public static final int CUPS_2_VALUE = 50;
+  /**
+   * <code>CUPS_3 = 51;</code>
+   */
+  public static final int CUPS_3_VALUE = 51;
+  /**
+   * <code>CUPS_4 = 52;</code>
+   */
+  public static final int CUPS_4_VALUE = 52;
+  /**
+   * <code>CUPS_5 = 53;</code>
+   */
+  public static final int CUPS_5_VALUE = 53;
+  /**
+   * <code>CUPS_6 = 54;</code>
+   */
+  public static final int CUPS_6_VALUE = 54;
+  /**
+   * <code>CUPS_7 = 55;</code>
+   */
+  public static final int CUPS_7_VALUE = 55;
+  /**
+   * <code>CUPS_8 = 56;</code>
+   */
+  public static final int CUPS_8_VALUE = 56;
+  /**
+   * <code>CUPS_9 = 57;</code>
+   */
+  public static final int CUPS_9_VALUE = 57;
+  /**
+   * <code>CUPS_10 = 58;</code>
+   */
+  public static final int CUPS_10_VALUE = 58;
+  /**
+   * <code>CUPS_J = 59;</code>
+   */
+  public static final int CUPS_J_VALUE = 59;
+  /**
+   * <code>CUPS_Q = 60;</code>
+   */
+  public static final int CUPS_Q_VALUE = 60;
+  /**
+   * <pre>
+   * coins
    * </pre>
    *
    * <code>COINS_ANY = 64;</code>
@@ -677,32 +677,32 @@ public enum BarajaCard
       case 26: return SWORDS_10;
       case 27: return SWORDS_J;
       case 28: return SWORDS_Q;
-      case 32: return CUPS_ANY;
-      case 33: return CUPS_A;
-      case 34: return CUPS_2;
-      case 35: return CUPS_3;
-      case 36: return CUPS_4;
-      case 37: return CUPS_5;
-      case 38: return CUPS_6;
-      case 39: return CUPS_7;
-      case 40: return CUPS_8;
-      case 41: return CUPS_9;
-      case 42: return CUPS_10;
-      case 43: return CUPS_J;
-      case 44: return CUPS_Q;
-      case 48: return CLUBS_ANY;
-      case 49: return CLUBS_A;
-      case 50: return CLUBS_2;
-      case 51: return CLUBS_3;
-      case 52: return CLUBS_4;
-      case 53: return CLUBS_5;
-      case 54: return CLUBS_6;
-      case 55: return CLUBS_7;
-      case 56: return CLUBS_8;
-      case 57: return CLUBS_9;
-      case 58: return CLUBS_10;
-      case 59: return CLUBS_J;
-      case 60: return CLUBS_Q;
+      case 32: return CLUBS_ANY;
+      case 33: return CLUBS_A;
+      case 34: return CLUBS_2;
+      case 35: return CLUBS_3;
+      case 36: return CLUBS_4;
+      case 37: return CLUBS_5;
+      case 38: return CLUBS_6;
+      case 39: return CLUBS_7;
+      case 40: return CLUBS_8;
+      case 41: return CLUBS_9;
+      case 42: return CLUBS_10;
+      case 43: return CLUBS_J;
+      case 44: return CLUBS_Q;
+      case 48: return CUPS_ANY;
+      case 49: return CUPS_A;
+      case 50: return CUPS_2;
+      case 51: return CUPS_3;
+      case 52: return CUPS_4;
+      case 53: return CUPS_5;
+      case 54: return CUPS_6;
+      case 55: return CUPS_7;
+      case 56: return CUPS_8;
+      case 57: return CUPS_9;
+      case 58: return CUPS_10;
+      case 59: return CUPS_J;
+      case 60: return CUPS_Q;
       case 64: return COINS_ANY;
       case 65: return COINS_A;
       case 66: return COINS_2;
