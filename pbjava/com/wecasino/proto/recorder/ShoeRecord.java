@@ -670,6 +670,21 @@ com.wecasino.proto.recorder.Deck defaultValue) {
     return test_;
   }
 
+  public static final int CUT_ROUND_FIELD_NUMBER = 32;
+  private int cutRound_ = 0;
+  /**
+   * <pre>
+   * 切牌局數
+   * </pre>
+   *
+   * <code>int32 cut_round = 32 [json_name = "cutRound", (.tagger.tags) = "bson:&#92;"cutRound,omitempty&#92;""];</code>
+   * @return The cutRound.
+   */
+  @java.lang.Override
+  public int getCutRound() {
+    return cutRound_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -728,6 +743,9 @@ com.wecasino.proto.recorder.Deck defaultValue) {
         24);
     if (((bitField0_ & 0x00000004) != 0)) {
       output.writeBool(31, test_);
+    }
+    if (cutRound_ != 0) {
+      output.writeInt32(32, cutRound_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -792,6 +810,10 @@ com.wecasino.proto.recorder.Deck defaultValue) {
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(31, test_);
     }
+    if (cutRound_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(32, cutRound_);
+    }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
@@ -844,6 +866,8 @@ com.wecasino.proto.recorder.Deck defaultValue) {
       if (getTest()
           != other.getTest()) return false;
     }
+    if (getCutRound()
+        != other.getCutRound()) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -893,6 +917,8 @@ com.wecasino.proto.recorder.Deck defaultValue) {
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getTest());
     }
+    hash = (37 * hash) + CUT_ROUND_FIELD_NUMBER;
+    hash = (53 * hash) + getCutRound();
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -1080,6 +1106,7 @@ com.wecasino.proto.recorder.Deck defaultValue) {
         tsEndBuilder_ = null;
       }
       test_ = false;
+      cutRound_ = 0;
       return this;
     }
 
@@ -1162,6 +1189,9 @@ com.wecasino.proto.recorder.Deck defaultValue) {
       if (((from_bitField0_ & 0x00002000) != 0)) {
         result.test_ = test_;
         to_bitField0_ |= 0x00000004;
+      }
+      if (((from_bitField0_ & 0x00004000) != 0)) {
+        result.cutRound_ = cutRound_;
       }
       result.bitField0_ |= to_bitField0_;
     }
@@ -1268,6 +1298,9 @@ com.wecasino.proto.recorder.Deck defaultValue) {
       if (other.hasTest()) {
         setTest(other.getTest());
       }
+      if (other.getCutRound() != 0) {
+        setCutRound(other.getCutRound());
+      }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
@@ -1372,6 +1405,11 @@ com.wecasino.proto.recorder.Deck defaultValue) {
               bitField0_ |= 0x00002000;
               break;
             } // case 248
+            case 256: {
+              cutRound_ = input.readInt32();
+              bitField0_ |= 0x00004000;
+              break;
+            } // case 256
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -2766,6 +2804,50 @@ com.wecasino.proto.recorder.Deck defaultValue) {
     public Builder clearTest() {
       bitField0_ = (bitField0_ & ~0x00002000);
       test_ = false;
+      onChanged();
+      return this;
+    }
+
+    private int cutRound_ ;
+    /**
+     * <pre>
+     * 切牌局數
+     * </pre>
+     *
+     * <code>int32 cut_round = 32 [json_name = "cutRound", (.tagger.tags) = "bson:&#92;"cutRound,omitempty&#92;""];</code>
+     * @return The cutRound.
+     */
+    @java.lang.Override
+    public int getCutRound() {
+      return cutRound_;
+    }
+    /**
+     * <pre>
+     * 切牌局數
+     * </pre>
+     *
+     * <code>int32 cut_round = 32 [json_name = "cutRound", (.tagger.tags) = "bson:&#92;"cutRound,omitempty&#92;""];</code>
+     * @param value The cutRound to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCutRound(int value) {
+
+      cutRound_ = value;
+      bitField0_ |= 0x00004000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 切牌局數
+     * </pre>
+     *
+     * <code>int32 cut_round = 32 [json_name = "cutRound", (.tagger.tags) = "bson:&#92;"cutRound,omitempty&#92;""];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearCutRound() {
+      bitField0_ = (bitField0_ & ~0x00004000);
+      cutRound_ = 0;
       onChanged();
       return this;
     }
