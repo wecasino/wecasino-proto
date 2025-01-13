@@ -40,6 +40,11 @@ enum Step {
   // 停止下注
   NO_MORE_BET = 9;
 
+  // 確認底牌
+  DEALER_CONFIRM_BOTTOM =21;
+  // 確認頂牌
+  DEALER_CONFIRM_TOP =22;
+  // 確認整局牌
   DEALER_CONFIRM = 23;
 
 }

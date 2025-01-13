@@ -28,15 +28,16 @@ public final class RecordProto {
       "<\n\013GameSubtype\022\032\n\026SAKLA_TYPE_UNSPECIFIED" +
       "\020\000\022\021\n\rSAKLA_CLASSIC\020\001*9\n\014ResourceType\022\035\n" +
       "\031RESOURCE_TYPE_UNSPECIFIED\020\000\022\n\n\006NORMAL\020\001" +
-      "*\224\001\n\004Step\022\024\n\020STEP_UNSPECIFIED\020\000\022\017\n\013ROUND" +
+      "*\307\001\n\004Step\022\024\n\020STEP_UNSPECIFIED\020\000\022\017\n\013ROUND" +
       "_START\020\001\022\022\n\016ROUND_FINISHED\020\002\022\014\n\010DEAL_TOP" +
       "\020\004\022\017\n\013DEAL_BOTTOM\020\005\022\r\n\tROUND_BET\020\010\022\017\n\013NO" +
-      "_MORE_BET\020\t\022\022\n\016DEALER_CONFIRM\020\027B\257\001\n\036com." +
-      "wecasino.proto.games.saklaB\013RecordProtoP" +
-      "\001Z3github.com/wecasino/wecasino-proto/pb" +
-      "go/games/sakla\242\002\003GSX\252\002\013Games.Sakla\312\002\013Gam" +
-      "es\\Sakla\342\002\027Games\\Sakla\\GPBMetadata\352\002\014Gam" +
-      "es::Saklab\006proto3"
+      "_MORE_BET\020\t\022\031\n\025DEALER_CONFIRM_BOTTOM\020\025\022\026" +
+      "\n\022DEALER_CONFIRM_TOP\020\026\022\022\n\016DEALER_CONFIRM" +
+      "\020\027B\257\001\n\036com.wecasino.proto.games.saklaB\013R" +
+      "ecordProtoP\001Z3github.com/wecasino/wecasi" +
+      "no-proto/pbgo/games/sakla\242\002\003GSX\252\002\013Games." +
+      "Sakla\312\002\013Games\\Sakla\342\002\027Games\\Sakla\\GPBMet" +
+      "adata\352\002\014Games::Saklab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

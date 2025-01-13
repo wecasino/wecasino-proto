@@ -272,6 +272,9 @@ message ShoeRecord {
   // 是否測試
   optional bool test = 31 [(tagger.tags) = "bson:\"test,omitempty\""];
 
+  // 切牌局數
+  int32 cut_round = 32 [(tagger.tags) = "bson:\"cutRound,omitempty\""];
+
 }
 
 // ShiftRecord

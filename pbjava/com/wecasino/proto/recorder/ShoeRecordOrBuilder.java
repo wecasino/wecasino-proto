@@ -314,4 +314,14 @@ com.wecasino.proto.recorder.Deck defaultValue);
    * @return The test.
    */
   boolean getTest();
+
+  /**
+   * <pre>
+   * 切牌局數
+   * </pre>
+   *
+   * <code>int32 cut_round = 32 [json_name = "cutRound", (.tagger.tags) = "bson:&#92;"cutRound,omitempty&#92;""];</code>
+   * @return The cutRound.
+   */
+  int getCutRound();
 }
