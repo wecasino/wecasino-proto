@@ -61,6 +61,8 @@ message RecordShoeStartedRequest {
   string shift_code = 8;
   // 使用洗牌代碼
   string shoe_code = 10;
+  // cut_round
+  int32 cut_round = 11;
   // 此牌靴開始使用時間
   google.protobuf.Timestamp ts_start = 16;
   // cardList
