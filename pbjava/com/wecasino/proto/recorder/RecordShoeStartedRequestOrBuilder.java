@@ -170,6 +170,16 @@ public interface RecordShoeStartedRequestOrBuilder extends
 
   /**
    * <pre>
+   * cut_round
+   * </pre>
+   *
+   * <code>int32 cut_round = 11 [json_name = "cutRound"];</code>
+   * @return The cutRound.
+   */
+  int getCutRound();
+
+  /**
+   * <pre>
    * 此牌靴開始使用時間
    * </pre>
    *

@@ -436,6 +436,21 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int CUT_ROUND_FIELD_NUMBER = 11;
+  private int cutRound_ = 0;
+  /**
+   * <pre>
+   * cut_round
+   * </pre>
+   *
+   * <code>int32 cut_round = 11 [json_name = "cutRound"];</code>
+   * @return The cutRound.
+   */
+  @java.lang.Override
+  public int getCutRound() {
+    return cutRound_;
+  }
+
   public static final int TS_START_FIELD_NUMBER = 16;
   private com.google.protobuf.Timestamp tsStart_;
   /**
@@ -607,6 +622,9 @@ com.wecasino.proto.recorder.Deck defaultValue) {
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(shoeCode_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 10, shoeCode_);
     }
+    if (cutRound_ != 0) {
+      output.writeInt32(11, cutRound_);
+    }
     if (((bitField0_ & 0x00000001) != 0)) {
       output.writeMessage(16, getTsStart());
     }
@@ -648,6 +666,10 @@ com.wecasino.proto.recorder.Deck defaultValue) {
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(shoeCode_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, shoeCode_);
+    }
+    if (cutRound_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(11, cutRound_);
     }
     if (((bitField0_ & 0x00000001) != 0)) {
       size += com.google.protobuf.CodedOutputStream
@@ -694,6 +716,8 @@ com.wecasino.proto.recorder.Deck defaultValue) {
         .equals(other.getShiftCode())) return false;
     if (!getShoeCode()
         .equals(other.getShoeCode())) return false;
+    if (getCutRound()
+        != other.getCutRound()) return false;
     if (hasTsStart() != other.hasTsStart()) return false;
     if (hasTsStart()) {
       if (!getTsStart()
@@ -728,6 +752,8 @@ com.wecasino.proto.recorder.Deck defaultValue) {
     hash = (53 * hash) + getShiftCode().hashCode();
     hash = (37 * hash) + SHOE_CODE_FIELD_NUMBER;
     hash = (53 * hash) + getShoeCode().hashCode();
+    hash = (37 * hash) + CUT_ROUND_FIELD_NUMBER;
+    hash = (53 * hash) + getCutRound();
     if (hasTsStart()) {
       hash = (37 * hash) + TS_START_FIELD_NUMBER;
       hash = (53 * hash) + getTsStart().hashCode();
@@ -903,6 +929,7 @@ com.wecasino.proto.recorder.Deck defaultValue) {
       tableCode_ = "";
       shiftCode_ = "";
       shoeCode_ = "";
+      cutRound_ = 0;
       tsStart_ = null;
       if (tsStartBuilder_ != null) {
         tsStartBuilder_.dispose();
@@ -966,14 +993,17 @@ com.wecasino.proto.recorder.Deck defaultValue) {
       if (((from_bitField0_ & 0x00000080) != 0)) {
         result.shoeCode_ = shoeCode_;
       }
-      int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.cutRound_ = cutRound_;
+      }
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000200) != 0)) {
         result.tsStart_ = tsStartBuilder_ == null
             ? tsStart_
             : tsStartBuilder_.build();
         to_bitField0_ |= 0x00000001;
       }
-      if (((from_bitField0_ & 0x00000200) != 0)) {
+      if (((from_bitField0_ & 0x00000400) != 0)) {
         result.decks_ = internalGetDecks().build(DecksDefaultEntryHolder.defaultEntry);
       }
       result.bitField0_ |= to_bitField0_;
@@ -1063,12 +1093,15 @@ com.wecasino.proto.recorder.Deck defaultValue) {
         bitField0_ |= 0x00000080;
         onChanged();
       }
+      if (other.getCutRound() != 0) {
+        setCutRound(other.getCutRound());
+      }
       if (other.hasTsStart()) {
         mergeTsStart(other.getTsStart());
       }
       internalGetMutableDecks().mergeFrom(
           other.internalGetDecks());
-      bitField0_ |= 0x00000200;
+      bitField0_ |= 0x00000400;
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
@@ -1135,11 +1168,16 @@ com.wecasino.proto.recorder.Deck defaultValue) {
               bitField0_ |= 0x00000080;
               break;
             } // case 82
+            case 88: {
+              cutRound_ = input.readInt32();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 88
             case 130: {
               input.readMessage(
                   getTsStartFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField0_ |= 0x00000100;
+              bitField0_ |= 0x00000200;
               break;
             } // case 130
             case 194: {
@@ -1148,7 +1186,7 @@ com.wecasino.proto.recorder.Deck defaultValue) {
                   DecksDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
               internalGetMutableDecks().ensureBuilderMap().put(
                   decks__.getKey(), decks__.getValue());
-              bitField0_ |= 0x00000200;
+              bitField0_ |= 0x00000400;
               break;
             } // case 194
             default: {
@@ -1904,6 +1942,50 @@ com.wecasino.proto.recorder.Deck defaultValue) {
       return this;
     }
 
+    private int cutRound_ ;
+    /**
+     * <pre>
+     * cut_round
+     * </pre>
+     *
+     * <code>int32 cut_round = 11 [json_name = "cutRound"];</code>
+     * @return The cutRound.
+     */
+    @java.lang.Override
+    public int getCutRound() {
+      return cutRound_;
+    }
+    /**
+     * <pre>
+     * cut_round
+     * </pre>
+     *
+     * <code>int32 cut_round = 11 [json_name = "cutRound"];</code>
+     * @param value The cutRound to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCutRound(int value) {
+
+      cutRound_ = value;
+      bitField0_ |= 0x00000100;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * cut_round
+     * </pre>
+     *
+     * <code>int32 cut_round = 11 [json_name = "cutRound"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearCutRound() {
+      bitField0_ = (bitField0_ & ~0x00000100);
+      cutRound_ = 0;
+      onChanged();
+      return this;
+    }
+
     private com.google.protobuf.Timestamp tsStart_;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> tsStartBuilder_;
@@ -1916,7 +1998,7 @@ com.wecasino.proto.recorder.Deck defaultValue) {
      * @return Whether the tsStart field is set.
      */
     public boolean hasTsStart() {
-      return ((bitField0_ & 0x00000100) != 0);
+      return ((bitField0_ & 0x00000200) != 0);
     }
     /**
      * <pre>
@@ -1949,7 +2031,7 @@ com.wecasino.proto.recorder.Deck defaultValue) {
       } else {
         tsStartBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000100;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -1967,7 +2049,7 @@ com.wecasino.proto.recorder.Deck defaultValue) {
       } else {
         tsStartBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00000100;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -1980,7 +2062,7 @@ com.wecasino.proto.recorder.Deck defaultValue) {
      */
     public Builder mergeTsStart(com.google.protobuf.Timestamp value) {
       if (tsStartBuilder_ == null) {
-        if (((bitField0_ & 0x00000100) != 0) &&
+        if (((bitField0_ & 0x00000200) != 0) &&
           tsStart_ != null &&
           tsStart_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
           getTsStartBuilder().mergeFrom(value);
@@ -1991,7 +2073,7 @@ com.wecasino.proto.recorder.Deck defaultValue) {
         tsStartBuilder_.mergeFrom(value);
       }
       if (tsStart_ != null) {
-        bitField0_ |= 0x00000100;
+        bitField0_ |= 0x00000200;
         onChanged();
       }
       return this;
@@ -2004,7 +2086,7 @@ com.wecasino.proto.recorder.Deck defaultValue) {
      * <code>.google.protobuf.Timestamp ts_start = 16 [json_name = "tsStart"];</code>
      */
     public Builder clearTsStart() {
-      bitField0_ = (bitField0_ & ~0x00000100);
+      bitField0_ = (bitField0_ & ~0x00000200);
       tsStart_ = null;
       if (tsStartBuilder_ != null) {
         tsStartBuilder_.dispose();
@@ -2021,7 +2103,7 @@ com.wecasino.proto.recorder.Deck defaultValue) {
      * <code>.google.protobuf.Timestamp ts_start = 16 [json_name = "tsStart"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getTsStartBuilder() {
-      bitField0_ |= 0x00000100;
+      bitField0_ |= 0x00000200;
       onChanged();
       return getTsStartFieldBuilder().getBuilder();
     }
@@ -2089,7 +2171,7 @@ com.wecasino.proto.recorder.Deck defaultValue) {
       if (decks_ == null) {
         decks_ = new com.google.protobuf.MapFieldBuilder<>(decksConverter);
       }
-      bitField0_ |= 0x00000200;
+      bitField0_ |= 0x00000400;
       onChanged();
       return decks_;
     }
@@ -2163,7 +2245,7 @@ com.wecasino.proto.recorder.Deck defaultValue) {
       return decksConverter.build(map.get(key));
     }
     public Builder clearDecks() {
-      bitField0_ = (bitField0_ & ~0x00000200);
+      bitField0_ = (bitField0_ & ~0x00000400);
       internalGetMutableDecks().clear();
       return this;
     }
@@ -2187,7 +2269,7 @@ com.wecasino.proto.recorder.Deck defaultValue) {
     @java.lang.Deprecated
     public java.util.Map<java.lang.Integer, com.wecasino.proto.recorder.Deck>
         getMutableDecks() {
-      bitField0_ |= 0x00000200;
+      bitField0_ |= 0x00000400;
       return internalGetMutableDecks().ensureMessageMap();
     }
     /**
@@ -2204,7 +2286,7 @@ com.wecasino.proto.recorder.Deck defaultValue) {
       if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableDecks().ensureBuilderMap()
           .put(key, value);
-      bitField0_ |= 0x00000200;
+      bitField0_ |= 0x00000400;
       return this;
     }
     /**
@@ -2223,7 +2305,7 @@ com.wecasino.proto.recorder.Deck defaultValue) {
       }
       internalGetMutableDecks().ensureBuilderMap()
           .putAll(values);
-      bitField0_ |= 0x00000200;
+      bitField0_ |= 0x00000400;
       return this;
     }
     /**
