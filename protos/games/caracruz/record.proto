@@ -1,0 +1,61 @@
+syntax = "proto3";
+package games.caracruz;
+
+enum GameSubtype {
+
+  // 未指定
+  CARACRUZ_TYPE_UNSPECIFIED = 0;
+
+  // CARACRUZ
+  CARACRUZ_CLASSIC = 1;
+
+}
+
+// 步驟，依據遊戲供應商邏輯，不是每個步驟都會走到
+enum Step {
+
+  // 未指定
+  STEP_UNSPECIFIED = 0;
+  // 本局開始
+  ROUND_START = 1;
+  // 本局完成
+  ROUND_FINISHED = 2;
+  // 本局取消
+  ROUND_CANCELED = 3;
+
+  // 開放下注
+  ROUND_BET = 4;
+  // 停止下注
+  NO_MORE_BET = 5;
+
+  // 擲COIN
+  THROW_COIN = 8;
+
+  // JACKPOT FLIP COIN
+  SUPERCOIN_ROUND_READY = 9;
+  // 開始
+  SUPERCOIN_ROUND_START = 10;
+  // 開放下注
+  SUPERCOIN_ROUND_BET = 11;
+  // 停止下注
+  SUPERCOIN_NO_MORE_BET = 12;
+  // 轉場等待
+  SUPERCOIN_ANIMATION_STOP = 13;
+  // 產生賠率
+  SUPERCOIN_CANDIDATE_ODDS = 14;
+  // 擲硬幣
+  SUPERCOIN_THROW_COIN = 15;
+  // 動畫結果
+  SUPERCOIN_ANIMATION_RESULT = 16;
+
+}
+
+enum ResourceType {
+  // 未指定
+  RESOURCE_TYPE_UNSPECIFIED = 0;
+  // 一般
+  NORMAL = 1;
+
+  // SUPER GAME
+  SUPERCOIN = 2;
+}
