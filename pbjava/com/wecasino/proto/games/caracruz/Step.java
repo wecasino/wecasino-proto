@@ -106,17 +106,17 @@ public enum Step
    * 轉場等待
    * </pre>
    *
-   * <code>SUPERCOIN_ANIMATION_STOP = 13;</code>
+   * <code>ANIMATION_STOP = 13;</code>
    */
-  SUPERCOIN_ANIMATION_STOP(13),
+  ANIMATION_STOP(13),
   /**
    * <pre>
    * 產生賠率
    * </pre>
    *
-   * <code>SUPERCOIN_CANDIDATE_ODDS = 14;</code>
+   * <code>CANDIDATE_ODDS = 14;</code>
    */
-  SUPERCOIN_CANDIDATE_ODDS(14),
+  CANDIDATE_ODDS(14),
   /**
    * <pre>
    * 擲硬幣
@@ -229,17 +229,17 @@ public enum Step
    * 轉場等待
    * </pre>
    *
-   * <code>SUPERCOIN_ANIMATION_STOP = 13;</code>
+   * <code>ANIMATION_STOP = 13;</code>
    */
-  public static final int SUPERCOIN_ANIMATION_STOP_VALUE = 13;
+  public static final int ANIMATION_STOP_VALUE = 13;
   /**
    * <pre>
    * 產生賠率
    * </pre>
    *
-   * <code>SUPERCOIN_CANDIDATE_ODDS = 14;</code>
+   * <code>CANDIDATE_ODDS = 14;</code>
    */
-  public static final int SUPERCOIN_CANDIDATE_ODDS_VALUE = 14;
+  public static final int CANDIDATE_ODDS_VALUE = 14;
   /**
    * <pre>
    * 擲硬幣
@@ -293,8 +293,8 @@ public enum Step
       case 10: return SUPERCOIN_ROUND_START;
       case 11: return SUPERCOIN_ROUND_BET;
       case 12: return SUPERCOIN_NO_MORE_BET;
-      case 13: return SUPERCOIN_ANIMATION_STOP;
-      case 14: return SUPERCOIN_CANDIDATE_ODDS;
+      case 13: return ANIMATION_STOP;
+      case 14: return CANDIDATE_ODDS;
       case 15: return SUPERCOIN_THROW_COIN;
       case 16: return SUPERCOIN_ANIMATION_RESULT;
       default: return null;

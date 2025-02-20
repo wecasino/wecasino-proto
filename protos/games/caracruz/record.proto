@@ -40,9 +40,9 @@ enum Step {
   // 停止下注
   SUPERCOIN_NO_MORE_BET = 12;
   // 轉場等待
-  SUPERCOIN_ANIMATION_STOP = 13;
+  ANIMATION_STOP = 13;
   // 產生賠率
-  SUPERCOIN_CANDIDATE_ODDS = 14;
+  CANDIDATE_ODDS = 14;
   // 擲硬幣
   SUPERCOIN_THROW_COIN = 15;
   // 動畫結果
