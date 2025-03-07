@@ -30,6 +30,8 @@ enum Step {
   // 本局完成
   ROUND_FINISHED = 2;
 
+  // 派發firstCard
+  DEAL_FIRST_CARD= 3;
   // 派發頂牌
   DEAL_TOP = 4;
   // 派發底牌
@@ -40,6 +42,8 @@ enum Step {
   // 停止下注
   NO_MORE_BET = 9;
 
+  // 確認底牌
+  DEALER_CONFIRM_FIRST_CARD =20;
   // 確認底牌
   DEALER_CONFIRM_BOTTOM =21;
   // 確認頂牌

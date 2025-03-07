@@ -39,6 +39,14 @@ public enum Step
   ROUND_FINISHED(2),
   /**
    * <pre>
+   * 派發firstCard
+   * </pre>
+   *
+   * <code>DEAL_FIRST_CARD = 3;</code>
+   */
+  DEAL_FIRST_CARD(3),
+  /**
+   * <pre>
    * 派發頂牌
    * </pre>
    *
@@ -69,6 +77,14 @@ public enum Step
    * <code>NO_MORE_BET = 9;</code>
    */
   NO_MORE_BET(9),
+  /**
+   * <pre>
+   * 確認底牌
+   * </pre>
+   *
+   * <code>DEALER_CONFIRM_FIRST_CARD = 20;</code>
+   */
+  DEALER_CONFIRM_FIRST_CARD(20),
   /**
    * <pre>
    * 確認底牌
@@ -122,6 +138,14 @@ public enum Step
   public static final int ROUND_FINISHED_VALUE = 2;
   /**
    * <pre>
+   * 派發firstCard
+   * </pre>
+   *
+   * <code>DEAL_FIRST_CARD = 3;</code>
+   */
+  public static final int DEAL_FIRST_CARD_VALUE = 3;
+  /**
+   * <pre>
    * 派發頂牌
    * </pre>
    *
@@ -152,6 +176,14 @@ public enum Step
    * <code>NO_MORE_BET = 9;</code>
    */
   public static final int NO_MORE_BET_VALUE = 9;
+  /**
+   * <pre>
+   * 確認底牌
+   * </pre>
+   *
+   * <code>DEALER_CONFIRM_FIRST_CARD = 20;</code>
+   */
+  public static final int DEALER_CONFIRM_FIRST_CARD_VALUE = 20;
   /**
    * <pre>
    * 確認底牌
@@ -205,10 +237,12 @@ public enum Step
       case 0: return STEP_UNSPECIFIED;
       case 1: return ROUND_START;
       case 2: return ROUND_FINISHED;
+      case 3: return DEAL_FIRST_CARD;
       case 4: return DEAL_TOP;
       case 5: return DEAL_BOTTOM;
       case 8: return ROUND_BET;
       case 9: return NO_MORE_BET;
+      case 20: return DEALER_CONFIRM_FIRST_CARD;
       case 21: return DEALER_CONFIRM_BOTTOM;
       case 22: return DEALER_CONFIRM_TOP;
       case 23: return DEALER_CONFIRM;
