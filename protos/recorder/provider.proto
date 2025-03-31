@@ -510,6 +510,11 @@ message Dealer {
   // 貼文
   repeated Article posts = 6;
 
+  // 生日
+  string birthday = 7;
+
+  // 地區
+  string location = 8;
 }
 
 message ListDealersRequest {

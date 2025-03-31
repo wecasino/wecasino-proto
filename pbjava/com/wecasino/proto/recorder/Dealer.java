@@ -26,6 +26,8 @@ private static final long serialVersionUID = 0L;
     name_ = "";
     age_ = "";
     posts_ = java.util.Collections.emptyList();
+    birthday_ = "";
+    location_ = "";
   }
 
   @java.lang.Override
@@ -396,6 +398,100 @@ java.lang.String defaultValue) {
     return posts_.get(index);
   }
 
+  public static final int BIRTHDAY_FIELD_NUMBER = 7;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object birthday_ = "";
+  /**
+   * <pre>
+   * 生日
+   * </pre>
+   *
+   * <code>string birthday = 7 [json_name = "birthday"];</code>
+   * @return The birthday.
+   */
+  @java.lang.Override
+  public java.lang.String getBirthday() {
+    java.lang.Object ref = birthday_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      birthday_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * 生日
+   * </pre>
+   *
+   * <code>string birthday = 7 [json_name = "birthday"];</code>
+   * @return The bytes for birthday.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getBirthdayBytes() {
+    java.lang.Object ref = birthday_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      birthday_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int LOCATION_FIELD_NUMBER = 8;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object location_ = "";
+  /**
+   * <pre>
+   * 地區
+   * </pre>
+   *
+   * <code>string location = 8 [json_name = "location"];</code>
+   * @return The location.
+   */
+  @java.lang.Override
+  public java.lang.String getLocation() {
+    java.lang.Object ref = location_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      location_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * 地區
+   * </pre>
+   *
+   * <code>string location = 8 [json_name = "location"];</code>
+   * @return The bytes for location.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getLocationBytes() {
+    java.lang.Object ref = location_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      location_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -430,6 +526,12 @@ java.lang.String defaultValue) {
     }
     for (int i = 0; i < posts_.size(); i++) {
       output.writeMessage(6, posts_.get(i));
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(birthday_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 7, birthday_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(location_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 8, location_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -467,6 +569,12 @@ java.lang.String defaultValue) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(6, posts_.get(i));
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(birthday_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, birthday_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(location_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, location_);
+    }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
@@ -497,6 +605,10 @@ java.lang.String defaultValue) {
     }
     if (!getPostsList()
         .equals(other.getPostsList())) return false;
+    if (!getBirthday()
+        .equals(other.getBirthday())) return false;
+    if (!getLocation()
+        .equals(other.getLocation())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -526,6 +638,10 @@ java.lang.String defaultValue) {
       hash = (37 * hash) + POSTS_FIELD_NUMBER;
       hash = (53 * hash) + getPostsList().hashCode();
     }
+    hash = (37 * hash) + BIRTHDAY_FIELD_NUMBER;
+    hash = (53 * hash) + getBirthday().hashCode();
+    hash = (37 * hash) + LOCATION_FIELD_NUMBER;
+    hash = (53 * hash) + getLocation().hashCode();
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -707,6 +823,8 @@ java.lang.String defaultValue) {
         postsBuilder_.clear();
       }
       bitField0_ = (bitField0_ & ~0x00000020);
+      birthday_ = "";
+      location_ = "";
       return this;
     }
 
@@ -772,6 +890,12 @@ java.lang.String defaultValue) {
             ? intro_
             : introBuilder_.build();
         to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.birthday_ = birthday_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.location_ = location_;
       }
       result.bitField0_ |= to_bitField0_;
     }
@@ -867,6 +991,16 @@ java.lang.String defaultValue) {
           }
         }
       }
+      if (!other.getBirthday().isEmpty()) {
+        birthday_ = other.birthday_;
+        bitField0_ |= 0x00000040;
+        onChanged();
+      }
+      if (!other.getLocation().isEmpty()) {
+        location_ = other.location_;
+        bitField0_ |= 0x00000080;
+        onChanged();
+      }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
@@ -937,6 +1071,16 @@ java.lang.String defaultValue) {
               }
               break;
             } // case 50
+            case 58: {
+              birthday_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            case 66: {
+              location_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 66
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -1852,6 +1996,190 @@ java.lang.String defaultValue) {
         posts_ = null;
       }
       return postsBuilder_;
+    }
+
+    private java.lang.Object birthday_ = "";
+    /**
+     * <pre>
+     * 生日
+     * </pre>
+     *
+     * <code>string birthday = 7 [json_name = "birthday"];</code>
+     * @return The birthday.
+     */
+    public java.lang.String getBirthday() {
+      java.lang.Object ref = birthday_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        birthday_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 生日
+     * </pre>
+     *
+     * <code>string birthday = 7 [json_name = "birthday"];</code>
+     * @return The bytes for birthday.
+     */
+    public com.google.protobuf.ByteString
+        getBirthdayBytes() {
+      java.lang.Object ref = birthday_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        birthday_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 生日
+     * </pre>
+     *
+     * <code>string birthday = 7 [json_name = "birthday"];</code>
+     * @param value The birthday to set.
+     * @return This builder for chaining.
+     */
+    public Builder setBirthday(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      birthday_ = value;
+      bitField0_ |= 0x00000040;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 生日
+     * </pre>
+     *
+     * <code>string birthday = 7 [json_name = "birthday"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearBirthday() {
+      birthday_ = getDefaultInstance().getBirthday();
+      bitField0_ = (bitField0_ & ~0x00000040);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 生日
+     * </pre>
+     *
+     * <code>string birthday = 7 [json_name = "birthday"];</code>
+     * @param value The bytes for birthday to set.
+     * @return This builder for chaining.
+     */
+    public Builder setBirthdayBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      birthday_ = value;
+      bitField0_ |= 0x00000040;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object location_ = "";
+    /**
+     * <pre>
+     * 地區
+     * </pre>
+     *
+     * <code>string location = 8 [json_name = "location"];</code>
+     * @return The location.
+     */
+    public java.lang.String getLocation() {
+      java.lang.Object ref = location_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        location_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 地區
+     * </pre>
+     *
+     * <code>string location = 8 [json_name = "location"];</code>
+     * @return The bytes for location.
+     */
+    public com.google.protobuf.ByteString
+        getLocationBytes() {
+      java.lang.Object ref = location_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        location_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * 地區
+     * </pre>
+     *
+     * <code>string location = 8 [json_name = "location"];</code>
+     * @param value The location to set.
+     * @return This builder for chaining.
+     */
+    public Builder setLocation(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      location_ = value;
+      bitField0_ |= 0x00000080;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 地區
+     * </pre>
+     *
+     * <code>string location = 8 [json_name = "location"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearLocation() {
+      location_ = getDefaultInstance().getLocation();
+      bitField0_ = (bitField0_ & ~0x00000080);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 地區
+     * </pre>
+     *
+     * <code>string location = 8 [json_name = "location"];</code>
+     * @param value The bytes for location to set.
+     * @return This builder for chaining.
+     */
+    public Builder setLocationBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      location_ = value;
+      bitField0_ |= 0x00000080;
+      onChanged();
+      return this;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
