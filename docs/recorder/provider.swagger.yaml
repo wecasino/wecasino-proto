@@ -992,6 +992,12 @@ definitions:
           type: object
           $ref: '#/definitions/recorderArticle'
         title: 貼文
+      birthday:
+        type: string
+        title: 生日
+      location:
+        type: string
+        title: 地區
     title: |-
       Dealer
       荷官資訊
