@@ -51,4 +51,10 @@ public interface ListDealersResponseOrBuilder extends
    */
   com.wecasino.proto.recorder.DealerOrBuilder getDealersOrBuilder(
       int index);
+
+  /**
+   * <code>int64 total = 2 [json_name = "total"];</code>
+   * @return The total.
+   */
+  long getTotal();
 }

@@ -8,7 +8,7 @@ produces:
   - application/json
 paths:
   /v1/provider/dealers:
-    get:
+    post:
       summary: 荷官資料
       operationId: ProviderService_ListDealers
       responses:
@@ -21,26 +21,11 @@ paths:
           schema:
             $ref: '#/definitions/rpcStatus'
       parameters:
-        - name: codes
-          description: 代碼陣列
-          in: query
-          required: false
-          type: array
-          items:
-            type: string
-          collectionFormat: multi
-        - name: skip
-          description: 開始
-          in: query
-          required: false
-          type: string
-          format: int64
-        - name: limit
-          description: 筆數 預設 100
-          in: query
-          required: false
-          type: string
-          format: int64
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/recorderListDealersRequest'
   /v1/provider/dealers/{code}:
     get:
       summary: 荷官資料
@@ -1121,6 +1106,22 @@ definitions:
           type: object
           $ref: '#/definitions/recorderRoundResult'
         title: roundResults
+  recorderListDealersRequest:
+    type: object
+    properties:
+      codes:
+        type: array
+        items:
+          type: string
+        title: 代碼陣列
+      skip:
+        type: string
+        format: int64
+        title: 開始
+      limit:
+        type: string
+        format: int64
+        title: 筆數 預設 100
   recorderListDealersResponse:
     type: object
     properties:
@@ -1130,6 +1131,9 @@ definitions:
           type: object
           $ref: '#/definitions/recorderDealer'
         title: 荷官資料
+      total:
+        type: string
+        format: int64
     title: |-
       ListDealersResponse
       取得荷官列表
