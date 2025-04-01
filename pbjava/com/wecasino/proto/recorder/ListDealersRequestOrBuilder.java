@@ -54,18 +54,18 @@ public interface ListDealersRequestOrBuilder extends
    * 開始
    * </pre>
    *
-   * <code>int64 skip = 2 [json_name = "skip"];</code>
-   * @return The skip.
+   * <code>int64 page = 2 [json_name = "page"];</code>
+   * @return The page.
    */
-  long getSkip();
+  long getPage();
 
   /**
    * <pre>
    * 筆數 預設 100
    * </pre>
    *
-   * <code>int64 limit = 3 [json_name = "limit"];</code>
-   * @return The limit.
+   * <code>int64 pageSize = 3 [json_name = "pageSize"];</code>
+   * @return The pageSize.
    */
-  long getLimit();
+  long getPageSize();
 }

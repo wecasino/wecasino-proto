@@ -94,34 +94,34 @@ private static final long serialVersionUID = 0L;
     return codes_.getByteString(index);
   }
 
-  public static final int SKIP_FIELD_NUMBER = 2;
-  private long skip_ = 0L;
+  public static final int PAGE_FIELD_NUMBER = 2;
+  private long page_ = 0L;
   /**
    * <pre>
    * 開始
    * </pre>
    *
-   * <code>int64 skip = 2 [json_name = "skip"];</code>
-   * @return The skip.
+   * <code>int64 page = 2 [json_name = "page"];</code>
+   * @return The page.
    */
   @java.lang.Override
-  public long getSkip() {
-    return skip_;
+  public long getPage() {
+    return page_;
   }
 
-  public static final int LIMIT_FIELD_NUMBER = 3;
-  private long limit_ = 0L;
+  public static final int PAGESIZE_FIELD_NUMBER = 3;
+  private long pageSize_ = 0L;
   /**
    * <pre>
    * 筆數 預設 100
    * </pre>
    *
-   * <code>int64 limit = 3 [json_name = "limit"];</code>
-   * @return The limit.
+   * <code>int64 pageSize = 3 [json_name = "pageSize"];</code>
+   * @return The pageSize.
    */
   @java.lang.Override
-  public long getLimit() {
-    return limit_;
+  public long getPageSize() {
+    return pageSize_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -141,11 +141,11 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < codes_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, codes_.getRaw(i));
     }
-    if (skip_ != 0L) {
-      output.writeInt64(2, skip_);
+    if (page_ != 0L) {
+      output.writeInt64(2, page_);
     }
-    if (limit_ != 0L) {
-      output.writeInt64(3, limit_);
+    if (pageSize_ != 0L) {
+      output.writeInt64(3, pageSize_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -164,13 +164,13 @@ private static final long serialVersionUID = 0L;
       size += dataSize;
       size += 1 * getCodesList().size();
     }
-    if (skip_ != 0L) {
+    if (page_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(2, skip_);
+        .computeInt64Size(2, page_);
     }
-    if (limit_ != 0L) {
+    if (pageSize_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(3, limit_);
+        .computeInt64Size(3, pageSize_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -189,10 +189,10 @@ private static final long serialVersionUID = 0L;
 
     if (!getCodesList()
         .equals(other.getCodesList())) return false;
-    if (getSkip()
-        != other.getSkip()) return false;
-    if (getLimit()
-        != other.getLimit()) return false;
+    if (getPage()
+        != other.getPage()) return false;
+    if (getPageSize()
+        != other.getPageSize()) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -208,12 +208,12 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + CODES_FIELD_NUMBER;
       hash = (53 * hash) + getCodesList().hashCode();
     }
-    hash = (37 * hash) + SKIP_FIELD_NUMBER;
+    hash = (37 * hash) + PAGE_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getSkip());
-    hash = (37 * hash) + LIMIT_FIELD_NUMBER;
+        getPage());
+    hash = (37 * hash) + PAGESIZE_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getLimit());
+        getPageSize());
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -347,8 +347,8 @@ private static final long serialVersionUID = 0L;
       bitField0_ = 0;
       codes_ =
           com.google.protobuf.LazyStringArrayList.emptyList();
-      skip_ = 0L;
-      limit_ = 0L;
+      page_ = 0L;
+      pageSize_ = 0L;
       return this;
     }
 
@@ -387,10 +387,10 @@ private static final long serialVersionUID = 0L;
         result.codes_ = codes_;
       }
       if (((from_bitField0_ & 0x00000002) != 0)) {
-        result.skip_ = skip_;
+        result.page_ = page_;
       }
       if (((from_bitField0_ & 0x00000004) != 0)) {
-        result.limit_ = limit_;
+        result.pageSize_ = pageSize_;
       }
     }
 
@@ -448,11 +448,11 @@ private static final long serialVersionUID = 0L;
         }
         onChanged();
       }
-      if (other.getSkip() != 0L) {
-        setSkip(other.getSkip());
+      if (other.getPage() != 0L) {
+        setPage(other.getPage());
       }
-      if (other.getLimit() != 0L) {
-        setLimit(other.getLimit());
+      if (other.getPageSize() != 0L) {
+        setPageSize(other.getPageSize());
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -487,12 +487,12 @@ private static final long serialVersionUID = 0L;
               break;
             } // case 10
             case 16: {
-              skip_ = input.readInt64();
+              page_ = input.readInt64();
               bitField0_ |= 0x00000002;
               break;
             } // case 16
             case 24: {
-              limit_ = input.readInt64();
+              pageSize_ = input.readInt64();
               bitField0_ |= 0x00000004;
               break;
             } // case 24
@@ -660,31 +660,31 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long skip_ ;
+    private long page_ ;
     /**
      * <pre>
      * 開始
      * </pre>
      *
-     * <code>int64 skip = 2 [json_name = "skip"];</code>
-     * @return The skip.
+     * <code>int64 page = 2 [json_name = "page"];</code>
+     * @return The page.
      */
     @java.lang.Override
-    public long getSkip() {
-      return skip_;
+    public long getPage() {
+      return page_;
     }
     /**
      * <pre>
      * 開始
      * </pre>
      *
-     * <code>int64 skip = 2 [json_name = "skip"];</code>
-     * @param value The skip to set.
+     * <code>int64 page = 2 [json_name = "page"];</code>
+     * @param value The page to set.
      * @return This builder for chaining.
      */
-    public Builder setSkip(long value) {
+    public Builder setPage(long value) {
 
-      skip_ = value;
+      page_ = value;
       bitField0_ |= 0x00000002;
       onChanged();
       return this;
@@ -694,41 +694,41 @@ private static final long serialVersionUID = 0L;
      * 開始
      * </pre>
      *
-     * <code>int64 skip = 2 [json_name = "skip"];</code>
+     * <code>int64 page = 2 [json_name = "page"];</code>
      * @return This builder for chaining.
      */
-    public Builder clearSkip() {
+    public Builder clearPage() {
       bitField0_ = (bitField0_ & ~0x00000002);
-      skip_ = 0L;
+      page_ = 0L;
       onChanged();
       return this;
     }
 
-    private long limit_ ;
+    private long pageSize_ ;
     /**
      * <pre>
      * 筆數 預設 100
      * </pre>
      *
-     * <code>int64 limit = 3 [json_name = "limit"];</code>
-     * @return The limit.
+     * <code>int64 pageSize = 3 [json_name = "pageSize"];</code>
+     * @return The pageSize.
      */
     @java.lang.Override
-    public long getLimit() {
-      return limit_;
+    public long getPageSize() {
+      return pageSize_;
     }
     /**
      * <pre>
      * 筆數 預設 100
      * </pre>
      *
-     * <code>int64 limit = 3 [json_name = "limit"];</code>
-     * @param value The limit to set.
+     * <code>int64 pageSize = 3 [json_name = "pageSize"];</code>
+     * @param value The pageSize to set.
      * @return This builder for chaining.
      */
-    public Builder setLimit(long value) {
+    public Builder setPageSize(long value) {
 
-      limit_ = value;
+      pageSize_ = value;
       bitField0_ |= 0x00000004;
       onChanged();
       return this;
@@ -738,12 +738,12 @@ private static final long serialVersionUID = 0L;
      * 筆數 預設 100
      * </pre>
      *
-     * <code>int64 limit = 3 [json_name = "limit"];</code>
+     * <code>int64 pageSize = 3 [json_name = "pageSize"];</code>
      * @return This builder for chaining.
      */
-    public Builder clearLimit() {
+    public Builder clearPageSize() {
       bitField0_ = (bitField0_ & ~0x00000004);
-      limit_ = 0L;
+      pageSize_ = 0L;
       onChanged();
       return this;
     }

@@ -523,10 +523,10 @@ message ListDealersRequest {
   repeated string codes = 1;
 
   // 開始
-  int64 skip = 2;
+  int64 page = 2;
 
   // 筆數 預設 100
-  int64 limit = 3;
+  int64 pageSize = 3;
 
 }
 
