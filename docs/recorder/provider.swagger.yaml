@@ -1114,11 +1114,11 @@ definitions:
         items:
           type: string
         title: 代碼陣列
-      skip:
+      page:
         type: string
         format: int64
         title: 開始
-      limit:
+      pageSize:
         type: string
         format: int64
         title: 筆數 預設 100
