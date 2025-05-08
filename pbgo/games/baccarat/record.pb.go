@@ -36,6 +36,8 @@ const (
 	GameSubtype_BACCARAT_PEEK GameSubtype = 8
 	// 財神百家樂
 	GameSubtype_BACCARAT_FORTUNE GameSubtype = 12
+	// 百家樂 JACKPOT
+	GameSubtype_BACCARAT_JACKPOT GameSubtype = 13
 	// 區塊鏈百家樂
 	GameSubtype_BACCARAT_BLOCKCHAIN GameSubtype = 16
 	// 區塊鏈極速百家樂
@@ -53,6 +55,7 @@ var (
 		3:  "BACCARAT_SPEED",
 		8:  "BACCARAT_PEEK",
 		12: "BACCARAT_FORTUNE",
+		13: "BACCARAT_JACKPOT",
 		16: "BACCARAT_BLOCKCHAIN",
 		18: "BACCARAT_SPEED_BLOCKCHAIN",
 		24: "BACCARAT_PEEK_BLOCKCHAIN",
@@ -64,6 +67,7 @@ var (
 		"BACCARAT_SPEED":            3,
 		"BACCARAT_PEEK":             8,
 		"BACCARAT_FORTUNE":          12,
+		"BACCARAT_JACKPOT":          13,
 		"BACCARAT_BLOCKCHAIN":       16,
 		"BACCARAT_SPEED_BLOCKCHAIN": 18,
 		"BACCARAT_PEEK_BLOCKCHAIN":  24,
@@ -362,14 +366,15 @@ var File_games_baccarat_record_proto protoreflect.FileDescriptor
 
 const file_games_baccarat_record_proto_rawDesc = "" +
 	"\n" +
-	"\x1bgames/baccarat/record.proto\x12\x0egames.baccarat*\xef\x01\n" +
+	"\x1bgames/baccarat/record.proto\x12\x0egames.baccarat*\x85\x02\n" +
 	"\vGameSubtype\x12\x1d\n" +
 	"\x19BACCARAT_TYPE_UNSPECIFIED\x10\x00\x12\x14\n" +
 	"\x10BACCARAT_CLASSIC\x10\x01\x12\x18\n" +
 	"\x14BACCARAT_TRADITIONAL\x10\x02\x12\x12\n" +
 	"\x0eBACCARAT_SPEED\x10\x03\x12\x11\n" +
 	"\rBACCARAT_PEEK\x10\b\x12\x14\n" +
-	"\x10BACCARAT_FORTUNE\x10\f\x12\x17\n" +
+	"\x10BACCARAT_FORTUNE\x10\f\x12\x14\n" +
+	"\x10BACCARAT_JACKPOT\x10\r\x12\x17\n" +
 	"\x13BACCARAT_BLOCKCHAIN\x10\x10\x12\x1d\n" +
 	"\x19BACCARAT_SPEED_BLOCKCHAIN\x10\x12\x12\x1c\n" +
 	"\x18BACCARAT_PEEK_BLOCKCHAIN\x10\x18*D\n" +

@@ -59,6 +59,14 @@ public enum GameSubtype
   BACCARAT_FORTUNE(12),
   /**
    * <pre>
+   * 百家樂 JACKPOT
+   * </pre>
+   *
+   * <code>BACCARAT_JACKPOT = 13;</code>
+   */
+  BACCARAT_JACKPOT(13),
+  /**
+   * <pre>
    * 區塊鏈百家樂
    * </pre>
    *
@@ -134,6 +142,14 @@ public enum GameSubtype
   public static final int BACCARAT_FORTUNE_VALUE = 12;
   /**
    * <pre>
+   * 百家樂 JACKPOT
+   * </pre>
+   *
+   * <code>BACCARAT_JACKPOT = 13;</code>
+   */
+  public static final int BACCARAT_JACKPOT_VALUE = 13;
+  /**
+   * <pre>
    * 區塊鏈百家樂
    * </pre>
    *
@@ -188,6 +204,7 @@ public enum GameSubtype
       case 3: return BACCARAT_SPEED;
       case 8: return BACCARAT_PEEK;
       case 12: return BACCARAT_FORTUNE;
+      case 13: return BACCARAT_JACKPOT;
       case 16: return BACCARAT_BLOCKCHAIN;
       case 18: return BACCARAT_SPEED_BLOCKCHAIN;
       case 24: return BACCARAT_PEEK_BLOCKCHAIN;
