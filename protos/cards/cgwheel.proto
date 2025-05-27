@@ -6,12 +6,12 @@ enum ColorGameWheel {
 
   COLOR_GAME_WHEEL_UNSPECIFIED = 0;
 
-  // 28格 3 倍
-  COLOR_GAME_WHEEL28X3 = 1;
-  // 16格 12 倍
-  COLOR_GAME_WHEEL16X12 = 2;
-  // 6格 16 倍
-  COLOR_GAME_WHEEL6X16 = 3;
+  // 27格 3 倍
+  COLOR_GAME_WHEEL27X3 = 1;
+  // 18格 12 倍
+  COLOR_GAME_WHEEL18X12 = 2;
+  // 5格 16 倍
+  COLOR_GAME_WHEEL5X16 = 3;
   // 2格 60 倍
   COLOR_GAME_WHEEL2X60 = 4;
   // 1格 80 倍
