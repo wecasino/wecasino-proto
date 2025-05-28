@@ -1,0 +1,22 @@
+syntax = "proto3";
+package cards;
+
+// empty Wheel
+enum DropBallWheel {
+
+  DROP_BALL_WHEEL_UNSPECIFIED = 0;
+
+  // 27格 3 倍
+  DROP_BALL_WHEEL27X3 = 1;
+  // 18格 12 倍
+  DROP_BALL_WHEEL18X12 = 2;
+  // 5格 16 倍
+  DROP_BALL_WHEEL5X16 = 3;
+  // 2格 60 倍
+  DROP_BALL_WHEEL2X60 = 4;
+  // 1格 80 倍
+  DROP_BALL_WHEELAX80 = 5;
+  // 1格 100 倍
+  DROP_BALL_WHEELBX100 = 6;
+
+}
