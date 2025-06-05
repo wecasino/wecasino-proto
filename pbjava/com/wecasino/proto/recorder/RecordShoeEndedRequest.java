@@ -32,6 +32,18 @@ private static final long serialVersionUID = 0L;
     return com.wecasino.proto.recorder.RecorderProto.internal_static_recorder_RecordShoeEndedRequest_descriptor;
   }
 
+  @SuppressWarnings({"rawtypes"})
+  @java.lang.Override
+  protected com.google.protobuf.MapFieldReflectionAccessor internalGetMapFieldReflection(
+      int number) {
+    switch (number) {
+      case 24:
+        return internalGetDecks();
+      default:
+        throw new RuntimeException(
+            "Invalid map field number: " + number);
+    }
+  }
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
@@ -94,6 +106,101 @@ private static final long serialVersionUID = 0L;
     return tsEnd_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : tsEnd_;
   }
 
+  public static final int DECKS_FIELD_NUMBER = 24;
+  private static final class DecksDefaultEntryHolder {
+    static final com.google.protobuf.MapEntry<
+        java.lang.Integer, com.wecasino.proto.recorder.Deck> defaultEntry =
+            com.google.protobuf.MapEntry
+            .<java.lang.Integer, com.wecasino.proto.recorder.Deck>newDefaultInstance(
+                com.wecasino.proto.recorder.RecorderProto.internal_static_recorder_RecordShoeEndedRequest_DecksEntry_descriptor, 
+                com.google.protobuf.WireFormat.FieldType.INT32,
+                0,
+                com.google.protobuf.WireFormat.FieldType.MESSAGE,
+                com.wecasino.proto.recorder.Deck.getDefaultInstance());
+  }
+  @SuppressWarnings("serial")
+  private com.google.protobuf.MapField<
+      java.lang.Integer, com.wecasino.proto.recorder.Deck> decks_;
+  private com.google.protobuf.MapField<java.lang.Integer, com.wecasino.proto.recorder.Deck>
+  internalGetDecks() {
+    if (decks_ == null) {
+      return com.google.protobuf.MapField.emptyMapField(
+          DecksDefaultEntryHolder.defaultEntry);
+    }
+    return decks_;
+  }
+  public int getDecksCount() {
+    return internalGetDecks().getMap().size();
+  }
+  /**
+   * <pre>
+   * cardList
+   * </pre>
+   *
+   * <code>map&lt;int32, .recorder.Deck&gt; decks = 24 [json_name = "decks"];</code>
+   */
+  @java.lang.Override
+  public boolean containsDecks(
+      int key) {
+
+    return internalGetDecks().getMap().containsKey(key);
+  }
+  /**
+   * Use {@link #getDecksMap()} instead.
+   */
+  @java.lang.Override
+  @java.lang.Deprecated
+  public java.util.Map<java.lang.Integer, com.wecasino.proto.recorder.Deck> getDecks() {
+    return getDecksMap();
+  }
+  /**
+   * <pre>
+   * cardList
+   * </pre>
+   *
+   * <code>map&lt;int32, .recorder.Deck&gt; decks = 24 [json_name = "decks"];</code>
+   */
+  @java.lang.Override
+  public java.util.Map<java.lang.Integer, com.wecasino.proto.recorder.Deck> getDecksMap() {
+    return internalGetDecks().getMap();
+  }
+  /**
+   * <pre>
+   * cardList
+   * </pre>
+   *
+   * <code>map&lt;int32, .recorder.Deck&gt; decks = 24 [json_name = "decks"];</code>
+   */
+  @java.lang.Override
+  public /* nullable */
+com.wecasino.proto.recorder.Deck getDecksOrDefault(
+      int key,
+      /* nullable */
+com.wecasino.proto.recorder.Deck defaultValue) {
+
+    java.util.Map<java.lang.Integer, com.wecasino.proto.recorder.Deck> map =
+        internalGetDecks().getMap();
+    return map.containsKey(key) ? map.get(key) : defaultValue;
+  }
+  /**
+   * <pre>
+   * cardList
+   * </pre>
+   *
+   * <code>map&lt;int32, .recorder.Deck&gt; decks = 24 [json_name = "decks"];</code>
+   */
+  @java.lang.Override
+  public com.wecasino.proto.recorder.Deck getDecksOrThrow(
+      int key) {
+
+    java.util.Map<java.lang.Integer, com.wecasino.proto.recorder.Deck> map =
+        internalGetDecks().getMap();
+    if (!map.containsKey(key)) {
+      throw new java.lang.IllegalArgumentException();
+    }
+    return map.get(key);
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -114,6 +221,12 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000001) != 0)) {
       output.writeMessage(19, getTsEnd());
     }
+    com.google.protobuf.GeneratedMessageV3
+      .serializeIntegerMapTo(
+        output,
+        internalGetDecks(),
+        DecksDefaultEntryHolder.defaultEntry,
+        24);
     getUnknownFields().writeTo(output);
   }
 
@@ -130,6 +243,16 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000001) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(19, getTsEnd());
+    }
+    for (java.util.Map.Entry<java.lang.Integer, com.wecasino.proto.recorder.Deck> entry
+         : internalGetDecks().getMap().entrySet()) {
+      com.google.protobuf.MapEntry<java.lang.Integer, com.wecasino.proto.recorder.Deck>
+      decks__ = DecksDefaultEntryHolder.defaultEntry.newBuilderForType()
+          .setKey(entry.getKey())
+          .setValue(entry.getValue())
+          .build();
+      size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(24, decks__);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -153,6 +276,8 @@ private static final long serialVersionUID = 0L;
       if (!getTsEnd()
           .equals(other.getTsEnd())) return false;
     }
+    if (!internalGetDecks().equals(
+        other.internalGetDecks())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -169,6 +294,10 @@ private static final long serialVersionUID = 0L;
     if (hasTsEnd()) {
       hash = (37 * hash) + TS_END_FIELD_NUMBER;
       hash = (53 * hash) + getTsEnd().hashCode();
+    }
+    if (!internalGetDecks().getMap().isEmpty()) {
+      hash = (37 * hash) + DECKS_FIELD_NUMBER;
+      hash = (53 * hash) + internalGetDecks().hashCode();
     }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
@@ -279,6 +408,28 @@ private static final long serialVersionUID = 0L;
       return com.wecasino.proto.recorder.RecorderProto.internal_static_recorder_RecordShoeEndedRequest_descriptor;
     }
 
+    @SuppressWarnings({"rawtypes"})
+    protected com.google.protobuf.MapFieldReflectionAccessor internalGetMapFieldReflection(
+        int number) {
+      switch (number) {
+        case 24:
+          return internalGetDecks();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
+    @SuppressWarnings({"rawtypes"})
+    protected com.google.protobuf.MapFieldReflectionAccessor internalGetMutableMapFieldReflection(
+        int number) {
+      switch (number) {
+        case 24:
+          return internalGetMutableDecks();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
@@ -313,6 +464,7 @@ private static final long serialVersionUID = 0L;
         tsEndBuilder_.dispose();
         tsEndBuilder_ = null;
       }
+      internalGetMutableDecks().clear();
       return this;
     }
 
@@ -355,6 +507,9 @@ private static final long serialVersionUID = 0L;
             ? tsEnd_
             : tsEndBuilder_.build();
         to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.decks_ = internalGetDecks().build(DecksDefaultEntryHolder.defaultEntry);
       }
       result.bitField0_ |= to_bitField0_;
     }
@@ -409,6 +564,9 @@ private static final long serialVersionUID = 0L;
       if (other.hasTsEnd()) {
         mergeTsEnd(other.getTsEnd());
       }
+      internalGetMutableDecks().mergeFrom(
+          other.internalGetDecks());
+      bitField0_ |= 0x00000004;
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
@@ -447,6 +605,15 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000002;
               break;
             } // case 154
+            case 194: {
+              com.google.protobuf.MapEntry<java.lang.Integer, com.wecasino.proto.recorder.Deck>
+              decks__ = input.readMessage(
+                  DecksDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableDecks().ensureBuilderMap().put(
+                  decks__.getKey(), decks__.getValue());
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 194
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -663,6 +830,193 @@ private static final long serialVersionUID = 0L;
         tsEnd_ = null;
       }
       return tsEndBuilder_;
+    }
+
+    private static final class DecksConverter implements com.google.protobuf.MapFieldBuilder.Converter<java.lang.Integer, com.wecasino.proto.recorder.DeckOrBuilder, com.wecasino.proto.recorder.Deck> {
+      @java.lang.Override
+      public com.wecasino.proto.recorder.Deck build(com.wecasino.proto.recorder.DeckOrBuilder val) {
+        if (val instanceof com.wecasino.proto.recorder.Deck) { return (com.wecasino.proto.recorder.Deck) val; }
+        return ((com.wecasino.proto.recorder.Deck.Builder) val).build();
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.MapEntry<java.lang.Integer, com.wecasino.proto.recorder.Deck> defaultEntry() {
+        return DecksDefaultEntryHolder.defaultEntry;
+      }
+    };
+    private static final DecksConverter decksConverter = new DecksConverter();
+
+    private com.google.protobuf.MapFieldBuilder<
+        java.lang.Integer, com.wecasino.proto.recorder.DeckOrBuilder, com.wecasino.proto.recorder.Deck, com.wecasino.proto.recorder.Deck.Builder> decks_;
+    private com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.wecasino.proto.recorder.DeckOrBuilder, com.wecasino.proto.recorder.Deck, com.wecasino.proto.recorder.Deck.Builder>
+        internalGetDecks() {
+      if (decks_ == null) {
+        return new com.google.protobuf.MapFieldBuilder<>(decksConverter);
+      }
+      return decks_;
+    }
+    private com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.wecasino.proto.recorder.DeckOrBuilder, com.wecasino.proto.recorder.Deck, com.wecasino.proto.recorder.Deck.Builder>
+        internalGetMutableDecks() {
+      if (decks_ == null) {
+        decks_ = new com.google.protobuf.MapFieldBuilder<>(decksConverter);
+      }
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return decks_;
+    }
+    public int getDecksCount() {
+      return internalGetDecks().ensureBuilderMap().size();
+    }
+    /**
+     * <pre>
+     * cardList
+     * </pre>
+     *
+     * <code>map&lt;int32, .recorder.Deck&gt; decks = 24 [json_name = "decks"];</code>
+     */
+    @java.lang.Override
+    public boolean containsDecks(
+        int key) {
+
+      return internalGetDecks().ensureBuilderMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getDecksMap()} instead.
+     */
+    @java.lang.Override
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.Integer, com.wecasino.proto.recorder.Deck> getDecks() {
+      return getDecksMap();
+    }
+    /**
+     * <pre>
+     * cardList
+     * </pre>
+     *
+     * <code>map&lt;int32, .recorder.Deck&gt; decks = 24 [json_name = "decks"];</code>
+     */
+    @java.lang.Override
+    public java.util.Map<java.lang.Integer, com.wecasino.proto.recorder.Deck> getDecksMap() {
+      return internalGetDecks().getImmutableMap();
+    }
+    /**
+     * <pre>
+     * cardList
+     * </pre>
+     *
+     * <code>map&lt;int32, .recorder.Deck&gt; decks = 24 [json_name = "decks"];</code>
+     */
+    @java.lang.Override
+    public /* nullable */
+com.wecasino.proto.recorder.Deck getDecksOrDefault(
+        int key,
+        /* nullable */
+com.wecasino.proto.recorder.Deck defaultValue) {
+
+      java.util.Map<java.lang.Integer, com.wecasino.proto.recorder.DeckOrBuilder> map = internalGetMutableDecks().ensureBuilderMap();
+      return map.containsKey(key) ? decksConverter.build(map.get(key)) : defaultValue;
+    }
+    /**
+     * <pre>
+     * cardList
+     * </pre>
+     *
+     * <code>map&lt;int32, .recorder.Deck&gt; decks = 24 [json_name = "decks"];</code>
+     */
+    @java.lang.Override
+    public com.wecasino.proto.recorder.Deck getDecksOrThrow(
+        int key) {
+
+      java.util.Map<java.lang.Integer, com.wecasino.proto.recorder.DeckOrBuilder> map = internalGetMutableDecks().ensureBuilderMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return decksConverter.build(map.get(key));
+    }
+    public Builder clearDecks() {
+      bitField0_ = (bitField0_ & ~0x00000004);
+      internalGetMutableDecks().clear();
+      return this;
+    }
+    /**
+     * <pre>
+     * cardList
+     * </pre>
+     *
+     * <code>map&lt;int32, .recorder.Deck&gt; decks = 24 [json_name = "decks"];</code>
+     */
+    public Builder removeDecks(
+        int key) {
+
+      internalGetMutableDecks().ensureBuilderMap()
+          .remove(key);
+      return this;
+    }
+    /**
+     * Use alternate mutation accessors instead.
+     */
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.Integer, com.wecasino.proto.recorder.Deck>
+        getMutableDecks() {
+      bitField0_ |= 0x00000004;
+      return internalGetMutableDecks().ensureMessageMap();
+    }
+    /**
+     * <pre>
+     * cardList
+     * </pre>
+     *
+     * <code>map&lt;int32, .recorder.Deck&gt; decks = 24 [json_name = "decks"];</code>
+     */
+    public Builder putDecks(
+        int key,
+        com.wecasino.proto.recorder.Deck value) {
+
+      if (value == null) { throw new NullPointerException("map value"); }
+      internalGetMutableDecks().ensureBuilderMap()
+          .put(key, value);
+      bitField0_ |= 0x00000004;
+      return this;
+    }
+    /**
+     * <pre>
+     * cardList
+     * </pre>
+     *
+     * <code>map&lt;int32, .recorder.Deck&gt; decks = 24 [json_name = "decks"];</code>
+     */
+    public Builder putAllDecks(
+        java.util.Map<java.lang.Integer, com.wecasino.proto.recorder.Deck> values) {
+      for (java.util.Map.Entry<java.lang.Integer, com.wecasino.proto.recorder.Deck> e : values.entrySet()) {
+        if (e.getKey() == null || e.getValue() == null) {
+          throw new NullPointerException();
+        }
+      }
+      internalGetMutableDecks().ensureBuilderMap()
+          .putAll(values);
+      bitField0_ |= 0x00000004;
+      return this;
+    }
+    /**
+     * <pre>
+     * cardList
+     * </pre>
+     *
+     * <code>map&lt;int32, .recorder.Deck&gt; decks = 24 [json_name = "decks"];</code>
+     */
+    public com.wecasino.proto.recorder.Deck.Builder putDecksBuilderIfAbsent(
+        int key) {
+      java.util.Map<java.lang.Integer, com.wecasino.proto.recorder.DeckOrBuilder> builderMap = internalGetMutableDecks().ensureBuilderMap();
+      com.wecasino.proto.recorder.DeckOrBuilder entry = builderMap.get(key);
+      if (entry == null) {
+        entry = com.wecasino.proto.recorder.Deck.newBuilder();
+        builderMap.put(key, entry);
+      }
+      if (entry instanceof com.wecasino.proto.recorder.Deck) {
+        entry = ((com.wecasino.proto.recorder.Deck) entry).toBuilder();
+        builderMap.put(key, entry);
+      }
+      return (com.wecasino.proto.recorder.Deck.Builder) entry;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
