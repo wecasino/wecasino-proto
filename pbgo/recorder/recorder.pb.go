@@ -82,11 +82,11 @@ type RecordShiftStartedRequest struct {
 	// 桌代碼
 	TableCode string `protobuf:"bytes,7,opt,name=table_code,json=tableCode,proto3" json:"tableCode" bson:"tableCode" yaml:"tableCode"`
 	// 班代碼
-	ShiftCode string `protobuf:"bytes,8,opt,name=shift_code,json=shiftCode,proto3" json:"shiftCode" bson:"shiftCode" yaml:"shiftCode"`
+	ShiftCode string `protobuf:"bytes,8,opt,name=shift_code,json=shiftCode,proto3" json:"shiftCode" yaml:"shiftCode" bson:"shiftCode"`
 	// 開始時間
-	TsStart *timestamppb.Timestamp `protobuf:"bytes,16,opt,name=ts_start,json=tsStart,proto3" json:"tsStart" bson:"tsStart" yaml:"tsStart"`
+	TsStart *timestamppb.Timestamp `protobuf:"bytes,16,opt,name=ts_start,json=tsStart,proto3" json:"tsStart" yaml:"tsStart" bson:"tsStart"`
 	// 標籤
-	Tags          map[string]string `protobuf:"bytes,13,rep,name=tags,proto3" json:"tags" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value" yaml:"tags" bson:"tags"`
+	Tags          map[string]string `protobuf:"bytes,13,rep,name=tags,proto3" json:"tags" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value" bson:"tags" yaml:"tags"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -187,7 +187,7 @@ func (x *RecordShiftStartedRequest) GetTags() map[string]string {
 type RecordShiftEndedRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// 紀錄ID
-	RecordId []byte `protobuf:"bytes,1,opt,name=record_id,json=recordId,proto3" json:"recordId" bson:"recordId" yaml:"recordId"`
+	RecordId []byte `protobuf:"bytes,1,opt,name=record_id,json=recordId,proto3" json:"recordId" yaml:"recordId" bson:"recordId"`
 	// 結束時間
 	TsEnd         *timestamppb.Timestamp `protobuf:"bytes,19,opt,name=ts_end,json=tsEnd,proto3" json:"tsEnd" bson:"tsEnd" yaml:"tsEnd"`
 	unknownFields protoimpl.UnknownFields
@@ -247,11 +247,11 @@ type RecordShoeStartedRequest struct {
 	// 遊戲子類型
 	GameSubtype string `protobuf:"bytes,4,opt,name=game_subtype,json=gameSubtype,proto3" json:"gameSubtype" bson:"gameSubtype" yaml:"gameSubtype"`
 	// 遊戲版本
-	GameVersion string `protobuf:"bytes,5,opt,name=game_version,json=gameVersion,proto3" json:"gameVersion" bson:"gameVersion" yaml:"gameVersion"`
+	GameVersion string `protobuf:"bytes,5,opt,name=game_version,json=gameVersion,proto3" json:"gameVersion" yaml:"gameVersion" bson:"gameVersion"`
 	// 遊戲代碼
 	GameCode string `protobuf:"bytes,6,opt,name=game_code,json=gameCode,proto3" json:"gameCode" bson:"gameCode" yaml:"gameCode"`
 	// 桌代碼
-	TableCode string `protobuf:"bytes,7,opt,name=table_code,json=tableCode,proto3" json:"tableCode" yaml:"tableCode" bson:"tableCode"`
+	TableCode string `protobuf:"bytes,7,opt,name=table_code,json=tableCode,proto3" json:"tableCode" bson:"tableCode" yaml:"tableCode"`
 	// 班代碼
 	ShiftCode string `protobuf:"bytes,8,opt,name=shift_code,json=shiftCode,proto3" json:"shiftCode" bson:"shiftCode" yaml:"shiftCode"`
 	// 使用洗牌代碼
@@ -378,7 +378,9 @@ type RecordShoeEndedRequest struct {
 	// 紀錄ID
 	RecordId []byte `protobuf:"bytes,1,opt,name=record_id,json=recordId,proto3" json:"recordId" bson:"recordId" yaml:"recordId"`
 	// 牌靴使用完畢時間
-	TsEnd         *timestamppb.Timestamp `protobuf:"bytes,19,opt,name=ts_end,json=tsEnd,proto3" json:"tsEnd" bson:"tsEnd" yaml:"tsEnd"`
+	TsEnd *timestamppb.Timestamp `protobuf:"bytes,19,opt,name=ts_end,json=tsEnd,proto3" json:"tsEnd" bson:"tsEnd" yaml:"tsEnd"`
+	// cardList
+	Decks         map[int32]*Deck `protobuf:"bytes,24,rep,name=decks,proto3" json:"decks" protobuf_key:"varint,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value" bson:"decks" yaml:"decks"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -427,6 +429,13 @@ func (x *RecordShoeEndedRequest) GetTsEnd() *timestamppb.Timestamp {
 	return nil
 }
 
+func (x *RecordShoeEndedRequest) GetDecks() map[int32]*Deck {
+	if x != nil {
+		return x.Decks
+	}
+	return nil
+}
+
 type RecordRoundStartedRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// 遊戲供應
@@ -442,7 +451,7 @@ type RecordRoundStartedRequest struct {
 	// 桌代碼
 	TableCode string `protobuf:"bytes,7,opt,name=table_code,json=tableCode,proto3" json:"tableCode" bson:"tableCode" yaml:"tableCode"`
 	// 班代碼
-	ShiftCode string `protobuf:"bytes,8,opt,name=shift_code,json=shiftCode,proto3" json:"shiftCode" bson:"shiftCode" yaml:"shiftCode"`
+	ShiftCode string `protobuf:"bytes,8,opt,name=shift_code,json=shiftCode,proto3" json:"shiftCode" yaml:"shiftCode" bson:"shiftCode"`
 	// 此排班局數
 	ShiftRound int64 `protobuf:"varint,9,opt,name=shift_round,json=shiftRound,proto3" json:"shiftRound" bson:"shiftRound" yaml:"shiftRound"`
 	// 使用洗牌代碼
@@ -452,9 +461,9 @@ type RecordRoundStartedRequest struct {
 	// 局代碼
 	RoundCode string `protobuf:"bytes,12,opt,name=round_code,json=roundCode,proto3" json:"roundCode" bson:"roundCode" yaml:"roundCode"`
 	// 標籤
-	Tags map[string]string `protobuf:"bytes,13,rep,name=tags,proto3" json:"tags" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value" bson:"tags" yaml:"tags"`
+	Tags map[string]string `protobuf:"bytes,13,rep,name=tags,proto3" json:"tags" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value" yaml:"tags" bson:"tags"`
 	// 開始時間
-	TsStart *timestamppb.Timestamp `protobuf:"bytes,16,opt,name=ts_start,json=tsStart,proto3" json:"tsStart" bson:"tsStart" yaml:"tsStart"`
+	TsStart *timestamppb.Timestamp `protobuf:"bytes,16,opt,name=ts_start,json=tsStart,proto3" json:"tsStart" yaml:"tsStart" bson:"tsStart"`
 	// 玩家入座
 	Players map[int32]string `protobuf:"bytes,25,rep,name=players,proto3" json:"players" protobuf_key:"varint,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value" bson:"players" yaml:"players"`
 	// 財神倍率
@@ -668,7 +677,7 @@ type RecordRoundBeCanceledRequest struct {
 	// 時間
 	TsEnd *timestamppb.Timestamp `protobuf:"bytes,19,opt,name=ts_end,json=tsEnd,proto3" json:"tsEnd" bson:"tsEnd" yaml:"tsEnd"`
 	// 取消代碼
-	CancelCode string `protobuf:"bytes,21,opt,name=cancel_code,json=cancelCode,proto3" json:"cancelCode" bson:"cancelCode" yaml:"cancelCode"`
+	CancelCode string `protobuf:"bytes,21,opt,name=cancel_code,json=cancelCode,proto3" json:"cancelCode" yaml:"cancelCode" bson:"cancelCode"`
 	// 取消備註
 	CancelMessage string `protobuf:"bytes,22,opt,name=cancel_message,json=cancelMessage,proto3" json:"cancelMessage" bson:"cancelMessage" yaml:"cancelMessage"`
 	unknownFields protoimpl.UnknownFields
@@ -738,7 +747,7 @@ type RecordRoundFinishedRequest struct {
 	// 紀錄ID
 	RecordId []byte `protobuf:"bytes,1,opt,name=record_id,json=recordId,proto3" json:"recordId" bson:"recordId" yaml:"recordId"`
 	// 時間
-	TsEnd         *timestamppb.Timestamp `protobuf:"bytes,19,opt,name=ts_end,json=tsEnd,proto3" json:"tsEnd" bson:"tsEnd" yaml:"tsEnd"`
+	TsEnd         *timestamppb.Timestamp `protobuf:"bytes,19,opt,name=ts_end,json=tsEnd,proto3" json:"tsEnd" yaml:"tsEnd" bson:"tsEnd"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -797,7 +806,7 @@ type RecordRoundMediaRequest struct {
 	// 附加媒體：key: 媒體資源代碼；value: 媒體內容。
 	Add map[string]string `protobuf:"bytes,3,rep,name=add,proto3" json:"add" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value" bson:"add" yaml:"add"`
 	// 移除
-	Remove        []string `protobuf:"bytes,4,rep,name=remove,proto3" json:"remove" bson:"remove" yaml:"remove"`
+	Remove        []string `protobuf:"bytes,4,rep,name=remove,proto3" json:"remove" yaml:"remove" bson:"remove"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1052,10 +1061,15 @@ const file_recorder_recorder_proto_rawDesc = "" +
 	"\n" +
 	"DecksEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\x05R\x03key\x12$\n" +
-	"\x05value\x18\x02 \x01(\v2\x0e.recorder.DeckR\x05value:\x028\x01\"h\n" +
+	"\x05value\x18\x02 \x01(\v2\x0e.recorder.DeckR\x05value:\x028\x01\"\xf5\x01\n" +
 	"\x16RecordShoeEndedRequest\x12\x1b\n" +
 	"\trecord_id\x18\x01 \x01(\fR\brecordId\x121\n" +
-	"\x06ts_end\x18\x13 \x01(\v2\x1a.google.protobuf.TimestampR\x05tsEnd\"\xe2\a\n" +
+	"\x06ts_end\x18\x13 \x01(\v2\x1a.google.protobuf.TimestampR\x05tsEnd\x12A\n" +
+	"\x05decks\x18\x18 \x03(\v2+.recorder.RecordShoeEndedRequest.DecksEntryR\x05decks\x1aH\n" +
+	"\n" +
+	"DecksEntry\x12\x10\n" +
+	"\x03key\x18\x01 \x01(\x05R\x03key\x12$\n" +
+	"\x05value\x18\x02 \x01(\v2\x0e.recorder.DeckR\x05value:\x028\x01\"\xe2\a\n" +
 	"\x19RecordRoundStartedRequest\x12\x1a\n" +
 	"\bsupplier\x18\x02 \x01(\tR\bsupplier\x12\x1b\n" +
 	"\tgame_type\x18\x03 \x01(\tR\bgameType\x12!\n" +
@@ -1157,7 +1171,7 @@ func file_recorder_recorder_proto_rawDescGZIP() []byte {
 	return file_recorder_recorder_proto_rawDescData
 }
 
-var file_recorder_recorder_proto_msgTypes = make([]protoimpl.MessageInfo, 21)
+var file_recorder_recorder_proto_msgTypes = make([]protoimpl.MessageInfo, 22)
 var file_recorder_recorder_proto_goTypes = []any{
 	(*RecordIDResponse)(nil),             // 0: recorder.RecordIDResponse
 	(*RecordShiftStartedRequest)(nil),    // 1: recorder.RecordShiftStartedRequest
@@ -1173,69 +1187,72 @@ var file_recorder_recorder_proto_goTypes = []any{
 	(*CardModify)(nil),                   // 11: recorder.CardModify
 	nil,                                  // 12: recorder.RecordShiftStartedRequest.TagsEntry
 	nil,                                  // 13: recorder.RecordShoeStartedRequest.DecksEntry
-	nil,                                  // 14: recorder.RecordRoundStartedRequest.TagsEntry
-	nil,                                  // 15: recorder.RecordRoundStartedRequest.PlayersEntry
-	nil,                                  // 16: recorder.RecordRoundStartedRequest.FortuneRatesEntry
-	nil,                                  // 17: recorder.RecordRoundStartedRequest.PlayersNameEntry
-	nil,                                  // 18: recorder.RecordRoundMediaRequest.SetEntry
-	nil,                                  // 19: recorder.RecordRoundMediaRequest.AddEntry
-	nil,                                  // 20: recorder.RecordModifyCardRequest.ModifyFortuneEntry
-	(*timestamppb.Timestamp)(nil),        // 21: google.protobuf.Timestamp
-	(*Step)(nil),                         // 22: recorder.Step
-	(*Deck)(nil),                         // 23: recorder.Deck
-	(*ShiftRecord)(nil),                  // 24: recorder.ShiftRecord
-	(*ShoeRecord)(nil),                   // 25: recorder.ShoeRecord
-	(*RoundRecord)(nil),                  // 26: recorder.RoundRecord
+	nil,                                  // 14: recorder.RecordShoeEndedRequest.DecksEntry
+	nil,                                  // 15: recorder.RecordRoundStartedRequest.TagsEntry
+	nil,                                  // 16: recorder.RecordRoundStartedRequest.PlayersEntry
+	nil,                                  // 17: recorder.RecordRoundStartedRequest.FortuneRatesEntry
+	nil,                                  // 18: recorder.RecordRoundStartedRequest.PlayersNameEntry
+	nil,                                  // 19: recorder.RecordRoundMediaRequest.SetEntry
+	nil,                                  // 20: recorder.RecordRoundMediaRequest.AddEntry
+	nil,                                  // 21: recorder.RecordModifyCardRequest.ModifyFortuneEntry
+	(*timestamppb.Timestamp)(nil),        // 22: google.protobuf.Timestamp
+	(*Step)(nil),                         // 23: recorder.Step
+	(*Deck)(nil),                         // 24: recorder.Deck
+	(*ShiftRecord)(nil),                  // 25: recorder.ShiftRecord
+	(*ShoeRecord)(nil),                   // 26: recorder.ShoeRecord
+	(*RoundRecord)(nil),                  // 27: recorder.RoundRecord
 }
 var file_recorder_recorder_proto_depIdxs = []int32{
-	21, // 0: recorder.RecordShiftStartedRequest.ts_start:type_name -> google.protobuf.Timestamp
+	22, // 0: recorder.RecordShiftStartedRequest.ts_start:type_name -> google.protobuf.Timestamp
 	12, // 1: recorder.RecordShiftStartedRequest.tags:type_name -> recorder.RecordShiftStartedRequest.TagsEntry
-	21, // 2: recorder.RecordShiftEndedRequest.ts_end:type_name -> google.protobuf.Timestamp
-	21, // 3: recorder.RecordShoeStartedRequest.ts_start:type_name -> google.protobuf.Timestamp
+	22, // 2: recorder.RecordShiftEndedRequest.ts_end:type_name -> google.protobuf.Timestamp
+	22, // 3: recorder.RecordShoeStartedRequest.ts_start:type_name -> google.protobuf.Timestamp
 	13, // 4: recorder.RecordShoeStartedRequest.decks:type_name -> recorder.RecordShoeStartedRequest.DecksEntry
-	21, // 5: recorder.RecordShoeEndedRequest.ts_end:type_name -> google.protobuf.Timestamp
-	14, // 6: recorder.RecordRoundStartedRequest.tags:type_name -> recorder.RecordRoundStartedRequest.TagsEntry
-	21, // 7: recorder.RecordRoundStartedRequest.ts_start:type_name -> google.protobuf.Timestamp
-	15, // 8: recorder.RecordRoundStartedRequest.players:type_name -> recorder.RecordRoundStartedRequest.PlayersEntry
-	16, // 9: recorder.RecordRoundStartedRequest.fortune_rates:type_name -> recorder.RecordRoundStartedRequest.FortuneRatesEntry
-	17, // 10: recorder.RecordRoundStartedRequest.players_name:type_name -> recorder.RecordRoundStartedRequest.PlayersNameEntry
-	22, // 11: recorder.RecordRoundStepsRequest.steps:type_name -> recorder.Step
-	21, // 12: recorder.RecordRoundBeCanceledRequest.ts_end:type_name -> google.protobuf.Timestamp
-	21, // 13: recorder.RecordRoundFinishedRequest.ts_end:type_name -> google.protobuf.Timestamp
-	18, // 14: recorder.RecordRoundMediaRequest.set:type_name -> recorder.RecordRoundMediaRequest.SetEntry
-	19, // 15: recorder.RecordRoundMediaRequest.add:type_name -> recorder.RecordRoundMediaRequest.AddEntry
-	11, // 16: recorder.RecordModifyCardRequest.modifies:type_name -> recorder.CardModify
-	20, // 17: recorder.RecordModifyCardRequest.modify_fortune:type_name -> recorder.RecordModifyCardRequest.ModifyFortuneEntry
-	23, // 18: recorder.RecordShoeStartedRequest.DecksEntry.value:type_name -> recorder.Deck
-	1,  // 19: recorder.RecorderService.RecordShiftStarted:input_type -> recorder.RecordShiftStartedRequest
-	2,  // 20: recorder.RecorderService.RecordShiftEnded:input_type -> recorder.RecordShiftEndedRequest
-	3,  // 21: recorder.RecorderService.RecordShoeStarted:input_type -> recorder.RecordShoeStartedRequest
-	4,  // 22: recorder.RecorderService.RecordShoeEnded:input_type -> recorder.RecordShoeEndedRequest
-	5,  // 23: recorder.RecorderService.RecordRoundStarted:input_type -> recorder.RecordRoundStartedRequest
-	6,  // 24: recorder.RecorderService.RecordRoundSteps:input_type -> recorder.RecordRoundStepsRequest
-	7,  // 25: recorder.RecorderService.RecordRoundBeCanceled:input_type -> recorder.RecordRoundBeCanceledRequest
-	8,  // 26: recorder.RecorderService.RecordRoundFinished:input_type -> recorder.RecordRoundFinishedRequest
-	7,  // 27: recorder.RecorderService.RecordRoundBeCanceledAfterFinished:input_type -> recorder.RecordRoundBeCanceledRequest
-	10, // 28: recorder.RecorderService.RecordModifyResultAfterRound:input_type -> recorder.RecordModifyCardRequest
-	10, // 29: recorder.RecorderService.RecordFinishResultAfterRound:input_type -> recorder.RecordModifyCardRequest
-	9,  // 30: recorder.RecorderService.RecordRoundVideo:input_type -> recorder.RecordRoundMediaRequest
-	24, // 31: recorder.RecorderService.RecordShiftStarted:output_type -> recorder.ShiftRecord
-	24, // 32: recorder.RecorderService.RecordShiftEnded:output_type -> recorder.ShiftRecord
-	25, // 33: recorder.RecorderService.RecordShoeStarted:output_type -> recorder.ShoeRecord
-	25, // 34: recorder.RecorderService.RecordShoeEnded:output_type -> recorder.ShoeRecord
-	26, // 35: recorder.RecorderService.RecordRoundStarted:output_type -> recorder.RoundRecord
-	26, // 36: recorder.RecorderService.RecordRoundSteps:output_type -> recorder.RoundRecord
-	26, // 37: recorder.RecorderService.RecordRoundBeCanceled:output_type -> recorder.RoundRecord
-	26, // 38: recorder.RecorderService.RecordRoundFinished:output_type -> recorder.RoundRecord
-	26, // 39: recorder.RecorderService.RecordRoundBeCanceledAfterFinished:output_type -> recorder.RoundRecord
-	26, // 40: recorder.RecorderService.RecordModifyResultAfterRound:output_type -> recorder.RoundRecord
-	26, // 41: recorder.RecorderService.RecordFinishResultAfterRound:output_type -> recorder.RoundRecord
-	26, // 42: recorder.RecorderService.RecordRoundVideo:output_type -> recorder.RoundRecord
-	31, // [31:43] is the sub-list for method output_type
-	19, // [19:31] is the sub-list for method input_type
-	19, // [19:19] is the sub-list for extension type_name
-	19, // [19:19] is the sub-list for extension extendee
-	0,  // [0:19] is the sub-list for field type_name
+	22, // 5: recorder.RecordShoeEndedRequest.ts_end:type_name -> google.protobuf.Timestamp
+	14, // 6: recorder.RecordShoeEndedRequest.decks:type_name -> recorder.RecordShoeEndedRequest.DecksEntry
+	15, // 7: recorder.RecordRoundStartedRequest.tags:type_name -> recorder.RecordRoundStartedRequest.TagsEntry
+	22, // 8: recorder.RecordRoundStartedRequest.ts_start:type_name -> google.protobuf.Timestamp
+	16, // 9: recorder.RecordRoundStartedRequest.players:type_name -> recorder.RecordRoundStartedRequest.PlayersEntry
+	17, // 10: recorder.RecordRoundStartedRequest.fortune_rates:type_name -> recorder.RecordRoundStartedRequest.FortuneRatesEntry
+	18, // 11: recorder.RecordRoundStartedRequest.players_name:type_name -> recorder.RecordRoundStartedRequest.PlayersNameEntry
+	23, // 12: recorder.RecordRoundStepsRequest.steps:type_name -> recorder.Step
+	22, // 13: recorder.RecordRoundBeCanceledRequest.ts_end:type_name -> google.protobuf.Timestamp
+	22, // 14: recorder.RecordRoundFinishedRequest.ts_end:type_name -> google.protobuf.Timestamp
+	19, // 15: recorder.RecordRoundMediaRequest.set:type_name -> recorder.RecordRoundMediaRequest.SetEntry
+	20, // 16: recorder.RecordRoundMediaRequest.add:type_name -> recorder.RecordRoundMediaRequest.AddEntry
+	11, // 17: recorder.RecordModifyCardRequest.modifies:type_name -> recorder.CardModify
+	21, // 18: recorder.RecordModifyCardRequest.modify_fortune:type_name -> recorder.RecordModifyCardRequest.ModifyFortuneEntry
+	24, // 19: recorder.RecordShoeStartedRequest.DecksEntry.value:type_name -> recorder.Deck
+	24, // 20: recorder.RecordShoeEndedRequest.DecksEntry.value:type_name -> recorder.Deck
+	1,  // 21: recorder.RecorderService.RecordShiftStarted:input_type -> recorder.RecordShiftStartedRequest
+	2,  // 22: recorder.RecorderService.RecordShiftEnded:input_type -> recorder.RecordShiftEndedRequest
+	3,  // 23: recorder.RecorderService.RecordShoeStarted:input_type -> recorder.RecordShoeStartedRequest
+	4,  // 24: recorder.RecorderService.RecordShoeEnded:input_type -> recorder.RecordShoeEndedRequest
+	5,  // 25: recorder.RecorderService.RecordRoundStarted:input_type -> recorder.RecordRoundStartedRequest
+	6,  // 26: recorder.RecorderService.RecordRoundSteps:input_type -> recorder.RecordRoundStepsRequest
+	7,  // 27: recorder.RecorderService.RecordRoundBeCanceled:input_type -> recorder.RecordRoundBeCanceledRequest
+	8,  // 28: recorder.RecorderService.RecordRoundFinished:input_type -> recorder.RecordRoundFinishedRequest
+	7,  // 29: recorder.RecorderService.RecordRoundBeCanceledAfterFinished:input_type -> recorder.RecordRoundBeCanceledRequest
+	10, // 30: recorder.RecorderService.RecordModifyResultAfterRound:input_type -> recorder.RecordModifyCardRequest
+	10, // 31: recorder.RecorderService.RecordFinishResultAfterRound:input_type -> recorder.RecordModifyCardRequest
+	9,  // 32: recorder.RecorderService.RecordRoundVideo:input_type -> recorder.RecordRoundMediaRequest
+	25, // 33: recorder.RecorderService.RecordShiftStarted:output_type -> recorder.ShiftRecord
+	25, // 34: recorder.RecorderService.RecordShiftEnded:output_type -> recorder.ShiftRecord
+	26, // 35: recorder.RecorderService.RecordShoeStarted:output_type -> recorder.ShoeRecord
+	26, // 36: recorder.RecorderService.RecordShoeEnded:output_type -> recorder.ShoeRecord
+	27, // 37: recorder.RecorderService.RecordRoundStarted:output_type -> recorder.RoundRecord
+	27, // 38: recorder.RecorderService.RecordRoundSteps:output_type -> recorder.RoundRecord
+	27, // 39: recorder.RecorderService.RecordRoundBeCanceled:output_type -> recorder.RoundRecord
+	27, // 40: recorder.RecorderService.RecordRoundFinished:output_type -> recorder.RoundRecord
+	27, // 41: recorder.RecorderService.RecordRoundBeCanceledAfterFinished:output_type -> recorder.RoundRecord
+	27, // 42: recorder.RecorderService.RecordModifyResultAfterRound:output_type -> recorder.RoundRecord
+	27, // 43: recorder.RecorderService.RecordFinishResultAfterRound:output_type -> recorder.RoundRecord
+	27, // 44: recorder.RecorderService.RecordRoundVideo:output_type -> recorder.RoundRecord
+	33, // [33:45] is the sub-list for method output_type
+	21, // [21:33] is the sub-list for method input_type
+	21, // [21:21] is the sub-list for extension type_name
+	21, // [21:21] is the sub-list for extension extendee
+	0,  // [0:21] is the sub-list for field type_name
 }
 
 func init() { file_recorder_recorder_proto_init() }
@@ -1250,7 +1267,7 @@ func file_recorder_recorder_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_recorder_recorder_proto_rawDesc), len(file_recorder_recorder_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   21,
+			NumMessages:   22,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
