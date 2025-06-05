@@ -601,11 +601,11 @@ type ListShiftsResponse struct {
 	// shifts
 	ShiftRecord []*ShiftRecord `protobuf:"bytes,1,rep,name=shift_record,json=shiftRecord,proto3" json:"shiftRecord" bson:"shiftRecord" yaml:"shiftRecord"`
 	// 總數
-	Total int64 `protobuf:"varint,2,opt,name=total,proto3" json:"total" yaml:"total" bson:"total"`
+	Total int64 `protobuf:"varint,2,opt,name=total,proto3" json:"total" bson:"total" yaml:"total"`
 	// pagination next page
 	SearchAfter string `protobuf:"bytes,8,opt,name=search_after,json=searchAfter,proto3" json:"searchAfter" bson:"searchAfter" yaml:"searchAfter"`
 	// pagination previous page
-	SearchBefore  string `protobuf:"bytes,9,opt,name=search_before,json=searchBefore,proto3" json:"searchBefore" yaml:"searchBefore" bson:"searchBefore"`
+	SearchBefore  string `protobuf:"bytes,9,opt,name=search_before,json=searchBefore,proto3" json:"searchBefore" bson:"searchBefore" yaml:"searchBefore"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -675,7 +675,7 @@ type ListShoesRecordResponse struct {
 	// shoes
 	ShoeRecord []*ShoeRecord `protobuf:"bytes,1,rep,name=shoe_record,json=shoeRecord,proto3" json:"shoeRecord" yaml:"shoeRecord" bson:"shoeRecord"`
 	// 總數
-	Total int64 `protobuf:"varint,2,opt,name=total,proto3" json:"total" bson:"total" yaml:"total"`
+	Total int64 `protobuf:"varint,2,opt,name=total,proto3" json:"total" yaml:"total" bson:"total"`
 	// pagination next page
 	SearchAfter string `protobuf:"bytes,8,opt,name=search_after,json=searchAfter,proto3" json:"searchAfter" bson:"searchAfter" yaml:"searchAfter"`
 	// pagination previous page
@@ -931,22 +931,22 @@ type RoundResult struct {
 	// 遊戲代碼
 	GameCode string `protobuf:"bytes,6,opt,name=game_code,json=gameCode,proto3" json:"gameCode" bson:"gameCode" yaml:"gameCode"`
 	// 班代碼
-	ShiftCode string `protobuf:"bytes,8,opt,name=shift_code,json=shiftCode,proto3" json:"shiftCode" bson:"shiftCode" yaml:"shiftCode"`
+	ShiftCode string `protobuf:"bytes,8,opt,name=shift_code,json=shiftCode,proto3" json:"shiftCode" yaml:"shiftCode" bson:"shiftCode"`
 	// 此排班局數
-	ShiftRound int64 `protobuf:"varint,9,opt,name=shift_round,json=shiftRound,proto3" json:"shiftRound" bson:"shiftRound" yaml:"shiftRound"`
+	ShiftRound int64 `protobuf:"varint,9,opt,name=shift_round,json=shiftRound,proto3" json:"shiftRound" yaml:"shiftRound" bson:"shiftRound"`
 	// 使用靴代碼
 	ShoeCode string `protobuf:"bytes,10,opt,name=shoe_code,json=shoeCode,proto3" json:"shoeCode" bson:"shoeCode" yaml:"shoeCode"`
 	// 使用此洗牌第幾局，從1開始計算
-	ShoeRound int64 `protobuf:"varint,11,opt,name=shoe_round,json=shoeRound,proto3" json:"shoeRound" yaml:"shoeRound" bson:"shoeRound"`
+	ShoeRound int64 `protobuf:"varint,11,opt,name=shoe_round,json=shoeRound,proto3" json:"shoeRound" bson:"shoeRound" yaml:"shoeRound"`
 	// 局代碼
-	RoundCode string `protobuf:"bytes,12,opt,name=round_code,json=roundCode,proto3" json:"roundCode" yaml:"roundCode" bson:"roundCode"`
+	RoundCode string `protobuf:"bytes,12,opt,name=round_code,json=roundCode,proto3" json:"roundCode" bson:"roundCode" yaml:"roundCode"`
 	// 開始時間
 	TsStart *timestamppb.Timestamp `protobuf:"bytes,16,opt,name=ts_start,json=tsStart,proto3" json:"tsStart" bson:"tsStart" yaml:"tsStart"`
 	// 座位組
 	// key: SeatCode, value: Seat
 	Seats map[int32]*Seat `protobuf:"bytes,24,rep,name=seats,proto3" json:"seats" protobuf_key:"varint,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value" bson:"seats,omitempty" yaml:"seats"`
 	// 結束
-	IsEnd bool `protobuf:"varint,18,opt,name=is_end,json=isEnd,proto3" json:"isEnd" yaml:"isEnd" bson:"isEnd"`
+	IsEnd bool `protobuf:"varint,18,opt,name=is_end,json=isEnd,proto3" json:"isEnd" bson:"isEnd" yaml:"isEnd"`
 	// 結束時間
 	TsEnd *timestamppb.Timestamp `protobuf:"bytes,19,opt,name=ts_end,json=tsEnd,proto3" json:"tsEnd" bson:"tsEnd,omitempty" yaml:"tsEnd"`
 	// 取消
@@ -1169,9 +1169,9 @@ type GameProvide struct {
 	// 標籤
 	Tags map[string]string `protobuf:"bytes,13,rep,name=tags,proto3" json:"tags" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value" bson:"tags" yaml:"tags"`
 	// 狀態
-	State GameProvideState `protobuf:"varint,17,opt,name=state,proto3,enum=recorder.GameProvideState" json:"state" bson:"state" yaml:"state"`
+	State GameProvideState `protobuf:"varint,17,opt,name=state,proto3,enum=recorder.GameProvideState" json:"state" yaml:"state" bson:"state"`
 	// 玩家入座
-	Players map[int32]string `protobuf:"bytes,25,rep,name=players,proto3" json:"players" protobuf_key:"varint,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value" bson:"players" yaml:"players"`
+	Players map[int32]string `protobuf:"bytes,25,rep,name=players,proto3" json:"players" protobuf_key:"varint,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value" yaml:"players" bson:"players"`
 	// 玩家姓名
 	PlayersName map[string]string `protobuf:"bytes,30,rep,name=players_name,json=playersName,proto3" json:"playersName" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value" bson:"playersName" yaml:"playersName"`
 	// 附加媒體：key: 媒體資源代碼；value: 媒體內容。
@@ -1383,7 +1383,7 @@ type VerifyGameRequest struct {
 	// 驗證傳送接收的代碼
 	Pattern []string `protobuf:"bytes,2,rep,name=pattern,proto3" json:"pattern" bson:"pattern" yaml:"pattern"`
 	// 顯示名稱
-	Name          string `protobuf:"bytes,3,opt,name=name,proto3" json:"name" yaml:"name" bson:"name"`
+	Name          string `protobuf:"bytes,3,opt,name=name,proto3" json:"name" bson:"name" yaml:"name"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1514,7 +1514,7 @@ type Article struct {
 	// 內文
 	Text string `protobuf:"bytes,3,opt,name=text,proto3" json:"text" bson:"text" yaml:"text"`
 	// 附加媒體：key: 媒體資源代碼；value: 媒體內容。
-	Medias map[string]string `protobuf:"bytes,4,rep,name=medias,proto3" json:"medias" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value" bson:"medias" yaml:"medias"`
+	Medias map[string]string `protobuf:"bytes,4,rep,name=medias,proto3" json:"medias" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value" yaml:"medias" bson:"medias"`
 	// 子文檔
 	Sections      map[string]*Article `protobuf:"bytes,5,rep,name=sections,proto3" json:"sections" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value" bson:"sections" yaml:"sections"`
 	unknownFields protoimpl.UnknownFields
@@ -1595,7 +1595,7 @@ type Dealer struct {
 	// 名稱
 	Name string `protobuf:"bytes,2,opt,name=name,proto3" json:"name" bson:"name" yaml:"name"`
 	// 年齡
-	Age string `protobuf:"bytes,3,opt,name=age,proto3" json:"age" bson:"age" yaml:"age"`
+	Age string `protobuf:"bytes,3,opt,name=age,proto3" json:"age" yaml:"age" bson:"age"`
 	// Tags
 	Tags map[string]string `protobuf:"bytes,4,rep,name=tags,proto3" json:"tags" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value" bson:"tags" yaml:"tags"`
 	// 介紹
@@ -1765,7 +1765,7 @@ type ListDealersResponse struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// 荷官資料
 	Dealers       []*Dealer `protobuf:"bytes,1,rep,name=dealers,proto3" json:"dealers" bson:"dealers" yaml:"dealers"`
-	Total         int64     `protobuf:"varint,2,opt,name=total,proto3" json:"total" bson:"total" yaml:"total"`
+	Total         int64     `protobuf:"varint,2,opt,name=total,proto3" json:"total" yaml:"total" bson:"total"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }

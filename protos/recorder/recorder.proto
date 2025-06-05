@@ -76,7 +76,8 @@ message RecordShoeEndedRequest {
   bytes record_id = 1;
   // 牌靴使用完畢時間
   google.protobuf.Timestamp ts_end = 19;
-
+  // cardList
+  map<int32, Deck> decks = 24;
 }
 
 message RecordRoundStartedRequest {
