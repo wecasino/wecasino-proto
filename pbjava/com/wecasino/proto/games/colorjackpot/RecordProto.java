@@ -27,25 +27,25 @@ public final class RecordProto {
       "\n\037games/colorjackpot/record.proto\022\022games" +
       ".colorjackpot*J\n\013GameSubtype\022!\n\035COLORJAC" +
       "KPOT_TYPE_UNSPECIFIED\020\000\022\030\n\024COLORJACKPOT_" +
-      "CLASSIC\020\001*\236\003\n\004Step\022\024\n\020STEP_UNSPECIFIED\020\000" +
+      "CLASSIC\020\001*\235\003\n\004Step\022\024\n\020STEP_UNSPECIFIED\020\000" +
       "\022\017\n\013ROUND_START\020\001\022\022\n\016ROUND_FINISHED\020\002\022\022\n" +
       "\016ROUND_CANCELED\020\003\022\r\n\tROUND_BET\020\004\022\017\n\013NO_M" +
       "ORE_BET\020\005\022\017\n\013THROW_COLOR\020\010\022\033\n\027LUCKY_WHEE" +
       "L_ROUND_READY\020\t\022\033\n\027LUCKY_WHEEL_ROUND_STA" +
       "RT\020\n\022\031\n\025LUCKY_WHEEL_ROUND_BET\020\013\022\033\n\027LUCKY" +
-      "_WHEEL_NO_MORE_BET\020\014\022\033\n\027LUCKY_WHEEL_THRO" +
-      "W_WHEEL\020\r\022\025\n\021BINGO_ROUND_READY\020\024\022\025\n\021BING" +
-      "O_ROUND_START\020\025\022\023\n\017BINGO_ROUND_BET\020\026\022\025\n\021" +
-      "BINGO_NO_MORE_BET\020\027\022\024\n\020BINGO_THROW_BALL\020" +
-      "\030\022\027\n\023PITBOSS_MODIFY_BOWL\020\020*U\n\014ResourceTy" +
-      "pe\022\035\n\031RESOURCE_TYPE_UNSPECIFIED\020\000\022\n\n\006NOR" +
-      "MAL\020\001\022\017\n\013LUCKY_WHEEL\020\002\022\t\n\005BINGO\020\003B\331\001\n%co" +
-      "m.wecasino.proto.games.colorjackpotB\013Rec" +
-      "ordProtoP\001Z:github.com/wecasino/wecasino" +
-      "-proto/pbgo/games/colorjackpot\242\002\003GCX\252\002\022G" +
-      "ames.Colorjackpot\312\002\022Games\\Colorjackpot\342\002" +
-      "\036Games\\Colorjackpot\\GPBMetadata\352\002\023Games:" +
-      ":Colorjackpotb\006proto3"
+      "_WHEEL_NO_MORE_BET\020\014\022\032\n\026LUCKY_WHEEL_SPIN" +
+      "_WHEEL\020\r\022\025\n\021BINGO_ROUND_READY\020\024\022\025\n\021BINGO" +
+      "_ROUND_START\020\025\022\023\n\017BINGO_ROUND_BET\020\026\022\025\n\021B" +
+      "INGO_NO_MORE_BET\020\027\022\024\n\020BINGO_THROW_BALL\020\030" +
+      "\022\027\n\023PITBOSS_MODIFY_BOWL\020\020*U\n\014ResourceTyp" +
+      "e\022\035\n\031RESOURCE_TYPE_UNSPECIFIED\020\000\022\n\n\006NORM" +
+      "AL\020\001\022\017\n\013LUCKY_WHEEL\020\002\022\t\n\005BINGO\020\003B\331\001\n%com" +
+      ".wecasino.proto.games.colorjackpotB\013Reco" +
+      "rdProtoP\001Z:github.com/wecasino/wecasino-" +
+      "proto/pbgo/games/colorjackpot\242\002\003GCX\252\002\022Ga" +
+      "mes.Colorjackpot\312\002\022Games\\Colorjackpot\342\002\036" +
+      "Games\\Colorjackpot\\GPBMetadata\352\002\023Games::" +
+      "Colorjackpotb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
