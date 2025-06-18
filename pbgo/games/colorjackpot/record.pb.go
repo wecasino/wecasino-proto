@@ -95,7 +95,7 @@ const (
 	Step_LUCKY_WHEEL_ROUND_BET Step = 11
 	// 停止下注
 	Step_LUCKY_WHEEL_NO_MORE_BET Step = 12
-	Step_LUCKY_WHEEL_THROW_WHEEL Step = 13
+	Step_LUCKY_WHEEL_SPIN_WHEEL  Step = 13
 	// BINGO
 	Step_BINGO_ROUND_READY Step = 20
 	// 開始
@@ -123,7 +123,7 @@ var (
 		10: "LUCKY_WHEEL_ROUND_START",
 		11: "LUCKY_WHEEL_ROUND_BET",
 		12: "LUCKY_WHEEL_NO_MORE_BET",
-		13: "LUCKY_WHEEL_THROW_WHEEL",
+		13: "LUCKY_WHEEL_SPIN_WHEEL",
 		20: "BINGO_ROUND_READY",
 		21: "BINGO_ROUND_START",
 		22: "BINGO_ROUND_BET",
@@ -143,7 +143,7 @@ var (
 		"LUCKY_WHEEL_ROUND_START": 10,
 		"LUCKY_WHEEL_ROUND_BET":   11,
 		"LUCKY_WHEEL_NO_MORE_BET": 12,
-		"LUCKY_WHEEL_THROW_WHEEL": 13,
+		"LUCKY_WHEEL_SPIN_WHEEL":  13,
 		"BINGO_ROUND_READY":       20,
 		"BINGO_ROUND_START":       21,
 		"BINGO_ROUND_BET":         22,
@@ -243,7 +243,7 @@ const file_games_colorjackpot_record_proto_rawDesc = "" +
 	"\x1fgames/colorjackpot/record.proto\x12\x12games.colorjackpot*J\n" +
 	"\vGameSubtype\x12!\n" +
 	"\x1dCOLORJACKPOT_TYPE_UNSPECIFIED\x10\x00\x12\x18\n" +
-	"\x14COLORJACKPOT_CLASSIC\x10\x01*\x9e\x03\n" +
+	"\x14COLORJACKPOT_CLASSIC\x10\x01*\x9d\x03\n" +
 	"\x04Step\x12\x14\n" +
 	"\x10STEP_UNSPECIFIED\x10\x00\x12\x0f\n" +
 	"\vROUND_START\x10\x01\x12\x12\n" +
@@ -256,8 +256,8 @@ const file_games_colorjackpot_record_proto_rawDesc = "" +
 	"\x17LUCKY_WHEEL_ROUND_START\x10\n" +
 	"\x12\x19\n" +
 	"\x15LUCKY_WHEEL_ROUND_BET\x10\v\x12\x1b\n" +
-	"\x17LUCKY_WHEEL_NO_MORE_BET\x10\f\x12\x1b\n" +
-	"\x17LUCKY_WHEEL_THROW_WHEEL\x10\r\x12\x15\n" +
+	"\x17LUCKY_WHEEL_NO_MORE_BET\x10\f\x12\x1a\n" +
+	"\x16LUCKY_WHEEL_SPIN_WHEEL\x10\r\x12\x15\n" +
 	"\x11BINGO_ROUND_READY\x10\x14\x12\x15\n" +
 	"\x11BINGO_ROUND_START\x10\x15\x12\x13\n" +
 	"\x0fBINGO_ROUND_BET\x10\x16\x12\x15\n" +
