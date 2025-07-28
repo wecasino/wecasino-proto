@@ -1040,6 +1040,11 @@ definitions:
         additionalProperties:
           type: string
         title: 玩家姓名
+      playersAvatar:
+        type: object
+        additionalProperties:
+          type: string
+        title: 玩家頭像
       medias:
         type: object
         additionalProperties:
