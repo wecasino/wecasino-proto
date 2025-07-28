@@ -271,6 +271,60 @@ java.lang.String defaultValue);
 
   /**
    * <pre>
+   * 玩家頭像
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; players_avatar = 31 [json_name = "playersAvatar"];</code>
+   */
+  int getPlayersAvatarCount();
+  /**
+   * <pre>
+   * 玩家頭像
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; players_avatar = 31 [json_name = "playersAvatar"];</code>
+   */
+  boolean containsPlayersAvatar(
+      java.lang.String key);
+  /**
+   * Use {@link #getPlayersAvatarMap()} instead.
+   */
+  @java.lang.Deprecated
+  java.util.Map<java.lang.String, java.lang.String>
+  getPlayersAvatar();
+  /**
+   * <pre>
+   * 玩家頭像
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; players_avatar = 31 [json_name = "playersAvatar"];</code>
+   */
+  java.util.Map<java.lang.String, java.lang.String>
+  getPlayersAvatarMap();
+  /**
+   * <pre>
+   * 玩家頭像
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; players_avatar = 31 [json_name = "playersAvatar"];</code>
+   */
+  /* nullable */
+java.lang.String getPlayersAvatarOrDefault(
+      java.lang.String key,
+      /* nullable */
+java.lang.String defaultValue);
+  /**
+   * <pre>
+   * 玩家頭像
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; players_avatar = 31 [json_name = "playersAvatar"];</code>
+   */
+  java.lang.String getPlayersAvatarOrThrow(
+      java.lang.String key);
+
+  /**
+   * <pre>
    * 附加媒體：key: 媒體資源代碼；value: 媒體內容。
    * </pre>
    *
