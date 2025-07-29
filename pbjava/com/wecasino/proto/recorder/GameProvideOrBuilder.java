@@ -325,6 +325,114 @@ java.lang.String defaultValue);
 
   /**
    * <pre>
+   * 玩家生日
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; players_birth = 32 [json_name = "playersBirth"];</code>
+   */
+  int getPlayersBirthCount();
+  /**
+   * <pre>
+   * 玩家生日
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; players_birth = 32 [json_name = "playersBirth"];</code>
+   */
+  boolean containsPlayersBirth(
+      java.lang.String key);
+  /**
+   * Use {@link #getPlayersBirthMap()} instead.
+   */
+  @java.lang.Deprecated
+  java.util.Map<java.lang.String, java.lang.String>
+  getPlayersBirth();
+  /**
+   * <pre>
+   * 玩家生日
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; players_birth = 32 [json_name = "playersBirth"];</code>
+   */
+  java.util.Map<java.lang.String, java.lang.String>
+  getPlayersBirthMap();
+  /**
+   * <pre>
+   * 玩家生日
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; players_birth = 32 [json_name = "playersBirth"];</code>
+   */
+  /* nullable */
+java.lang.String getPlayersBirthOrDefault(
+      java.lang.String key,
+      /* nullable */
+java.lang.String defaultValue);
+  /**
+   * <pre>
+   * 玩家生日
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; players_birth = 32 [json_name = "playersBirth"];</code>
+   */
+  java.lang.String getPlayersBirthOrThrow(
+      java.lang.String key);
+
+  /**
+   * <pre>
+   * 玩家地區
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; players_location = 33 [json_name = "playersLocation"];</code>
+   */
+  int getPlayersLocationCount();
+  /**
+   * <pre>
+   * 玩家地區
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; players_location = 33 [json_name = "playersLocation"];</code>
+   */
+  boolean containsPlayersLocation(
+      java.lang.String key);
+  /**
+   * Use {@link #getPlayersLocationMap()} instead.
+   */
+  @java.lang.Deprecated
+  java.util.Map<java.lang.String, java.lang.String>
+  getPlayersLocation();
+  /**
+   * <pre>
+   * 玩家地區
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; players_location = 33 [json_name = "playersLocation"];</code>
+   */
+  java.util.Map<java.lang.String, java.lang.String>
+  getPlayersLocationMap();
+  /**
+   * <pre>
+   * 玩家地區
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; players_location = 33 [json_name = "playersLocation"];</code>
+   */
+  /* nullable */
+java.lang.String getPlayersLocationOrDefault(
+      java.lang.String key,
+      /* nullable */
+java.lang.String defaultValue);
+  /**
+   * <pre>
+   * 玩家地區
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; players_location = 33 [json_name = "playersLocation"];</code>
+   */
+  java.lang.String getPlayersLocationOrThrow(
+      java.lang.String key);
+
+  /**
+   * <pre>
    * 附加媒體：key: 媒體資源代碼；value: 媒體內容。
    * </pre>
    *

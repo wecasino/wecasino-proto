@@ -1045,6 +1045,16 @@ definitions:
         additionalProperties:
           type: string
         title: 玩家頭像
+      playersBirth:
+        type: object
+        additionalProperties:
+          type: string
+        title: 玩家生日
+      playersLocation:
+        type: object
+        additionalProperties:
+          type: string
+        title: 玩家地區
       medias:
         type: object
         additionalProperties:

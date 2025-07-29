@@ -465,13 +465,13 @@ type ListRecordsRequest struct {
 	// 查詢起時
 	TsFrom *timestamppb.Timestamp `protobuf:"bytes,1,opt,name=ts_from,json=tsFrom,proto3" json:"tsFrom" bson:"tsFrom" yaml:"tsFrom"`
 	// 查詢終時
-	TsTo *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=ts_to,json=tsTo,proto3" json:"tsTo" yaml:"tsTo" bson:"tsTo"`
+	TsTo *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=ts_to,json=tsTo,proto3" json:"tsTo" bson:"tsTo" yaml:"tsTo"`
 	// 遊戲類型
 	GameType *games.GameType `protobuf:"varint,3,opt,name=game_type,json=gameType,proto3,enum=games.GameType,oneof" json:"gameType" bson:"gameType" yaml:"gameType"`
 	// 遊戲子類型
 	GameSubtype *int32 `protobuf:"varint,4,opt,name=game_subtype,json=gameSubtype,proto3,oneof" json:"gameSubtype" bson:"gameSubtype" yaml:"gameSubtype"`
 	// 遊戲供應
-	Supplier *string `protobuf:"bytes,5,opt,name=supplier,proto3,oneof" json:"supplier" bson:"supplier" yaml:"supplier"`
+	Supplier *string `protobuf:"bytes,5,opt,name=supplier,proto3,oneof" json:"supplier" yaml:"supplier" bson:"supplier"`
 	// 遊戲代碼
 	GameCode *string `protobuf:"bytes,6,opt,name=game_code,json=gameCode,proto3,oneof" json:"gameCode" bson:"gameCode" yaml:"gameCode"`
 	// pagination next page
@@ -482,7 +482,7 @@ type ListRecordsRequest struct {
 	Page int64 `protobuf:"varint,10,opt,name=page,proto3" json:"page" bson:"page" yaml:"page"`
 	// 每頁筆數
 	PageSize        int64           `protobuf:"varint,11,opt,name=page_size,json=pageSize,proto3" json:"pageSize" bson:"pageSize" yaml:"pageSize"`
-	RoundStatusType RoundStatusType `protobuf:"varint,12,opt,name=round_status_type,json=roundStatusType,proto3,enum=recorder.RoundStatusType" json:"roundStatusType" bson:"roundStatusType" yaml:"roundStatusType"`
+	RoundStatusType RoundStatusType `protobuf:"varint,12,opt,name=round_status_type,json=roundStatusType,proto3,enum=recorder.RoundStatusType" json:"roundStatusType" yaml:"roundStatusType" bson:"roundStatusType"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
 }
@@ -599,9 +599,9 @@ func (x *ListRecordsRequest) GetRoundStatusType() RoundStatusType {
 type ListShiftsResponse struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// shifts
-	ShiftRecord []*ShiftRecord `protobuf:"bytes,1,rep,name=shift_record,json=shiftRecord,proto3" json:"shiftRecord" yaml:"shiftRecord" bson:"shiftRecord"`
+	ShiftRecord []*ShiftRecord `protobuf:"bytes,1,rep,name=shift_record,json=shiftRecord,proto3" json:"shiftRecord" bson:"shiftRecord" yaml:"shiftRecord"`
 	// 總數
-	Total int64 `protobuf:"varint,2,opt,name=total,proto3" json:"total" bson:"total" yaml:"total"`
+	Total int64 `protobuf:"varint,2,opt,name=total,proto3" json:"total" yaml:"total" bson:"total"`
 	// pagination next page
 	SearchAfter string `protobuf:"bytes,8,opt,name=search_after,json=searchAfter,proto3" json:"searchAfter" bson:"searchAfter" yaml:"searchAfter"`
 	// pagination previous page
@@ -823,7 +823,7 @@ type GetRoundPlayBackResponse struct {
 	// round code
 	RoundCode string `protobuf:"bytes,1,opt,name=round_code,json=roundCode,proto3" json:"roundCode" bson:"roundCode" yaml:"roundCode"`
 	// 開始時間
-	TsStart *timestamppb.Timestamp `protobuf:"bytes,16,opt,name=ts_start,json=tsStart,proto3" json:"tsStart" bson:"tsStart" yaml:"tsStart"`
+	TsStart *timestamppb.Timestamp `protobuf:"bytes,16,opt,name=ts_start,json=tsStart,proto3" json:"tsStart" yaml:"tsStart" bson:"tsStart"`
 	// 回放url
 	Medias        map[string]string `protobuf:"bytes,28,rep,name=medias,proto3" json:"medias" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value" bson:"medias" yaml:"medias"`
 	unknownFields protoimpl.UnknownFields
@@ -884,7 +884,7 @@ func (x *GetRoundPlayBackResponse) GetMedias() map[string]string {
 type GetRoundsByShoeResponse struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// roundResults
-	RoundRecords  []*RoundResult `protobuf:"bytes,1,rep,name=round_records,json=roundRecords,proto3" json:"roundRecords" yaml:"roundRecords" bson:"roundRecords"`
+	RoundRecords  []*RoundResult `protobuf:"bytes,1,rep,name=round_records,json=roundRecords,proto3" json:"roundRecords" bson:"roundRecords" yaml:"roundRecords"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -935,18 +935,18 @@ type RoundResult struct {
 	// 此排班局數
 	ShiftRound int64 `protobuf:"varint,9,opt,name=shift_round,json=shiftRound,proto3" json:"shiftRound" bson:"shiftRound" yaml:"shiftRound"`
 	// 使用靴代碼
-	ShoeCode string `protobuf:"bytes,10,opt,name=shoe_code,json=shoeCode,proto3" json:"shoeCode" yaml:"shoeCode" bson:"shoeCode"`
+	ShoeCode string `protobuf:"bytes,10,opt,name=shoe_code,json=shoeCode,proto3" json:"shoeCode" bson:"shoeCode" yaml:"shoeCode"`
 	// 使用此洗牌第幾局，從1開始計算
 	ShoeRound int64 `protobuf:"varint,11,opt,name=shoe_round,json=shoeRound,proto3" json:"shoeRound" bson:"shoeRound" yaml:"shoeRound"`
 	// 局代碼
 	RoundCode string `protobuf:"bytes,12,opt,name=round_code,json=roundCode,proto3" json:"roundCode" bson:"roundCode" yaml:"roundCode"`
 	// 開始時間
-	TsStart *timestamppb.Timestamp `protobuf:"bytes,16,opt,name=ts_start,json=tsStart,proto3" json:"tsStart" yaml:"tsStart" bson:"tsStart"`
+	TsStart *timestamppb.Timestamp `protobuf:"bytes,16,opt,name=ts_start,json=tsStart,proto3" json:"tsStart" bson:"tsStart" yaml:"tsStart"`
 	// 座位組
 	// key: SeatCode, value: Seat
 	Seats map[int32]*Seat `protobuf:"bytes,24,rep,name=seats,proto3" json:"seats" protobuf_key:"varint,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value" bson:"seats,omitempty" yaml:"seats"`
 	// 結束
-	IsEnd bool `protobuf:"varint,18,opt,name=is_end,json=isEnd,proto3" json:"isEnd" bson:"isEnd" yaml:"isEnd"`
+	IsEnd bool `protobuf:"varint,18,opt,name=is_end,json=isEnd,proto3" json:"isEnd" yaml:"isEnd" bson:"isEnd"`
 	// 結束時間
 	TsEnd *timestamppb.Timestamp `protobuf:"bytes,19,opt,name=ts_end,json=tsEnd,proto3" json:"tsEnd" bson:"tsEnd,omitempty" yaml:"tsEnd"`
 	// 取消
@@ -1094,7 +1094,7 @@ func (x *RoundResult) GetMedias() map[string]string {
 type LiveStreamParams struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// 串流代碼
-	Code string `protobuf:"bytes,1,opt,name=code,proto3" json:"code" bson:"code" yaml:"code"`
+	Code string `protobuf:"bytes,1,opt,name=code,proto3" json:"code" yaml:"code" bson:"code"`
 	// 應用
 	App string `protobuf:"bytes,2,opt,name=app,proto3" json:"app" bson:"app" yaml:"app"`
 	// 頻道
@@ -1165,7 +1165,7 @@ type GameProvide struct {
 	// 遊戲子類型
 	GameSubtype string `protobuf:"bytes,4,opt,name=game_subtype,json=gameSubtype,proto3" json:"gameSubtype" bson:"gameSubtype" yaml:"gameSubtype"`
 	// 遊戲代碼
-	GameCode string `protobuf:"bytes,6,opt,name=game_code,json=gameCode,proto3" json:"gameCode" bson:"gameCode" yaml:"gameCode"`
+	GameCode string `protobuf:"bytes,6,opt,name=game_code,json=gameCode,proto3" json:"gameCode" yaml:"gameCode" bson:"gameCode"`
 	// 標籤
 	Tags map[string]string `protobuf:"bytes,13,rep,name=tags,proto3" json:"tags" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value" bson:"tags" yaml:"tags"`
 	// 狀態
@@ -1176,8 +1176,12 @@ type GameProvide struct {
 	PlayersName map[string]string `protobuf:"bytes,30,rep,name=players_name,json=playersName,proto3" json:"playersName" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value" bson:"playersName" yaml:"playersName"`
 	// 玩家頭像
 	PlayersAvatar map[string]string `protobuf:"bytes,31,rep,name=players_avatar,json=playersAvatar,proto3" json:"playersAvatar" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value" bson:"playersAvatar" yaml:"playersAvatar"`
+	// 玩家生日
+	PlayersBirth map[string]string `protobuf:"bytes,32,rep,name=players_birth,json=playersBirth,proto3" json:"playersBirth" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value" bson:"playersBirth" yaml:"playersBirth"`
+	// 玩家地區
+	PlayersLocation map[string]string `protobuf:"bytes,33,rep,name=players_location,json=playersLocation,proto3" json:"playersLocation" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value" bson:"playersLocation" yaml:"playersLocation"`
 	// 附加媒體：key: 媒體資源代碼；value: 媒體內容。
-	Medias map[string]string `protobuf:"bytes,28,rep,name=medias,proto3" json:"medias" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value" yaml:"medias" bson:"medias"`
+	Medias map[string]string `protobuf:"bytes,28,rep,name=medias,proto3" json:"medias" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value" bson:"medias" yaml:"medias"`
 	// 直播參數
 	LiveStreams map[string]*LiveStreamParams `protobuf:"bytes,29,rep,name=live_streams,json=liveStreams,proto3" json:"liveStreams" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value" bson:"liveStreams" yaml:"liveStreams"`
 	// 最後一局
@@ -1279,6 +1283,20 @@ func (x *GameProvide) GetPlayersAvatar() map[string]string {
 	return nil
 }
 
+func (x *GameProvide) GetPlayersBirth() map[string]string {
+	if x != nil {
+		return x.PlayersBirth
+	}
+	return nil
+}
+
+func (x *GameProvide) GetPlayersLocation() map[string]string {
+	if x != nil {
+		return x.PlayersLocation
+	}
+	return nil
+}
+
 func (x *GameProvide) GetMedias() map[string]string {
 	if x != nil {
 		return x.Medias
@@ -1341,7 +1359,7 @@ func (*ListGamesRequest) Descriptor() ([]byte, []int) {
 type ListGamesResponse struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// 遊戲列表
-	GameProvides  []*GameProvide `protobuf:"bytes,1,rep,name=game_provides,json=gameProvides,proto3" json:"gameProvides" bson:"gameProvides" yaml:"gameProvides"`
+	GameProvides  []*GameProvide `protobuf:"bytes,1,rep,name=game_provides,json=gameProvides,proto3" json:"gameProvides" yaml:"gameProvides" bson:"gameProvides"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1456,7 +1474,7 @@ type GamblerInstructionsRequest struct {
 	// 玩家帳號
 	Player string `protobuf:"bytes,2,opt,name=player,proto3" json:"player" bson:"player" yaml:"player"`
 	// 指示傳送接收的代碼  position card
-	Instructions  map[string]string `protobuf:"bytes,3,rep,name=instructions,proto3" json:"instructions" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value" bson:"instructions" yaml:"instructions"`
+	Instructions  map[string]string `protobuf:"bytes,3,rep,name=instructions,proto3" json:"instructions" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value" yaml:"instructions" bson:"instructions"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1521,7 +1539,7 @@ type Article struct {
 	// 副標
 	Subtitle string `protobuf:"bytes,2,opt,name=subtitle,proto3" json:"subtitle" bson:"subtitle" yaml:"subtitle"`
 	// 內文
-	Text string `protobuf:"bytes,3,opt,name=text,proto3" json:"text" bson:"text" yaml:"text"`
+	Text string `protobuf:"bytes,3,opt,name=text,proto3" json:"text" yaml:"text" bson:"text"`
 	// 附加媒體：key: 媒體資源代碼；value: 媒體內容。
 	Medias map[string]string `protobuf:"bytes,4,rep,name=medias,proto3" json:"medias" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value" bson:"medias" yaml:"medias"`
 	// 子文檔
@@ -1602,7 +1620,7 @@ type Dealer struct {
 	// 代碼
 	Code string `protobuf:"bytes,1,opt,name=code,proto3" json:"code" bson:"code" yaml:"code"`
 	// 名稱
-	Name string `protobuf:"bytes,2,opt,name=name,proto3" json:"name" bson:"name" yaml:"name"`
+	Name string `protobuf:"bytes,2,opt,name=name,proto3" json:"name" yaml:"name" bson:"name"`
 	// 年齡
 	Age string `protobuf:"bytes,3,opt,name=age,proto3" json:"age" bson:"age" yaml:"age"`
 	// Tags
@@ -1610,7 +1628,7 @@ type Dealer struct {
 	// 介紹
 	Intro *Article `protobuf:"bytes,5,opt,name=intro,proto3" json:"intro" bson:"intro" yaml:"intro"`
 	// 貼文
-	Posts []*Article `protobuf:"bytes,6,rep,name=posts,proto3" json:"posts" yaml:"posts" bson:"posts"`
+	Posts []*Article `protobuf:"bytes,6,rep,name=posts,proto3" json:"posts" bson:"posts" yaml:"posts"`
 	// 生日
 	Birthday string `protobuf:"bytes,7,opt,name=birthday,proto3" json:"birthday" bson:"birthday" yaml:"birthday"`
 	// 地區
@@ -1774,7 +1792,7 @@ type ListDealersResponse struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// 荷官資料
 	Dealers       []*Dealer `protobuf:"bytes,1,rep,name=dealers,proto3" json:"dealers" bson:"dealers" yaml:"dealers"`
-	Total         int64     `protobuf:"varint,2,opt,name=total,proto3" json:"total" yaml:"total" bson:"total"`
+	Total         int64     `protobuf:"varint,2,opt,name=total,proto3" json:"total" bson:"total" yaml:"total"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1919,7 +1937,8 @@ const file_recorder_provider_proto_rawDesc = "" +
 	"\x10LiveStreamParams\x12\x12\n" +
 	"\x04code\x18\x01 \x01(\tR\x04code\x12\x10\n" +
 	"\x03app\x18\x02 \x01(\tR\x03app\x12\x18\n" +
-	"\achannel\x18\x03 \x01(\tR\achannel\"\x83\b\n" +
+	"\achannel\x18\x03 \x01(\tR\achannel\"\xad\n" +
+	"\n" +
 	"\vGameProvide\x12\x1a\n" +
 	"\bsupplier\x18\x02 \x01(\tR\bsupplier\x12\x1b\n" +
 	"\tgame_type\x18\x03 \x01(\tR\bgameType\x12!\n" +
@@ -1929,7 +1948,9 @@ const file_recorder_provider_proto_rawDesc = "" +
 	"\x05state\x18\x11 \x01(\x0e2\x1a.recorder.GameProvideStateR\x05state\x12<\n" +
 	"\aplayers\x18\x19 \x03(\v2\".recorder.GameProvide.PlayersEntryR\aplayers\x12I\n" +
 	"\fplayers_name\x18\x1e \x03(\v2&.recorder.GameProvide.PlayersNameEntryR\vplayersName\x12O\n" +
-	"\x0eplayers_avatar\x18\x1f \x03(\v2(.recorder.GameProvide.PlayersAvatarEntryR\rplayersAvatar\x129\n" +
+	"\x0eplayers_avatar\x18\x1f \x03(\v2(.recorder.GameProvide.PlayersAvatarEntryR\rplayersAvatar\x12L\n" +
+	"\rplayers_birth\x18  \x03(\v2'.recorder.GameProvide.PlayersBirthEntryR\fplayersBirth\x12U\n" +
+	"\x10players_location\x18! \x03(\v2*.recorder.GameProvide.PlayersLocationEntryR\x0fplayersLocation\x129\n" +
 	"\x06medias\x18\x1c \x03(\v2!.recorder.GameProvide.MediasEntryR\x06medias\x12I\n" +
 	"\flive_streams\x18\x1d \x03(\v2&.recorder.GameProvide.LiveStreamsEntryR\vliveStreams\x12&\n" +
 	"\x0flast_round_code\x18\f \x01(\tR\rlastRoundCode\x1a7\n" +
@@ -1943,6 +1964,12 @@ const file_recorder_provider_proto_rawDesc = "" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\x1a@\n" +
 	"\x12PlayersAvatarEntry\x12\x10\n" +
+	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\x1a?\n" +
+	"\x11PlayersBirthEntry\x12\x10\n" +
+	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\x1aB\n" +
+	"\x14PlayersLocationEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\x1a9\n" +
 	"\vMediasEntry\x12\x10\n" +
@@ -2068,7 +2095,7 @@ func file_recorder_provider_proto_rawDescGZIP() []byte {
 }
 
 var file_recorder_provider_proto_enumTypes = make([]protoimpl.EnumInfo, 3)
-var file_recorder_provider_proto_msgTypes = make([]protoimpl.MessageInfo, 34)
+var file_recorder_provider_proto_msgTypes = make([]protoimpl.MessageInfo, 36)
 var file_recorder_provider_proto_goTypes = []any{
 	(RoundStatusType)(0),               // 0: recorder.RoundStatusType
 	(GameNotifyType)(0),                // 1: recorder.GameNotifyType
@@ -2101,92 +2128,96 @@ var file_recorder_provider_proto_goTypes = []any{
 	nil,                                // 28: recorder.GameProvide.PlayersEntry
 	nil,                                // 29: recorder.GameProvide.PlayersNameEntry
 	nil,                                // 30: recorder.GameProvide.PlayersAvatarEntry
-	nil,                                // 31: recorder.GameProvide.MediasEntry
-	nil,                                // 32: recorder.GameProvide.LiveStreamsEntry
-	nil,                                // 33: recorder.GamblerInstructionsRequest.InstructionsEntry
-	nil,                                // 34: recorder.Article.MediasEntry
-	nil,                                // 35: recorder.Article.SectionsEntry
-	nil,                                // 36: recorder.Dealer.TagsEntry
-	(*timestamppb.Timestamp)(nil),      // 37: google.protobuf.Timestamp
-	(games.GameType)(0),                // 38: games.GameType
-	(*ShiftRecord)(nil),                // 39: recorder.ShiftRecord
-	(*ShoeRecord)(nil),                 // 40: recorder.ShoeRecord
-	(*RoundRecord)(nil),                // 41: recorder.RoundRecord
-	(*Seat)(nil),                       // 42: recorder.Seat
-	(*emptypb.Empty)(nil),              // 43: google.protobuf.Empty
+	nil,                                // 31: recorder.GameProvide.PlayersBirthEntry
+	nil,                                // 32: recorder.GameProvide.PlayersLocationEntry
+	nil,                                // 33: recorder.GameProvide.MediasEntry
+	nil,                                // 34: recorder.GameProvide.LiveStreamsEntry
+	nil,                                // 35: recorder.GamblerInstructionsRequest.InstructionsEntry
+	nil,                                // 36: recorder.Article.MediasEntry
+	nil,                                // 37: recorder.Article.SectionsEntry
+	nil,                                // 38: recorder.Dealer.TagsEntry
+	(*timestamppb.Timestamp)(nil),      // 39: google.protobuf.Timestamp
+	(games.GameType)(0),                // 40: games.GameType
+	(*ShiftRecord)(nil),                // 41: recorder.ShiftRecord
+	(*ShoeRecord)(nil),                 // 42: recorder.ShoeRecord
+	(*RoundRecord)(nil),                // 43: recorder.RoundRecord
+	(*Seat)(nil),                       // 44: recorder.Seat
+	(*emptypb.Empty)(nil),              // 45: google.protobuf.Empty
 }
 var file_recorder_provider_proto_depIdxs = []int32{
-	37, // 0: recorder.ListRecordsRequest.ts_from:type_name -> google.protobuf.Timestamp
-	37, // 1: recorder.ListRecordsRequest.ts_to:type_name -> google.protobuf.Timestamp
-	38, // 2: recorder.ListRecordsRequest.game_type:type_name -> games.GameType
+	39, // 0: recorder.ListRecordsRequest.ts_from:type_name -> google.protobuf.Timestamp
+	39, // 1: recorder.ListRecordsRequest.ts_to:type_name -> google.protobuf.Timestamp
+	40, // 2: recorder.ListRecordsRequest.game_type:type_name -> games.GameType
 	0,  // 3: recorder.ListRecordsRequest.round_status_type:type_name -> recorder.RoundStatusType
-	39, // 4: recorder.ListShiftsResponse.shift_record:type_name -> recorder.ShiftRecord
-	40, // 5: recorder.ListShoesRecordResponse.shoe_record:type_name -> recorder.ShoeRecord
-	41, // 6: recorder.ListRoundsRecordResponse.round_record:type_name -> recorder.RoundRecord
-	37, // 7: recorder.GetRoundPlayBackResponse.ts_start:type_name -> google.protobuf.Timestamp
+	41, // 4: recorder.ListShiftsResponse.shift_record:type_name -> recorder.ShiftRecord
+	42, // 5: recorder.ListShoesRecordResponse.shoe_record:type_name -> recorder.ShoeRecord
+	43, // 6: recorder.ListRoundsRecordResponse.round_record:type_name -> recorder.RoundRecord
+	39, // 7: recorder.GetRoundPlayBackResponse.ts_start:type_name -> google.protobuf.Timestamp
 	24, // 8: recorder.GetRoundPlayBackResponse.medias:type_name -> recorder.GetRoundPlayBackResponse.MediasEntry
 	13, // 9: recorder.GetRoundsByShoeResponse.round_records:type_name -> recorder.RoundResult
-	37, // 10: recorder.RoundResult.ts_start:type_name -> google.protobuf.Timestamp
+	39, // 10: recorder.RoundResult.ts_start:type_name -> google.protobuf.Timestamp
 	25, // 11: recorder.RoundResult.seats:type_name -> recorder.RoundResult.SeatsEntry
-	37, // 12: recorder.RoundResult.ts_end:type_name -> google.protobuf.Timestamp
+	39, // 12: recorder.RoundResult.ts_end:type_name -> google.protobuf.Timestamp
 	26, // 13: recorder.RoundResult.medias:type_name -> recorder.RoundResult.MediasEntry
 	27, // 14: recorder.GameProvide.tags:type_name -> recorder.GameProvide.TagsEntry
 	2,  // 15: recorder.GameProvide.state:type_name -> recorder.GameProvideState
 	28, // 16: recorder.GameProvide.players:type_name -> recorder.GameProvide.PlayersEntry
 	29, // 17: recorder.GameProvide.players_name:type_name -> recorder.GameProvide.PlayersNameEntry
 	30, // 18: recorder.GameProvide.players_avatar:type_name -> recorder.GameProvide.PlayersAvatarEntry
-	31, // 19: recorder.GameProvide.medias:type_name -> recorder.GameProvide.MediasEntry
-	32, // 20: recorder.GameProvide.live_streams:type_name -> recorder.GameProvide.LiveStreamsEntry
-	15, // 21: recorder.ListGamesResponse.game_provides:type_name -> recorder.GameProvide
-	33, // 22: recorder.GamblerInstructionsRequest.instructions:type_name -> recorder.GamblerInstructionsRequest.InstructionsEntry
-	34, // 23: recorder.Article.medias:type_name -> recorder.Article.MediasEntry
-	35, // 24: recorder.Article.sections:type_name -> recorder.Article.SectionsEntry
-	36, // 25: recorder.Dealer.tags:type_name -> recorder.Dealer.TagsEntry
-	20, // 26: recorder.Dealer.intro:type_name -> recorder.Article
-	20, // 27: recorder.Dealer.posts:type_name -> recorder.Article
-	21, // 28: recorder.ListDealersResponse.dealers:type_name -> recorder.Dealer
-	42, // 29: recorder.RoundResult.SeatsEntry.value:type_name -> recorder.Seat
-	14, // 30: recorder.GameProvide.LiveStreamsEntry.value:type_name -> recorder.LiveStreamParams
-	20, // 31: recorder.Article.SectionsEntry.value:type_name -> recorder.Article
-	7,  // 32: recorder.RecorderReadService.ListShifts:input_type -> recorder.ListRecordsRequest
-	3,  // 33: recorder.RecorderReadService.GetShift:input_type -> recorder.GetRequest
-	5,  // 34: recorder.RecorderReadService.GetCurrentShift:input_type -> recorder.GetCurrentRecordRequest
-	7,  // 35: recorder.RecorderReadService.ListShoe:input_type -> recorder.ListRecordsRequest
-	3,  // 36: recorder.RecorderReadService.GetShoe:input_type -> recorder.GetRequest
-	5,  // 37: recorder.RecorderReadService.GetCurrentShoe:input_type -> recorder.GetCurrentRecordRequest
-	4,  // 38: recorder.RecorderReadService.GetRoundsByShoe:input_type -> recorder.GetRoundsByShoeRequest
-	7,  // 39: recorder.RecorderReadService.ListRounds:input_type -> recorder.ListRecordsRequest
-	3,  // 40: recorder.RecorderReadService.GetRound:input_type -> recorder.GetRequest
-	5,  // 41: recorder.RecorderReadService.GetCurrentRound:input_type -> recorder.GetCurrentRecordRequest
-	6,  // 42: recorder.RecorderReadService.GetPlayBackRound:input_type -> recorder.GetRoundPlayBackRequest
-	16, // 43: recorder.ProviderService.ListGames:input_type -> recorder.ListGamesRequest
-	3,  // 44: recorder.ProviderService.GetGames:input_type -> recorder.GetRequest
-	18, // 45: recorder.ProviderService.VerifyGame:input_type -> recorder.VerifyGameRequest
-	19, // 46: recorder.ProviderService.GamblerInstructions:input_type -> recorder.GamblerInstructionsRequest
-	22, // 47: recorder.ProviderService.ListDealers:input_type -> recorder.ListDealersRequest
-	3,  // 48: recorder.ProviderService.GetDealer:input_type -> recorder.GetRequest
-	8,  // 49: recorder.RecorderReadService.ListShifts:output_type -> recorder.ListShiftsResponse
-	39, // 50: recorder.RecorderReadService.GetShift:output_type -> recorder.ShiftRecord
-	39, // 51: recorder.RecorderReadService.GetCurrentShift:output_type -> recorder.ShiftRecord
-	9,  // 52: recorder.RecorderReadService.ListShoe:output_type -> recorder.ListShoesRecordResponse
-	40, // 53: recorder.RecorderReadService.GetShoe:output_type -> recorder.ShoeRecord
-	40, // 54: recorder.RecorderReadService.GetCurrentShoe:output_type -> recorder.ShoeRecord
-	12, // 55: recorder.RecorderReadService.GetRoundsByShoe:output_type -> recorder.GetRoundsByShoeResponse
-	10, // 56: recorder.RecorderReadService.ListRounds:output_type -> recorder.ListRoundsRecordResponse
-	41, // 57: recorder.RecorderReadService.GetRound:output_type -> recorder.RoundRecord
-	41, // 58: recorder.RecorderReadService.GetCurrentRound:output_type -> recorder.RoundRecord
-	11, // 59: recorder.RecorderReadService.GetPlayBackRound:output_type -> recorder.GetRoundPlayBackResponse
-	17, // 60: recorder.ProviderService.ListGames:output_type -> recorder.ListGamesResponse
-	15, // 61: recorder.ProviderService.GetGames:output_type -> recorder.GameProvide
-	43, // 62: recorder.ProviderService.VerifyGame:output_type -> google.protobuf.Empty
-	41, // 63: recorder.ProviderService.GamblerInstructions:output_type -> recorder.RoundRecord
-	23, // 64: recorder.ProviderService.ListDealers:output_type -> recorder.ListDealersResponse
-	21, // 65: recorder.ProviderService.GetDealer:output_type -> recorder.Dealer
-	49, // [49:66] is the sub-list for method output_type
-	32, // [32:49] is the sub-list for method input_type
-	32, // [32:32] is the sub-list for extension type_name
-	32, // [32:32] is the sub-list for extension extendee
-	0,  // [0:32] is the sub-list for field type_name
+	31, // 19: recorder.GameProvide.players_birth:type_name -> recorder.GameProvide.PlayersBirthEntry
+	32, // 20: recorder.GameProvide.players_location:type_name -> recorder.GameProvide.PlayersLocationEntry
+	33, // 21: recorder.GameProvide.medias:type_name -> recorder.GameProvide.MediasEntry
+	34, // 22: recorder.GameProvide.live_streams:type_name -> recorder.GameProvide.LiveStreamsEntry
+	15, // 23: recorder.ListGamesResponse.game_provides:type_name -> recorder.GameProvide
+	35, // 24: recorder.GamblerInstructionsRequest.instructions:type_name -> recorder.GamblerInstructionsRequest.InstructionsEntry
+	36, // 25: recorder.Article.medias:type_name -> recorder.Article.MediasEntry
+	37, // 26: recorder.Article.sections:type_name -> recorder.Article.SectionsEntry
+	38, // 27: recorder.Dealer.tags:type_name -> recorder.Dealer.TagsEntry
+	20, // 28: recorder.Dealer.intro:type_name -> recorder.Article
+	20, // 29: recorder.Dealer.posts:type_name -> recorder.Article
+	21, // 30: recorder.ListDealersResponse.dealers:type_name -> recorder.Dealer
+	44, // 31: recorder.RoundResult.SeatsEntry.value:type_name -> recorder.Seat
+	14, // 32: recorder.GameProvide.LiveStreamsEntry.value:type_name -> recorder.LiveStreamParams
+	20, // 33: recorder.Article.SectionsEntry.value:type_name -> recorder.Article
+	7,  // 34: recorder.RecorderReadService.ListShifts:input_type -> recorder.ListRecordsRequest
+	3,  // 35: recorder.RecorderReadService.GetShift:input_type -> recorder.GetRequest
+	5,  // 36: recorder.RecorderReadService.GetCurrentShift:input_type -> recorder.GetCurrentRecordRequest
+	7,  // 37: recorder.RecorderReadService.ListShoe:input_type -> recorder.ListRecordsRequest
+	3,  // 38: recorder.RecorderReadService.GetShoe:input_type -> recorder.GetRequest
+	5,  // 39: recorder.RecorderReadService.GetCurrentShoe:input_type -> recorder.GetCurrentRecordRequest
+	4,  // 40: recorder.RecorderReadService.GetRoundsByShoe:input_type -> recorder.GetRoundsByShoeRequest
+	7,  // 41: recorder.RecorderReadService.ListRounds:input_type -> recorder.ListRecordsRequest
+	3,  // 42: recorder.RecorderReadService.GetRound:input_type -> recorder.GetRequest
+	5,  // 43: recorder.RecorderReadService.GetCurrentRound:input_type -> recorder.GetCurrentRecordRequest
+	6,  // 44: recorder.RecorderReadService.GetPlayBackRound:input_type -> recorder.GetRoundPlayBackRequest
+	16, // 45: recorder.ProviderService.ListGames:input_type -> recorder.ListGamesRequest
+	3,  // 46: recorder.ProviderService.GetGames:input_type -> recorder.GetRequest
+	18, // 47: recorder.ProviderService.VerifyGame:input_type -> recorder.VerifyGameRequest
+	19, // 48: recorder.ProviderService.GamblerInstructions:input_type -> recorder.GamblerInstructionsRequest
+	22, // 49: recorder.ProviderService.ListDealers:input_type -> recorder.ListDealersRequest
+	3,  // 50: recorder.ProviderService.GetDealer:input_type -> recorder.GetRequest
+	8,  // 51: recorder.RecorderReadService.ListShifts:output_type -> recorder.ListShiftsResponse
+	41, // 52: recorder.RecorderReadService.GetShift:output_type -> recorder.ShiftRecord
+	41, // 53: recorder.RecorderReadService.GetCurrentShift:output_type -> recorder.ShiftRecord
+	9,  // 54: recorder.RecorderReadService.ListShoe:output_type -> recorder.ListShoesRecordResponse
+	42, // 55: recorder.RecorderReadService.GetShoe:output_type -> recorder.ShoeRecord
+	42, // 56: recorder.RecorderReadService.GetCurrentShoe:output_type -> recorder.ShoeRecord
+	12, // 57: recorder.RecorderReadService.GetRoundsByShoe:output_type -> recorder.GetRoundsByShoeResponse
+	10, // 58: recorder.RecorderReadService.ListRounds:output_type -> recorder.ListRoundsRecordResponse
+	43, // 59: recorder.RecorderReadService.GetRound:output_type -> recorder.RoundRecord
+	43, // 60: recorder.RecorderReadService.GetCurrentRound:output_type -> recorder.RoundRecord
+	11, // 61: recorder.RecorderReadService.GetPlayBackRound:output_type -> recorder.GetRoundPlayBackResponse
+	17, // 62: recorder.ProviderService.ListGames:output_type -> recorder.ListGamesResponse
+	15, // 63: recorder.ProviderService.GetGames:output_type -> recorder.GameProvide
+	45, // 64: recorder.ProviderService.VerifyGame:output_type -> google.protobuf.Empty
+	43, // 65: recorder.ProviderService.GamblerInstructions:output_type -> recorder.RoundRecord
+	23, // 66: recorder.ProviderService.ListDealers:output_type -> recorder.ListDealersResponse
+	21, // 67: recorder.ProviderService.GetDealer:output_type -> recorder.Dealer
+	51, // [51:68] is the sub-list for method output_type
+	34, // [34:51] is the sub-list for method input_type
+	34, // [34:34] is the sub-list for extension type_name
+	34, // [34:34] is the sub-list for extension extendee
+	0,  // [0:34] is the sub-list for field type_name
 }
 
 func init() { file_recorder_provider_proto_init() }
@@ -2203,7 +2234,7 @@ func file_recorder_provider_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_recorder_provider_proto_rawDesc), len(file_recorder_provider_proto_rawDesc)),
 			NumEnums:      3,
-			NumMessages:   34,
+			NumMessages:   36,
 			NumExtensions: 0,
 			NumServices:   2,
 		},
