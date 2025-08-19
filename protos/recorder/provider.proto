@@ -411,6 +411,9 @@ message GameProvide {
   // 玩家入座
   map<int32, string> players = 25;
 
+  // 玩家入座
+  map<int32, Dealer> dealers = 26;
+
   // 玩家姓名
   map<string, string> players_name = 30;
 
@@ -524,6 +527,9 @@ message Dealer {
 
   // 地區
   string location = 8;
+
+  // 頭像
+  string avatar = 9 ;
 }
 
 message ListDealersRequest {

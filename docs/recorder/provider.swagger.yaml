@@ -983,6 +983,9 @@ definitions:
       location:
         type: string
         title: 地區
+      avatar:
+        type: string
+        title: 頭像
     title: |-
       Dealer
       荷官資訊
@@ -1034,6 +1037,11 @@ definitions:
         type: object
         additionalProperties:
           type: string
+        title: 玩家入座
+      dealers:
+        type: object
+        additionalProperties:
+          $ref: '#/definitions/recorderDealer'
         title: 玩家入座
       playersName:
         type: object

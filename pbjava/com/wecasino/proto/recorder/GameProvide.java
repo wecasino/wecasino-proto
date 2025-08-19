@@ -51,6 +51,8 @@ private static final long serialVersionUID = 0L;
         return internalGetTags();
       case 25:
         return internalGetPlayers();
+      case 26:
+        return internalGetDealers();
       case 30:
         return internalGetPlayersName();
       case 31:
@@ -474,6 +476,101 @@ java.lang.String defaultValue) {
 
     java.util.Map<java.lang.Integer, java.lang.String> map =
         internalGetPlayers().getMap();
+    if (!map.containsKey(key)) {
+      throw new java.lang.IllegalArgumentException();
+    }
+    return map.get(key);
+  }
+
+  public static final int DEALERS_FIELD_NUMBER = 26;
+  private static final class DealersDefaultEntryHolder {
+    static final com.google.protobuf.MapEntry<
+        java.lang.Integer, com.wecasino.proto.recorder.Dealer> defaultEntry =
+            com.google.protobuf.MapEntry
+            .<java.lang.Integer, com.wecasino.proto.recorder.Dealer>newDefaultInstance(
+                com.wecasino.proto.recorder.ProviderProto.internal_static_recorder_GameProvide_DealersEntry_descriptor, 
+                com.google.protobuf.WireFormat.FieldType.INT32,
+                0,
+                com.google.protobuf.WireFormat.FieldType.MESSAGE,
+                com.wecasino.proto.recorder.Dealer.getDefaultInstance());
+  }
+  @SuppressWarnings("serial")
+  private com.google.protobuf.MapField<
+      java.lang.Integer, com.wecasino.proto.recorder.Dealer> dealers_;
+  private com.google.protobuf.MapField<java.lang.Integer, com.wecasino.proto.recorder.Dealer>
+  internalGetDealers() {
+    if (dealers_ == null) {
+      return com.google.protobuf.MapField.emptyMapField(
+          DealersDefaultEntryHolder.defaultEntry);
+    }
+    return dealers_;
+  }
+  public int getDealersCount() {
+    return internalGetDealers().getMap().size();
+  }
+  /**
+   * <pre>
+   * 玩家入座
+   * </pre>
+   *
+   * <code>map&lt;int32, .recorder.Dealer&gt; dealers = 26 [json_name = "dealers"];</code>
+   */
+  @java.lang.Override
+  public boolean containsDealers(
+      int key) {
+
+    return internalGetDealers().getMap().containsKey(key);
+  }
+  /**
+   * Use {@link #getDealersMap()} instead.
+   */
+  @java.lang.Override
+  @java.lang.Deprecated
+  public java.util.Map<java.lang.Integer, com.wecasino.proto.recorder.Dealer> getDealers() {
+    return getDealersMap();
+  }
+  /**
+   * <pre>
+   * 玩家入座
+   * </pre>
+   *
+   * <code>map&lt;int32, .recorder.Dealer&gt; dealers = 26 [json_name = "dealers"];</code>
+   */
+  @java.lang.Override
+  public java.util.Map<java.lang.Integer, com.wecasino.proto.recorder.Dealer> getDealersMap() {
+    return internalGetDealers().getMap();
+  }
+  /**
+   * <pre>
+   * 玩家入座
+   * </pre>
+   *
+   * <code>map&lt;int32, .recorder.Dealer&gt; dealers = 26 [json_name = "dealers"];</code>
+   */
+  @java.lang.Override
+  public /* nullable */
+com.wecasino.proto.recorder.Dealer getDealersOrDefault(
+      int key,
+      /* nullable */
+com.wecasino.proto.recorder.Dealer defaultValue) {
+
+    java.util.Map<java.lang.Integer, com.wecasino.proto.recorder.Dealer> map =
+        internalGetDealers().getMap();
+    return map.containsKey(key) ? map.get(key) : defaultValue;
+  }
+  /**
+   * <pre>
+   * 玩家入座
+   * </pre>
+   *
+   * <code>map&lt;int32, .recorder.Dealer&gt; dealers = 26 [json_name = "dealers"];</code>
+   */
+  @java.lang.Override
+  public com.wecasino.proto.recorder.Dealer getDealersOrThrow(
+      int key) {
+
+    java.util.Map<java.lang.Integer, com.wecasino.proto.recorder.Dealer> map =
+        internalGetDealers().getMap();
     if (!map.containsKey(key)) {
       throw new java.lang.IllegalArgumentException();
     }
@@ -1142,6 +1239,12 @@ com.wecasino.proto.recorder.LiveStreamParams defaultValue) {
         PlayersDefaultEntryHolder.defaultEntry,
         25);
     com.google.protobuf.GeneratedMessageV3
+      .serializeIntegerMapTo(
+        output,
+        internalGetDealers(),
+        DealersDefaultEntryHolder.defaultEntry,
+        26);
+    com.google.protobuf.GeneratedMessageV3
       .serializeStringMapTo(
         output,
         internalGetMedias(),
@@ -1224,6 +1327,16 @@ com.wecasino.proto.recorder.LiveStreamParams defaultValue) {
           .build();
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(25, players__);
+    }
+    for (java.util.Map.Entry<java.lang.Integer, com.wecasino.proto.recorder.Dealer> entry
+         : internalGetDealers().getMap().entrySet()) {
+      com.google.protobuf.MapEntry<java.lang.Integer, com.wecasino.proto.recorder.Dealer>
+      dealers__ = DealersDefaultEntryHolder.defaultEntry.newBuilderForType()
+          .setKey(entry.getKey())
+          .setValue(entry.getValue())
+          .build();
+      size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(26, dealers__);
     }
     for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
          : internalGetMedias().getMap().entrySet()) {
@@ -1313,6 +1426,8 @@ com.wecasino.proto.recorder.LiveStreamParams defaultValue) {
     if (state_ != other.state_) return false;
     if (!internalGetPlayers().equals(
         other.internalGetPlayers())) return false;
+    if (!internalGetDealers().equals(
+        other.internalGetDealers())) return false;
     if (!internalGetPlayersName().equals(
         other.internalGetPlayersName())) return false;
     if (!internalGetPlayersAvatar().equals(
@@ -1355,6 +1470,10 @@ com.wecasino.proto.recorder.LiveStreamParams defaultValue) {
     if (!internalGetPlayers().getMap().isEmpty()) {
       hash = (37 * hash) + PLAYERS_FIELD_NUMBER;
       hash = (53 * hash) + internalGetPlayers().hashCode();
+    }
+    if (!internalGetDealers().getMap().isEmpty()) {
+      hash = (37 * hash) + DEALERS_FIELD_NUMBER;
+      hash = (53 * hash) + internalGetDealers().hashCode();
     }
     if (!internalGetPlayersName().getMap().isEmpty()) {
       hash = (37 * hash) + PLAYERS_NAME_FIELD_NUMBER;
@@ -1504,6 +1623,8 @@ com.wecasino.proto.recorder.LiveStreamParams defaultValue) {
           return internalGetTags();
         case 25:
           return internalGetPlayers();
+        case 26:
+          return internalGetDealers();
         case 30:
           return internalGetPlayersName();
         case 31:
@@ -1529,6 +1650,8 @@ com.wecasino.proto.recorder.LiveStreamParams defaultValue) {
           return internalGetMutableTags();
         case 25:
           return internalGetMutablePlayers();
+        case 26:
+          return internalGetMutableDealers();
         case 30:
           return internalGetMutablePlayersName();
         case 31:
@@ -1575,6 +1698,7 @@ com.wecasino.proto.recorder.LiveStreamParams defaultValue) {
       internalGetMutableTags().clear();
       state_ = 0;
       internalGetMutablePlayers().clear();
+      internalGetMutableDealers().clear();
       internalGetMutablePlayersName().clear();
       internalGetMutablePlayersAvatar().clear();
       internalGetMutablePlayersBirth().clear();
@@ -1639,29 +1763,32 @@ com.wecasino.proto.recorder.LiveStreamParams defaultValue) {
         result.players_.makeImmutable();
       }
       if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.dealers_ = internalGetDealers().build(DealersDefaultEntryHolder.defaultEntry);
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
         result.playersName_ = internalGetPlayersName();
         result.playersName_.makeImmutable();
       }
-      if (((from_bitField0_ & 0x00000100) != 0)) {
+      if (((from_bitField0_ & 0x00000200) != 0)) {
         result.playersAvatar_ = internalGetPlayersAvatar();
         result.playersAvatar_.makeImmutable();
       }
-      if (((from_bitField0_ & 0x00000200) != 0)) {
+      if (((from_bitField0_ & 0x00000400) != 0)) {
         result.playersBirth_ = internalGetPlayersBirth();
         result.playersBirth_.makeImmutable();
       }
-      if (((from_bitField0_ & 0x00000400) != 0)) {
+      if (((from_bitField0_ & 0x00000800) != 0)) {
         result.playersLocation_ = internalGetPlayersLocation();
         result.playersLocation_.makeImmutable();
       }
-      if (((from_bitField0_ & 0x00000800) != 0)) {
+      if (((from_bitField0_ & 0x00001000) != 0)) {
         result.medias_ = internalGetMedias();
         result.medias_.makeImmutable();
       }
-      if (((from_bitField0_ & 0x00001000) != 0)) {
+      if (((from_bitField0_ & 0x00002000) != 0)) {
         result.liveStreams_ = internalGetLiveStreams().build(LiveStreamsDefaultEntryHolder.defaultEntry);
       }
-      if (((from_bitField0_ & 0x00002000) != 0)) {
+      if (((from_bitField0_ & 0x00004000) != 0)) {
         result.lastRoundCode_ = lastRoundCode_;
       }
     }
@@ -1739,27 +1866,30 @@ com.wecasino.proto.recorder.LiveStreamParams defaultValue) {
       internalGetMutablePlayers().mergeFrom(
           other.internalGetPlayers());
       bitField0_ |= 0x00000040;
+      internalGetMutableDealers().mergeFrom(
+          other.internalGetDealers());
+      bitField0_ |= 0x00000080;
       internalGetMutablePlayersName().mergeFrom(
           other.internalGetPlayersName());
-      bitField0_ |= 0x00000080;
+      bitField0_ |= 0x00000100;
       internalGetMutablePlayersAvatar().mergeFrom(
           other.internalGetPlayersAvatar());
-      bitField0_ |= 0x00000100;
+      bitField0_ |= 0x00000200;
       internalGetMutablePlayersBirth().mergeFrom(
           other.internalGetPlayersBirth());
-      bitField0_ |= 0x00000200;
+      bitField0_ |= 0x00000400;
       internalGetMutablePlayersLocation().mergeFrom(
           other.internalGetPlayersLocation());
-      bitField0_ |= 0x00000400;
+      bitField0_ |= 0x00000800;
       internalGetMutableMedias().mergeFrom(
           other.internalGetMedias());
-      bitField0_ |= 0x00000800;
+      bitField0_ |= 0x00001000;
       internalGetMutableLiveStreams().mergeFrom(
           other.internalGetLiveStreams());
-      bitField0_ |= 0x00001000;
+      bitField0_ |= 0x00002000;
       if (!other.getLastRoundCode().isEmpty()) {
         lastRoundCode_ = other.lastRoundCode_;
-        bitField0_ |= 0x00002000;
+        bitField0_ |= 0x00004000;
         onChanged();
       }
       this.mergeUnknownFields(other.getUnknownFields());
@@ -1810,7 +1940,7 @@ com.wecasino.proto.recorder.LiveStreamParams defaultValue) {
             } // case 50
             case 98: {
               lastRoundCode_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00002000;
+              bitField0_ |= 0x00004000;
               break;
             } // case 98
             case 106: {
@@ -1836,13 +1966,22 @@ com.wecasino.proto.recorder.LiveStreamParams defaultValue) {
               bitField0_ |= 0x00000040;
               break;
             } // case 202
+            case 210: {
+              com.google.protobuf.MapEntry<java.lang.Integer, com.wecasino.proto.recorder.Dealer>
+              dealers__ = input.readMessage(
+                  DealersDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableDealers().ensureBuilderMap().put(
+                  dealers__.getKey(), dealers__.getValue());
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 210
             case 226: {
               com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
               medias__ = input.readMessage(
                   MediasDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
               internalGetMutableMedias().getMutableMap().put(
                   medias__.getKey(), medias__.getValue());
-              bitField0_ |= 0x00000800;
+              bitField0_ |= 0x00001000;
               break;
             } // case 226
             case 234: {
@@ -1851,7 +1990,7 @@ com.wecasino.proto.recorder.LiveStreamParams defaultValue) {
                   LiveStreamsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
               internalGetMutableLiveStreams().ensureBuilderMap().put(
                   liveStreams__.getKey(), liveStreams__.getValue());
-              bitField0_ |= 0x00001000;
+              bitField0_ |= 0x00002000;
               break;
             } // case 234
             case 242: {
@@ -1860,7 +1999,7 @@ com.wecasino.proto.recorder.LiveStreamParams defaultValue) {
                   PlayersNameDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
               internalGetMutablePlayersName().getMutableMap().put(
                   playersName__.getKey(), playersName__.getValue());
-              bitField0_ |= 0x00000080;
+              bitField0_ |= 0x00000100;
               break;
             } // case 242
             case 250: {
@@ -1869,7 +2008,7 @@ com.wecasino.proto.recorder.LiveStreamParams defaultValue) {
                   PlayersAvatarDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
               internalGetMutablePlayersAvatar().getMutableMap().put(
                   playersAvatar__.getKey(), playersAvatar__.getValue());
-              bitField0_ |= 0x00000100;
+              bitField0_ |= 0x00000200;
               break;
             } // case 250
             case 258: {
@@ -1878,7 +2017,7 @@ com.wecasino.proto.recorder.LiveStreamParams defaultValue) {
                   PlayersBirthDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
               internalGetMutablePlayersBirth().getMutableMap().put(
                   playersBirth__.getKey(), playersBirth__.getValue());
-              bitField0_ |= 0x00000200;
+              bitField0_ |= 0x00000400;
               break;
             } // case 258
             case 266: {
@@ -1887,7 +2026,7 @@ com.wecasino.proto.recorder.LiveStreamParams defaultValue) {
                   PlayersLocationDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
               internalGetMutablePlayersLocation().getMutableMap().put(
                   playersLocation__.getKey(), playersLocation__.getValue());
-              bitField0_ |= 0x00000400;
+              bitField0_ |= 0x00000800;
               break;
             } // case 266
             default: {
@@ -2658,6 +2797,193 @@ java.lang.String defaultValue) {
       return this;
     }
 
+    private static final class DealersConverter implements com.google.protobuf.MapFieldBuilder.Converter<java.lang.Integer, com.wecasino.proto.recorder.DealerOrBuilder, com.wecasino.proto.recorder.Dealer> {
+      @java.lang.Override
+      public com.wecasino.proto.recorder.Dealer build(com.wecasino.proto.recorder.DealerOrBuilder val) {
+        if (val instanceof com.wecasino.proto.recorder.Dealer) { return (com.wecasino.proto.recorder.Dealer) val; }
+        return ((com.wecasino.proto.recorder.Dealer.Builder) val).build();
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.MapEntry<java.lang.Integer, com.wecasino.proto.recorder.Dealer> defaultEntry() {
+        return DealersDefaultEntryHolder.defaultEntry;
+      }
+    };
+    private static final DealersConverter dealersConverter = new DealersConverter();
+
+    private com.google.protobuf.MapFieldBuilder<
+        java.lang.Integer, com.wecasino.proto.recorder.DealerOrBuilder, com.wecasino.proto.recorder.Dealer, com.wecasino.proto.recorder.Dealer.Builder> dealers_;
+    private com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.wecasino.proto.recorder.DealerOrBuilder, com.wecasino.proto.recorder.Dealer, com.wecasino.proto.recorder.Dealer.Builder>
+        internalGetDealers() {
+      if (dealers_ == null) {
+        return new com.google.protobuf.MapFieldBuilder<>(dealersConverter);
+      }
+      return dealers_;
+    }
+    private com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.wecasino.proto.recorder.DealerOrBuilder, com.wecasino.proto.recorder.Dealer, com.wecasino.proto.recorder.Dealer.Builder>
+        internalGetMutableDealers() {
+      if (dealers_ == null) {
+        dealers_ = new com.google.protobuf.MapFieldBuilder<>(dealersConverter);
+      }
+      bitField0_ |= 0x00000080;
+      onChanged();
+      return dealers_;
+    }
+    public int getDealersCount() {
+      return internalGetDealers().ensureBuilderMap().size();
+    }
+    /**
+     * <pre>
+     * 玩家入座
+     * </pre>
+     *
+     * <code>map&lt;int32, .recorder.Dealer&gt; dealers = 26 [json_name = "dealers"];</code>
+     */
+    @java.lang.Override
+    public boolean containsDealers(
+        int key) {
+
+      return internalGetDealers().ensureBuilderMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getDealersMap()} instead.
+     */
+    @java.lang.Override
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.Integer, com.wecasino.proto.recorder.Dealer> getDealers() {
+      return getDealersMap();
+    }
+    /**
+     * <pre>
+     * 玩家入座
+     * </pre>
+     *
+     * <code>map&lt;int32, .recorder.Dealer&gt; dealers = 26 [json_name = "dealers"];</code>
+     */
+    @java.lang.Override
+    public java.util.Map<java.lang.Integer, com.wecasino.proto.recorder.Dealer> getDealersMap() {
+      return internalGetDealers().getImmutableMap();
+    }
+    /**
+     * <pre>
+     * 玩家入座
+     * </pre>
+     *
+     * <code>map&lt;int32, .recorder.Dealer&gt; dealers = 26 [json_name = "dealers"];</code>
+     */
+    @java.lang.Override
+    public /* nullable */
+com.wecasino.proto.recorder.Dealer getDealersOrDefault(
+        int key,
+        /* nullable */
+com.wecasino.proto.recorder.Dealer defaultValue) {
+
+      java.util.Map<java.lang.Integer, com.wecasino.proto.recorder.DealerOrBuilder> map = internalGetMutableDealers().ensureBuilderMap();
+      return map.containsKey(key) ? dealersConverter.build(map.get(key)) : defaultValue;
+    }
+    /**
+     * <pre>
+     * 玩家入座
+     * </pre>
+     *
+     * <code>map&lt;int32, .recorder.Dealer&gt; dealers = 26 [json_name = "dealers"];</code>
+     */
+    @java.lang.Override
+    public com.wecasino.proto.recorder.Dealer getDealersOrThrow(
+        int key) {
+
+      java.util.Map<java.lang.Integer, com.wecasino.proto.recorder.DealerOrBuilder> map = internalGetMutableDealers().ensureBuilderMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return dealersConverter.build(map.get(key));
+    }
+    public Builder clearDealers() {
+      bitField0_ = (bitField0_ & ~0x00000080);
+      internalGetMutableDealers().clear();
+      return this;
+    }
+    /**
+     * <pre>
+     * 玩家入座
+     * </pre>
+     *
+     * <code>map&lt;int32, .recorder.Dealer&gt; dealers = 26 [json_name = "dealers"];</code>
+     */
+    public Builder removeDealers(
+        int key) {
+
+      internalGetMutableDealers().ensureBuilderMap()
+          .remove(key);
+      return this;
+    }
+    /**
+     * Use alternate mutation accessors instead.
+     */
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.Integer, com.wecasino.proto.recorder.Dealer>
+        getMutableDealers() {
+      bitField0_ |= 0x00000080;
+      return internalGetMutableDealers().ensureMessageMap();
+    }
+    /**
+     * <pre>
+     * 玩家入座
+     * </pre>
+     *
+     * <code>map&lt;int32, .recorder.Dealer&gt; dealers = 26 [json_name = "dealers"];</code>
+     */
+    public Builder putDealers(
+        int key,
+        com.wecasino.proto.recorder.Dealer value) {
+
+      if (value == null) { throw new NullPointerException("map value"); }
+      internalGetMutableDealers().ensureBuilderMap()
+          .put(key, value);
+      bitField0_ |= 0x00000080;
+      return this;
+    }
+    /**
+     * <pre>
+     * 玩家入座
+     * </pre>
+     *
+     * <code>map&lt;int32, .recorder.Dealer&gt; dealers = 26 [json_name = "dealers"];</code>
+     */
+    public Builder putAllDealers(
+        java.util.Map<java.lang.Integer, com.wecasino.proto.recorder.Dealer> values) {
+      for (java.util.Map.Entry<java.lang.Integer, com.wecasino.proto.recorder.Dealer> e : values.entrySet()) {
+        if (e.getKey() == null || e.getValue() == null) {
+          throw new NullPointerException();
+        }
+      }
+      internalGetMutableDealers().ensureBuilderMap()
+          .putAll(values);
+      bitField0_ |= 0x00000080;
+      return this;
+    }
+    /**
+     * <pre>
+     * 玩家入座
+     * </pre>
+     *
+     * <code>map&lt;int32, .recorder.Dealer&gt; dealers = 26 [json_name = "dealers"];</code>
+     */
+    public com.wecasino.proto.recorder.Dealer.Builder putDealersBuilderIfAbsent(
+        int key) {
+      java.util.Map<java.lang.Integer, com.wecasino.proto.recorder.DealerOrBuilder> builderMap = internalGetMutableDealers().ensureBuilderMap();
+      com.wecasino.proto.recorder.DealerOrBuilder entry = builderMap.get(key);
+      if (entry == null) {
+        entry = com.wecasino.proto.recorder.Dealer.newBuilder();
+        builderMap.put(key, entry);
+      }
+      if (entry instanceof com.wecasino.proto.recorder.Dealer) {
+        entry = ((com.wecasino.proto.recorder.Dealer) entry).toBuilder();
+        builderMap.put(key, entry);
+      }
+      return (com.wecasino.proto.recorder.Dealer.Builder) entry;
+    }
+
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> playersName_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -2677,7 +3003,7 @@ java.lang.String defaultValue) {
       if (!playersName_.isMutable()) {
         playersName_ = playersName_.copy();
       }
-      bitField0_ |= 0x00000080;
+      bitField0_ |= 0x00000100;
       onChanged();
       return playersName_;
     }
@@ -2753,7 +3079,7 @@ java.lang.String defaultValue) {
       return map.get(key);
     }
     public Builder clearPlayersName() {
-      bitField0_ = (bitField0_ & ~0x00000080);
+      bitField0_ = (bitField0_ & ~0x00000100);
       internalGetMutablePlayersName().getMutableMap()
           .clear();
       return this;
@@ -2778,7 +3104,7 @@ java.lang.String defaultValue) {
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
         getMutablePlayersName() {
-      bitField0_ |= 0x00000080;
+      bitField0_ |= 0x00000100;
       return internalGetMutablePlayersName().getMutableMap();
     }
     /**
@@ -2795,7 +3121,7 @@ java.lang.String defaultValue) {
       if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutablePlayersName().getMutableMap()
           .put(key, value);
-      bitField0_ |= 0x00000080;
+      bitField0_ |= 0x00000100;
       return this;
     }
     /**
@@ -2809,7 +3135,7 @@ java.lang.String defaultValue) {
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutablePlayersName().getMutableMap()
           .putAll(values);
-      bitField0_ |= 0x00000080;
+      bitField0_ |= 0x00000100;
       return this;
     }
 
@@ -2832,7 +3158,7 @@ java.lang.String defaultValue) {
       if (!playersAvatar_.isMutable()) {
         playersAvatar_ = playersAvatar_.copy();
       }
-      bitField0_ |= 0x00000100;
+      bitField0_ |= 0x00000200;
       onChanged();
       return playersAvatar_;
     }
@@ -2908,7 +3234,7 @@ java.lang.String defaultValue) {
       return map.get(key);
     }
     public Builder clearPlayersAvatar() {
-      bitField0_ = (bitField0_ & ~0x00000100);
+      bitField0_ = (bitField0_ & ~0x00000200);
       internalGetMutablePlayersAvatar().getMutableMap()
           .clear();
       return this;
@@ -2933,7 +3259,7 @@ java.lang.String defaultValue) {
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
         getMutablePlayersAvatar() {
-      bitField0_ |= 0x00000100;
+      bitField0_ |= 0x00000200;
       return internalGetMutablePlayersAvatar().getMutableMap();
     }
     /**
@@ -2950,7 +3276,7 @@ java.lang.String defaultValue) {
       if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutablePlayersAvatar().getMutableMap()
           .put(key, value);
-      bitField0_ |= 0x00000100;
+      bitField0_ |= 0x00000200;
       return this;
     }
     /**
@@ -2964,7 +3290,7 @@ java.lang.String defaultValue) {
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutablePlayersAvatar().getMutableMap()
           .putAll(values);
-      bitField0_ |= 0x00000100;
+      bitField0_ |= 0x00000200;
       return this;
     }
 
@@ -2987,7 +3313,7 @@ java.lang.String defaultValue) {
       if (!playersBirth_.isMutable()) {
         playersBirth_ = playersBirth_.copy();
       }
-      bitField0_ |= 0x00000200;
+      bitField0_ |= 0x00000400;
       onChanged();
       return playersBirth_;
     }
@@ -3063,7 +3389,7 @@ java.lang.String defaultValue) {
       return map.get(key);
     }
     public Builder clearPlayersBirth() {
-      bitField0_ = (bitField0_ & ~0x00000200);
+      bitField0_ = (bitField0_ & ~0x00000400);
       internalGetMutablePlayersBirth().getMutableMap()
           .clear();
       return this;
@@ -3088,7 +3414,7 @@ java.lang.String defaultValue) {
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
         getMutablePlayersBirth() {
-      bitField0_ |= 0x00000200;
+      bitField0_ |= 0x00000400;
       return internalGetMutablePlayersBirth().getMutableMap();
     }
     /**
@@ -3105,7 +3431,7 @@ java.lang.String defaultValue) {
       if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutablePlayersBirth().getMutableMap()
           .put(key, value);
-      bitField0_ |= 0x00000200;
+      bitField0_ |= 0x00000400;
       return this;
     }
     /**
@@ -3119,7 +3445,7 @@ java.lang.String defaultValue) {
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutablePlayersBirth().getMutableMap()
           .putAll(values);
-      bitField0_ |= 0x00000200;
+      bitField0_ |= 0x00000400;
       return this;
     }
 
@@ -3142,7 +3468,7 @@ java.lang.String defaultValue) {
       if (!playersLocation_.isMutable()) {
         playersLocation_ = playersLocation_.copy();
       }
-      bitField0_ |= 0x00000400;
+      bitField0_ |= 0x00000800;
       onChanged();
       return playersLocation_;
     }
@@ -3218,7 +3544,7 @@ java.lang.String defaultValue) {
       return map.get(key);
     }
     public Builder clearPlayersLocation() {
-      bitField0_ = (bitField0_ & ~0x00000400);
+      bitField0_ = (bitField0_ & ~0x00000800);
       internalGetMutablePlayersLocation().getMutableMap()
           .clear();
       return this;
@@ -3243,7 +3569,7 @@ java.lang.String defaultValue) {
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
         getMutablePlayersLocation() {
-      bitField0_ |= 0x00000400;
+      bitField0_ |= 0x00000800;
       return internalGetMutablePlayersLocation().getMutableMap();
     }
     /**
@@ -3260,7 +3586,7 @@ java.lang.String defaultValue) {
       if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutablePlayersLocation().getMutableMap()
           .put(key, value);
-      bitField0_ |= 0x00000400;
+      bitField0_ |= 0x00000800;
       return this;
     }
     /**
@@ -3274,7 +3600,7 @@ java.lang.String defaultValue) {
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutablePlayersLocation().getMutableMap()
           .putAll(values);
-      bitField0_ |= 0x00000400;
+      bitField0_ |= 0x00000800;
       return this;
     }
 
@@ -3297,7 +3623,7 @@ java.lang.String defaultValue) {
       if (!medias_.isMutable()) {
         medias_ = medias_.copy();
       }
-      bitField0_ |= 0x00000800;
+      bitField0_ |= 0x00001000;
       onChanged();
       return medias_;
     }
@@ -3373,7 +3699,7 @@ java.lang.String defaultValue) {
       return map.get(key);
     }
     public Builder clearMedias() {
-      bitField0_ = (bitField0_ & ~0x00000800);
+      bitField0_ = (bitField0_ & ~0x00001000);
       internalGetMutableMedias().getMutableMap()
           .clear();
       return this;
@@ -3398,7 +3724,7 @@ java.lang.String defaultValue) {
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
         getMutableMedias() {
-      bitField0_ |= 0x00000800;
+      bitField0_ |= 0x00001000;
       return internalGetMutableMedias().getMutableMap();
     }
     /**
@@ -3415,7 +3741,7 @@ java.lang.String defaultValue) {
       if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableMedias().getMutableMap()
           .put(key, value);
-      bitField0_ |= 0x00000800;
+      bitField0_ |= 0x00001000;
       return this;
     }
     /**
@@ -3429,7 +3755,7 @@ java.lang.String defaultValue) {
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableMedias().getMutableMap()
           .putAll(values);
-      bitField0_ |= 0x00000800;
+      bitField0_ |= 0x00001000;
       return this;
     }
 
@@ -3461,7 +3787,7 @@ java.lang.String defaultValue) {
       if (liveStreams_ == null) {
         liveStreams_ = new com.google.protobuf.MapFieldBuilder<>(liveStreamsConverter);
       }
-      bitField0_ |= 0x00001000;
+      bitField0_ |= 0x00002000;
       onChanged();
       return liveStreams_;
     }
@@ -3535,7 +3861,7 @@ com.wecasino.proto.recorder.LiveStreamParams defaultValue) {
       return liveStreamsConverter.build(map.get(key));
     }
     public Builder clearLiveStreams() {
-      bitField0_ = (bitField0_ & ~0x00001000);
+      bitField0_ = (bitField0_ & ~0x00002000);
       internalGetMutableLiveStreams().clear();
       return this;
     }
@@ -3559,7 +3885,7 @@ com.wecasino.proto.recorder.LiveStreamParams defaultValue) {
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.wecasino.proto.recorder.LiveStreamParams>
         getMutableLiveStreams() {
-      bitField0_ |= 0x00001000;
+      bitField0_ |= 0x00002000;
       return internalGetMutableLiveStreams().ensureMessageMap();
     }
     /**
@@ -3576,7 +3902,7 @@ com.wecasino.proto.recorder.LiveStreamParams defaultValue) {
       if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableLiveStreams().ensureBuilderMap()
           .put(key, value);
-      bitField0_ |= 0x00001000;
+      bitField0_ |= 0x00002000;
       return this;
     }
     /**
@@ -3595,7 +3921,7 @@ com.wecasino.proto.recorder.LiveStreamParams defaultValue) {
       }
       internalGetMutableLiveStreams().ensureBuilderMap()
           .putAll(values);
-      bitField0_ |= 0x00001000;
+      bitField0_ |= 0x00002000;
       return this;
     }
     /**
@@ -3675,7 +4001,7 @@ com.wecasino.proto.recorder.LiveStreamParams defaultValue) {
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
       lastRoundCode_ = value;
-      bitField0_ |= 0x00002000;
+      bitField0_ |= 0x00004000;
       onChanged();
       return this;
     }
@@ -3689,7 +4015,7 @@ com.wecasino.proto.recorder.LiveStreamParams defaultValue) {
      */
     public Builder clearLastRoundCode() {
       lastRoundCode_ = getDefaultInstance().getLastRoundCode();
-      bitField0_ = (bitField0_ & ~0x00002000);
+      bitField0_ = (bitField0_ & ~0x00004000);
       onChanged();
       return this;
     }
@@ -3707,7 +4033,7 @@ com.wecasino.proto.recorder.LiveStreamParams defaultValue) {
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
       lastRoundCode_ = value;
-      bitField0_ |= 0x00002000;
+      bitField0_ |= 0x00004000;
       onChanged();
       return this;
     }

@@ -275,7 +275,7 @@ func (GameProvideState) EnumDescriptor() ([]byte, []int) {
 type GetRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// 資源代碼
-	Code          string `protobuf:"bytes,1,opt,name=code,proto3" json:"code" bson:"code" yaml:"code"`
+	Code          string `protobuf:"bytes,1,opt,name=code,proto3" json:"code,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -320,7 +320,7 @@ func (x *GetRequest) GetCode() string {
 type GetRoundsByShoeRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// 資源代碼
-	ShoeCode      string `protobuf:"bytes,1,opt,name=shoe_code,json=shoeCode,proto3" json:"shoeCode" bson:"shoeCode" yaml:"shoeCode"`
+	ShoeCode      string `protobuf:"bytes,1,opt,name=shoe_code,json=shoeCode,proto3" json:"shoe_code,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -365,7 +365,7 @@ func (x *GetRoundsByShoeRequest) GetShoeCode() string {
 type GetCurrentRecordRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// 遊戲代碼
-	GameCode      string `protobuf:"bytes,1,opt,name=game_code,json=gameCode,proto3" json:"gameCode" yaml:"gameCode" bson:"gameCode"`
+	GameCode      string `protobuf:"bytes,1,opt,name=game_code,json=gameCode,proto3" json:"game_code,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -410,8 +410,8 @@ func (x *GetCurrentRecordRequest) GetGameCode() string {
 type GetRoundPlayBackRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// 資源代碼
-	Code          string `protobuf:"bytes,1,opt,name=code,proto3" json:"code" bson:"code" yaml:"code"`
-	Platform      string `protobuf:"bytes,2,opt,name=platform,proto3" json:"platform" bson:"platform" yaml:"platform"`
+	Code          string `protobuf:"bytes,1,opt,name=code,proto3" json:"code,omitempty"`
+	Platform      string `protobuf:"bytes,2,opt,name=platform,proto3" json:"platform,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -463,26 +463,26 @@ func (x *GetRoundPlayBackRequest) GetPlatform() string {
 type ListRecordsRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// 查詢起時
-	TsFrom *timestamppb.Timestamp `protobuf:"bytes,1,opt,name=ts_from,json=tsFrom,proto3" json:"tsFrom" bson:"tsFrom" yaml:"tsFrom"`
+	TsFrom *timestamppb.Timestamp `protobuf:"bytes,1,opt,name=ts_from,json=tsFrom,proto3" json:"ts_from,omitempty"`
 	// 查詢終時
-	TsTo *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=ts_to,json=tsTo,proto3" json:"tsTo" bson:"tsTo" yaml:"tsTo"`
+	TsTo *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=ts_to,json=tsTo,proto3" json:"ts_to,omitempty"`
 	// 遊戲類型
-	GameType *games.GameType `protobuf:"varint,3,opt,name=game_type,json=gameType,proto3,enum=games.GameType,oneof" json:"gameType" bson:"gameType" yaml:"gameType"`
+	GameType *games.GameType `protobuf:"varint,3,opt,name=game_type,json=gameType,proto3,enum=games.GameType,oneof" json:"game_type,omitempty"`
 	// 遊戲子類型
-	GameSubtype *int32 `protobuf:"varint,4,opt,name=game_subtype,json=gameSubtype,proto3,oneof" json:"gameSubtype" bson:"gameSubtype" yaml:"gameSubtype"`
+	GameSubtype *int32 `protobuf:"varint,4,opt,name=game_subtype,json=gameSubtype,proto3,oneof" json:"game_subtype,omitempty"`
 	// 遊戲供應
-	Supplier *string `protobuf:"bytes,5,opt,name=supplier,proto3,oneof" json:"supplier" bson:"supplier" yaml:"supplier"`
+	Supplier *string `protobuf:"bytes,5,opt,name=supplier,proto3,oneof" json:"supplier,omitempty"`
 	// 遊戲代碼
-	GameCode *string `protobuf:"bytes,6,opt,name=game_code,json=gameCode,proto3,oneof" json:"gameCode" yaml:"gameCode" bson:"gameCode"`
+	GameCode *string `protobuf:"bytes,6,opt,name=game_code,json=gameCode,proto3,oneof" json:"game_code,omitempty"`
 	// pagination next page
-	SearchAfter *string `protobuf:"bytes,8,opt,name=search_after,json=searchAfter,proto3,oneof" json:"searchAfter" bson:"searchAfter" yaml:"searchAfter"`
+	SearchAfter *string `protobuf:"bytes,8,opt,name=search_after,json=searchAfter,proto3,oneof" json:"search_after,omitempty"`
 	// pagination previous page
-	SearchBefore *string `protobuf:"bytes,9,opt,name=search_before,json=searchBefore,proto3,oneof" json:"searchBefore" bson:"searchBefore" yaml:"searchBefore"`
+	SearchBefore *string `protobuf:"bytes,9,opt,name=search_before,json=searchBefore,proto3,oneof" json:"search_before,omitempty"`
 	// 頁數 1開始，0表示未填，改為1
-	Page int64 `protobuf:"varint,10,opt,name=page,proto3" json:"page" bson:"page" yaml:"page"`
+	Page int64 `protobuf:"varint,10,opt,name=page,proto3" json:"page,omitempty"`
 	// 每頁筆數
-	PageSize        int64           `protobuf:"varint,11,opt,name=page_size,json=pageSize,proto3" json:"pageSize" bson:"pageSize" yaml:"pageSize"`
-	RoundStatusType RoundStatusType `protobuf:"varint,12,opt,name=round_status_type,json=roundStatusType,proto3,enum=recorder.RoundStatusType" json:"roundStatusType" bson:"roundStatusType" yaml:"roundStatusType"`
+	PageSize        int64           `protobuf:"varint,11,opt,name=page_size,json=pageSize,proto3" json:"page_size,omitempty"`
+	RoundStatusType RoundStatusType `protobuf:"varint,12,opt,name=round_status_type,json=roundStatusType,proto3,enum=recorder.RoundStatusType" json:"round_status_type,omitempty"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
 }
@@ -599,13 +599,13 @@ func (x *ListRecordsRequest) GetRoundStatusType() RoundStatusType {
 type ListShiftsResponse struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// shifts
-	ShiftRecord []*ShiftRecord `protobuf:"bytes,1,rep,name=shift_record,json=shiftRecord,proto3" json:"shiftRecord" yaml:"shiftRecord" bson:"shiftRecord"`
+	ShiftRecord []*ShiftRecord `protobuf:"bytes,1,rep,name=shift_record,json=shiftRecord,proto3" json:"shift_record,omitempty"`
 	// 總數
-	Total int64 `protobuf:"varint,2,opt,name=total,proto3" json:"total" bson:"total" yaml:"total"`
+	Total int64 `protobuf:"varint,2,opt,name=total,proto3" json:"total,omitempty"`
 	// pagination next page
-	SearchAfter string `protobuf:"bytes,8,opt,name=search_after,json=searchAfter,proto3" json:"searchAfter" bson:"searchAfter" yaml:"searchAfter"`
+	SearchAfter string `protobuf:"bytes,8,opt,name=search_after,json=searchAfter,proto3" json:"search_after,omitempty"`
 	// pagination previous page
-	SearchBefore  string `protobuf:"bytes,9,opt,name=search_before,json=searchBefore,proto3" json:"searchBefore" bson:"searchBefore" yaml:"searchBefore"`
+	SearchBefore  string `protobuf:"bytes,9,opt,name=search_before,json=searchBefore,proto3" json:"search_before,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -673,13 +673,13 @@ func (x *ListShiftsResponse) GetSearchBefore() string {
 type ListShoesRecordResponse struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// shoes
-	ShoeRecord []*ShoeRecord `protobuf:"bytes,1,rep,name=shoe_record,json=shoeRecord,proto3" json:"shoeRecord" bson:"shoeRecord" yaml:"shoeRecord"`
+	ShoeRecord []*ShoeRecord `protobuf:"bytes,1,rep,name=shoe_record,json=shoeRecord,proto3" json:"shoe_record,omitempty"`
 	// 總數
-	Total int64 `protobuf:"varint,2,opt,name=total,proto3" json:"total" bson:"total" yaml:"total"`
+	Total int64 `protobuf:"varint,2,opt,name=total,proto3" json:"total,omitempty"`
 	// pagination next page
-	SearchAfter string `protobuf:"bytes,8,opt,name=search_after,json=searchAfter,proto3" json:"searchAfter" yaml:"searchAfter" bson:"searchAfter"`
+	SearchAfter string `protobuf:"bytes,8,opt,name=search_after,json=searchAfter,proto3" json:"search_after,omitempty"`
 	// pagination previous page
-	SearchBefore  string `protobuf:"bytes,9,opt,name=search_before,json=searchBefore,proto3" json:"searchBefore" bson:"searchBefore" yaml:"searchBefore"`
+	SearchBefore  string `protobuf:"bytes,9,opt,name=search_before,json=searchBefore,proto3" json:"search_before,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -747,13 +747,13 @@ func (x *ListShoesRecordResponse) GetSearchBefore() string {
 type ListRoundsRecordResponse struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// rounds
-	RoundRecord []*RoundRecord `protobuf:"bytes,1,rep,name=round_record,json=roundRecord,proto3" json:"roundRecord" yaml:"roundRecord" bson:"roundRecord"`
+	RoundRecord []*RoundRecord `protobuf:"bytes,1,rep,name=round_record,json=roundRecord,proto3" json:"round_record,omitempty"`
 	// 總數
-	Total int64 `protobuf:"varint,2,opt,name=total,proto3" json:"total" yaml:"total" bson:"total"`
+	Total int64 `protobuf:"varint,2,opt,name=total,proto3" json:"total,omitempty"`
 	// pagination next page
-	SearchAfter string `protobuf:"bytes,8,opt,name=search_after,json=searchAfter,proto3" json:"searchAfter" bson:"searchAfter" yaml:"searchAfter"`
+	SearchAfter string `protobuf:"bytes,8,opt,name=search_after,json=searchAfter,proto3" json:"search_after,omitempty"`
 	// pagination previous page
-	SearchBefore  string `protobuf:"bytes,9,opt,name=search_before,json=searchBefore,proto3" json:"searchBefore" bson:"searchBefore" yaml:"searchBefore"`
+	SearchBefore  string `protobuf:"bytes,9,opt,name=search_before,json=searchBefore,proto3" json:"search_before,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -821,11 +821,11 @@ func (x *ListRoundsRecordResponse) GetSearchBefore() string {
 type GetRoundPlayBackResponse struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// round code
-	RoundCode string `protobuf:"bytes,1,opt,name=round_code,json=roundCode,proto3" json:"roundCode" bson:"roundCode" yaml:"roundCode"`
+	RoundCode string `protobuf:"bytes,1,opt,name=round_code,json=roundCode,proto3" json:"round_code,omitempty"`
 	// 開始時間
-	TsStart *timestamppb.Timestamp `protobuf:"bytes,16,opt,name=ts_start,json=tsStart,proto3" json:"tsStart" bson:"tsStart" yaml:"tsStart"`
+	TsStart *timestamppb.Timestamp `protobuf:"bytes,16,opt,name=ts_start,json=tsStart,proto3" json:"ts_start,omitempty"`
 	// 回放url
-	Medias        map[string]string `protobuf:"bytes,28,rep,name=medias,proto3" json:"medias" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value" bson:"medias" yaml:"medias"`
+	Medias        map[string]string `protobuf:"bytes,28,rep,name=medias,proto3" json:"medias,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -884,7 +884,7 @@ func (x *GetRoundPlayBackResponse) GetMedias() map[string]string {
 type GetRoundsByShoeResponse struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// roundResults
-	RoundRecords  []*RoundResult `protobuf:"bytes,1,rep,name=round_records,json=roundRecords,proto3" json:"roundRecords" bson:"roundRecords" yaml:"roundRecords"`
+	RoundRecords  []*RoundResult `protobuf:"bytes,1,rep,name=round_records,json=roundRecords,proto3" json:"round_records,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -929,34 +929,34 @@ func (x *GetRoundsByShoeResponse) GetRoundRecords() []*RoundResult {
 type RoundResult struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// 遊戲代碼
-	GameCode string `protobuf:"bytes,6,opt,name=game_code,json=gameCode,proto3" json:"gameCode" bson:"gameCode" yaml:"gameCode"`
+	GameCode string `protobuf:"bytes,6,opt,name=game_code,json=gameCode,proto3" json:"game_code,omitempty"`
 	// 班代碼
-	ShiftCode string `protobuf:"bytes,8,opt,name=shift_code,json=shiftCode,proto3" json:"shiftCode" bson:"shiftCode" yaml:"shiftCode"`
+	ShiftCode string `protobuf:"bytes,8,opt,name=shift_code,json=shiftCode,proto3" json:"shift_code,omitempty"`
 	// 此排班局數
-	ShiftRound int64 `protobuf:"varint,9,opt,name=shift_round,json=shiftRound,proto3" json:"shiftRound" bson:"shiftRound" yaml:"shiftRound"`
+	ShiftRound int64 `protobuf:"varint,9,opt,name=shift_round,json=shiftRound,proto3" json:"shift_round,omitempty"`
 	// 使用靴代碼
-	ShoeCode string `protobuf:"bytes,10,opt,name=shoe_code,json=shoeCode,proto3" json:"shoeCode" bson:"shoeCode" yaml:"shoeCode"`
+	ShoeCode string `protobuf:"bytes,10,opt,name=shoe_code,json=shoeCode,proto3" json:"shoe_code,omitempty"`
 	// 使用此洗牌第幾局，從1開始計算
-	ShoeRound int64 `protobuf:"varint,11,opt,name=shoe_round,json=shoeRound,proto3" json:"shoeRound" bson:"shoeRound" yaml:"shoeRound"`
+	ShoeRound int64 `protobuf:"varint,11,opt,name=shoe_round,json=shoeRound,proto3" json:"shoe_round,omitempty"`
 	// 局代碼
-	RoundCode string `protobuf:"bytes,12,opt,name=round_code,json=roundCode,proto3" json:"roundCode" bson:"roundCode" yaml:"roundCode"`
+	RoundCode string `protobuf:"bytes,12,opt,name=round_code,json=roundCode,proto3" json:"round_code,omitempty"`
 	// 開始時間
-	TsStart *timestamppb.Timestamp `protobuf:"bytes,16,opt,name=ts_start,json=tsStart,proto3" json:"tsStart" bson:"tsStart" yaml:"tsStart"`
+	TsStart *timestamppb.Timestamp `protobuf:"bytes,16,opt,name=ts_start,json=tsStart,proto3" json:"ts_start,omitempty"`
 	// 座位組
 	// key: SeatCode, value: Seat
-	Seats map[int32]*Seat `protobuf:"bytes,24,rep,name=seats,proto3" json:"seats" protobuf_key:"varint,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value" bson:"seats,omitempty" yaml:"seats"`
+	Seats map[int32]*Seat `protobuf:"bytes,24,rep,name=seats,proto3" json:"seats,omitempty" protobuf_key:"varint,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	// 結束
-	IsEnd bool `protobuf:"varint,18,opt,name=is_end,json=isEnd,proto3" json:"isEnd" bson:"isEnd" yaml:"isEnd"`
+	IsEnd bool `protobuf:"varint,18,opt,name=is_end,json=isEnd,proto3" json:"is_end,omitempty"`
 	// 結束時間
-	TsEnd *timestamppb.Timestamp `protobuf:"bytes,19,opt,name=ts_end,json=tsEnd,proto3" json:"tsEnd" bson:"tsEnd,omitempty" yaml:"tsEnd"`
+	TsEnd *timestamppb.Timestamp `protobuf:"bytes,19,opt,name=ts_end,json=tsEnd,proto3" json:"ts_end,omitempty"`
 	// 取消
-	Cancel *bool `protobuf:"varint,20,opt,name=cancel,proto3,oneof" json:"cancel" yaml:"cancel" bson:"cancel,omitempty"`
+	Cancel *bool `protobuf:"varint,20,opt,name=cancel,proto3,oneof" json:"cancel,omitempty"`
 	// 取消代碼：CancelReasonCode
-	CancelCode *string `protobuf:"bytes,21,opt,name=cancel_code,json=cancelCode,proto3,oneof" json:"cancelCode" bson:"cancelCode,omitempty" yaml:"cancelCode"`
+	CancelCode *string `protobuf:"bytes,21,opt,name=cancel_code,json=cancelCode,proto3,oneof" json:"cancel_code,omitempty"`
 	// 取消備註
-	CancelMessage *string `protobuf:"bytes,22,opt,name=cancel_message,json=cancelMessage,proto3,oneof" json:"cancelMessage" bson:"cancelMessage,omitempty" yaml:"cancelMessage"`
+	CancelMessage *string `protobuf:"bytes,22,opt,name=cancel_message,json=cancelMessage,proto3,oneof" json:"cancel_message,omitempty"`
 	// 附加媒體：key: 媒體資源代碼；value: 媒體內容。
-	Medias        map[string]string `protobuf:"bytes,28,rep,name=medias,proto3" json:"medias" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value" bson:"medias" yaml:"medias"`
+	Medias        map[string]string `protobuf:"bytes,28,rep,name=medias,proto3" json:"medias,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1094,11 +1094,11 @@ func (x *RoundResult) GetMedias() map[string]string {
 type LiveStreamParams struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// 串流代碼
-	Code string `protobuf:"bytes,1,opt,name=code,proto3" json:"code" bson:"code" yaml:"code"`
+	Code string `protobuf:"bytes,1,opt,name=code,proto3" json:"code,omitempty"`
 	// 應用
-	App string `protobuf:"bytes,2,opt,name=app,proto3" json:"app" bson:"app" yaml:"app"`
+	App string `protobuf:"bytes,2,opt,name=app,proto3" json:"app,omitempty"`
 	// 頻道
-	Channel       string `protobuf:"bytes,3,opt,name=channel,proto3" json:"channel" bson:"channel" yaml:"channel"`
+	Channel       string `protobuf:"bytes,3,opt,name=channel,proto3" json:"channel,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1159,33 +1159,35 @@ func (x *LiveStreamParams) GetChannel() string {
 type GameProvide struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// 遊戲供應
-	Supplier string `protobuf:"bytes,2,opt,name=supplier,proto3" json:"supplier" yaml:"supplier" bson:"supplier"`
+	Supplier string `protobuf:"bytes,2,opt,name=supplier,proto3" json:"supplier,omitempty"`
 	// 遊戲類型
-	GameType string `protobuf:"bytes,3,opt,name=game_type,json=gameType,proto3" json:"gameType" bson:"gameType" yaml:"gameType"`
+	GameType string `protobuf:"bytes,3,opt,name=game_type,json=gameType,proto3" json:"game_type,omitempty"`
 	// 遊戲子類型
-	GameSubtype string `protobuf:"bytes,4,opt,name=game_subtype,json=gameSubtype,proto3" json:"gameSubtype" bson:"gameSubtype" yaml:"gameSubtype"`
+	GameSubtype string `protobuf:"bytes,4,opt,name=game_subtype,json=gameSubtype,proto3" json:"game_subtype,omitempty"`
 	// 遊戲代碼
-	GameCode string `protobuf:"bytes,6,opt,name=game_code,json=gameCode,proto3" json:"gameCode" bson:"gameCode" yaml:"gameCode"`
+	GameCode string `protobuf:"bytes,6,opt,name=game_code,json=gameCode,proto3" json:"game_code,omitempty"`
 	// 標籤
-	Tags map[string]string `protobuf:"bytes,13,rep,name=tags,proto3" json:"tags" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value" bson:"tags" yaml:"tags"`
+	Tags map[string]string `protobuf:"bytes,13,rep,name=tags,proto3" json:"tags,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	// 狀態
-	State GameProvideState `protobuf:"varint,17,opt,name=state,proto3,enum=recorder.GameProvideState" json:"state" bson:"state" yaml:"state"`
+	State GameProvideState `protobuf:"varint,17,opt,name=state,proto3,enum=recorder.GameProvideState" json:"state,omitempty"`
 	// 玩家入座
-	Players map[int32]string `protobuf:"bytes,25,rep,name=players,proto3" json:"players" protobuf_key:"varint,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value" bson:"players" yaml:"players"`
+	Players map[int32]string `protobuf:"bytes,25,rep,name=players,proto3" json:"players,omitempty" protobuf_key:"varint,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	// 玩家入座
+	Dealers map[int32]*Dealer `protobuf:"bytes,26,rep,name=dealers,proto3" json:"dealers,omitempty" protobuf_key:"varint,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	// 玩家姓名
-	PlayersName map[string]string `protobuf:"bytes,30,rep,name=players_name,json=playersName,proto3" json:"playersName" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value" bson:"playersName" yaml:"playersName"`
+	PlayersName map[string]string `protobuf:"bytes,30,rep,name=players_name,json=playersName,proto3" json:"players_name,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	// 玩家頭像
-	PlayersAvatar map[string]string `protobuf:"bytes,31,rep,name=players_avatar,json=playersAvatar,proto3" json:"playersAvatar" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value" bson:"playersAvatar" yaml:"playersAvatar"`
+	PlayersAvatar map[string]string `protobuf:"bytes,31,rep,name=players_avatar,json=playersAvatar,proto3" json:"players_avatar,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	// 玩家生日
-	PlayersBirth map[string]string `protobuf:"bytes,32,rep,name=players_birth,json=playersBirth,proto3" json:"playersBirth" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value" yaml:"playersBirth" bson:"playersBirth"`
+	PlayersBirth map[string]string `protobuf:"bytes,32,rep,name=players_birth,json=playersBirth,proto3" json:"players_birth,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	// 玩家地區
-	PlayersLocation map[string]string `protobuf:"bytes,33,rep,name=players_location,json=playersLocation,proto3" json:"playersLocation" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value" yaml:"playersLocation" bson:"playersLocation"`
+	PlayersLocation map[string]string `protobuf:"bytes,33,rep,name=players_location,json=playersLocation,proto3" json:"players_location,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	// 附加媒體：key: 媒體資源代碼；value: 媒體內容。
-	Medias map[string]string `protobuf:"bytes,28,rep,name=medias,proto3" json:"medias" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value" bson:"medias" yaml:"medias"`
+	Medias map[string]string `protobuf:"bytes,28,rep,name=medias,proto3" json:"medias,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	// 直播參數
-	LiveStreams map[string]*LiveStreamParams `protobuf:"bytes,29,rep,name=live_streams,json=liveStreams,proto3" json:"liveStreams" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value" bson:"liveStreams" yaml:"liveStreams"`
+	LiveStreams map[string]*LiveStreamParams `protobuf:"bytes,29,rep,name=live_streams,json=liveStreams,proto3" json:"live_streams,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	// 最後一局
-	LastRoundCode string `protobuf:"bytes,12,opt,name=last_round_code,json=lastRoundCode,proto3" json:"lastRoundCode" yaml:"lastRoundCode" bson:"lastRoundCode"`
+	LastRoundCode string `protobuf:"bytes,12,opt,name=last_round_code,json=lastRoundCode,proto3" json:"last_round_code,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1265,6 +1267,13 @@ func (x *GameProvide) GetState() GameProvideState {
 func (x *GameProvide) GetPlayers() map[int32]string {
 	if x != nil {
 		return x.Players
+	}
+	return nil
+}
+
+func (x *GameProvide) GetDealers() map[int32]*Dealer {
+	if x != nil {
+		return x.Dealers
 	}
 	return nil
 }
@@ -1359,7 +1368,7 @@ func (*ListGamesRequest) Descriptor() ([]byte, []int) {
 type ListGamesResponse struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// 遊戲列表
-	GameProvides  []*GameProvide `protobuf:"bytes,1,rep,name=game_provides,json=gameProvides,proto3" json:"gameProvides" bson:"gameProvides" yaml:"gameProvides"`
+	GameProvides  []*GameProvide `protobuf:"bytes,1,rep,name=game_provides,json=gameProvides,proto3" json:"game_provides,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1406,11 +1415,11 @@ func (x *ListGamesResponse) GetGameProvides() []*GameProvide {
 type VerifyGameRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// 遊戲代碼
-	GameCode string `protobuf:"bytes,1,opt,name=game_code,json=gameCode,proto3" json:"gameCode" bson:"gameCode" yaml:"gameCode"`
+	GameCode string `protobuf:"bytes,1,opt,name=game_code,json=gameCode,proto3" json:"game_code,omitempty"`
 	// 驗證傳送接收的代碼
-	Pattern []string `protobuf:"bytes,2,rep,name=pattern,proto3" json:"pattern" bson:"pattern" yaml:"pattern"`
+	Pattern []string `protobuf:"bytes,2,rep,name=pattern,proto3" json:"pattern,omitempty"`
 	// 顯示名稱
-	Name          string `protobuf:"bytes,3,opt,name=name,proto3" json:"name" bson:"name" yaml:"name"`
+	Name          string `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1470,11 +1479,11 @@ func (x *VerifyGameRequest) GetName() string {
 type GamblerInstructionsRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// 遊戲代碼
-	GameCode string `protobuf:"bytes,1,opt,name=game_code,json=gameCode,proto3" json:"gameCode" bson:"gameCode" yaml:"gameCode"`
+	GameCode string `protobuf:"bytes,1,opt,name=game_code,json=gameCode,proto3" json:"game_code,omitempty"`
 	// 玩家帳號
-	Player string `protobuf:"bytes,2,opt,name=player,proto3" json:"player" bson:"player" yaml:"player"`
+	Player string `protobuf:"bytes,2,opt,name=player,proto3" json:"player,omitempty"`
 	// 指示傳送接收的代碼  position card
-	Instructions  map[string]string `protobuf:"bytes,3,rep,name=instructions,proto3" json:"instructions" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value" bson:"instructions" yaml:"instructions"`
+	Instructions  map[string]string `protobuf:"bytes,3,rep,name=instructions,proto3" json:"instructions,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1535,15 +1544,15 @@ func (x *GamblerInstructionsRequest) GetInstructions() map[string]string {
 type Article struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// 標題
-	Title string `protobuf:"bytes,1,opt,name=title,proto3" json:"title" bson:"title" yaml:"title"`
+	Title string `protobuf:"bytes,1,opt,name=title,proto3" json:"title,omitempty"`
 	// 副標
-	Subtitle string `protobuf:"bytes,2,opt,name=subtitle,proto3" json:"subtitle" bson:"subtitle" yaml:"subtitle"`
+	Subtitle string `protobuf:"bytes,2,opt,name=subtitle,proto3" json:"subtitle,omitempty"`
 	// 內文
-	Text string `protobuf:"bytes,3,opt,name=text,proto3" json:"text" bson:"text" yaml:"text"`
+	Text string `protobuf:"bytes,3,opt,name=text,proto3" json:"text,omitempty"`
 	// 附加媒體：key: 媒體資源代碼；value: 媒體內容。
-	Medias map[string]string `protobuf:"bytes,4,rep,name=medias,proto3" json:"medias" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value" bson:"medias" yaml:"medias"`
+	Medias map[string]string `protobuf:"bytes,4,rep,name=medias,proto3" json:"medias,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	// 子文檔
-	Sections      map[string]*Article `protobuf:"bytes,5,rep,name=sections,proto3" json:"sections" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value" bson:"sections" yaml:"sections"`
+	Sections      map[string]*Article `protobuf:"bytes,5,rep,name=sections,proto3" json:"sections,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1618,21 +1627,23 @@ func (x *Article) GetSections() map[string]*Article {
 type Dealer struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// 代碼
-	Code string `protobuf:"bytes,1,opt,name=code,proto3" json:"code" bson:"code" yaml:"code"`
+	Code string `protobuf:"bytes,1,opt,name=code,proto3" json:"code,omitempty"`
 	// 名稱
-	Name string `protobuf:"bytes,2,opt,name=name,proto3" json:"name" bson:"name" yaml:"name"`
+	Name string `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
 	// 年齡
-	Age string `protobuf:"bytes,3,opt,name=age,proto3" json:"age" bson:"age" yaml:"age"`
+	Age string `protobuf:"bytes,3,opt,name=age,proto3" json:"age,omitempty"`
 	// Tags
-	Tags map[string]string `protobuf:"bytes,4,rep,name=tags,proto3" json:"tags" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value" bson:"tags" yaml:"tags"`
+	Tags map[string]string `protobuf:"bytes,4,rep,name=tags,proto3" json:"tags,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	// 介紹
-	Intro *Article `protobuf:"bytes,5,opt,name=intro,proto3" json:"intro" bson:"intro" yaml:"intro"`
+	Intro *Article `protobuf:"bytes,5,opt,name=intro,proto3" json:"intro,omitempty"`
 	// 貼文
-	Posts []*Article `protobuf:"bytes,6,rep,name=posts,proto3" json:"posts" bson:"posts" yaml:"posts"`
+	Posts []*Article `protobuf:"bytes,6,rep,name=posts,proto3" json:"posts,omitempty"`
 	// 生日
-	Birthday string `protobuf:"bytes,7,opt,name=birthday,proto3" json:"birthday" bson:"birthday" yaml:"birthday"`
+	Birthday string `protobuf:"bytes,7,opt,name=birthday,proto3" json:"birthday,omitempty"`
 	// 地區
-	Location      string `protobuf:"bytes,8,opt,name=location,proto3" json:"location" bson:"location" yaml:"location"`
+	Location string `protobuf:"bytes,8,opt,name=location,proto3" json:"location,omitempty"`
+	// 頭像
+	Avatar        string `protobuf:"bytes,9,opt,name=avatar,proto3" json:"avatar,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1723,14 +1734,21 @@ func (x *Dealer) GetLocation() string {
 	return ""
 }
 
+func (x *Dealer) GetAvatar() string {
+	if x != nil {
+		return x.Avatar
+	}
+	return ""
+}
+
 type ListDealersRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// 代碼陣列
-	Codes []string `protobuf:"bytes,1,rep,name=codes,proto3" json:"codes" bson:"codes" yaml:"codes"`
+	Codes []string `protobuf:"bytes,1,rep,name=codes,proto3" json:"codes,omitempty"`
 	// 開始
-	Page int64 `protobuf:"varint,2,opt,name=page,proto3" json:"page" yaml:"page" bson:"page"`
+	Page int64 `protobuf:"varint,2,opt,name=page,proto3" json:"page,omitempty"`
 	// 筆數 預設 100
-	PageSize      int64 `protobuf:"varint,3,opt,name=pageSize,proto3" json:"pageSize" bson:"pageSize" yaml:"pageSize"`
+	PageSize      int64 `protobuf:"varint,3,opt,name=pageSize,proto3" json:"pageSize,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1791,8 +1809,8 @@ func (x *ListDealersRequest) GetPageSize() int64 {
 type ListDealersResponse struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// 荷官資料
-	Dealers       []*Dealer `protobuf:"bytes,1,rep,name=dealers,proto3" json:"dealers" bson:"dealers" yaml:"dealers"`
-	Total         int64     `protobuf:"varint,2,opt,name=total,proto3" json:"total" bson:"total" yaml:"total"`
+	Dealers       []*Dealer `protobuf:"bytes,1,rep,name=dealers,proto3" json:"dealers,omitempty"`
+	Total         int64     `protobuf:"varint,2,opt,name=total,proto3" json:"total,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1937,8 +1955,7 @@ const file_recorder_provider_proto_rawDesc = "" +
 	"\x10LiveStreamParams\x12\x12\n" +
 	"\x04code\x18\x01 \x01(\tR\x04code\x12\x10\n" +
 	"\x03app\x18\x02 \x01(\tR\x03app\x12\x18\n" +
-	"\achannel\x18\x03 \x01(\tR\achannel\"\xad\n" +
-	"\n" +
+	"\achannel\x18\x03 \x01(\tR\achannel\"\xb9\v\n" +
 	"\vGameProvide\x12\x1a\n" +
 	"\bsupplier\x18\x02 \x01(\tR\bsupplier\x12\x1b\n" +
 	"\tgame_type\x18\x03 \x01(\tR\bgameType\x12!\n" +
@@ -1946,7 +1963,8 @@ const file_recorder_provider_proto_rawDesc = "" +
 	"\tgame_code\x18\x06 \x01(\tR\bgameCode\x123\n" +
 	"\x04tags\x18\r \x03(\v2\x1f.recorder.GameProvide.TagsEntryR\x04tags\x120\n" +
 	"\x05state\x18\x11 \x01(\x0e2\x1a.recorder.GameProvideStateR\x05state\x12<\n" +
-	"\aplayers\x18\x19 \x03(\v2\".recorder.GameProvide.PlayersEntryR\aplayers\x12I\n" +
+	"\aplayers\x18\x19 \x03(\v2\".recorder.GameProvide.PlayersEntryR\aplayers\x12<\n" +
+	"\adealers\x18\x1a \x03(\v2\".recorder.GameProvide.DealersEntryR\adealers\x12I\n" +
 	"\fplayers_name\x18\x1e \x03(\v2&.recorder.GameProvide.PlayersNameEntryR\vplayersName\x12O\n" +
 	"\x0eplayers_avatar\x18\x1f \x03(\v2(.recorder.GameProvide.PlayersAvatarEntryR\rplayersAvatar\x12L\n" +
 	"\rplayers_birth\x18  \x03(\v2'.recorder.GameProvide.PlayersBirthEntryR\fplayersBirth\x12U\n" +
@@ -1959,7 +1977,10 @@ const file_recorder_provider_proto_rawDesc = "" +
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\x1a:\n" +
 	"\fPlayersEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\x05R\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\x1a>\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\x1aL\n" +
+	"\fDealersEntry\x12\x10\n" +
+	"\x03key\x18\x01 \x01(\x05R\x03key\x12&\n" +
+	"\x05value\x18\x02 \x01(\v2\x10.recorder.DealerR\x05value:\x028\x01\x1a>\n" +
 	"\x10PlayersNameEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\x1a@\n" +
@@ -2003,7 +2024,7 @@ const file_recorder_provider_proto_rawDesc = "" +
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\x1aN\n" +
 	"\rSectionsEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12'\n" +
-	"\x05value\x18\x02 \x01(\v2\x11.recorder.ArticleR\x05value:\x028\x01\"\xb5\x02\n" +
+	"\x05value\x18\x02 \x01(\v2\x11.recorder.ArticleR\x05value:\x028\x01\"\xcd\x02\n" +
 	"\x06Dealer\x12\x12\n" +
 	"\x04code\x18\x01 \x01(\tR\x04code\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12\x10\n" +
@@ -2012,7 +2033,8 @@ const file_recorder_provider_proto_rawDesc = "" +
 	"\x05intro\x18\x05 \x01(\v2\x11.recorder.ArticleR\x05intro\x12'\n" +
 	"\x05posts\x18\x06 \x03(\v2\x11.recorder.ArticleR\x05posts\x12\x1a\n" +
 	"\bbirthday\x18\a \x01(\tR\bbirthday\x12\x1a\n" +
-	"\blocation\x18\b \x01(\tR\blocation\x1a7\n" +
+	"\blocation\x18\b \x01(\tR\blocation\x12\x16\n" +
+	"\x06avatar\x18\t \x01(\tR\x06avatar\x1a7\n" +
 	"\tTagsEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"Z\n" +
@@ -2095,7 +2117,7 @@ func file_recorder_provider_proto_rawDescGZIP() []byte {
 }
 
 var file_recorder_provider_proto_enumTypes = make([]protoimpl.EnumInfo, 3)
-var file_recorder_provider_proto_msgTypes = make([]protoimpl.MessageInfo, 36)
+var file_recorder_provider_proto_msgTypes = make([]protoimpl.MessageInfo, 37)
 var file_recorder_provider_proto_goTypes = []any{
 	(RoundStatusType)(0),               // 0: recorder.RoundStatusType
 	(GameNotifyType)(0),                // 1: recorder.GameNotifyType
@@ -2126,98 +2148,101 @@ var file_recorder_provider_proto_goTypes = []any{
 	nil,                                // 26: recorder.RoundResult.MediasEntry
 	nil,                                // 27: recorder.GameProvide.TagsEntry
 	nil,                                // 28: recorder.GameProvide.PlayersEntry
-	nil,                                // 29: recorder.GameProvide.PlayersNameEntry
-	nil,                                // 30: recorder.GameProvide.PlayersAvatarEntry
-	nil,                                // 31: recorder.GameProvide.PlayersBirthEntry
-	nil,                                // 32: recorder.GameProvide.PlayersLocationEntry
-	nil,                                // 33: recorder.GameProvide.MediasEntry
-	nil,                                // 34: recorder.GameProvide.LiveStreamsEntry
-	nil,                                // 35: recorder.GamblerInstructionsRequest.InstructionsEntry
-	nil,                                // 36: recorder.Article.MediasEntry
-	nil,                                // 37: recorder.Article.SectionsEntry
-	nil,                                // 38: recorder.Dealer.TagsEntry
-	(*timestamppb.Timestamp)(nil),      // 39: google.protobuf.Timestamp
-	(games.GameType)(0),                // 40: games.GameType
-	(*ShiftRecord)(nil),                // 41: recorder.ShiftRecord
-	(*ShoeRecord)(nil),                 // 42: recorder.ShoeRecord
-	(*RoundRecord)(nil),                // 43: recorder.RoundRecord
-	(*Seat)(nil),                       // 44: recorder.Seat
-	(*emptypb.Empty)(nil),              // 45: google.protobuf.Empty
+	nil,                                // 29: recorder.GameProvide.DealersEntry
+	nil,                                // 30: recorder.GameProvide.PlayersNameEntry
+	nil,                                // 31: recorder.GameProvide.PlayersAvatarEntry
+	nil,                                // 32: recorder.GameProvide.PlayersBirthEntry
+	nil,                                // 33: recorder.GameProvide.PlayersLocationEntry
+	nil,                                // 34: recorder.GameProvide.MediasEntry
+	nil,                                // 35: recorder.GameProvide.LiveStreamsEntry
+	nil,                                // 36: recorder.GamblerInstructionsRequest.InstructionsEntry
+	nil,                                // 37: recorder.Article.MediasEntry
+	nil,                                // 38: recorder.Article.SectionsEntry
+	nil,                                // 39: recorder.Dealer.TagsEntry
+	(*timestamppb.Timestamp)(nil),      // 40: google.protobuf.Timestamp
+	(games.GameType)(0),                // 41: games.GameType
+	(*ShiftRecord)(nil),                // 42: recorder.ShiftRecord
+	(*ShoeRecord)(nil),                 // 43: recorder.ShoeRecord
+	(*RoundRecord)(nil),                // 44: recorder.RoundRecord
+	(*Seat)(nil),                       // 45: recorder.Seat
+	(*emptypb.Empty)(nil),              // 46: google.protobuf.Empty
 }
 var file_recorder_provider_proto_depIdxs = []int32{
-	39, // 0: recorder.ListRecordsRequest.ts_from:type_name -> google.protobuf.Timestamp
-	39, // 1: recorder.ListRecordsRequest.ts_to:type_name -> google.protobuf.Timestamp
-	40, // 2: recorder.ListRecordsRequest.game_type:type_name -> games.GameType
+	40, // 0: recorder.ListRecordsRequest.ts_from:type_name -> google.protobuf.Timestamp
+	40, // 1: recorder.ListRecordsRequest.ts_to:type_name -> google.protobuf.Timestamp
+	41, // 2: recorder.ListRecordsRequest.game_type:type_name -> games.GameType
 	0,  // 3: recorder.ListRecordsRequest.round_status_type:type_name -> recorder.RoundStatusType
-	41, // 4: recorder.ListShiftsResponse.shift_record:type_name -> recorder.ShiftRecord
-	42, // 5: recorder.ListShoesRecordResponse.shoe_record:type_name -> recorder.ShoeRecord
-	43, // 6: recorder.ListRoundsRecordResponse.round_record:type_name -> recorder.RoundRecord
-	39, // 7: recorder.GetRoundPlayBackResponse.ts_start:type_name -> google.protobuf.Timestamp
+	42, // 4: recorder.ListShiftsResponse.shift_record:type_name -> recorder.ShiftRecord
+	43, // 5: recorder.ListShoesRecordResponse.shoe_record:type_name -> recorder.ShoeRecord
+	44, // 6: recorder.ListRoundsRecordResponse.round_record:type_name -> recorder.RoundRecord
+	40, // 7: recorder.GetRoundPlayBackResponse.ts_start:type_name -> google.protobuf.Timestamp
 	24, // 8: recorder.GetRoundPlayBackResponse.medias:type_name -> recorder.GetRoundPlayBackResponse.MediasEntry
 	13, // 9: recorder.GetRoundsByShoeResponse.round_records:type_name -> recorder.RoundResult
-	39, // 10: recorder.RoundResult.ts_start:type_name -> google.protobuf.Timestamp
+	40, // 10: recorder.RoundResult.ts_start:type_name -> google.protobuf.Timestamp
 	25, // 11: recorder.RoundResult.seats:type_name -> recorder.RoundResult.SeatsEntry
-	39, // 12: recorder.RoundResult.ts_end:type_name -> google.protobuf.Timestamp
+	40, // 12: recorder.RoundResult.ts_end:type_name -> google.protobuf.Timestamp
 	26, // 13: recorder.RoundResult.medias:type_name -> recorder.RoundResult.MediasEntry
 	27, // 14: recorder.GameProvide.tags:type_name -> recorder.GameProvide.TagsEntry
 	2,  // 15: recorder.GameProvide.state:type_name -> recorder.GameProvideState
 	28, // 16: recorder.GameProvide.players:type_name -> recorder.GameProvide.PlayersEntry
-	29, // 17: recorder.GameProvide.players_name:type_name -> recorder.GameProvide.PlayersNameEntry
-	30, // 18: recorder.GameProvide.players_avatar:type_name -> recorder.GameProvide.PlayersAvatarEntry
-	31, // 19: recorder.GameProvide.players_birth:type_name -> recorder.GameProvide.PlayersBirthEntry
-	32, // 20: recorder.GameProvide.players_location:type_name -> recorder.GameProvide.PlayersLocationEntry
-	33, // 21: recorder.GameProvide.medias:type_name -> recorder.GameProvide.MediasEntry
-	34, // 22: recorder.GameProvide.live_streams:type_name -> recorder.GameProvide.LiveStreamsEntry
-	15, // 23: recorder.ListGamesResponse.game_provides:type_name -> recorder.GameProvide
-	35, // 24: recorder.GamblerInstructionsRequest.instructions:type_name -> recorder.GamblerInstructionsRequest.InstructionsEntry
-	36, // 25: recorder.Article.medias:type_name -> recorder.Article.MediasEntry
-	37, // 26: recorder.Article.sections:type_name -> recorder.Article.SectionsEntry
-	38, // 27: recorder.Dealer.tags:type_name -> recorder.Dealer.TagsEntry
-	20, // 28: recorder.Dealer.intro:type_name -> recorder.Article
-	20, // 29: recorder.Dealer.posts:type_name -> recorder.Article
-	21, // 30: recorder.ListDealersResponse.dealers:type_name -> recorder.Dealer
-	44, // 31: recorder.RoundResult.SeatsEntry.value:type_name -> recorder.Seat
-	14, // 32: recorder.GameProvide.LiveStreamsEntry.value:type_name -> recorder.LiveStreamParams
-	20, // 33: recorder.Article.SectionsEntry.value:type_name -> recorder.Article
-	7,  // 34: recorder.RecorderReadService.ListShifts:input_type -> recorder.ListRecordsRequest
-	3,  // 35: recorder.RecorderReadService.GetShift:input_type -> recorder.GetRequest
-	5,  // 36: recorder.RecorderReadService.GetCurrentShift:input_type -> recorder.GetCurrentRecordRequest
-	7,  // 37: recorder.RecorderReadService.ListShoe:input_type -> recorder.ListRecordsRequest
-	3,  // 38: recorder.RecorderReadService.GetShoe:input_type -> recorder.GetRequest
-	5,  // 39: recorder.RecorderReadService.GetCurrentShoe:input_type -> recorder.GetCurrentRecordRequest
-	4,  // 40: recorder.RecorderReadService.GetRoundsByShoe:input_type -> recorder.GetRoundsByShoeRequest
-	7,  // 41: recorder.RecorderReadService.ListRounds:input_type -> recorder.ListRecordsRequest
-	3,  // 42: recorder.RecorderReadService.GetRound:input_type -> recorder.GetRequest
-	5,  // 43: recorder.RecorderReadService.GetCurrentRound:input_type -> recorder.GetCurrentRecordRequest
-	6,  // 44: recorder.RecorderReadService.GetPlayBackRound:input_type -> recorder.GetRoundPlayBackRequest
-	16, // 45: recorder.ProviderService.ListGames:input_type -> recorder.ListGamesRequest
-	3,  // 46: recorder.ProviderService.GetGames:input_type -> recorder.GetRequest
-	18, // 47: recorder.ProviderService.VerifyGame:input_type -> recorder.VerifyGameRequest
-	19, // 48: recorder.ProviderService.GamblerInstructions:input_type -> recorder.GamblerInstructionsRequest
-	22, // 49: recorder.ProviderService.ListDealers:input_type -> recorder.ListDealersRequest
-	3,  // 50: recorder.ProviderService.GetDealer:input_type -> recorder.GetRequest
-	8,  // 51: recorder.RecorderReadService.ListShifts:output_type -> recorder.ListShiftsResponse
-	41, // 52: recorder.RecorderReadService.GetShift:output_type -> recorder.ShiftRecord
-	41, // 53: recorder.RecorderReadService.GetCurrentShift:output_type -> recorder.ShiftRecord
-	9,  // 54: recorder.RecorderReadService.ListShoe:output_type -> recorder.ListShoesRecordResponse
-	42, // 55: recorder.RecorderReadService.GetShoe:output_type -> recorder.ShoeRecord
-	42, // 56: recorder.RecorderReadService.GetCurrentShoe:output_type -> recorder.ShoeRecord
-	12, // 57: recorder.RecorderReadService.GetRoundsByShoe:output_type -> recorder.GetRoundsByShoeResponse
-	10, // 58: recorder.RecorderReadService.ListRounds:output_type -> recorder.ListRoundsRecordResponse
-	43, // 59: recorder.RecorderReadService.GetRound:output_type -> recorder.RoundRecord
-	43, // 60: recorder.RecorderReadService.GetCurrentRound:output_type -> recorder.RoundRecord
-	11, // 61: recorder.RecorderReadService.GetPlayBackRound:output_type -> recorder.GetRoundPlayBackResponse
-	17, // 62: recorder.ProviderService.ListGames:output_type -> recorder.ListGamesResponse
-	15, // 63: recorder.ProviderService.GetGames:output_type -> recorder.GameProvide
-	45, // 64: recorder.ProviderService.VerifyGame:output_type -> google.protobuf.Empty
-	43, // 65: recorder.ProviderService.GamblerInstructions:output_type -> recorder.RoundRecord
-	23, // 66: recorder.ProviderService.ListDealers:output_type -> recorder.ListDealersResponse
-	21, // 67: recorder.ProviderService.GetDealer:output_type -> recorder.Dealer
-	51, // [51:68] is the sub-list for method output_type
-	34, // [34:51] is the sub-list for method input_type
-	34, // [34:34] is the sub-list for extension type_name
-	34, // [34:34] is the sub-list for extension extendee
-	0,  // [0:34] is the sub-list for field type_name
+	29, // 17: recorder.GameProvide.dealers:type_name -> recorder.GameProvide.DealersEntry
+	30, // 18: recorder.GameProvide.players_name:type_name -> recorder.GameProvide.PlayersNameEntry
+	31, // 19: recorder.GameProvide.players_avatar:type_name -> recorder.GameProvide.PlayersAvatarEntry
+	32, // 20: recorder.GameProvide.players_birth:type_name -> recorder.GameProvide.PlayersBirthEntry
+	33, // 21: recorder.GameProvide.players_location:type_name -> recorder.GameProvide.PlayersLocationEntry
+	34, // 22: recorder.GameProvide.medias:type_name -> recorder.GameProvide.MediasEntry
+	35, // 23: recorder.GameProvide.live_streams:type_name -> recorder.GameProvide.LiveStreamsEntry
+	15, // 24: recorder.ListGamesResponse.game_provides:type_name -> recorder.GameProvide
+	36, // 25: recorder.GamblerInstructionsRequest.instructions:type_name -> recorder.GamblerInstructionsRequest.InstructionsEntry
+	37, // 26: recorder.Article.medias:type_name -> recorder.Article.MediasEntry
+	38, // 27: recorder.Article.sections:type_name -> recorder.Article.SectionsEntry
+	39, // 28: recorder.Dealer.tags:type_name -> recorder.Dealer.TagsEntry
+	20, // 29: recorder.Dealer.intro:type_name -> recorder.Article
+	20, // 30: recorder.Dealer.posts:type_name -> recorder.Article
+	21, // 31: recorder.ListDealersResponse.dealers:type_name -> recorder.Dealer
+	45, // 32: recorder.RoundResult.SeatsEntry.value:type_name -> recorder.Seat
+	21, // 33: recorder.GameProvide.DealersEntry.value:type_name -> recorder.Dealer
+	14, // 34: recorder.GameProvide.LiveStreamsEntry.value:type_name -> recorder.LiveStreamParams
+	20, // 35: recorder.Article.SectionsEntry.value:type_name -> recorder.Article
+	7,  // 36: recorder.RecorderReadService.ListShifts:input_type -> recorder.ListRecordsRequest
+	3,  // 37: recorder.RecorderReadService.GetShift:input_type -> recorder.GetRequest
+	5,  // 38: recorder.RecorderReadService.GetCurrentShift:input_type -> recorder.GetCurrentRecordRequest
+	7,  // 39: recorder.RecorderReadService.ListShoe:input_type -> recorder.ListRecordsRequest
+	3,  // 40: recorder.RecorderReadService.GetShoe:input_type -> recorder.GetRequest
+	5,  // 41: recorder.RecorderReadService.GetCurrentShoe:input_type -> recorder.GetCurrentRecordRequest
+	4,  // 42: recorder.RecorderReadService.GetRoundsByShoe:input_type -> recorder.GetRoundsByShoeRequest
+	7,  // 43: recorder.RecorderReadService.ListRounds:input_type -> recorder.ListRecordsRequest
+	3,  // 44: recorder.RecorderReadService.GetRound:input_type -> recorder.GetRequest
+	5,  // 45: recorder.RecorderReadService.GetCurrentRound:input_type -> recorder.GetCurrentRecordRequest
+	6,  // 46: recorder.RecorderReadService.GetPlayBackRound:input_type -> recorder.GetRoundPlayBackRequest
+	16, // 47: recorder.ProviderService.ListGames:input_type -> recorder.ListGamesRequest
+	3,  // 48: recorder.ProviderService.GetGames:input_type -> recorder.GetRequest
+	18, // 49: recorder.ProviderService.VerifyGame:input_type -> recorder.VerifyGameRequest
+	19, // 50: recorder.ProviderService.GamblerInstructions:input_type -> recorder.GamblerInstructionsRequest
+	22, // 51: recorder.ProviderService.ListDealers:input_type -> recorder.ListDealersRequest
+	3,  // 52: recorder.ProviderService.GetDealer:input_type -> recorder.GetRequest
+	8,  // 53: recorder.RecorderReadService.ListShifts:output_type -> recorder.ListShiftsResponse
+	42, // 54: recorder.RecorderReadService.GetShift:output_type -> recorder.ShiftRecord
+	42, // 55: recorder.RecorderReadService.GetCurrentShift:output_type -> recorder.ShiftRecord
+	9,  // 56: recorder.RecorderReadService.ListShoe:output_type -> recorder.ListShoesRecordResponse
+	43, // 57: recorder.RecorderReadService.GetShoe:output_type -> recorder.ShoeRecord
+	43, // 58: recorder.RecorderReadService.GetCurrentShoe:output_type -> recorder.ShoeRecord
+	12, // 59: recorder.RecorderReadService.GetRoundsByShoe:output_type -> recorder.GetRoundsByShoeResponse
+	10, // 60: recorder.RecorderReadService.ListRounds:output_type -> recorder.ListRoundsRecordResponse
+	44, // 61: recorder.RecorderReadService.GetRound:output_type -> recorder.RoundRecord
+	44, // 62: recorder.RecorderReadService.GetCurrentRound:output_type -> recorder.RoundRecord
+	11, // 63: recorder.RecorderReadService.GetPlayBackRound:output_type -> recorder.GetRoundPlayBackResponse
+	17, // 64: recorder.ProviderService.ListGames:output_type -> recorder.ListGamesResponse
+	15, // 65: recorder.ProviderService.GetGames:output_type -> recorder.GameProvide
+	46, // 66: recorder.ProviderService.VerifyGame:output_type -> google.protobuf.Empty
+	44, // 67: recorder.ProviderService.GamblerInstructions:output_type -> recorder.RoundRecord
+	23, // 68: recorder.ProviderService.ListDealers:output_type -> recorder.ListDealersResponse
+	21, // 69: recorder.ProviderService.GetDealer:output_type -> recorder.Dealer
+	53, // [53:70] is the sub-list for method output_type
+	36, // [36:53] is the sub-list for method input_type
+	36, // [36:36] is the sub-list for extension type_name
+	36, // [36:36] is the sub-list for extension extendee
+	0,  // [0:36] is the sub-list for field type_name
 }
 
 func init() { file_recorder_provider_proto_init() }
@@ -2234,7 +2259,7 @@ func file_recorder_provider_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_recorder_provider_proto_rawDesc), len(file_recorder_provider_proto_rawDesc)),
 			NumEnums:      3,
-			NumMessages:   36,
+			NumMessages:   37,
 			NumExtensions: 0,
 			NumServices:   2,
 		},
