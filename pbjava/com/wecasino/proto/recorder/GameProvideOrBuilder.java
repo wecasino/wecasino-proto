@@ -217,6 +217,60 @@ java.lang.String defaultValue);
 
   /**
    * <pre>
+   * 玩家入座
+   * </pre>
+   *
+   * <code>map&lt;int32, .recorder.Dealer&gt; dealers = 26 [json_name = "dealers"];</code>
+   */
+  int getDealersCount();
+  /**
+   * <pre>
+   * 玩家入座
+   * </pre>
+   *
+   * <code>map&lt;int32, .recorder.Dealer&gt; dealers = 26 [json_name = "dealers"];</code>
+   */
+  boolean containsDealers(
+      int key);
+  /**
+   * Use {@link #getDealersMap()} instead.
+   */
+  @java.lang.Deprecated
+  java.util.Map<java.lang.Integer, com.wecasino.proto.recorder.Dealer>
+  getDealers();
+  /**
+   * <pre>
+   * 玩家入座
+   * </pre>
+   *
+   * <code>map&lt;int32, .recorder.Dealer&gt; dealers = 26 [json_name = "dealers"];</code>
+   */
+  java.util.Map<java.lang.Integer, com.wecasino.proto.recorder.Dealer>
+  getDealersMap();
+  /**
+   * <pre>
+   * 玩家入座
+   * </pre>
+   *
+   * <code>map&lt;int32, .recorder.Dealer&gt; dealers = 26 [json_name = "dealers"];</code>
+   */
+  /* nullable */
+com.wecasino.proto.recorder.Dealer getDealersOrDefault(
+      int key,
+      /* nullable */
+com.wecasino.proto.recorder.Dealer defaultValue);
+  /**
+   * <pre>
+   * 玩家入座
+   * </pre>
+   *
+   * <code>map&lt;int32, .recorder.Dealer&gt; dealers = 26 [json_name = "dealers"];</code>
+   */
+  com.wecasino.proto.recorder.Dealer getDealersOrThrow(
+      int key);
+
+  /**
+   * <pre>
    * 玩家姓名
    * </pre>
    *
