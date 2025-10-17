@@ -43,6 +43,22 @@ public enum GameSubtype
   BACCARAT_SPEED(3),
   /**
    * <pre>
+   * 百家樂恆8
+   * </pre>
+   *
+   * <code>BACCARAT_FOREVER8 = 4;</code>
+   */
+  BACCARAT_FOREVER8(4),
+  /**
+   * <pre>
+   * 百家樂恆9
+   * </pre>
+   *
+   * <code>BACCARAT_FOREVER9 = 5;</code>
+   */
+  BACCARAT_FOREVER9(5),
+  /**
+   * <pre>
    * 瞇牌百家樂
    * </pre>
    *
@@ -118,6 +134,22 @@ public enum GameSubtype
   public static final int BACCARAT_SPEED_VALUE = 3;
   /**
    * <pre>
+   * 百家樂恆8
+   * </pre>
+   *
+   * <code>BACCARAT_FOREVER8 = 4;</code>
+   */
+  public static final int BACCARAT_FOREVER8_VALUE = 4;
+  /**
+   * <pre>
+   * 百家樂恆9
+   * </pre>
+   *
+   * <code>BACCARAT_FOREVER9 = 5;</code>
+   */
+  public static final int BACCARAT_FOREVER9_VALUE = 5;
+  /**
+   * <pre>
    * 瞇牌百家樂
    * </pre>
    *
@@ -186,6 +218,8 @@ public enum GameSubtype
       case 1: return BACCARAT_CLASSIC;
       case 2: return BACCARAT_TRADITIONAL;
       case 3: return BACCARAT_SPEED;
+      case 4: return BACCARAT_FOREVER8;
+      case 5: return BACCARAT_FOREVER9;
       case 8: return BACCARAT_PEEK;
       case 12: return BACCARAT_FORTUNE;
       case 16: return BACCARAT_BLOCKCHAIN;

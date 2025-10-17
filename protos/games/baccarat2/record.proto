@@ -14,7 +14,13 @@ enum GameSubtype {
     // 極速百家樂
     BACCARAT_SPEED = 3;
 
-    // 瞇牌百家樂
+    // 百家樂恆8
+    BACCARAT_FOREVER8 = 4;
+
+    // 百家樂恆9
+    BACCARAT_FOREVER9 = 5;
+
+  // 瞇牌百家樂
     BACCARAT_PEEK = 8;
 
     // 財神百家樂
