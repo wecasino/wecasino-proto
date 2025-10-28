@@ -13,6 +13,7 @@ export * from "./pb/games/games_pb"
 
 export * as baccarat from "./pb/games/baccarat/record_pb"
 export * as baccarat2 from "./pb/games/baccarat2/record_pb"
+export * as baccarat3 from "./pb/games/baccarat3/record_pb"
 export * as oneluckynine from "./pb/games/oneluckynine/record_pb"
 export * as thebigbattle from "./pb/games/thebigbattle/record_pb"
 export * as threecards from "./pb/games/threecards/record_pb"

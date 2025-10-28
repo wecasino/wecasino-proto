@@ -245,7 +245,7 @@ type RecordShoeStartedRequest struct {
 	// 遊戲類型
 	GameType string `protobuf:"bytes,3,opt,name=game_type,json=gameType,proto3" json:"gameType" bson:"gameType" yaml:"gameType"`
 	// 遊戲子類型
-	GameSubtype string `protobuf:"bytes,4,opt,name=game_subtype,json=gameSubtype,proto3" json:"gameSubtype" yaml:"gameSubtype" bson:"gameSubtype"`
+	GameSubtype string `protobuf:"bytes,4,opt,name=game_subtype,json=gameSubtype,proto3" json:"gameSubtype" bson:"gameSubtype" yaml:"gameSubtype"`
 	// 遊戲版本
 	GameVersion string `protobuf:"bytes,5,opt,name=game_version,json=gameVersion,proto3" json:"gameVersion" bson:"gameVersion" yaml:"gameVersion"`
 	// 遊戲代碼
@@ -261,7 +261,7 @@ type RecordShoeStartedRequest struct {
 	// 此牌靴開始使用時間
 	TsStart *timestamppb.Timestamp `protobuf:"bytes,16,opt,name=ts_start,json=tsStart,proto3" json:"tsStart" bson:"tsStart" yaml:"tsStart"`
 	// cardList
-	Decks         map[int32]*Deck `protobuf:"bytes,24,rep,name=decks,proto3" json:"decks" protobuf_key:"varint,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value" yaml:"decks" bson:"decks"`
+	Decks         map[int32]*Deck `protobuf:"bytes,24,rep,name=decks,proto3" json:"decks" protobuf_key:"varint,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value" bson:"decks" yaml:"decks"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -378,7 +378,7 @@ type RecordShoeEndedRequest struct {
 	// 紀錄ID
 	RecordId []byte `protobuf:"bytes,1,opt,name=record_id,json=recordId,proto3" json:"recordId" bson:"recordId" yaml:"recordId"`
 	// 牌靴使用完畢時間
-	TsEnd *timestamppb.Timestamp `protobuf:"bytes,19,opt,name=ts_end,json=tsEnd,proto3" json:"tsEnd" bson:"tsEnd" yaml:"tsEnd"`
+	TsEnd *timestamppb.Timestamp `protobuf:"bytes,19,opt,name=ts_end,json=tsEnd,proto3" json:"tsEnd" yaml:"tsEnd" bson:"tsEnd"`
 	// cardList
 	Decks         map[int32]*Deck `protobuf:"bytes,24,rep,name=decks,proto3" json:"decks" protobuf_key:"varint,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value" bson:"decks" yaml:"decks"`
 	unknownFields protoimpl.UnknownFields
@@ -677,7 +677,7 @@ type RecordRoundBeCanceledRequest struct {
 	// 時間
 	TsEnd *timestamppb.Timestamp `protobuf:"bytes,19,opt,name=ts_end,json=tsEnd,proto3" json:"tsEnd" bson:"tsEnd" yaml:"tsEnd"`
 	// 取消代碼
-	CancelCode string `protobuf:"bytes,21,opt,name=cancel_code,json=cancelCode,proto3" json:"cancelCode" bson:"cancelCode" yaml:"cancelCode"`
+	CancelCode string `protobuf:"bytes,21,opt,name=cancel_code,json=cancelCode,proto3" json:"cancelCode" yaml:"cancelCode" bson:"cancelCode"`
 	// 取消備註
 	CancelMessage string `protobuf:"bytes,22,opt,name=cancel_message,json=cancelMessage,proto3" json:"cancelMessage" bson:"cancelMessage" yaml:"cancelMessage"`
 	unknownFields protoimpl.UnknownFields
@@ -880,7 +880,7 @@ type RecordModifyCardRequest struct {
 	// 修改原因
 	ModifyMessage string `protobuf:"bytes,5,opt,name=modify_message,json=modifyMessage,proto3" json:"modifyMessage" bson:"modifyMessage" yaml:"modifyMessage"`
 	// 修改fortune
-	ModifyFortune map[string]int64 `protobuf:"bytes,6,rep,name=modify_fortune,json=modifyFortune,proto3" json:"modifyFortune" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"varint,2,opt,name=value" yaml:"modifyFortune" bson:"modifyFortune"`
+	ModifyFortune map[string]int64 `protobuf:"bytes,6,rep,name=modify_fortune,json=modifyFortune,proto3" json:"modifyFortune" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"varint,2,opt,name=value" bson:"modifyFortune" yaml:"modifyFortune"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -954,7 +954,7 @@ type CardModify struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Seat          int32                  `protobuf:"varint,1,opt,name=seat,proto3" json:"seat" bson:"seat" yaml:"seat"`
 	ResourceType  int32                  `protobuf:"varint,2,opt,name=resource_type,json=resourceType,proto3" json:"resourceType" bson:"resourceType" yaml:"resourceType"`
-	CardListIndex int64                  `protobuf:"varint,3,opt,name=card_list_index,json=cardListIndex,proto3" json:"cardListIndex" yaml:"cardListIndex" bson:"cardListIndex"`
+	CardListIndex int64                  `protobuf:"varint,3,opt,name=card_list_index,json=cardListIndex,proto3" json:"cardListIndex" bson:"cardListIndex" yaml:"cardListIndex"`
 	CardCode      string                 `protobuf:"bytes,4,opt,name=card_code,json=cardCode,proto3" json:"cardCode" bson:"cardCode" yaml:"cardCode"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
