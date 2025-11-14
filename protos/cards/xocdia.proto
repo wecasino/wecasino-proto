@@ -1,7 +1,7 @@
 syntax = "proto3";
 package cards;
 
-enum Xocdia{
+enum XocdiaCard{
   // 未指定
   XOCDIA_CARD_UNSPECIFIED = 0;
   // 白

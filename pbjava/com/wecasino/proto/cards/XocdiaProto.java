@@ -24,13 +24,13 @@ public final class XocdiaProto {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\022cards/xocdia.proto\022\005cards*G\n\006Xocdia\022\033\n" +
-      "\027XOCDIA_CARD_UNSPECIFIED\020\000\022\020\n\014XOCDIA_WHI" +
-      "TE\020\001\022\016\n\nXOCDIA_RED\020\003B\212\001\n\030com.wecasino.pr" +
-      "oto.cardsB\013XocdiaProtoP\001Z-github.com/wec" +
-      "asino/wecasino-proto/pbgo/cards\242\002\003CXX\252\002\005" +
-      "Cards\312\002\005Cards\342\002\021Cards\\GPBMetadata\352\002\005Card" +
-      "sb\006proto3"
+      "\n\022cards/xocdia.proto\022\005cards*K\n\nXocdiaCar" +
+      "d\022\033\n\027XOCDIA_CARD_UNSPECIFIED\020\000\022\020\n\014XOCDIA" +
+      "_WHITE\020\001\022\016\n\nXOCDIA_RED\020\003B\212\001\n\030com.wecasin" +
+      "o.proto.cardsB\013XocdiaProtoP\001Z-github.com" +
+      "/wecasino/wecasino-proto/pbgo/cards\242\002\003CX" +
+      "X\252\002\005Cards\312\002\005Cards\342\002\021Cards\\GPBMetadata\352\002\005" +
+      "Cardsb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

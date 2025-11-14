@@ -21,55 +21,55 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type Xocdia int32
+type XocdiaCard int32
 
 const (
 	// 未指定
-	Xocdia_XOCDIA_CARD_UNSPECIFIED Xocdia = 0
+	XocdiaCard_XOCDIA_CARD_UNSPECIFIED XocdiaCard = 0
 	// 白
-	Xocdia_XOCDIA_WHITE Xocdia = 1
+	XocdiaCard_XOCDIA_WHITE XocdiaCard = 1
 	// 紅
-	Xocdia_XOCDIA_RED Xocdia = 3
+	XocdiaCard_XOCDIA_RED XocdiaCard = 3
 )
 
-// Enum value maps for Xocdia.
+// Enum value maps for XocdiaCard.
 var (
-	Xocdia_name = map[int32]string{
+	XocdiaCard_name = map[int32]string{
 		0: "XOCDIA_CARD_UNSPECIFIED",
 		1: "XOCDIA_WHITE",
 		3: "XOCDIA_RED",
 	}
-	Xocdia_value = map[string]int32{
+	XocdiaCard_value = map[string]int32{
 		"XOCDIA_CARD_UNSPECIFIED": 0,
 		"XOCDIA_WHITE":            1,
 		"XOCDIA_RED":              3,
 	}
 )
 
-func (x Xocdia) Enum() *Xocdia {
-	p := new(Xocdia)
+func (x XocdiaCard) Enum() *XocdiaCard {
+	p := new(XocdiaCard)
 	*p = x
 	return p
 }
 
-func (x Xocdia) String() string {
+func (x XocdiaCard) String() string {
 	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
 }
 
-func (Xocdia) Descriptor() protoreflect.EnumDescriptor {
+func (XocdiaCard) Descriptor() protoreflect.EnumDescriptor {
 	return file_cards_xocdia_proto_enumTypes[0].Descriptor()
 }
 
-func (Xocdia) Type() protoreflect.EnumType {
+func (XocdiaCard) Type() protoreflect.EnumType {
 	return &file_cards_xocdia_proto_enumTypes[0]
 }
 
-func (x Xocdia) Number() protoreflect.EnumNumber {
+func (x XocdiaCard) Number() protoreflect.EnumNumber {
 	return protoreflect.EnumNumber(x)
 }
 
-// Deprecated: Use Xocdia.Descriptor instead.
-func (Xocdia) EnumDescriptor() ([]byte, []int) {
+// Deprecated: Use XocdiaCard.Descriptor instead.
+func (XocdiaCard) EnumDescriptor() ([]byte, []int) {
 	return file_cards_xocdia_proto_rawDescGZIP(), []int{0}
 }
 
@@ -77,8 +77,9 @@ var File_cards_xocdia_proto protoreflect.FileDescriptor
 
 const file_cards_xocdia_proto_rawDesc = "" +
 	"\n" +
-	"\x12cards/xocdia.proto\x12\x05cards*G\n" +
-	"\x06Xocdia\x12\x1b\n" +
+	"\x12cards/xocdia.proto\x12\x05cards*K\n" +
+	"\n" +
+	"XocdiaCard\x12\x1b\n" +
 	"\x17XOCDIA_CARD_UNSPECIFIED\x10\x00\x12\x10\n" +
 	"\fXOCDIA_WHITE\x10\x01\x12\x0e\n" +
 	"\n" +
@@ -99,7 +100,7 @@ func file_cards_xocdia_proto_rawDescGZIP() []byte {
 
 var file_cards_xocdia_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_cards_xocdia_proto_goTypes = []any{
-	(Xocdia)(0), // 0: cards.Xocdia
+	(XocdiaCard)(0), // 0: cards.XocdiaCard
 }
 var file_cards_xocdia_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
