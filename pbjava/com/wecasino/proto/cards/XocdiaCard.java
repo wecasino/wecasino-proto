@@ -5,9 +5,9 @@
 package com.wecasino.proto.cards;
 
 /**
- * Protobuf enum {@code cards.Xocdia}
+ * Protobuf enum {@code cards.XocdiaCard}
  */
-public enum Xocdia
+public enum XocdiaCard
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
    * <pre>
@@ -76,7 +76,7 @@ public enum Xocdia
    * @deprecated Use {@link #forNumber(int)} instead.
    */
   @java.lang.Deprecated
-  public static Xocdia valueOf(int value) {
+  public static XocdiaCard valueOf(int value) {
     return forNumber(value);
   }
 
@@ -84,7 +84,7 @@ public enum Xocdia
    * @param value The numeric wire value of the corresponding enum entry.
    * @return The enum associated with the given numeric wire value.
    */
-  public static Xocdia forNumber(int value) {
+  public static XocdiaCard forNumber(int value) {
     switch (value) {
       case 0: return XOCDIA_CARD_UNSPECIFIED;
       case 1: return XOCDIA_WHITE;
@@ -93,15 +93,15 @@ public enum Xocdia
     }
   }
 
-  public static com.google.protobuf.Internal.EnumLiteMap<Xocdia>
+  public static com.google.protobuf.Internal.EnumLiteMap<XocdiaCard>
       internalGetValueMap() {
     return internalValueMap;
   }
   private static final com.google.protobuf.Internal.EnumLiteMap<
-      Xocdia> internalValueMap =
-        new com.google.protobuf.Internal.EnumLiteMap<Xocdia>() {
-          public Xocdia findValueByNumber(int number) {
-            return Xocdia.forNumber(number);
+      XocdiaCard> internalValueMap =
+        new com.google.protobuf.Internal.EnumLiteMap<XocdiaCard>() {
+          public XocdiaCard findValueByNumber(int number) {
+            return XocdiaCard.forNumber(number);
           }
         };
 
@@ -122,9 +122,9 @@ public enum Xocdia
     return com.wecasino.proto.cards.XocdiaProto.getDescriptor().getEnumTypes().get(0);
   }
 
-  private static final Xocdia[] VALUES = values();
+  private static final XocdiaCard[] VALUES = values();
 
-  public static Xocdia valueOf(
+  public static XocdiaCard valueOf(
       com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
     if (desc.getType() != getDescriptor()) {
       throw new java.lang.IllegalArgumentException(
@@ -138,10 +138,10 @@ public enum Xocdia
 
   private final int value;
 
-  private Xocdia(int value) {
+  private XocdiaCard(int value) {
     this.value = value;
   }
 
-  // @@protoc_insertion_point(enum_scope:cards.Xocdia)
+  // @@protoc_insertion_point(enum_scope:cards.XocdiaCard)
 }
 
