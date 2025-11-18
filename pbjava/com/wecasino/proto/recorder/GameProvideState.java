@@ -192,7 +192,7 @@ public enum GameProvideState
   }
   public static final com.google.protobuf.Descriptors.EnumDescriptor
       getDescriptor() {
-    return com.wecasino.proto.recorder.ProviderProto.getDescriptor().getEnumTypes().get(2);
+    return com.wecasino.proto.recorder.ProviderProto.getDescriptor().getEnumTypes().get(3);
   }
 
   private static final GameProvideState[] VALUES = values();
