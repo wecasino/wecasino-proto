@@ -22,25 +22,41 @@ public enum InstructionCmdType
    * 包桌換靴
    * </pre>
    *
-   * <code>INSTRUCTION_GROUP_CHANGE_SHOE = 1;</code>
+   * <code>INSTRUCTION_PRIVATE_CHANGE_SHOE = 1;</code>
    */
-  INSTRUCTION_GROUP_CHANGE_SHOE(1),
+  INSTRUCTION_PRIVATE_CHANGE_SHOE(1),
   /**
    * <pre>
    * 包桌換荷官
    * </pre>
    *
-   * <code>INSTRUCTION_GROUP_CHANGE_DEALER = 2;</code>
+   * <code>INSTRUCTION_PRIVATE_CHANGE_DEALER = 2;</code>
    */
-  INSTRUCTION_GROUP_CHANGE_DEALER(2),
+  INSTRUCTION_PRIVATE_CHANGE_DEALER(2),
   /**
    * <pre>
    * 包桌開牌
    * </pre>
    *
-   * <code>INSTRUCTION_GROUP_OPEN_CARD = 3;</code>
+   * <code>INSTRUCTION_PRIVATE_OPEN_CARD = 3;</code>
    */
-  INSTRUCTION_GROUP_OPEN_CARD(3),
+  INSTRUCTION_PRIVATE_OPEN_CARD(3),
+  /**
+   * <pre>
+   * 進入包桌
+   * </pre>
+   *
+   * <code>INSTRUCTION_PRIVATE_ENTER_TABLE = 4;</code>
+   */
+  INSTRUCTION_PRIVATE_ENTER_TABLE(4),
+  /**
+   * <pre>
+   * 離開包桌
+   * </pre>
+   *
+   * <code>INSTRUCTION_PRIVATE_LEAVE_TABLE = 5;</code>
+   */
+  INSTRUCTION_PRIVATE_LEAVE_TABLE(5),
   UNRECOGNIZED(-1),
   ;
 
@@ -57,25 +73,41 @@ public enum InstructionCmdType
    * 包桌換靴
    * </pre>
    *
-   * <code>INSTRUCTION_GROUP_CHANGE_SHOE = 1;</code>
+   * <code>INSTRUCTION_PRIVATE_CHANGE_SHOE = 1;</code>
    */
-  public static final int INSTRUCTION_GROUP_CHANGE_SHOE_VALUE = 1;
+  public static final int INSTRUCTION_PRIVATE_CHANGE_SHOE_VALUE = 1;
   /**
    * <pre>
    * 包桌換荷官
    * </pre>
    *
-   * <code>INSTRUCTION_GROUP_CHANGE_DEALER = 2;</code>
+   * <code>INSTRUCTION_PRIVATE_CHANGE_DEALER = 2;</code>
    */
-  public static final int INSTRUCTION_GROUP_CHANGE_DEALER_VALUE = 2;
+  public static final int INSTRUCTION_PRIVATE_CHANGE_DEALER_VALUE = 2;
   /**
    * <pre>
    * 包桌開牌
    * </pre>
    *
-   * <code>INSTRUCTION_GROUP_OPEN_CARD = 3;</code>
+   * <code>INSTRUCTION_PRIVATE_OPEN_CARD = 3;</code>
    */
-  public static final int INSTRUCTION_GROUP_OPEN_CARD_VALUE = 3;
+  public static final int INSTRUCTION_PRIVATE_OPEN_CARD_VALUE = 3;
+  /**
+   * <pre>
+   * 進入包桌
+   * </pre>
+   *
+   * <code>INSTRUCTION_PRIVATE_ENTER_TABLE = 4;</code>
+   */
+  public static final int INSTRUCTION_PRIVATE_ENTER_TABLE_VALUE = 4;
+  /**
+   * <pre>
+   * 離開包桌
+   * </pre>
+   *
+   * <code>INSTRUCTION_PRIVATE_LEAVE_TABLE = 5;</code>
+   */
+  public static final int INSTRUCTION_PRIVATE_LEAVE_TABLE_VALUE = 5;
 
 
   public final int getNumber() {
@@ -103,9 +135,11 @@ public enum InstructionCmdType
   public static InstructionCmdType forNumber(int value) {
     switch (value) {
       case 0: return NONE_INSTRUCTION_TYPE_UNSPECIFIED;
-      case 1: return INSTRUCTION_GROUP_CHANGE_SHOE;
-      case 2: return INSTRUCTION_GROUP_CHANGE_DEALER;
-      case 3: return INSTRUCTION_GROUP_OPEN_CARD;
+      case 1: return INSTRUCTION_PRIVATE_CHANGE_SHOE;
+      case 2: return INSTRUCTION_PRIVATE_CHANGE_DEALER;
+      case 3: return INSTRUCTION_PRIVATE_OPEN_CARD;
+      case 4: return INSTRUCTION_PRIVATE_ENTER_TABLE;
+      case 5: return INSTRUCTION_PRIVATE_LEAVE_TABLE;
       default: return null;
     }
   }
