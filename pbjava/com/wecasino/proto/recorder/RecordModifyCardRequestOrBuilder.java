@@ -111,4 +111,56 @@ public interface RecordModifyCardRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getModifyMessageBytes();
+
+  /**
+   * <pre>
+   * 修改fortune
+   * </pre>
+   *
+   * <code>map&lt;string, int64&gt; modify_fortune = 6 [json_name = "modifyFortune"];</code>
+   */
+  int getModifyFortuneCount();
+  /**
+   * <pre>
+   * 修改fortune
+   * </pre>
+   *
+   * <code>map&lt;string, int64&gt; modify_fortune = 6 [json_name = "modifyFortune"];</code>
+   */
+  boolean containsModifyFortune(
+      java.lang.String key);
+  /**
+   * Use {@link #getModifyFortuneMap()} instead.
+   */
+  @java.lang.Deprecated
+  java.util.Map<java.lang.String, java.lang.Long>
+  getModifyFortune();
+  /**
+   * <pre>
+   * 修改fortune
+   * </pre>
+   *
+   * <code>map&lt;string, int64&gt; modify_fortune = 6 [json_name = "modifyFortune"];</code>
+   */
+  java.util.Map<java.lang.String, java.lang.Long>
+  getModifyFortuneMap();
+  /**
+   * <pre>
+   * 修改fortune
+   * </pre>
+   *
+   * <code>map&lt;string, int64&gt; modify_fortune = 6 [json_name = "modifyFortune"];</code>
+   */
+  long getModifyFortuneOrDefault(
+      java.lang.String key,
+      long defaultValue);
+  /**
+   * <pre>
+   * 修改fortune
+   * </pre>
+   *
+   * <code>map&lt;string, int64&gt; modify_fortune = 6 [json_name = "modifyFortune"];</code>
+   */
+  long getModifyFortuneOrThrow(
+      java.lang.String key);
 }

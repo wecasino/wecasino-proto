@@ -111,6 +111,11 @@ public final class RecorderProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_recorder_RecordModifyCardRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_recorder_RecordModifyCardRequest_ModifyFortuneEntry_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_recorder_RecordModifyCardRequest_ModifyFortuneEntry_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_recorder_CardModify_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -197,45 +202,49 @@ public final class RecorderProto {
       "Request.AddEntryR\003add\022\026\n\006remove\030\004 \003(\tR\006r" +
       "emove\0326\n\010SetEntry\022\020\n\003key\030\001 \001(\tR\003key\022\024\n\005v" +
       "alue\030\002 \001(\tR\005value:\0028\001\0326\n\010AddEntry\022\020\n\003key" +
-      "\030\001 \001(\tR\003key\022\024\n\005value\030\002 \001(\tR\005value:\0028\001\"\256\001" +
+      "\030\001 \001(\tR\003key\022\024\n\005value\030\002 \001(\tR\005value:\0028\001\"\315\002" +
       "\n\027RecordModifyCardRequest\022\033\n\tgame_code\030\002" +
       " \001(\tR\010gameCode\022\035\n\nround_code\030\003 \001(\tR\troun" +
       "dCode\0220\n\010modifies\030\004 \003(\0132\024.recorder.CardM" +
       "odifyR\010modifies\022%\n\016modify_message\030\005 \001(\tR" +
-      "\rmodifyMessage\"\212\001\n\nCardModify\022\022\n\004seat\030\001 " +
-      "\001(\005R\004seat\022#\n\rresource_type\030\002 \001(\005R\014resour" +
-      "ceType\022&\n\017card_list_index\030\003 \001(\003R\rcardLis" +
-      "tIndex\022\033\n\tcard_code\030\004 \001(\tR\010cardCode2\376\007\n\017" +
-      "RecorderService\022P\n\022RecordShiftStarted\022#." +
-      "recorder.RecordShiftStartedRequest\032\025.rec" +
-      "order.ShiftRecord\022L\n\020RecordShiftEnded\022!." +
-      "recorder.RecordShiftEndedRequest\032\025.recor" +
-      "der.ShiftRecord\022M\n\021RecordShoeStarted\022\".r" +
-      "ecorder.RecordShoeStartedRequest\032\024.recor" +
-      "der.ShoeRecord\022I\n\017RecordShoeEnded\022 .reco" +
-      "rder.RecordShoeEndedRequest\032\024.recorder.S" +
-      "hoeRecord\022P\n\022RecordRoundStarted\022#.record" +
-      "er.RecordRoundStartedRequest\032\025.recorder." +
-      "RoundRecord\022L\n\020RecordRoundSteps\022!.record" +
-      "er.RecordRoundStepsRequest\032\025.recorder.Ro" +
-      "undRecord\022V\n\025RecordRoundBeCanceled\022&.rec" +
-      "order.RecordRoundBeCanceledRequest\032\025.rec" +
-      "order.RoundRecord\022R\n\023RecordRoundFinished" +
-      "\022$.recorder.RecordRoundFinishedRequest\032\025" +
-      ".recorder.RoundRecord\022c\n\"RecordRoundBeCa" +
-      "nceledAfterFinished\022&.recorder.RecordRou" +
-      "ndBeCanceledRequest\032\025.recorder.RoundReco" +
-      "rd\022X\n\034RecordModifyResultAfterRound\022!.rec" +
-      "order.RecordModifyCardRequest\032\025.recorder" +
-      ".RoundRecord\022X\n\034RecordFinishResultAfterR" +
-      "ound\022!.recorder.RecordModifyCardRequest\032" +
-      "\025.recorder.RoundRecord\022L\n\020RecordRoundVid" +
-      "eo\022!.recorder.RecordRoundMediaRequest\032\025." +
-      "recorder.RoundRecordB\236\001\n\033com.wecasino.pr" +
-      "oto.recorderB\rRecorderProtoP\001Z0github.co" +
-      "m/wecasino/wecasino-proto/pbgo/recorder\242" +
-      "\002\003RXX\252\002\010Recorder\312\002\010Recorder\342\002\024Recorder\\G" +
-      "PBMetadata\352\002\010Recorderb\006proto3"
+      "\rmodifyMessage\022[\n\016modify_fortune\030\006 \003(\01324" +
+      ".recorder.RecordModifyCardRequest.Modify" +
+      "FortuneEntryR\rmodifyFortune\032@\n\022ModifyFor" +
+      "tuneEntry\022\020\n\003key\030\001 \001(\tR\003key\022\024\n\005value\030\002 \001" +
+      "(\003R\005value:\0028\001\"\212\001\n\nCardModify\022\022\n\004seat\030\001 \001" +
+      "(\005R\004seat\022#\n\rresource_type\030\002 \001(\005R\014resourc" +
+      "eType\022&\n\017card_list_index\030\003 \001(\003R\rcardList" +
+      "Index\022\033\n\tcard_code\030\004 \001(\tR\010cardCode2\376\007\n\017R" +
+      "ecorderService\022P\n\022RecordShiftStarted\022#.r" +
+      "ecorder.RecordShiftStartedRequest\032\025.reco" +
+      "rder.ShiftRecord\022L\n\020RecordShiftEnded\022!.r" +
+      "ecorder.RecordShiftEndedRequest\032\025.record" +
+      "er.ShiftRecord\022M\n\021RecordShoeStarted\022\".re" +
+      "corder.RecordShoeStartedRequest\032\024.record" +
+      "er.ShoeRecord\022I\n\017RecordShoeEnded\022 .recor" +
+      "der.RecordShoeEndedRequest\032\024.recorder.Sh" +
+      "oeRecord\022P\n\022RecordRoundStarted\022#.recorde" +
+      "r.RecordRoundStartedRequest\032\025.recorder.R" +
+      "oundRecord\022L\n\020RecordRoundSteps\022!.recorde" +
+      "r.RecordRoundStepsRequest\032\025.recorder.Rou" +
+      "ndRecord\022V\n\025RecordRoundBeCanceled\022&.reco" +
+      "rder.RecordRoundBeCanceledRequest\032\025.reco" +
+      "rder.RoundRecord\022R\n\023RecordRoundFinished\022" +
+      "$.recorder.RecordRoundFinishedRequest\032\025." +
+      "recorder.RoundRecord\022c\n\"RecordRoundBeCan" +
+      "celedAfterFinished\022&.recorder.RecordRoun" +
+      "dBeCanceledRequest\032\025.recorder.RoundRecor" +
+      "d\022X\n\034RecordModifyResultAfterRound\022!.reco" +
+      "rder.RecordModifyCardRequest\032\025.recorder." +
+      "RoundRecord\022X\n\034RecordFinishResultAfterRo" +
+      "und\022!.recorder.RecordModifyCardRequest\032\025" +
+      ".recorder.RoundRecord\022L\n\020RecordRoundVide" +
+      "o\022!.recorder.RecordRoundMediaRequest\032\025.r" +
+      "ecorder.RoundRecordB\236\001\n\033com.wecasino.pro" +
+      "to.recorderB\rRecorderProtoP\001Z0github.com" +
+      "/wecasino/wecasino-proto/pbgo/recorder\242\002" +
+      "\003RXX\252\002\010Recorder\312\002\010Recorder\342\002\024Recorder\\GP" +
+      "BMetadata\352\002\010Recorderb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -356,7 +365,13 @@ public final class RecorderProto {
     internal_static_recorder_RecordModifyCardRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_recorder_RecordModifyCardRequest_descriptor,
-        new java.lang.String[] { "GameCode", "RoundCode", "Modifies", "ModifyMessage", });
+        new java.lang.String[] { "GameCode", "RoundCode", "Modifies", "ModifyMessage", "ModifyFortune", });
+    internal_static_recorder_RecordModifyCardRequest_ModifyFortuneEntry_descriptor =
+      internal_static_recorder_RecordModifyCardRequest_descriptor.getNestedTypes().get(0);
+    internal_static_recorder_RecordModifyCardRequest_ModifyFortuneEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_recorder_RecordModifyCardRequest_ModifyFortuneEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
     internal_static_recorder_CardModify_descriptor =
       getDescriptor().getMessageTypes().get(11);
     internal_static_recorder_CardModify_fieldAccessorTable = new
