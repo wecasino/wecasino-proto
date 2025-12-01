@@ -187,6 +187,7 @@ paths:
              - 42: 色彩遊戲JACKPOT
              - 43: ONELUCKYNINE
              - 44: HILO
+             - 45: SAKLA
           in: query
           required: false
           type: integer
@@ -207,6 +208,7 @@ paths:
             - 42
             - 43
             - 44
+            - 45
           default: 0
         - name: gameSubtype
           description: 遊戲子類型
@@ -307,6 +309,7 @@ paths:
              - 42: 色彩遊戲JACKPOT
              - 43: ONELUCKYNINE
              - 44: HILO
+             - 45: SAKLA
           in: query
           required: false
           type: integer
@@ -327,6 +330,7 @@ paths:
             - 42
             - 43
             - 44
+            - 45
           default: 0
         - name: gameSubtype
           description: 遊戲子類型
@@ -487,6 +491,7 @@ paths:
              - 42: 色彩遊戲JACKPOT
              - 43: ONELUCKYNINE
              - 44: HILO
+             - 45: SAKLA
           in: query
           required: false
           type: integer
@@ -507,6 +512,7 @@ paths:
             - 42
             - 43
             - 44
+            - 45
           default: 0
         - name: gameSubtype
           description: 遊戲子類型
@@ -703,6 +709,7 @@ definitions:
       - 42
       - 43
       - 44
+      - 45
     default: 0
     description: |-
       - 0: 未指定
@@ -721,6 +728,7 @@ definitions:
        - 42: 色彩遊戲JACKPOT
        - 43: ONELUCKYNINE
        - 44: HILO
+       - 45: SAKLA
     title: "GameType \n遊戲類型"
   gamesWinType:
     type: integer
@@ -1519,6 +1527,10 @@ definitions:
       test:
         type: boolean
         title: 是否測試
+      cutRound:
+        type: integer
+        format: int32
+        title: 切牌局數
     title: |-
       ShoeRecord
       靴紀錄

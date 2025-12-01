@@ -1,0 +1,85 @@
+syntax = "proto3";
+package cards;
+
+// 撲克牌代碼
+enum BarajaCard {
+  // 未指定
+  BARAJA_CARD_UNSPECIFIED = 0;
+  // 未指定花色
+  BARAJA_ANY_A = 1;
+  BARAJA_ANY_2 = 2;
+  BARAJA_ANY_3 = 3;
+  BARAJA_ANY_4 = 4;
+  BARAJA_ANY_5 = 5;
+  BARAJA_ANY_6 = 6;
+  BARAJA_ANY_7 = 7;
+  BARAJA_ANY_8 = 8;
+  BARAJA_ANY_9 = 9;
+  BARAJA_ANY_10 = 10;
+  BARAJA_ANY_J = 11;
+  BARAJA_ANY_Q = 12;
+  BARAJA_MASK = 15;
+  // 寶劍
+  SWORDS_ANY = 16;
+  SWORDS_A = 17;
+  SWORDS_2 = 18;
+  SWORDS_3 = 19;
+  SWORDS_4 = 20;
+  SWORDS_5 = 21;
+  SWORDS_6 = 22;
+  SWORDS_7 = 23;
+  SWORDS_8 = 24;
+  SWORDS_9 = 25;
+  SWORDS_10 = 26;
+  SWORDS_J = 27;
+  SWORDS_Q = 28;
+  // 棍棒
+  CLUBS_ANY = 32;
+  CLUBS_A = 33;
+  CLUBS_2 = 34;
+  CLUBS_3 = 35;
+  CLUBS_4 = 36;
+  CLUBS_5 = 37;
+  CLUBS_6 = 38;
+  CLUBS_7 = 39;
+  CLUBS_8 = 40;
+  CLUBS_9 = 41;
+  CLUBS_10 = 42;
+  CLUBS_J = 43;
+  CLUBS_Q = 44;
+  // 聖杯
+  CUPS_ANY = 48;
+  CUPS_A = 49;
+  CUPS_2 = 50;
+  CUPS_3 = 51;
+  CUPS_4 = 52;
+  CUPS_5 = 53;
+  CUPS_6 = 54;
+  CUPS_7 = 55;
+  CUPS_8 = 56;
+  CUPS_9 = 57;
+  CUPS_10 = 58;
+  CUPS_J = 59;
+  CUPS_Q = 60;
+  // coins
+  COINS_ANY = 64;
+  COINS_A = 65;
+  COINS_2 = 66;
+  COINS_3 = 67;
+  COINS_4 = 68;
+  COINS_5 = 69;
+  COINS_6 = 70;
+  COINS_7 = 71;
+  COINS_8 = 72;
+  COINS_9 = 73;
+  COINS_10 = 74;
+  COINS_J = 75;
+  COINS_Q = 76;
+
+  // 鬼牌
+  BARAJA_JOKER_COLOR = 94;
+  BARAJA_JOKER_BLACK = 95;
+
+  BARAJA_SUIT_MASK = 112;
+
+}

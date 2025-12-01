@@ -492,6 +492,10 @@ definitions:
       test:
         type: boolean
         title: 是否測試
+      cutRound:
+        type: integer
+        format: int32
+        title: 切牌局數
     title: |-
       ShoeRecord
       靴紀錄
