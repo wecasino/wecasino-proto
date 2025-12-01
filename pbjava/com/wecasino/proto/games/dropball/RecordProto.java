@@ -25,20 +25,24 @@ public final class RecordProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\033games/dropball/record.proto\022\016games.dro" +
-      "pball*[\n\013GameSubtype\022\035\n\031DROPBALL_TYPE_UN" +
-      "SPECIFIED\020\000\022\024\n\020DROPBALL_CLASSIC\020\001\022\027\n\023DRO" +
-      "PBALL_BLOCKCHAIN\020\020*\236\001\n\004Step\022\024\n\020STEP_UNSP" +
-      "ECIFIED\020\000\022\017\n\013ROUND_START\020\001\022\022\n\016ROUND_FINI" +
-      "SHED\020\002\022\022\n\016ROUND_CANCELED\020\003\022\r\n\tROUND_BET\020" +
-      "\004\022\017\n\013NO_MORE_BET\020\005\022\016\n\nTHROW_BALL\020\010\022\027\n\023PI" +
-      "TBOSS_MODIFY_BOWL\020\020*9\n\014ResourceType\022\035\n\031R" +
-      "ESOURCE_TYPE_UNSPECIFIED\020\000\022\n\n\006NORMAL\020\001B\301" +
-      "\001\n!com.wecasino.proto.games.dropballB\013Re" +
-      "cordProtoP\001Z6github.com/wecasino/wecasin" +
-      "o-proto/pbgo/games/dropball\242\002\003GDX\252\002\016Game" +
-      "s.Dropball\312\002\016Games\\Dropball\342\002\032Games\\Drop" +
-      "ball\\GPBMetadata\352\002\017Games::Dropballb\006prot" +
-      "o3"
+      "pball*\214\001\n\013GameSubtype\022\035\n\031DROPBALL_TYPE_U" +
+      "NSPECIFIED\020\000\022\024\n\020DROPBALL_CLASSIC\020\001\022\031\n\025DR" +
+      "OPBALL_COCONUT_BALL\020\003\022\024\n\020DROPBALL_JACKPO" +
+      "T\020\004\022\027\n\023DROPBALL_BLOCKCHAIN\020\020*\242\002\n\004Step\022\024\n" +
+      "\020STEP_UNSPECIFIED\020\000\022\017\n\013ROUND_START\020\001\022\022\n\016" +
+      "ROUND_FINISHED\020\002\022\022\n\016ROUND_CANCELED\020\003\022\r\n\t" +
+      "ROUND_BET\020\004\022\017\n\013NO_MORE_BET\020\005\022\016\n\nTHROW_BA" +
+      "LL\020\010\022\031\n\025SUPERCOIN_ROUND_READY\020\t\022\031\n\025SUPER" +
+      "COIN_ROUND_START\020\n\022\027\n\023SUPERCOIN_ROUND_BE" +
+      "T\020\013\022\031\n\025SUPERCOIN_NO_MORE_BET\020\014\022\030\n\024SUPERC" +
+      "OIN_THROW_COIN\020\r\022\027\n\023PITBOSS_MODIFY_BOWL\020" +
+      "\020*C\n\014ResourceType\022\035\n\031RESOURCE_TYPE_UNSPE" +
+      "CIFIED\020\000\022\n\n\006NORMAL\020\001\022\010\n\004COIN\020\002B\301\001\n!com.w" +
+      "ecasino.proto.games.dropballB\013RecordProt" +
+      "oP\001Z6github.com/wecasino/wecasino-proto/" +
+      "pbgo/games/dropball\242\002\003GDX\252\002\016Games.Dropba" +
+      "ll\312\002\016Games\\Dropball\342\002\032Games\\Dropball\\GPB" +
+      "Metadata\352\002\017Games::Dropballb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

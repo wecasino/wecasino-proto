@@ -65,6 +65,14 @@ public enum ResourceType
    * <code>DISCARD = 69;</code>
    */
   DISCARD(69),
+  /**
+   * <pre>
+   * JACKPOT
+   * </pre>
+   *
+   * <code>JACKPOT_RESOURCE = 70;</code>
+   */
+  JACKPOT_RESOURCE(70),
   UNRECOGNIZED(-1),
   ;
 
@@ -124,6 +132,14 @@ public enum ResourceType
    * <code>DISCARD = 69;</code>
    */
   public static final int DISCARD_VALUE = 69;
+  /**
+   * <pre>
+   * JACKPOT
+   * </pre>
+   *
+   * <code>JACKPOT_RESOURCE = 70;</code>
+   */
+  public static final int JACKPOT_RESOURCE_VALUE = 70;
 
 
   public final int getNumber() {
@@ -157,6 +173,7 @@ public enum ResourceType
       case 67: return FIRST_CARD;
       case 68: return SHOE_CUT;
       case 69: return DISCARD;
+      case 70: return JACKPOT_RESOURCE;
       default: return null;
     }
   }

@@ -10,6 +10,9 @@ enum GameType {
 
   // 百家樂
   BACCARAT = 16;
+  
+  // 百家樂新發牌方式
+  BACCARAT2 = 50;
 
   // 龍虎鬥
   THEBIGBATTLE = 17;
@@ -38,6 +41,14 @@ enum GameType {
   // 幸運輪
   LUCKYWHEEL = 40;
 
+  // 越南色碟
+  XOCDIA = 41;
+
+  // 色彩遊戲JACKPOT
+  COLORGAME_JACKPOT = 42;
+
+  // ONELUCKYNINE
+  ONELUCKYNINE = 43;
 }
 
 enum FlowSeat {
@@ -69,11 +80,14 @@ enum FlowSeat {
   // 右方
   RIGHT = 71;
 
+  // JACKPOT
+  JACKPOT = 72;
+
   // 流程控制牌
   CONTROL = 96;
 
   // 玩家指示
-  Instructions = 99;
+  INSTRUCTIONS = 99;
 }
 
 enum ResourceType {
@@ -99,6 +113,8 @@ enum ResourceType {
   // 棄牌
   DISCARD = 69;
 
+  // JACKPOT
+  JACKPOT_RESOURCE = 70;
 }
 
 // WinType 

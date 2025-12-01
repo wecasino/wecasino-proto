@@ -14,9 +14,9 @@ public enum ColorCard
    * 未指定
    * </pre>
    *
-   * <code>Color_CARD_UNSPECIFIED = 0;</code>
+   * <code>COLOR_CARD_UNSPECIFIED = 0;</code>
    */
-  Color_CARD_UNSPECIFIED(0),
+  COLOR_CARD_UNSPECIFIED(0),
   /**
    * <pre>
    * 綠、紅、藍、粉、白、黃
@@ -66,6 +66,54 @@ public enum ColorCard
    * <code>Color_6 = 6;</code>
    */
   Color_6(6),
+  /**
+   * <pre>
+   *Purple
+   * </pre>
+   *
+   * <code>PURPLE = 51;</code>
+   */
+  PURPLE(51),
+  /**
+   * <pre>
+   *Blue
+   * </pre>
+   *
+   * <code>BLUE = 52;</code>
+   */
+  BLUE(52),
+  /**
+   * <pre>
+   *Red
+   * </pre>
+   *
+   * <code>RED = 53;</code>
+   */
+  RED(53),
+  /**
+   * <pre>
+   *Yellow
+   * </pre>
+   *
+   * <code>YELLOW = 54;</code>
+   */
+  YELLOW(54),
+  /**
+   * <pre>
+   *Orange
+   * </pre>
+   *
+   * <code>ORANGE = 55;</code>
+   */
+  ORANGE(55),
+  /**
+   * <pre>
+   *Green
+   * </pre>
+   *
+   * <code>GREEN = 56;</code>
+   */
+  GREEN(56),
   UNRECOGNIZED(-1),
   ;
 
@@ -74,9 +122,9 @@ public enum ColorCard
    * 未指定
    * </pre>
    *
-   * <code>Color_CARD_UNSPECIFIED = 0;</code>
+   * <code>COLOR_CARD_UNSPECIFIED = 0;</code>
    */
-  public static final int Color_CARD_UNSPECIFIED_VALUE = 0;
+  public static final int COLOR_CARD_UNSPECIFIED_VALUE = 0;
   /**
    * <pre>
    * 綠、紅、藍、粉、白、黃
@@ -126,6 +174,54 @@ public enum ColorCard
    * <code>Color_6 = 6;</code>
    */
   public static final int Color_6_VALUE = 6;
+  /**
+   * <pre>
+   *Purple
+   * </pre>
+   *
+   * <code>PURPLE = 51;</code>
+   */
+  public static final int PURPLE_VALUE = 51;
+  /**
+   * <pre>
+   *Blue
+   * </pre>
+   *
+   * <code>BLUE = 52;</code>
+   */
+  public static final int BLUE_VALUE = 52;
+  /**
+   * <pre>
+   *Red
+   * </pre>
+   *
+   * <code>RED = 53;</code>
+   */
+  public static final int RED_VALUE = 53;
+  /**
+   * <pre>
+   *Yellow
+   * </pre>
+   *
+   * <code>YELLOW = 54;</code>
+   */
+  public static final int YELLOW_VALUE = 54;
+  /**
+   * <pre>
+   *Orange
+   * </pre>
+   *
+   * <code>ORANGE = 55;</code>
+   */
+  public static final int ORANGE_VALUE = 55;
+  /**
+   * <pre>
+   *Green
+   * </pre>
+   *
+   * <code>GREEN = 56;</code>
+   */
+  public static final int GREEN_VALUE = 56;
 
 
   public final int getNumber() {
@@ -152,13 +248,19 @@ public enum ColorCard
    */
   public static ColorCard forNumber(int value) {
     switch (value) {
-      case 0: return Color_CARD_UNSPECIFIED;
+      case 0: return COLOR_CARD_UNSPECIFIED;
       case 1: return Color_1;
       case 2: return Color_2;
       case 3: return Color_3;
       case 4: return Color_4;
       case 5: return Color_5;
       case 6: return Color_6;
+      case 51: return PURPLE;
+      case 52: return BLUE;
+      case 53: return RED;
+      case 54: return YELLOW;
+      case 55: return ORANGE;
+      case 56: return GREEN;
       default: return null;
     }
   }

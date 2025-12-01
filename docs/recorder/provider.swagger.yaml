@@ -2,7 +2,6 @@ swagger: "2.0"
 info:
   title: recorder/provider.proto
   version: version not set
-host: gateway.beta.wecasino.live
 consumes:
   - application/json
 produces:
@@ -174,6 +173,7 @@ paths:
 
              - 0: 未指定
              - 16: 百家樂
+             - 50: 百家樂新發牌方式
              - 17: 龍虎鬥
              - 18: 炸金花
              - 19: 牛牛
@@ -183,12 +183,16 @@ paths:
              - 34: 丟球遊戲
              - 36: 輪盤
              - 40: 幸運輪
+             - 41: 越南色碟
+             - 42: 色彩遊戲JACKPOT
+             - 43: ONELUCKYNINE
           in: query
           required: false
           type: integer
           enum:
             - 0
             - 16
+            - 50
             - 17
             - 18
             - 19
@@ -198,6 +202,9 @@ paths:
             - 34
             - 36
             - 40
+            - 41
+            - 42
+            - 43
           default: 0
         - name: gameSubtype
           description: 遊戲子類型
@@ -284,6 +291,7 @@ paths:
 
              - 0: 未指定
              - 16: 百家樂
+             - 50: 百家樂新發牌方式
              - 17: 龍虎鬥
              - 18: 炸金花
              - 19: 牛牛
@@ -293,12 +301,16 @@ paths:
              - 34: 丟球遊戲
              - 36: 輪盤
              - 40: 幸運輪
+             - 41: 越南色碟
+             - 42: 色彩遊戲JACKPOT
+             - 43: ONELUCKYNINE
           in: query
           required: false
           type: integer
           enum:
             - 0
             - 16
+            - 50
             - 17
             - 18
             - 19
@@ -308,6 +320,9 @@ paths:
             - 34
             - 36
             - 40
+            - 41
+            - 42
+            - 43
           default: 0
         - name: gameSubtype
           description: 遊戲子類型
@@ -454,6 +469,7 @@ paths:
 
              - 0: 未指定
              - 16: 百家樂
+             - 50: 百家樂新發牌方式
              - 17: 龍虎鬥
              - 18: 炸金花
              - 19: 牛牛
@@ -463,12 +479,16 @@ paths:
              - 34: 丟球遊戲
              - 36: 輪盤
              - 40: 幸運輪
+             - 41: 越南色碟
+             - 42: 色彩遊戲JACKPOT
+             - 43: ONELUCKYNINE
           in: query
           required: false
           type: integer
           enum:
             - 0
             - 16
+            - 50
             - 17
             - 18
             - 19
@@ -478,6 +498,9 @@ paths:
             - 34
             - 36
             - 40
+            - 41
+            - 42
+            - 43
           default: 0
         - name: gameSubtype
           description: 遊戲子類型
@@ -660,6 +683,7 @@ definitions:
     enum:
       - 0
       - 16
+      - 50
       - 17
       - 18
       - 19
@@ -669,10 +693,14 @@ definitions:
       - 34
       - 36
       - 40
+      - 41
+      - 42
+      - 43
     default: 0
     description: |-
       - 0: 未指定
        - 16: 百家樂
+       - 50: 百家樂新發牌方式
        - 17: 龍虎鬥
        - 18: 炸金花
        - 19: 牛牛
@@ -682,6 +710,9 @@ definitions:
        - 34: 丟球遊戲
        - 36: 輪盤
        - 40: 幸運輪
+       - 41: 越南色碟
+       - 42: 色彩遊戲JACKPOT
+       - 43: ONELUCKYNINE
     title: "GameType \n遊戲類型"
   gamesWinType:
     type: integer
@@ -727,7 +758,8 @@ definitions:
 
           Note: this functionality is not currently available in the official
           protobuf release, and it is not used for type URLs beginning with
-          type.googleapis.com.
+          type.googleapis.com. As of May 2023, there are no widely used type server
+          implementations and no plans to implement one.
 
           Schemes other than `http`, `https` (or the empty scheme) might be
           used with implementation specific semantics.
@@ -762,7 +794,7 @@ definitions:
             foo = any.unpack(Foo.getDefaultInstance());
           }
 
-      Example 3: Pack and unpack a message in Python.
+       Example 3: Pack and unpack a message in Python.
 
           foo = Foo(...)
           any = Any()
@@ -772,7 +804,7 @@ definitions:
             any.Unpack(foo)
             ...
 
-      Example 4: Pack and unpack a message in Go
+       Example 4: Pack and unpack a message in Go
 
            foo := &pb.Foo{...}
            any, err := anypb.New(foo)
@@ -792,7 +824,7 @@ definitions:
       name "y.z".
 
       JSON
-
+      ====
       The JSON representation of an `Any` value uses the regular
       representation of the deserialized, embedded message, with an
       additional field `@type` which contains the type URL. Example:
@@ -1595,10 +1627,3 @@ definitions:
         items:
           type: object
           $ref: '#/definitions/protobufAny'
-securityDefinitions:
-  ApiKeyAuth:
-    type: apiKey
-    name: X-API-Key
-    in: header
-security:
-  - ApiKeyAuth: []

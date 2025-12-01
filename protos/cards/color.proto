@@ -4,7 +4,7 @@ package cards;
 enum ColorCard {
 
   // 未指定
-  Color_CARD_UNSPECIFIED = 0;
+  COLOR_CARD_UNSPECIFIED = 0;
   // 綠、紅、藍、粉、白、黃
   //黃
   Color_1 = 1;
@@ -18,5 +18,18 @@ enum ColorCard {
   Color_5 = 5;
   //白
   Color_6 = 6;
+
+  //Purple
+  PURPLE = 51;
+  //Blue
+  BLUE = 52;
+  //Red
+  RED = 53;
+  //Yellow
+  YELLOW = 54;
+  //Orange
+  ORANGE = 55;
+  //Green
+  GREEN = 56;
 
 }

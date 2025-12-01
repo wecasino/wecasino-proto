@@ -1,0 +1,14 @@
+syntax = "proto3";
+package cards;
+
+enum Coin {
+
+  // 未指定
+  COIN_CARD_UNSPECIFIED = 0;
+
+  //正面
+  COIN_HEADS = 1;
+  //反面
+  COIN_TAILS = 2;
+
+}

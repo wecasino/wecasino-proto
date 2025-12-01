@@ -452,17 +452,17 @@ private static final long serialVersionUID = 0L;
     return pageSize_;
   }
 
-  public static final int ROUNDSTATUSTYPE_FIELD_NUMBER = 12;
+  public static final int ROUND_STATUS_TYPE_FIELD_NUMBER = 12;
   private int roundStatusType_ = 0;
   /**
-   * <code>.recorder.RoundStatusType roundStatusType = 12 [json_name = "roundStatusType"];</code>
+   * <code>.recorder.RoundStatusType round_status_type = 12 [json_name = "roundStatusType"];</code>
    * @return The enum numeric value on the wire for roundStatusType.
    */
   @java.lang.Override public int getRoundStatusTypeValue() {
     return roundStatusType_;
   }
   /**
-   * <code>.recorder.RoundStatusType roundStatusType = 12 [json_name = "roundStatusType"];</code>
+   * <code>.recorder.RoundStatusType round_status_type = 12 [json_name = "roundStatusType"];</code>
    * @return The roundStatusType.
    */
   @java.lang.Override public com.wecasino.proto.recorder.RoundStatusType getRoundStatusType() {
@@ -674,7 +674,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + PAGE_SIZE_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getPageSize());
-    hash = (37 * hash) + ROUNDSTATUSTYPE_FIELD_NUMBER;
+    hash = (37 * hash) + ROUND_STATUS_TYPE_FIELD_NUMBER;
     hash = (53 * hash) + roundStatusType_;
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
@@ -2058,14 +2058,14 @@ private static final long serialVersionUID = 0L;
 
     private int roundStatusType_ = 0;
     /**
-     * <code>.recorder.RoundStatusType roundStatusType = 12 [json_name = "roundStatusType"];</code>
+     * <code>.recorder.RoundStatusType round_status_type = 12 [json_name = "roundStatusType"];</code>
      * @return The enum numeric value on the wire for roundStatusType.
      */
     @java.lang.Override public int getRoundStatusTypeValue() {
       return roundStatusType_;
     }
     /**
-     * <code>.recorder.RoundStatusType roundStatusType = 12 [json_name = "roundStatusType"];</code>
+     * <code>.recorder.RoundStatusType round_status_type = 12 [json_name = "roundStatusType"];</code>
      * @param value The enum numeric value on the wire for roundStatusType to set.
      * @return This builder for chaining.
      */
@@ -2076,7 +2076,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.recorder.RoundStatusType roundStatusType = 12 [json_name = "roundStatusType"];</code>
+     * <code>.recorder.RoundStatusType round_status_type = 12 [json_name = "roundStatusType"];</code>
      * @return The roundStatusType.
      */
     @java.lang.Override
@@ -2085,7 +2085,7 @@ private static final long serialVersionUID = 0L;
       return result == null ? com.wecasino.proto.recorder.RoundStatusType.UNRECOGNIZED : result;
     }
     /**
-     * <code>.recorder.RoundStatusType roundStatusType = 12 [json_name = "roundStatusType"];</code>
+     * <code>.recorder.RoundStatusType round_status_type = 12 [json_name = "roundStatusType"];</code>
      * @param value The roundStatusType to set.
      * @return This builder for chaining.
      */
@@ -2099,7 +2099,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.recorder.RoundStatusType roundStatusType = 12 [json_name = "roundStatusType"];</code>
+     * <code>.recorder.RoundStatusType round_status_type = 12 [json_name = "roundStatusType"];</code>
      * @return This builder for chaining.
      */
     public Builder clearRoundStatusType() {

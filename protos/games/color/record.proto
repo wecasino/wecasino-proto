@@ -25,8 +25,8 @@ enum GameSubtype {
   // color
   COLOR_CLASSIC = 1;
 
-  // 財神color
-  //  COLOR_FORTUNE = 2;
+  // color_mini
+  COLOR_MINI = 2;
 
   // 區塊鏈color
   COLOR_BLOCKCHAIN = 16;

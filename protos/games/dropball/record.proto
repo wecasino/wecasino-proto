@@ -9,8 +9,11 @@ enum GameSubtype {
   // DROPBALL
   DROPBALL_CLASSIC = 1;
 
-  // 財神DROPBALL
-  //  DROPBALL_FORTUNE = 2;
+  // Coconut Ball
+  DROPBALL_COCONUT_BALL = 3;
+
+  // DROPBALL JACKPOT
+  DROPBALL_JACKPOT = 4;
 
   // 區塊鏈color
   DROPBALL_BLOCKCHAIN = 16;
@@ -36,6 +39,17 @@ enum Step {
   // 擲骰
   THROW_BALL = 8;
 
+  // JACKPOT FLIP COIN
+  SUPERCOIN_ROUND_READY = 9;
+  // 開始
+  SUPERCOIN_ROUND_START = 10;
+  // 開放下注
+  SUPERCOIN_ROUND_BET = 11;
+  // 停止下注
+  SUPERCOIN_NO_MORE_BET = 12;
+
+  SUPERCOIN_THROW_COIN = 13;
+
   // PITBOSS 修改骰點
   PITBOSS_MODIFY_BOWL = 16;
 
@@ -47,4 +61,6 @@ enum ResourceType {
   RESOURCE_TYPE_UNSPECIFIED = 0;
   // 一般
   NORMAL = 1;
+  // SUPER COIN
+  COIN = 2;
 }

@@ -24,13 +24,14 @@ public final class CardsProto {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\021cards/cards.proto\022\005cards*f\n\010CardType\022\031" +
+      "\n\021cards/cards.proto\022\005cards*~\n\010CardType\022\031" +
       "\n\025CARD_TYPE_UNSPECIFIED\020\000\022\007\n\003INT\020\001\022\t\n\005PO" +
       "KER\020\002\022\010\n\004DICE\020\003\022\014\n\010ROULETTE\020\004\022\t\n\005WHEEL\020\005" +
-      "\022\010\n\004FLOW\020\006B\211\001\n\030com.wecasino.proto.cardsB" +
-      "\nCardsProtoP\001Z-github.com/wecasino/wecas" +
-      "ino-proto/pbgo/cards\242\002\003CXX\252\002\005Cards\312\002\005Car" +
-      "ds\342\002\021Cards\\GPBMetadata\352\002\005Cardsb\006proto3"
+      "\022\010\n\004FLOW\020\006\022\t\n\005COLOR\020\007\022\013\n\007JACKPOT\020\010B\211\001\n\030c" +
+      "om.wecasino.proto.cardsB\nCardsProtoP\001Z-g" +
+      "ithub.com/wecasino/wecasino-proto/pbgo/c" +
+      "ards\242\002\003CXX\252\002\005Cards\312\002\005Cards\342\002\021Cards\\GPBMe" +
+      "tadata\352\002\005Cardsb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

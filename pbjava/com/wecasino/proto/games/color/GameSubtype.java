@@ -27,6 +27,14 @@ public enum GameSubtype
   COLOR_CLASSIC(1),
   /**
    * <pre>
+   * color_mini
+   * </pre>
+   *
+   * <code>COLOR_MINI = 2;</code>
+   */
+  COLOR_MINI(2),
+  /**
+   * <pre>
    * 區塊鏈color
    * </pre>
    *
@@ -52,6 +60,14 @@ public enum GameSubtype
    * <code>COLOR_CLASSIC = 1;</code>
    */
   public static final int COLOR_CLASSIC_VALUE = 1;
+  /**
+   * <pre>
+   * color_mini
+   * </pre>
+   *
+   * <code>COLOR_MINI = 2;</code>
+   */
+  public static final int COLOR_MINI_VALUE = 2;
   /**
    * <pre>
    * 區塊鏈color
@@ -88,6 +104,7 @@ public enum GameSubtype
     switch (value) {
       case 0: return COLOR_TYPE_UNSPECIFIED;
       case 1: return COLOR_CLASSIC;
+      case 2: return COLOR_MINI;
       case 16: return COLOR_BLOCKCHAIN;
       default: return null;
     }

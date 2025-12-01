@@ -71,6 +71,42 @@ public enum Step
   THROW_BALL(8),
   /**
    * <pre>
+   * JACKPOT FLIP COIN
+   * </pre>
+   *
+   * <code>SUPERCOIN_ROUND_READY = 9;</code>
+   */
+  SUPERCOIN_ROUND_READY(9),
+  /**
+   * <pre>
+   * 開始
+   * </pre>
+   *
+   * <code>SUPERCOIN_ROUND_START = 10;</code>
+   */
+  SUPERCOIN_ROUND_START(10),
+  /**
+   * <pre>
+   * 開放下注
+   * </pre>
+   *
+   * <code>SUPERCOIN_ROUND_BET = 11;</code>
+   */
+  SUPERCOIN_ROUND_BET(11),
+  /**
+   * <pre>
+   * 停止下注
+   * </pre>
+   *
+   * <code>SUPERCOIN_NO_MORE_BET = 12;</code>
+   */
+  SUPERCOIN_NO_MORE_BET(12),
+  /**
+   * <code>SUPERCOIN_THROW_COIN = 13;</code>
+   */
+  SUPERCOIN_THROW_COIN(13),
+  /**
+   * <pre>
    * PITBOSS 修改骰點
    * </pre>
    *
@@ -138,6 +174,42 @@ public enum Step
   public static final int THROW_BALL_VALUE = 8;
   /**
    * <pre>
+   * JACKPOT FLIP COIN
+   * </pre>
+   *
+   * <code>SUPERCOIN_ROUND_READY = 9;</code>
+   */
+  public static final int SUPERCOIN_ROUND_READY_VALUE = 9;
+  /**
+   * <pre>
+   * 開始
+   * </pre>
+   *
+   * <code>SUPERCOIN_ROUND_START = 10;</code>
+   */
+  public static final int SUPERCOIN_ROUND_START_VALUE = 10;
+  /**
+   * <pre>
+   * 開放下注
+   * </pre>
+   *
+   * <code>SUPERCOIN_ROUND_BET = 11;</code>
+   */
+  public static final int SUPERCOIN_ROUND_BET_VALUE = 11;
+  /**
+   * <pre>
+   * 停止下注
+   * </pre>
+   *
+   * <code>SUPERCOIN_NO_MORE_BET = 12;</code>
+   */
+  public static final int SUPERCOIN_NO_MORE_BET_VALUE = 12;
+  /**
+   * <code>SUPERCOIN_THROW_COIN = 13;</code>
+   */
+  public static final int SUPERCOIN_THROW_COIN_VALUE = 13;
+  /**
+   * <pre>
    * PITBOSS 修改骰點
    * </pre>
    *
@@ -177,6 +249,11 @@ public enum Step
       case 4: return ROUND_BET;
       case 5: return NO_MORE_BET;
       case 8: return THROW_BALL;
+      case 9: return SUPERCOIN_ROUND_READY;
+      case 10: return SUPERCOIN_ROUND_START;
+      case 11: return SUPERCOIN_ROUND_BET;
+      case 12: return SUPERCOIN_NO_MORE_BET;
+      case 13: return SUPERCOIN_THROW_COIN;
       case 16: return PITBOSS_MODIFY_BOWL;
       default: return null;
     }

@@ -24,14 +24,15 @@ public final class ColorProto {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\021cards/color.proto\022\005cards*u\n\tColorCard\022" +
-      "\032\n\026Color_CARD_UNSPECIFIED\020\000\022\013\n\007Color_1\020\001" +
-      "\022\013\n\007Color_2\020\002\022\013\n\007Color_3\020\003\022\013\n\007Color_4\020\004\022" +
-      "\013\n\007Color_5\020\005\022\013\n\007Color_6\020\006B\211\001\n\030com.wecasi" +
-      "no.proto.cardsB\nColorProtoP\001Z-github.com" +
-      "/wecasino/wecasino-proto/pbgo/cards\242\002\003CX" +
-      "X\252\002\005Cards\312\002\005Cards\342\002\021Cards\\GPBMetadata\352\002\005" +
-      "Cardsb\006proto3"
+      "\n\021cards/color.proto\022\005cards*\267\001\n\tColorCard" +
+      "\022\032\n\026COLOR_CARD_UNSPECIFIED\020\000\022\013\n\007Color_1\020" +
+      "\001\022\013\n\007Color_2\020\002\022\013\n\007Color_3\020\003\022\013\n\007Color_4\020\004" +
+      "\022\013\n\007Color_5\020\005\022\013\n\007Color_6\020\006\022\n\n\006PURPLE\0203\022\010" +
+      "\n\004BLUE\0204\022\007\n\003RED\0205\022\n\n\006YELLOW\0206\022\n\n\006ORANGE\020" +
+      "7\022\t\n\005GREEN\0208B\211\001\n\030com.wecasino.proto.card" +
+      "sB\nColorProtoP\001Z-github.com/wecasino/wec" +
+      "asino-proto/pbgo/cards\242\002\003CXX\252\002\005Cards\312\002\005C" +
+      "ards\342\002\021Cards\\GPBMetadata\352\002\005Cardsb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

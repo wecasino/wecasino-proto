@@ -12,6 +12,9 @@ enum GameSubtype {
   // 財神骰寶
   SICBO_FORTUNE = 2;
 
+  // 泰式骰寶
+  SICBO_THAISICBAO = 3;
+
   // 區塊鏈骰寶
   SICBO_BLOCKCHAIN = 16;
 }
