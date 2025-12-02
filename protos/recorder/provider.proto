@@ -414,6 +414,15 @@ message GameProvide {
   // 玩家姓名
   map<string, string> players_name = 30;
 
+  // 玩家頭像
+  map<string, string> players_avatar = 31;
+
+  // 玩家生日
+  map<string, string> players_birth = 32;
+
+  // 玩家地區
+  map<string, string> players_location = 33;
+
   // 附加媒體：key: 媒體資源代碼；value: 媒體內容。
   map<string, string> medias = 28;
 
