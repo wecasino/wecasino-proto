@@ -510,6 +510,11 @@ message Dealer {
   // 貼文
   repeated Article posts = 6;
 
+  // 生日
+  string birthday = 7;
+
+  // 地區
+  string location = 8;
 }
 
 message ListDealersRequest {
@@ -518,10 +523,10 @@ message ListDealersRequest {
   repeated string codes = 1;
 
   // 開始
-  int64 skip = 2;
+  int64 page = 2;
 
   // 筆數 預設 100
-  int64 limit = 3;
+  int64 pageSize = 3;
 
 }
 
@@ -531,6 +536,8 @@ message ListDealersResponse {
 
   // 荷官資料
   repeated Dealer dealers = 1;
+
+  int64 total =2;
   
 }
 
@@ -571,7 +578,8 @@ service ProviderService {
   // 荷官資料
   rpc ListDealers(ListDealersRequest) returns (ListDealersResponse){
     option (google.api.http) = {
-      get: "/v1/provider/dealers"
+      post: "/v1/provider/dealers"
+      body: "*"
     };
   };
 

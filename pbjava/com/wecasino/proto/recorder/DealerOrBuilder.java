@@ -192,4 +192,44 @@ java.lang.String defaultValue);
    */
   com.wecasino.proto.recorder.ArticleOrBuilder getPostsOrBuilder(
       int index);
+
+  /**
+   * <pre>
+   * 生日
+   * </pre>
+   *
+   * <code>string birthday = 7 [json_name = "birthday"];</code>
+   * @return The birthday.
+   */
+  java.lang.String getBirthday();
+  /**
+   * <pre>
+   * 生日
+   * </pre>
+   *
+   * <code>string birthday = 7 [json_name = "birthday"];</code>
+   * @return The bytes for birthday.
+   */
+  com.google.protobuf.ByteString
+      getBirthdayBytes();
+
+  /**
+   * <pre>
+   * 地區
+   * </pre>
+   *
+   * <code>string location = 8 [json_name = "location"];</code>
+   * @return The location.
+   */
+  java.lang.String getLocation();
+  /**
+   * <pre>
+   * 地區
+   * </pre>
+   *
+   * <code>string location = 8 [json_name = "location"];</code>
+   * @return The bytes for location.
+   */
+  com.google.protobuf.ByteString
+      getLocationBytes();
 }

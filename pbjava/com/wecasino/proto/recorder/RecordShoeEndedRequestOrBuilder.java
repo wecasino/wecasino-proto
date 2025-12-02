@@ -44,4 +44,58 @@ public interface RecordShoeEndedRequestOrBuilder extends
    * <code>.google.protobuf.Timestamp ts_end = 19 [json_name = "tsEnd"];</code>
    */
   com.google.protobuf.TimestampOrBuilder getTsEndOrBuilder();
+
+  /**
+   * <pre>
+   * cardList
+   * </pre>
+   *
+   * <code>map&lt;int32, .recorder.Deck&gt; decks = 24 [json_name = "decks"];</code>
+   */
+  int getDecksCount();
+  /**
+   * <pre>
+   * cardList
+   * </pre>
+   *
+   * <code>map&lt;int32, .recorder.Deck&gt; decks = 24 [json_name = "decks"];</code>
+   */
+  boolean containsDecks(
+      int key);
+  /**
+   * Use {@link #getDecksMap()} instead.
+   */
+  @java.lang.Deprecated
+  java.util.Map<java.lang.Integer, com.wecasino.proto.recorder.Deck>
+  getDecks();
+  /**
+   * <pre>
+   * cardList
+   * </pre>
+   *
+   * <code>map&lt;int32, .recorder.Deck&gt; decks = 24 [json_name = "decks"];</code>
+   */
+  java.util.Map<java.lang.Integer, com.wecasino.proto.recorder.Deck>
+  getDecksMap();
+  /**
+   * <pre>
+   * cardList
+   * </pre>
+   *
+   * <code>map&lt;int32, .recorder.Deck&gt; decks = 24 [json_name = "decks"];</code>
+   */
+  /* nullable */
+com.wecasino.proto.recorder.Deck getDecksOrDefault(
+      int key,
+      /* nullable */
+com.wecasino.proto.recorder.Deck defaultValue);
+  /**
+   * <pre>
+   * cardList
+   * </pre>
+   *
+   * <code>map&lt;int32, .recorder.Deck&gt; decks = 24 [json_name = "decks"];</code>
+   */
+  com.wecasino.proto.recorder.Deck getDecksOrThrow(
+      int key);
 }
