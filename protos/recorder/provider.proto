@@ -20,6 +20,21 @@ enum RoundStatusType {
   ROUND_STATUS_TYPE_NOT_END = 3;
 }
 
+enum InstructionCmdType {
+  // 未指定
+  NONE_INSTRUCTION_TYPE_UNSPECIFIED = 0;
+  // 包桌換靴
+  INSTRUCTION_PRIVATE_CHANGE_SHOE = 1;
+  // 包桌換荷官
+  INSTRUCTION_PRIVATE_CHANGE_DEALER = 2;
+  // 包桌開牌
+  INSTRUCTION_PRIVATE_OPEN_CARD = 3;
+  // 進入包桌
+  INSTRUCTION_PRIVATE_ENTER_TABLE = 4;
+  // 離開包桌
+  INSTRUCTION_PRIVATE_LEAVE_TABLE = 5;
+}
+
 message GetRequest {
 
   // 資源代碼

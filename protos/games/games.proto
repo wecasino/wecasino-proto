@@ -14,6 +14,9 @@ enum GameType {
   // 百家樂新發牌方式
   BACCARAT2 = 50;
 
+  // 百家樂自動流程
+  BACCARAT3 = 51;
+
   // 龍虎鬥
   THEBIGBATTLE = 17;
 

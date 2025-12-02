@@ -32,6 +32,8 @@ const (
 	GameType_BACCARAT GameType = 16
 	// 百家樂新發牌方式
 	GameType_BACCARAT2 GameType = 50
+	// 百家樂自動流程
+	GameType_BACCARAT3 GameType = 51
 	// 龍虎鬥
 	GameType_THEBIGBATTLE GameType = 17
 	// 炸金花
@@ -70,6 +72,7 @@ var (
 		0:  "GAME_TYPE_UNSPECIFIED",
 		16: "BACCARAT",
 		50: "BACCARAT2",
+		51: "BACCARAT3",
 		17: "THEBIGBATTLE",
 		18: "THREECARDS",
 		19: "BULLFIGHT",
@@ -90,6 +93,7 @@ var (
 		"GAME_TYPE_UNSPECIFIED": 0,
 		"BACCARAT":              16,
 		"BACCARAT2":             50,
+		"BACCARAT3":             51,
 		"THEBIGBATTLE":          17,
 		"THREECARDS":            18,
 		"BULLFIGHT":             19,
@@ -375,11 +379,12 @@ var File_games_games_proto protoreflect.FileDescriptor
 
 const file_games_games_proto_rawDesc = "" +
 	"\n" +
-	"\x11games/games.proto\x12\x05games*\x9d\x02\n" +
+	"\x11games/games.proto\x12\x05games*\xac\x02\n" +
 	"\bGameType\x12\x19\n" +
 	"\x15GAME_TYPE_UNSPECIFIED\x10\x00\x12\f\n" +
 	"\bBACCARAT\x10\x10\x12\r\n" +
-	"\tBACCARAT2\x102\x12\x10\n" +
+	"\tBACCARAT2\x102\x12\r\n" +
+	"\tBACCARAT3\x103\x12\x10\n" +
 	"\fTHEBIGBATTLE\x10\x11\x12\x0e\n" +
 	"\n" +
 	"THREECARDS\x10\x12\x12\r\n" +
