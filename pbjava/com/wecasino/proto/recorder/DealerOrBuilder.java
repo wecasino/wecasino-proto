@@ -232,4 +232,24 @@ java.lang.String defaultValue);
    */
   com.google.protobuf.ByteString
       getLocationBytes();
+
+  /**
+   * <pre>
+   * 頭像
+   * </pre>
+   *
+   * <code>string avatar = 9 [json_name = "avatar"];</code>
+   * @return The avatar.
+   */
+  java.lang.String getAvatar();
+  /**
+   * <pre>
+   * 頭像
+   * </pre>
+   *
+   * <code>string avatar = 9 [json_name = "avatar"];</code>
+   * @return The bytes for avatar.
+   */
+  com.google.protobuf.ByteString
+      getAvatarBytes();
 }

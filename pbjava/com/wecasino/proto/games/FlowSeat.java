@@ -18,6 +18,30 @@ public enum FlowSeat
    */
   SEAT_UNSPECIFIED(0),
   /**
+   * <code>DEALER_A = 50;</code>
+   */
+  DEALER_A(50),
+  /**
+   * <code>PREVIOUS_DEALER_A = 51;</code>
+   */
+  PREVIOUS_DEALER_A(51),
+  /**
+   * <code>DEALER_B = 52;</code>
+   */
+  DEALER_B(52),
+  /**
+   * <code>PREVIOUS_DEALER_B = 53;</code>
+   */
+  PREVIOUS_DEALER_B(53),
+  /**
+   * <code>DEALER_C = 54;</code>
+   */
+  DEALER_C(54),
+  /**
+   * <code>PREVIOUS_DEALER_C = 55;</code>
+   */
+  PREVIOUS_DEALER_C(55),
+  /**
    * <pre>
    * Dealer
    * </pre>
@@ -116,6 +140,30 @@ public enum FlowSeat
    * <code>SEAT_UNSPECIFIED = 0;</code>
    */
   public static final int SEAT_UNSPECIFIED_VALUE = 0;
+  /**
+   * <code>DEALER_A = 50;</code>
+   */
+  public static final int DEALER_A_VALUE = 50;
+  /**
+   * <code>PREVIOUS_DEALER_A = 51;</code>
+   */
+  public static final int PREVIOUS_DEALER_A_VALUE = 51;
+  /**
+   * <code>DEALER_B = 52;</code>
+   */
+  public static final int DEALER_B_VALUE = 52;
+  /**
+   * <code>PREVIOUS_DEALER_B = 53;</code>
+   */
+  public static final int PREVIOUS_DEALER_B_VALUE = 53;
+  /**
+   * <code>DEALER_C = 54;</code>
+   */
+  public static final int DEALER_C_VALUE = 54;
+  /**
+   * <code>PREVIOUS_DEALER_C = 55;</code>
+   */
+  public static final int PREVIOUS_DEALER_C_VALUE = 55;
   /**
    * <pre>
    * Dealer
@@ -231,6 +279,12 @@ public enum FlowSeat
   public static FlowSeat forNumber(int value) {
     switch (value) {
       case 0: return SEAT_UNSPECIFIED;
+      case 50: return DEALER_A;
+      case 51: return PREVIOUS_DEALER_A;
+      case 52: return DEALER_B;
+      case 53: return PREVIOUS_DEALER_B;
+      case 54: return DEALER_C;
+      case 55: return PREVIOUS_DEALER_C;
       case 64: return DEALER;
       case 65: return PREVIOUS_DEALER;
       case 66: return PITBOSS;

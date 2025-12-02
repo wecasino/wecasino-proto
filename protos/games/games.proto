@@ -65,6 +65,17 @@ enum FlowSeat {
   // 未指定
   SEAT_UNSPECIFIED = 0;
 
+  // Multi Dealer
+
+  DEALER_A =50 ;
+  PREVIOUS_DEALER_A = 51;
+
+  DEALER_B =52 ;
+  PREVIOUS_DEALER_B = 53;
+
+  DEALER_C =54 ;
+  PREVIOUS_DEALER_C = 55;
+
   // Dealer
   DEALER = 64;
 
