@@ -209,6 +209,22 @@ message CardModify {
 
 }
 
+message RecordEventScreenshotRequest {
+
+  // 遊戲代碼
+  string game_code = 2;
+
+  // 事件代碼
+  string event_code = 3;
+
+  // 封面
+  bool cover = 4;
+
+  // 此截圖是否通知
+  bool notify = 5;
+
+}
+
 service RecorderService {
   
   // 建立新排班
@@ -247,4 +263,6 @@ service RecorderService {
   // 紀錄回放
   rpc RecordRoundVideo(RecordRoundMediaRequest) returns (RoundRecord);
 
+  // 紀錄事件截圖
+  rpc RecordEventScreenshot(RecordEventScreenshotRequest) returns (RoundRecord);
 }
