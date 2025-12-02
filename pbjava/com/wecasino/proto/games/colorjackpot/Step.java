@@ -102,9 +102,9 @@ public enum Step
    */
   LUCKY_WHEEL_NO_MORE_BET(12),
   /**
-   * <code>LUCKY_WHEEL_THROW_WHEEL = 13;</code>
+   * <code>LUCKY_WHEEL_SPIN_WHEEL = 13;</code>
    */
-  LUCKY_WHEEL_THROW_WHEEL(13),
+  LUCKY_WHEEL_SPIN_WHEEL(13),
   /**
    * <pre>
    * BINGO
@@ -241,9 +241,9 @@ public enum Step
    */
   public static final int LUCKY_WHEEL_NO_MORE_BET_VALUE = 12;
   /**
-   * <code>LUCKY_WHEEL_THROW_WHEEL = 13;</code>
+   * <code>LUCKY_WHEEL_SPIN_WHEEL = 13;</code>
    */
-  public static final int LUCKY_WHEEL_THROW_WHEEL_VALUE = 13;
+  public static final int LUCKY_WHEEL_SPIN_WHEEL_VALUE = 13;
   /**
    * <pre>
    * BINGO
@@ -325,7 +325,7 @@ public enum Step
       case 10: return LUCKY_WHEEL_ROUND_START;
       case 11: return LUCKY_WHEEL_ROUND_BET;
       case 12: return LUCKY_WHEEL_NO_MORE_BET;
-      case 13: return LUCKY_WHEEL_THROW_WHEEL;
+      case 13: return LUCKY_WHEEL_SPIN_WHEEL;
       case 20: return BINGO_ROUND_READY;
       case 21: return BINGO_ROUND_START;
       case 22: return BINGO_ROUND_BET;

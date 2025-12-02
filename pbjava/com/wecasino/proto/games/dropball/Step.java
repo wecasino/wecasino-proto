@@ -71,68 +71,44 @@ public enum Step
   THROW_BALL(8),
   /**
    * <pre>
-   * JACKPOT FLIP COIN
+   * LUCKY_WHEE
    * </pre>
    *
-   * <code>SUPERCOIN_ROUND_READY = 9;</code>
+   * <code>LUCKY_WHEEL_ROUND_READY = 9;</code>
    */
-  SUPERCOIN_ROUND_READY(9),
+  LUCKY_WHEEL_ROUND_READY(9),
   /**
    * <pre>
    * 開始
    * </pre>
    *
-   * <code>SUPERCOIN_ROUND_START = 10;</code>
+   * <code>LUCKY_WHEEL_ROUND_START = 10;</code>
    */
-  SUPERCOIN_ROUND_START(10),
+  LUCKY_WHEEL_ROUND_START(10),
   /**
    * <pre>
    * 開放下注
    * </pre>
    *
-   * <code>SUPERCOIN_ROUND_BET = 11;</code>
+   * <code>LUCKY_WHEEL_ROUND_BET = 11;</code>
    */
-  SUPERCOIN_ROUND_BET(11),
+  LUCKY_WHEEL_ROUND_BET(11),
   /**
    * <pre>
    * 停止下注
    * </pre>
    *
-   * <code>SUPERCOIN_NO_MORE_BET = 12;</code>
+   * <code>LUCKY_WHEEL_NO_MORE_BET = 12;</code>
    */
-  SUPERCOIN_NO_MORE_BET(12),
+  LUCKY_WHEEL_NO_MORE_BET(12),
   /**
    * <pre>
-   * 轉場等待
+   * SPIN_WHEEL
    * </pre>
    *
-   * <code>SUPERCOIN_ANIMATION_STOP = 13;</code>
+   * <code>LUCKY_WHEEL_SPIN_WHEEL = 15;</code>
    */
-  SUPERCOIN_ANIMATION_STOP(13),
-  /**
-   * <pre>
-   * 產生賠率
-   * </pre>
-   *
-   * <code>SUPERCOIN_CANDIDATE_ODDS = 14;</code>
-   */
-  SUPERCOIN_CANDIDATE_ODDS(14),
-  /**
-   * <pre>
-   * 擲硬幣
-   * </pre>
-   *
-   * <code>SUPERCOIN_THROW_COIN = 15;</code>
-   */
-  SUPERCOIN_THROW_COIN(15),
-  /**
-   * <pre>
-   * 動畫結果
-   * </pre>
-   *
-   * <code>SUPERCOIN_ANIMATION_RESULT = 16;</code>
-   */
-  SUPERCOIN_ANIMATION_RESULT(16),
+  LUCKY_WHEEL_SPIN_WHEEL(15),
   UNRECOGNIZED(-1),
   ;
 
@@ -194,68 +170,44 @@ public enum Step
   public static final int THROW_BALL_VALUE = 8;
   /**
    * <pre>
-   * JACKPOT FLIP COIN
+   * LUCKY_WHEE
    * </pre>
    *
-   * <code>SUPERCOIN_ROUND_READY = 9;</code>
+   * <code>LUCKY_WHEEL_ROUND_READY = 9;</code>
    */
-  public static final int SUPERCOIN_ROUND_READY_VALUE = 9;
+  public static final int LUCKY_WHEEL_ROUND_READY_VALUE = 9;
   /**
    * <pre>
    * 開始
    * </pre>
    *
-   * <code>SUPERCOIN_ROUND_START = 10;</code>
+   * <code>LUCKY_WHEEL_ROUND_START = 10;</code>
    */
-  public static final int SUPERCOIN_ROUND_START_VALUE = 10;
+  public static final int LUCKY_WHEEL_ROUND_START_VALUE = 10;
   /**
    * <pre>
    * 開放下注
    * </pre>
    *
-   * <code>SUPERCOIN_ROUND_BET = 11;</code>
+   * <code>LUCKY_WHEEL_ROUND_BET = 11;</code>
    */
-  public static final int SUPERCOIN_ROUND_BET_VALUE = 11;
+  public static final int LUCKY_WHEEL_ROUND_BET_VALUE = 11;
   /**
    * <pre>
    * 停止下注
    * </pre>
    *
-   * <code>SUPERCOIN_NO_MORE_BET = 12;</code>
+   * <code>LUCKY_WHEEL_NO_MORE_BET = 12;</code>
    */
-  public static final int SUPERCOIN_NO_MORE_BET_VALUE = 12;
+  public static final int LUCKY_WHEEL_NO_MORE_BET_VALUE = 12;
   /**
    * <pre>
-   * 轉場等待
+   * SPIN_WHEEL
    * </pre>
    *
-   * <code>SUPERCOIN_ANIMATION_STOP = 13;</code>
+   * <code>LUCKY_WHEEL_SPIN_WHEEL = 15;</code>
    */
-  public static final int SUPERCOIN_ANIMATION_STOP_VALUE = 13;
-  /**
-   * <pre>
-   * 產生賠率
-   * </pre>
-   *
-   * <code>SUPERCOIN_CANDIDATE_ODDS = 14;</code>
-   */
-  public static final int SUPERCOIN_CANDIDATE_ODDS_VALUE = 14;
-  /**
-   * <pre>
-   * 擲硬幣
-   * </pre>
-   *
-   * <code>SUPERCOIN_THROW_COIN = 15;</code>
-   */
-  public static final int SUPERCOIN_THROW_COIN_VALUE = 15;
-  /**
-   * <pre>
-   * 動畫結果
-   * </pre>
-   *
-   * <code>SUPERCOIN_ANIMATION_RESULT = 16;</code>
-   */
-  public static final int SUPERCOIN_ANIMATION_RESULT_VALUE = 16;
+  public static final int LUCKY_WHEEL_SPIN_WHEEL_VALUE = 15;
 
 
   public final int getNumber() {
@@ -289,14 +241,11 @@ public enum Step
       case 4: return ROUND_BET;
       case 5: return NO_MORE_BET;
       case 8: return THROW_BALL;
-      case 9: return SUPERCOIN_ROUND_READY;
-      case 10: return SUPERCOIN_ROUND_START;
-      case 11: return SUPERCOIN_ROUND_BET;
-      case 12: return SUPERCOIN_NO_MORE_BET;
-      case 13: return SUPERCOIN_ANIMATION_STOP;
-      case 14: return SUPERCOIN_CANDIDATE_ODDS;
-      case 15: return SUPERCOIN_THROW_COIN;
-      case 16: return SUPERCOIN_ANIMATION_RESULT;
+      case 9: return LUCKY_WHEEL_ROUND_READY;
+      case 10: return LUCKY_WHEEL_ROUND_START;
+      case 11: return LUCKY_WHEEL_ROUND_BET;
+      case 12: return LUCKY_WHEEL_NO_MORE_BET;
+      case 15: return LUCKY_WHEEL_SPIN_WHEEL;
       default: return null;
     }
   }

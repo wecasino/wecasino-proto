@@ -1,4 +1,4 @@
-name: Buf-Push
+name: buf-push
 
 on:
   workflow_dispatch:

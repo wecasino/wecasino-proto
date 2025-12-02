@@ -6,6 +6,8 @@ export * from "./pb/cards/wheel_pb"
 export * from "./pb/cards/color_pb"
 export * from "./pb/cards/xocdia_pb"
 export * from "./pb/cards/coin_pb"
+export * from "./pb/cards/dbwheel_pb"
+export * from "./pb/cards/cgwheel_pb"
 export * from "./pb/cards/baraja_pb"
 export * from "./pb/games/games_pb"
 
