@@ -26,23 +26,23 @@ public final class RecordProto {
     java.lang.String[] descriptorData = {
       "\n\033games/caracruz/record.proto\022\016games.car" +
       "acruz*B\n\013GameSubtype\022\035\n\031CARACRUZ_TYPE_UN" +
-      "SPECIFIED\020\000\022\024\n\020CARACRUZ_CLASSIC\020\001*\345\002\n\004St" +
+      "SPECIFIED\020\000\022\024\n\020CARACRUZ_CLASSIC\020\001*\321\002\n\004St" +
       "ep\022\024\n\020STEP_UNSPECIFIED\020\000\022\017\n\013ROUND_START\020" +
       "\001\022\022\n\016ROUND_FINISHED\020\002\022\022\n\016ROUND_CANCELED\020" +
       "\003\022\r\n\tROUND_BET\020\004\022\017\n\013NO_MORE_BET\020\005\022\016\n\nTHR" +
       "OW_COIN\020\010\022\031\n\025SUPERCOIN_ROUND_READY\020\t\022\031\n\025" +
       "SUPERCOIN_ROUND_START\020\n\022\027\n\023SUPERCOIN_ROU" +
-      "ND_BET\020\013\022\031\n\025SUPERCOIN_NO_MORE_BET\020\014\022\034\n\030S" +
-      "UPERCOIN_ANIMATION_STOP\020\r\022\034\n\030SUPERCOIN_C" +
-      "ANDIDATE_ODDS\020\016\022\030\n\024SUPERCOIN_THROW_COIN\020" +
-      "\017\022\036\n\032SUPERCOIN_ANIMATION_RESULT\020\020*H\n\014Res" +
-      "ourceType\022\035\n\031RESOURCE_TYPE_UNSPECIFIED\020\000" +
-      "\022\n\n\006NORMAL\020\001\022\r\n\tSUPERCOIN\020\002B\301\001\n!com.weca" +
-      "sino.proto.games.caracruzB\013RecordProtoP\001" +
-      "Z6github.com/wecasino/wecasino-proto/pbg" +
-      "o/games/caracruz\242\002\003GCX\252\002\016Games.Caracruz\312" +
-      "\002\016Games\\Caracruz\342\002\032Games\\Caracruz\\GPBMet" +
-      "adata\352\002\017Games::Caracruzb\006proto3"
+      "ND_BET\020\013\022\031\n\025SUPERCOIN_NO_MORE_BET\020\014\022\022\n\016A" +
+      "NIMATION_STOP\020\r\022\022\n\016CANDIDATE_ODDS\020\016\022\030\n\024S" +
+      "UPERCOIN_THROW_COIN\020\017\022\036\n\032SUPERCOIN_ANIMA" +
+      "TION_RESULT\020\020*H\n\014ResourceType\022\035\n\031RESOURC" +
+      "E_TYPE_UNSPECIFIED\020\000\022\n\n\006NORMAL\020\001\022\r\n\tSUPE" +
+      "RCOIN\020\002B\301\001\n!com.wecasino.proto.games.car" +
+      "acruzB\013RecordProtoP\001Z6github.com/wecasin" +
+      "o/wecasino-proto/pbgo/games/caracruz\242\002\003G" +
+      "CX\252\002\016Games.Caracruz\312\002\016Games\\Caracruz\342\002\032G" +
+      "ames\\Caracruz\\GPBMetadata\352\002\017Games::Carac" +
+      "ruzb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
