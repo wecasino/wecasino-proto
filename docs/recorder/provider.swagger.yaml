@@ -188,6 +188,7 @@ paths:
              - 43: ONELUCKYNINE
              - 44: HILO
              - 45: SAKLA
+             - 46: CARACRUZ
           in: query
           required: false
           type: integer
@@ -209,6 +210,7 @@ paths:
             - 43
             - 44
             - 45
+            - 46
           default: 0
         - name: gameSubtype
           description: 遊戲子類型
@@ -310,6 +312,7 @@ paths:
              - 43: ONELUCKYNINE
              - 44: HILO
              - 45: SAKLA
+             - 46: CARACRUZ
           in: query
           required: false
           type: integer
@@ -331,6 +334,7 @@ paths:
             - 43
             - 44
             - 45
+            - 46
           default: 0
         - name: gameSubtype
           description: 遊戲子類型
@@ -492,6 +496,7 @@ paths:
              - 43: ONELUCKYNINE
              - 44: HILO
              - 45: SAKLA
+             - 46: CARACRUZ
           in: query
           required: false
           type: integer
@@ -513,6 +518,7 @@ paths:
             - 43
             - 44
             - 45
+            - 46
           default: 0
         - name: gameSubtype
           description: 遊戲子類型
@@ -710,6 +716,7 @@ definitions:
       - 43
       - 44
       - 45
+      - 46
     default: 0
     description: |-
       - 0: 未指定
@@ -729,6 +736,7 @@ definitions:
        - 43: ONELUCKYNINE
        - 44: HILO
        - 45: SAKLA
+       - 46: CARACRUZ
     title: "GameType \n遊戲類型"
   gamesWinType:
     type: integer

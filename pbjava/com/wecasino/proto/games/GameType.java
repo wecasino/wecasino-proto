@@ -150,6 +150,14 @@ public enum GameType
    * <code>SAKLA = 45;</code>
    */
   SAKLA(45),
+  /**
+   * <pre>
+   * CARACRUZ
+   * </pre>
+   *
+   * <code>CARACRUZ = 46;</code>
+   */
+  CARACRUZ(46),
   UNRECOGNIZED(-1),
   ;
 
@@ -289,6 +297,14 @@ public enum GameType
    * <code>SAKLA = 45;</code>
    */
   public static final int SAKLA_VALUE = 45;
+  /**
+   * <pre>
+   * CARACRUZ
+   * </pre>
+   *
+   * <code>CARACRUZ = 46;</code>
+   */
+  public static final int CARACRUZ_VALUE = 46;
 
 
   public final int getNumber() {
@@ -332,6 +348,7 @@ public enum GameType
       case 43: return ONELUCKYNINE;
       case 44: return HILO;
       case 45: return SAKLA;
+      case 46: return CARACRUZ;
       default: return null;
     }
   }

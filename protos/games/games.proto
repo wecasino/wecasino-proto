@@ -55,6 +55,9 @@ enum GameType {
 
   // SAKLA
   SAKLA = 45;
+
+  // CARACRUZ
+  CARACRUZ = 46;
 }
 
 enum FlowSeat {

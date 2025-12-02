@@ -25,6 +25,7 @@ export * as fantan from "./pb/games/fantan/record_pb"
 export * as xocdia from "./pb/games/xocdia/record_pb"
 export * as hilo from "./pb/games/hilo/record_pb"
 export * as sakla from "./pb/games/sakla/record_pb"
+export * as caracruz from "./pb/games/caracruz/record_pb"
 
 export * from "./pb/recorder/record_pb"
 export * from "./pb/recorder/recorder_pb"
