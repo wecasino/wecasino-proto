@@ -1018,6 +1018,78 @@ func (x *CardModify) GetCardCode() string {
 	return ""
 }
 
+type RecordEventScreenshotRequest struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// 遊戲代碼
+	GameCode string `protobuf:"bytes,2,opt,name=game_code,json=gameCode,proto3" json:"gameCode" bson:"gameCode" yaml:"gameCode"`
+	// 事件代碼
+	EventCode string `protobuf:"bytes,3,opt,name=event_code,json=eventCode,proto3" json:"eventCode" bson:"eventCode" yaml:"eventCode"`
+	// 封面
+	Cover bool `protobuf:"varint,4,opt,name=cover,proto3" json:"cover" bson:"cover" yaml:"cover"`
+	// 此截圖是否通知
+	Notify        bool `protobuf:"varint,5,opt,name=notify,proto3" json:"notify" bson:"notify" yaml:"notify"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RecordEventScreenshotRequest) Reset() {
+	*x = RecordEventScreenshotRequest{}
+	mi := &file_recorder_recorder_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RecordEventScreenshotRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RecordEventScreenshotRequest) ProtoMessage() {}
+
+func (x *RecordEventScreenshotRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_recorder_recorder_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RecordEventScreenshotRequest.ProtoReflect.Descriptor instead.
+func (*RecordEventScreenshotRequest) Descriptor() ([]byte, []int) {
+	return file_recorder_recorder_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *RecordEventScreenshotRequest) GetGameCode() string {
+	if x != nil {
+		return x.GameCode
+	}
+	return ""
+}
+
+func (x *RecordEventScreenshotRequest) GetEventCode() string {
+	if x != nil {
+		return x.EventCode
+	}
+	return ""
+}
+
+func (x *RecordEventScreenshotRequest) GetCover() bool {
+	if x != nil {
+		return x.Cover
+	}
+	return false
+}
+
+func (x *RecordEventScreenshotRequest) GetNotify() bool {
+	if x != nil {
+		return x.Notify
+	}
+	return false
+}
+
 var File_recorder_recorder_proto protoreflect.FileDescriptor
 
 const file_recorder_recorder_proto_rawDesc = "" +
@@ -1143,7 +1215,13 @@ const file_recorder_recorder_proto_rawDesc = "" +
 	"\x04seat\x18\x01 \x01(\x05R\x04seat\x12#\n" +
 	"\rresource_type\x18\x02 \x01(\x05R\fresourceType\x12&\n" +
 	"\x0fcard_list_index\x18\x03 \x01(\x03R\rcardListIndex\x12\x1b\n" +
-	"\tcard_code\x18\x04 \x01(\tR\bcardCode2\xfe\a\n" +
+	"\tcard_code\x18\x04 \x01(\tR\bcardCode\"\x88\x01\n" +
+	"\x1cRecordEventScreenshotRequest\x12\x1b\n" +
+	"\tgame_code\x18\x02 \x01(\tR\bgameCode\x12\x1d\n" +
+	"\n" +
+	"event_code\x18\x03 \x01(\tR\teventCode\x12\x14\n" +
+	"\x05cover\x18\x04 \x01(\bR\x05cover\x12\x16\n" +
+	"\x06notify\x18\x05 \x01(\bR\x06notify2\xd6\b\n" +
 	"\x0fRecorderService\x12P\n" +
 	"\x12RecordShiftStarted\x12#.recorder.RecordShiftStartedRequest\x1a\x15.recorder.ShiftRecord\x12L\n" +
 	"\x10RecordShiftEnded\x12!.recorder.RecordShiftEndedRequest\x1a\x15.recorder.ShiftRecord\x12M\n" +
@@ -1156,7 +1234,8 @@ const file_recorder_recorder_proto_rawDesc = "" +
 	"\"RecordRoundBeCanceledAfterFinished\x12&.recorder.RecordRoundBeCanceledRequest\x1a\x15.recorder.RoundRecord\x12X\n" +
 	"\x1cRecordModifyResultAfterRound\x12!.recorder.RecordModifyCardRequest\x1a\x15.recorder.RoundRecord\x12X\n" +
 	"\x1cRecordFinishResultAfterRound\x12!.recorder.RecordModifyCardRequest\x1a\x15.recorder.RoundRecord\x12L\n" +
-	"\x10RecordRoundVideo\x12!.recorder.RecordRoundMediaRequest\x1a\x15.recorder.RoundRecordB\x9e\x01\n" +
+	"\x10RecordRoundVideo\x12!.recorder.RecordRoundMediaRequest\x1a\x15.recorder.RoundRecord\x12V\n" +
+	"\x15RecordEventScreenshot\x12&.recorder.RecordEventScreenshotRequest\x1a\x15.recorder.RoundRecordB\x9e\x01\n" +
 	"\x1bcom.wecasino.proto.recorderB\rRecorderProtoP\x01Z0github.com/wecasino/wecasino-proto/pbgo/recorder\xa2\x02\x03RXX\xaa\x02\bRecorder\xca\x02\bRecorder\xe2\x02\x14Recorder\\GPBMetadata\xea\x02\bRecorderb\x06proto3"
 
 var (
@@ -1171,7 +1250,7 @@ func file_recorder_recorder_proto_rawDescGZIP() []byte {
 	return file_recorder_recorder_proto_rawDescData
 }
 
-var file_recorder_recorder_proto_msgTypes = make([]protoimpl.MessageInfo, 22)
+var file_recorder_recorder_proto_msgTypes = make([]protoimpl.MessageInfo, 23)
 var file_recorder_recorder_proto_goTypes = []any{
 	(*RecordIDResponse)(nil),             // 0: recorder.RecordIDResponse
 	(*RecordShiftStartedRequest)(nil),    // 1: recorder.RecordShiftStartedRequest
@@ -1185,45 +1264,46 @@ var file_recorder_recorder_proto_goTypes = []any{
 	(*RecordRoundMediaRequest)(nil),      // 9: recorder.RecordRoundMediaRequest
 	(*RecordModifyCardRequest)(nil),      // 10: recorder.RecordModifyCardRequest
 	(*CardModify)(nil),                   // 11: recorder.CardModify
-	nil,                                  // 12: recorder.RecordShiftStartedRequest.TagsEntry
-	nil,                                  // 13: recorder.RecordShoeStartedRequest.DecksEntry
-	nil,                                  // 14: recorder.RecordShoeEndedRequest.DecksEntry
-	nil,                                  // 15: recorder.RecordRoundStartedRequest.TagsEntry
-	nil,                                  // 16: recorder.RecordRoundStartedRequest.PlayersEntry
-	nil,                                  // 17: recorder.RecordRoundStartedRequest.FortuneRatesEntry
-	nil,                                  // 18: recorder.RecordRoundStartedRequest.PlayersNameEntry
-	nil,                                  // 19: recorder.RecordRoundMediaRequest.SetEntry
-	nil,                                  // 20: recorder.RecordRoundMediaRequest.AddEntry
-	nil,                                  // 21: recorder.RecordModifyCardRequest.ModifyFortuneEntry
-	(*timestamppb.Timestamp)(nil),        // 22: google.protobuf.Timestamp
-	(*Step)(nil),                         // 23: recorder.Step
-	(*Deck)(nil),                         // 24: recorder.Deck
-	(*ShiftRecord)(nil),                  // 25: recorder.ShiftRecord
-	(*ShoeRecord)(nil),                   // 26: recorder.ShoeRecord
-	(*RoundRecord)(nil),                  // 27: recorder.RoundRecord
+	(*RecordEventScreenshotRequest)(nil), // 12: recorder.RecordEventScreenshotRequest
+	nil,                                  // 13: recorder.RecordShiftStartedRequest.TagsEntry
+	nil,                                  // 14: recorder.RecordShoeStartedRequest.DecksEntry
+	nil,                                  // 15: recorder.RecordShoeEndedRequest.DecksEntry
+	nil,                                  // 16: recorder.RecordRoundStartedRequest.TagsEntry
+	nil,                                  // 17: recorder.RecordRoundStartedRequest.PlayersEntry
+	nil,                                  // 18: recorder.RecordRoundStartedRequest.FortuneRatesEntry
+	nil,                                  // 19: recorder.RecordRoundStartedRequest.PlayersNameEntry
+	nil,                                  // 20: recorder.RecordRoundMediaRequest.SetEntry
+	nil,                                  // 21: recorder.RecordRoundMediaRequest.AddEntry
+	nil,                                  // 22: recorder.RecordModifyCardRequest.ModifyFortuneEntry
+	(*timestamppb.Timestamp)(nil),        // 23: google.protobuf.Timestamp
+	(*Step)(nil),                         // 24: recorder.Step
+	(*Deck)(nil),                         // 25: recorder.Deck
+	(*ShiftRecord)(nil),                  // 26: recorder.ShiftRecord
+	(*ShoeRecord)(nil),                   // 27: recorder.ShoeRecord
+	(*RoundRecord)(nil),                  // 28: recorder.RoundRecord
 }
 var file_recorder_recorder_proto_depIdxs = []int32{
-	22, // 0: recorder.RecordShiftStartedRequest.ts_start:type_name -> google.protobuf.Timestamp
-	12, // 1: recorder.RecordShiftStartedRequest.tags:type_name -> recorder.RecordShiftStartedRequest.TagsEntry
-	22, // 2: recorder.RecordShiftEndedRequest.ts_end:type_name -> google.protobuf.Timestamp
-	22, // 3: recorder.RecordShoeStartedRequest.ts_start:type_name -> google.protobuf.Timestamp
-	13, // 4: recorder.RecordShoeStartedRequest.decks:type_name -> recorder.RecordShoeStartedRequest.DecksEntry
-	22, // 5: recorder.RecordShoeEndedRequest.ts_end:type_name -> google.protobuf.Timestamp
-	14, // 6: recorder.RecordShoeEndedRequest.decks:type_name -> recorder.RecordShoeEndedRequest.DecksEntry
-	15, // 7: recorder.RecordRoundStartedRequest.tags:type_name -> recorder.RecordRoundStartedRequest.TagsEntry
-	22, // 8: recorder.RecordRoundStartedRequest.ts_start:type_name -> google.protobuf.Timestamp
-	16, // 9: recorder.RecordRoundStartedRequest.players:type_name -> recorder.RecordRoundStartedRequest.PlayersEntry
-	17, // 10: recorder.RecordRoundStartedRequest.fortune_rates:type_name -> recorder.RecordRoundStartedRequest.FortuneRatesEntry
-	18, // 11: recorder.RecordRoundStartedRequest.players_name:type_name -> recorder.RecordRoundStartedRequest.PlayersNameEntry
-	23, // 12: recorder.RecordRoundStepsRequest.steps:type_name -> recorder.Step
-	22, // 13: recorder.RecordRoundBeCanceledRequest.ts_end:type_name -> google.protobuf.Timestamp
-	22, // 14: recorder.RecordRoundFinishedRequest.ts_end:type_name -> google.protobuf.Timestamp
-	19, // 15: recorder.RecordRoundMediaRequest.set:type_name -> recorder.RecordRoundMediaRequest.SetEntry
-	20, // 16: recorder.RecordRoundMediaRequest.add:type_name -> recorder.RecordRoundMediaRequest.AddEntry
+	23, // 0: recorder.RecordShiftStartedRequest.ts_start:type_name -> google.protobuf.Timestamp
+	13, // 1: recorder.RecordShiftStartedRequest.tags:type_name -> recorder.RecordShiftStartedRequest.TagsEntry
+	23, // 2: recorder.RecordShiftEndedRequest.ts_end:type_name -> google.protobuf.Timestamp
+	23, // 3: recorder.RecordShoeStartedRequest.ts_start:type_name -> google.protobuf.Timestamp
+	14, // 4: recorder.RecordShoeStartedRequest.decks:type_name -> recorder.RecordShoeStartedRequest.DecksEntry
+	23, // 5: recorder.RecordShoeEndedRequest.ts_end:type_name -> google.protobuf.Timestamp
+	15, // 6: recorder.RecordShoeEndedRequest.decks:type_name -> recorder.RecordShoeEndedRequest.DecksEntry
+	16, // 7: recorder.RecordRoundStartedRequest.tags:type_name -> recorder.RecordRoundStartedRequest.TagsEntry
+	23, // 8: recorder.RecordRoundStartedRequest.ts_start:type_name -> google.protobuf.Timestamp
+	17, // 9: recorder.RecordRoundStartedRequest.players:type_name -> recorder.RecordRoundStartedRequest.PlayersEntry
+	18, // 10: recorder.RecordRoundStartedRequest.fortune_rates:type_name -> recorder.RecordRoundStartedRequest.FortuneRatesEntry
+	19, // 11: recorder.RecordRoundStartedRequest.players_name:type_name -> recorder.RecordRoundStartedRequest.PlayersNameEntry
+	24, // 12: recorder.RecordRoundStepsRequest.steps:type_name -> recorder.Step
+	23, // 13: recorder.RecordRoundBeCanceledRequest.ts_end:type_name -> google.protobuf.Timestamp
+	23, // 14: recorder.RecordRoundFinishedRequest.ts_end:type_name -> google.protobuf.Timestamp
+	20, // 15: recorder.RecordRoundMediaRequest.set:type_name -> recorder.RecordRoundMediaRequest.SetEntry
+	21, // 16: recorder.RecordRoundMediaRequest.add:type_name -> recorder.RecordRoundMediaRequest.AddEntry
 	11, // 17: recorder.RecordModifyCardRequest.modifies:type_name -> recorder.CardModify
-	21, // 18: recorder.RecordModifyCardRequest.modify_fortune:type_name -> recorder.RecordModifyCardRequest.ModifyFortuneEntry
-	24, // 19: recorder.RecordShoeStartedRequest.DecksEntry.value:type_name -> recorder.Deck
-	24, // 20: recorder.RecordShoeEndedRequest.DecksEntry.value:type_name -> recorder.Deck
+	22, // 18: recorder.RecordModifyCardRequest.modify_fortune:type_name -> recorder.RecordModifyCardRequest.ModifyFortuneEntry
+	25, // 19: recorder.RecordShoeStartedRequest.DecksEntry.value:type_name -> recorder.Deck
+	25, // 20: recorder.RecordShoeEndedRequest.DecksEntry.value:type_name -> recorder.Deck
 	1,  // 21: recorder.RecorderService.RecordShiftStarted:input_type -> recorder.RecordShiftStartedRequest
 	2,  // 22: recorder.RecorderService.RecordShiftEnded:input_type -> recorder.RecordShiftEndedRequest
 	3,  // 23: recorder.RecorderService.RecordShoeStarted:input_type -> recorder.RecordShoeStartedRequest
@@ -1236,20 +1316,22 @@ var file_recorder_recorder_proto_depIdxs = []int32{
 	10, // 30: recorder.RecorderService.RecordModifyResultAfterRound:input_type -> recorder.RecordModifyCardRequest
 	10, // 31: recorder.RecorderService.RecordFinishResultAfterRound:input_type -> recorder.RecordModifyCardRequest
 	9,  // 32: recorder.RecorderService.RecordRoundVideo:input_type -> recorder.RecordRoundMediaRequest
-	25, // 33: recorder.RecorderService.RecordShiftStarted:output_type -> recorder.ShiftRecord
-	25, // 34: recorder.RecorderService.RecordShiftEnded:output_type -> recorder.ShiftRecord
-	26, // 35: recorder.RecorderService.RecordShoeStarted:output_type -> recorder.ShoeRecord
-	26, // 36: recorder.RecorderService.RecordShoeEnded:output_type -> recorder.ShoeRecord
-	27, // 37: recorder.RecorderService.RecordRoundStarted:output_type -> recorder.RoundRecord
-	27, // 38: recorder.RecorderService.RecordRoundSteps:output_type -> recorder.RoundRecord
-	27, // 39: recorder.RecorderService.RecordRoundBeCanceled:output_type -> recorder.RoundRecord
-	27, // 40: recorder.RecorderService.RecordRoundFinished:output_type -> recorder.RoundRecord
-	27, // 41: recorder.RecorderService.RecordRoundBeCanceledAfterFinished:output_type -> recorder.RoundRecord
-	27, // 42: recorder.RecorderService.RecordModifyResultAfterRound:output_type -> recorder.RoundRecord
-	27, // 43: recorder.RecorderService.RecordFinishResultAfterRound:output_type -> recorder.RoundRecord
-	27, // 44: recorder.RecorderService.RecordRoundVideo:output_type -> recorder.RoundRecord
-	33, // [33:45] is the sub-list for method output_type
-	21, // [21:33] is the sub-list for method input_type
+	12, // 33: recorder.RecorderService.RecordEventScreenshot:input_type -> recorder.RecordEventScreenshotRequest
+	26, // 34: recorder.RecorderService.RecordShiftStarted:output_type -> recorder.ShiftRecord
+	26, // 35: recorder.RecorderService.RecordShiftEnded:output_type -> recorder.ShiftRecord
+	27, // 36: recorder.RecorderService.RecordShoeStarted:output_type -> recorder.ShoeRecord
+	27, // 37: recorder.RecorderService.RecordShoeEnded:output_type -> recorder.ShoeRecord
+	28, // 38: recorder.RecorderService.RecordRoundStarted:output_type -> recorder.RoundRecord
+	28, // 39: recorder.RecorderService.RecordRoundSteps:output_type -> recorder.RoundRecord
+	28, // 40: recorder.RecorderService.RecordRoundBeCanceled:output_type -> recorder.RoundRecord
+	28, // 41: recorder.RecorderService.RecordRoundFinished:output_type -> recorder.RoundRecord
+	28, // 42: recorder.RecorderService.RecordRoundBeCanceledAfterFinished:output_type -> recorder.RoundRecord
+	28, // 43: recorder.RecorderService.RecordModifyResultAfterRound:output_type -> recorder.RoundRecord
+	28, // 44: recorder.RecorderService.RecordFinishResultAfterRound:output_type -> recorder.RoundRecord
+	28, // 45: recorder.RecorderService.RecordRoundVideo:output_type -> recorder.RoundRecord
+	28, // 46: recorder.RecorderService.RecordEventScreenshot:output_type -> recorder.RoundRecord
+	34, // [34:47] is the sub-list for method output_type
+	21, // [21:34] is the sub-list for method input_type
 	21, // [21:21] is the sub-list for extension type_name
 	21, // [21:21] is the sub-list for extension extendee
 	0,  // [0:21] is the sub-list for field type_name
@@ -1267,7 +1349,7 @@ func file_recorder_recorder_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_recorder_recorder_proto_rawDesc), len(file_recorder_recorder_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   22,
+			NumMessages:   23,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
