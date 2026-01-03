@@ -2,9 +2,9 @@
 // versions:
 // 	protoc-gen-go v1.36.11
 // 	protoc        (unknown)
-// source: games/baccarat/record.proto
+// source: games/baccaratstep/record.proto
 
-package baccarat
+package baccaratstep
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -26,55 +26,19 @@ type GameSubtype int32
 const (
 	// 未指定
 	GameSubtype_BACCARAT_TYPE_UNSPECIFIED GameSubtype = 0
-	// 經典百家樂
+	// 看牌百家樂
 	GameSubtype_BACCARAT_CLASSIC GameSubtype = 1
-	// 傳統百家樂
-	GameSubtype_BACCARAT_TRADITIONAL GameSubtype = 2
-	// 極速百家樂
-	GameSubtype_BACCARAT_SPEED GameSubtype = 3
-	// 百家樂恆8
-	GameSubtype_BACCARAT_FOREVER8 GameSubtype = 4
-	// 百家樂恆9
-	GameSubtype_BACCARAT_FOREVER9 GameSubtype = 5
-	// 瞇牌百家樂
-	GameSubtype_BACCARAT_PEEK GameSubtype = 8
-	// 財神百家樂
-	GameSubtype_BACCARAT_FORTUNE GameSubtype = 12
-	// 區塊鏈百家樂
-	GameSubtype_BACCARAT_BLOCKCHAIN GameSubtype = 16
-	// 區塊鏈極速百家樂
-	GameSubtype_BACCARAT_SPEED_BLOCKCHAIN GameSubtype = 18
-	// 區塊鏈瞇牌百家樂
-	GameSubtype_BACCARAT_PEEK_BLOCKCHAIN GameSubtype = 24
 )
 
 // Enum value maps for GameSubtype.
 var (
 	GameSubtype_name = map[int32]string{
-		0:  "BACCARAT_TYPE_UNSPECIFIED",
-		1:  "BACCARAT_CLASSIC",
-		2:  "BACCARAT_TRADITIONAL",
-		3:  "BACCARAT_SPEED",
-		4:  "BACCARAT_FOREVER8",
-		5:  "BACCARAT_FOREVER9",
-		8:  "BACCARAT_PEEK",
-		12: "BACCARAT_FORTUNE",
-		16: "BACCARAT_BLOCKCHAIN",
-		18: "BACCARAT_SPEED_BLOCKCHAIN",
-		24: "BACCARAT_PEEK_BLOCKCHAIN",
+		0: "BACCARAT_TYPE_UNSPECIFIED",
+		1: "BACCARAT_CLASSIC",
 	}
 	GameSubtype_value = map[string]int32{
 		"BACCARAT_TYPE_UNSPECIFIED": 0,
 		"BACCARAT_CLASSIC":          1,
-		"BACCARAT_TRADITIONAL":      2,
-		"BACCARAT_SPEED":            3,
-		"BACCARAT_FOREVER8":         4,
-		"BACCARAT_FOREVER9":         5,
-		"BACCARAT_PEEK":             8,
-		"BACCARAT_FORTUNE":          12,
-		"BACCARAT_BLOCKCHAIN":       16,
-		"BACCARAT_SPEED_BLOCKCHAIN": 18,
-		"BACCARAT_PEEK_BLOCKCHAIN":  24,
 	}
 )
 
@@ -89,11 +53,11 @@ func (x GameSubtype) String() string {
 }
 
 func (GameSubtype) Descriptor() protoreflect.EnumDescriptor {
-	return file_games_baccarat_record_proto_enumTypes[0].Descriptor()
+	return file_games_baccaratstep_record_proto_enumTypes[0].Descriptor()
 }
 
 func (GameSubtype) Type() protoreflect.EnumType {
-	return &file_games_baccarat_record_proto_enumTypes[0]
+	return &file_games_baccaratstep_record_proto_enumTypes[0]
 }
 
 func (x GameSubtype) Number() protoreflect.EnumNumber {
@@ -102,7 +66,7 @@ func (x GameSubtype) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use GameSubtype.Descriptor instead.
 func (GameSubtype) EnumDescriptor() ([]byte, []int) {
-	return file_games_baccarat_record_proto_rawDescGZIP(), []int{0}
+	return file_games_baccaratstep_record_proto_rawDescGZIP(), []int{0}
 }
 
 type ResourceType int32
@@ -141,11 +105,11 @@ func (x ResourceType) String() string {
 }
 
 func (ResourceType) Descriptor() protoreflect.EnumDescriptor {
-	return file_games_baccarat_record_proto_enumTypes[1].Descriptor()
+	return file_games_baccaratstep_record_proto_enumTypes[1].Descriptor()
 }
 
 func (ResourceType) Type() protoreflect.EnumType {
-	return &file_games_baccarat_record_proto_enumTypes[1]
+	return &file_games_baccaratstep_record_proto_enumTypes[1]
 }
 
 func (x ResourceType) Number() protoreflect.EnumNumber {
@@ -154,7 +118,7 @@ func (x ResourceType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ResourceType.Descriptor instead.
 func (ResourceType) EnumDescriptor() ([]byte, []int) {
-	return file_games_baccarat_record_proto_rawDescGZIP(), []int{1}
+	return file_games_baccaratstep_record_proto_rawDescGZIP(), []int{1}
 }
 
 // 步驟，依據遊戲供應商邏輯，不是每個步驟都會走到
@@ -181,12 +145,10 @@ const (
 	Step_ROUND_BET Step = 8
 	// 停止下注
 	Step_NO_MORE_BET Step = 9
-	// 非瞇牌開例牌
+	// 開例牌
 	Step_SHOW_NORMAL Step = 11
-	// 開 莊牌
-	Step_SHOW_BANKER Step = 12
-	// 開 閒牌
-	Step_SHOW_PLAYER Step = 13
+	// 開剩下的例牌
+	Step_SHOW_LEFT Step = 12
 	// 開 莊牌
 	Step_SHOW_BANKER_1 Step = 30
 	// 開 莊牌
@@ -195,29 +157,21 @@ const (
 	Step_SHOW_PLAYER_1 Step = 33
 	// 開 閒牌
 	Step_SHOW_PLAYER_2 Step = 34
-	// 瞇牌例牌
-	Step_PEEK_NORMAL Step = 14
-	// 瞇牌公布例牌
-	Step_PEEK_SHOW_NORMAL Step = 15
-	// 非瞇牌補閒家牌
+	// 補閒家牌
 	Step_DEAL_PLAYER_EXTRA Step = 16
-	// 瞇牌閒家補牌
-	Step_PEEK_DEAL_PLAYER_EXTRA Step = 17
-	// 瞇牌公布閒家補牌
-	Step_PEEK_SHOW_PLAYER_EXTRA Step = 18
-	// 非瞇牌補莊家牌
+	// 補莊家牌
 	Step_DEAL_BANKER_EXTRA Step = 20
-	// 瞇牌莊家補牌
-	Step_PEEK_DEAL_BANKER_EXTRA Step = 21
-	// 瞇牌公布莊家補牌
-	Step_PEEK_SHOW_BANKER_EXTRA Step = 22
-	Step_DEALER_CONFIRM         Step = 23
+	Step_DEALER_CONFIRM    Step = 23
 	// PITBOSS 修改派發例牌
 	Step_PITBOSS_MODIFY_NORMAL Step = 24
 	// PITBOSS 修改派發閒家補牌
 	Step_PITBOSS_MODIFY_PLAYER_EXTRA Step = 25
 	// PITBOSS 修改派發莊家補牌
 	Step_PITBOSS_MODIFY_BANKER_EXTRA Step = 26
+	// 看牌百家樂開放下注
+	Step_SECOND_ROUND_BET Step = 40
+	// 看牌百家樂停止下注
+	Step_SECOND_NO_MORE_BET Step = 41
 )
 
 // Enum value maps for Step.
@@ -234,24 +188,19 @@ var (
 		8:  "ROUND_BET",
 		9:  "NO_MORE_BET",
 		11: "SHOW_NORMAL",
-		12: "SHOW_BANKER",
-		13: "SHOW_PLAYER",
+		12: "SHOW_LEFT",
 		30: "SHOW_BANKER_1",
 		31: "SHOW_BANKER_2",
 		33: "SHOW_PLAYER_1",
 		34: "SHOW_PLAYER_2",
-		14: "PEEK_NORMAL",
-		15: "PEEK_SHOW_NORMAL",
 		16: "DEAL_PLAYER_EXTRA",
-		17: "PEEK_DEAL_PLAYER_EXTRA",
-		18: "PEEK_SHOW_PLAYER_EXTRA",
 		20: "DEAL_BANKER_EXTRA",
-		21: "PEEK_DEAL_BANKER_EXTRA",
-		22: "PEEK_SHOW_BANKER_EXTRA",
 		23: "DEALER_CONFIRM",
 		24: "PITBOSS_MODIFY_NORMAL",
 		25: "PITBOSS_MODIFY_PLAYER_EXTRA",
 		26: "PITBOSS_MODIFY_BANKER_EXTRA",
+		40: "SECOND_ROUND_BET",
+		41: "SECOND_NO_MORE_BET",
 	}
 	Step_value = map[string]int32{
 		"STEP_UNSPECIFIED":            0,
@@ -265,24 +214,19 @@ var (
 		"ROUND_BET":                   8,
 		"NO_MORE_BET":                 9,
 		"SHOW_NORMAL":                 11,
-		"SHOW_BANKER":                 12,
-		"SHOW_PLAYER":                 13,
+		"SHOW_LEFT":                   12,
 		"SHOW_BANKER_1":               30,
 		"SHOW_BANKER_2":               31,
 		"SHOW_PLAYER_1":               33,
 		"SHOW_PLAYER_2":               34,
-		"PEEK_NORMAL":                 14,
-		"PEEK_SHOW_NORMAL":            15,
 		"DEAL_PLAYER_EXTRA":           16,
-		"PEEK_DEAL_PLAYER_EXTRA":      17,
-		"PEEK_SHOW_PLAYER_EXTRA":      18,
 		"DEAL_BANKER_EXTRA":           20,
-		"PEEK_DEAL_BANKER_EXTRA":      21,
-		"PEEK_SHOW_BANKER_EXTRA":      22,
 		"DEALER_CONFIRM":              23,
 		"PITBOSS_MODIFY_NORMAL":       24,
 		"PITBOSS_MODIFY_PLAYER_EXTRA": 25,
 		"PITBOSS_MODIFY_BANKER_EXTRA": 26,
+		"SECOND_ROUND_BET":            40,
+		"SECOND_NO_MORE_BET":          41,
 	}
 )
 
@@ -297,11 +241,11 @@ func (x Step) String() string {
 }
 
 func (Step) Descriptor() protoreflect.EnumDescriptor {
-	return file_games_baccarat_record_proto_enumTypes[2].Descriptor()
+	return file_games_baccaratstep_record_proto_enumTypes[2].Descriptor()
 }
 
 func (Step) Type() protoreflect.EnumType {
-	return &file_games_baccarat_record_proto_enumTypes[2]
+	return &file_games_baccaratstep_record_proto_enumTypes[2]
 }
 
 func (x Step) Number() protoreflect.EnumNumber {
@@ -310,7 +254,7 @@ func (x Step) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use Step.Descriptor instead.
 func (Step) EnumDescriptor() ([]byte, []int) {
-	return file_games_baccarat_record_proto_rawDescGZIP(), []int{2}
+	return file_games_baccaratstep_record_proto_rawDescGZIP(), []int{2}
 }
 
 // 座位功能代碼
@@ -350,11 +294,11 @@ func (x GameSeat) String() string {
 }
 
 func (GameSeat) Descriptor() protoreflect.EnumDescriptor {
-	return file_games_baccarat_record_proto_enumTypes[3].Descriptor()
+	return file_games_baccaratstep_record_proto_enumTypes[3].Descriptor()
 }
 
 func (GameSeat) Type() protoreflect.EnumType {
-	return &file_games_baccarat_record_proto_enumTypes[3]
+	return &file_games_baccaratstep_record_proto_enumTypes[3]
 }
 
 func (x GameSeat) Number() protoreflect.EnumNumber {
@@ -363,31 +307,22 @@ func (x GameSeat) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use GameSeat.Descriptor instead.
 func (GameSeat) EnumDescriptor() ([]byte, []int) {
-	return file_games_baccarat_record_proto_rawDescGZIP(), []int{3}
+	return file_games_baccaratstep_record_proto_rawDescGZIP(), []int{3}
 }
 
-var File_games_baccarat_record_proto protoreflect.FileDescriptor
+var File_games_baccaratstep_record_proto protoreflect.FileDescriptor
 
-const file_games_baccarat_record_proto_rawDesc = "" +
+const file_games_baccaratstep_record_proto_rawDesc = "" +
 	"\n" +
-	"\x1bgames/baccarat/record.proto\x12\x0egames.baccarat*\x9d\x02\n" +
+	"\x1fgames/baccaratstep/record.proto\x12\x12games.baccaratstep*B\n" +
 	"\vGameSubtype\x12\x1d\n" +
 	"\x19BACCARAT_TYPE_UNSPECIFIED\x10\x00\x12\x14\n" +
-	"\x10BACCARAT_CLASSIC\x10\x01\x12\x18\n" +
-	"\x14BACCARAT_TRADITIONAL\x10\x02\x12\x12\n" +
-	"\x0eBACCARAT_SPEED\x10\x03\x12\x15\n" +
-	"\x11BACCARAT_FOREVER8\x10\x04\x12\x15\n" +
-	"\x11BACCARAT_FOREVER9\x10\x05\x12\x11\n" +
-	"\rBACCARAT_PEEK\x10\b\x12\x14\n" +
-	"\x10BACCARAT_FORTUNE\x10\f\x12\x17\n" +
-	"\x13BACCARAT_BLOCKCHAIN\x10\x10\x12\x1d\n" +
-	"\x19BACCARAT_SPEED_BLOCKCHAIN\x10\x12\x12\x1c\n" +
-	"\x18BACCARAT_PEEK_BLOCKCHAIN\x10\x18*D\n" +
+	"\x10BACCARAT_CLASSIC\x10\x01*D\n" +
 	"\fResourceType\x12\x1d\n" +
 	"\x19RESOURCE_TYPE_UNSPECIFIED\x10\x00\x12\n" +
 	"\n" +
 	"\x06NORMAL\x10\x01\x12\t\n" +
-	"\x05EXTRA\x10\x02*\xf7\x04\n" +
+	"\x05EXTRA\x10\x02*\xfb\x03\n" +
 	"\x04Step\x12\x14\n" +
 	"\x10STEP_UNSPECIFIED\x10\x00\x12\x0f\n" +
 	"\vROUND_START\x10\x01\x12\x12\n" +
@@ -399,53 +334,48 @@ const file_games_baccarat_record_proto_rawDesc = "" +
 	"\rDEAL_BANKER_2\x10\a\x12\r\n" +
 	"\tROUND_BET\x10\b\x12\x0f\n" +
 	"\vNO_MORE_BET\x10\t\x12\x0f\n" +
-	"\vSHOW_NORMAL\x10\v\x12\x0f\n" +
-	"\vSHOW_BANKER\x10\f\x12\x0f\n" +
-	"\vSHOW_PLAYER\x10\r\x12\x11\n" +
+	"\vSHOW_NORMAL\x10\v\x12\r\n" +
+	"\tSHOW_LEFT\x10\f\x12\x11\n" +
 	"\rSHOW_BANKER_1\x10\x1e\x12\x11\n" +
 	"\rSHOW_BANKER_2\x10\x1f\x12\x11\n" +
 	"\rSHOW_PLAYER_1\x10!\x12\x11\n" +
-	"\rSHOW_PLAYER_2\x10\"\x12\x0f\n" +
-	"\vPEEK_NORMAL\x10\x0e\x12\x14\n" +
-	"\x10PEEK_SHOW_NORMAL\x10\x0f\x12\x15\n" +
-	"\x11DEAL_PLAYER_EXTRA\x10\x10\x12\x1a\n" +
-	"\x16PEEK_DEAL_PLAYER_EXTRA\x10\x11\x12\x1a\n" +
-	"\x16PEEK_SHOW_PLAYER_EXTRA\x10\x12\x12\x15\n" +
-	"\x11DEAL_BANKER_EXTRA\x10\x14\x12\x1a\n" +
-	"\x16PEEK_DEAL_BANKER_EXTRA\x10\x15\x12\x1a\n" +
-	"\x16PEEK_SHOW_BANKER_EXTRA\x10\x16\x12\x12\n" +
+	"\rSHOW_PLAYER_2\x10\"\x12\x15\n" +
+	"\x11DEAL_PLAYER_EXTRA\x10\x10\x12\x15\n" +
+	"\x11DEAL_BANKER_EXTRA\x10\x14\x12\x12\n" +
 	"\x0eDEALER_CONFIRM\x10\x17\x12\x19\n" +
 	"\x15PITBOSS_MODIFY_NORMAL\x10\x18\x12\x1f\n" +
 	"\x1bPITBOSS_MODIFY_PLAYER_EXTRA\x10\x19\x12\x1f\n" +
-	"\x1bPITBOSS_MODIFY_BANKER_EXTRA\x10\x1a*8\n" +
+	"\x1bPITBOSS_MODIFY_BANKER_EXTRA\x10\x1a\x12\x14\n" +
+	"\x10SECOND_ROUND_BET\x10(\x12\x16\n" +
+	"\x12SECOND_NO_MORE_BET\x10)*8\n" +
 	"\bGameSeat\x12\x14\n" +
 	"\x10SEAT_UNSPECIFIED\x10\x00\x12\n" +
 	"\n" +
 	"\x06PLAYER\x10\x02\x12\n" +
 	"\n" +
-	"\x06BANKER\x10\x03B\xc1\x01\n" +
-	"!com.wecasino.proto.games.baccaratB\vRecordProtoP\x01Z6github.com/wecasino/wecasino-proto/pbgo/games/baccarat\xa2\x02\x03GBX\xaa\x02\x0eGames.Baccarat\xca\x02\x0eGames\\Baccarat\xe2\x02\x1aGames\\Baccarat\\GPBMetadata\xea\x02\x0fGames::Baccaratb\x06proto3"
+	"\x06BANKER\x10\x03B\xd9\x01\n" +
+	"%com.wecasino.proto.games.baccaratstepB\vRecordProtoP\x01Z:github.com/wecasino/wecasino-proto/pbgo/games/baccaratstep\xa2\x02\x03GBX\xaa\x02\x12Games.Baccaratstep\xca\x02\x12Games\\Baccaratstep\xe2\x02\x1eGames\\Baccaratstep\\GPBMetadata\xea\x02\x13Games::Baccaratstepb\x06proto3"
 
 var (
-	file_games_baccarat_record_proto_rawDescOnce sync.Once
-	file_games_baccarat_record_proto_rawDescData []byte
+	file_games_baccaratstep_record_proto_rawDescOnce sync.Once
+	file_games_baccaratstep_record_proto_rawDescData []byte
 )
 
-func file_games_baccarat_record_proto_rawDescGZIP() []byte {
-	file_games_baccarat_record_proto_rawDescOnce.Do(func() {
-		file_games_baccarat_record_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_games_baccarat_record_proto_rawDesc), len(file_games_baccarat_record_proto_rawDesc)))
+func file_games_baccaratstep_record_proto_rawDescGZIP() []byte {
+	file_games_baccaratstep_record_proto_rawDescOnce.Do(func() {
+		file_games_baccaratstep_record_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_games_baccaratstep_record_proto_rawDesc), len(file_games_baccaratstep_record_proto_rawDesc)))
 	})
-	return file_games_baccarat_record_proto_rawDescData
+	return file_games_baccaratstep_record_proto_rawDescData
 }
 
-var file_games_baccarat_record_proto_enumTypes = make([]protoimpl.EnumInfo, 4)
-var file_games_baccarat_record_proto_goTypes = []any{
-	(GameSubtype)(0),  // 0: games.baccarat.GameSubtype
-	(ResourceType)(0), // 1: games.baccarat.ResourceType
-	(Step)(0),         // 2: games.baccarat.Step
-	(GameSeat)(0),     // 3: games.baccarat.GameSeat
+var file_games_baccaratstep_record_proto_enumTypes = make([]protoimpl.EnumInfo, 4)
+var file_games_baccaratstep_record_proto_goTypes = []any{
+	(GameSubtype)(0),  // 0: games.baccaratstep.GameSubtype
+	(ResourceType)(0), // 1: games.baccaratstep.ResourceType
+	(Step)(0),         // 2: games.baccaratstep.Step
+	(GameSeat)(0),     // 3: games.baccaratstep.GameSeat
 }
-var file_games_baccarat_record_proto_depIdxs = []int32{
+var file_games_baccaratstep_record_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
 	0, // [0:0] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
@@ -453,26 +383,26 @@ var file_games_baccarat_record_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for field type_name
 }
 
-func init() { file_games_baccarat_record_proto_init() }
-func file_games_baccarat_record_proto_init() {
-	if File_games_baccarat_record_proto != nil {
+func init() { file_games_baccaratstep_record_proto_init() }
+func file_games_baccaratstep_record_proto_init() {
+	if File_games_baccaratstep_record_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_games_baccarat_record_proto_rawDesc), len(file_games_baccarat_record_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_games_baccaratstep_record_proto_rawDesc), len(file_games_baccaratstep_record_proto_rawDesc)),
 			NumEnums:      4,
 			NumMessages:   0,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
-		GoTypes:           file_games_baccarat_record_proto_goTypes,
-		DependencyIndexes: file_games_baccarat_record_proto_depIdxs,
-		EnumInfos:         file_games_baccarat_record_proto_enumTypes,
+		GoTypes:           file_games_baccaratstep_record_proto_goTypes,
+		DependencyIndexes: file_games_baccaratstep_record_proto_depIdxs,
+		EnumInfos:         file_games_baccaratstep_record_proto_enumTypes,
 	}.Build()
-	File_games_baccarat_record_proto = out.File
-	file_games_baccarat_record_proto_goTypes = nil
-	file_games_baccarat_record_proto_depIdxs = nil
+	File_games_baccaratstep_record_proto = out.File
+	file_games_baccaratstep_record_proto_goTypes = nil
+	file_games_baccaratstep_record_proto_depIdxs = nil
 }

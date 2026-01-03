@@ -166,6 +166,14 @@ public enum GameType
    * <code>CARACRUZ = 46;</code>
    */
   CARACRUZ(46),
+  /**
+   * <pre>
+   * 開牌百家樂
+   * </pre>
+   *
+   * <code>BACCARATSTEP = 47;</code>
+   */
+  BACCARATSTEP(47),
   UNRECOGNIZED(-1),
   ;
 
@@ -321,6 +329,14 @@ public enum GameType
    * <code>CARACRUZ = 46;</code>
    */
   public static final int CARACRUZ_VALUE = 46;
+  /**
+   * <pre>
+   * 開牌百家樂
+   * </pre>
+   *
+   * <code>BACCARATSTEP = 47;</code>
+   */
+  public static final int BACCARATSTEP_VALUE = 47;
 
 
   public final int getNumber() {
@@ -366,6 +382,7 @@ public enum GameType
       case 44: return HILO;
       case 45: return SAKLA;
       case 46: return CARACRUZ;
+      case 47: return BACCARATSTEP;
       default: return null;
     }
   }
