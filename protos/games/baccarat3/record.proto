@@ -121,8 +121,6 @@ enum Step {
   // PITBOSS 修改派發莊家補牌
   PITBOSS_MODIFY_BANKER_EXTRA = 26;
 
-  
-
 }
 
 // 座位功能代碼
