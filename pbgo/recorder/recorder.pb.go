@@ -72,9 +72,9 @@ type RecordShiftStartedRequest struct {
 	// 遊戲供應
 	Supplier string `protobuf:"bytes,2,opt,name=supplier,proto3" json:"supplier" bson:"supplier" yaml:"supplier"`
 	// 遊戲類型
-	GameType string `protobuf:"bytes,3,opt,name=game_type,json=gameType,proto3" json:"gameType" bson:"gameType" yaml:"gameType"`
+	GameType string `protobuf:"bytes,3,opt,name=game_type,json=gameType,proto3" json:"gameType" yaml:"gameType" bson:"gameType"`
 	// 遊戲子類型
-	GameSubtype string `protobuf:"bytes,4,opt,name=game_subtype,json=gameSubtype,proto3" json:"gameSubtype" yaml:"gameSubtype" bson:"gameSubtype"`
+	GameSubtype string `protobuf:"bytes,4,opt,name=game_subtype,json=gameSubtype,proto3" json:"gameSubtype" bson:"gameSubtype" yaml:"gameSubtype"`
 	// 遊戲版本
 	GameVersion string `protobuf:"bytes,5,opt,name=game_version,json=gameVersion,proto3" json:"gameVersion" bson:"gameVersion" yaml:"gameVersion"`
 	// 遊戲代碼
@@ -187,7 +187,7 @@ func (x *RecordShiftStartedRequest) GetTags() map[string]string {
 type RecordShiftEndedRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// 紀錄ID
-	RecordId []byte `protobuf:"bytes,1,opt,name=record_id,json=recordId,proto3" json:"recordId" bson:"recordId" yaml:"recordId"`
+	RecordId []byte `protobuf:"bytes,1,opt,name=record_id,json=recordId,proto3" json:"recordId" yaml:"recordId" bson:"recordId"`
 	// 結束時間
 	TsEnd         *timestamppb.Timestamp `protobuf:"bytes,19,opt,name=ts_end,json=tsEnd,proto3" json:"tsEnd" bson:"tsEnd" yaml:"tsEnd"`
 	unknownFields protoimpl.UnknownFields
@@ -376,7 +376,7 @@ func (x *RecordShoeStartedRequest) GetDecks() map[int32]*Deck {
 type RecordShoeEndedRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// 紀錄ID
-	RecordId []byte `protobuf:"bytes,1,opt,name=record_id,json=recordId,proto3" json:"recordId" yaml:"recordId" bson:"recordId"`
+	RecordId []byte `protobuf:"bytes,1,opt,name=record_id,json=recordId,proto3" json:"recordId" bson:"recordId" yaml:"recordId"`
 	// 牌靴使用完畢時間
 	TsEnd *timestamppb.Timestamp `protobuf:"bytes,19,opt,name=ts_end,json=tsEnd,proto3" json:"tsEnd" bson:"tsEnd" yaml:"tsEnd"`
 	// cardList
@@ -441,17 +441,17 @@ type RecordRoundStartedRequest struct {
 	// 遊戲供應
 	Supplier string `protobuf:"bytes,2,opt,name=supplier,proto3" json:"supplier" bson:"supplier" yaml:"supplier"`
 	// 遊戲類型
-	GameType string `protobuf:"bytes,3,opt,name=game_type,json=gameType,proto3" json:"gameType" bson:"gameType" yaml:"gameType"`
+	GameType string `protobuf:"bytes,3,opt,name=game_type,json=gameType,proto3" json:"gameType" yaml:"gameType" bson:"gameType"`
 	// 遊戲子類型
 	GameSubtype string `protobuf:"bytes,4,opt,name=game_subtype,json=gameSubtype,proto3" json:"gameSubtype" bson:"gameSubtype" yaml:"gameSubtype"`
 	// 遊戲版本
-	GameVersion string `protobuf:"bytes,5,opt,name=game_version,json=gameVersion,proto3" json:"gameVersion" yaml:"gameVersion" bson:"gameVersion"`
+	GameVersion string `protobuf:"bytes,5,opt,name=game_version,json=gameVersion,proto3" json:"gameVersion" bson:"gameVersion" yaml:"gameVersion"`
 	// 遊戲代碼
 	GameCode string `protobuf:"bytes,6,opt,name=game_code,json=gameCode,proto3" json:"gameCode" bson:"gameCode" yaml:"gameCode"`
 	// 桌代碼
 	TableCode string `protobuf:"bytes,7,opt,name=table_code,json=tableCode,proto3" json:"tableCode" bson:"tableCode" yaml:"tableCode"`
 	// 班代碼
-	ShiftCode string `protobuf:"bytes,8,opt,name=shift_code,json=shiftCode,proto3" json:"shiftCode" bson:"shiftCode" yaml:"shiftCode"`
+	ShiftCode string `protobuf:"bytes,8,opt,name=shift_code,json=shiftCode,proto3" json:"shiftCode" yaml:"shiftCode" bson:"shiftCode"`
 	// 此排班局數
 	ShiftRound int64 `protobuf:"varint,9,opt,name=shift_round,json=shiftRound,proto3" json:"shiftRound" bson:"shiftRound" yaml:"shiftRound"`
 	// 使用洗牌代碼
@@ -461,7 +461,7 @@ type RecordRoundStartedRequest struct {
 	// 局代碼
 	RoundCode string `protobuf:"bytes,12,opt,name=round_code,json=roundCode,proto3" json:"roundCode" bson:"roundCode" yaml:"roundCode"`
 	// 標籤
-	Tags map[string]string `protobuf:"bytes,13,rep,name=tags,proto3" json:"tags" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value" bson:"tags" yaml:"tags"`
+	Tags map[string]string `protobuf:"bytes,13,rep,name=tags,proto3" json:"tags" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value" yaml:"tags" bson:"tags"`
 	// 開始時間
 	TsStart *timestamppb.Timestamp `protobuf:"bytes,16,opt,name=ts_start,json=tsStart,proto3" json:"tsStart" bson:"tsStart" yaml:"tsStart"`
 	// 玩家入座
@@ -673,7 +673,7 @@ func (x *RecordRoundStepsRequest) GetSteps() []*Step {
 type RecordRoundBeCanceledRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// 紀錄ID
-	RecordId []byte `protobuf:"bytes,1,opt,name=record_id,json=recordId,proto3" json:"recordId" bson:"recordId" yaml:"recordId"`
+	RecordId []byte `protobuf:"bytes,1,opt,name=record_id,json=recordId,proto3" json:"recordId" yaml:"recordId" bson:"recordId"`
 	// 時間
 	TsEnd *timestamppb.Timestamp `protobuf:"bytes,19,opt,name=ts_end,json=tsEnd,proto3" json:"tsEnd" yaml:"tsEnd" bson:"tsEnd"`
 	// 取消代碼
@@ -800,13 +800,13 @@ func (x *RecordRoundFinishedRequest) GetTsEnd() *timestamppb.Timestamp {
 type RecordRoundMediaRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// 遊戲局紀錄ID
-	RecordId []byte `protobuf:"bytes,1,opt,name=record_id,json=recordId,proto3" json:"recordId" bson:"recordId" yaml:"recordId"`
+	RecordId []byte `protobuf:"bytes,1,opt,name=record_id,json=recordId,proto3" json:"recordId" yaml:"recordId" bson:"recordId"`
 	// 附加媒體：key: 媒體資源代碼；value: 媒體內容。
 	Set map[string]string `protobuf:"bytes,2,rep,name=set,proto3" json:"set" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value" bson:"set" yaml:"set"`
 	// 附加媒體：key: 媒體資源代碼；value: 媒體內容。
-	Add map[string]string `protobuf:"bytes,3,rep,name=add,proto3" json:"add" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value" yaml:"add" bson:"add"`
+	Add map[string]string `protobuf:"bytes,3,rep,name=add,proto3" json:"add" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value" bson:"add" yaml:"add"`
 	// 移除
-	Remove        []string `protobuf:"bytes,4,rep,name=remove,proto3" json:"remove" yaml:"remove" bson:"remove"`
+	Remove        []string `protobuf:"bytes,4,rep,name=remove,proto3" json:"remove" bson:"remove" yaml:"remove"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -878,7 +878,7 @@ type RecordModifyCardRequest struct {
 	// 修改牌
 	Modifies []*CardModify `protobuf:"bytes,4,rep,name=modifies,proto3" json:"modifies" bson:"modifies" yaml:"modifies"`
 	// 修改原因
-	ModifyMessage string `protobuf:"bytes,5,opt,name=modify_message,json=modifyMessage,proto3" json:"modifyMessage" bson:"modifyMessage" yaml:"modifyMessage"`
+	ModifyMessage string `protobuf:"bytes,5,opt,name=modify_message,json=modifyMessage,proto3" json:"modifyMessage" yaml:"modifyMessage" bson:"modifyMessage"`
 	// 修改fortune
 	ModifyFortune map[string]int64 `protobuf:"bytes,6,rep,name=modify_fortune,json=modifyFortune,proto3" json:"modifyFortune" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"varint,2,opt,name=value" bson:"modifyFortune" yaml:"modifyFortune"`
 	unknownFields protoimpl.UnknownFields
@@ -952,8 +952,8 @@ func (x *RecordModifyCardRequest) GetModifyFortune() map[string]int64 {
 
 type CardModify struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Seat          int32                  `protobuf:"varint,1,opt,name=seat,proto3" json:"seat" bson:"seat" yaml:"seat"`
-	ResourceType  int32                  `protobuf:"varint,2,opt,name=resource_type,json=resourceType,proto3" json:"resourceType" bson:"resourceType" yaml:"resourceType"`
+	Seat          int32                  `protobuf:"varint,1,opt,name=seat,proto3" json:"seat" yaml:"seat" bson:"seat"`
+	ResourceType  int32                  `protobuf:"varint,2,opt,name=resource_type,json=resourceType,proto3" json:"resourceType" yaml:"resourceType" bson:"resourceType"`
 	CardListIndex int64                  `protobuf:"varint,3,opt,name=card_list_index,json=cardListIndex,proto3" json:"cardListIndex" bson:"cardListIndex" yaml:"cardListIndex"`
 	CardCode      string                 `protobuf:"bytes,4,opt,name=card_code,json=cardCode,proto3" json:"cardCode" bson:"cardCode" yaml:"cardCode"`
 	unknownFields protoimpl.UnknownFields
@@ -1021,11 +1021,11 @@ func (x *CardModify) GetCardCode() string {
 type RecordEventScreenshotRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// 遊戲代碼
-	GameCode string `protobuf:"bytes,2,opt,name=game_code,json=gameCode,proto3" json:"gameCode" yaml:"gameCode" bson:"gameCode"`
+	GameCode string `protobuf:"bytes,2,opt,name=game_code,json=gameCode,proto3" json:"gameCode" bson:"gameCode" yaml:"gameCode"`
 	// 事件代碼
-	EventCode string `protobuf:"bytes,3,opt,name=event_code,json=eventCode,proto3" json:"eventCode" bson:"eventCode" yaml:"eventCode"`
+	EventCode string `protobuf:"bytes,3,opt,name=event_code,json=eventCode,proto3" json:"eventCode" yaml:"eventCode" bson:"eventCode"`
 	// 封面
-	Cover bool `protobuf:"varint,4,opt,name=cover,proto3" json:"cover" bson:"cover" yaml:"cover"`
+	Cover bool `protobuf:"varint,4,opt,name=cover,proto3" json:"cover" yaml:"cover" bson:"cover"`
 	// 此截圖是否通知
 	Notify        bool `protobuf:"varint,5,opt,name=notify,proto3" json:"notify" bson:"notify" yaml:"notify"`
 	unknownFields protoimpl.UnknownFields

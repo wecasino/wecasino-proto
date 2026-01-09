@@ -1648,6 +1648,21 @@ java.lang.String defaultValue) {
     return test_;
   }
 
+  public static final int IS_SHUFFLED_FIELD_NUMBER = 32;
+  private boolean isShuffled_ = false;
+  /**
+   * <pre>
+   * 是否蝸牛機洗牌局
+   * </pre>
+   *
+   * <code>bool is_shuffled = 32 [json_name = "isShuffled"];</code>
+   * @return The isShuffled.
+   */
+  @java.lang.Override
+  public boolean getIsShuffled() {
+    return isShuffled_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -1766,6 +1781,9 @@ java.lang.String defaultValue) {
         30);
     if (((bitField0_ & 0x00000020) != 0)) {
       output.writeBool(31, test_);
+    }
+    if (isShuffled_ != false) {
+      output.writeBool(32, isShuffled_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -1919,6 +1937,10 @@ java.lang.String defaultValue) {
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(31, test_);
     }
+    if (isShuffled_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(32, isShuffled_);
+    }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
@@ -2007,6 +2029,8 @@ java.lang.String defaultValue) {
       if (getTest()
           != other.getTest()) return false;
     }
+    if (getIsShuffled()
+        != other.getIsShuffled()) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -2107,6 +2131,9 @@ java.lang.String defaultValue) {
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getTest());
     }
+    hash = (37 * hash) + IS_SHUFFLED_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getIsShuffled());
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -2339,6 +2366,7 @@ java.lang.String defaultValue) {
       internalGetMutableMedias().clear();
       internalGetMutableFortuneRates().clear();
       test_ = false;
+      isShuffled_ = false;
       return this;
     }
 
@@ -2482,6 +2510,9 @@ java.lang.String defaultValue) {
       if (((from_bitField0_ & 0x08000000) != 0)) {
         result.test_ = test_;
         to_bitField0_ |= 0x00000020;
+      }
+      if (((from_bitField0_ & 0x10000000) != 0)) {
+        result.isShuffled_ = isShuffled_;
       }
       result.bitField0_ |= to_bitField0_;
     }
@@ -2658,6 +2689,9 @@ java.lang.String defaultValue) {
       bitField0_ |= 0x04000000;
       if (other.hasTest()) {
         setTest(other.getTest());
+      }
+      if (other.getIsShuffled() != false) {
+        setIsShuffled(other.getIsShuffled());
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -2865,6 +2899,11 @@ java.lang.String defaultValue) {
               bitField0_ |= 0x08000000;
               break;
             } // case 248
+            case 256: {
+              isShuffled_ = input.readBool();
+              bitField0_ |= 0x10000000;
+              break;
+            } // case 256
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -6137,6 +6176,50 @@ java.lang.String defaultValue) {
     public Builder clearTest() {
       bitField0_ = (bitField0_ & ~0x08000000);
       test_ = false;
+      onChanged();
+      return this;
+    }
+
+    private boolean isShuffled_ ;
+    /**
+     * <pre>
+     * 是否蝸牛機洗牌局
+     * </pre>
+     *
+     * <code>bool is_shuffled = 32 [json_name = "isShuffled"];</code>
+     * @return The isShuffled.
+     */
+    @java.lang.Override
+    public boolean getIsShuffled() {
+      return isShuffled_;
+    }
+    /**
+     * <pre>
+     * 是否蝸牛機洗牌局
+     * </pre>
+     *
+     * <code>bool is_shuffled = 32 [json_name = "isShuffled"];</code>
+     * @param value The isShuffled to set.
+     * @return This builder for chaining.
+     */
+    public Builder setIsShuffled(boolean value) {
+
+      isShuffled_ = value;
+      bitField0_ |= 0x10000000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 是否蝸牛機洗牌局
+     * </pre>
+     *
+     * <code>bool is_shuffled = 32 [json_name = "isShuffled"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearIsShuffled() {
+      bitField0_ = (bitField0_ & ~0x10000000);
+      isShuffled_ = false;
       onChanged();
       return this;
     }

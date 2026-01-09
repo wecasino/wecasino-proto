@@ -865,4 +865,14 @@ java.lang.String defaultValue);
    * @return The test.
    */
   boolean getTest();
+
+  /**
+   * <pre>
+   * 是否蝸牛機洗牌局
+   * </pre>
+   *
+   * <code>bool is_shuffled = 32 [json_name = "isShuffled"];</code>
+   * @return The isShuffled.
+   */
+  boolean getIsShuffled();
 }
