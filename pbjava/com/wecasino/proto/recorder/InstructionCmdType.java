@@ -57,6 +57,14 @@ public enum InstructionCmdType
    * <code>INSTRUCTION_PRIVATE_LEAVE_TABLE = 5;</code>
    */
   INSTRUCTION_PRIVATE_LEAVE_TABLE(5),
+  /**
+   * <pre>
+   * 包桌飛牌
+   * </pre>
+   *
+   * <code>INSTRUCTION_PRIVATE_FREE_ROUND = 6;</code>
+   */
+  INSTRUCTION_PRIVATE_FREE_ROUND(6),
   UNRECOGNIZED(-1),
   ;
 
@@ -108,6 +116,14 @@ public enum InstructionCmdType
    * <code>INSTRUCTION_PRIVATE_LEAVE_TABLE = 5;</code>
    */
   public static final int INSTRUCTION_PRIVATE_LEAVE_TABLE_VALUE = 5;
+  /**
+   * <pre>
+   * 包桌飛牌
+   * </pre>
+   *
+   * <code>INSTRUCTION_PRIVATE_FREE_ROUND = 6;</code>
+   */
+  public static final int INSTRUCTION_PRIVATE_FREE_ROUND_VALUE = 6;
 
 
   public final int getNumber() {
@@ -140,6 +156,7 @@ public enum InstructionCmdType
       case 3: return INSTRUCTION_PRIVATE_OPEN_CARD;
       case 4: return INSTRUCTION_PRIVATE_ENTER_TABLE;
       case 5: return INSTRUCTION_PRIVATE_LEAVE_TABLE;
+      case 6: return INSTRUCTION_PRIVATE_FREE_ROUND;
       default: return null;
     }
   }
