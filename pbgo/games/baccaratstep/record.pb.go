@@ -26,8 +26,10 @@ type GameSubtype int32
 const (
 	// 未指定
 	GameSubtype_BACCARAT_TYPE_UNSPECIFIED GameSubtype = 0
-	// 看牌百家樂
+	// deprecated 看牌百家樂向下相容使用
 	GameSubtype_BACCARAT_CLASSIC GameSubtype = 1
+	// 看牌百家樂
+	GameSubtype_BACCARAT_STEP GameSubtype = 2
 )
 
 // Enum value maps for GameSubtype.
@@ -35,10 +37,12 @@ var (
 	GameSubtype_name = map[int32]string{
 		0: "BACCARAT_TYPE_UNSPECIFIED",
 		1: "BACCARAT_CLASSIC",
+		2: "BACCARAT_STEP",
 	}
 	GameSubtype_value = map[string]int32{
 		"BACCARAT_TYPE_UNSPECIFIED": 0,
 		"BACCARAT_CLASSIC":          1,
+		"BACCARAT_STEP":             2,
 	}
 )
 
@@ -314,10 +318,11 @@ var File_games_baccaratstep_record_proto protoreflect.FileDescriptor
 
 const file_games_baccaratstep_record_proto_rawDesc = "" +
 	"\n" +
-	"\x1fgames/baccaratstep/record.proto\x12\x12games.baccaratstep*B\n" +
+	"\x1fgames/baccaratstep/record.proto\x12\x12games.baccaratstep*U\n" +
 	"\vGameSubtype\x12\x1d\n" +
 	"\x19BACCARAT_TYPE_UNSPECIFIED\x10\x00\x12\x14\n" +
-	"\x10BACCARAT_CLASSIC\x10\x01*D\n" +
+	"\x10BACCARAT_CLASSIC\x10\x01\x12\x11\n" +
+	"\rBACCARAT_STEP\x10\x02*D\n" +
 	"\fResourceType\x12\x1d\n" +
 	"\x19RESOURCE_TYPE_UNSPECIFIED\x10\x00\x12\n" +
 	"\n" +

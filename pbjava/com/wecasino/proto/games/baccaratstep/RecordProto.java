@@ -25,30 +25,31 @@ public final class RecordProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\037games/baccaratstep/record.proto\022\022games" +
-      ".baccaratstep*B\n\013GameSubtype\022\035\n\031BACCARAT" +
+      ".baccaratstep*U\n\013GameSubtype\022\035\n\031BACCARAT" +
       "_TYPE_UNSPECIFIED\020\000\022\024\n\020BACCARAT_CLASSIC\020" +
-      "\001*D\n\014ResourceType\022\035\n\031RESOURCE_TYPE_UNSPE" +
-      "CIFIED\020\000\022\n\n\006NORMAL\020\001\022\t\n\005EXTRA\020\002*\373\003\n\004Step" +
-      "\022\024\n\020STEP_UNSPECIFIED\020\000\022\017\n\013ROUND_START\020\001\022" +
-      "\022\n\016ROUND_FINISHED\020\002\022\023\n\017SHOW_FIRST_CARD\020\003" +
-      "\022\021\n\rDEAL_PLAYER_1\020\004\022\021\n\rDEAL_BANKER_1\020\005\022\021" +
-      "\n\rDEAL_PLAYER_2\020\006\022\021\n\rDEAL_BANKER_2\020\007\022\r\n\t" +
-      "ROUND_BET\020\010\022\017\n\013NO_MORE_BET\020\t\022\017\n\013SHOW_NOR" +
-      "MAL\020\013\022\r\n\tSHOW_LEFT\020\014\022\021\n\rSHOW_BANKER_1\020\036\022" +
-      "\021\n\rSHOW_BANKER_2\020\037\022\021\n\rSHOW_PLAYER_1\020!\022\021\n" +
-      "\rSHOW_PLAYER_2\020\"\022\025\n\021DEAL_PLAYER_EXTRA\020\020\022" +
-      "\025\n\021DEAL_BANKER_EXTRA\020\024\022\022\n\016DEALER_CONFIRM" +
-      "\020\027\022\031\n\025PITBOSS_MODIFY_NORMAL\020\030\022\037\n\033PITBOSS" +
-      "_MODIFY_PLAYER_EXTRA\020\031\022\037\n\033PITBOSS_MODIFY" +
-      "_BANKER_EXTRA\020\032\022\024\n\020SECOND_ROUND_BET\020(\022\026\n" +
-      "\022SECOND_NO_MORE_BET\020)*8\n\010GameSeat\022\024\n\020SEA" +
-      "T_UNSPECIFIED\020\000\022\n\n\006PLAYER\020\002\022\n\n\006BANKER\020\003B" +
-      "\331\001\n%com.wecasino.proto.games.baccaratste" +
-      "pB\013RecordProtoP\001Z:github.com/wecasino/we" +
-      "casino-proto/pbgo/games/baccaratstep\242\002\003G" +
-      "BX\252\002\022Games.Baccaratstep\312\002\022Games\\Baccarat" +
-      "step\342\002\036Games\\Baccaratstep\\GPBMetadata\352\002\023" +
-      "Games::Baccaratstepb\006proto3"
+      "\001\022\021\n\rBACCARAT_STEP\020\002*D\n\014ResourceType\022\035\n\031" +
+      "RESOURCE_TYPE_UNSPECIFIED\020\000\022\n\n\006NORMAL\020\001\022" +
+      "\t\n\005EXTRA\020\002*\373\003\n\004Step\022\024\n\020STEP_UNSPECIFIED\020" +
+      "\000\022\017\n\013ROUND_START\020\001\022\022\n\016ROUND_FINISHED\020\002\022\023" +
+      "\n\017SHOW_FIRST_CARD\020\003\022\021\n\rDEAL_PLAYER_1\020\004\022\021" +
+      "\n\rDEAL_BANKER_1\020\005\022\021\n\rDEAL_PLAYER_2\020\006\022\021\n\r" +
+      "DEAL_BANKER_2\020\007\022\r\n\tROUND_BET\020\010\022\017\n\013NO_MOR" +
+      "E_BET\020\t\022\017\n\013SHOW_NORMAL\020\013\022\r\n\tSHOW_LEFT\020\014\022" +
+      "\021\n\rSHOW_BANKER_1\020\036\022\021\n\rSHOW_BANKER_2\020\037\022\021\n" +
+      "\rSHOW_PLAYER_1\020!\022\021\n\rSHOW_PLAYER_2\020\"\022\025\n\021D" +
+      "EAL_PLAYER_EXTRA\020\020\022\025\n\021DEAL_BANKER_EXTRA\020" +
+      "\024\022\022\n\016DEALER_CONFIRM\020\027\022\031\n\025PITBOSS_MODIFY_" +
+      "NORMAL\020\030\022\037\n\033PITBOSS_MODIFY_PLAYER_EXTRA\020" +
+      "\031\022\037\n\033PITBOSS_MODIFY_BANKER_EXTRA\020\032\022\024\n\020SE" +
+      "COND_ROUND_BET\020(\022\026\n\022SECOND_NO_MORE_BET\020)" +
+      "*8\n\010GameSeat\022\024\n\020SEAT_UNSPECIFIED\020\000\022\n\n\006PL" +
+      "AYER\020\002\022\n\n\006BANKER\020\003B\331\001\n%com.wecasino.prot" +
+      "o.games.baccaratstepB\013RecordProtoP\001Z:git" +
+      "hub.com/wecasino/wecasino-proto/pbgo/gam" +
+      "es/baccaratstep\242\002\003GBX\252\002\022Games.Baccaratst" +
+      "ep\312\002\022Games\\Baccaratstep\342\002\036Games\\Baccarat" +
+      "step\\GPBMetadata\352\002\023Games::Baccaratstepb\006" +
+      "proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

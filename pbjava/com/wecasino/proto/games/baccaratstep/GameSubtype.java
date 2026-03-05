@@ -19,12 +19,20 @@ public enum GameSubtype
   BACCARAT_TYPE_UNSPECIFIED(0),
   /**
    * <pre>
-   * 看牌百家樂
+   * deprecated 看牌百家樂向下相容使用
    * </pre>
    *
    * <code>BACCARAT_CLASSIC = 1;</code>
    */
   BACCARAT_CLASSIC(1),
+  /**
+   * <pre>
+   * 看牌百家樂
+   * </pre>
+   *
+   * <code>BACCARAT_STEP = 2;</code>
+   */
+  BACCARAT_STEP(2),
   UNRECOGNIZED(-1),
   ;
 
@@ -38,12 +46,20 @@ public enum GameSubtype
   public static final int BACCARAT_TYPE_UNSPECIFIED_VALUE = 0;
   /**
    * <pre>
-   * 看牌百家樂
+   * deprecated 看牌百家樂向下相容使用
    * </pre>
    *
    * <code>BACCARAT_CLASSIC = 1;</code>
    */
   public static final int BACCARAT_CLASSIC_VALUE = 1;
+  /**
+   * <pre>
+   * 看牌百家樂
+   * </pre>
+   *
+   * <code>BACCARAT_STEP = 2;</code>
+   */
+  public static final int BACCARAT_STEP_VALUE = 2;
 
 
   public final int getNumber() {
@@ -72,6 +88,7 @@ public enum GameSubtype
     switch (value) {
       case 0: return BACCARAT_TYPE_UNSPECIFIED;
       case 1: return BACCARAT_CLASSIC;
+      case 2: return BACCARAT_STEP;
       default: return null;
     }
   }
