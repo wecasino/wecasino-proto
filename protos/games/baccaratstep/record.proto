@@ -80,9 +80,11 @@ enum Step {
   // PITBOSS 修改派發莊家補牌
   PITBOSS_MODIFY_BANKER_EXTRA = 26;
 
-  // 看牌百家樂開放下注
+  // 二階段看牌百家樂開始
+  SECOND_ROUND_START = 39;
+  // 二階段看牌百家樂開放下注
   SECOND_ROUND_BET = 40;
-  // 看牌百家樂停止下注
+  // 二階段看牌百家樂停止下注
   SECOND_NO_MORE_BET = 41;
 }
 
