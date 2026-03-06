@@ -172,9 +172,11 @@ const (
 	Step_PITBOSS_MODIFY_PLAYER_EXTRA Step = 25
 	// PITBOSS 修改派發莊家補牌
 	Step_PITBOSS_MODIFY_BANKER_EXTRA Step = 26
-	// 看牌百家樂開放下注
+	// 二階段看牌百家樂開始
+	Step_SECOND_ROUND_START Step = 39
+	// 二階段看牌百家樂開放下注
 	Step_SECOND_ROUND_BET Step = 40
-	// 看牌百家樂停止下注
+	// 二階段看牌百家樂停止下注
 	Step_SECOND_NO_MORE_BET Step = 41
 )
 
@@ -203,6 +205,7 @@ var (
 		24: "PITBOSS_MODIFY_NORMAL",
 		25: "PITBOSS_MODIFY_PLAYER_EXTRA",
 		26: "PITBOSS_MODIFY_BANKER_EXTRA",
+		39: "SECOND_ROUND_START",
 		40: "SECOND_ROUND_BET",
 		41: "SECOND_NO_MORE_BET",
 	}
@@ -229,6 +232,7 @@ var (
 		"PITBOSS_MODIFY_NORMAL":       24,
 		"PITBOSS_MODIFY_PLAYER_EXTRA": 25,
 		"PITBOSS_MODIFY_BANKER_EXTRA": 26,
+		"SECOND_ROUND_START":          39,
 		"SECOND_ROUND_BET":            40,
 		"SECOND_NO_MORE_BET":          41,
 	}
@@ -327,7 +331,7 @@ const file_games_baccaratstep_record_proto_rawDesc = "" +
 	"\x19RESOURCE_TYPE_UNSPECIFIED\x10\x00\x12\n" +
 	"\n" +
 	"\x06NORMAL\x10\x01\x12\t\n" +
-	"\x05EXTRA\x10\x02*\xfb\x03\n" +
+	"\x05EXTRA\x10\x02*\x93\x04\n" +
 	"\x04Step\x12\x14\n" +
 	"\x10STEP_UNSPECIFIED\x10\x00\x12\x0f\n" +
 	"\vROUND_START\x10\x01\x12\x12\n" +
@@ -350,7 +354,8 @@ const file_games_baccaratstep_record_proto_rawDesc = "" +
 	"\x0eDEALER_CONFIRM\x10\x17\x12\x19\n" +
 	"\x15PITBOSS_MODIFY_NORMAL\x10\x18\x12\x1f\n" +
 	"\x1bPITBOSS_MODIFY_PLAYER_EXTRA\x10\x19\x12\x1f\n" +
-	"\x1bPITBOSS_MODIFY_BANKER_EXTRA\x10\x1a\x12\x14\n" +
+	"\x1bPITBOSS_MODIFY_BANKER_EXTRA\x10\x1a\x12\x16\n" +
+	"\x12SECOND_ROUND_START\x10'\x12\x14\n" +
 	"\x10SECOND_ROUND_BET\x10(\x12\x16\n" +
 	"\x12SECOND_NO_MORE_BET\x10)*8\n" +
 	"\bGameSeat\x12\x14\n" +

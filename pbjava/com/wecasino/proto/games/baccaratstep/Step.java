@@ -187,7 +187,15 @@ public enum Step
   PITBOSS_MODIFY_BANKER_EXTRA(26),
   /**
    * <pre>
-   * 看牌百家樂開放下注
+   * 二階段看牌百家樂開始
+   * </pre>
+   *
+   * <code>SECOND_ROUND_START = 39;</code>
+   */
+  SECOND_ROUND_START(39),
+  /**
+   * <pre>
+   * 二階段看牌百家樂開放下注
    * </pre>
    *
    * <code>SECOND_ROUND_BET = 40;</code>
@@ -195,7 +203,7 @@ public enum Step
   SECOND_ROUND_BET(40),
   /**
    * <pre>
-   * 看牌百家樂停止下注
+   * 二階段看牌百家樂停止下注
    * </pre>
    *
    * <code>SECOND_NO_MORE_BET = 41;</code>
@@ -378,7 +386,15 @@ public enum Step
   public static final int PITBOSS_MODIFY_BANKER_EXTRA_VALUE = 26;
   /**
    * <pre>
-   * 看牌百家樂開放下注
+   * 二階段看牌百家樂開始
+   * </pre>
+   *
+   * <code>SECOND_ROUND_START = 39;</code>
+   */
+  public static final int SECOND_ROUND_START_VALUE = 39;
+  /**
+   * <pre>
+   * 二階段看牌百家樂開放下注
    * </pre>
    *
    * <code>SECOND_ROUND_BET = 40;</code>
@@ -386,7 +402,7 @@ public enum Step
   public static final int SECOND_ROUND_BET_VALUE = 40;
   /**
    * <pre>
-   * 看牌百家樂停止下注
+   * 二階段看牌百家樂停止下注
    * </pre>
    *
    * <code>SECOND_NO_MORE_BET = 41;</code>
@@ -440,6 +456,7 @@ public enum Step
       case 24: return PITBOSS_MODIFY_NORMAL;
       case 25: return PITBOSS_MODIFY_PLAYER_EXTRA;
       case 26: return PITBOSS_MODIFY_BANKER_EXTRA;
+      case 39: return SECOND_ROUND_START;
       case 40: return SECOND_ROUND_BET;
       case 41: return SECOND_NO_MORE_BET;
       default: return null;
