@@ -25,6 +25,9 @@ enum GameSubtype {
 
     // 財神百家樂
     BACCARAT_FORTUNE = 12;
+
+    // 搖錢樹百家樂
+    BACCARAT_TREE = 13;
   
     // 區塊鏈百家樂
     BACCARAT_BLOCKCHAIN = 16;
