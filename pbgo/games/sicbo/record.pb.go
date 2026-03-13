@@ -28,7 +28,7 @@ const (
 	GameSubtype_SICBO_TYPE_UNSPECIFIED GameSubtype = 0
 	// 骰寶
 	GameSubtype_SICBO_CLASSIC GameSubtype = 1
-	// 財神骰寶
+	// 財神骰寶(超級骰寶)
 	GameSubtype_SICBO_FORTUNE GameSubtype = 2
 	// 泰式骰寶
 	GameSubtype_SICBO_THAISICBAO GameSubtype = 3
