@@ -20,18 +20,21 @@ enum GameSubtype {
     // 百家樂恆9
     BACCARAT_FOREVER9 = 5;
 
-  // 瞇牌百家樂
+    // 瞇牌百家樂
     BACCARAT_PEEK = 8;
 
     // 財神百家樂
     BACCARAT_FORTUNE = 12;
-  
+
+    // 搖錢樹百家樂
+    BACCARAT_TREE = 13;
+
     // 區塊鏈百家樂
     BACCARAT_BLOCKCHAIN = 16;
 
     // 區塊鏈極速百家樂
     BACCARAT_SPEED_BLOCKCHAIN = 18;
-    
+
     // 區塊鏈瞇牌百家樂
     BACCARAT_PEEK_BLOCKCHAIN= 24;
 }
@@ -91,7 +94,7 @@ enum Step {
   SHOW_PLAYER_1 = 33;
   // 開 閒牌
   SHOW_PLAYER_2 = 34;
-  
+
 
   // 瞇牌例牌
   PEEK_NORMAL = 14;
@@ -111,7 +114,7 @@ enum Step {
   PEEK_DEAL_BANKER_EXTRA= 21;
   // 瞇牌公布莊家補牌
   PEEK_SHOW_BANKER_EXTRA= 22;
-  
+
   DEALER_CONFIRM = 23;
 
   // PITBOSS 修改派發例牌

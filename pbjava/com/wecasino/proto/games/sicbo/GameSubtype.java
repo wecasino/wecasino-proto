@@ -27,7 +27,7 @@ public enum GameSubtype
   SICBO_CLASSIC(1),
   /**
    * <pre>
-   * 財神骰寶
+   * 財神骰寶(超級骰寶)
    * </pre>
    *
    * <code>SICBO_FORTUNE = 2;</code>
@@ -70,7 +70,7 @@ public enum GameSubtype
   public static final int SICBO_CLASSIC_VALUE = 1;
   /**
    * <pre>
-   * 財神骰寶
+   * 財神骰寶(超級骰寶)
    * </pre>
    *
    * <code>SICBO_FORTUNE = 2;</code>

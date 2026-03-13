@@ -9,7 +9,7 @@ enum GameSubtype {
   // 骰寶
   SICBO_CLASSIC = 1;
   
-  // 財神骰寶
+  // 財神骰寶(超級骰寶)
   SICBO_FORTUNE = 2;
 
   // 泰式骰寶
