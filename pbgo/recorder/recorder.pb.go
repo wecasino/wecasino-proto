@@ -869,6 +869,407 @@ func (x *RecordRoundMediaRequest) GetRemove() []string {
 	return nil
 }
 
+// 取得影片上傳 URL
+type GetVideoUploadURLRequest struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// 遊戲局紀錄ID
+	RecordId []byte `protobuf:"bytes,1,opt,name=record_id,json=recordId,proto3" json:"recordId" bson:"recordId" yaml:"recordId"`
+	// 局代碼
+	RoundCode string `protobuf:"bytes,2,opt,name=round_code,json=roundCode,proto3" json:"roundCode" bson:"roundCode" yaml:"roundCode"`
+	// S3 資料夾前綴
+	Folder string `protobuf:"bytes,3,opt,name=folder,proto3" json:"folder" bson:"folder" yaml:"folder"`
+	// 遊戲代碼
+	GameCode      string `protobuf:"bytes,4,opt,name=game_code,json=gameCode,proto3" json:"gameCode" bson:"gameCode" yaml:"gameCode"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetVideoUploadURLRequest) Reset() {
+	*x = GetVideoUploadURLRequest{}
+	mi := &file_recorder_recorder_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetVideoUploadURLRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetVideoUploadURLRequest) ProtoMessage() {}
+
+func (x *GetVideoUploadURLRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_recorder_recorder_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetVideoUploadURLRequest.ProtoReflect.Descriptor instead.
+func (*GetVideoUploadURLRequest) Descriptor() ([]byte, []int) {
+	return file_recorder_recorder_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *GetVideoUploadURLRequest) GetRecordId() []byte {
+	if x != nil {
+		return x.RecordId
+	}
+	return nil
+}
+
+func (x *GetVideoUploadURLRequest) GetRoundCode() string {
+	if x != nil {
+		return x.RoundCode
+	}
+	return ""
+}
+
+func (x *GetVideoUploadURLRequest) GetFolder() string {
+	if x != nil {
+		return x.Folder
+	}
+	return ""
+}
+
+func (x *GetVideoUploadURLRequest) GetGameCode() string {
+	if x != nil {
+		return x.GameCode
+	}
+	return ""
+}
+
+type GetVideoUploadURLResponse struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// S3 presigned PUT URL (15分鐘有效)
+	UploadUrl string `protobuf:"bytes,1,opt,name=upload_url,json=uploadUrl,proto3" json:"uploadUrl" bson:"uploadUrl" yaml:"uploadUrl"`
+	// 上傳後的影片永久 URL
+	VideoUrl string `protobuf:"bytes,2,opt,name=video_url,json=videoUrl,proto3" json:"videoUrl" bson:"videoUrl" yaml:"videoUrl"`
+	// 遊戲局紀錄ID
+	RecordId      []byte `protobuf:"bytes,3,opt,name=record_id,json=recordId,proto3" json:"recordId" bson:"recordId" yaml:"recordId"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetVideoUploadURLResponse) Reset() {
+	*x = GetVideoUploadURLResponse{}
+	mi := &file_recorder_recorder_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetVideoUploadURLResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetVideoUploadURLResponse) ProtoMessage() {}
+
+func (x *GetVideoUploadURLResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_recorder_recorder_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetVideoUploadURLResponse.ProtoReflect.Descriptor instead.
+func (*GetVideoUploadURLResponse) Descriptor() ([]byte, []int) {
+	return file_recorder_recorder_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *GetVideoUploadURLResponse) GetUploadUrl() string {
+	if x != nil {
+		return x.UploadUrl
+	}
+	return ""
+}
+
+func (x *GetVideoUploadURLResponse) GetVideoUrl() string {
+	if x != nil {
+		return x.VideoUrl
+	}
+	return ""
+}
+
+func (x *GetVideoUploadURLResponse) GetRecordId() []byte {
+	if x != nil {
+		return x.RecordId
+	}
+	return nil
+}
+
+type ListS3FoldersRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListS3FoldersRequest) Reset() {
+	*x = ListS3FoldersRequest{}
+	mi := &file_recorder_recorder_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListS3FoldersRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListS3FoldersRequest) ProtoMessage() {}
+
+func (x *ListS3FoldersRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_recorder_recorder_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListS3FoldersRequest.ProtoReflect.Descriptor instead.
+func (*ListS3FoldersRequest) Descriptor() ([]byte, []int) {
+	return file_recorder_recorder_proto_rawDescGZIP(), []int{12}
+}
+
+type ListS3FoldersResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Folders       []string               `protobuf:"bytes,1,rep,name=folders,proto3" json:"folders" bson:"folders" yaml:"folders"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListS3FoldersResponse) Reset() {
+	*x = ListS3FoldersResponse{}
+	mi := &file_recorder_recorder_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListS3FoldersResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListS3FoldersResponse) ProtoMessage() {}
+
+func (x *ListS3FoldersResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_recorder_recorder_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListS3FoldersResponse.ProtoReflect.Descriptor instead.
+func (*ListS3FoldersResponse) Descriptor() ([]byte, []int) {
+	return file_recorder_recorder_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *ListS3FoldersResponse) GetFolders() []string {
+	if x != nil {
+		return x.Folders
+	}
+	return nil
+}
+
+type ListS3FilesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Folder        string                 `protobuf:"bytes,1,opt,name=folder,proto3" json:"folder" bson:"folder" yaml:"folder"`
+	GameCode      string                 `protobuf:"bytes,2,opt,name=game_code,json=gameCode,proto3" json:"gameCode" bson:"gameCode" yaml:"gameCode"`
+	RoundCode     string                 `protobuf:"bytes,3,opt,name=round_code,json=roundCode,proto3" json:"roundCode" bson:"roundCode" yaml:"roundCode"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListS3FilesRequest) Reset() {
+	*x = ListS3FilesRequest{}
+	mi := &file_recorder_recorder_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListS3FilesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListS3FilesRequest) ProtoMessage() {}
+
+func (x *ListS3FilesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_recorder_recorder_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListS3FilesRequest.ProtoReflect.Descriptor instead.
+func (*ListS3FilesRequest) Descriptor() ([]byte, []int) {
+	return file_recorder_recorder_proto_rawDescGZIP(), []int{14}
+}
+
+func (x *ListS3FilesRequest) GetFolder() string {
+	if x != nil {
+		return x.Folder
+	}
+	return ""
+}
+
+func (x *ListS3FilesRequest) GetGameCode() string {
+	if x != nil {
+		return x.GameCode
+	}
+	return ""
+}
+
+func (x *ListS3FilesRequest) GetRoundCode() string {
+	if x != nil {
+		return x.RoundCode
+	}
+	return ""
+}
+
+type ListS3FilesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Urls          []string               `protobuf:"bytes,1,rep,name=urls,proto3" json:"urls" bson:"urls" yaml:"urls"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListS3FilesResponse) Reset() {
+	*x = ListS3FilesResponse{}
+	mi := &file_recorder_recorder_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListS3FilesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListS3FilesResponse) ProtoMessage() {}
+
+func (x *ListS3FilesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_recorder_recorder_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListS3FilesResponse.ProtoReflect.Descriptor instead.
+func (*ListS3FilesResponse) Descriptor() ([]byte, []int) {
+	return file_recorder_recorder_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *ListS3FilesResponse) GetUrls() []string {
+	if x != nil {
+		return x.Urls
+	}
+	return nil
+}
+
+type DeleteS3FileRequest struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// S3 object key (path after domain)
+	Key           string `protobuf:"bytes,1,opt,name=key,proto3" json:"key" bson:"key" yaml:"key"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DeleteS3FileRequest) Reset() {
+	*x = DeleteS3FileRequest{}
+	mi := &file_recorder_recorder_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeleteS3FileRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeleteS3FileRequest) ProtoMessage() {}
+
+func (x *DeleteS3FileRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_recorder_recorder_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeleteS3FileRequest.ProtoReflect.Descriptor instead.
+func (*DeleteS3FileRequest) Descriptor() ([]byte, []int) {
+	return file_recorder_recorder_proto_rawDescGZIP(), []int{16}
+}
+
+func (x *DeleteS3FileRequest) GetKey() string {
+	if x != nil {
+		return x.Key
+	}
+	return ""
+}
+
+type DeleteS3FileResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DeleteS3FileResponse) Reset() {
+	*x = DeleteS3FileResponse{}
+	mi := &file_recorder_recorder_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeleteS3FileResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeleteS3FileResponse) ProtoMessage() {}
+
+func (x *DeleteS3FileResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_recorder_recorder_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeleteS3FileResponse.ProtoReflect.Descriptor instead.
+func (*DeleteS3FileResponse) Descriptor() ([]byte, []int) {
+	return file_recorder_recorder_proto_rawDescGZIP(), []int{17}
+}
+
 type RecordModifyCardRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// 遊戲代碼
@@ -887,7 +1288,7 @@ type RecordModifyCardRequest struct {
 
 func (x *RecordModifyCardRequest) Reset() {
 	*x = RecordModifyCardRequest{}
-	mi := &file_recorder_recorder_proto_msgTypes[10]
+	mi := &file_recorder_recorder_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -899,7 +1300,7 @@ func (x *RecordModifyCardRequest) String() string {
 func (*RecordModifyCardRequest) ProtoMessage() {}
 
 func (x *RecordModifyCardRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_recorder_recorder_proto_msgTypes[10]
+	mi := &file_recorder_recorder_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -912,7 +1313,7 @@ func (x *RecordModifyCardRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RecordModifyCardRequest.ProtoReflect.Descriptor instead.
 func (*RecordModifyCardRequest) Descriptor() ([]byte, []int) {
-	return file_recorder_recorder_proto_rawDescGZIP(), []int{10}
+	return file_recorder_recorder_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *RecordModifyCardRequest) GetGameCode() string {
@@ -962,7 +1363,7 @@ type CardModify struct {
 
 func (x *CardModify) Reset() {
 	*x = CardModify{}
-	mi := &file_recorder_recorder_proto_msgTypes[11]
+	mi := &file_recorder_recorder_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -974,7 +1375,7 @@ func (x *CardModify) String() string {
 func (*CardModify) ProtoMessage() {}
 
 func (x *CardModify) ProtoReflect() protoreflect.Message {
-	mi := &file_recorder_recorder_proto_msgTypes[11]
+	mi := &file_recorder_recorder_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -987,7 +1388,7 @@ func (x *CardModify) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CardModify.ProtoReflect.Descriptor instead.
 func (*CardModify) Descriptor() ([]byte, []int) {
-	return file_recorder_recorder_proto_rawDescGZIP(), []int{11}
+	return file_recorder_recorder_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *CardModify) GetSeat() int32 {
@@ -1034,7 +1435,7 @@ type RecordEventScreenshotRequest struct {
 
 func (x *RecordEventScreenshotRequest) Reset() {
 	*x = RecordEventScreenshotRequest{}
-	mi := &file_recorder_recorder_proto_msgTypes[12]
+	mi := &file_recorder_recorder_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1046,7 +1447,7 @@ func (x *RecordEventScreenshotRequest) String() string {
 func (*RecordEventScreenshotRequest) ProtoMessage() {}
 
 func (x *RecordEventScreenshotRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_recorder_recorder_proto_msgTypes[12]
+	mi := &file_recorder_recorder_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1059,7 +1460,7 @@ func (x *RecordEventScreenshotRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RecordEventScreenshotRequest.ProtoReflect.Descriptor instead.
 func (*RecordEventScreenshotRequest) Descriptor() ([]byte, []int) {
-	return file_recorder_recorder_proto_rawDescGZIP(), []int{12}
+	return file_recorder_recorder_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *RecordEventScreenshotRequest) GetGameCode() string {
@@ -1199,7 +1600,31 @@ const file_recorder_recorder_proto_rawDesc = "" +
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\x1a6\n" +
 	"\bAddEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"\xcd\x02\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"\x8b\x01\n" +
+	"\x18GetVideoUploadURLRequest\x12\x1b\n" +
+	"\trecord_id\x18\x01 \x01(\fR\brecordId\x12\x1d\n" +
+	"\n" +
+	"round_code\x18\x02 \x01(\tR\troundCode\x12\x16\n" +
+	"\x06folder\x18\x03 \x01(\tR\x06folder\x12\x1b\n" +
+	"\tgame_code\x18\x04 \x01(\tR\bgameCode\"t\n" +
+	"\x19GetVideoUploadURLResponse\x12\x1d\n" +
+	"\n" +
+	"upload_url\x18\x01 \x01(\tR\tuploadUrl\x12\x1b\n" +
+	"\tvideo_url\x18\x02 \x01(\tR\bvideoUrl\x12\x1b\n" +
+	"\trecord_id\x18\x03 \x01(\fR\brecordId\"\x16\n" +
+	"\x14ListS3FoldersRequest\"1\n" +
+	"\x15ListS3FoldersResponse\x12\x18\n" +
+	"\afolders\x18\x01 \x03(\tR\afolders\"h\n" +
+	"\x12ListS3FilesRequest\x12\x16\n" +
+	"\x06folder\x18\x01 \x01(\tR\x06folder\x12\x1b\n" +
+	"\tgame_code\x18\x02 \x01(\tR\bgameCode\x12\x1d\n" +
+	"\n" +
+	"round_code\x18\x03 \x01(\tR\troundCode\")\n" +
+	"\x13ListS3FilesResponse\x12\x12\n" +
+	"\x04urls\x18\x01 \x03(\tR\x04urls\"'\n" +
+	"\x13DeleteS3FileRequest\x12\x10\n" +
+	"\x03key\x18\x01 \x01(\tR\x03key\"\x16\n" +
+	"\x14DeleteS3FileResponse\"\xcd\x02\n" +
 	"\x17RecordModifyCardRequest\x12\x1b\n" +
 	"\tgame_code\x18\x02 \x01(\tR\bgameCode\x12\x1d\n" +
 	"\n" +
@@ -1221,7 +1646,7 @@ const file_recorder_recorder_proto_rawDesc = "" +
 	"\n" +
 	"event_code\x18\x03 \x01(\tR\teventCode\x12\x14\n" +
 	"\x05cover\x18\x04 \x01(\bR\x05cover\x12\x16\n" +
-	"\x06notify\x18\x05 \x01(\bR\x06notify2\xd6\b\n" +
+	"\x06notify\x18\x05 \x01(\bR\x06notify2\xa1\v\n" +
 	"\x0fRecorderService\x12P\n" +
 	"\x12RecordShiftStarted\x12#.recorder.RecordShiftStartedRequest\x1a\x15.recorder.ShiftRecord\x12L\n" +
 	"\x10RecordShiftEnded\x12!.recorder.RecordShiftEndedRequest\x1a\x15.recorder.ShiftRecord\x12M\n" +
@@ -1235,7 +1660,11 @@ const file_recorder_recorder_proto_rawDesc = "" +
 	"\x1cRecordModifyResultAfterRound\x12!.recorder.RecordModifyCardRequest\x1a\x15.recorder.RoundRecord\x12X\n" +
 	"\x1cRecordFinishResultAfterRound\x12!.recorder.RecordModifyCardRequest\x1a\x15.recorder.RoundRecord\x12L\n" +
 	"\x10RecordRoundVideo\x12!.recorder.RecordRoundMediaRequest\x1a\x15.recorder.RoundRecord\x12V\n" +
-	"\x15RecordEventScreenshot\x12&.recorder.RecordEventScreenshotRequest\x1a\x15.recorder.RoundRecordB\x9e\x01\n" +
+	"\x15RecordEventScreenshot\x12&.recorder.RecordEventScreenshotRequest\x1a\x15.recorder.RoundRecord\x12\\\n" +
+	"\x11GetVideoUploadURL\x12\".recorder.GetVideoUploadURLRequest\x1a#.recorder.GetVideoUploadURLResponse\x12P\n" +
+	"\rListS3Folders\x12\x1e.recorder.ListS3FoldersRequest\x1a\x1f.recorder.ListS3FoldersResponse\x12J\n" +
+	"\vListS3Files\x12\x1c.recorder.ListS3FilesRequest\x1a\x1d.recorder.ListS3FilesResponse\x12M\n" +
+	"\fDeleteS3File\x12\x1d.recorder.DeleteS3FileRequest\x1a\x1e.recorder.DeleteS3FileResponseB\x9e\x01\n" +
 	"\x1bcom.wecasino.proto.recorderB\rRecorderProtoP\x01Z0github.com/wecasino/wecasino-proto/pbgo/recorder\xa2\x02\x03RXX\xaa\x02\bRecorder\xca\x02\bRecorder\xe2\x02\x14Recorder\\GPBMetadata\xea\x02\bRecorderb\x06proto3"
 
 var (
@@ -1250,7 +1679,7 @@ func file_recorder_recorder_proto_rawDescGZIP() []byte {
 	return file_recorder_recorder_proto_rawDescData
 }
 
-var file_recorder_recorder_proto_msgTypes = make([]protoimpl.MessageInfo, 23)
+var file_recorder_recorder_proto_msgTypes = make([]protoimpl.MessageInfo, 31)
 var file_recorder_recorder_proto_goTypes = []any{
 	(*RecordIDResponse)(nil),             // 0: recorder.RecordIDResponse
 	(*RecordShiftStartedRequest)(nil),    // 1: recorder.RecordShiftStartedRequest
@@ -1262,48 +1691,56 @@ var file_recorder_recorder_proto_goTypes = []any{
 	(*RecordRoundBeCanceledRequest)(nil), // 7: recorder.RecordRoundBeCanceledRequest
 	(*RecordRoundFinishedRequest)(nil),   // 8: recorder.RecordRoundFinishedRequest
 	(*RecordRoundMediaRequest)(nil),      // 9: recorder.RecordRoundMediaRequest
-	(*RecordModifyCardRequest)(nil),      // 10: recorder.RecordModifyCardRequest
-	(*CardModify)(nil),                   // 11: recorder.CardModify
-	(*RecordEventScreenshotRequest)(nil), // 12: recorder.RecordEventScreenshotRequest
-	nil,                                  // 13: recorder.RecordShiftStartedRequest.TagsEntry
-	nil,                                  // 14: recorder.RecordShoeStartedRequest.DecksEntry
-	nil,                                  // 15: recorder.RecordShoeEndedRequest.DecksEntry
-	nil,                                  // 16: recorder.RecordRoundStartedRequest.TagsEntry
-	nil,                                  // 17: recorder.RecordRoundStartedRequest.PlayersEntry
-	nil,                                  // 18: recorder.RecordRoundStartedRequest.FortuneRatesEntry
-	nil,                                  // 19: recorder.RecordRoundStartedRequest.PlayersNameEntry
-	nil,                                  // 20: recorder.RecordRoundMediaRequest.SetEntry
-	nil,                                  // 21: recorder.RecordRoundMediaRequest.AddEntry
-	nil,                                  // 22: recorder.RecordModifyCardRequest.ModifyFortuneEntry
-	(*timestamppb.Timestamp)(nil),        // 23: google.protobuf.Timestamp
-	(*Step)(nil),                         // 24: recorder.Step
-	(*Deck)(nil),                         // 25: recorder.Deck
-	(*ShiftRecord)(nil),                  // 26: recorder.ShiftRecord
-	(*ShoeRecord)(nil),                   // 27: recorder.ShoeRecord
-	(*RoundRecord)(nil),                  // 28: recorder.RoundRecord
+	(*GetVideoUploadURLRequest)(nil),     // 10: recorder.GetVideoUploadURLRequest
+	(*GetVideoUploadURLResponse)(nil),    // 11: recorder.GetVideoUploadURLResponse
+	(*ListS3FoldersRequest)(nil),         // 12: recorder.ListS3FoldersRequest
+	(*ListS3FoldersResponse)(nil),        // 13: recorder.ListS3FoldersResponse
+	(*ListS3FilesRequest)(nil),           // 14: recorder.ListS3FilesRequest
+	(*ListS3FilesResponse)(nil),          // 15: recorder.ListS3FilesResponse
+	(*DeleteS3FileRequest)(nil),          // 16: recorder.DeleteS3FileRequest
+	(*DeleteS3FileResponse)(nil),         // 17: recorder.DeleteS3FileResponse
+	(*RecordModifyCardRequest)(nil),      // 18: recorder.RecordModifyCardRequest
+	(*CardModify)(nil),                   // 19: recorder.CardModify
+	(*RecordEventScreenshotRequest)(nil), // 20: recorder.RecordEventScreenshotRequest
+	nil,                                  // 21: recorder.RecordShiftStartedRequest.TagsEntry
+	nil,                                  // 22: recorder.RecordShoeStartedRequest.DecksEntry
+	nil,                                  // 23: recorder.RecordShoeEndedRequest.DecksEntry
+	nil,                                  // 24: recorder.RecordRoundStartedRequest.TagsEntry
+	nil,                                  // 25: recorder.RecordRoundStartedRequest.PlayersEntry
+	nil,                                  // 26: recorder.RecordRoundStartedRequest.FortuneRatesEntry
+	nil,                                  // 27: recorder.RecordRoundStartedRequest.PlayersNameEntry
+	nil,                                  // 28: recorder.RecordRoundMediaRequest.SetEntry
+	nil,                                  // 29: recorder.RecordRoundMediaRequest.AddEntry
+	nil,                                  // 30: recorder.RecordModifyCardRequest.ModifyFortuneEntry
+	(*timestamppb.Timestamp)(nil),        // 31: google.protobuf.Timestamp
+	(*Step)(nil),                         // 32: recorder.Step
+	(*Deck)(nil),                         // 33: recorder.Deck
+	(*ShiftRecord)(nil),                  // 34: recorder.ShiftRecord
+	(*ShoeRecord)(nil),                   // 35: recorder.ShoeRecord
+	(*RoundRecord)(nil),                  // 36: recorder.RoundRecord
 }
 var file_recorder_recorder_proto_depIdxs = []int32{
-	23, // 0: recorder.RecordShiftStartedRequest.ts_start:type_name -> google.protobuf.Timestamp
-	13, // 1: recorder.RecordShiftStartedRequest.tags:type_name -> recorder.RecordShiftStartedRequest.TagsEntry
-	23, // 2: recorder.RecordShiftEndedRequest.ts_end:type_name -> google.protobuf.Timestamp
-	23, // 3: recorder.RecordShoeStartedRequest.ts_start:type_name -> google.protobuf.Timestamp
-	14, // 4: recorder.RecordShoeStartedRequest.decks:type_name -> recorder.RecordShoeStartedRequest.DecksEntry
-	23, // 5: recorder.RecordShoeEndedRequest.ts_end:type_name -> google.protobuf.Timestamp
-	15, // 6: recorder.RecordShoeEndedRequest.decks:type_name -> recorder.RecordShoeEndedRequest.DecksEntry
-	16, // 7: recorder.RecordRoundStartedRequest.tags:type_name -> recorder.RecordRoundStartedRequest.TagsEntry
-	23, // 8: recorder.RecordRoundStartedRequest.ts_start:type_name -> google.protobuf.Timestamp
-	17, // 9: recorder.RecordRoundStartedRequest.players:type_name -> recorder.RecordRoundStartedRequest.PlayersEntry
-	18, // 10: recorder.RecordRoundStartedRequest.fortune_rates:type_name -> recorder.RecordRoundStartedRequest.FortuneRatesEntry
-	19, // 11: recorder.RecordRoundStartedRequest.players_name:type_name -> recorder.RecordRoundStartedRequest.PlayersNameEntry
-	24, // 12: recorder.RecordRoundStepsRequest.steps:type_name -> recorder.Step
-	23, // 13: recorder.RecordRoundBeCanceledRequest.ts_end:type_name -> google.protobuf.Timestamp
-	23, // 14: recorder.RecordRoundFinishedRequest.ts_end:type_name -> google.protobuf.Timestamp
-	20, // 15: recorder.RecordRoundMediaRequest.set:type_name -> recorder.RecordRoundMediaRequest.SetEntry
-	21, // 16: recorder.RecordRoundMediaRequest.add:type_name -> recorder.RecordRoundMediaRequest.AddEntry
-	11, // 17: recorder.RecordModifyCardRequest.modifies:type_name -> recorder.CardModify
-	22, // 18: recorder.RecordModifyCardRequest.modify_fortune:type_name -> recorder.RecordModifyCardRequest.ModifyFortuneEntry
-	25, // 19: recorder.RecordShoeStartedRequest.DecksEntry.value:type_name -> recorder.Deck
-	25, // 20: recorder.RecordShoeEndedRequest.DecksEntry.value:type_name -> recorder.Deck
+	31, // 0: recorder.RecordShiftStartedRequest.ts_start:type_name -> google.protobuf.Timestamp
+	21, // 1: recorder.RecordShiftStartedRequest.tags:type_name -> recorder.RecordShiftStartedRequest.TagsEntry
+	31, // 2: recorder.RecordShiftEndedRequest.ts_end:type_name -> google.protobuf.Timestamp
+	31, // 3: recorder.RecordShoeStartedRequest.ts_start:type_name -> google.protobuf.Timestamp
+	22, // 4: recorder.RecordShoeStartedRequest.decks:type_name -> recorder.RecordShoeStartedRequest.DecksEntry
+	31, // 5: recorder.RecordShoeEndedRequest.ts_end:type_name -> google.protobuf.Timestamp
+	23, // 6: recorder.RecordShoeEndedRequest.decks:type_name -> recorder.RecordShoeEndedRequest.DecksEntry
+	24, // 7: recorder.RecordRoundStartedRequest.tags:type_name -> recorder.RecordRoundStartedRequest.TagsEntry
+	31, // 8: recorder.RecordRoundStartedRequest.ts_start:type_name -> google.protobuf.Timestamp
+	25, // 9: recorder.RecordRoundStartedRequest.players:type_name -> recorder.RecordRoundStartedRequest.PlayersEntry
+	26, // 10: recorder.RecordRoundStartedRequest.fortune_rates:type_name -> recorder.RecordRoundStartedRequest.FortuneRatesEntry
+	27, // 11: recorder.RecordRoundStartedRequest.players_name:type_name -> recorder.RecordRoundStartedRequest.PlayersNameEntry
+	32, // 12: recorder.RecordRoundStepsRequest.steps:type_name -> recorder.Step
+	31, // 13: recorder.RecordRoundBeCanceledRequest.ts_end:type_name -> google.protobuf.Timestamp
+	31, // 14: recorder.RecordRoundFinishedRequest.ts_end:type_name -> google.protobuf.Timestamp
+	28, // 15: recorder.RecordRoundMediaRequest.set:type_name -> recorder.RecordRoundMediaRequest.SetEntry
+	29, // 16: recorder.RecordRoundMediaRequest.add:type_name -> recorder.RecordRoundMediaRequest.AddEntry
+	19, // 17: recorder.RecordModifyCardRequest.modifies:type_name -> recorder.CardModify
+	30, // 18: recorder.RecordModifyCardRequest.modify_fortune:type_name -> recorder.RecordModifyCardRequest.ModifyFortuneEntry
+	33, // 19: recorder.RecordShoeStartedRequest.DecksEntry.value:type_name -> recorder.Deck
+	33, // 20: recorder.RecordShoeEndedRequest.DecksEntry.value:type_name -> recorder.Deck
 	1,  // 21: recorder.RecorderService.RecordShiftStarted:input_type -> recorder.RecordShiftStartedRequest
 	2,  // 22: recorder.RecorderService.RecordShiftEnded:input_type -> recorder.RecordShiftEndedRequest
 	3,  // 23: recorder.RecorderService.RecordShoeStarted:input_type -> recorder.RecordShoeStartedRequest
@@ -1313,25 +1750,33 @@ var file_recorder_recorder_proto_depIdxs = []int32{
 	7,  // 27: recorder.RecorderService.RecordRoundBeCanceled:input_type -> recorder.RecordRoundBeCanceledRequest
 	8,  // 28: recorder.RecorderService.RecordRoundFinished:input_type -> recorder.RecordRoundFinishedRequest
 	7,  // 29: recorder.RecorderService.RecordRoundBeCanceledAfterFinished:input_type -> recorder.RecordRoundBeCanceledRequest
-	10, // 30: recorder.RecorderService.RecordModifyResultAfterRound:input_type -> recorder.RecordModifyCardRequest
-	10, // 31: recorder.RecorderService.RecordFinishResultAfterRound:input_type -> recorder.RecordModifyCardRequest
+	18, // 30: recorder.RecorderService.RecordModifyResultAfterRound:input_type -> recorder.RecordModifyCardRequest
+	18, // 31: recorder.RecorderService.RecordFinishResultAfterRound:input_type -> recorder.RecordModifyCardRequest
 	9,  // 32: recorder.RecorderService.RecordRoundVideo:input_type -> recorder.RecordRoundMediaRequest
-	12, // 33: recorder.RecorderService.RecordEventScreenshot:input_type -> recorder.RecordEventScreenshotRequest
-	26, // 34: recorder.RecorderService.RecordShiftStarted:output_type -> recorder.ShiftRecord
-	26, // 35: recorder.RecorderService.RecordShiftEnded:output_type -> recorder.ShiftRecord
-	27, // 36: recorder.RecorderService.RecordShoeStarted:output_type -> recorder.ShoeRecord
-	27, // 37: recorder.RecorderService.RecordShoeEnded:output_type -> recorder.ShoeRecord
-	28, // 38: recorder.RecorderService.RecordRoundStarted:output_type -> recorder.RoundRecord
-	28, // 39: recorder.RecorderService.RecordRoundSteps:output_type -> recorder.RoundRecord
-	28, // 40: recorder.RecorderService.RecordRoundBeCanceled:output_type -> recorder.RoundRecord
-	28, // 41: recorder.RecorderService.RecordRoundFinished:output_type -> recorder.RoundRecord
-	28, // 42: recorder.RecorderService.RecordRoundBeCanceledAfterFinished:output_type -> recorder.RoundRecord
-	28, // 43: recorder.RecorderService.RecordModifyResultAfterRound:output_type -> recorder.RoundRecord
-	28, // 44: recorder.RecorderService.RecordFinishResultAfterRound:output_type -> recorder.RoundRecord
-	28, // 45: recorder.RecorderService.RecordRoundVideo:output_type -> recorder.RoundRecord
-	28, // 46: recorder.RecorderService.RecordEventScreenshot:output_type -> recorder.RoundRecord
-	34, // [34:47] is the sub-list for method output_type
-	21, // [21:34] is the sub-list for method input_type
+	20, // 33: recorder.RecorderService.RecordEventScreenshot:input_type -> recorder.RecordEventScreenshotRequest
+	10, // 34: recorder.RecorderService.GetVideoUploadURL:input_type -> recorder.GetVideoUploadURLRequest
+	12, // 35: recorder.RecorderService.ListS3Folders:input_type -> recorder.ListS3FoldersRequest
+	14, // 36: recorder.RecorderService.ListS3Files:input_type -> recorder.ListS3FilesRequest
+	16, // 37: recorder.RecorderService.DeleteS3File:input_type -> recorder.DeleteS3FileRequest
+	34, // 38: recorder.RecorderService.RecordShiftStarted:output_type -> recorder.ShiftRecord
+	34, // 39: recorder.RecorderService.RecordShiftEnded:output_type -> recorder.ShiftRecord
+	35, // 40: recorder.RecorderService.RecordShoeStarted:output_type -> recorder.ShoeRecord
+	35, // 41: recorder.RecorderService.RecordShoeEnded:output_type -> recorder.ShoeRecord
+	36, // 42: recorder.RecorderService.RecordRoundStarted:output_type -> recorder.RoundRecord
+	36, // 43: recorder.RecorderService.RecordRoundSteps:output_type -> recorder.RoundRecord
+	36, // 44: recorder.RecorderService.RecordRoundBeCanceled:output_type -> recorder.RoundRecord
+	36, // 45: recorder.RecorderService.RecordRoundFinished:output_type -> recorder.RoundRecord
+	36, // 46: recorder.RecorderService.RecordRoundBeCanceledAfterFinished:output_type -> recorder.RoundRecord
+	36, // 47: recorder.RecorderService.RecordModifyResultAfterRound:output_type -> recorder.RoundRecord
+	36, // 48: recorder.RecorderService.RecordFinishResultAfterRound:output_type -> recorder.RoundRecord
+	36, // 49: recorder.RecorderService.RecordRoundVideo:output_type -> recorder.RoundRecord
+	36, // 50: recorder.RecorderService.RecordEventScreenshot:output_type -> recorder.RoundRecord
+	11, // 51: recorder.RecorderService.GetVideoUploadURL:output_type -> recorder.GetVideoUploadURLResponse
+	13, // 52: recorder.RecorderService.ListS3Folders:output_type -> recorder.ListS3FoldersResponse
+	15, // 53: recorder.RecorderService.ListS3Files:output_type -> recorder.ListS3FilesResponse
+	17, // 54: recorder.RecorderService.DeleteS3File:output_type -> recorder.DeleteS3FileResponse
+	38, // [38:55] is the sub-list for method output_type
+	21, // [21:38] is the sub-list for method input_type
 	21, // [21:21] is the sub-list for extension type_name
 	21, // [21:21] is the sub-list for extension extendee
 	0,  // [0:21] is the sub-list for field type_name
@@ -1349,7 +1794,7 @@ func file_recorder_recorder_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_recorder_recorder_proto_rawDesc), len(file_recorder_recorder_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   23,
+			NumMessages:   31,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

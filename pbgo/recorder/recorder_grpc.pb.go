@@ -32,6 +32,10 @@ const (
 	RecorderService_RecordFinishResultAfterRound_FullMethodName       = "/recorder.RecorderService/RecordFinishResultAfterRound"
 	RecorderService_RecordRoundVideo_FullMethodName                   = "/recorder.RecorderService/RecordRoundVideo"
 	RecorderService_RecordEventScreenshot_FullMethodName              = "/recorder.RecorderService/RecordEventScreenshot"
+	RecorderService_GetVideoUploadURL_FullMethodName                  = "/recorder.RecorderService/GetVideoUploadURL"
+	RecorderService_ListS3Folders_FullMethodName                      = "/recorder.RecorderService/ListS3Folders"
+	RecorderService_ListS3Files_FullMethodName                        = "/recorder.RecorderService/ListS3Files"
+	RecorderService_DeleteS3File_FullMethodName                       = "/recorder.RecorderService/DeleteS3File"
 )
 
 // RecorderServiceClient is the client API for RecorderService service.
@@ -64,6 +68,14 @@ type RecorderServiceClient interface {
 	RecordRoundVideo(ctx context.Context, in *RecordRoundMediaRequest, opts ...grpc.CallOption) (*RoundRecord, error)
 	// 紀錄事件截圖
 	RecordEventScreenshot(ctx context.Context, in *RecordEventScreenshotRequest, opts ...grpc.CallOption) (*RoundRecord, error)
+	// 取得影片上傳 URL
+	GetVideoUploadURL(ctx context.Context, in *GetVideoUploadURLRequest, opts ...grpc.CallOption) (*GetVideoUploadURLResponse, error)
+	// 列出 S3 資料夾
+	ListS3Folders(ctx context.Context, in *ListS3FoldersRequest, opts ...grpc.CallOption) (*ListS3FoldersResponse, error)
+	// 列出 S3 指定路徑下所有檔案
+	ListS3Files(ctx context.Context, in *ListS3FilesRequest, opts ...grpc.CallOption) (*ListS3FilesResponse, error)
+	// 刪除 S3 檔案
+	DeleteS3File(ctx context.Context, in *DeleteS3FileRequest, opts ...grpc.CallOption) (*DeleteS3FileResponse, error)
 }
 
 type recorderServiceClient struct {
@@ -204,6 +216,46 @@ func (c *recorderServiceClient) RecordEventScreenshot(ctx context.Context, in *R
 	return out, nil
 }
 
+func (c *recorderServiceClient) GetVideoUploadURL(ctx context.Context, in *GetVideoUploadURLRequest, opts ...grpc.CallOption) (*GetVideoUploadURLResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetVideoUploadURLResponse)
+	err := c.cc.Invoke(ctx, RecorderService_GetVideoUploadURL_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recorderServiceClient) ListS3Folders(ctx context.Context, in *ListS3FoldersRequest, opts ...grpc.CallOption) (*ListS3FoldersResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ListS3FoldersResponse)
+	err := c.cc.Invoke(ctx, RecorderService_ListS3Folders_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recorderServiceClient) ListS3Files(ctx context.Context, in *ListS3FilesRequest, opts ...grpc.CallOption) (*ListS3FilesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ListS3FilesResponse)
+	err := c.cc.Invoke(ctx, RecorderService_ListS3Files_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recorderServiceClient) DeleteS3File(ctx context.Context, in *DeleteS3FileRequest, opts ...grpc.CallOption) (*DeleteS3FileResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DeleteS3FileResponse)
+	err := c.cc.Invoke(ctx, RecorderService_DeleteS3File_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // RecorderServiceServer is the server API for RecorderService service.
 // All implementations must embed UnimplementedRecorderServiceServer
 // for forward compatibility.
@@ -234,6 +286,14 @@ type RecorderServiceServer interface {
 	RecordRoundVideo(context.Context, *RecordRoundMediaRequest) (*RoundRecord, error)
 	// 紀錄事件截圖
 	RecordEventScreenshot(context.Context, *RecordEventScreenshotRequest) (*RoundRecord, error)
+	// 取得影片上傳 URL
+	GetVideoUploadURL(context.Context, *GetVideoUploadURLRequest) (*GetVideoUploadURLResponse, error)
+	// 列出 S3 資料夾
+	ListS3Folders(context.Context, *ListS3FoldersRequest) (*ListS3FoldersResponse, error)
+	// 列出 S3 指定路徑下所有檔案
+	ListS3Files(context.Context, *ListS3FilesRequest) (*ListS3FilesResponse, error)
+	// 刪除 S3 檔案
+	DeleteS3File(context.Context, *DeleteS3FileRequest) (*DeleteS3FileResponse, error)
 	mustEmbedUnimplementedRecorderServiceServer()
 }
 
@@ -282,6 +342,18 @@ func (UnimplementedRecorderServiceServer) RecordRoundVideo(context.Context, *Rec
 }
 func (UnimplementedRecorderServiceServer) RecordEventScreenshot(context.Context, *RecordEventScreenshotRequest) (*RoundRecord, error) {
 	return nil, status.Error(codes.Unimplemented, "method RecordEventScreenshot not implemented")
+}
+func (UnimplementedRecorderServiceServer) GetVideoUploadURL(context.Context, *GetVideoUploadURLRequest) (*GetVideoUploadURLResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetVideoUploadURL not implemented")
+}
+func (UnimplementedRecorderServiceServer) ListS3Folders(context.Context, *ListS3FoldersRequest) (*ListS3FoldersResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ListS3Folders not implemented")
+}
+func (UnimplementedRecorderServiceServer) ListS3Files(context.Context, *ListS3FilesRequest) (*ListS3FilesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ListS3Files not implemented")
+}
+func (UnimplementedRecorderServiceServer) DeleteS3File(context.Context, *DeleteS3FileRequest) (*DeleteS3FileResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DeleteS3File not implemented")
 }
 func (UnimplementedRecorderServiceServer) mustEmbedUnimplementedRecorderServiceServer() {}
 func (UnimplementedRecorderServiceServer) testEmbeddedByValue()                         {}
@@ -538,6 +610,78 @@ func _RecorderService_RecordEventScreenshot_Handler(srv interface{}, ctx context
 	return interceptor(ctx, in, info, handler)
 }
 
+func _RecorderService_GetVideoUploadURL_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetVideoUploadURLRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecorderServiceServer).GetVideoUploadURL(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecorderService_GetVideoUploadURL_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecorderServiceServer).GetVideoUploadURL(ctx, req.(*GetVideoUploadURLRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecorderService_ListS3Folders_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListS3FoldersRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecorderServiceServer).ListS3Folders(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecorderService_ListS3Folders_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecorderServiceServer).ListS3Folders(ctx, req.(*ListS3FoldersRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecorderService_ListS3Files_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListS3FilesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecorderServiceServer).ListS3Files(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecorderService_ListS3Files_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecorderServiceServer).ListS3Files(ctx, req.(*ListS3FilesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecorderService_DeleteS3File_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteS3FileRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecorderServiceServer).DeleteS3File(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecorderService_DeleteS3File_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecorderServiceServer).DeleteS3File(ctx, req.(*DeleteS3FileRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // RecorderService_ServiceDesc is the grpc.ServiceDesc for RecorderService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -596,6 +740,22 @@ var RecorderService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "RecordEventScreenshot",
 			Handler:    _RecorderService_RecordEventScreenshot_Handler,
+		},
+		{
+			MethodName: "GetVideoUploadURL",
+			Handler:    _RecorderService_GetVideoUploadURL_Handler,
+		},
+		{
+			MethodName: "ListS3Folders",
+			Handler:    _RecorderService_ListS3Folders_Handler,
+		},
+		{
+			MethodName: "ListS3Files",
+			Handler:    _RecorderService_ListS3Files_Handler,
+		},
+		{
+			MethodName: "DeleteS3File",
+			Handler:    _RecorderService_DeleteS3File_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

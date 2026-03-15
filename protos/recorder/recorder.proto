@@ -179,6 +179,57 @@ message RecordRoundMediaRequest {
 
 }
 
+// 取得影片上傳 URL
+message GetVideoUploadURLRequest {
+
+  // 遊戲局紀錄ID
+  bytes record_id = 1;
+
+  // 局代碼
+  string round_code = 2;
+
+  // S3 資料夾前綴
+  string folder = 3;
+
+  // 遊戲代碼
+  string game_code = 4;
+}
+
+message GetVideoUploadURLResponse {
+
+  // S3 presigned PUT URL (15分鐘有效)
+  string upload_url = 1;
+
+  // 上傳後的影片永久 URL
+  string video_url = 2;
+
+  // 遊戲局紀錄ID
+  bytes record_id = 3;
+}
+
+message ListS3FoldersRequest {}
+
+message ListS3FoldersResponse {
+  repeated string folders = 1;
+}
+
+message ListS3FilesRequest {
+  string folder = 1;
+  string game_code = 2;
+  string round_code = 3;
+}
+
+message ListS3FilesResponse {
+  repeated string urls = 1;
+}
+
+message DeleteS3FileRequest {
+  // S3 object key (path after domain)
+  string key = 1;
+}
+
+message DeleteS3FileResponse {}
+
 message RecordModifyCardRequest {
 
   // 遊戲代碼
@@ -265,4 +316,16 @@ service RecorderService {
 
   // 紀錄事件截圖
   rpc RecordEventScreenshot(RecordEventScreenshotRequest) returns (RoundRecord);
+
+  // 取得影片上傳 URL
+  rpc GetVideoUploadURL(GetVideoUploadURLRequest) returns (GetVideoUploadURLResponse);
+
+  // 列出 S3 資料夾
+  rpc ListS3Folders(ListS3FoldersRequest) returns (ListS3FoldersResponse);
+
+  // 列出 S3 指定路徑下所有檔案
+  rpc ListS3Files(ListS3FilesRequest) returns (ListS3FilesResponse);
+
+  // 刪除 S3 檔案
+  rpc DeleteS3File(DeleteS3FileRequest) returns (DeleteS3FileResponse);
 }
