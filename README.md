@@ -44,6 +44,7 @@ install nvm
 install node 20
 npm install
 
+
 # npm buf 方式
 npx buf generate 
 npx buf generate --template buf.gen.tag.yaml
