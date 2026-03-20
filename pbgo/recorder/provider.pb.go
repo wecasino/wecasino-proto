@@ -289,6 +289,8 @@ const (
 	GameProvideState_GAME_PROVIDE_CLOSE GameProvideState = 5
 	// 此局結束後關閉
 	GameProvideState_GAME_PROVIDE_AVAILABLE_AFTER_ROUND GameProvideState = 6
+	// 暫停
+	GameProvideState_GAME_PROVIDE_PAUSE GameProvideState = 7
 )
 
 // Enum value maps for GameProvideState.
@@ -301,6 +303,7 @@ var (
 		4: "GAME_PROVIDE_CLOSE_AFTER_ROUND",
 		5: "GAME_PROVIDE_CLOSE",
 		6: "GAME_PROVIDE_AVAILABLE_AFTER_ROUND",
+		7: "GAME_PROVIDE_PAUSE",
 	}
 	GameProvideState_value = map[string]int32{
 		"GAME_PROVIDE_STATE_UNSPECIFIED":     0,
@@ -310,6 +313,7 @@ var (
 		"GAME_PROVIDE_CLOSE_AFTER_ROUND":     4,
 		"GAME_PROVIDE_CLOSE":                 5,
 		"GAME_PROVIDE_AVAILABLE_AFTER_ROUND": 6,
+		"GAME_PROVIDE_PAUSE":                 7,
 	}
 )
 
@@ -2147,7 +2151,7 @@ const file_recorder_provider_proto_rawDesc = "" +
 	"\x15NOTIFY_ROUND_PLAYBACK\x10\x13\x12#\n" +
 	"\x1fNOTIFY_ROUND_CANCEL_AFTER_ROUND\x10\x14\x12#\n" +
 	"\x1fNOTIFY_ROUND_MODIFY_AFTER_ROUND\x10\x15\x12#\n" +
-	"\x1fNOTIFY_ROUND_FINISH_AFTER_ROUND\x10\x16*\xfd\x01\n" +
+	"\x1fNOTIFY_ROUND_FINISH_AFTER_ROUND\x10\x16*\x95\x02\n" +
 	"\x10GameProvideState\x12\"\n" +
 	"\x1eGAME_PROVIDE_STATE_UNSPECIFIED\x10\x00\x12\x1a\n" +
 	"\x16GAME_PROVIDE_AVAILABLE\x10\x01\x12$\n" +
@@ -2155,7 +2159,8 @@ const file_recorder_provider_proto_rawDesc = "" +
 	"\x1bGAME_PROVIDE_IN_MAINTENANCE\x10\x03\x12\"\n" +
 	"\x1eGAME_PROVIDE_CLOSE_AFTER_ROUND\x10\x04\x12\x16\n" +
 	"\x12GAME_PROVIDE_CLOSE\x10\x05\x12&\n" +
-	"\"GAME_PROVIDE_AVAILABLE_AFTER_ROUND\x10\x062\xc2\t\n" +
+	"\"GAME_PROVIDE_AVAILABLE_AFTER_ROUND\x10\x06\x12\x16\n" +
+	"\x12GAME_PROVIDE_PAUSE\x10\a2\xc2\t\n" +
 	"\x13RecorderReadService\x12e\n" +
 	"\n" +
 	"ListShifts\x12\x1c.recorder.ListRecordsRequest\x1a\x1c.recorder.ListShiftsResponse\"\x1b\x82\xd3\xe4\x93\x02\x15\x12\x13/v1/recorder/shifts\x12[\n" +

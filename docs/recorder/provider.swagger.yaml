@@ -1106,6 +1106,7 @@ definitions:
       - 4
       - 5
       - 6
+      - 7
     default: 0
     description: |-
       - 0: 未指定
@@ -1115,6 +1116,7 @@ definitions:
        - 4: 此局結束後關閉
        - 5: 此局結束後關閉
        - 6: 此局結束後關閉
+       - 7: 暫停
     title: |-
       GameProvideState
       遊戲供應狀態類型
