@@ -219,6 +219,22 @@ public enum Step
   DEALER_CONFIRM(23),
   /**
    * <pre>
+   * 瞇牌莊閒同時補牌
+   * </pre>
+   *
+   * <code>PEEK_DEAL_BOTH_EXTRA = 28;</code>
+   */
+  PEEK_DEAL_BOTH_EXTRA(28),
+  /**
+   * <pre>
+   * 瞇牌公布莊閒補牌
+   * </pre>
+   *
+   * <code>PEEK_SHOW_BOTH_EXTRA = 29;</code>
+   */
+  PEEK_SHOW_BOTH_EXTRA(29),
+  /**
+   * <pre>
    * PITBOSS 修改派發例牌
    * </pre>
    *
@@ -450,6 +466,22 @@ public enum Step
   public static final int DEALER_CONFIRM_VALUE = 23;
   /**
    * <pre>
+   * 瞇牌莊閒同時補牌
+   * </pre>
+   *
+   * <code>PEEK_DEAL_BOTH_EXTRA = 28;</code>
+   */
+  public static final int PEEK_DEAL_BOTH_EXTRA_VALUE = 28;
+  /**
+   * <pre>
+   * 瞇牌公布莊閒補牌
+   * </pre>
+   *
+   * <code>PEEK_SHOW_BOTH_EXTRA = 29;</code>
+   */
+  public static final int PEEK_SHOW_BOTH_EXTRA_VALUE = 29;
+  /**
+   * <pre>
    * PITBOSS 修改派發例牌
    * </pre>
    *
@@ -524,6 +556,8 @@ public enum Step
       case 21: return PEEK_DEAL_BANKER_EXTRA;
       case 22: return PEEK_SHOW_BANKER_EXTRA;
       case 23: return DEALER_CONFIRM;
+      case 28: return PEEK_DEAL_BOTH_EXTRA;
+      case 29: return PEEK_SHOW_BOTH_EXTRA;
       case 24: return PITBOSS_MODIFY_NORMAL;
       case 25: return PITBOSS_MODIFY_PLAYER_EXTRA;
       case 26: return PITBOSS_MODIFY_BANKER_EXTRA;
