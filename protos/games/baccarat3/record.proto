@@ -111,11 +111,16 @@ enum Step {
   // 非瞇牌補莊家牌
   DEAL_BANKER_EXTRA = 20;
   // 瞇牌莊家補牌
-  PEEK_DEAL_BANKER_EXTRA= 21;
+  PEEK_DEAL_BANKER_EXTRA = 21;
   // 瞇牌公布莊家補牌
-  PEEK_SHOW_BANKER_EXTRA= 22;
+  PEEK_SHOW_BANKER_EXTRA = 22;
 
   DEALER_CONFIRM = 23;
+
+  // 瞇牌莊閒同時補牌
+  PEEK_DEAL_BOTH_EXTRA = 28;
+  // 瞇牌公布莊閒補牌
+  PEEK_SHOW_BOTH_EXTRA = 29;
 
   // PITBOSS 修改派發例牌
   PITBOSS_MODIFY_NORMAL = 24;
