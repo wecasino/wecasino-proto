@@ -4,8 +4,6 @@ package games.baccaratstep;
 enum GameSubtype {
   // 未指定
   BACCARAT_TYPE_UNSPECIFIED = 0;
-  // deprecated 看牌百家樂向下相容使用
-  BACCARAT_CLASSIC = 1;
   // 看牌百家樂
   BACCARAT_STEP = 2;
 }
