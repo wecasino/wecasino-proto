@@ -34,7 +34,7 @@ public final class RecordProto {
       "LOCKCHAIN\020\020\022\035\n\031BACCARAT_SPEED_BLOCKCHAIN" +
       "\020\022\022\034\n\030BACCARAT_PEEK_BLOCKCHAIN\020\030*D\n\014Reso" +
       "urceType\022\035\n\031RESOURCE_TYPE_UNSPECIFIED\020\000\022" +
-      "\n\n\006NORMAL\020\001\022\t\n\005EXTRA\020\002*\367\004\n\004Step\022\024\n\020STEP_" +
+      "\n\n\006NORMAL\020\001\022\t\n\005EXTRA\020\002*\253\005\n\004Step\022\024\n\020STEP_" +
       "UNSPECIFIED\020\000\022\017\n\013ROUND_START\020\001\022\022\n\016ROUND_" +
       "FINISHED\020\002\022\023\n\017SHOW_FIRST_CARD\020\003\022\021\n\rDEAL_" +
       "PLAYER_1\020\004\022\021\n\rDEAL_BANKER_1\020\005\022\021\n\rDEAL_PL" +
@@ -48,15 +48,17 @@ public final class RecordProto {
       "PEEK_SHOW_PLAYER_EXTRA\020\022\022\025\n\021DEAL_BANKER_" +
       "EXTRA\020\024\022\032\n\026PEEK_DEAL_BANKER_EXTRA\020\025\022\032\n\026P" +
       "EEK_SHOW_BANKER_EXTRA\020\026\022\022\n\016DEALER_CONFIR" +
-      "M\020\027\022\031\n\025PITBOSS_MODIFY_NORMAL\020\030\022\037\n\033PITBOS" +
-      "S_MODIFY_PLAYER_EXTRA\020\031\022\037\n\033PITBOSS_MODIF" +
-      "Y_BANKER_EXTRA\020\032*8\n\010GameSeat\022\024\n\020SEAT_UNS" +
-      "PECIFIED\020\000\022\n\n\006PLAYER\020\002\022\n\n\006BANKER\020\003B\301\001\n!c" +
-      "om.wecasino.proto.games.baccaratB\013Record" +
-      "ProtoP\001Z6github.com/wecasino/wecasino-pr" +
-      "oto/pbgo/games/baccarat\242\002\003GBX\252\002\016Games.Ba" +
-      "ccarat\312\002\016Games\\Baccarat\342\002\032Games\\Baccarat" +
-      "\\GPBMetadata\352\002\017Games::Baccaratb\006proto3"
+      "M\020\027\022\030\n\024PEEK_DEAL_BOTH_EXTRA\020\034\022\030\n\024PEEK_SH" +
+      "OW_BOTH_EXTRA\020\035\022\031\n\025PITBOSS_MODIFY_NORMAL" +
+      "\020\030\022\037\n\033PITBOSS_MODIFY_PLAYER_EXTRA\020\031\022\037\n\033P" +
+      "ITBOSS_MODIFY_BANKER_EXTRA\020\032*8\n\010GameSeat" +
+      "\022\024\n\020SEAT_UNSPECIFIED\020\000\022\n\n\006PLAYER\020\002\022\n\n\006BA" +
+      "NKER\020\003B\301\001\n!com.wecasino.proto.games.bacc" +
+      "aratB\013RecordProtoP\001Z6github.com/wecasino" +
+      "/wecasino-proto/pbgo/games/baccarat\242\002\003GB" +
+      "X\252\002\016Games.Baccarat\312\002\016Games\\Baccarat\342\002\032Ga" +
+      "mes\\Baccarat\\GPBMetadata\352\002\017Games::Baccar" +
+      "atb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

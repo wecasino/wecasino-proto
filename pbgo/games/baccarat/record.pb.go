@@ -216,6 +216,10 @@ const (
 	// 瞇牌公布莊家補牌
 	Step_PEEK_SHOW_BANKER_EXTRA Step = 22
 	Step_DEALER_CONFIRM         Step = 23
+	// 瞇牌莊閒同時補牌
+	Step_PEEK_DEAL_BOTH_EXTRA Step = 28
+	// 瞇牌公布莊閒補牌
+	Step_PEEK_SHOW_BOTH_EXTRA Step = 29
 	// PITBOSS 修改派發例牌
 	Step_PITBOSS_MODIFY_NORMAL Step = 24
 	// PITBOSS 修改派發閒家補牌
@@ -253,6 +257,8 @@ var (
 		21: "PEEK_DEAL_BANKER_EXTRA",
 		22: "PEEK_SHOW_BANKER_EXTRA",
 		23: "DEALER_CONFIRM",
+		28: "PEEK_DEAL_BOTH_EXTRA",
+		29: "PEEK_SHOW_BOTH_EXTRA",
 		24: "PITBOSS_MODIFY_NORMAL",
 		25: "PITBOSS_MODIFY_PLAYER_EXTRA",
 		26: "PITBOSS_MODIFY_BANKER_EXTRA",
@@ -284,6 +290,8 @@ var (
 		"PEEK_DEAL_BANKER_EXTRA":      21,
 		"PEEK_SHOW_BANKER_EXTRA":      22,
 		"DEALER_CONFIRM":              23,
+		"PEEK_DEAL_BOTH_EXTRA":        28,
+		"PEEK_SHOW_BOTH_EXTRA":        29,
 		"PITBOSS_MODIFY_NORMAL":       24,
 		"PITBOSS_MODIFY_PLAYER_EXTRA": 25,
 		"PITBOSS_MODIFY_BANKER_EXTRA": 26,
@@ -392,7 +400,7 @@ const file_games_baccarat_record_proto_rawDesc = "" +
 	"\x19RESOURCE_TYPE_UNSPECIFIED\x10\x00\x12\n" +
 	"\n" +
 	"\x06NORMAL\x10\x01\x12\t\n" +
-	"\x05EXTRA\x10\x02*\xf7\x04\n" +
+	"\x05EXTRA\x10\x02*\xab\x05\n" +
 	"\x04Step\x12\x14\n" +
 	"\x10STEP_UNSPECIFIED\x10\x00\x12\x0f\n" +
 	"\vROUND_START\x10\x01\x12\x12\n" +
@@ -419,7 +427,9 @@ const file_games_baccarat_record_proto_rawDesc = "" +
 	"\x11DEAL_BANKER_EXTRA\x10\x14\x12\x1a\n" +
 	"\x16PEEK_DEAL_BANKER_EXTRA\x10\x15\x12\x1a\n" +
 	"\x16PEEK_SHOW_BANKER_EXTRA\x10\x16\x12\x12\n" +
-	"\x0eDEALER_CONFIRM\x10\x17\x12\x19\n" +
+	"\x0eDEALER_CONFIRM\x10\x17\x12\x18\n" +
+	"\x14PEEK_DEAL_BOTH_EXTRA\x10\x1c\x12\x18\n" +
+	"\x14PEEK_SHOW_BOTH_EXTRA\x10\x1d\x12\x19\n" +
 	"\x15PITBOSS_MODIFY_NORMAL\x10\x18\x12\x1f\n" +
 	"\x1bPITBOSS_MODIFY_PLAYER_EXTRA\x10\x19\x12\x1f\n" +
 	"\x1bPITBOSS_MODIFY_BANKER_EXTRA\x10\x1a*8\n" +
