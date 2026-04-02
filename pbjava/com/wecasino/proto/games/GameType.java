@@ -174,6 +174,14 @@ public enum GameType
    * <code>BACCARATSTEP = 47;</code>
    */
   BACCARATSTEP(47),
+  /**
+   * <pre>
+   * 百家寶
+   * </pre>
+   *
+   * <code>BACBO = 48;</code>
+   */
+  BACBO(48),
   UNRECOGNIZED(-1),
   ;
 
@@ -337,6 +345,14 @@ public enum GameType
    * <code>BACCARATSTEP = 47;</code>
    */
   public static final int BACCARATSTEP_VALUE = 47;
+  /**
+   * <pre>
+   * 百家寶
+   * </pre>
+   *
+   * <code>BACBO = 48;</code>
+   */
+  public static final int BACBO_VALUE = 48;
 
 
   public final int getNumber() {
@@ -383,6 +399,7 @@ public enum GameType
       case 45: return SAKLA;
       case 46: return CARACRUZ;
       case 47: return BACCARATSTEP;
+      case 48: return BACBO;
       default: return null;
     }
   }

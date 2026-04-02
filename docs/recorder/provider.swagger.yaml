@@ -176,6 +176,7 @@ paths:
              - 45: SAKLA
              - 46: CARACRUZ
              - 47: 開牌百家樂
+             - 48: 百家寶
           in: query
           required: false
           type: integer
@@ -200,6 +201,7 @@ paths:
             - 45
             - 46
             - 47
+            - 48
           default: 0
         - name: gameSubtype
           description: 遊戲子類型
@@ -304,6 +306,7 @@ paths:
              - 45: SAKLA
              - 46: CARACRUZ
              - 47: 開牌百家樂
+             - 48: 百家寶
           in: query
           required: false
           type: integer
@@ -328,6 +331,7 @@ paths:
             - 45
             - 46
             - 47
+            - 48
           default: 0
         - name: gameSubtype
           description: 遊戲子類型
@@ -492,6 +496,7 @@ paths:
              - 45: SAKLA
              - 46: CARACRUZ
              - 47: 開牌百家樂
+             - 48: 百家寶
           in: query
           required: false
           type: integer
@@ -516,6 +521,7 @@ paths:
             - 45
             - 46
             - 47
+            - 48
           default: 0
         - name: gameSubtype
           description: 遊戲子類型
@@ -716,6 +722,7 @@ definitions:
       - 45
       - 46
       - 47
+      - 48
     default: 0
     description: |-
       - 0: 未指定
@@ -738,6 +745,7 @@ definitions:
        - 45: SAKLA
        - 46: CARACRUZ
        - 47: 開牌百家樂
+       - 48: 百家寶
     title: "GameType \n遊戲類型"
   gamesWinType:
     type: integer
