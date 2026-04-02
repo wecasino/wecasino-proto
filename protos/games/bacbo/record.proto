@@ -37,3 +37,13 @@ enum Step {
   PITBOSS_MODIFY_BOWL = 16;
 
 }
+
+enum ResourceType {
+
+  // 未指定
+  RESOURCE_TYPE_UNSPECIFIED = 0;
+
+  // 例牌
+  NORMAL = 1;
+
+}

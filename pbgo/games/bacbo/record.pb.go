@@ -145,6 +145,54 @@ func (Step) EnumDescriptor() ([]byte, []int) {
 	return file_games_bacbo_record_proto_rawDescGZIP(), []int{1}
 }
 
+type ResourceType int32
+
+const (
+	// 未指定
+	ResourceType_RESOURCE_TYPE_UNSPECIFIED ResourceType = 0
+	// 例牌
+	ResourceType_NORMAL ResourceType = 1
+)
+
+// Enum value maps for ResourceType.
+var (
+	ResourceType_name = map[int32]string{
+		0: "RESOURCE_TYPE_UNSPECIFIED",
+		1: "NORMAL",
+	}
+	ResourceType_value = map[string]int32{
+		"RESOURCE_TYPE_UNSPECIFIED": 0,
+		"NORMAL":                    1,
+	}
+)
+
+func (x ResourceType) Enum() *ResourceType {
+	p := new(ResourceType)
+	*p = x
+	return p
+}
+
+func (x ResourceType) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (ResourceType) Descriptor() protoreflect.EnumDescriptor {
+	return file_games_bacbo_record_proto_enumTypes[2].Descriptor()
+}
+
+func (ResourceType) Type() protoreflect.EnumType {
+	return &file_games_bacbo_record_proto_enumTypes[2]
+}
+
+func (x ResourceType) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use ResourceType.Descriptor instead.
+func (ResourceType) EnumDescriptor() ([]byte, []int) {
+	return file_games_bacbo_record_proto_rawDescGZIP(), []int{2}
+}
+
 var File_games_bacbo_record_proto protoreflect.FileDescriptor
 
 const file_games_bacbo_record_proto_rawDesc = "" +
@@ -163,7 +211,11 @@ const file_games_bacbo_record_proto_rawDesc = "" +
 	"\n" +
 	"THROW_DICE\x10\b\x12\x12\n" +
 	"\x0eDEALER_CONFIRM\x10\x17\x12\x17\n" +
-	"\x13PITBOSS_MODIFY_BOWL\x10\x10B\xaf\x01\n" +
+	"\x13PITBOSS_MODIFY_BOWL\x10\x10*9\n" +
+	"\fResourceType\x12\x1d\n" +
+	"\x19RESOURCE_TYPE_UNSPECIFIED\x10\x00\x12\n" +
+	"\n" +
+	"\x06NORMAL\x10\x01B\xaf\x01\n" +
 	"\x1ecom.wecasino.proto.games.bacboB\vRecordProtoP\x01Z3github.com/wecasino/wecasino-proto/pbgo/games/bacbo\xa2\x02\x03GBX\xaa\x02\vGames.Bacbo\xca\x02\vGames\\Bacbo\xe2\x02\x17Games\\Bacbo\\GPBMetadata\xea\x02\fGames::Bacbob\x06proto3"
 
 var (
@@ -178,10 +230,11 @@ func file_games_bacbo_record_proto_rawDescGZIP() []byte {
 	return file_games_bacbo_record_proto_rawDescData
 }
 
-var file_games_bacbo_record_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
+var file_games_bacbo_record_proto_enumTypes = make([]protoimpl.EnumInfo, 3)
 var file_games_bacbo_record_proto_goTypes = []any{
-	(GameSubtype)(0), // 0: games.bacbo.GameSubtype
-	(Step)(0),        // 1: games.bacbo.Step
+	(GameSubtype)(0),  // 0: games.bacbo.GameSubtype
+	(Step)(0),         // 1: games.bacbo.Step
+	(ResourceType)(0), // 2: games.bacbo.ResourceType
 }
 var file_games_bacbo_record_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
@@ -201,7 +254,7 @@ func file_games_bacbo_record_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_games_bacbo_record_proto_rawDesc), len(file_games_bacbo_record_proto_rawDesc)),
-			NumEnums:      2,
+			NumEnums:      3,
 			NumMessages:   0,
 			NumExtensions: 0,
 			NumServices:   0,
