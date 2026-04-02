@@ -31,11 +31,13 @@ public final class RecordProto {
       "INISHED\020\002\022\022\n\016ROUND_CANCELED\020\003\022\r\n\tROUND_B" +
       "ET\020\004\022\017\n\013NO_MORE_BET\020\005\022\016\n\nTHROW_DICE\020\010\022\022\n" +
       "\016DEALER_CONFIRM\020\027\022\027\n\023PITBOSS_MODIFY_BOWL" +
-      "\020\020B\257\001\n\036com.wecasino.proto.games.bacboB\013R" +
-      "ecordProtoP\001Z3github.com/wecasino/wecasi" +
-      "no-proto/pbgo/games/bacbo\242\002\003GBX\252\002\013Games." +
-      "Bacbo\312\002\013Games\\Bacbo\342\002\027Games\\Bacbo\\GPBMet" +
-      "adata\352\002\014Games::Bacbob\006proto3"
+      "\020\020*9\n\014ResourceType\022\035\n\031RESOURCE_TYPE_UNSP" +
+      "ECIFIED\020\000\022\n\n\006NORMAL\020\001B\257\001\n\036com.wecasino.p" +
+      "roto.games.bacboB\013RecordProtoP\001Z3github." +
+      "com/wecasino/wecasino-proto/pbgo/games/b" +
+      "acbo\242\002\003GBX\252\002\013Games.Bacbo\312\002\013Games\\Bacbo\342\002" +
+      "\027Games\\Bacbo\\GPBMetadata\352\002\014Games::Bacbob" +
+      "\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
