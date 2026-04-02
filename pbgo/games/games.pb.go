@@ -66,6 +66,8 @@ const (
 	GameType_CARACRUZ GameType = 46
 	// 開牌百家樂
 	GameType_BACCARATSTEP GameType = 47
+	// 百家寶
+	GameType_BACBO GameType = 48
 )
 
 // Enum value maps for GameType.
@@ -91,6 +93,7 @@ var (
 		45: "SAKLA",
 		46: "CARACRUZ",
 		47: "BACCARATSTEP",
+		48: "BACBO",
 	}
 	GameType_value = map[string]int32{
 		"GAME_TYPE_UNSPECIFIED": 0,
@@ -113,6 +116,7 @@ var (
 		"SAKLA":                 45,
 		"CARACRUZ":              46,
 		"BACCARATSTEP":          47,
+		"BACBO":                 48,
 	}
 )
 
@@ -383,7 +387,7 @@ var File_games_games_proto protoreflect.FileDescriptor
 
 const file_games_games_proto_rawDesc = "" +
 	"\n" +
-	"\x11games/games.proto\x12\x05games*\xbe\x02\n" +
+	"\x11games/games.proto\x12\x05games*\xc9\x02\n" +
 	"\bGameType\x12\x19\n" +
 	"\x15GAME_TYPE_UNSPECIFIED\x10\x00\x12\f\n" +
 	"\bBACCARAT\x10\x10\x12\r\n" +
@@ -408,7 +412,8 @@ const file_games_games_proto_rawDesc = "" +
 	"\x04HILO\x10,\x12\t\n" +
 	"\x05SAKLA\x10-\x12\f\n" +
 	"\bCARACRUZ\x10.\x12\x10\n" +
-	"\fBACCARATSTEP\x10/*\xac\x02\n" +
+	"\fBACCARATSTEP\x10/\x12\t\n" +
+	"\x05BACBO\x100*\xac\x02\n" +
 	"\bFlowSeat\x12\x14\n" +
 	"\x10SEAT_UNSPECIFIED\x10\x00\x12\f\n" +
 	"\bDEALER_A\x102\x12\x15\n" +
