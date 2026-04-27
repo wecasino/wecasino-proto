@@ -38,6 +38,8 @@ const (
 	GameSubtype_BACCARAT_FOREVER9 GameSubtype = 5
 	// 瞇牌百家樂
 	GameSubtype_BACCARAT_PEEK GameSubtype = 8
+	// 瞇牌百家樂(開一張牌謎一張牌)
+	GameSubtype_BACCARAT_PEEKONE GameSubtype = 9
 	// 財神百家樂
 	GameSubtype_BACCARAT_FORTUNE GameSubtype = 12
 	// 搖錢樹百家樂
@@ -60,6 +62,7 @@ var (
 		4:  "BACCARAT_FOREVER8",
 		5:  "BACCARAT_FOREVER9",
 		8:  "BACCARAT_PEEK",
+		9:  "BACCARAT_PEEKONE",
 		12: "BACCARAT_FORTUNE",
 		13: "BACCARAT_TREE",
 		16: "BACCARAT_BLOCKCHAIN",
@@ -74,6 +77,7 @@ var (
 		"BACCARAT_FOREVER8":         4,
 		"BACCARAT_FOREVER9":         5,
 		"BACCARAT_PEEK":             8,
+		"BACCARAT_PEEKONE":          9,
 		"BACCARAT_FORTUNE":          12,
 		"BACCARAT_TREE":             13,
 		"BACCARAT_BLOCKCHAIN":       16,
@@ -382,7 +386,7 @@ var File_games_baccarat_record_proto protoreflect.FileDescriptor
 
 const file_games_baccarat_record_proto_rawDesc = "" +
 	"\n" +
-	"\x1bgames/baccarat/record.proto\x12\x0egames.baccarat*\xb0\x02\n" +
+	"\x1bgames/baccarat/record.proto\x12\x0egames.baccarat*\xc6\x02\n" +
 	"\vGameSubtype\x12\x1d\n" +
 	"\x19BACCARAT_TYPE_UNSPECIFIED\x10\x00\x12\x14\n" +
 	"\x10BACCARAT_CLASSIC\x10\x01\x12\x18\n" +
@@ -391,6 +395,7 @@ const file_games_baccarat_record_proto_rawDesc = "" +
 	"\x11BACCARAT_FOREVER8\x10\x04\x12\x15\n" +
 	"\x11BACCARAT_FOREVER9\x10\x05\x12\x11\n" +
 	"\rBACCARAT_PEEK\x10\b\x12\x14\n" +
+	"\x10BACCARAT_PEEKONE\x10\t\x12\x14\n" +
 	"\x10BACCARAT_FORTUNE\x10\f\x12\x11\n" +
 	"\rBACCARAT_TREE\x10\r\x12\x17\n" +
 	"\x13BACCARAT_BLOCKCHAIN\x10\x10\x12\x1d\n" +

@@ -20,8 +20,11 @@ enum GameSubtype {
     // 百家樂恆9
     BACCARAT_FOREVER9 = 5;
 
-  // 瞇牌百家樂
+    // 瞇牌百家樂
     BACCARAT_PEEK = 8;
+
+    // 瞇牌百家樂(開一張牌謎一張牌)
+    BACCARAT_PEEKONE = 9;
 
     // 財神百家樂
     BACCARAT_FORTUNE = 12;
