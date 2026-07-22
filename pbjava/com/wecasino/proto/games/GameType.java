@@ -182,6 +182,14 @@ public enum GameType
    * <code>BACBO = 48;</code>
    */
   BACBO(48),
+  /**
+   * <pre>
+   * 百家樂 angel eye
+   * </pre>
+   *
+   * <code>BACCARATANGLEEYE = 52;</code>
+   */
+  BACCARATANGLEEYE(52),
   UNRECOGNIZED(-1),
   ;
 
@@ -353,6 +361,14 @@ public enum GameType
    * <code>BACBO = 48;</code>
    */
   public static final int BACBO_VALUE = 48;
+  /**
+   * <pre>
+   * 百家樂 angel eye
+   * </pre>
+   *
+   * <code>BACCARATANGLEEYE = 52;</code>
+   */
+  public static final int BACCARATANGLEEYE_VALUE = 52;
 
 
   public final int getNumber() {
@@ -400,6 +416,7 @@ public enum GameType
       case 46: return CARACRUZ;
       case 47: return BACCARATSTEP;
       case 48: return BACBO;
+      case 52: return BACCARATANGLEEYE;
       default: return null;
     }
   }

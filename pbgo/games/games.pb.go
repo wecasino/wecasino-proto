@@ -68,6 +68,8 @@ const (
 	GameType_BACCARATSTEP GameType = 47
 	// 百家寶
 	GameType_BACBO GameType = 48
+	// 百家樂 angel eye
+	GameType_BACCARATANGLEEYE GameType = 52
 )
 
 // Enum value maps for GameType.
@@ -94,6 +96,7 @@ var (
 		46: "CARACRUZ",
 		47: "BACCARATSTEP",
 		48: "BACBO",
+		52: "BACCARATANGLEEYE",
 	}
 	GameType_value = map[string]int32{
 		"GAME_TYPE_UNSPECIFIED": 0,
@@ -117,6 +120,7 @@ var (
 		"CARACRUZ":              46,
 		"BACCARATSTEP":          47,
 		"BACBO":                 48,
+		"BACCARATANGLEEYE":      52,
 	}
 )
 
@@ -387,7 +391,7 @@ var File_games_games_proto protoreflect.FileDescriptor
 
 const file_games_games_proto_rawDesc = "" +
 	"\n" +
-	"\x11games/games.proto\x12\x05games*\xc9\x02\n" +
+	"\x11games/games.proto\x12\x05games*\xdf\x02\n" +
 	"\bGameType\x12\x19\n" +
 	"\x15GAME_TYPE_UNSPECIFIED\x10\x00\x12\f\n" +
 	"\bBACCARAT\x10\x10\x12\r\n" +
@@ -413,7 +417,8 @@ const file_games_games_proto_rawDesc = "" +
 	"\x05SAKLA\x10-\x12\f\n" +
 	"\bCARACRUZ\x10.\x12\x10\n" +
 	"\fBACCARATSTEP\x10/\x12\t\n" +
-	"\x05BACBO\x100*\xac\x02\n" +
+	"\x05BACBO\x100\x12\x14\n" +
+	"\x10BACCARATANGLEEYE\x104*\xac\x02\n" +
 	"\bFlowSeat\x12\x14\n" +
 	"\x10SEAT_UNSPECIFIED\x10\x00\x12\f\n" +
 	"\bDEALER_A\x102\x12\x15\n" +
