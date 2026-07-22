@@ -177,6 +177,7 @@ paths:
              - 46: CARACRUZ
              - 47: 開牌百家樂
              - 48: 百家寶
+             - 52: 百家樂 angel eye
           in: query
           required: false
           type: integer
@@ -202,6 +203,7 @@ paths:
             - 46
             - 47
             - 48
+            - 52
           default: 0
         - name: gameSubtype
           description: 遊戲子類型
@@ -307,6 +309,7 @@ paths:
              - 46: CARACRUZ
              - 47: 開牌百家樂
              - 48: 百家寶
+             - 52: 百家樂 angel eye
           in: query
           required: false
           type: integer
@@ -332,6 +335,7 @@ paths:
             - 46
             - 47
             - 48
+            - 52
           default: 0
         - name: gameSubtype
           description: 遊戲子類型
@@ -497,6 +501,7 @@ paths:
              - 46: CARACRUZ
              - 47: 開牌百家樂
              - 48: 百家寶
+             - 52: 百家樂 angel eye
           in: query
           required: false
           type: integer
@@ -522,6 +527,7 @@ paths:
             - 46
             - 47
             - 48
+            - 52
           default: 0
         - name: gameSubtype
           description: 遊戲子類型
@@ -723,6 +729,7 @@ definitions:
       - 46
       - 47
       - 48
+      - 52
     default: 0
     description: |-
       - 0: 未指定
@@ -746,6 +753,7 @@ definitions:
        - 46: CARACRUZ
        - 47: 開牌百家樂
        - 48: 百家寶
+       - 52: 百家樂 angel eye
     title: "GameType \n遊戲類型"
   gamesWinType:
     type: integer
