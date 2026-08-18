@@ -220,6 +220,8 @@ message RoundRecord {
   // 是否測試
   optional bool test = 31 [(tagger.tags) = "bson:\"test,omitempty\""];
 
+  // 是否蝸牛機洗牌局
+  bool is_shuffled = 32;
 }
 
 // Deck

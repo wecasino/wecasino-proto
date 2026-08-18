@@ -33,6 +33,8 @@ enum InstructionCmdType {
   INSTRUCTION_PRIVATE_ENTER_TABLE = 4;
   // 離開包桌
   INSTRUCTION_PRIVATE_LEAVE_TABLE = 5;
+  // 包桌飛牌
+  INSTRUCTION_PRIVATE_FREE_ROUND = 6;
 }
 
 message GetRequest {
@@ -383,6 +385,9 @@ enum GameProvideState {
 
   // 此局結束後關閉
   GAME_PROVIDE_AVAILABLE_AFTER_ROUND = 6;
+
+  // 暫停
+  GAME_PROVIDE_PAUSE = 7;
 
 }
 

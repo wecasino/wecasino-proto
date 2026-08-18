@@ -111,6 +111,46 @@ public final class RecorderProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_recorder_RecordRoundMediaRequest_AddEntry_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_recorder_GetVideoUploadURLRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_recorder_GetVideoUploadURLRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_recorder_GetVideoUploadURLResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_recorder_GetVideoUploadURLResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_recorder_ListS3FoldersRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_recorder_ListS3FoldersRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_recorder_ListS3FoldersResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_recorder_ListS3FoldersResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_recorder_ListS3FilesRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_recorder_ListS3FilesRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_recorder_ListS3FilesResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_recorder_ListS3FilesResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_recorder_DeleteS3FileRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_recorder_DeleteS3FileRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_recorder_DeleteS3FileResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_recorder_DeleteS3FileResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_recorder_RecordModifyCardRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -125,6 +165,11 @@ public final class RecorderProto {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_recorder_CardModify_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_recorder_RecordEventScreenshotRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_recorder_RecordEventScreenshotRequest_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -212,48 +257,76 @@ public final class RecorderProto {
       "ve\030\004 \003(\tR\006remove\0326\n\010SetEntry\022\020\n\003key\030\001 \001(" +
       "\tR\003key\022\024\n\005value\030\002 \001(\tR\005value:\0028\001\0326\n\010AddE" +
       "ntry\022\020\n\003key\030\001 \001(\tR\003key\022\024\n\005value\030\002 \001(\tR\005v" +
-      "alue:\0028\001\"\315\002\n\027RecordModifyCardRequest\022\033\n\t" +
-      "game_code\030\002 \001(\tR\010gameCode\022\035\n\nround_code\030" +
-      "\003 \001(\tR\troundCode\0220\n\010modifies\030\004 \003(\0132\024.rec" +
-      "order.CardModifyR\010modifies\022%\n\016modify_mes" +
-      "sage\030\005 \001(\tR\rmodifyMessage\022[\n\016modify_fort" +
-      "une\030\006 \003(\01324.recorder.RecordModifyCardReq" +
-      "uest.ModifyFortuneEntryR\rmodifyFortune\032@" +
-      "\n\022ModifyFortuneEntry\022\020\n\003key\030\001 \001(\tR\003key\022\024" +
-      "\n\005value\030\002 \001(\003R\005value:\0028\001\"\212\001\n\nCardModify\022" +
-      "\022\n\004seat\030\001 \001(\005R\004seat\022#\n\rresource_type\030\002 \001" +
-      "(\005R\014resourceType\022&\n\017card_list_index\030\003 \001(" +
-      "\003R\rcardListIndex\022\033\n\tcard_code\030\004 \001(\tR\010car" +
-      "dCode2\376\007\n\017RecorderService\022P\n\022RecordShift" +
-      "Started\022#.recorder.RecordShiftStartedReq" +
-      "uest\032\025.recorder.ShiftRecord\022L\n\020RecordShi" +
-      "ftEnded\022!.recorder.RecordShiftEndedReque" +
-      "st\032\025.recorder.ShiftRecord\022M\n\021RecordShoeS" +
-      "tarted\022\".recorder.RecordShoeStartedReque" +
-      "st\032\024.recorder.ShoeRecord\022I\n\017RecordShoeEn" +
-      "ded\022 .recorder.RecordShoeEndedRequest\032\024." +
-      "recorder.ShoeRecord\022P\n\022RecordRoundStarte" +
-      "d\022#.recorder.RecordRoundStartedRequest\032\025" +
-      ".recorder.RoundRecord\022L\n\020RecordRoundStep" +
-      "s\022!.recorder.RecordRoundStepsRequest\032\025.r" +
-      "ecorder.RoundRecord\022V\n\025RecordRoundBeCanc" +
-      "eled\022&.recorder.RecordRoundBeCanceledReq" +
-      "uest\032\025.recorder.RoundRecord\022R\n\023RecordRou" +
-      "ndFinished\022$.recorder.RecordRoundFinishe" +
-      "dRequest\032\025.recorder.RoundRecord\022c\n\"Recor" +
-      "dRoundBeCanceledAfterFinished\022&.recorder" +
-      ".RecordRoundBeCanceledRequest\032\025.recorder" +
-      ".RoundRecord\022X\n\034RecordModifyResultAfterR" +
-      "ound\022!.recorder.RecordModifyCardRequest\032" +
-      "\025.recorder.RoundRecord\022X\n\034RecordFinishRe" +
-      "sultAfterRound\022!.recorder.RecordModifyCa" +
-      "rdRequest\032\025.recorder.RoundRecord\022L\n\020Reco" +
-      "rdRoundVideo\022!.recorder.RecordRoundMedia" +
-      "Request\032\025.recorder.RoundRecordB\236\001\n\033com.w" +
-      "ecasino.proto.recorderB\rRecorderProtoP\001Z" +
-      "0github.com/wecasino/wecasino-proto/pbgo" +
-      "/recorder\242\002\003RXX\252\002\010Recorder\312\002\010Recorder\342\002\024" +
-      "Recorder\\GPBMetadata\352\002\010Recorderb\006proto3"
+      "alue:\0028\001\"\213\001\n\030GetVideoUploadURLRequest\022\033\n" +
+      "\trecord_id\030\001 \001(\014R\010recordId\022\035\n\nround_code" +
+      "\030\002 \001(\tR\troundCode\022\026\n\006folder\030\003 \001(\tR\006folde" +
+      "r\022\033\n\tgame_code\030\004 \001(\tR\010gameCode\"t\n\031GetVid" +
+      "eoUploadURLResponse\022\035\n\nupload_url\030\001 \001(\tR" +
+      "\tuploadUrl\022\033\n\tvideo_url\030\002 \001(\tR\010videoUrl\022" +
+      "\033\n\trecord_id\030\003 \001(\014R\010recordId\"\026\n\024ListS3Fo" +
+      "ldersRequest\"1\n\025ListS3FoldersResponse\022\030\n" +
+      "\007folders\030\001 \003(\tR\007folders\"h\n\022ListS3FilesRe" +
+      "quest\022\026\n\006folder\030\001 \001(\tR\006folder\022\033\n\tgame_co" +
+      "de\030\002 \001(\tR\010gameCode\022\035\n\nround_code\030\003 \001(\tR\t" +
+      "roundCode\")\n\023ListS3FilesResponse\022\022\n\004urls" +
+      "\030\001 \003(\tR\004urls\"\'\n\023DeleteS3FileRequest\022\020\n\003k" +
+      "ey\030\001 \001(\tR\003key\"\026\n\024DeleteS3FileResponse\"\315\002" +
+      "\n\027RecordModifyCardRequest\022\033\n\tgame_code\030\002" +
+      " \001(\tR\010gameCode\022\035\n\nround_code\030\003 \001(\tR\troun" +
+      "dCode\0220\n\010modifies\030\004 \003(\0132\024.recorder.CardM" +
+      "odifyR\010modifies\022%\n\016modify_message\030\005 \001(\tR" +
+      "\rmodifyMessage\022[\n\016modify_fortune\030\006 \003(\01324" +
+      ".recorder.RecordModifyCardRequest.Modify" +
+      "FortuneEntryR\rmodifyFortune\032@\n\022ModifyFor" +
+      "tuneEntry\022\020\n\003key\030\001 \001(\tR\003key\022\024\n\005value\030\002 \001" +
+      "(\003R\005value:\0028\001\"\212\001\n\nCardModify\022\022\n\004seat\030\001 \001" +
+      "(\005R\004seat\022#\n\rresource_type\030\002 \001(\005R\014resourc" +
+      "eType\022&\n\017card_list_index\030\003 \001(\003R\rcardList" +
+      "Index\022\033\n\tcard_code\030\004 \001(\tR\010cardCode\"\210\001\n\034R" +
+      "ecordEventScreenshotRequest\022\033\n\tgame_code" +
+      "\030\002 \001(\tR\010gameCode\022\035\n\nevent_code\030\003 \001(\tR\tev" +
+      "entCode\022\024\n\005cover\030\004 \001(\010R\005cover\022\026\n\006notify\030" +
+      "\005 \001(\010R\006notify2\241\013\n\017RecorderService\022P\n\022Rec" +
+      "ordShiftStarted\022#.recorder.RecordShiftSt" +
+      "artedRequest\032\025.recorder.ShiftRecord\022L\n\020R" +
+      "ecordShiftEnded\022!.recorder.RecordShiftEn" +
+      "dedRequest\032\025.recorder.ShiftRecord\022M\n\021Rec" +
+      "ordShoeStarted\022\".recorder.RecordShoeStar" +
+      "tedRequest\032\024.recorder.ShoeRecord\022I\n\017Reco" +
+      "rdShoeEnded\022 .recorder.RecordShoeEndedRe" +
+      "quest\032\024.recorder.ShoeRecord\022P\n\022RecordRou" +
+      "ndStarted\022#.recorder.RecordRoundStartedR" +
+      "equest\032\025.recorder.RoundRecord\022L\n\020RecordR" +
+      "oundSteps\022!.recorder.RecordRoundStepsReq" +
+      "uest\032\025.recorder.RoundRecord\022V\n\025RecordRou" +
+      "ndBeCanceled\022&.recorder.RecordRoundBeCan" +
+      "celedRequest\032\025.recorder.RoundRecord\022R\n\023R" +
+      "ecordRoundFinished\022$.recorder.RecordRoun" +
+      "dFinishedRequest\032\025.recorder.RoundRecord\022" +
+      "c\n\"RecordRoundBeCanceledAfterFinished\022&." +
+      "recorder.RecordRoundBeCanceledRequest\032\025." +
+      "recorder.RoundRecord\022X\n\034RecordModifyResu" +
+      "ltAfterRound\022!.recorder.RecordModifyCard" +
+      "Request\032\025.recorder.RoundRecord\022X\n\034Record" +
+      "FinishResultAfterRound\022!.recorder.Record" +
+      "ModifyCardRequest\032\025.recorder.RoundRecord" +
+      "\022L\n\020RecordRoundVideo\022!.recorder.RecordRo" +
+      "undMediaRequest\032\025.recorder.RoundRecord\022V" +
+      "\n\025RecordEventScreenshot\022&.recorder.Recor" +
+      "dEventScreenshotRequest\032\025.recorder.Round" +
+      "Record\022\\\n\021GetVideoUploadURL\022\".recorder.G" +
+      "etVideoUploadURLRequest\032#.recorder.GetVi" +
+      "deoUploadURLResponse\022P\n\rListS3Folders\022\036." +
+      "recorder.ListS3FoldersRequest\032\037.recorder" +
+      ".ListS3FoldersResponse\022J\n\013ListS3Files\022\034." +
+      "recorder.ListS3FilesRequest\032\035.recorder.L" +
+      "istS3FilesResponse\022M\n\014DeleteS3File\022\035.rec" +
+      "order.DeleteS3FileRequest\032\036.recorder.Del" +
+      "eteS3FileResponseB\236\001\n\033com.wecasino.proto" +
+      ".recorderB\rRecorderProtoP\001Z0github.com/w" +
+      "ecasino/wecasino-proto/pbgo/recorder\242\002\003R" +
+      "XX\252\002\010Recorder\312\002\010Recorder\342\002\024Recorder\\GPBM" +
+      "etadata\352\002\010Recorderb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -375,8 +448,56 @@ public final class RecorderProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_recorder_RecordRoundMediaRequest_AddEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
-    internal_static_recorder_RecordModifyCardRequest_descriptor =
+    internal_static_recorder_GetVideoUploadURLRequest_descriptor =
       getDescriptor().getMessageTypes().get(10);
+    internal_static_recorder_GetVideoUploadURLRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_recorder_GetVideoUploadURLRequest_descriptor,
+        new java.lang.String[] { "RecordId", "RoundCode", "Folder", "GameCode", });
+    internal_static_recorder_GetVideoUploadURLResponse_descriptor =
+      getDescriptor().getMessageTypes().get(11);
+    internal_static_recorder_GetVideoUploadURLResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_recorder_GetVideoUploadURLResponse_descriptor,
+        new java.lang.String[] { "UploadUrl", "VideoUrl", "RecordId", });
+    internal_static_recorder_ListS3FoldersRequest_descriptor =
+      getDescriptor().getMessageTypes().get(12);
+    internal_static_recorder_ListS3FoldersRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_recorder_ListS3FoldersRequest_descriptor,
+        new java.lang.String[] { });
+    internal_static_recorder_ListS3FoldersResponse_descriptor =
+      getDescriptor().getMessageTypes().get(13);
+    internal_static_recorder_ListS3FoldersResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_recorder_ListS3FoldersResponse_descriptor,
+        new java.lang.String[] { "Folders", });
+    internal_static_recorder_ListS3FilesRequest_descriptor =
+      getDescriptor().getMessageTypes().get(14);
+    internal_static_recorder_ListS3FilesRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_recorder_ListS3FilesRequest_descriptor,
+        new java.lang.String[] { "Folder", "GameCode", "RoundCode", });
+    internal_static_recorder_ListS3FilesResponse_descriptor =
+      getDescriptor().getMessageTypes().get(15);
+    internal_static_recorder_ListS3FilesResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_recorder_ListS3FilesResponse_descriptor,
+        new java.lang.String[] { "Urls", });
+    internal_static_recorder_DeleteS3FileRequest_descriptor =
+      getDescriptor().getMessageTypes().get(16);
+    internal_static_recorder_DeleteS3FileRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_recorder_DeleteS3FileRequest_descriptor,
+        new java.lang.String[] { "Key", });
+    internal_static_recorder_DeleteS3FileResponse_descriptor =
+      getDescriptor().getMessageTypes().get(17);
+    internal_static_recorder_DeleteS3FileResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_recorder_DeleteS3FileResponse_descriptor,
+        new java.lang.String[] { });
+    internal_static_recorder_RecordModifyCardRequest_descriptor =
+      getDescriptor().getMessageTypes().get(18);
     internal_static_recorder_RecordModifyCardRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_recorder_RecordModifyCardRequest_descriptor,
@@ -388,11 +509,17 @@ public final class RecorderProto {
         internal_static_recorder_RecordModifyCardRequest_ModifyFortuneEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_recorder_CardModify_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(19);
     internal_static_recorder_CardModify_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_recorder_CardModify_descriptor,
         new java.lang.String[] { "Seat", "ResourceType", "CardListIndex", "CardCode", });
+    internal_static_recorder_RecordEventScreenshotRequest_descriptor =
+      getDescriptor().getMessageTypes().get(20);
+    internal_static_recorder_RecordEventScreenshotRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_recorder_RecordEventScreenshotRequest_descriptor,
+        new java.lang.String[] { "GameCode", "EventCode", "Cover", "Notify", });
     com.wecasino.proto.recorder.RecordProto.getDescriptor();
     com.google.protobuf.TimestampProto.getDescriptor();
   }

@@ -70,6 +70,14 @@ public enum GameProvideState
    * <code>GAME_PROVIDE_AVAILABLE_AFTER_ROUND = 6;</code>
    */
   GAME_PROVIDE_AVAILABLE_AFTER_ROUND(6),
+  /**
+   * <pre>
+   * 暫停
+   * </pre>
+   *
+   * <code>GAME_PROVIDE_PAUSE = 7;</code>
+   */
+  GAME_PROVIDE_PAUSE(7),
   UNRECOGNIZED(-1),
   ;
 
@@ -129,6 +137,14 @@ public enum GameProvideState
    * <code>GAME_PROVIDE_AVAILABLE_AFTER_ROUND = 6;</code>
    */
   public static final int GAME_PROVIDE_AVAILABLE_AFTER_ROUND_VALUE = 6;
+  /**
+   * <pre>
+   * 暫停
+   * </pre>
+   *
+   * <code>GAME_PROVIDE_PAUSE = 7;</code>
+   */
+  public static final int GAME_PROVIDE_PAUSE_VALUE = 7;
 
 
   public final int getNumber() {
@@ -162,6 +178,7 @@ public enum GameProvideState
       case 4: return GAME_PROVIDE_CLOSE_AFTER_ROUND;
       case 5: return GAME_PROVIDE_CLOSE;
       case 6: return GAME_PROVIDE_AVAILABLE_AFTER_ROUND;
+      case 7: return GAME_PROVIDE_PAUSE;
       default: return null;
     }
   }

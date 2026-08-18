@@ -61,6 +61,15 @@ enum GameType {
 
   // CARACRUZ
   CARACRUZ = 46;
+
+  // 開牌百家樂
+  BACCARATSTEP = 47;
+
+  // 百家寶
+  BACBO = 48;
+
+	// 百家樂 angle eye
+	BACCARATANGLEEYE = 52;
 }
 
 enum FlowSeat {
