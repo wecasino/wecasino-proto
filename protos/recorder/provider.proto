@@ -488,10 +488,11 @@ message VerifyGameRequest {
 message InputLuckyRecordRequest {
 
   string game_type = 1;
-  string game_code = 1;
-  string round_shoe = 1;
-  string round_code = 1;
-  string round_lucky = 1;
+  string game_code = 2;
+  string round_shoe = 3;
+  string round_code = 4;
+  string round_lucky = 5;
+  
 }
 
 // 玩家指示
