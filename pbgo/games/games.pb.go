@@ -68,7 +68,7 @@ const (
 	GameType_BACCARATSTEP GameType = 47
 	// 百家寶
 	GameType_BACBO GameType = 48
-	// 百家樂 angel eye
+	// 百家樂 angle eye
 	GameType_BACCARATANGLEEYE GameType = 52
 )
 
