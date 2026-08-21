@@ -129,7 +129,7 @@ paths:
   /v1/provider/luckyRecords/input:
     post:
       summary: 輸入 幸運數字
-      operationId: ProviderService_Input
+      operationId: ProviderService_InputLuckyRecord
       responses:
         "200":
           description: A successful response.

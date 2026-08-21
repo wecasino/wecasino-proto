@@ -422,7 +422,7 @@ public final class ProviderProto {
       "der/rounds:current\022\177\n\020GetPlayBackRound\022!" +
       ".recorder.GetRoundPlayBackRequest\032\".reco" +
       "rder.GetRoundPlayBackResponse\"$\202\323\344\223\002\036\022\034/" +
-      "v1/recorder/playback/{code}2\210\006\n\017Provider" +
+      "v1/recorder/playback/{code}2\223\006\n\017Provider" +
       "Service\022`\n\tListGames\022\032.recorder.ListGame" +
       "sRequest\032\033.recorder.ListGamesResponse\"\032\202" +
       "\323\344\223\002\024\022\022/v1/provider/games\022Z\n\010GetGames\022\024." +
@@ -430,23 +430,23 @@ public final class ProviderProto {
       "de\"!\202\323\344\223\002\033\022\031/v1/provider/games/{code}\022s\n" +
       "\nVerifyGame\022\033.recorder.VerifyGameRequest" +
       "\032\026.google.protobuf.Empty\"0\202\323\344\223\002*\"%/v1/pr" +
-      "ovider/games/{game_code}:verify:\001*\022n\n\005In" +
-      "put\022!.recorder.InputLuckyRecordRequest\032\026" +
-      ".google.protobuf.Empty\"*\202\323\344\223\002$\"\037/v1/prov" +
-      "ider/luckyRecords/input:\001*\022\212\001\n\023GamblerIn" +
-      "structions\022$.recorder.GamblerInstruction" +
-      "sRequest\032\025.recorder.RoundRecord\"6\202\323\344\223\0020\"" +
-      "+/v1/provider/games/{game_code}:instruct" +
-      "ions:\001*\022k\n\013ListDealers\022\034.recorder.ListDe" +
-      "alersRequest\032\035.recorder.ListDealersRespo" +
-      "nse\"\037\202\323\344\223\002\031\"\024/v1/provider/dealers:\001*\022X\n\t" +
-      "GetDealer\022\024.recorder.GetRequest\032\020.record" +
-      "er.Dealer\"#\202\323\344\223\002\035\022\033/v1/provider/dealers/" +
-      "{code}B\236\001\n\033com.wecasino.proto.recorderB\r" +
-      "ProviderProtoP\001Z0github.com/wecasino/wec" +
-      "asino-proto/pbgo/recorder\242\002\003RXX\252\002\010Record" +
-      "er\312\002\010Recorder\342\002\024Recorder\\GPBMetadata\352\002\010R" +
-      "ecorderb\006proto3"
+      "ovider/games/{game_code}:verify:\001*\022y\n\020In" +
+      "putLuckyRecord\022!.recorder.InputLuckyReco" +
+      "rdRequest\032\026.google.protobuf.Empty\"*\202\323\344\223\002" +
+      "$\"\037/v1/provider/luckyRecords/input:\001*\022\212\001" +
+      "\n\023GamblerInstructions\022$.recorder.Gambler" +
+      "InstructionsRequest\032\025.recorder.RoundReco" +
+      "rd\"6\202\323\344\223\0020\"+/v1/provider/games/{game_cod" +
+      "e}:instructions:\001*\022k\n\013ListDealers\022\034.reco" +
+      "rder.ListDealersRequest\032\035.recorder.ListD" +
+      "ealersResponse\"\037\202\323\344\223\002\031\"\024/v1/provider/dea" +
+      "lers:\001*\022X\n\tGetDealer\022\024.recorder.GetReque" +
+      "st\032\020.recorder.Dealer\"#\202\323\344\223\002\035\022\033/v1/provid" +
+      "er/dealers/{code}B\236\001\n\033com.wecasino.proto" +
+      ".recorderB\rProviderProtoP\001Z0github.com/w" +
+      "ecasino/wecasino-proto/pbgo/recorder\242\002\003R" +
+      "XX\252\002\010Recorder\312\002\010Recorder\342\002\024Recorder\\GPBM" +
+      "etadata\352\002\010Recorderb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
