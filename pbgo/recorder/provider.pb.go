@@ -2259,13 +2259,13 @@ const file_recorder_provider_proto_rawDesc = "" +
 	"ListRounds\x12\x1c.recorder.ListRecordsRequest\x1a\".recorder.ListRoundsRecordResponse\"\x1b\x82\xd3\xe4\x93\x02\x15\x12\x13/v1/provider/rounds\x12[\n" +
 	"\bGetRound\x12\x14.recorder.GetRequest\x1a\x15.recorder.RoundRecord\"\"\x82\xd3\xe4\x93\x02\x1c\x12\x1a/v1/recorder/rounds/{code}\x12p\n" +
 	"\x0fGetCurrentRound\x12!.recorder.GetCurrentRecordRequest\x1a\x15.recorder.RoundRecord\"#\x82\xd3\xe4\x93\x02\x1d\x12\x1b/v1/recorder/rounds:current\x12\x7f\n" +
-	"\x10GetPlayBackRound\x12!.recorder.GetRoundPlayBackRequest\x1a\".recorder.GetRoundPlayBackResponse\"$\x82\xd3\xe4\x93\x02\x1e\x12\x1c/v1/recorder/playback/{code}2\x88\x06\n" +
+	"\x10GetPlayBackRound\x12!.recorder.GetRoundPlayBackRequest\x1a\".recorder.GetRoundPlayBackResponse\"$\x82\xd3\xe4\x93\x02\x1e\x12\x1c/v1/recorder/playback/{code}2\x93\x06\n" +
 	"\x0fProviderService\x12`\n" +
 	"\tListGames\x12\x1a.recorder.ListGamesRequest\x1a\x1b.recorder.ListGamesResponse\"\x1a\x82\xd3\xe4\x93\x02\x14\x12\x12/v1/provider/games\x12Z\n" +
 	"\bGetGames\x12\x14.recorder.GetRequest\x1a\x15.recorder.GameProvide\"!\x82\xd3\xe4\x93\x02\x1b\x12\x19/v1/provider/games/{code}\x12s\n" +
 	"\n" +
-	"VerifyGame\x12\x1b.recorder.VerifyGameRequest\x1a\x16.google.protobuf.Empty\"0\x82\xd3\xe4\x93\x02*:\x01*\"%/v1/provider/games/{game_code}:verify\x12n\n" +
-	"\x05Input\x12!.recorder.InputLuckyRecordRequest\x1a\x16.google.protobuf.Empty\"*\x82\xd3\xe4\x93\x02$:\x01*\"\x1f/v1/provider/luckyRecords/input\x12\x8a\x01\n" +
+	"VerifyGame\x12\x1b.recorder.VerifyGameRequest\x1a\x16.google.protobuf.Empty\"0\x82\xd3\xe4\x93\x02*:\x01*\"%/v1/provider/games/{game_code}:verify\x12y\n" +
+	"\x10InputLuckyRecord\x12!.recorder.InputLuckyRecordRequest\x1a\x16.google.protobuf.Empty\"*\x82\xd3\xe4\x93\x02$:\x01*\"\x1f/v1/provider/luckyRecords/input\x12\x8a\x01\n" +
 	"\x13GamblerInstructions\x12$.recorder.GamblerInstructionsRequest\x1a\x15.recorder.RoundRecord\"6\x82\xd3\xe4\x93\x020:\x01*\"+/v1/provider/games/{game_code}:instructions\x12k\n" +
 	"\vListDealers\x12\x1c.recorder.ListDealersRequest\x1a\x1d.recorder.ListDealersResponse\"\x1f\x82\xd3\xe4\x93\x02\x19:\x01*\"\x14/v1/provider/dealers\x12X\n" +
 	"\tGetDealer\x12\x14.recorder.GetRequest\x1a\x10.recorder.Dealer\"#\x82\xd3\xe4\x93\x02\x1d\x12\x1b/v1/provider/dealers/{code}B\x9e\x01\n" +
@@ -2387,7 +2387,7 @@ var file_recorder_provider_proto_depIdxs = []int32{
 	17, // 47: recorder.ProviderService.ListGames:input_type -> recorder.ListGamesRequest
 	4,  // 48: recorder.ProviderService.GetGames:input_type -> recorder.GetRequest
 	19, // 49: recorder.ProviderService.VerifyGame:input_type -> recorder.VerifyGameRequest
-	20, // 50: recorder.ProviderService.Input:input_type -> recorder.InputLuckyRecordRequest
+	20, // 50: recorder.ProviderService.InputLuckyRecord:input_type -> recorder.InputLuckyRecordRequest
 	21, // 51: recorder.ProviderService.GamblerInstructions:input_type -> recorder.GamblerInstructionsRequest
 	24, // 52: recorder.ProviderService.ListDealers:input_type -> recorder.ListDealersRequest
 	4,  // 53: recorder.ProviderService.GetDealer:input_type -> recorder.GetRequest
@@ -2405,7 +2405,7 @@ var file_recorder_provider_proto_depIdxs = []int32{
 	18, // 65: recorder.ProviderService.ListGames:output_type -> recorder.ListGamesResponse
 	16, // 66: recorder.ProviderService.GetGames:output_type -> recorder.GameProvide
 	48, // 67: recorder.ProviderService.VerifyGame:output_type -> google.protobuf.Empty
-	48, // 68: recorder.ProviderService.Input:output_type -> google.protobuf.Empty
+	48, // 68: recorder.ProviderService.InputLuckyRecord:output_type -> google.protobuf.Empty
 	46, // 69: recorder.ProviderService.GamblerInstructions:output_type -> recorder.RoundRecord
 	25, // 70: recorder.ProviderService.ListDealers:output_type -> recorder.ListDealersResponse
 	23, // 71: recorder.ProviderService.GetDealer:output_type -> recorder.Dealer

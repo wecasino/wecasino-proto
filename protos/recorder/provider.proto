@@ -614,7 +614,7 @@ service ProviderService {
 
 
   // 輸入 幸運數字
-  rpc Input(InputLuckyRecordRequest) returns (google.protobuf.Empty){
+  rpc InputLuckyRecord(InputLuckyRecordRequest) returns (google.protobuf.Empty){
     option (google.api.http) = {
       post: "/v1/provider/luckyRecords/input"
       body: "*"
