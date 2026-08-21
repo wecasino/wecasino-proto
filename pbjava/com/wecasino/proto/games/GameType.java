@@ -184,7 +184,7 @@ public enum GameType
   BACBO(48),
   /**
    * <pre>
-   * 百家樂 angel eye
+   * 百家樂 angle eye
    * </pre>
    *
    * <code>BACCARATANGLEEYE = 52;</code>
@@ -363,7 +363,7 @@ public enum GameType
   public static final int BACBO_VALUE = 48;
   /**
    * <pre>
-   * 百家樂 angel eye
+   * 百家樂 angle eye
    * </pre>
    *
    * <code>BACCARATANGLEEYE = 52;</code>

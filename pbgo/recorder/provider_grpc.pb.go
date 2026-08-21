@@ -529,6 +529,7 @@ const (
 	ProviderService_ListGames_FullMethodName           = "/recorder.ProviderService/ListGames"
 	ProviderService_GetGames_FullMethodName            = "/recorder.ProviderService/GetGames"
 	ProviderService_VerifyGame_FullMethodName          = "/recorder.ProviderService/VerifyGame"
+	ProviderService_Input_FullMethodName               = "/recorder.ProviderService/Input"
 	ProviderService_GamblerInstructions_FullMethodName = "/recorder.ProviderService/GamblerInstructions"
 	ProviderService_ListDealers_FullMethodName         = "/recorder.ProviderService/ListDealers"
 	ProviderService_GetDealer_FullMethodName           = "/recorder.ProviderService/GetDealer"
@@ -547,6 +548,8 @@ type ProviderServiceClient interface {
 	GetGames(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GameProvide, error)
 	// 驗證
 	VerifyGame(ctx context.Context, in *VerifyGameRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	// 輸入 幸運數字
+	Input(ctx context.Context, in *InputLuckyRecordRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	// 玩家指示
 	GamblerInstructions(ctx context.Context, in *GamblerInstructionsRequest, opts ...grpc.CallOption) (*RoundRecord, error)
 	// 荷官資料
@@ -587,6 +590,16 @@ func (c *providerServiceClient) VerifyGame(ctx context.Context, in *VerifyGameRe
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, ProviderService_VerifyGame_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *providerServiceClient) Input(ctx context.Context, in *InputLuckyRecordRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, ProviderService_Input_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -636,6 +649,8 @@ type ProviderServiceServer interface {
 	GetGames(context.Context, *GetRequest) (*GameProvide, error)
 	// 驗證
 	VerifyGame(context.Context, *VerifyGameRequest) (*emptypb.Empty, error)
+	// 輸入 幸運數字
+	Input(context.Context, *InputLuckyRecordRequest) (*emptypb.Empty, error)
 	// 玩家指示
 	GamblerInstructions(context.Context, *GamblerInstructionsRequest) (*RoundRecord, error)
 	// 荷官資料
@@ -660,6 +675,9 @@ func (UnimplementedProviderServiceServer) GetGames(context.Context, *GetRequest)
 }
 func (UnimplementedProviderServiceServer) VerifyGame(context.Context, *VerifyGameRequest) (*emptypb.Empty, error) {
 	return nil, status.Error(codes.Unimplemented, "method VerifyGame not implemented")
+}
+func (UnimplementedProviderServiceServer) Input(context.Context, *InputLuckyRecordRequest) (*emptypb.Empty, error) {
+	return nil, status.Error(codes.Unimplemented, "method Input not implemented")
 }
 func (UnimplementedProviderServiceServer) GamblerInstructions(context.Context, *GamblerInstructionsRequest) (*RoundRecord, error) {
 	return nil, status.Error(codes.Unimplemented, "method GamblerInstructions not implemented")
@@ -745,6 +763,24 @@ func _ProviderService_VerifyGame_Handler(srv interface{}, ctx context.Context, d
 	return interceptor(ctx, in, info, handler)
 }
 
+func _ProviderService_Input_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(InputLuckyRecordRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProviderServiceServer).Input(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ProviderService_Input_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProviderServiceServer).Input(ctx, req.(*InputLuckyRecordRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _ProviderService_GamblerInstructions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GamblerInstructionsRequest)
 	if err := dec(in); err != nil {
@@ -817,6 +853,10 @@ var ProviderService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "VerifyGame",
 			Handler:    _ProviderService_VerifyGame_Handler,
+		},
+		{
+			MethodName: "Input",
+			Handler:    _ProviderService_Input_Handler,
 		},
 		{
 			MethodName: "GamblerInstructions",

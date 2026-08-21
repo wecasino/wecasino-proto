@@ -126,6 +126,26 @@ paths:
           required: true
           schema:
             $ref: '#/definitions/ProviderServiceVerifyGameBody'
+  /v1/provider/luckyRecords/input:
+    post:
+      summary: 輸入 幸運數字
+      operationId: ProviderService_Input
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            type: object
+            properties: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/rpcStatus'
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/recorderInputLuckyRecordRequest'
   /v1/provider/rounds:
     get:
       summary: 讀牌局紀錄list
@@ -177,7 +197,7 @@ paths:
              - 46: CARACRUZ
              - 47: 開牌百家樂
              - 48: 百家寶
-             - 52: 百家樂 angel eye
+             - 52: 百家樂 angle eye
           in: query
           required: false
           type: integer
@@ -309,7 +329,7 @@ paths:
              - 46: CARACRUZ
              - 47: 開牌百家樂
              - 48: 百家寶
-             - 52: 百家樂 angel eye
+             - 52: 百家樂 angle eye
           in: query
           required: false
           type: integer
@@ -501,7 +521,7 @@ paths:
              - 46: CARACRUZ
              - 47: 開牌百家樂
              - 48: 百家寶
-             - 52: 百家樂 angel eye
+             - 52: 百家樂 angle eye
           in: query
           required: false
           type: integer
@@ -753,7 +773,7 @@ definitions:
        - 46: CARACRUZ
        - 47: 開牌百家樂
        - 48: 百家寶
-       - 52: 百家樂 angel eye
+       - 52: 百家樂 angle eye
     title: "GameType \n遊戲類型"
   gamesWinType:
     type: integer
@@ -1163,6 +1183,19 @@ definitions:
           type: object
           $ref: '#/definitions/recorderRoundResult'
         title: roundResults
+  recorderInputLuckyRecordRequest:
+    type: object
+    properties:
+      gameType:
+        type: string
+      gameCode:
+        type: string
+      roundShoe:
+        type: string
+      roundCode:
+        type: string
+      roundLucky:
+        type: string
   recorderListDealersRequest:
     type: object
     properties:
@@ -1473,7 +1506,7 @@ definitions:
       - 2
       - 3
     default: 0
-    title: |-
+    description: |-
       - 0: 未指定
        - 1: 以取消
        - 2: 以結算
