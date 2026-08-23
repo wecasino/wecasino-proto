@@ -190,6 +190,14 @@ public enum GameType
    * <code>BACCARATANGLEEYE = 52;</code>
    */
   BACCARATANGLEEYE(52),
+  /**
+   * <pre>
+   *百家樂2.5代
+   * </pre>
+   *
+   * <code>BACCARATRENOVATE = 56;</code>
+   */
+  BACCARATRENOVATE(56),
   UNRECOGNIZED(-1),
   ;
 
@@ -369,6 +377,14 @@ public enum GameType
    * <code>BACCARATANGLEEYE = 52;</code>
    */
   public static final int BACCARATANGLEEYE_VALUE = 52;
+  /**
+   * <pre>
+   *百家樂2.5代
+   * </pre>
+   *
+   * <code>BACCARATRENOVATE = 56;</code>
+   */
+  public static final int BACCARATRENOVATE_VALUE = 56;
 
 
   public final int getNumber() {
@@ -417,6 +433,7 @@ public enum GameType
       case 47: return BACCARATSTEP;
       case 48: return BACBO;
       case 52: return BACCARATANGLEEYE;
+      case 56: return BACCARATRENOVATE;
       default: return null;
     }
   }

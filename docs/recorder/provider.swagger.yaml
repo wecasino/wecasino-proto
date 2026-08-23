@@ -198,6 +198,7 @@ paths:
              - 47: 開牌百家樂
              - 48: 百家寶
              - 52: 百家樂 angle eye
+             - 56: 百家樂2.5代
           in: query
           required: false
           type: integer
@@ -224,6 +225,7 @@ paths:
             - 47
             - 48
             - 52
+            - 56
           default: 0
         - name: gameSubtype
           description: 遊戲子類型
@@ -330,6 +332,7 @@ paths:
              - 47: 開牌百家樂
              - 48: 百家寶
              - 52: 百家樂 angle eye
+             - 56: 百家樂2.5代
           in: query
           required: false
           type: integer
@@ -356,6 +359,7 @@ paths:
             - 47
             - 48
             - 52
+            - 56
           default: 0
         - name: gameSubtype
           description: 遊戲子類型
@@ -522,6 +526,7 @@ paths:
              - 47: 開牌百家樂
              - 48: 百家寶
              - 52: 百家樂 angle eye
+             - 56: 百家樂2.5代
           in: query
           required: false
           type: integer
@@ -548,6 +553,7 @@ paths:
             - 47
             - 48
             - 52
+            - 56
           default: 0
         - name: gameSubtype
           description: 遊戲子類型
@@ -750,6 +756,7 @@ definitions:
       - 47
       - 48
       - 52
+      - 56
     default: 0
     description: |-
       - 0: 未指定
@@ -774,6 +781,7 @@ definitions:
        - 47: 開牌百家樂
        - 48: 百家寶
        - 52: 百家樂 angle eye
+       - 56: 百家樂2.5代
     title: "GameType \n遊戲類型"
   gamesWinType:
     type: integer
