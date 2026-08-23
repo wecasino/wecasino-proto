@@ -485,6 +485,16 @@ message VerifyGameRequest {
   
 }
 
+message InputLuckyRecordRequest {
+
+  string game_type = 1;
+  string game_code = 2;
+  string round_shoe = 3;
+  string round_code = 4;
+  string round_lucky = 5;
+  
+}
+
 // 玩家指示
 message GamblerInstructionsRequest {
 
@@ -598,6 +608,15 @@ service ProviderService {
   rpc VerifyGame(VerifyGameRequest) returns (google.protobuf.Empty){
     option (google.api.http) = {
       post: "/v1/provider/games/{game_code}:verify"
+      body: "*"
+    };
+  };
+
+
+  // 輸入 幸運數字
+  rpc InputLuckyRecord(InputLuckyRecordRequest) returns (google.protobuf.Empty){
+    option (google.api.http) = {
+      post: "/v1/provider/luckyRecords/input"
       body: "*"
     };
   };

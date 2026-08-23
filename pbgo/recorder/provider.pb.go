@@ -1547,6 +1547,82 @@ func (x *VerifyGameRequest) GetName() string {
 	return ""
 }
 
+type InputLuckyRecordRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	GameType      string                 `protobuf:"bytes,1,opt,name=game_type,json=gameType,proto3" json:"gameType" bson:"gameType" yaml:"gameType"`
+	GameCode      string                 `protobuf:"bytes,2,opt,name=game_code,json=gameCode,proto3" json:"gameCode" bson:"gameCode" yaml:"gameCode"`
+	RoundShoe     string                 `protobuf:"bytes,3,opt,name=round_shoe,json=roundShoe,proto3" json:"roundShoe" bson:"roundShoe" yaml:"roundShoe"`
+	RoundCode     string                 `protobuf:"bytes,4,opt,name=round_code,json=roundCode,proto3" json:"roundCode" bson:"roundCode" yaml:"roundCode"`
+	RoundLucky    string                 `protobuf:"bytes,5,opt,name=round_lucky,json=roundLucky,proto3" json:"roundLucky" bson:"roundLucky" yaml:"roundLucky"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *InputLuckyRecordRequest) Reset() {
+	*x = InputLuckyRecordRequest{}
+	mi := &file_recorder_provider_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *InputLuckyRecordRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*InputLuckyRecordRequest) ProtoMessage() {}
+
+func (x *InputLuckyRecordRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_recorder_provider_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use InputLuckyRecordRequest.ProtoReflect.Descriptor instead.
+func (*InputLuckyRecordRequest) Descriptor() ([]byte, []int) {
+	return file_recorder_provider_proto_rawDescGZIP(), []int{16}
+}
+
+func (x *InputLuckyRecordRequest) GetGameType() string {
+	if x != nil {
+		return x.GameType
+	}
+	return ""
+}
+
+func (x *InputLuckyRecordRequest) GetGameCode() string {
+	if x != nil {
+		return x.GameCode
+	}
+	return ""
+}
+
+func (x *InputLuckyRecordRequest) GetRoundShoe() string {
+	if x != nil {
+		return x.RoundShoe
+	}
+	return ""
+}
+
+func (x *InputLuckyRecordRequest) GetRoundCode() string {
+	if x != nil {
+		return x.RoundCode
+	}
+	return ""
+}
+
+func (x *InputLuckyRecordRequest) GetRoundLucky() string {
+	if x != nil {
+		return x.RoundLucky
+	}
+	return ""
+}
+
 // 玩家指示
 type GamblerInstructionsRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
@@ -1562,7 +1638,7 @@ type GamblerInstructionsRequest struct {
 
 func (x *GamblerInstructionsRequest) Reset() {
 	*x = GamblerInstructionsRequest{}
-	mi := &file_recorder_provider_proto_msgTypes[16]
+	mi := &file_recorder_provider_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1574,7 +1650,7 @@ func (x *GamblerInstructionsRequest) String() string {
 func (*GamblerInstructionsRequest) ProtoMessage() {}
 
 func (x *GamblerInstructionsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_recorder_provider_proto_msgTypes[16]
+	mi := &file_recorder_provider_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1587,7 +1663,7 @@ func (x *GamblerInstructionsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GamblerInstructionsRequest.ProtoReflect.Descriptor instead.
 func (*GamblerInstructionsRequest) Descriptor() ([]byte, []int) {
-	return file_recorder_provider_proto_rawDescGZIP(), []int{16}
+	return file_recorder_provider_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *GamblerInstructionsRequest) GetGameCode() string {
@@ -1631,7 +1707,7 @@ type Article struct {
 
 func (x *Article) Reset() {
 	*x = Article{}
-	mi := &file_recorder_provider_proto_msgTypes[17]
+	mi := &file_recorder_provider_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1643,7 +1719,7 @@ func (x *Article) String() string {
 func (*Article) ProtoMessage() {}
 
 func (x *Article) ProtoReflect() protoreflect.Message {
-	mi := &file_recorder_provider_proto_msgTypes[17]
+	mi := &file_recorder_provider_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1656,7 +1732,7 @@ func (x *Article) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Article.ProtoReflect.Descriptor instead.
 func (*Article) Descriptor() ([]byte, []int) {
-	return file_recorder_provider_proto_rawDescGZIP(), []int{17}
+	return file_recorder_provider_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *Article) GetTitle() string {
@@ -1722,7 +1798,7 @@ type Dealer struct {
 
 func (x *Dealer) Reset() {
 	*x = Dealer{}
-	mi := &file_recorder_provider_proto_msgTypes[18]
+	mi := &file_recorder_provider_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1734,7 +1810,7 @@ func (x *Dealer) String() string {
 func (*Dealer) ProtoMessage() {}
 
 func (x *Dealer) ProtoReflect() protoreflect.Message {
-	mi := &file_recorder_provider_proto_msgTypes[18]
+	mi := &file_recorder_provider_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1747,7 +1823,7 @@ func (x *Dealer) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Dealer.ProtoReflect.Descriptor instead.
 func (*Dealer) Descriptor() ([]byte, []int) {
-	return file_recorder_provider_proto_rawDescGZIP(), []int{18}
+	return file_recorder_provider_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *Dealer) GetCode() string {
@@ -1827,7 +1903,7 @@ type ListDealersRequest struct {
 
 func (x *ListDealersRequest) Reset() {
 	*x = ListDealersRequest{}
-	mi := &file_recorder_provider_proto_msgTypes[19]
+	mi := &file_recorder_provider_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1839,7 +1915,7 @@ func (x *ListDealersRequest) String() string {
 func (*ListDealersRequest) ProtoMessage() {}
 
 func (x *ListDealersRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_recorder_provider_proto_msgTypes[19]
+	mi := &file_recorder_provider_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1852,7 +1928,7 @@ func (x *ListDealersRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListDealersRequest.ProtoReflect.Descriptor instead.
 func (*ListDealersRequest) Descriptor() ([]byte, []int) {
-	return file_recorder_provider_proto_rawDescGZIP(), []int{19}
+	return file_recorder_provider_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *ListDealersRequest) GetCodes() []string {
@@ -1889,7 +1965,7 @@ type ListDealersResponse struct {
 
 func (x *ListDealersResponse) Reset() {
 	*x = ListDealersResponse{}
-	mi := &file_recorder_provider_proto_msgTypes[20]
+	mi := &file_recorder_provider_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1901,7 +1977,7 @@ func (x *ListDealersResponse) String() string {
 func (*ListDealersResponse) ProtoMessage() {}
 
 func (x *ListDealersResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_recorder_provider_proto_msgTypes[20]
+	mi := &file_recorder_provider_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1914,7 +1990,7 @@ func (x *ListDealersResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListDealersResponse.ProtoReflect.Descriptor instead.
 func (*ListDealersResponse) Descriptor() ([]byte, []int) {
-	return file_recorder_provider_proto_rawDescGZIP(), []int{20}
+	return file_recorder_provider_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *ListDealersResponse) GetDealers() []*Dealer {
@@ -2077,7 +2153,16 @@ const file_recorder_provider_proto_rawDesc = "" +
 	"\x11VerifyGameRequest\x12\x1b\n" +
 	"\tgame_code\x18\x01 \x01(\tR\bgameCode\x12\x18\n" +
 	"\apattern\x18\x02 \x03(\tR\apattern\x12\x12\n" +
-	"\x04name\x18\x03 \x01(\tR\x04name\"\xee\x01\n" +
+	"\x04name\x18\x03 \x01(\tR\x04name\"\xb2\x01\n" +
+	"\x17InputLuckyRecordRequest\x12\x1b\n" +
+	"\tgame_type\x18\x01 \x01(\tR\bgameType\x12\x1b\n" +
+	"\tgame_code\x18\x02 \x01(\tR\bgameCode\x12\x1d\n" +
+	"\n" +
+	"round_shoe\x18\x03 \x01(\tR\troundShoe\x12\x1d\n" +
+	"\n" +
+	"round_code\x18\x04 \x01(\tR\troundCode\x12\x1f\n" +
+	"\vround_lucky\x18\x05 \x01(\tR\n" +
+	"roundLucky\"\xee\x01\n" +
 	"\x1aGamblerInstructionsRequest\x12\x1b\n" +
 	"\tgame_code\x18\x01 \x01(\tR\bgameCode\x12\x16\n" +
 	"\x06player\x18\x02 \x01(\tR\x06player\x12Z\n" +
@@ -2174,12 +2259,13 @@ const file_recorder_provider_proto_rawDesc = "" +
 	"ListRounds\x12\x1c.recorder.ListRecordsRequest\x1a\".recorder.ListRoundsRecordResponse\"\x1b\x82\xd3\xe4\x93\x02\x15\x12\x13/v1/provider/rounds\x12[\n" +
 	"\bGetRound\x12\x14.recorder.GetRequest\x1a\x15.recorder.RoundRecord\"\"\x82\xd3\xe4\x93\x02\x1c\x12\x1a/v1/recorder/rounds/{code}\x12p\n" +
 	"\x0fGetCurrentRound\x12!.recorder.GetCurrentRecordRequest\x1a\x15.recorder.RoundRecord\"#\x82\xd3\xe4\x93\x02\x1d\x12\x1b/v1/recorder/rounds:current\x12\x7f\n" +
-	"\x10GetPlayBackRound\x12!.recorder.GetRoundPlayBackRequest\x1a\".recorder.GetRoundPlayBackResponse\"$\x82\xd3\xe4\x93\x02\x1e\x12\x1c/v1/recorder/playback/{code}2\x98\x05\n" +
+	"\x10GetPlayBackRound\x12!.recorder.GetRoundPlayBackRequest\x1a\".recorder.GetRoundPlayBackResponse\"$\x82\xd3\xe4\x93\x02\x1e\x12\x1c/v1/recorder/playback/{code}2\x93\x06\n" +
 	"\x0fProviderService\x12`\n" +
 	"\tListGames\x12\x1a.recorder.ListGamesRequest\x1a\x1b.recorder.ListGamesResponse\"\x1a\x82\xd3\xe4\x93\x02\x14\x12\x12/v1/provider/games\x12Z\n" +
 	"\bGetGames\x12\x14.recorder.GetRequest\x1a\x15.recorder.GameProvide\"!\x82\xd3\xe4\x93\x02\x1b\x12\x19/v1/provider/games/{code}\x12s\n" +
 	"\n" +
-	"VerifyGame\x12\x1b.recorder.VerifyGameRequest\x1a\x16.google.protobuf.Empty\"0\x82\xd3\xe4\x93\x02*:\x01*\"%/v1/provider/games/{game_code}:verify\x12\x8a\x01\n" +
+	"VerifyGame\x12\x1b.recorder.VerifyGameRequest\x1a\x16.google.protobuf.Empty\"0\x82\xd3\xe4\x93\x02*:\x01*\"%/v1/provider/games/{game_code}:verify\x12y\n" +
+	"\x10InputLuckyRecord\x12!.recorder.InputLuckyRecordRequest\x1a\x16.google.protobuf.Empty\"*\x82\xd3\xe4\x93\x02$:\x01*\"\x1f/v1/provider/luckyRecords/input\x12\x8a\x01\n" +
 	"\x13GamblerInstructions\x12$.recorder.GamblerInstructionsRequest\x1a\x15.recorder.RoundRecord\"6\x82\xd3\xe4\x93\x020:\x01*\"+/v1/provider/games/{game_code}:instructions\x12k\n" +
 	"\vListDealers\x12\x1c.recorder.ListDealersRequest\x1a\x1d.recorder.ListDealersResponse\"\x1f\x82\xd3\xe4\x93\x02\x19:\x01*\"\x14/v1/provider/dealers\x12X\n" +
 	"\tGetDealer\x12\x14.recorder.GetRequest\x1a\x10.recorder.Dealer\"#\x82\xd3\xe4\x93\x02\x1d\x12\x1b/v1/provider/dealers/{code}B\x9e\x01\n" +
@@ -2198,7 +2284,7 @@ func file_recorder_provider_proto_rawDescGZIP() []byte {
 }
 
 var file_recorder_provider_proto_enumTypes = make([]protoimpl.EnumInfo, 4)
-var file_recorder_provider_proto_msgTypes = make([]protoimpl.MessageInfo, 37)
+var file_recorder_provider_proto_msgTypes = make([]protoimpl.MessageInfo, 38)
 var file_recorder_provider_proto_goTypes = []any{
 	(RoundStatusType)(0),               // 0: recorder.RoundStatusType
 	(InstructionCmdType)(0),            // 1: recorder.InstructionCmdType
@@ -2220,72 +2306,73 @@ var file_recorder_provider_proto_goTypes = []any{
 	(*ListGamesRequest)(nil),           // 17: recorder.ListGamesRequest
 	(*ListGamesResponse)(nil),          // 18: recorder.ListGamesResponse
 	(*VerifyGameRequest)(nil),          // 19: recorder.VerifyGameRequest
-	(*GamblerInstructionsRequest)(nil), // 20: recorder.GamblerInstructionsRequest
-	(*Article)(nil),                    // 21: recorder.Article
-	(*Dealer)(nil),                     // 22: recorder.Dealer
-	(*ListDealersRequest)(nil),         // 23: recorder.ListDealersRequest
-	(*ListDealersResponse)(nil),        // 24: recorder.ListDealersResponse
-	nil,                                // 25: recorder.GetRoundPlayBackResponse.MediasEntry
-	nil,                                // 26: recorder.RoundResult.SeatsEntry
-	nil,                                // 27: recorder.RoundResult.MediasEntry
-	nil,                                // 28: recorder.GameProvide.TagsEntry
-	nil,                                // 29: recorder.GameProvide.PlayersEntry
-	nil,                                // 30: recorder.GameProvide.DealersEntry
-	nil,                                // 31: recorder.GameProvide.PlayersNameEntry
-	nil,                                // 32: recorder.GameProvide.PlayersAvatarEntry
-	nil,                                // 33: recorder.GameProvide.PlayersBirthEntry
-	nil,                                // 34: recorder.GameProvide.PlayersLocationEntry
-	nil,                                // 35: recorder.GameProvide.MediasEntry
-	nil,                                // 36: recorder.GameProvide.LiveStreamsEntry
-	nil,                                // 37: recorder.GamblerInstructionsRequest.InstructionsEntry
-	nil,                                // 38: recorder.Article.MediasEntry
-	nil,                                // 39: recorder.Article.SectionsEntry
-	nil,                                // 40: recorder.Dealer.TagsEntry
-	(*timestamppb.Timestamp)(nil),      // 41: google.protobuf.Timestamp
-	(games.GameType)(0),                // 42: games.GameType
-	(*ShiftRecord)(nil),                // 43: recorder.ShiftRecord
-	(*ShoeRecord)(nil),                 // 44: recorder.ShoeRecord
-	(*RoundRecord)(nil),                // 45: recorder.RoundRecord
-	(*Seat)(nil),                       // 46: recorder.Seat
-	(*emptypb.Empty)(nil),              // 47: google.protobuf.Empty
+	(*InputLuckyRecordRequest)(nil),    // 20: recorder.InputLuckyRecordRequest
+	(*GamblerInstructionsRequest)(nil), // 21: recorder.GamblerInstructionsRequest
+	(*Article)(nil),                    // 22: recorder.Article
+	(*Dealer)(nil),                     // 23: recorder.Dealer
+	(*ListDealersRequest)(nil),         // 24: recorder.ListDealersRequest
+	(*ListDealersResponse)(nil),        // 25: recorder.ListDealersResponse
+	nil,                                // 26: recorder.GetRoundPlayBackResponse.MediasEntry
+	nil,                                // 27: recorder.RoundResult.SeatsEntry
+	nil,                                // 28: recorder.RoundResult.MediasEntry
+	nil,                                // 29: recorder.GameProvide.TagsEntry
+	nil,                                // 30: recorder.GameProvide.PlayersEntry
+	nil,                                // 31: recorder.GameProvide.DealersEntry
+	nil,                                // 32: recorder.GameProvide.PlayersNameEntry
+	nil,                                // 33: recorder.GameProvide.PlayersAvatarEntry
+	nil,                                // 34: recorder.GameProvide.PlayersBirthEntry
+	nil,                                // 35: recorder.GameProvide.PlayersLocationEntry
+	nil,                                // 36: recorder.GameProvide.MediasEntry
+	nil,                                // 37: recorder.GameProvide.LiveStreamsEntry
+	nil,                                // 38: recorder.GamblerInstructionsRequest.InstructionsEntry
+	nil,                                // 39: recorder.Article.MediasEntry
+	nil,                                // 40: recorder.Article.SectionsEntry
+	nil,                                // 41: recorder.Dealer.TagsEntry
+	(*timestamppb.Timestamp)(nil),      // 42: google.protobuf.Timestamp
+	(games.GameType)(0),                // 43: games.GameType
+	(*ShiftRecord)(nil),                // 44: recorder.ShiftRecord
+	(*ShoeRecord)(nil),                 // 45: recorder.ShoeRecord
+	(*RoundRecord)(nil),                // 46: recorder.RoundRecord
+	(*Seat)(nil),                       // 47: recorder.Seat
+	(*emptypb.Empty)(nil),              // 48: google.protobuf.Empty
 }
 var file_recorder_provider_proto_depIdxs = []int32{
-	41, // 0: recorder.ListRecordsRequest.ts_from:type_name -> google.protobuf.Timestamp
-	41, // 1: recorder.ListRecordsRequest.ts_to:type_name -> google.protobuf.Timestamp
-	42, // 2: recorder.ListRecordsRequest.game_type:type_name -> games.GameType
+	42, // 0: recorder.ListRecordsRequest.ts_from:type_name -> google.protobuf.Timestamp
+	42, // 1: recorder.ListRecordsRequest.ts_to:type_name -> google.protobuf.Timestamp
+	43, // 2: recorder.ListRecordsRequest.game_type:type_name -> games.GameType
 	0,  // 3: recorder.ListRecordsRequest.round_status_type:type_name -> recorder.RoundStatusType
-	43, // 4: recorder.ListShiftsResponse.shift_record:type_name -> recorder.ShiftRecord
-	44, // 5: recorder.ListShoesRecordResponse.shoe_record:type_name -> recorder.ShoeRecord
-	45, // 6: recorder.ListRoundsRecordResponse.round_record:type_name -> recorder.RoundRecord
-	41, // 7: recorder.GetRoundPlayBackResponse.ts_start:type_name -> google.protobuf.Timestamp
-	25, // 8: recorder.GetRoundPlayBackResponse.medias:type_name -> recorder.GetRoundPlayBackResponse.MediasEntry
+	44, // 4: recorder.ListShiftsResponse.shift_record:type_name -> recorder.ShiftRecord
+	45, // 5: recorder.ListShoesRecordResponse.shoe_record:type_name -> recorder.ShoeRecord
+	46, // 6: recorder.ListRoundsRecordResponse.round_record:type_name -> recorder.RoundRecord
+	42, // 7: recorder.GetRoundPlayBackResponse.ts_start:type_name -> google.protobuf.Timestamp
+	26, // 8: recorder.GetRoundPlayBackResponse.medias:type_name -> recorder.GetRoundPlayBackResponse.MediasEntry
 	14, // 9: recorder.GetRoundsByShoeResponse.round_records:type_name -> recorder.RoundResult
-	41, // 10: recorder.RoundResult.ts_start:type_name -> google.protobuf.Timestamp
-	26, // 11: recorder.RoundResult.seats:type_name -> recorder.RoundResult.SeatsEntry
-	41, // 12: recorder.RoundResult.ts_end:type_name -> google.protobuf.Timestamp
-	27, // 13: recorder.RoundResult.medias:type_name -> recorder.RoundResult.MediasEntry
-	28, // 14: recorder.GameProvide.tags:type_name -> recorder.GameProvide.TagsEntry
+	42, // 10: recorder.RoundResult.ts_start:type_name -> google.protobuf.Timestamp
+	27, // 11: recorder.RoundResult.seats:type_name -> recorder.RoundResult.SeatsEntry
+	42, // 12: recorder.RoundResult.ts_end:type_name -> google.protobuf.Timestamp
+	28, // 13: recorder.RoundResult.medias:type_name -> recorder.RoundResult.MediasEntry
+	29, // 14: recorder.GameProvide.tags:type_name -> recorder.GameProvide.TagsEntry
 	3,  // 15: recorder.GameProvide.state:type_name -> recorder.GameProvideState
-	29, // 16: recorder.GameProvide.players:type_name -> recorder.GameProvide.PlayersEntry
-	30, // 17: recorder.GameProvide.dealers:type_name -> recorder.GameProvide.DealersEntry
-	31, // 18: recorder.GameProvide.players_name:type_name -> recorder.GameProvide.PlayersNameEntry
-	32, // 19: recorder.GameProvide.players_avatar:type_name -> recorder.GameProvide.PlayersAvatarEntry
-	33, // 20: recorder.GameProvide.players_birth:type_name -> recorder.GameProvide.PlayersBirthEntry
-	34, // 21: recorder.GameProvide.players_location:type_name -> recorder.GameProvide.PlayersLocationEntry
-	35, // 22: recorder.GameProvide.medias:type_name -> recorder.GameProvide.MediasEntry
-	36, // 23: recorder.GameProvide.live_streams:type_name -> recorder.GameProvide.LiveStreamsEntry
+	30, // 16: recorder.GameProvide.players:type_name -> recorder.GameProvide.PlayersEntry
+	31, // 17: recorder.GameProvide.dealers:type_name -> recorder.GameProvide.DealersEntry
+	32, // 18: recorder.GameProvide.players_name:type_name -> recorder.GameProvide.PlayersNameEntry
+	33, // 19: recorder.GameProvide.players_avatar:type_name -> recorder.GameProvide.PlayersAvatarEntry
+	34, // 20: recorder.GameProvide.players_birth:type_name -> recorder.GameProvide.PlayersBirthEntry
+	35, // 21: recorder.GameProvide.players_location:type_name -> recorder.GameProvide.PlayersLocationEntry
+	36, // 22: recorder.GameProvide.medias:type_name -> recorder.GameProvide.MediasEntry
+	37, // 23: recorder.GameProvide.live_streams:type_name -> recorder.GameProvide.LiveStreamsEntry
 	16, // 24: recorder.ListGamesResponse.game_provides:type_name -> recorder.GameProvide
-	37, // 25: recorder.GamblerInstructionsRequest.instructions:type_name -> recorder.GamblerInstructionsRequest.InstructionsEntry
-	38, // 26: recorder.Article.medias:type_name -> recorder.Article.MediasEntry
-	39, // 27: recorder.Article.sections:type_name -> recorder.Article.SectionsEntry
-	40, // 28: recorder.Dealer.tags:type_name -> recorder.Dealer.TagsEntry
-	21, // 29: recorder.Dealer.intro:type_name -> recorder.Article
-	21, // 30: recorder.Dealer.posts:type_name -> recorder.Article
-	22, // 31: recorder.ListDealersResponse.dealers:type_name -> recorder.Dealer
-	46, // 32: recorder.RoundResult.SeatsEntry.value:type_name -> recorder.Seat
-	22, // 33: recorder.GameProvide.DealersEntry.value:type_name -> recorder.Dealer
+	38, // 25: recorder.GamblerInstructionsRequest.instructions:type_name -> recorder.GamblerInstructionsRequest.InstructionsEntry
+	39, // 26: recorder.Article.medias:type_name -> recorder.Article.MediasEntry
+	40, // 27: recorder.Article.sections:type_name -> recorder.Article.SectionsEntry
+	41, // 28: recorder.Dealer.tags:type_name -> recorder.Dealer.TagsEntry
+	22, // 29: recorder.Dealer.intro:type_name -> recorder.Article
+	22, // 30: recorder.Dealer.posts:type_name -> recorder.Article
+	23, // 31: recorder.ListDealersResponse.dealers:type_name -> recorder.Dealer
+	47, // 32: recorder.RoundResult.SeatsEntry.value:type_name -> recorder.Seat
+	23, // 33: recorder.GameProvide.DealersEntry.value:type_name -> recorder.Dealer
 	15, // 34: recorder.GameProvide.LiveStreamsEntry.value:type_name -> recorder.LiveStreamParams
-	21, // 35: recorder.Article.SectionsEntry.value:type_name -> recorder.Article
+	22, // 35: recorder.Article.SectionsEntry.value:type_name -> recorder.Article
 	8,  // 36: recorder.RecorderReadService.ListShifts:input_type -> recorder.ListRecordsRequest
 	4,  // 37: recorder.RecorderReadService.GetShift:input_type -> recorder.GetRequest
 	6,  // 38: recorder.RecorderReadService.GetCurrentShift:input_type -> recorder.GetCurrentRecordRequest
@@ -2300,28 +2387,30 @@ var file_recorder_provider_proto_depIdxs = []int32{
 	17, // 47: recorder.ProviderService.ListGames:input_type -> recorder.ListGamesRequest
 	4,  // 48: recorder.ProviderService.GetGames:input_type -> recorder.GetRequest
 	19, // 49: recorder.ProviderService.VerifyGame:input_type -> recorder.VerifyGameRequest
-	20, // 50: recorder.ProviderService.GamblerInstructions:input_type -> recorder.GamblerInstructionsRequest
-	23, // 51: recorder.ProviderService.ListDealers:input_type -> recorder.ListDealersRequest
-	4,  // 52: recorder.ProviderService.GetDealer:input_type -> recorder.GetRequest
-	9,  // 53: recorder.RecorderReadService.ListShifts:output_type -> recorder.ListShiftsResponse
-	43, // 54: recorder.RecorderReadService.GetShift:output_type -> recorder.ShiftRecord
-	43, // 55: recorder.RecorderReadService.GetCurrentShift:output_type -> recorder.ShiftRecord
-	10, // 56: recorder.RecorderReadService.ListShoe:output_type -> recorder.ListShoesRecordResponse
-	44, // 57: recorder.RecorderReadService.GetShoe:output_type -> recorder.ShoeRecord
-	44, // 58: recorder.RecorderReadService.GetCurrentShoe:output_type -> recorder.ShoeRecord
-	13, // 59: recorder.RecorderReadService.GetRoundsByShoe:output_type -> recorder.GetRoundsByShoeResponse
-	11, // 60: recorder.RecorderReadService.ListRounds:output_type -> recorder.ListRoundsRecordResponse
-	45, // 61: recorder.RecorderReadService.GetRound:output_type -> recorder.RoundRecord
-	45, // 62: recorder.RecorderReadService.GetCurrentRound:output_type -> recorder.RoundRecord
-	12, // 63: recorder.RecorderReadService.GetPlayBackRound:output_type -> recorder.GetRoundPlayBackResponse
-	18, // 64: recorder.ProviderService.ListGames:output_type -> recorder.ListGamesResponse
-	16, // 65: recorder.ProviderService.GetGames:output_type -> recorder.GameProvide
-	47, // 66: recorder.ProviderService.VerifyGame:output_type -> google.protobuf.Empty
-	45, // 67: recorder.ProviderService.GamblerInstructions:output_type -> recorder.RoundRecord
-	24, // 68: recorder.ProviderService.ListDealers:output_type -> recorder.ListDealersResponse
-	22, // 69: recorder.ProviderService.GetDealer:output_type -> recorder.Dealer
-	53, // [53:70] is the sub-list for method output_type
-	36, // [36:53] is the sub-list for method input_type
+	20, // 50: recorder.ProviderService.InputLuckyRecord:input_type -> recorder.InputLuckyRecordRequest
+	21, // 51: recorder.ProviderService.GamblerInstructions:input_type -> recorder.GamblerInstructionsRequest
+	24, // 52: recorder.ProviderService.ListDealers:input_type -> recorder.ListDealersRequest
+	4,  // 53: recorder.ProviderService.GetDealer:input_type -> recorder.GetRequest
+	9,  // 54: recorder.RecorderReadService.ListShifts:output_type -> recorder.ListShiftsResponse
+	44, // 55: recorder.RecorderReadService.GetShift:output_type -> recorder.ShiftRecord
+	44, // 56: recorder.RecorderReadService.GetCurrentShift:output_type -> recorder.ShiftRecord
+	10, // 57: recorder.RecorderReadService.ListShoe:output_type -> recorder.ListShoesRecordResponse
+	45, // 58: recorder.RecorderReadService.GetShoe:output_type -> recorder.ShoeRecord
+	45, // 59: recorder.RecorderReadService.GetCurrentShoe:output_type -> recorder.ShoeRecord
+	13, // 60: recorder.RecorderReadService.GetRoundsByShoe:output_type -> recorder.GetRoundsByShoeResponse
+	11, // 61: recorder.RecorderReadService.ListRounds:output_type -> recorder.ListRoundsRecordResponse
+	46, // 62: recorder.RecorderReadService.GetRound:output_type -> recorder.RoundRecord
+	46, // 63: recorder.RecorderReadService.GetCurrentRound:output_type -> recorder.RoundRecord
+	12, // 64: recorder.RecorderReadService.GetPlayBackRound:output_type -> recorder.GetRoundPlayBackResponse
+	18, // 65: recorder.ProviderService.ListGames:output_type -> recorder.ListGamesResponse
+	16, // 66: recorder.ProviderService.GetGames:output_type -> recorder.GameProvide
+	48, // 67: recorder.ProviderService.VerifyGame:output_type -> google.protobuf.Empty
+	48, // 68: recorder.ProviderService.InputLuckyRecord:output_type -> google.protobuf.Empty
+	46, // 69: recorder.ProviderService.GamblerInstructions:output_type -> recorder.RoundRecord
+	25, // 70: recorder.ProviderService.ListDealers:output_type -> recorder.ListDealersResponse
+	23, // 71: recorder.ProviderService.GetDealer:output_type -> recorder.Dealer
+	54, // [54:72] is the sub-list for method output_type
+	36, // [36:54] is the sub-list for method input_type
 	36, // [36:36] is the sub-list for extension type_name
 	36, // [36:36] is the sub-list for extension extendee
 	0,  // [0:36] is the sub-list for field type_name
@@ -2341,7 +2430,7 @@ func file_recorder_provider_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_recorder_provider_proto_rawDesc), len(file_recorder_provider_proto_rawDesc)),
 			NumEnums:      4,
-			NumMessages:   37,
+			NumMessages:   38,
 			NumExtensions: 0,
 			NumServices:   2,
 		},

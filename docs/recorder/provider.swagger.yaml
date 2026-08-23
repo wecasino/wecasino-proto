@@ -126,6 +126,26 @@ paths:
           required: true
           schema:
             $ref: '#/definitions/ProviderServiceVerifyGameBody'
+  /v1/provider/luckyRecords/input:
+    post:
+      summary: 輸入 幸運數字
+      operationId: ProviderService_InputLuckyRecord
+      responses:
+        "200":
+          description: A successful response.
+          schema:
+            type: object
+            properties: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/rpcStatus'
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/recorderInputLuckyRecordRequest'
   /v1/provider/rounds:
     get:
       summary: 讀牌局紀錄list
@@ -1171,6 +1191,19 @@ definitions:
           type: object
           $ref: '#/definitions/recorderRoundResult'
         title: roundResults
+  recorderInputLuckyRecordRequest:
+    type: object
+    properties:
+      gameType:
+        type: string
+      gameCode:
+        type: string
+      roundShoe:
+        type: string
+      roundCode:
+        type: string
+      roundLucky:
+        type: string
   recorderListDealersRequest:
     type: object
     properties:
