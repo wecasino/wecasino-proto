@@ -70,6 +70,9 @@ enum GameType {
 
 	// 百家樂 angle eye
 	BACCARATANGLEEYE = 52;
+  //百家樂2.5代
+  BACCARATRENOVATE=56;
+
 }
 
 enum FlowSeat {
