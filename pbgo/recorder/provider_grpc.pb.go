@@ -549,7 +549,7 @@ type ProviderServiceClient interface {
 	// 驗證
 	VerifyGame(ctx context.Context, in *VerifyGameRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	// 輸入 幸運數字
-	InputLuckyRecord(ctx context.Context, in *InputLuckyRecordRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	InputLuckyRecord(ctx context.Context, in *InputLuckyRecordRequest, opts ...grpc.CallOption) (*InputLuckyRecordResponse, error)
 	// 玩家指示
 	GamblerInstructions(ctx context.Context, in *GamblerInstructionsRequest, opts ...grpc.CallOption) (*RoundRecord, error)
 	// 荷官資料
@@ -596,9 +596,9 @@ func (c *providerServiceClient) VerifyGame(ctx context.Context, in *VerifyGameRe
 	return out, nil
 }
 
-func (c *providerServiceClient) InputLuckyRecord(ctx context.Context, in *InputLuckyRecordRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+func (c *providerServiceClient) InputLuckyRecord(ctx context.Context, in *InputLuckyRecordRequest, opts ...grpc.CallOption) (*InputLuckyRecordResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(emptypb.Empty)
+	out := new(InputLuckyRecordResponse)
 	err := c.cc.Invoke(ctx, ProviderService_InputLuckyRecord_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -650,7 +650,7 @@ type ProviderServiceServer interface {
 	// 驗證
 	VerifyGame(context.Context, *VerifyGameRequest) (*emptypb.Empty, error)
 	// 輸入 幸運數字
-	InputLuckyRecord(context.Context, *InputLuckyRecordRequest) (*emptypb.Empty, error)
+	InputLuckyRecord(context.Context, *InputLuckyRecordRequest) (*InputLuckyRecordResponse, error)
 	// 玩家指示
 	GamblerInstructions(context.Context, *GamblerInstructionsRequest) (*RoundRecord, error)
 	// 荷官資料
@@ -676,7 +676,7 @@ func (UnimplementedProviderServiceServer) GetGames(context.Context, *GetRequest)
 func (UnimplementedProviderServiceServer) VerifyGame(context.Context, *VerifyGameRequest) (*emptypb.Empty, error) {
 	return nil, status.Error(codes.Unimplemented, "method VerifyGame not implemented")
 }
-func (UnimplementedProviderServiceServer) InputLuckyRecord(context.Context, *InputLuckyRecordRequest) (*emptypb.Empty, error) {
+func (UnimplementedProviderServiceServer) InputLuckyRecord(context.Context, *InputLuckyRecordRequest) (*InputLuckyRecordResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method InputLuckyRecord not implemented")
 }
 func (UnimplementedProviderServiceServer) GamblerInstructions(context.Context, *GamblerInstructionsRequest) (*RoundRecord, error) {
