@@ -618,7 +618,6 @@ service ProviderService {
     };
   };
 
-
   // 輸入 幸運數字
   rpc InputLuckyRecord(InputLuckyRecordRequest) returns (InputLuckyRecordResponse){
     option (google.api.http) = {
