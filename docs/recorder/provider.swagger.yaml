@@ -134,8 +134,7 @@ paths:
         "200":
           description: A successful response.
           schema:
-            type: object
-            properties: {}
+            $ref: '#/definitions/recorderInputLuckyRecordResponse'
         default:
           description: An unexpected error response.
           schema:
@@ -1203,6 +1202,11 @@ definitions:
       roundCode:
         type: string
       roundLucky:
+        type: string
+  recorderInputLuckyRecordResponse:
+    type: object
+    properties:
+      status:
         type: string
   recorderListDealersRequest:
     type: object
