@@ -185,6 +185,8 @@ const (
 	Step_DEAL_PLAYER_2 Step = 6
 	// 派發莊家例牌2
 	Step_DEAL_BANKER_2 Step = 7
+	// 派發牌
+	Step_DEAL_CARDS Step = 35
 	// 開放下注
 	Step_ROUND_BET Step = 8
 	// 停止下注
@@ -243,6 +245,7 @@ var (
 		5:  "DEAL_BANKER_1",
 		6:  "DEAL_PLAYER_2",
 		7:  "DEAL_BANKER_2",
+		35: "DEAL_CARDS",
 		8:  "ROUND_BET",
 		9:  "NO_MORE_BET",
 		11: "SHOW_NORMAL",
@@ -276,6 +279,7 @@ var (
 		"DEAL_BANKER_1":               5,
 		"DEAL_PLAYER_2":               6,
 		"DEAL_BANKER_2":               7,
+		"DEAL_CARDS":                  35,
 		"ROUND_BET":                   8,
 		"NO_MORE_BET":                 9,
 		"SHOW_NORMAL":                 11,
@@ -405,7 +409,7 @@ const file_games_baccarat_record_proto_rawDesc = "" +
 	"\x19RESOURCE_TYPE_UNSPECIFIED\x10\x00\x12\n" +
 	"\n" +
 	"\x06NORMAL\x10\x01\x12\t\n" +
-	"\x05EXTRA\x10\x02*\xab\x05\n" +
+	"\x05EXTRA\x10\x02*\xbb\x05\n" +
 	"\x04Step\x12\x14\n" +
 	"\x10STEP_UNSPECIFIED\x10\x00\x12\x0f\n" +
 	"\vROUND_START\x10\x01\x12\x12\n" +
@@ -414,7 +418,9 @@ const file_games_baccarat_record_proto_rawDesc = "" +
 	"\rDEAL_PLAYER_1\x10\x04\x12\x11\n" +
 	"\rDEAL_BANKER_1\x10\x05\x12\x11\n" +
 	"\rDEAL_PLAYER_2\x10\x06\x12\x11\n" +
-	"\rDEAL_BANKER_2\x10\a\x12\r\n" +
+	"\rDEAL_BANKER_2\x10\a\x12\x0e\n" +
+	"\n" +
+	"DEAL_CARDS\x10#\x12\r\n" +
 	"\tROUND_BET\x10\b\x12\x0f\n" +
 	"\vNO_MORE_BET\x10\t\x12\x0f\n" +
 	"\vSHOW_NORMAL\x10\v\x12\x0f\n" +

@@ -79,6 +79,14 @@ public enum Step
   DEAL_BANKER_2(7),
   /**
    * <pre>
+   * 派發牌
+   * </pre>
+   *
+   * <code>DEAL_CARDS = 35;</code>
+   */
+  DEAL_CARDS(35),
+  /**
+   * <pre>
    * 開放下注
    * </pre>
    *
@@ -326,6 +334,14 @@ public enum Step
   public static final int DEAL_BANKER_2_VALUE = 7;
   /**
    * <pre>
+   * 派發牌
+   * </pre>
+   *
+   * <code>DEAL_CARDS = 35;</code>
+   */
+  public static final int DEAL_CARDS_VALUE = 35;
+  /**
+   * <pre>
    * 開放下注
    * </pre>
    *
@@ -538,6 +554,7 @@ public enum Step
       case 5: return DEAL_BANKER_1;
       case 6: return DEAL_PLAYER_2;
       case 7: return DEAL_BANKER_2;
+      case 35: return DEAL_CARDS;
       case 8: return ROUND_BET;
       case 9: return NO_MORE_BET;
       case 11: return SHOW_NORMAL;
