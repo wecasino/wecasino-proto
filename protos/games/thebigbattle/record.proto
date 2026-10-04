@@ -36,6 +36,9 @@ enum Step {
   // 捨牌1
   DEAL_DISCARD_1 = 4;
 
+  // 派發牌
+  DEAL_CARDS = 25;
+
   // 派發左側玩家手牌
   DEAL_LEFT = 8;
 
