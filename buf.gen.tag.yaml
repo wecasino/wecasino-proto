@@ -1,6 +1,6 @@
 version: v2
 plugins:  
-  - local: protoc-gen-gotag
+  - local: protoc-gen-gotag # 這個是給 protobuf-message -> go struct 加上tag 的套件語法工具
     out: .
     opt: 
       - outdir=pbgo
