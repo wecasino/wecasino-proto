@@ -14,6 +14,12 @@ enum GameType {
   // 百家樂自動流程
   BACCARAT3 = 51;
 
+  // 百家樂走地
+  BACCARATINPLAY = 52;
+
+  // 百家樂瞇牌
+  BACCARATPEEK = 53;
+
   // 龍虎鬥
   THEBIGBATTLE = 17;
 
