@@ -40,6 +40,22 @@ public enum GameType
   BACCARAT3(51),
   /**
    * <pre>
+   * 百家樂走地
+   * </pre>
+   *
+   * <code>BACCARATINPLAY = 52;</code>
+   */
+  BACCARATINPLAY(52),
+  /**
+   * <pre>
+   * 百家樂瞇牌
+   * </pre>
+   *
+   * <code>BACCARATPEEK = 53;</code>
+   */
+  BACCARATPEEK(53),
+  /**
+   * <pre>
    * 龍虎鬥
    * </pre>
    *
@@ -121,6 +137,22 @@ public enum GameType
    * <code>BACCARAT3 = 51;</code>
    */
   public static final int BACCARAT3_VALUE = 51;
+  /**
+   * <pre>
+   * 百家樂走地
+   * </pre>
+   *
+   * <code>BACCARATINPLAY = 52;</code>
+   */
+  public static final int BACCARATINPLAY_VALUE = 52;
+  /**
+   * <pre>
+   * 百家樂瞇牌
+   * </pre>
+   *
+   * <code>BACCARATPEEK = 53;</code>
+   */
+  public static final int BACCARATPEEK_VALUE = 53;
   /**
    * <pre>
    * 龍虎鬥
@@ -206,6 +238,8 @@ public enum GameType
       case 0: return GAME_TYPE_UNSPECIFIED;
       case 16: return BACCARAT;
       case 51: return BACCARAT3;
+      case 52: return BACCARATINPLAY;
+      case 53: return BACCARATPEEK;
       case 17: return THEBIGBATTLE;
       case 20: return FANTAN;
       case 32: return SICBO;

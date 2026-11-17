@@ -32,6 +32,10 @@ const (
 	GameType_BACCARAT GameType = 16
 	// 百家樂自動流程
 	GameType_BACCARAT3 GameType = 51
+	// 百家樂走地
+	GameType_BACCARATINPLAY GameType = 52
+	// 百家樂瞇牌
+	GameType_BACCARATPEEK GameType = 53
 	// 龍虎鬥
 	GameType_THEBIGBATTLE GameType = 17
 	// 番攤
@@ -54,6 +58,8 @@ var (
 		0:  "GAME_TYPE_UNSPECIFIED",
 		16: "BACCARAT",
 		51: "BACCARAT3",
+		52: "BACCARATINPLAY",
+		53: "BACCARATPEEK",
 		17: "THEBIGBATTLE",
 		20: "FANTAN",
 		32: "SICBO",
@@ -66,6 +72,8 @@ var (
 		"GAME_TYPE_UNSPECIFIED": 0,
 		"BACCARAT":              16,
 		"BACCARAT3":             51,
+		"BACCARATINPLAY":        52,
+		"BACCARATPEEK":          53,
 		"THEBIGBATTLE":          17,
 		"FANTAN":                20,
 		"SICBO":                 32,
@@ -343,11 +351,13 @@ var File_games_games_proto protoreflect.FileDescriptor
 
 const file_games_games_proto_rawDesc = "" +
 	"\n" +
-	"\x11games/games.proto\x12\x05games*\xa0\x01\n" +
+	"\x11games/games.proto\x12\x05games*\xc6\x01\n" +
 	"\bGameType\x12\x19\n" +
 	"\x15GAME_TYPE_UNSPECIFIED\x10\x00\x12\f\n" +
 	"\bBACCARAT\x10\x10\x12\r\n" +
-	"\tBACCARAT3\x103\x12\x10\n" +
+	"\tBACCARAT3\x103\x12\x12\n" +
+	"\x0eBACCARATINPLAY\x104\x12\x10\n" +
+	"\fBACCARATPEEK\x105\x12\x10\n" +
 	"\fTHEBIGBATTLE\x10\x11\x12\n" +
 	"\n" +
 	"\x06FANTAN\x10\x14\x12\t\n" +
