@@ -1,47 +1,30 @@
 {
-  "name": "@wecasino/wecasino-proto",
-  "version": "1.11.1",
-  "description": "wecasino typescript esnext lib",
-  "type": "module",
+  "name": "@wecasino/wecasino-proto-workspace",
+  "version": "1.0.0",
+  "description": "wecasino protobuf",
   "author": "Sky",
-  "repository": "https://github.com/wecasino/wecasino-proto",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com",
-    "git-checks": false
-  },
-  "main": "dist/index.cjs",
-  "types": "dist/index.d.ts",
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
-    }
-  },
-  "files": [
-    "dist"
-  ],
+  "private": true,
   "scripts": {
-    "gen:buf": "buf generate",
-    "gen:gotag": "buf generate --template buf.gen.tag.yaml",
-    "build": "tsdown",
-    "typecheck": "tsc -p tsconfig.json --noEmit",
-    "clean": "rm -rf dist",
+    "buf:gen": "buf generate",
+    "buf:tag": "buf generate --template buf.gen.tag.yaml",
+    "build": "pnpm buf:gen && turbo run build",
+    "build:pkg": "turbo run build",
+    "typecheck": "turbo run typecheck",
+    "clean": "turbo run clean",
+    "publish:js": "pnpm -r --filter '@wecasino/wecasino-proto' publish --no-git-checks",
     "swagger": "docker run -p 8080:8080 -e SWAGGER_JSON=/docs/recorder/provider.swagger.yaml -v ${PWD}/docs:/docs swaggerapi/swagger-ui"
   },
   "engines": {
     "node": ">=24.0.0"
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "git-checks": false
+  },
+  "packageManager": "pnpm@9.1.1+sha512.14e915759c11f77eac07faba4d019c193ec8637229e62ec99eefb7cf3c3b75c64447882b7c485142451ee3a6b408059cdfb7b7fa0341b975f12d0f7629c71195",
   "devDependencies": {
     "@bufbuild/buf": "^1.42.0",
-    "tsdown": "^0.15.12",
+    "turbo": "^2.9.3",
     "typescript": "^6.0.2"
-  },
-  "dependencies": {
-    "@bufbuild/protobuf": "^2.17.0"
-  },
-  "peerDependencies": {
-    "@bufbuild/protobuf": "^2.17.0"
-  },
-  "packageManager": "pnpm@9.1.1+sha512.14e915759c11f77eac07faba4d019c193ec8637229e62ec99eefb7cf3c3b75c64447882b7c485142451ee3a6b408059cdfb7b7fa0341b975f12d0f7629c71195"
+  }
 }

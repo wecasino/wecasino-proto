@@ -1,0 +1,4 @@
+
+> @wecasino/wecasino-proto@1.14.1 typecheck /Users/sky/wecasino/wecasino-proto/es
+> tsc -p tsconfig.json --noEmit
+

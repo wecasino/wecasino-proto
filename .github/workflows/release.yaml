@@ -103,7 +103,11 @@ jobs:
       - name: Setup Buf
         uses: bufbuild/buf-action@v1
         with:
-          setup_only: true
+          push: false
+          breaking: false
+
+      - name: Generate protobuf files
+        run: buf generate
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
@@ -118,13 +122,17 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Update package version
-        run: pnpm version "${{ needs.version.outputs.package_version }}" --no-git-tag-version
+      - name: Update es package version
+        run: |
+          cd es && pnpm version "${{ needs.version.outputs.package_version }}" --no-git-tag-version
 
-      - name: Publish npm package
+      - name: Build es library
+        run: pnpm --filter '@wecasino/wecasino-proto' run build
+
+      - name: Publish es library
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: pnpm publish --no-git-checks
+        run: pnpm run publish:js
 
       - name: Collect release metadata
         id: meta

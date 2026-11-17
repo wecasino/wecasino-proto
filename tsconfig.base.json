@@ -7,11 +7,6 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
-    "isolatedModules": true,
-    "module": "ESNext",
-    "moduleResolution": "Bundler",
-    "noEmit": true
-  },
-  "include": ["es/src"],
-  "exclude": ["node_modules"]
+    "isolatedModules": true
+  }
 }

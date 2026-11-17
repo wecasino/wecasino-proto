@@ -1,0 +1,54 @@
+{
+  "name": "@wecasino/wecasino-proto",
+  "version": "1.14.1",
+  "description": "Shared protobuf types for wecasino",
+  "type": "module",
+  "main": "dist/index.cjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsdown",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "keywords": [
+    "protobuf",
+    "grpc",
+    "api",
+    "wecasino",
+    "types",
+    "shared"
+  ],
+  "author": "Sky",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wecasino/wecasino-proto.git",
+    "directory": "es"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "git-checks": false
+  },
+  "devDependencies": {
+    "tsdown": "^0.23.7",
+    "typescript": "^6.0.2"
+  },
+  "dependencies": {
+    "@bufbuild/protobuf": "^2.17.0"
+  },
+  "peerDependencies": {
+    "@bufbuild/protobuf": "^2.17.0"
+  }
+}
