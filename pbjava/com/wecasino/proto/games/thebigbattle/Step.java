@@ -55,6 +55,14 @@ public enum Step
   DEAL_DISCARD_1(4),
   /**
    * <pre>
+   * 派發牌
+   * </pre>
+   *
+   * <code>DEAL_CARDS = 25;</code>
+   */
+  DEAL_CARDS(25),
+  /**
+   * <pre>
    * 派發左側玩家手牌
    * </pre>
    *
@@ -166,6 +174,14 @@ public enum Step
   public static final int DEAL_DISCARD_1_VALUE = 4;
   /**
    * <pre>
+   * 派發牌
+   * </pre>
+   *
+   * <code>DEAL_CARDS = 25;</code>
+   */
+  public static final int DEAL_CARDS_VALUE = 25;
+  /**
+   * <pre>
    * 派發左側玩家手牌
    * </pre>
    *
@@ -263,6 +279,7 @@ public enum Step
       case 2: return ROUND_FINISHED;
       case 3: return SHOW_FIRST_CARD;
       case 4: return DEAL_DISCARD_1;
+      case 25: return DEAL_CARDS;
       case 8: return DEAL_LEFT;
       case 9: return DEAL_RIGHT;
       case 12: return ROUND_BET;

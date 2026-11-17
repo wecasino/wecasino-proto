@@ -95,6 +95,8 @@ const (
 	Step_SHOW_FIRST_CARD Step = 3
 	// 捨牌1
 	Step_DEAL_DISCARD_1 Step = 4
+	// 派發牌
+	Step_DEAL_CARDS Step = 25
 	// 派發左側玩家手牌
 	Step_DEAL_LEFT Step = 8
 	// 派發右側玩家手牌
@@ -122,6 +124,7 @@ var (
 		2:  "ROUND_FINISHED",
 		3:  "SHOW_FIRST_CARD",
 		4:  "DEAL_DISCARD_1",
+		25: "DEAL_CARDS",
 		8:  "DEAL_LEFT",
 		9:  "DEAL_RIGHT",
 		12: "ROUND_BET",
@@ -138,6 +141,7 @@ var (
 		"ROUND_FINISHED":        2,
 		"SHOW_FIRST_CARD":       3,
 		"DEAL_DISCARD_1":        4,
+		"DEAL_CARDS":            25,
 		"DEAL_LEFT":             8,
 		"DEAL_RIGHT":            9,
 		"ROUND_BET":             12,
@@ -187,13 +191,15 @@ const file_games_thebigbattle_record_proto_rawDesc = "" +
 	"\x14THEBIGBATTLE_CLASSIC\x10\x01\x12\x16\n" +
 	"\x12THEBIGBATTLE_SPEED\x10\x03\x12\x1b\n" +
 	"\x17THEBIGBATTLE_BLOCKCHAIN\x10\x10\x12!\n" +
-	"\x1dTHEBIGBATTLE_SPEED_BLOCKCHAIN\x10\x12*\x86\x02\n" +
+	"\x1dTHEBIGBATTLE_SPEED_BLOCKCHAIN\x10\x12*\x96\x02\n" +
 	"\x04Step\x12\x14\n" +
 	"\x10STEP_UNSPECIFIED\x10\x00\x12\x0f\n" +
 	"\vROUND_START\x10\x01\x12\x12\n" +
 	"\x0eROUND_FINISHED\x10\x02\x12\x13\n" +
 	"\x0fSHOW_FIRST_CARD\x10\x03\x12\x12\n" +
-	"\x0eDEAL_DISCARD_1\x10\x04\x12\r\n" +
+	"\x0eDEAL_DISCARD_1\x10\x04\x12\x0e\n" +
+	"\n" +
+	"DEAL_CARDS\x10\x19\x12\r\n" +
 	"\tDEAL_LEFT\x10\b\x12\x0e\n" +
 	"\n" +
 	"DEAL_RIGHT\x10\t\x12\r\n" +

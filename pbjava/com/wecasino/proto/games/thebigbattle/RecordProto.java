@@ -29,19 +29,20 @@ public final class RecordProto {
       "ATTLE_TYPE_UNSPECIFIED\020\000\022\030\n\024THEBIGBATTLE" +
       "_CLASSIC\020\001\022\026\n\022THEBIGBATTLE_SPEED\020\003\022\033\n\027TH" +
       "EBIGBATTLE_BLOCKCHAIN\020\020\022!\n\035THEBIGBATTLE_" +
-      "SPEED_BLOCKCHAIN\020\022*\206\002\n\004Step\022\024\n\020STEP_UNSP" +
+      "SPEED_BLOCKCHAIN\020\022*\226\002\n\004Step\022\024\n\020STEP_UNSP" +
       "ECIFIED\020\000\022\017\n\013ROUND_START\020\001\022\022\n\016ROUND_FINI" +
       "SHED\020\002\022\023\n\017SHOW_FIRST_CARD\020\003\022\022\n\016DEAL_DISC" +
-      "ARD_1\020\004\022\r\n\tDEAL_LEFT\020\010\022\016\n\nDEAL_RIGHT\020\t\022\r" +
-      "\n\tROUND_BET\020\014\022\017\n\013NO_MORE_BET\020\r\022\r\n\tSHOW_H" +
-      "AND\020\020\022\r\n\tSHOW_LEFT\020\021\022\016\n\nSHOW_RIGHT\020\022\022\022\n\016" +
-      "DEALER_CONFIRM\020\024\022\031\n\025PITBOSS_MODIFY_NORMA" +
-      "L\020\030B\331\001\n%com.wecasino.proto.games.thebigb" +
-      "attleB\013RecordProtoP\001Z:github.com/wecasin" +
-      "o/wecasino-proto/pbgo/games/thebigbattle" +
-      "\242\002\003GTX\252\002\022Games.Thebigbattle\312\002\022Games\\Theb" +
-      "igbattle\342\002\036Games\\Thebigbattle\\GPBMetadat" +
-      "a\352\002\023Games::Thebigbattleb\006proto3"
+      "ARD_1\020\004\022\016\n\nDEAL_CARDS\020\031\022\r\n\tDEAL_LEFT\020\010\022\016" +
+      "\n\nDEAL_RIGHT\020\t\022\r\n\tROUND_BET\020\014\022\017\n\013NO_MORE" +
+      "_BET\020\r\022\r\n\tSHOW_HAND\020\020\022\r\n\tSHOW_LEFT\020\021\022\016\n\n" +
+      "SHOW_RIGHT\020\022\022\022\n\016DEALER_CONFIRM\020\024\022\031\n\025PITB" +
+      "OSS_MODIFY_NORMAL\020\030B\331\001\n%com.wecasino.pro" +
+      "to.games.thebigbattleB\013RecordProtoP\001Z:gi" +
+      "thub.com/wecasino/wecasino-proto/pbgo/ga" +
+      "mes/thebigbattle\242\002\003GTX\252\002\022Games.Thebigbat" +
+      "tle\312\002\022Games\\Thebigbattle\342\002\036Games\\Thebigb" +
+      "attle\\GPBMetadata\352\002\023Games::Thebigbattleb" +
+      "\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
