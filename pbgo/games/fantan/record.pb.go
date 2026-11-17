@@ -28,21 +28,17 @@ const (
 	GameSubtype_FANTAN_TYPE_UNSPECIFIED GameSubtype = 0
 	// 番攤
 	GameSubtype_FANTAN_CLASSIC GameSubtype = 1
-	// 區塊鏈番攤
-	GameSubtype_FANTAN_BLOCKCHAIN GameSubtype = 16
 )
 
 // Enum value maps for GameSubtype.
 var (
 	GameSubtype_name = map[int32]string{
-		0:  "FANTAN_TYPE_UNSPECIFIED",
-		1:  "FANTAN_CLASSIC",
-		16: "FANTAN_BLOCKCHAIN",
+		0: "FANTAN_TYPE_UNSPECIFIED",
+		1: "FANTAN_CLASSIC",
 	}
 	GameSubtype_value = map[string]int32{
 		"FANTAN_TYPE_UNSPECIFIED": 0,
 		"FANTAN_CLASSIC":          1,
-		"FANTAN_BLOCKCHAIN":       16,
 	}
 )
 
@@ -83,8 +79,6 @@ const (
 	Step_ROUND_START Step = 1
 	// 本局完成
 	Step_ROUND_FINISHED Step = 2
-	// 本局取消
-	Step_ROUND_CANCELED Step = 3
 	// 開放下注
 	Step_ROUND_BET Step = 4
 	// 停止下注
@@ -101,7 +95,6 @@ var (
 		0:  "STEP_UNSPECIFIED",
 		1:  "ROUND_START",
 		2:  "ROUND_FINISHED",
-		3:  "ROUND_CANCELED",
 		4:  "ROUND_BET",
 		5:  "NO_MORE_BET",
 		8:  "GRAB_DICE_AMOUNT",
@@ -111,7 +104,6 @@ var (
 		"STEP_UNSPECIFIED":    0,
 		"ROUND_START":         1,
 		"ROUND_FINISHED":      2,
-		"ROUND_CANCELED":      3,
 		"ROUND_BET":           4,
 		"NO_MORE_BET":         5,
 		"GRAB_DICE_AMOUNT":    8,
@@ -150,16 +142,14 @@ var File_games_fantan_record_proto protoreflect.FileDescriptor
 
 const file_games_fantan_record_proto_rawDesc = "" +
 	"\n" +
-	"\x19games/fantan/record.proto\x12\fgames.fantan*U\n" +
+	"\x19games/fantan/record.proto\x12\fgames.fantan*>\n" +
 	"\vGameSubtype\x12\x1b\n" +
 	"\x17FANTAN_TYPE_UNSPECIFIED\x10\x00\x12\x12\n" +
-	"\x0eFANTAN_CLASSIC\x10\x01\x12\x15\n" +
-	"\x11FANTAN_BLOCKCHAIN\x10\x10*\xa4\x01\n" +
+	"\x0eFANTAN_CLASSIC\x10\x01*\x90\x01\n" +
 	"\x04Step\x12\x14\n" +
 	"\x10STEP_UNSPECIFIED\x10\x00\x12\x0f\n" +
 	"\vROUND_START\x10\x01\x12\x12\n" +
-	"\x0eROUND_FINISHED\x10\x02\x12\x12\n" +
-	"\x0eROUND_CANCELED\x10\x03\x12\r\n" +
+	"\x0eROUND_FINISHED\x10\x02\x12\r\n" +
 	"\tROUND_BET\x10\x04\x12\x0f\n" +
 	"\vNO_MORE_BET\x10\x05\x12\x14\n" +
 	"\x10GRAB_DICE_AMOUNT\x10\b\x12\x17\n" +

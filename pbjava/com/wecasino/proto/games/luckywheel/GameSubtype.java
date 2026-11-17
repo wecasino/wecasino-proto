@@ -19,20 +19,12 @@ public enum GameSubtype
   LUCKYWHEEL_TYPE_UNSPECIFIED(0),
   /**
    * <pre>
-   * 麻將幸運輪
+   * 經典幸運輪
    * </pre>
    *
-   * <code>LUCKYWHEEL_MAHJONG = 1;</code>
+   * <code>LUCKYWHEEL_CLASSIC = 1;</code>
    */
-  LUCKYWHEEL_MAHJONG(1),
-  /**
-   * <pre>
-   * 彩虹幸運輪
-   * </pre>
-   *
-   * <code>LUCKYWHEEL_RAINBOW = 2;</code>
-   */
-  LUCKYWHEEL_RAINBOW(2),
+  LUCKYWHEEL_CLASSIC(1),
   UNRECOGNIZED(-1),
   ;
 
@@ -46,20 +38,12 @@ public enum GameSubtype
   public static final int LUCKYWHEEL_TYPE_UNSPECIFIED_VALUE = 0;
   /**
    * <pre>
-   * 麻將幸運輪
+   * 經典幸運輪
    * </pre>
    *
-   * <code>LUCKYWHEEL_MAHJONG = 1;</code>
+   * <code>LUCKYWHEEL_CLASSIC = 1;</code>
    */
-  public static final int LUCKYWHEEL_MAHJONG_VALUE = 1;
-  /**
-   * <pre>
-   * 彩虹幸運輪
-   * </pre>
-   *
-   * <code>LUCKYWHEEL_RAINBOW = 2;</code>
-   */
-  public static final int LUCKYWHEEL_RAINBOW_VALUE = 2;
+  public static final int LUCKYWHEEL_CLASSIC_VALUE = 1;
 
 
   public final int getNumber() {
@@ -87,8 +71,7 @@ public enum GameSubtype
   public static GameSubtype forNumber(int value) {
     switch (value) {
       case 0: return LUCKYWHEEL_TYPE_UNSPECIFIED;
-      case 1: return LUCKYWHEEL_MAHJONG;
-      case 2: return LUCKYWHEEL_RAINBOW;
+      case 1: return LUCKYWHEEL_CLASSIC;
       default: return null;
     }
   }

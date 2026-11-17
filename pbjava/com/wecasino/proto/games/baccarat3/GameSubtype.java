@@ -89,30 +89,6 @@ public enum GameSubtype
    * <code>BACCARAT_TREE = 13;</code>
    */
   BACCARAT_TREE(13),
-  /**
-   * <pre>
-   * 區塊鏈百家樂
-   * </pre>
-   *
-   * <code>BACCARAT_BLOCKCHAIN = 16;</code>
-   */
-  BACCARAT_BLOCKCHAIN(16),
-  /**
-   * <pre>
-   * 區塊鏈極速百家樂
-   * </pre>
-   *
-   * <code>BACCARAT_SPEED_BLOCKCHAIN = 18;</code>
-   */
-  BACCARAT_SPEED_BLOCKCHAIN(18),
-  /**
-   * <pre>
-   * 區塊鏈瞇牌百家樂
-   * </pre>
-   *
-   * <code>BACCARAT_PEEK_BLOCKCHAIN = 24;</code>
-   */
-  BACCARAT_PEEK_BLOCKCHAIN(24),
   UNRECOGNIZED(-1),
   ;
 
@@ -196,30 +172,6 @@ public enum GameSubtype
    * <code>BACCARAT_TREE = 13;</code>
    */
   public static final int BACCARAT_TREE_VALUE = 13;
-  /**
-   * <pre>
-   * 區塊鏈百家樂
-   * </pre>
-   *
-   * <code>BACCARAT_BLOCKCHAIN = 16;</code>
-   */
-  public static final int BACCARAT_BLOCKCHAIN_VALUE = 16;
-  /**
-   * <pre>
-   * 區塊鏈極速百家樂
-   * </pre>
-   *
-   * <code>BACCARAT_SPEED_BLOCKCHAIN = 18;</code>
-   */
-  public static final int BACCARAT_SPEED_BLOCKCHAIN_VALUE = 18;
-  /**
-   * <pre>
-   * 區塊鏈瞇牌百家樂
-   * </pre>
-   *
-   * <code>BACCARAT_PEEK_BLOCKCHAIN = 24;</code>
-   */
-  public static final int BACCARAT_PEEK_BLOCKCHAIN_VALUE = 24;
 
 
   public final int getNumber() {
@@ -256,9 +208,6 @@ public enum GameSubtype
       case 9: return BACCARAT_PEEKONE;
       case 12: return BACCARAT_FORTUNE;
       case 13: return BACCARAT_TREE;
-      case 16: return BACCARAT_BLOCKCHAIN;
-      case 18: return BACCARAT_SPEED_BLOCKCHAIN;
-      case 24: return BACCARAT_PEEK_BLOCKCHAIN;
       default: return null;
     }
   }

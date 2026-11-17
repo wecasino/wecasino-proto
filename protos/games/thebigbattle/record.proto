@@ -8,14 +8,6 @@ enum GameSubtype {
   // 經典
   THEBIGBATTLE_CLASSIC = 1;
 
-  // 極速龍虎
-  THEBIGBATTLE_SPEED = 3;
-
-  // 區塊鏈龍虎
-  THEBIGBATTLE_BLOCKCHAIN = 16;
-  
-  // 區塊鏈極速龍虎
-  THEBIGBATTLE_SPEED_BLOCKCHAIN = 18;
 }
 
 // 步驟，依據遊戲供應商邏輯，不是每個步驟都會走到
@@ -62,6 +54,4 @@ enum Step {
 
   DEALER_CONFIRM = 20;
 
-  // PITBOSS 修改派發手牌
-  PITBOSS_MODIFY_NORMAL = 24;
 }

@@ -27,14 +27,6 @@ public enum GameSubtype
   BACCARAT_CLASSIC(1),
   /**
    * <pre>
-   * 傳統百家樂
-   * </pre>
-   *
-   * <code>BACCARAT_TRADITIONAL = 2;</code>
-   */
-  BACCARAT_TRADITIONAL(2),
-  /**
-   * <pre>
    * 極速百家樂
    * </pre>
    *
@@ -59,22 +51,6 @@ public enum GameSubtype
   BACCARAT_FOREVER9(5),
   /**
    * <pre>
-   * 瞇牌百家樂
-   * </pre>
-   *
-   * <code>BACCARAT_PEEK = 8;</code>
-   */
-  BACCARAT_PEEK(8),
-  /**
-   * <pre>
-   * 瞇牌百家樂(開一張牌謎一張牌)
-   * </pre>
-   *
-   * <code>BACCARAT_PEEKONE = 9;</code>
-   */
-  BACCARAT_PEEKONE(9),
-  /**
-   * <pre>
    * 財神百家樂
    * </pre>
    *
@@ -89,38 +65,6 @@ public enum GameSubtype
    * <code>BACCARAT_TREE = 13;</code>
    */
   BACCARAT_TREE(13),
-  /**
-   * <pre>
-   * 走地百家樂
-   * </pre>
-   *
-   * <code>BACCARAT_INPLAY = 15;</code>
-   */
-  BACCARAT_INPLAY(15),
-  /**
-   * <pre>
-   * 區塊鏈百家樂
-   * </pre>
-   *
-   * <code>BACCARAT_BLOCKCHAIN = 16;</code>
-   */
-  BACCARAT_BLOCKCHAIN(16),
-  /**
-   * <pre>
-   * 區塊鏈極速百家樂
-   * </pre>
-   *
-   * <code>BACCARAT_SPEED_BLOCKCHAIN = 18;</code>
-   */
-  BACCARAT_SPEED_BLOCKCHAIN(18),
-  /**
-   * <pre>
-   * 區塊鏈瞇牌百家樂
-   * </pre>
-   *
-   * <code>BACCARAT_PEEK_BLOCKCHAIN = 24;</code>
-   */
-  BACCARAT_PEEK_BLOCKCHAIN(24),
   UNRECOGNIZED(-1),
   ;
 
@@ -140,14 +84,6 @@ public enum GameSubtype
    * <code>BACCARAT_CLASSIC = 1;</code>
    */
   public static final int BACCARAT_CLASSIC_VALUE = 1;
-  /**
-   * <pre>
-   * 傳統百家樂
-   * </pre>
-   *
-   * <code>BACCARAT_TRADITIONAL = 2;</code>
-   */
-  public static final int BACCARAT_TRADITIONAL_VALUE = 2;
   /**
    * <pre>
    * 極速百家樂
@@ -174,22 +110,6 @@ public enum GameSubtype
   public static final int BACCARAT_FOREVER9_VALUE = 5;
   /**
    * <pre>
-   * 瞇牌百家樂
-   * </pre>
-   *
-   * <code>BACCARAT_PEEK = 8;</code>
-   */
-  public static final int BACCARAT_PEEK_VALUE = 8;
-  /**
-   * <pre>
-   * 瞇牌百家樂(開一張牌謎一張牌)
-   * </pre>
-   *
-   * <code>BACCARAT_PEEKONE = 9;</code>
-   */
-  public static final int BACCARAT_PEEKONE_VALUE = 9;
-  /**
-   * <pre>
    * 財神百家樂
    * </pre>
    *
@@ -204,38 +124,6 @@ public enum GameSubtype
    * <code>BACCARAT_TREE = 13;</code>
    */
   public static final int BACCARAT_TREE_VALUE = 13;
-  /**
-   * <pre>
-   * 走地百家樂
-   * </pre>
-   *
-   * <code>BACCARAT_INPLAY = 15;</code>
-   */
-  public static final int BACCARAT_INPLAY_VALUE = 15;
-  /**
-   * <pre>
-   * 區塊鏈百家樂
-   * </pre>
-   *
-   * <code>BACCARAT_BLOCKCHAIN = 16;</code>
-   */
-  public static final int BACCARAT_BLOCKCHAIN_VALUE = 16;
-  /**
-   * <pre>
-   * 區塊鏈極速百家樂
-   * </pre>
-   *
-   * <code>BACCARAT_SPEED_BLOCKCHAIN = 18;</code>
-   */
-  public static final int BACCARAT_SPEED_BLOCKCHAIN_VALUE = 18;
-  /**
-   * <pre>
-   * 區塊鏈瞇牌百家樂
-   * </pre>
-   *
-   * <code>BACCARAT_PEEK_BLOCKCHAIN = 24;</code>
-   */
-  public static final int BACCARAT_PEEK_BLOCKCHAIN_VALUE = 24;
 
 
   public final int getNumber() {
@@ -264,18 +152,11 @@ public enum GameSubtype
     switch (value) {
       case 0: return BACCARAT_TYPE_UNSPECIFIED;
       case 1: return BACCARAT_CLASSIC;
-      case 2: return BACCARAT_TRADITIONAL;
       case 3: return BACCARAT_SPEED;
       case 4: return BACCARAT_FOREVER8;
       case 5: return BACCARAT_FOREVER9;
-      case 8: return BACCARAT_PEEK;
-      case 9: return BACCARAT_PEEKONE;
       case 12: return BACCARAT_FORTUNE;
       case 13: return BACCARAT_TREE;
-      case 15: return BACCARAT_INPLAY;
-      case 16: return BACCARAT_BLOCKCHAIN;
-      case 18: return BACCARAT_SPEED_BLOCKCHAIN;
-      case 24: return BACCARAT_PEEK_BLOCKCHAIN;
       default: return null;
     }
   }

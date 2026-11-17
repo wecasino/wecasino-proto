@@ -39,14 +39,6 @@ public enum Step
   ROUND_FINISHED(2),
   /**
    * <pre>
-   * 本局取消
-   * </pre>
-   *
-   * <code>ROUND_CANCELED = 3;</code>
-   */
-  ROUND_CANCELED(3),
-  /**
-   * <pre>
    * 開放下注
    * </pre>
    *
@@ -77,14 +69,6 @@ public enum Step
    * <code>DEALER_CONFIRM = 10;</code>
    */
   DEALER_CONFIRM(10),
-  /**
-   * <pre>
-   * PITBOSS 修改骰點
-   * </pre>
-   *
-   * <code>PITBOSS_MODIFY_BOWL = 16;</code>
-   */
-  PITBOSS_MODIFY_BOWL(16),
   UNRECOGNIZED(-1),
   ;
 
@@ -112,14 +96,6 @@ public enum Step
    * <code>ROUND_FINISHED = 2;</code>
    */
   public static final int ROUND_FINISHED_VALUE = 2;
-  /**
-   * <pre>
-   * 本局取消
-   * </pre>
-   *
-   * <code>ROUND_CANCELED = 3;</code>
-   */
-  public static final int ROUND_CANCELED_VALUE = 3;
   /**
    * <pre>
    * 開放下注
@@ -152,14 +128,6 @@ public enum Step
    * <code>DEALER_CONFIRM = 10;</code>
    */
   public static final int DEALER_CONFIRM_VALUE = 10;
-  /**
-   * <pre>
-   * PITBOSS 修改骰點
-   * </pre>
-   *
-   * <code>PITBOSS_MODIFY_BOWL = 16;</code>
-   */
-  public static final int PITBOSS_MODIFY_BOWL_VALUE = 16;
 
 
   public final int getNumber() {
@@ -189,12 +157,10 @@ public enum Step
       case 0: return STEP_UNSPECIFIED;
       case 1: return ROUND_START;
       case 2: return ROUND_FINISHED;
-      case 3: return ROUND_CANCELED;
       case 4: return ROUND_BET;
       case 5: return NO_MORE_BET;
       case 8: return SPIN_WHEEL;
       case 10: return DEALER_CONFIRM;
-      case 16: return PITBOSS_MODIFY_BOWL;
       default: return null;
     }
   }

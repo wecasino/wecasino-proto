@@ -1,12 +1,17 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "declaration": true,
-    "outDir": "es/lib",
+    "target": "ES2022",
+    "lib": ["ES2022"],
     "strict": true,
-    "module": "esnext",
-    "moduleResolution": "bundler",
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "noEmit": true
   },
-  "include": ["es/src/*.ts"],
-  "exclude": ["node_modules", "**/__tests__/*"]
+  "include": ["es/src"],
+  "exclude": ["node_modules"]
 }

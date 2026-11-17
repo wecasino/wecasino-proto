@@ -26,23 +26,19 @@ type GameSubtype int32
 const (
 	// 未指定
 	GameSubtype_LUCKYWHEEL_TYPE_UNSPECIFIED GameSubtype = 0
-	// 麻將幸運輪
-	GameSubtype_LUCKYWHEEL_MAHJONG GameSubtype = 1
-	// 彩虹幸運輪
-	GameSubtype_LUCKYWHEEL_RAINBOW GameSubtype = 2
+	// 經典幸運輪
+	GameSubtype_LUCKYWHEEL_CLASSIC GameSubtype = 1
 )
 
 // Enum value maps for GameSubtype.
 var (
 	GameSubtype_name = map[int32]string{
 		0: "LUCKYWHEEL_TYPE_UNSPECIFIED",
-		1: "LUCKYWHEEL_MAHJONG",
-		2: "LUCKYWHEEL_RAINBOW",
+		1: "LUCKYWHEEL_CLASSIC",
 	}
 	GameSubtype_value = map[string]int32{
 		"LUCKYWHEEL_TYPE_UNSPECIFIED": 0,
-		"LUCKYWHEEL_MAHJONG":          1,
-		"LUCKYWHEEL_RAINBOW":          2,
+		"LUCKYWHEEL_CLASSIC":          1,
 	}
 )
 
@@ -83,39 +79,31 @@ const (
 	Step_ROUND_START Step = 1
 	// 本局完成
 	Step_ROUND_FINISHED Step = 2
-	// 本局取消
-	Step_ROUND_CANCELED Step = 3
 	// 開放下注
 	Step_ROUND_BET Step = 4
 	// 停止下注
 	Step_NO_MORE_BET Step = 5
 	// 轉盤
 	Step_SPIN_WHEEL Step = 8
-	// PITBOSS 修改骰點
-	Step_PITBOSS_MODIFY_BOWL Step = 16
 )
 
 // Enum value maps for Step.
 var (
 	Step_name = map[int32]string{
-		0:  "STEP_UNSPECIFIED",
-		1:  "ROUND_START",
-		2:  "ROUND_FINISHED",
-		3:  "ROUND_CANCELED",
-		4:  "ROUND_BET",
-		5:  "NO_MORE_BET",
-		8:  "SPIN_WHEEL",
-		16: "PITBOSS_MODIFY_BOWL",
+		0: "STEP_UNSPECIFIED",
+		1: "ROUND_START",
+		2: "ROUND_FINISHED",
+		4: "ROUND_BET",
+		5: "NO_MORE_BET",
+		8: "SPIN_WHEEL",
 	}
 	Step_value = map[string]int32{
-		"STEP_UNSPECIFIED":    0,
-		"ROUND_START":         1,
-		"ROUND_FINISHED":      2,
-		"ROUND_CANCELED":      3,
-		"ROUND_BET":           4,
-		"NO_MORE_BET":         5,
-		"SPIN_WHEEL":          8,
-		"PITBOSS_MODIFY_BOWL": 16,
+		"STEP_UNSPECIFIED": 0,
+		"ROUND_START":      1,
+		"ROUND_FINISHED":   2,
+		"ROUND_BET":        4,
+		"NO_MORE_BET":      5,
+		"SPIN_WHEEL":       8,
 	}
 )
 
@@ -150,21 +138,18 @@ var File_games_luckywheel_record_proto protoreflect.FileDescriptor
 
 const file_games_luckywheel_record_proto_rawDesc = "" +
 	"\n" +
-	"\x1dgames/luckywheel/record.proto\x12\x10games.luckywheel*^\n" +
+	"\x1dgames/luckywheel/record.proto\x12\x10games.luckywheel*F\n" +
 	"\vGameSubtype\x12\x1f\n" +
 	"\x1bLUCKYWHEEL_TYPE_UNSPECIFIED\x10\x00\x12\x16\n" +
-	"\x12LUCKYWHEEL_MAHJONG\x10\x01\x12\x16\n" +
-	"\x12LUCKYWHEEL_RAINBOW\x10\x02*\x9e\x01\n" +
+	"\x12LUCKYWHEEL_CLASSIC\x10\x01*q\n" +
 	"\x04Step\x12\x14\n" +
 	"\x10STEP_UNSPECIFIED\x10\x00\x12\x0f\n" +
 	"\vROUND_START\x10\x01\x12\x12\n" +
-	"\x0eROUND_FINISHED\x10\x02\x12\x12\n" +
-	"\x0eROUND_CANCELED\x10\x03\x12\r\n" +
+	"\x0eROUND_FINISHED\x10\x02\x12\r\n" +
 	"\tROUND_BET\x10\x04\x12\x0f\n" +
 	"\vNO_MORE_BET\x10\x05\x12\x0e\n" +
 	"\n" +
-	"SPIN_WHEEL\x10\b\x12\x17\n" +
-	"\x13PITBOSS_MODIFY_BOWL\x10\x10B\xcd\x01\n" +
+	"SPIN_WHEEL\x10\bB\xcd\x01\n" +
 	"#com.wecasino.proto.games.luckywheelB\vRecordProtoP\x01Z8github.com/wecasino/wecasino-proto/pbgo/games/luckywheel\xa2\x02\x03GLX\xaa\x02\x10Games.Luckywheel\xca\x02\x10Games\\Luckywheel\xe2\x02\x1cGames\\Luckywheel\\GPBMetadata\xea\x02\x11Games::Luckywheelb\x06proto3"
 
 var (

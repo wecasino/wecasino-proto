@@ -30,27 +30,19 @@ const (
 	GameSubtype_SICBO_CLASSIC GameSubtype = 1
 	// 財神骰寶(超級骰寶)
 	GameSubtype_SICBO_FORTUNE GameSubtype = 2
-	// 泰式骰寶
-	GameSubtype_SICBO_THAISICBAO GameSubtype = 3
-	// 區塊鏈骰寶
-	GameSubtype_SICBO_BLOCKCHAIN GameSubtype = 16
 )
 
 // Enum value maps for GameSubtype.
 var (
 	GameSubtype_name = map[int32]string{
-		0:  "SICBO_TYPE_UNSPECIFIED",
-		1:  "SICBO_CLASSIC",
-		2:  "SICBO_FORTUNE",
-		3:  "SICBO_THAISICBAO",
-		16: "SICBO_BLOCKCHAIN",
+		0: "SICBO_TYPE_UNSPECIFIED",
+		1: "SICBO_CLASSIC",
+		2: "SICBO_FORTUNE",
 	}
 	GameSubtype_value = map[string]int32{
 		"SICBO_TYPE_UNSPECIFIED": 0,
 		"SICBO_CLASSIC":          1,
 		"SICBO_FORTUNE":          2,
-		"SICBO_THAISICBAO":       3,
-		"SICBO_BLOCKCHAIN":       16,
 	}
 )
 
@@ -91,39 +83,31 @@ const (
 	Step_ROUND_START Step = 1
 	// 本局完成
 	Step_ROUND_FINISHED Step = 2
-	// 本局取消
-	Step_ROUND_CANCELED Step = 3
 	// 開放下注
 	Step_ROUND_BET Step = 4
 	// 停止下注
 	Step_NO_MORE_BET Step = 5
 	// 擲骰
 	Step_THROW_DICE Step = 8
-	// PITBOSS 修改骰點
-	Step_PITBOSS_MODIFY_BOWL Step = 16
 )
 
 // Enum value maps for Step.
 var (
 	Step_name = map[int32]string{
-		0:  "STEP_UNSPECIFIED",
-		1:  "ROUND_START",
-		2:  "ROUND_FINISHED",
-		3:  "ROUND_CANCELED",
-		4:  "ROUND_BET",
-		5:  "NO_MORE_BET",
-		8:  "THROW_DICE",
-		16: "PITBOSS_MODIFY_BOWL",
+		0: "STEP_UNSPECIFIED",
+		1: "ROUND_START",
+		2: "ROUND_FINISHED",
+		4: "ROUND_BET",
+		5: "NO_MORE_BET",
+		8: "THROW_DICE",
 	}
 	Step_value = map[string]int32{
-		"STEP_UNSPECIFIED":    0,
-		"ROUND_START":         1,
-		"ROUND_FINISHED":      2,
-		"ROUND_CANCELED":      3,
-		"ROUND_BET":           4,
-		"NO_MORE_BET":         5,
-		"THROW_DICE":          8,
-		"PITBOSS_MODIFY_BOWL": 16,
+		"STEP_UNSPECIFIED": 0,
+		"ROUND_START":      1,
+		"ROUND_FINISHED":   2,
+		"ROUND_BET":        4,
+		"NO_MORE_BET":      5,
+		"THROW_DICE":       8,
 	}
 )
 
@@ -158,23 +142,19 @@ var File_games_sicbo_record_proto protoreflect.FileDescriptor
 
 const file_games_sicbo_record_proto_rawDesc = "" +
 	"\n" +
-	"\x18games/sicbo/record.proto\x12\vgames.sicbo*{\n" +
+	"\x18games/sicbo/record.proto\x12\vgames.sicbo*O\n" +
 	"\vGameSubtype\x12\x1a\n" +
 	"\x16SICBO_TYPE_UNSPECIFIED\x10\x00\x12\x11\n" +
 	"\rSICBO_CLASSIC\x10\x01\x12\x11\n" +
-	"\rSICBO_FORTUNE\x10\x02\x12\x14\n" +
-	"\x10SICBO_THAISICBAO\x10\x03\x12\x14\n" +
-	"\x10SICBO_BLOCKCHAIN\x10\x10*\x9e\x01\n" +
+	"\rSICBO_FORTUNE\x10\x02*q\n" +
 	"\x04Step\x12\x14\n" +
 	"\x10STEP_UNSPECIFIED\x10\x00\x12\x0f\n" +
 	"\vROUND_START\x10\x01\x12\x12\n" +
-	"\x0eROUND_FINISHED\x10\x02\x12\x12\n" +
-	"\x0eROUND_CANCELED\x10\x03\x12\r\n" +
+	"\x0eROUND_FINISHED\x10\x02\x12\r\n" +
 	"\tROUND_BET\x10\x04\x12\x0f\n" +
 	"\vNO_MORE_BET\x10\x05\x12\x0e\n" +
 	"\n" +
-	"THROW_DICE\x10\b\x12\x17\n" +
-	"\x13PITBOSS_MODIFY_BOWL\x10\x10B\xaf\x01\n" +
+	"THROW_DICE\x10\bB\xaf\x01\n" +
 	"\x1ecom.wecasino.proto.games.sicboB\vRecordProtoP\x01Z3github.com/wecasino/wecasino-proto/pbgo/games/sicbo\xa2\x02\x03GSX\xaa\x02\vGames.Sicbo\xca\x02\vGames\\Sicbo\xe2\x02\x17Games\\Sicbo\\GPBMetadata\xea\x02\fGames::Sicbob\x06proto3"
 
 var (

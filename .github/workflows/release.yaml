@@ -1,0 +1,159 @@
+name: Release
+
+run-name: Release ${{ inputs.core_version || 'prd' }}
+
+# 只接受 workflow_dispatch。用 GITHUB_TOKEN 推 vX.Y.Z 後，同一次執行繼續發布。
+# GITHUB_TOKEN 推上去的 tag 不會再觸發 workflow，所以沒有 push:tags 入口。
+# 版本只有 prd 的 vX.Y.Z。Go module 隨 git tag 發布。
+
+on:
+  workflow_dispatch:
+    inputs:
+      core_version:
+        description: '正式版號 vX.Y.Z。留空則取最新 vX.Y.Z 的 patch +1'
+        required: false
+        type: string
+
+permissions:
+  contents: write
+  packages: write
+
+jobs:
+  version:
+    name: Resolve prd version
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.gen.outputs.version }}
+      package_version: ${{ steps.gen.outputs.package_version }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          fetch-tags: true
+
+      - name: Resolve vX.Y.Z
+        id: gen
+        env:
+          INPUT_CORE: ${{ inputs.core_version }}
+        run: |
+          if [ -n "$INPUT_CORE" ]; then
+            CORE="${INPUT_CORE#v}"
+            if [[ ! "$CORE" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+              echo "版本號須為 vX.Y.Z"
+              exit 1
+            fi
+          else
+            LATEST=$(git tag -l 'v*' \
+              | grep -E '^v[0-9]+\.[0-9]+\.[0-9]+$' \
+              | sed 's/^v//' \
+              | sort -V | tail -1)
+            if [ -z "$LATEST" ]; then
+              echo "找不到既有 vX.Y.Z，請指定版本號"
+              exit 1
+            fi
+            IFS=. read -r MAJOR MINOR PATCH <<< "$LATEST"
+            CORE="${MAJOR}.${MINOR}.$((PATCH + 1))"
+            echo "最新版 v${LATEST} → v${CORE}"
+          fi
+
+          TAG="v${CORE}"
+          if git rev-parse "$TAG" >/dev/null 2>&1; then
+            echo "tag $TAG 已存在，請指定新的版本號"
+            exit 1
+          fi
+
+          echo "version=$TAG" >> "$GITHUB_OUTPUT"
+          echo "package_version=$CORE" >> "$GITHUB_OUTPUT"
+          echo "prd $TAG"
+
+  gate:
+    name: Gate — prd
+    needs: version
+    runs-on: ubuntu-latest
+    environment:
+      name: prd
+    steps:
+      - name: Confirm prd release
+        run: echo "version=${{ needs.version.outputs.version }}"
+
+  tag:
+    name: Push tag
+    needs: [version, gate]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Push tag
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git tag "${{ needs.version.outputs.version }}"
+          git push origin "${{ needs.version.outputs.version }}"
+
+  publish:
+    name: Publish libraries
+    needs: [version, tag]
+    runs-on: ubuntu-latest
+    outputs:
+      package_version: ${{ steps.meta.outputs.package_version }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Buf
+        uses: bufbuild/buf-action@v1
+        with:
+          setup_only: true
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@wecasino'
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Update package version
+        run: pnpm version "${{ needs.version.outputs.package_version }}" --no-git-tag-version
+
+      - name: Publish npm package
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: pnpm publish --no-git-checks
+
+      - name: Collect release metadata
+        id: meta
+        run: echo "package_version=${{ needs.version.outputs.package_version }}" >> "$GITHUB_OUTPUT"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ needs.version.outputs.version }}
+          name: wecasino-proto ${{ needs.version.outputs.version }}
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  notify:
+    name: Slack notify
+    needs: [version, publish]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Post release message to Slack
+        uses: slackapi/slack-github-action@v4.0.0
+        with:
+          method: chat.postMessage
+          token: ${{ secrets.SLACK_BOT_TOKEN }}
+          payload: |
+            channel: ${{ secrets.SLACK_CHANNEL_ID }}
+            text: |
+              [ PRD ]
+              wecasino-proto prd 發布完成
+              Version: `${{ needs.version.outputs.version }}`
+              Release: ${{ github.server_url }}/${{ github.repository }}/releases/tag/${{ needs.version.outputs.version }}
+              npm: `@wecasino/wecasino-proto@${{ needs.publish.outputs.package_version }}`（GitHub Packages）

@@ -30,48 +30,22 @@ const (
 	GameType_GAME_TYPE_UNSPECIFIED GameType = 0
 	// 百家樂
 	GameType_BACCARAT GameType = 16
-	// 百家樂新發牌方式
-	GameType_BACCARAT2 GameType = 50
 	// 百家樂自動流程
 	GameType_BACCARAT3 GameType = 51
 	// 龍虎鬥
 	GameType_THEBIGBATTLE GameType = 17
-	// 炸金花
-	GameType_THREECARDS GameType = 18
-	// 牛牛
-	GameType_BULLFIGHT GameType = 19
 	// 番攤
 	GameType_FANTAN GameType = 20
 	// 骰寶
 	GameType_SICBO GameType = 32
-	// 色彩遊戲
-	GameType_COLORGAME GameType = 33
-	// 丟球遊戲
-	GameType_DROPBALL GameType = 34
+	// 百家寶
+	GameType_BACBO GameType = 33
 	// 輪盤
 	GameType_ROULETTE GameType = 36
 	// 幸運輪
 	GameType_LUCKYWHEEL GameType = 40
 	// 越南色碟
 	GameType_XOCDIA GameType = 41
-	// 色彩遊戲JACKPOT
-	GameType_COLORGAME_JACKPOT GameType = 42
-	// ONELUCKYNINE
-	GameType_ONELUCKYNINE GameType = 43
-	// HILO
-	GameType_HILO GameType = 44
-	// SAKLA
-	GameType_SAKLA GameType = 45
-	// CARACRUZ
-	GameType_CARACRUZ GameType = 46
-	// 開牌百家樂
-	GameType_BACCARATSTEP GameType = 47
-	// 百家寶
-	GameType_BACBO GameType = 48
-	// 百家樂 angle eye
-	GameType_BACCARATANGLEEYE GameType = 52
-	// 百家樂2.5代
-	GameType_BACCARATRENOVATE GameType = 56
 )
 
 // Enum value maps for GameType.
@@ -79,52 +53,26 @@ var (
 	GameType_name = map[int32]string{
 		0:  "GAME_TYPE_UNSPECIFIED",
 		16: "BACCARAT",
-		50: "BACCARAT2",
 		51: "BACCARAT3",
 		17: "THEBIGBATTLE",
-		18: "THREECARDS",
-		19: "BULLFIGHT",
 		20: "FANTAN",
 		32: "SICBO",
-		33: "COLORGAME",
-		34: "DROPBALL",
+		33: "BACBO",
 		36: "ROULETTE",
 		40: "LUCKYWHEEL",
 		41: "XOCDIA",
-		42: "COLORGAME_JACKPOT",
-		43: "ONELUCKYNINE",
-		44: "HILO",
-		45: "SAKLA",
-		46: "CARACRUZ",
-		47: "BACCARATSTEP",
-		48: "BACBO",
-		52: "BACCARATANGLEEYE",
-		56: "BACCARATRENOVATE",
 	}
 	GameType_value = map[string]int32{
 		"GAME_TYPE_UNSPECIFIED": 0,
 		"BACCARAT":              16,
-		"BACCARAT2":             50,
 		"BACCARAT3":             51,
 		"THEBIGBATTLE":          17,
-		"THREECARDS":            18,
-		"BULLFIGHT":             19,
 		"FANTAN":                20,
 		"SICBO":                 32,
-		"COLORGAME":             33,
-		"DROPBALL":              34,
+		"BACBO":                 33,
 		"ROULETTE":              36,
 		"LUCKYWHEEL":            40,
 		"XOCDIA":                41,
-		"COLORGAME_JACKPOT":     42,
-		"ONELUCKYNINE":          43,
-		"HILO":                  44,
-		"SAKLA":                 45,
-		"CARACRUZ":              46,
-		"BACCARATSTEP":          47,
-		"BACBO":                 48,
-		"BACCARATANGLEEYE":      52,
-		"BACCARATRENOVATE":      56,
 	}
 )
 
@@ -395,35 +343,21 @@ var File_games_games_proto protoreflect.FileDescriptor
 
 const file_games_games_proto_rawDesc = "" +
 	"\n" +
-	"\x11games/games.proto\x12\x05games*\xf5\x02\n" +
+	"\x11games/games.proto\x12\x05games*\xa0\x01\n" +
 	"\bGameType\x12\x19\n" +
 	"\x15GAME_TYPE_UNSPECIFIED\x10\x00\x12\f\n" +
 	"\bBACCARAT\x10\x10\x12\r\n" +
-	"\tBACCARAT2\x102\x12\r\n" +
 	"\tBACCARAT3\x103\x12\x10\n" +
-	"\fTHEBIGBATTLE\x10\x11\x12\x0e\n" +
-	"\n" +
-	"THREECARDS\x10\x12\x12\r\n" +
-	"\tBULLFIGHT\x10\x13\x12\n" +
+	"\fTHEBIGBATTLE\x10\x11\x12\n" +
 	"\n" +
 	"\x06FANTAN\x10\x14\x12\t\n" +
-	"\x05SICBO\x10 \x12\r\n" +
-	"\tCOLORGAME\x10!\x12\f\n" +
-	"\bDROPBALL\x10\"\x12\f\n" +
+	"\x05SICBO\x10 \x12\t\n" +
+	"\x05BACBO\x10!\x12\f\n" +
 	"\bROULETTE\x10$\x12\x0e\n" +
 	"\n" +
 	"LUCKYWHEEL\x10(\x12\n" +
 	"\n" +
-	"\x06XOCDIA\x10)\x12\x15\n" +
-	"\x11COLORGAME_JACKPOT\x10*\x12\x10\n" +
-	"\fONELUCKYNINE\x10+\x12\b\n" +
-	"\x04HILO\x10,\x12\t\n" +
-	"\x05SAKLA\x10-\x12\f\n" +
-	"\bCARACRUZ\x10.\x12\x10\n" +
-	"\fBACCARATSTEP\x10/\x12\t\n" +
-	"\x05BACBO\x100\x12\x14\n" +
-	"\x10BACCARATANGLEEYE\x104\x12\x14\n" +
-	"\x10BACCARATRENOVATE\x108*\xac\x02\n" +
+	"\x06XOCDIA\x10)*\xac\x02\n" +
 	"\bFlowSeat\x12\x14\n" +
 	"\x10SEAT_UNSPECIFIED\x10\x00\x12\f\n" +
 	"\bDEALER_A\x102\x12\x15\n" +

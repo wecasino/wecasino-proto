@@ -25,22 +25,20 @@ public final class RecordProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\033games/roulette/record.proto\022\016games.rou" +
-      "lette*y\n\013GameSubtype\022\035\n\031ROULETTE_TYPE_UN" +
+      "lette*X\n\013GameSubtype\022\035\n\031ROULETTE_TYPE_UN" +
       "SPECIFIED\020\000\022\024\n\020ROULETTE_CLASSIC\020\001\022\024\n\020ROU" +
-      "LETTE_FORTUNE\020\002\022\037\n\033ROULETTE_CLASSIC_BLOC" +
-      "KCHAIN\020\020*\262\001\n\004Step\022\024\n\020STEP_UNSPECIFIED\020\000\022" +
-      "\017\n\013ROUND_START\020\001\022\022\n\016ROUND_FINISHED\020\002\022\022\n\016" +
-      "ROUND_CANCELED\020\003\022\r\n\tROUND_BET\020\004\022\017\n\013NO_MO" +
-      "RE_BET\020\005\022\016\n\nSPIN_WHEEL\020\010\022\022\n\016DEALER_CONFI" +
-      "RM\020\n\022\027\n\023PITBOSS_MODIFY_BOWL\020\020*c\n\020ResultR" +
-      "ecordType\022\"\n\036RESULT_RECORD_TYPE_UNSPECIF" +
-      "IED\020\000\022\020\n\014ROUND_FINISH\020\001\022\031\n\025PITBOSS_MODIF" +
-      "Y_RESULT\020\002B\301\001\n!com.wecasino.proto.games." +
-      "rouletteB\013RecordProtoP\001Z6github.com/weca" +
-      "sino/wecasino-proto/pbgo/games/roulette\242" +
-      "\002\003GRX\252\002\016Games.Roulette\312\002\016Games\\Roulette\342" +
-      "\002\032Games\\Roulette\\GPBMetadata\352\002\017Games::Ro" +
-      "uletteb\006proto3"
+      "LETTE_FORTUNE\020\002*\205\001\n\004Step\022\024\n\020STEP_UNSPECI" +
+      "FIED\020\000\022\017\n\013ROUND_START\020\001\022\022\n\016ROUND_FINISHE" +
+      "D\020\002\022\r\n\tROUND_BET\020\004\022\017\n\013NO_MORE_BET\020\005\022\016\n\nS" +
+      "PIN_WHEEL\020\010\022\022\n\016DEALER_CONFIRM\020\n*c\n\020Resul" +
+      "tRecordType\022\"\n\036RESULT_RECORD_TYPE_UNSPEC" +
+      "IFIED\020\000\022\020\n\014ROUND_FINISH\020\001\022\031\n\025PITBOSS_MOD" +
+      "IFY_RESULT\020\002B\301\001\n!com.wecasino.proto.game" +
+      "s.rouletteB\013RecordProtoP\001Z6github.com/we" +
+      "casino/wecasino-proto/pbgo/games/roulett" +
+      "e\242\002\003GRX\252\002\016Games.Roulette\312\002\016Games\\Roulett" +
+      "e\342\002\032Games\\Roulette\\GPBMetadata\352\002\017Games::" +
+      "Rouletteb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

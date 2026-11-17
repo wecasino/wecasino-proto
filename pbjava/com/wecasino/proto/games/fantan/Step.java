@@ -39,14 +39,6 @@ public enum Step
   ROUND_FINISHED(2),
   /**
    * <pre>
-   * 本局取消
-   * </pre>
-   *
-   * <code>ROUND_CANCELED = 3;</code>
-   */
-  ROUND_CANCELED(3),
-  /**
-   * <pre>
    * 開放下注
    * </pre>
    *
@@ -104,14 +96,6 @@ public enum Step
    * <code>ROUND_FINISHED = 2;</code>
    */
   public static final int ROUND_FINISHED_VALUE = 2;
-  /**
-   * <pre>
-   * 本局取消
-   * </pre>
-   *
-   * <code>ROUND_CANCELED = 3;</code>
-   */
-  public static final int ROUND_CANCELED_VALUE = 3;
   /**
    * <pre>
    * 開放下注
@@ -173,7 +157,6 @@ public enum Step
       case 0: return STEP_UNSPECIFIED;
       case 1: return ROUND_START;
       case 2: return ROUND_FINISHED;
-      case 3: return ROUND_CANCELED;
       case 4: return ROUND_BET;
       case 5: return NO_MORE_BET;
       case 8: return GRAB_DICE_AMOUNT;

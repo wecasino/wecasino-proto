@@ -1,6 +1,4 @@
-#!/bin/bash
+.PHONY: proto
 
-.PHONY: genproto
-
-genproto:
+proto:
 	buf generate && buf generate --template buf.gen.tag.yaml

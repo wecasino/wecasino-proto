@@ -32,14 +32,6 @@ public enum GameType
   BACCARAT(16),
   /**
    * <pre>
-   * 百家樂新發牌方式
-   * </pre>
-   *
-   * <code>BACCARAT2 = 50;</code>
-   */
-  BACCARAT2(50),
-  /**
-   * <pre>
    * 百家樂自動流程
    * </pre>
    *
@@ -54,22 +46,6 @@ public enum GameType
    * <code>THEBIGBATTLE = 17;</code>
    */
   THEBIGBATTLE(17),
-  /**
-   * <pre>
-   * 炸金花
-   * </pre>
-   *
-   * <code>THREECARDS = 18;</code>
-   */
-  THREECARDS(18),
-  /**
-   * <pre>
-   * 牛牛
-   * </pre>
-   *
-   * <code>BULLFIGHT = 19;</code>
-   */
-  BULLFIGHT(19),
   /**
    * <pre>
    * 番攤
@@ -88,20 +64,12 @@ public enum GameType
   SICBO(32),
   /**
    * <pre>
-   * 色彩遊戲
+   * 百家寶
    * </pre>
    *
-   * <code>COLORGAME = 33;</code>
+   * <code>BACBO = 33;</code>
    */
-  COLORGAME(33),
-  /**
-   * <pre>
-   * 丟球遊戲
-   * </pre>
-   *
-   * <code>DROPBALL = 34;</code>
-   */
-  DROPBALL(34),
+  BACBO(33),
   /**
    * <pre>
    * 輪盤
@@ -126,78 +94,6 @@ public enum GameType
    * <code>XOCDIA = 41;</code>
    */
   XOCDIA(41),
-  /**
-   * <pre>
-   * 色彩遊戲JACKPOT
-   * </pre>
-   *
-   * <code>COLORGAME_JACKPOT = 42;</code>
-   */
-  COLORGAME_JACKPOT(42),
-  /**
-   * <pre>
-   * ONELUCKYNINE
-   * </pre>
-   *
-   * <code>ONELUCKYNINE = 43;</code>
-   */
-  ONELUCKYNINE(43),
-  /**
-   * <pre>
-   * HILO
-   * </pre>
-   *
-   * <code>HILO = 44;</code>
-   */
-  HILO(44),
-  /**
-   * <pre>
-   * SAKLA
-   * </pre>
-   *
-   * <code>SAKLA = 45;</code>
-   */
-  SAKLA(45),
-  /**
-   * <pre>
-   * CARACRUZ
-   * </pre>
-   *
-   * <code>CARACRUZ = 46;</code>
-   */
-  CARACRUZ(46),
-  /**
-   * <pre>
-   * 開牌百家樂
-   * </pre>
-   *
-   * <code>BACCARATSTEP = 47;</code>
-   */
-  BACCARATSTEP(47),
-  /**
-   * <pre>
-   * 百家寶
-   * </pre>
-   *
-   * <code>BACBO = 48;</code>
-   */
-  BACBO(48),
-  /**
-   * <pre>
-   * 百家樂 angle eye
-   * </pre>
-   *
-   * <code>BACCARATANGLEEYE = 52;</code>
-   */
-  BACCARATANGLEEYE(52),
-  /**
-   * <pre>
-   *百家樂2.5代
-   * </pre>
-   *
-   * <code>BACCARATRENOVATE = 56;</code>
-   */
-  BACCARATRENOVATE(56),
   UNRECOGNIZED(-1),
   ;
 
@@ -219,14 +115,6 @@ public enum GameType
   public static final int BACCARAT_VALUE = 16;
   /**
    * <pre>
-   * 百家樂新發牌方式
-   * </pre>
-   *
-   * <code>BACCARAT2 = 50;</code>
-   */
-  public static final int BACCARAT2_VALUE = 50;
-  /**
-   * <pre>
    * 百家樂自動流程
    * </pre>
    *
@@ -241,22 +129,6 @@ public enum GameType
    * <code>THEBIGBATTLE = 17;</code>
    */
   public static final int THEBIGBATTLE_VALUE = 17;
-  /**
-   * <pre>
-   * 炸金花
-   * </pre>
-   *
-   * <code>THREECARDS = 18;</code>
-   */
-  public static final int THREECARDS_VALUE = 18;
-  /**
-   * <pre>
-   * 牛牛
-   * </pre>
-   *
-   * <code>BULLFIGHT = 19;</code>
-   */
-  public static final int BULLFIGHT_VALUE = 19;
   /**
    * <pre>
    * 番攤
@@ -275,20 +147,12 @@ public enum GameType
   public static final int SICBO_VALUE = 32;
   /**
    * <pre>
-   * 色彩遊戲
+   * 百家寶
    * </pre>
    *
-   * <code>COLORGAME = 33;</code>
+   * <code>BACBO = 33;</code>
    */
-  public static final int COLORGAME_VALUE = 33;
-  /**
-   * <pre>
-   * 丟球遊戲
-   * </pre>
-   *
-   * <code>DROPBALL = 34;</code>
-   */
-  public static final int DROPBALL_VALUE = 34;
+  public static final int BACBO_VALUE = 33;
   /**
    * <pre>
    * 輪盤
@@ -313,78 +177,6 @@ public enum GameType
    * <code>XOCDIA = 41;</code>
    */
   public static final int XOCDIA_VALUE = 41;
-  /**
-   * <pre>
-   * 色彩遊戲JACKPOT
-   * </pre>
-   *
-   * <code>COLORGAME_JACKPOT = 42;</code>
-   */
-  public static final int COLORGAME_JACKPOT_VALUE = 42;
-  /**
-   * <pre>
-   * ONELUCKYNINE
-   * </pre>
-   *
-   * <code>ONELUCKYNINE = 43;</code>
-   */
-  public static final int ONELUCKYNINE_VALUE = 43;
-  /**
-   * <pre>
-   * HILO
-   * </pre>
-   *
-   * <code>HILO = 44;</code>
-   */
-  public static final int HILO_VALUE = 44;
-  /**
-   * <pre>
-   * SAKLA
-   * </pre>
-   *
-   * <code>SAKLA = 45;</code>
-   */
-  public static final int SAKLA_VALUE = 45;
-  /**
-   * <pre>
-   * CARACRUZ
-   * </pre>
-   *
-   * <code>CARACRUZ = 46;</code>
-   */
-  public static final int CARACRUZ_VALUE = 46;
-  /**
-   * <pre>
-   * 開牌百家樂
-   * </pre>
-   *
-   * <code>BACCARATSTEP = 47;</code>
-   */
-  public static final int BACCARATSTEP_VALUE = 47;
-  /**
-   * <pre>
-   * 百家寶
-   * </pre>
-   *
-   * <code>BACBO = 48;</code>
-   */
-  public static final int BACBO_VALUE = 48;
-  /**
-   * <pre>
-   * 百家樂 angle eye
-   * </pre>
-   *
-   * <code>BACCARATANGLEEYE = 52;</code>
-   */
-  public static final int BACCARATANGLEEYE_VALUE = 52;
-  /**
-   * <pre>
-   *百家樂2.5代
-   * </pre>
-   *
-   * <code>BACCARATRENOVATE = 56;</code>
-   */
-  public static final int BACCARATRENOVATE_VALUE = 56;
 
 
   public final int getNumber() {
@@ -413,27 +205,14 @@ public enum GameType
     switch (value) {
       case 0: return GAME_TYPE_UNSPECIFIED;
       case 16: return BACCARAT;
-      case 50: return BACCARAT2;
       case 51: return BACCARAT3;
       case 17: return THEBIGBATTLE;
-      case 18: return THREECARDS;
-      case 19: return BULLFIGHT;
       case 20: return FANTAN;
       case 32: return SICBO;
-      case 33: return COLORGAME;
-      case 34: return DROPBALL;
+      case 33: return BACBO;
       case 36: return ROULETTE;
       case 40: return LUCKYWHEEL;
       case 41: return XOCDIA;
-      case 42: return COLORGAME_JACKPOT;
-      case 43: return ONELUCKYNINE;
-      case 44: return HILO;
-      case 45: return SAKLA;
-      case 46: return CARACRUZ;
-      case 47: return BACCARATSTEP;
-      case 48: return BACBO;
-      case 52: return BACCARATANGLEEYE;
-      case 56: return BACCARATRENOVATE;
       default: return null;
     }
   }

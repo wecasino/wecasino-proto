@@ -25,14 +25,6 @@ public enum GameSubtype
    * <code>FANTAN_CLASSIC = 1;</code>
    */
   FANTAN_CLASSIC(1),
-  /**
-   * <pre>
-   * 區塊鏈番攤
-   * </pre>
-   *
-   * <code>FANTAN_BLOCKCHAIN = 16;</code>
-   */
-  FANTAN_BLOCKCHAIN(16),
   UNRECOGNIZED(-1),
   ;
 
@@ -52,14 +44,6 @@ public enum GameSubtype
    * <code>FANTAN_CLASSIC = 1;</code>
    */
   public static final int FANTAN_CLASSIC_VALUE = 1;
-  /**
-   * <pre>
-   * 區塊鏈番攤
-   * </pre>
-   *
-   * <code>FANTAN_BLOCKCHAIN = 16;</code>
-   */
-  public static final int FANTAN_BLOCKCHAIN_VALUE = 16;
 
 
   public final int getNumber() {
@@ -88,7 +72,6 @@ public enum GameSubtype
     switch (value) {
       case 0: return FANTAN_TYPE_UNSPECIFIED;
       case 1: return FANTAN_CLASSIC;
-      case 16: return FANTAN_BLOCKCHAIN;
       default: return null;
     }
   }

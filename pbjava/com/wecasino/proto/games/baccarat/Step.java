@@ -6,7 +6,7 @@ package com.wecasino.proto.games.baccarat;
 
 /**
  * <pre>
- * 步驟，依據遊戲供應商邏輯，不是每個步驟都會走到
+ * 經典百家樂實際會走到的步驟。走地、瞇牌各自使用自己的 Step。
  * </pre>
  *
  * Protobuf enum {@code games.baccarat.Step}
@@ -47,46 +47,6 @@ public enum Step
   SHOW_FIRST_CARD(3),
   /**
    * <pre>
-   * 派發閒家例牌1
-   * </pre>
-   *
-   * <code>DEAL_PLAYER_1 = 4;</code>
-   */
-  DEAL_PLAYER_1(4),
-  /**
-   * <pre>
-   * 派發莊家例牌1
-   * </pre>
-   *
-   * <code>DEAL_BANKER_1 = 5;</code>
-   */
-  DEAL_BANKER_1(5),
-  /**
-   * <pre>
-   * 派發閒家例牌2
-   * </pre>
-   *
-   * <code>DEAL_PLAYER_2 = 6;</code>
-   */
-  DEAL_PLAYER_2(6),
-  /**
-   * <pre>
-   * 派發莊家例牌2
-   * </pre>
-   *
-   * <code>DEAL_BANKER_2 = 7;</code>
-   */
-  DEAL_BANKER_2(7),
-  /**
-   * <pre>
-   * 派發牌
-   * </pre>
-   *
-   * <code>DEAL_CARDS = 35;</code>
-   */
-  DEAL_CARDS(35),
-  /**
-   * <pre>
    * 開放下注
    * </pre>
    *
@@ -103,7 +63,7 @@ public enum Step
   NO_MORE_BET(9),
   /**
    * <pre>
-   * 非瞇牌開例牌
+   * 開例牌
    * </pre>
    *
    * <code>SHOW_NORMAL = 11;</code>
@@ -111,71 +71,15 @@ public enum Step
   SHOW_NORMAL(11),
   /**
    * <pre>
-   * 開 莊牌
+   * 派發牌
    * </pre>
    *
-   * <code>SHOW_BANKER = 12;</code>
+   * <code>DEAL_CARDS = 35;</code>
    */
-  SHOW_BANKER(12),
+  DEAL_CARDS(35),
   /**
    * <pre>
-   * 開 閒牌
-   * </pre>
-   *
-   * <code>SHOW_PLAYER = 13;</code>
-   */
-  SHOW_PLAYER(13),
-  /**
-   * <pre>
-   * 開 莊牌
-   * </pre>
-   *
-   * <code>SHOW_BANKER_1 = 30;</code>
-   */
-  SHOW_BANKER_1(30),
-  /**
-   * <pre>
-   * 開 莊牌
-   * </pre>
-   *
-   * <code>SHOW_BANKER_2 = 31;</code>
-   */
-  SHOW_BANKER_2(31),
-  /**
-   * <pre>
-   * 開 閒牌
-   * </pre>
-   *
-   * <code>SHOW_PLAYER_1 = 33;</code>
-   */
-  SHOW_PLAYER_1(33),
-  /**
-   * <pre>
-   * 開 閒牌
-   * </pre>
-   *
-   * <code>SHOW_PLAYER_2 = 34;</code>
-   */
-  SHOW_PLAYER_2(34),
-  /**
-   * <pre>
-   * 瞇牌例牌
-   * </pre>
-   *
-   * <code>PEEK_NORMAL = 14;</code>
-   */
-  PEEK_NORMAL(14),
-  /**
-   * <pre>
-   * 瞇牌公布例牌
-   * </pre>
-   *
-   * <code>PEEK_SHOW_NORMAL = 15;</code>
-   */
-  PEEK_SHOW_NORMAL(15),
-  /**
-   * <pre>
-   * 非瞇牌補閒家牌
+   * 補閒家牌
    * </pre>
    *
    * <code>DEAL_PLAYER_EXTRA = 16;</code>
@@ -183,23 +87,7 @@ public enum Step
   DEAL_PLAYER_EXTRA(16),
   /**
    * <pre>
-   * 瞇牌閒家補牌
-   * </pre>
-   *
-   * <code>PEEK_DEAL_PLAYER_EXTRA = 17;</code>
-   */
-  PEEK_DEAL_PLAYER_EXTRA(17),
-  /**
-   * <pre>
-   * 瞇牌公布閒家補牌
-   * </pre>
-   *
-   * <code>PEEK_SHOW_PLAYER_EXTRA = 18;</code>
-   */
-  PEEK_SHOW_PLAYER_EXTRA(18),
-  /**
-   * <pre>
-   * 非瞇牌補莊家牌
+   * 補莊家牌
    * </pre>
    *
    * <code>DEAL_BANKER_EXTRA = 20;</code>
@@ -207,64 +95,12 @@ public enum Step
   DEAL_BANKER_EXTRA(20),
   /**
    * <pre>
-   * 瞇牌莊家補牌
+   * 荷官確認
    * </pre>
    *
-   * <code>PEEK_DEAL_BANKER_EXTRA = 21;</code>
-   */
-  PEEK_DEAL_BANKER_EXTRA(21),
-  /**
-   * <pre>
-   * 瞇牌公布莊家補牌
-   * </pre>
-   *
-   * <code>PEEK_SHOW_BANKER_EXTRA = 22;</code>
-   */
-  PEEK_SHOW_BANKER_EXTRA(22),
-  /**
    * <code>DEALER_CONFIRM = 23;</code>
    */
   DEALER_CONFIRM(23),
-  /**
-   * <pre>
-   * 瞇牌莊閒同時補牌
-   * </pre>
-   *
-   * <code>PEEK_DEAL_BOTH_EXTRA = 28;</code>
-   */
-  PEEK_DEAL_BOTH_EXTRA(28),
-  /**
-   * <pre>
-   * 瞇牌公布莊閒補牌
-   * </pre>
-   *
-   * <code>PEEK_SHOW_BOTH_EXTRA = 29;</code>
-   */
-  PEEK_SHOW_BOTH_EXTRA(29),
-  /**
-   * <pre>
-   * PITBOSS 修改派發例牌
-   * </pre>
-   *
-   * <code>PITBOSS_MODIFY_NORMAL = 24;</code>
-   */
-  PITBOSS_MODIFY_NORMAL(24),
-  /**
-   * <pre>
-   * PITBOSS 修改派發閒家補牌
-   * </pre>
-   *
-   * <code>PITBOSS_MODIFY_PLAYER_EXTRA = 25;</code>
-   */
-  PITBOSS_MODIFY_PLAYER_EXTRA(25),
-  /**
-   * <pre>
-   * PITBOSS 修改派發莊家補牌
-   * </pre>
-   *
-   * <code>PITBOSS_MODIFY_BANKER_EXTRA = 26;</code>
-   */
-  PITBOSS_MODIFY_BANKER_EXTRA(26),
   UNRECOGNIZED(-1),
   ;
 
@@ -302,46 +138,6 @@ public enum Step
   public static final int SHOW_FIRST_CARD_VALUE = 3;
   /**
    * <pre>
-   * 派發閒家例牌1
-   * </pre>
-   *
-   * <code>DEAL_PLAYER_1 = 4;</code>
-   */
-  public static final int DEAL_PLAYER_1_VALUE = 4;
-  /**
-   * <pre>
-   * 派發莊家例牌1
-   * </pre>
-   *
-   * <code>DEAL_BANKER_1 = 5;</code>
-   */
-  public static final int DEAL_BANKER_1_VALUE = 5;
-  /**
-   * <pre>
-   * 派發閒家例牌2
-   * </pre>
-   *
-   * <code>DEAL_PLAYER_2 = 6;</code>
-   */
-  public static final int DEAL_PLAYER_2_VALUE = 6;
-  /**
-   * <pre>
-   * 派發莊家例牌2
-   * </pre>
-   *
-   * <code>DEAL_BANKER_2 = 7;</code>
-   */
-  public static final int DEAL_BANKER_2_VALUE = 7;
-  /**
-   * <pre>
-   * 派發牌
-   * </pre>
-   *
-   * <code>DEAL_CARDS = 35;</code>
-   */
-  public static final int DEAL_CARDS_VALUE = 35;
-  /**
-   * <pre>
    * 開放下注
    * </pre>
    *
@@ -358,7 +154,7 @@ public enum Step
   public static final int NO_MORE_BET_VALUE = 9;
   /**
    * <pre>
-   * 非瞇牌開例牌
+   * 開例牌
    * </pre>
    *
    * <code>SHOW_NORMAL = 11;</code>
@@ -366,71 +162,15 @@ public enum Step
   public static final int SHOW_NORMAL_VALUE = 11;
   /**
    * <pre>
-   * 開 莊牌
+   * 派發牌
    * </pre>
    *
-   * <code>SHOW_BANKER = 12;</code>
+   * <code>DEAL_CARDS = 35;</code>
    */
-  public static final int SHOW_BANKER_VALUE = 12;
+  public static final int DEAL_CARDS_VALUE = 35;
   /**
    * <pre>
-   * 開 閒牌
-   * </pre>
-   *
-   * <code>SHOW_PLAYER = 13;</code>
-   */
-  public static final int SHOW_PLAYER_VALUE = 13;
-  /**
-   * <pre>
-   * 開 莊牌
-   * </pre>
-   *
-   * <code>SHOW_BANKER_1 = 30;</code>
-   */
-  public static final int SHOW_BANKER_1_VALUE = 30;
-  /**
-   * <pre>
-   * 開 莊牌
-   * </pre>
-   *
-   * <code>SHOW_BANKER_2 = 31;</code>
-   */
-  public static final int SHOW_BANKER_2_VALUE = 31;
-  /**
-   * <pre>
-   * 開 閒牌
-   * </pre>
-   *
-   * <code>SHOW_PLAYER_1 = 33;</code>
-   */
-  public static final int SHOW_PLAYER_1_VALUE = 33;
-  /**
-   * <pre>
-   * 開 閒牌
-   * </pre>
-   *
-   * <code>SHOW_PLAYER_2 = 34;</code>
-   */
-  public static final int SHOW_PLAYER_2_VALUE = 34;
-  /**
-   * <pre>
-   * 瞇牌例牌
-   * </pre>
-   *
-   * <code>PEEK_NORMAL = 14;</code>
-   */
-  public static final int PEEK_NORMAL_VALUE = 14;
-  /**
-   * <pre>
-   * 瞇牌公布例牌
-   * </pre>
-   *
-   * <code>PEEK_SHOW_NORMAL = 15;</code>
-   */
-  public static final int PEEK_SHOW_NORMAL_VALUE = 15;
-  /**
-   * <pre>
-   * 非瞇牌補閒家牌
+   * 補閒家牌
    * </pre>
    *
    * <code>DEAL_PLAYER_EXTRA = 16;</code>
@@ -438,23 +178,7 @@ public enum Step
   public static final int DEAL_PLAYER_EXTRA_VALUE = 16;
   /**
    * <pre>
-   * 瞇牌閒家補牌
-   * </pre>
-   *
-   * <code>PEEK_DEAL_PLAYER_EXTRA = 17;</code>
-   */
-  public static final int PEEK_DEAL_PLAYER_EXTRA_VALUE = 17;
-  /**
-   * <pre>
-   * 瞇牌公布閒家補牌
-   * </pre>
-   *
-   * <code>PEEK_SHOW_PLAYER_EXTRA = 18;</code>
-   */
-  public static final int PEEK_SHOW_PLAYER_EXTRA_VALUE = 18;
-  /**
-   * <pre>
-   * 非瞇牌補莊家牌
+   * 補莊家牌
    * </pre>
    *
    * <code>DEAL_BANKER_EXTRA = 20;</code>
@@ -462,64 +186,12 @@ public enum Step
   public static final int DEAL_BANKER_EXTRA_VALUE = 20;
   /**
    * <pre>
-   * 瞇牌莊家補牌
+   * 荷官確認
    * </pre>
    *
-   * <code>PEEK_DEAL_BANKER_EXTRA = 21;</code>
-   */
-  public static final int PEEK_DEAL_BANKER_EXTRA_VALUE = 21;
-  /**
-   * <pre>
-   * 瞇牌公布莊家補牌
-   * </pre>
-   *
-   * <code>PEEK_SHOW_BANKER_EXTRA = 22;</code>
-   */
-  public static final int PEEK_SHOW_BANKER_EXTRA_VALUE = 22;
-  /**
    * <code>DEALER_CONFIRM = 23;</code>
    */
   public static final int DEALER_CONFIRM_VALUE = 23;
-  /**
-   * <pre>
-   * 瞇牌莊閒同時補牌
-   * </pre>
-   *
-   * <code>PEEK_DEAL_BOTH_EXTRA = 28;</code>
-   */
-  public static final int PEEK_DEAL_BOTH_EXTRA_VALUE = 28;
-  /**
-   * <pre>
-   * 瞇牌公布莊閒補牌
-   * </pre>
-   *
-   * <code>PEEK_SHOW_BOTH_EXTRA = 29;</code>
-   */
-  public static final int PEEK_SHOW_BOTH_EXTRA_VALUE = 29;
-  /**
-   * <pre>
-   * PITBOSS 修改派發例牌
-   * </pre>
-   *
-   * <code>PITBOSS_MODIFY_NORMAL = 24;</code>
-   */
-  public static final int PITBOSS_MODIFY_NORMAL_VALUE = 24;
-  /**
-   * <pre>
-   * PITBOSS 修改派發閒家補牌
-   * </pre>
-   *
-   * <code>PITBOSS_MODIFY_PLAYER_EXTRA = 25;</code>
-   */
-  public static final int PITBOSS_MODIFY_PLAYER_EXTRA_VALUE = 25;
-  /**
-   * <pre>
-   * PITBOSS 修改派發莊家補牌
-   * </pre>
-   *
-   * <code>PITBOSS_MODIFY_BANKER_EXTRA = 26;</code>
-   */
-  public static final int PITBOSS_MODIFY_BANKER_EXTRA_VALUE = 26;
 
 
   public final int getNumber() {
@@ -550,34 +222,13 @@ public enum Step
       case 1: return ROUND_START;
       case 2: return ROUND_FINISHED;
       case 3: return SHOW_FIRST_CARD;
-      case 4: return DEAL_PLAYER_1;
-      case 5: return DEAL_BANKER_1;
-      case 6: return DEAL_PLAYER_2;
-      case 7: return DEAL_BANKER_2;
-      case 35: return DEAL_CARDS;
       case 8: return ROUND_BET;
       case 9: return NO_MORE_BET;
       case 11: return SHOW_NORMAL;
-      case 12: return SHOW_BANKER;
-      case 13: return SHOW_PLAYER;
-      case 30: return SHOW_BANKER_1;
-      case 31: return SHOW_BANKER_2;
-      case 33: return SHOW_PLAYER_1;
-      case 34: return SHOW_PLAYER_2;
-      case 14: return PEEK_NORMAL;
-      case 15: return PEEK_SHOW_NORMAL;
+      case 35: return DEAL_CARDS;
       case 16: return DEAL_PLAYER_EXTRA;
-      case 17: return PEEK_DEAL_PLAYER_EXTRA;
-      case 18: return PEEK_SHOW_PLAYER_EXTRA;
       case 20: return DEAL_BANKER_EXTRA;
-      case 21: return PEEK_DEAL_BANKER_EXTRA;
-      case 22: return PEEK_SHOW_BANKER_EXTRA;
       case 23: return DEALER_CONFIRM;
-      case 28: return PEEK_DEAL_BOTH_EXTRA;
-      case 29: return PEEK_SHOW_BOTH_EXTRA;
-      case 24: return PITBOSS_MODIFY_NORMAL;
-      case 25: return PITBOSS_MODIFY_PLAYER_EXTRA;
-      case 26: return PITBOSS_MODIFY_BANKER_EXTRA;
       default: return null;
     }
   }

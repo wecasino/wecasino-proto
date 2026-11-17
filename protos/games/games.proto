@@ -10,9 +10,6 @@ enum GameType {
 
   // 百家樂
   BACCARAT = 16;
-  
-  // 百家樂新發牌方式
-  BACCARAT2 = 50;
 
   // 百家樂自動流程
   BACCARAT3 = 51;
@@ -20,23 +17,14 @@ enum GameType {
   // 龍虎鬥
   THEBIGBATTLE = 17;
 
-  // 炸金花
-  THREECARDS = 18;
-
-  // 牛牛
-  BULLFIGHT = 19;
-
   // 番攤
   FANTAN = 20;
 
   // 骰寶
   SICBO = 32;
 
-  // 色彩遊戲
-  COLORGAME = 33;
-
-  // 丟球遊戲
-  DROPBALL = 34;
+  // 百家寶
+  BACBO = 33;
 
   // 輪盤
   ROULETTE = 36;
@@ -46,32 +34,6 @@ enum GameType {
 
   // 越南色碟
   XOCDIA = 41;
-
-  // 色彩遊戲JACKPOT
-  COLORGAME_JACKPOT = 42;
-
-  // ONELUCKYNINE
-  ONELUCKYNINE = 43;
-
-  // HILO
-  HILO = 44;
-
-  // SAKLA
-  SAKLA = 45;
-
-  // CARACRUZ
-  CARACRUZ = 46;
-
-  // 開牌百家樂
-  BACCARATSTEP = 47;
-
-  // 百家寶
-  BACBO = 48;
-
-	// 百家樂 angle eye
-	BACCARATANGLEEYE = 52;
-  //百家樂2.5代
-  BACCARATRENOVATE=56;
 
 }
 

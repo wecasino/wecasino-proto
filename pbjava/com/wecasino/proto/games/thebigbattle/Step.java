@@ -121,14 +121,6 @@ public enum Step
    * <code>DEALER_CONFIRM = 20;</code>
    */
   DEALER_CONFIRM(20),
-  /**
-   * <pre>
-   * PITBOSS 修改派發手牌
-   * </pre>
-   *
-   * <code>PITBOSS_MODIFY_NORMAL = 24;</code>
-   */
-  PITBOSS_MODIFY_NORMAL(24),
   UNRECOGNIZED(-1),
   ;
 
@@ -240,14 +232,6 @@ public enum Step
    * <code>DEALER_CONFIRM = 20;</code>
    */
   public static final int DEALER_CONFIRM_VALUE = 20;
-  /**
-   * <pre>
-   * PITBOSS 修改派發手牌
-   * </pre>
-   *
-   * <code>PITBOSS_MODIFY_NORMAL = 24;</code>
-   */
-  public static final int PITBOSS_MODIFY_NORMAL_VALUE = 24;
 
 
   public final int getNumber() {
@@ -288,7 +272,6 @@ public enum Step
       case 17: return SHOW_LEFT;
       case 18: return SHOW_RIGHT;
       case 20: return DEALER_CONFIRM;
-      case 24: return PITBOSS_MODIFY_NORMAL;
       default: return null;
     }
   }

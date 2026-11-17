@@ -26,16 +26,15 @@ public final class RecordProto {
     java.lang.String[] descriptorData = {
       "\n\031games/xocdia/record.proto\022\014games.xocdi" +
       "a*>\n\013GameSubtype\022\033\n\027XOCDIA_TYPE_UNSPECIF" +
-      "IED\020\000\022\022\n\016XOCDIA_CLASSIC\020\001*\236\001\n\004Step\022\024\n\020ST" +
+      "IED\020\000\022\022\n\016XOCDIA_CLASSIC\020\001*\205\001\n\004Step\022\024\n\020ST" +
       "EP_UNSPECIFIED\020\000\022\017\n\013ROUND_START\020\001\022\022\n\016ROU" +
       "ND_FINISHED\020\002\022\022\n\016ROUND_CANCELED\020\003\022\r\n\tROU" +
       "ND_BET\020\004\022\017\n\013NO_MORE_BET\020\005\022\016\n\nTHROW_DICE\020" +
-      "\010\022\027\n\023PITBOSS_MODIFY_BOWL\020\020B\265\001\n\037com.wecas" +
-      "ino.proto.games.xocdiaB\013RecordProtoP\001Z4g" +
-      "ithub.com/wecasino/wecasino-proto/pbgo/g" +
-      "ames/xocdia\242\002\003GXX\252\002\014Games.Xocdia\312\002\014Games" +
-      "\\Xocdia\342\002\030Games\\Xocdia\\GPBMetadata\352\002\rGam" +
-      "es::Xocdiab\006proto3"
+      "\010B\265\001\n\037com.wecasino.proto.games.xocdiaB\013R" +
+      "ecordProtoP\001Z4github.com/wecasino/wecasi" +
+      "no-proto/pbgo/games/xocdia\242\002\003GXX\252\002\014Games" +
+      ".Xocdia\312\002\014Games\\Xocdia\342\002\030Games\\Xocdia\\GP" +
+      "BMetadata\352\002\rGames::Xocdiab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

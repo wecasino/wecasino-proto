@@ -25,30 +25,6 @@ public enum GameSubtype
    * <code>THEBIGBATTLE_CLASSIC = 1;</code>
    */
   THEBIGBATTLE_CLASSIC(1),
-  /**
-   * <pre>
-   * 極速龍虎
-   * </pre>
-   *
-   * <code>THEBIGBATTLE_SPEED = 3;</code>
-   */
-  THEBIGBATTLE_SPEED(3),
-  /**
-   * <pre>
-   * 區塊鏈龍虎
-   * </pre>
-   *
-   * <code>THEBIGBATTLE_BLOCKCHAIN = 16;</code>
-   */
-  THEBIGBATTLE_BLOCKCHAIN(16),
-  /**
-   * <pre>
-   * 區塊鏈極速龍虎
-   * </pre>
-   *
-   * <code>THEBIGBATTLE_SPEED_BLOCKCHAIN = 18;</code>
-   */
-  THEBIGBATTLE_SPEED_BLOCKCHAIN(18),
   UNRECOGNIZED(-1),
   ;
 
@@ -68,30 +44,6 @@ public enum GameSubtype
    * <code>THEBIGBATTLE_CLASSIC = 1;</code>
    */
   public static final int THEBIGBATTLE_CLASSIC_VALUE = 1;
-  /**
-   * <pre>
-   * 極速龍虎
-   * </pre>
-   *
-   * <code>THEBIGBATTLE_SPEED = 3;</code>
-   */
-  public static final int THEBIGBATTLE_SPEED_VALUE = 3;
-  /**
-   * <pre>
-   * 區塊鏈龍虎
-   * </pre>
-   *
-   * <code>THEBIGBATTLE_BLOCKCHAIN = 16;</code>
-   */
-  public static final int THEBIGBATTLE_BLOCKCHAIN_VALUE = 16;
-  /**
-   * <pre>
-   * 區塊鏈極速龍虎
-   * </pre>
-   *
-   * <code>THEBIGBATTLE_SPEED_BLOCKCHAIN = 18;</code>
-   */
-  public static final int THEBIGBATTLE_SPEED_BLOCKCHAIN_VALUE = 18;
 
 
   public final int getNumber() {
@@ -120,9 +72,6 @@ public enum GameSubtype
     switch (value) {
       case 0: return THEBIGBATTLE_TYPE_UNSPECIFIED;
       case 1: return THEBIGBATTLE_CLASSIC;
-      case 3: return THEBIGBATTLE_SPEED;
-      case 16: return THEBIGBATTLE_BLOCKCHAIN;
-      case 18: return THEBIGBATTLE_SPEED_BLOCKCHAIN;
       default: return null;
     }
   }

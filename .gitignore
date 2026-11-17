@@ -9,5 +9,6 @@
 main
 
 node_modules
+dist
 es/lib
 es/src/pb

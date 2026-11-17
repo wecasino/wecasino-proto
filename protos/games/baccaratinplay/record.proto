@@ -1,0 +1,88 @@
+syntax = "proto3";
+package games.baccaratinplay;
+
+enum GameSubtype {
+    // 未指定
+    BACCARAT_TYPE_UNSPECIFIED = 0;
+
+    // 走地百家樂
+    BACCARAT_INPLAY = 15;
+}
+
+enum ResourceType {
+
+  // 未指定
+  RESOURCE_TYPE_UNSPECIFIED = 0;
+
+  // 例牌
+  NORMAL = 1;
+
+  // 非例牌
+  EXTRA = 2;
+
+}
+
+// 走地百家樂：空牌開局，分三輪下注，再依點數補牌。
+enum Step {
+
+  // 未指定
+  STEP_UNSPECIFIED = 0;
+
+  // 本局開始
+  ROUND_START = 1;
+
+  // 本局完成
+  ROUND_FINISHED = 2;
+
+  // 展示第一張牌
+  SHOW_FIRST_CARD = 3;
+
+  // 第一輪開放下注
+  ROUND_BET_1 = 8;
+
+  // 第一輪停止下注
+  NO_MORE_BET_1 = 9;
+
+  // 開閒家第一張
+  DEAL_PLAYER_1 = 10;
+
+  // 第二輪開放下注
+  ROUND_BET_2 = 11;
+
+  // 第二輪停止下注
+  NO_MORE_BET_2 = 12;
+
+  // 開莊家第一張
+  DEAL_BANKER_1 = 13;
+
+  // 第三輪開放下注
+  ROUND_BET_3 = 14;
+
+  // 第三輪停止下注
+  NO_MORE_BET_3 = 15;
+
+  // 開例牌
+  DEAL_NORMAL = 16;
+
+  // 補閒家牌
+  DEAL_PLAYER_EXTRA = 17;
+
+  // 補莊家牌
+  DEAL_BANKER_EXTRA = 18;
+
+  // 荷官確認
+  DEALER_CONFIRM = 19;
+
+}
+
+// 座位功能代碼
+enum GameSeat {
+
+  // 未指定
+  SEAT_UNSPECIFIED = 0;
+  // 閒家
+  PLAYER = 2;
+  // 莊家
+  BANKER = 3;
+
+}

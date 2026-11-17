@@ -30,23 +30,19 @@ const (
 	GameSubtype_ROULETTE_CLASSIC GameSubtype = 1
 	// 財神輪盤
 	GameSubtype_ROULETTE_FORTUNE GameSubtype = 2
-	// 區塊鏈輪盤
-	GameSubtype_ROULETTE_CLASSIC_BLOCKCHAIN GameSubtype = 16
 )
 
 // Enum value maps for GameSubtype.
 var (
 	GameSubtype_name = map[int32]string{
-		0:  "ROULETTE_TYPE_UNSPECIFIED",
-		1:  "ROULETTE_CLASSIC",
-		2:  "ROULETTE_FORTUNE",
-		16: "ROULETTE_CLASSIC_BLOCKCHAIN",
+		0: "ROULETTE_TYPE_UNSPECIFIED",
+		1: "ROULETTE_CLASSIC",
+		2: "ROULETTE_FORTUNE",
 	}
 	GameSubtype_value = map[string]int32{
-		"ROULETTE_TYPE_UNSPECIFIED":   0,
-		"ROULETTE_CLASSIC":            1,
-		"ROULETTE_FORTUNE":            2,
-		"ROULETTE_CLASSIC_BLOCKCHAIN": 16,
+		"ROULETTE_TYPE_UNSPECIFIED": 0,
+		"ROULETTE_CLASSIC":          1,
+		"ROULETTE_FORTUNE":          2,
 	}
 )
 
@@ -87,8 +83,6 @@ const (
 	Step_ROUND_START Step = 1
 	// 本局完成
 	Step_ROUND_FINISHED Step = 2
-	// 本局取消
-	Step_ROUND_CANCELED Step = 3
 	// 開放下注
 	Step_ROUND_BET Step = 4
 	// 停止下注
@@ -97,8 +91,6 @@ const (
 	Step_SPIN_WHEEL Step = 8
 	// 荷官確認
 	Step_DEALER_CONFIRM Step = 10
-	// PITBOSS 修改骰點
-	Step_PITBOSS_MODIFY_BOWL Step = 16
 )
 
 // Enum value maps for Step.
@@ -107,23 +99,19 @@ var (
 		0:  "STEP_UNSPECIFIED",
 		1:  "ROUND_START",
 		2:  "ROUND_FINISHED",
-		3:  "ROUND_CANCELED",
 		4:  "ROUND_BET",
 		5:  "NO_MORE_BET",
 		8:  "SPIN_WHEEL",
 		10: "DEALER_CONFIRM",
-		16: "PITBOSS_MODIFY_BOWL",
 	}
 	Step_value = map[string]int32{
-		"STEP_UNSPECIFIED":    0,
-		"ROUND_START":         1,
-		"ROUND_FINISHED":      2,
-		"ROUND_CANCELED":      3,
-		"ROUND_BET":           4,
-		"NO_MORE_BET":         5,
-		"SPIN_WHEEL":          8,
-		"DEALER_CONFIRM":      10,
-		"PITBOSS_MODIFY_BOWL": 16,
+		"STEP_UNSPECIFIED": 0,
+		"ROUND_START":      1,
+		"ROUND_FINISHED":   2,
+		"ROUND_BET":        4,
+		"NO_MORE_BET":      5,
+		"SPIN_WHEEL":       8,
+		"DEALER_CONFIRM":   10,
 	}
 )
 
@@ -211,24 +199,21 @@ var File_games_roulette_record_proto protoreflect.FileDescriptor
 
 const file_games_roulette_record_proto_rawDesc = "" +
 	"\n" +
-	"\x1bgames/roulette/record.proto\x12\x0egames.roulette*y\n" +
+	"\x1bgames/roulette/record.proto\x12\x0egames.roulette*X\n" +
 	"\vGameSubtype\x12\x1d\n" +
 	"\x19ROULETTE_TYPE_UNSPECIFIED\x10\x00\x12\x14\n" +
 	"\x10ROULETTE_CLASSIC\x10\x01\x12\x14\n" +
-	"\x10ROULETTE_FORTUNE\x10\x02\x12\x1f\n" +
-	"\x1bROULETTE_CLASSIC_BLOCKCHAIN\x10\x10*\xb2\x01\n" +
+	"\x10ROULETTE_FORTUNE\x10\x02*\x85\x01\n" +
 	"\x04Step\x12\x14\n" +
 	"\x10STEP_UNSPECIFIED\x10\x00\x12\x0f\n" +
 	"\vROUND_START\x10\x01\x12\x12\n" +
-	"\x0eROUND_FINISHED\x10\x02\x12\x12\n" +
-	"\x0eROUND_CANCELED\x10\x03\x12\r\n" +
+	"\x0eROUND_FINISHED\x10\x02\x12\r\n" +
 	"\tROUND_BET\x10\x04\x12\x0f\n" +
 	"\vNO_MORE_BET\x10\x05\x12\x0e\n" +
 	"\n" +
 	"SPIN_WHEEL\x10\b\x12\x12\n" +
 	"\x0eDEALER_CONFIRM\x10\n" +
-	"\x12\x17\n" +
-	"\x13PITBOSS_MODIFY_BOWL\x10\x10*c\n" +
+	"*c\n" +
 	"\x10ResultRecordType\x12\"\n" +
 	"\x1eRESULT_RECORD_TYPE_UNSPECIFIED\x10\x00\x12\x10\n" +
 	"\fROUND_FINISH\x10\x01\x12\x19\n" +

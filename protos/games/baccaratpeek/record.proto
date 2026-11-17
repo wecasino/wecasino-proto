@@ -1,0 +1,84 @@
+syntax = "proto3";
+package games.baccaratpeek;
+
+enum GameSubtype {
+    // 未指定
+    BACCARAT_TYPE_UNSPECIFIED = 0;
+
+    // 瞇牌百家樂
+    BACCARAT_PEEK = 8;
+}
+
+enum ResourceType {
+
+  // 未指定
+  RESOURCE_TYPE_UNSPECIFIED = 0;
+
+  // 例牌
+  NORMAL = 1;
+
+  // 非例牌
+  EXTRA = 2;
+
+}
+
+// 瞇牌百家樂：下注後瞇例牌，再依點數瞇補牌。莊閒都小於 3 點時同時補牌。
+enum Step {
+
+  // 未指定
+  STEP_UNSPECIFIED = 0;
+
+  // 本局開始
+  ROUND_START = 1;
+
+  // 本局完成
+  ROUND_FINISHED = 2;
+
+  // 展示第一張牌
+  SHOW_FIRST_CARD = 3;
+
+  // 開放下注
+  ROUND_BET = 8;
+
+  // 停止下注
+  NO_MORE_BET = 9;
+
+  // 瞇牌例牌
+  PEEK_NORMAL = 14;
+
+  // 瞇牌公布例牌
+  SHOW_NORMAL = 15;
+
+  // 瞇牌閒家補牌
+  PEEK_PLAYER_EXTRA = 17;
+
+  // 瞇牌公布閒家補牌
+  SHOW_PLAYER_EXTRA = 18;
+
+  // 瞇牌莊家補牌
+  PEEK_BANKER_EXTRA = 21;
+
+  // 瞇牌公布莊家補牌
+  SHOW_BANKER_EXTRA = 22;
+
+  DEALER_CONFIRM = 23;
+
+  // 瞇牌莊閒同時補牌
+  PEEK_BOTH_EXTRA = 28;
+
+  // 瞇牌公布莊閒補牌
+  SHOW_BOTH_EXTRA = 29;
+
+}
+
+// 座位功能代碼
+enum GameSeat {
+
+  // 未指定
+  SEAT_UNSPECIFIED = 0;
+  // 閒家
+  PLAYER = 2;
+  // 莊家
+  BANKER = 3;
+
+}

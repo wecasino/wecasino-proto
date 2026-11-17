@@ -32,14 +32,6 @@ enum GameSubtype {
     // 搖錢樹百家樂
     BACCARAT_TREE = 13;
 
-    // 區塊鏈百家樂
-    BACCARAT_BLOCKCHAIN = 16;
-
-    // 區塊鏈極速百家樂
-    BACCARAT_SPEED_BLOCKCHAIN = 18;
-
-    // 區塊鏈瞇牌百家樂
-    BACCARAT_PEEK_BLOCKCHAIN= 24;
 }
 
 enum ResourceType {

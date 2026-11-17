@@ -28,29 +28,17 @@ const (
 	GameSubtype_THEBIGBATTLE_TYPE_UNSPECIFIED GameSubtype = 0
 	// 經典
 	GameSubtype_THEBIGBATTLE_CLASSIC GameSubtype = 1
-	// 極速龍虎
-	GameSubtype_THEBIGBATTLE_SPEED GameSubtype = 3
-	// 區塊鏈龍虎
-	GameSubtype_THEBIGBATTLE_BLOCKCHAIN GameSubtype = 16
-	// 區塊鏈極速龍虎
-	GameSubtype_THEBIGBATTLE_SPEED_BLOCKCHAIN GameSubtype = 18
 )
 
 // Enum value maps for GameSubtype.
 var (
 	GameSubtype_name = map[int32]string{
-		0:  "THEBIGBATTLE_TYPE_UNSPECIFIED",
-		1:  "THEBIGBATTLE_CLASSIC",
-		3:  "THEBIGBATTLE_SPEED",
-		16: "THEBIGBATTLE_BLOCKCHAIN",
-		18: "THEBIGBATTLE_SPEED_BLOCKCHAIN",
+		0: "THEBIGBATTLE_TYPE_UNSPECIFIED",
+		1: "THEBIGBATTLE_CLASSIC",
 	}
 	GameSubtype_value = map[string]int32{
 		"THEBIGBATTLE_TYPE_UNSPECIFIED": 0,
 		"THEBIGBATTLE_CLASSIC":          1,
-		"THEBIGBATTLE_SPEED":            3,
-		"THEBIGBATTLE_BLOCKCHAIN":       16,
-		"THEBIGBATTLE_SPEED_BLOCKCHAIN": 18,
 	}
 )
 
@@ -112,8 +100,6 @@ const (
 	// 開右側玩家手牌
 	Step_SHOW_RIGHT     Step = 18
 	Step_DEALER_CONFIRM Step = 20
-	// PITBOSS 修改派發手牌
-	Step_PITBOSS_MODIFY_NORMAL Step = 24
 )
 
 // Enum value maps for Step.
@@ -133,24 +119,22 @@ var (
 		17: "SHOW_LEFT",
 		18: "SHOW_RIGHT",
 		20: "DEALER_CONFIRM",
-		24: "PITBOSS_MODIFY_NORMAL",
 	}
 	Step_value = map[string]int32{
-		"STEP_UNSPECIFIED":      0,
-		"ROUND_START":           1,
-		"ROUND_FINISHED":        2,
-		"SHOW_FIRST_CARD":       3,
-		"DEAL_DISCARD_1":        4,
-		"DEAL_CARDS":            25,
-		"DEAL_LEFT":             8,
-		"DEAL_RIGHT":            9,
-		"ROUND_BET":             12,
-		"NO_MORE_BET":           13,
-		"SHOW_HAND":             16,
-		"SHOW_LEFT":             17,
-		"SHOW_RIGHT":            18,
-		"DEALER_CONFIRM":        20,
-		"PITBOSS_MODIFY_NORMAL": 24,
+		"STEP_UNSPECIFIED": 0,
+		"ROUND_START":      1,
+		"ROUND_FINISHED":   2,
+		"SHOW_FIRST_CARD":  3,
+		"DEAL_DISCARD_1":   4,
+		"DEAL_CARDS":       25,
+		"DEAL_LEFT":        8,
+		"DEAL_RIGHT":       9,
+		"ROUND_BET":        12,
+		"NO_MORE_BET":      13,
+		"SHOW_HAND":        16,
+		"SHOW_LEFT":        17,
+		"SHOW_RIGHT":       18,
+		"DEALER_CONFIRM":   20,
 	}
 )
 
@@ -185,13 +169,10 @@ var File_games_thebigbattle_record_proto protoreflect.FileDescriptor
 
 const file_games_thebigbattle_record_proto_rawDesc = "" +
 	"\n" +
-	"\x1fgames/thebigbattle/record.proto\x12\x12games.thebigbattle*\xa2\x01\n" +
+	"\x1fgames/thebigbattle/record.proto\x12\x12games.thebigbattle*J\n" +
 	"\vGameSubtype\x12!\n" +
 	"\x1dTHEBIGBATTLE_TYPE_UNSPECIFIED\x10\x00\x12\x18\n" +
-	"\x14THEBIGBATTLE_CLASSIC\x10\x01\x12\x16\n" +
-	"\x12THEBIGBATTLE_SPEED\x10\x03\x12\x1b\n" +
-	"\x17THEBIGBATTLE_BLOCKCHAIN\x10\x10\x12!\n" +
-	"\x1dTHEBIGBATTLE_SPEED_BLOCKCHAIN\x10\x12*\x96\x02\n" +
+	"\x14THEBIGBATTLE_CLASSIC\x10\x01*\xfb\x01\n" +
 	"\x04Step\x12\x14\n" +
 	"\x10STEP_UNSPECIFIED\x10\x00\x12\x0f\n" +
 	"\vROUND_START\x10\x01\x12\x12\n" +
@@ -209,8 +190,7 @@ const file_games_thebigbattle_record_proto_rawDesc = "" +
 	"\tSHOW_LEFT\x10\x11\x12\x0e\n" +
 	"\n" +
 	"SHOW_RIGHT\x10\x12\x12\x12\n" +
-	"\x0eDEALER_CONFIRM\x10\x14\x12\x19\n" +
-	"\x15PITBOSS_MODIFY_NORMAL\x10\x18B\xd9\x01\n" +
+	"\x0eDEALER_CONFIRM\x10\x14B\xd9\x01\n" +
 	"%com.wecasino.proto.games.thebigbattleB\vRecordProtoP\x01Z:github.com/wecasino/wecasino-proto/pbgo/games/thebigbattle\xa2\x02\x03GTX\xaa\x02\x12Games.Thebigbattle\xca\x02\x12Games\\Thebigbattle\xe2\x02\x1eGames\\Thebigbattle\\GPBMetadata\xea\x02\x13Games::Thebigbattleb\x06proto3"
 
 var (

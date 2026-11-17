@@ -30,7 +30,4 @@ enum Step {
   // 擲色碟
   THROW_DICE = 8;
 
-  // PITBOSS 修改骰點
-  PITBOSS_MODIFY_BOWL = 16;
-
 }

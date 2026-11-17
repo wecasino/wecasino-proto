@@ -33,14 +33,6 @@ public enum GameSubtype
    * <code>ROULETTE_FORTUNE = 2;</code>
    */
   ROULETTE_FORTUNE(2),
-  /**
-   * <pre>
-   * 區塊鏈輪盤
-   * </pre>
-   *
-   * <code>ROULETTE_CLASSIC_BLOCKCHAIN = 16;</code>
-   */
-  ROULETTE_CLASSIC_BLOCKCHAIN(16),
   UNRECOGNIZED(-1),
   ;
 
@@ -68,14 +60,6 @@ public enum GameSubtype
    * <code>ROULETTE_FORTUNE = 2;</code>
    */
   public static final int ROULETTE_FORTUNE_VALUE = 2;
-  /**
-   * <pre>
-   * 區塊鏈輪盤
-   * </pre>
-   *
-   * <code>ROULETTE_CLASSIC_BLOCKCHAIN = 16;</code>
-   */
-  public static final int ROULETTE_CLASSIC_BLOCKCHAIN_VALUE = 16;
 
 
   public final int getNumber() {
@@ -105,7 +89,6 @@ public enum GameSubtype
       case 0: return ROULETTE_TYPE_UNSPECIFIED;
       case 1: return ROULETTE_CLASSIC;
       case 2: return ROULETTE_FORTUNE;
-      case 16: return ROULETTE_CLASSIC_BLOCKCHAIN;
       default: return null;
     }
   }

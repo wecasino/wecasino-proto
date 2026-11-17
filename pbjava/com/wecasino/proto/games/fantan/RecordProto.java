@@ -25,18 +25,17 @@ public final class RecordProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\031games/fantan/record.proto\022\014games.fanta" +
-      "n*U\n\013GameSubtype\022\033\n\027FANTAN_TYPE_UNSPECIF" +
-      "IED\020\000\022\022\n\016FANTAN_CLASSIC\020\001\022\025\n\021FANTAN_BLOC" +
-      "KCHAIN\020\020*\244\001\n\004Step\022\024\n\020STEP_UNSPECIFIED\020\000\022" +
-      "\017\n\013ROUND_START\020\001\022\022\n\016ROUND_FINISHED\020\002\022\022\n\016" +
-      "ROUND_CANCELED\020\003\022\r\n\tROUND_BET\020\004\022\017\n\013NO_MO" +
-      "RE_BET\020\005\022\024\n\020GRAB_DICE_AMOUNT\020\010\022\027\n\023PITBOS" +
-      "S_MODIFY_BOWL\020\020B\265\001\n\037com.wecasino.proto.g" +
-      "ames.fantanB\013RecordProtoP\001Z4github.com/w" +
-      "ecasino/wecasino-proto/pbgo/games/fantan" +
-      "\242\002\003GFX\252\002\014Games.Fantan\312\002\014Games\\Fantan\342\002\030G" +
-      "ames\\Fantan\\GPBMetadata\352\002\rGames::Fantanb" +
-      "\006proto3"
+      "n*>\n\013GameSubtype\022\033\n\027FANTAN_TYPE_UNSPECIF" +
+      "IED\020\000\022\022\n\016FANTAN_CLASSIC\020\001*\220\001\n\004Step\022\024\n\020ST" +
+      "EP_UNSPECIFIED\020\000\022\017\n\013ROUND_START\020\001\022\022\n\016ROU" +
+      "ND_FINISHED\020\002\022\r\n\tROUND_BET\020\004\022\017\n\013NO_MORE_" +
+      "BET\020\005\022\024\n\020GRAB_DICE_AMOUNT\020\010\022\027\n\023PITBOSS_M" +
+      "ODIFY_BOWL\020\020B\265\001\n\037com.wecasino.proto.game" +
+      "s.fantanB\013RecordProtoP\001Z4github.com/weca" +
+      "sino/wecasino-proto/pbgo/games/fantan\242\002\003" +
+      "GFX\252\002\014Games.Fantan\312\002\014Games\\Fantan\342\002\030Game" +
+      "s\\Fantan\\GPBMetadata\352\002\rGames::Fantanb\006pr" +
+      "oto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

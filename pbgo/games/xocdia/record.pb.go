@@ -87,31 +87,27 @@ const (
 	Step_NO_MORE_BET Step = 5
 	// 擲色碟
 	Step_THROW_DICE Step = 8
-	// PITBOSS 修改骰點
-	Step_PITBOSS_MODIFY_BOWL Step = 16
 )
 
 // Enum value maps for Step.
 var (
 	Step_name = map[int32]string{
-		0:  "STEP_UNSPECIFIED",
-		1:  "ROUND_START",
-		2:  "ROUND_FINISHED",
-		3:  "ROUND_CANCELED",
-		4:  "ROUND_BET",
-		5:  "NO_MORE_BET",
-		8:  "THROW_DICE",
-		16: "PITBOSS_MODIFY_BOWL",
+		0: "STEP_UNSPECIFIED",
+		1: "ROUND_START",
+		2: "ROUND_FINISHED",
+		3: "ROUND_CANCELED",
+		4: "ROUND_BET",
+		5: "NO_MORE_BET",
+		8: "THROW_DICE",
 	}
 	Step_value = map[string]int32{
-		"STEP_UNSPECIFIED":    0,
-		"ROUND_START":         1,
-		"ROUND_FINISHED":      2,
-		"ROUND_CANCELED":      3,
-		"ROUND_BET":           4,
-		"NO_MORE_BET":         5,
-		"THROW_DICE":          8,
-		"PITBOSS_MODIFY_BOWL": 16,
+		"STEP_UNSPECIFIED": 0,
+		"ROUND_START":      1,
+		"ROUND_FINISHED":   2,
+		"ROUND_CANCELED":   3,
+		"ROUND_BET":        4,
+		"NO_MORE_BET":      5,
+		"THROW_DICE":       8,
 	}
 )
 
@@ -149,7 +145,7 @@ const file_games_xocdia_record_proto_rawDesc = "" +
 	"\x19games/xocdia/record.proto\x12\fgames.xocdia*>\n" +
 	"\vGameSubtype\x12\x1b\n" +
 	"\x17XOCDIA_TYPE_UNSPECIFIED\x10\x00\x12\x12\n" +
-	"\x0eXOCDIA_CLASSIC\x10\x01*\x9e\x01\n" +
+	"\x0eXOCDIA_CLASSIC\x10\x01*\x85\x01\n" +
 	"\x04Step\x12\x14\n" +
 	"\x10STEP_UNSPECIFIED\x10\x00\x12\x0f\n" +
 	"\vROUND_START\x10\x01\x12\x12\n" +
@@ -158,8 +154,7 @@ const file_games_xocdia_record_proto_rawDesc = "" +
 	"\tROUND_BET\x10\x04\x12\x0f\n" +
 	"\vNO_MORE_BET\x10\x05\x12\x0e\n" +
 	"\n" +
-	"THROW_DICE\x10\b\x12\x17\n" +
-	"\x13PITBOSS_MODIFY_BOWL\x10\x10B\xb5\x01\n" +
+	"THROW_DICE\x10\bB\xb5\x01\n" +
 	"\x1fcom.wecasino.proto.games.xocdiaB\vRecordProtoP\x01Z4github.com/wecasino/wecasino-proto/pbgo/games/xocdia\xa2\x02\x03GXX\xaa\x02\fGames.Xocdia\xca\x02\fGames\\Xocdia\xe2\x02\x18Games\\Xocdia\\GPBMetadata\xea\x02\rGames::Xocdiab\x06proto3"
 
 var (

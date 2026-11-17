@@ -33,22 +33,6 @@ public enum GameSubtype
    * <code>SICBO_FORTUNE = 2;</code>
    */
   SICBO_FORTUNE(2),
-  /**
-   * <pre>
-   * 泰式骰寶
-   * </pre>
-   *
-   * <code>SICBO_THAISICBAO = 3;</code>
-   */
-  SICBO_THAISICBAO(3),
-  /**
-   * <pre>
-   * 區塊鏈骰寶
-   * </pre>
-   *
-   * <code>SICBO_BLOCKCHAIN = 16;</code>
-   */
-  SICBO_BLOCKCHAIN(16),
   UNRECOGNIZED(-1),
   ;
 
@@ -76,22 +60,6 @@ public enum GameSubtype
    * <code>SICBO_FORTUNE = 2;</code>
    */
   public static final int SICBO_FORTUNE_VALUE = 2;
-  /**
-   * <pre>
-   * 泰式骰寶
-   * </pre>
-   *
-   * <code>SICBO_THAISICBAO = 3;</code>
-   */
-  public static final int SICBO_THAISICBAO_VALUE = 3;
-  /**
-   * <pre>
-   * 區塊鏈骰寶
-   * </pre>
-   *
-   * <code>SICBO_BLOCKCHAIN = 16;</code>
-   */
-  public static final int SICBO_BLOCKCHAIN_VALUE = 16;
 
 
   public final int getNumber() {
@@ -121,8 +89,6 @@ public enum GameSubtype
       case 0: return SICBO_TYPE_UNSPECIFIED;
       case 1: return SICBO_CLASSIC;
       case 2: return SICBO_FORTUNE;
-      case 3: return SICBO_THAISICBAO;
-      case 16: return SICBO_BLOCKCHAIN;
       default: return null;
     }
   }

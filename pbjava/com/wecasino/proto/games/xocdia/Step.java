@@ -69,14 +69,6 @@ public enum Step
    * <code>THROW_DICE = 8;</code>
    */
   THROW_DICE(8),
-  /**
-   * <pre>
-   * PITBOSS 修改骰點
-   * </pre>
-   *
-   * <code>PITBOSS_MODIFY_BOWL = 16;</code>
-   */
-  PITBOSS_MODIFY_BOWL(16),
   UNRECOGNIZED(-1),
   ;
 
@@ -136,14 +128,6 @@ public enum Step
    * <code>THROW_DICE = 8;</code>
    */
   public static final int THROW_DICE_VALUE = 8;
-  /**
-   * <pre>
-   * PITBOSS 修改骰點
-   * </pre>
-   *
-   * <code>PITBOSS_MODIFY_BOWL = 16;</code>
-   */
-  public static final int PITBOSS_MODIFY_BOWL_VALUE = 16;
 
 
   public final int getNumber() {
@@ -177,7 +161,6 @@ public enum Step
       case 4: return ROUND_BET;
       case 5: return NO_MORE_BET;
       case 8: return THROW_DICE;
-      case 16: return PITBOSS_MODIFY_BOWL;
       default: return null;
     }
   }
