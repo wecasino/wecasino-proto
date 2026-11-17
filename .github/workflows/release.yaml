@@ -21,7 +21,7 @@ permissions:
 jobs:
   version:
     name: Resolve prd version
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     outputs:
       version: ${{ steps.gen.outputs.version }}
       package_version: ${{ steps.gen.outputs.package_version }}
@@ -69,7 +69,7 @@ jobs:
   gate:
     name: Gate — prd
     needs: version
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     environment:
       name: prd
     steps:
@@ -79,7 +79,7 @@ jobs:
   tag:
     name: Push tag
     needs: [version, gate]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     steps:
       - uses: actions/checkout@v6
 
@@ -93,7 +93,7 @@ jobs:
   publish:
     name: Publish libraries
     needs: [version, tag]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     outputs:
       package_version: ${{ steps.meta.outputs.package_version }}
     steps:
@@ -142,7 +142,7 @@ jobs:
   notify:
     name: Slack notify
     needs: [version, publish]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     steps:
       - name: Post release message to Slack
         uses: slackapi/slack-github-action@v4.0.0
