@@ -98,7 +98,7 @@ jobs:
       package_version: ${{ steps.meta.outputs.package_version }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Setup Buf
         uses: bufbuild/buf-action@v1
@@ -110,10 +110,10 @@ jobs:
         run: buf generate
 
       - name: Setup pnpm
-        uses: pnpm/action-setup@v4
+        uses: pnpm/action-setup@v6
 
       - name: Setup Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: '24'
           registry-url: 'https://npm.pkg.github.com'
@@ -139,7 +139,7 @@ jobs:
         run: echo "package_version=${{ needs.version.outputs.package_version }}" >> "$GITHUB_OUTPUT"
 
       - name: Create GitHub Release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           tag_name: ${{ needs.version.outputs.version }}
           name: wecasino-proto ${{ needs.version.outputs.version }}
