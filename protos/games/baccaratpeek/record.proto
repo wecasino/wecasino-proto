@@ -37,6 +37,9 @@ enum Step {
   // 展示第一張牌
   SHOW_FIRST_CARD = 3;
 
+  // 削牌。靴內第一局可重複進入，每次只帶一筆變動：掃進一張，或 Pitboss 一次移除多張。
+  PARE_CARDS = 4;
+
   // 開放下注
   ROUND_BET = 8;
 

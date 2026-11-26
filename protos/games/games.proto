@@ -118,6 +118,9 @@ enum ResourceType {
 
   // JACKPOT
   JACKPOT_RESOURCE = 70;
+
+  // 削牌。走地第一局依首張點數削掉的牌，與棄牌分開。
+  PARED = 71;
 }
 
 // WinType 

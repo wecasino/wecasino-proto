@@ -133,6 +133,8 @@ const (
 	Step_ROUND_FINISHED Step = 2
 	// 展示第一張牌
 	Step_SHOW_FIRST_CARD Step = 3
+	// 削牌。靴內第一局可重複進入，每次只帶一筆變動：掃進一張，或 Pitboss 一次移除多張。
+	Step_PARE_CARDS Step = 4
 	// 開放下注
 	Step_ROUND_BET Step = 8
 	// 停止下注
@@ -163,6 +165,7 @@ var (
 		1:  "ROUND_START",
 		2:  "ROUND_FINISHED",
 		3:  "SHOW_FIRST_CARD",
+		4:  "PARE_CARDS",
 		8:  "ROUND_BET",
 		9:  "NO_MORE_BET",
 		14: "PEEK_NORMAL",
@@ -180,6 +183,7 @@ var (
 		"ROUND_START":       1,
 		"ROUND_FINISHED":    2,
 		"SHOW_FIRST_CARD":   3,
+		"PARE_CARDS":        4,
 		"ROUND_BET":         8,
 		"NO_MORE_BET":       9,
 		"PEEK_NORMAL":       14,
@@ -286,12 +290,14 @@ const file_games_baccaratpeek_record_proto_rawDesc = "" +
 	"\x19RESOURCE_TYPE_UNSPECIFIED\x10\x00\x12\n" +
 	"\n" +
 	"\x06NORMAL\x10\x01\x12\t\n" +
-	"\x05EXTRA\x10\x02*\xb2\x02\n" +
+	"\x05EXTRA\x10\x02*\xc2\x02\n" +
 	"\x04Step\x12\x14\n" +
 	"\x10STEP_UNSPECIFIED\x10\x00\x12\x0f\n" +
 	"\vROUND_START\x10\x01\x12\x12\n" +
 	"\x0eROUND_FINISHED\x10\x02\x12\x13\n" +
-	"\x0fSHOW_FIRST_CARD\x10\x03\x12\r\n" +
+	"\x0fSHOW_FIRST_CARD\x10\x03\x12\x0e\n" +
+	"\n" +
+	"PARE_CARDS\x10\x04\x12\r\n" +
 	"\tROUND_BET\x10\b\x12\x0f\n" +
 	"\vNO_MORE_BET\x10\t\x12\x0f\n" +
 	"\vPEEK_NORMAL\x10\x0e\x12\x0f\n" +

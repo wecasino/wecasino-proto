@@ -133,6 +133,8 @@ const (
 	Step_ROUND_FINISHED Step = 2
 	// 展示第一張牌
 	Step_SHOW_FIRST_CARD Step = 3
+	// 削牌。靴內第一局可重複進入，每次只帶一筆變動：掃進一張，或 Pitboss 一次移除多張。
+	Step_PARE_CARDS Step = 4
 	// 第一輪開放下注
 	Step_ROUND_BET_1 Step = 8
 	// 第一輪停止下注
@@ -166,6 +168,7 @@ var (
 		1:  "ROUND_START",
 		2:  "ROUND_FINISHED",
 		3:  "SHOW_FIRST_CARD",
+		4:  "PARE_CARDS",
 		8:  "ROUND_BET_1",
 		9:  "NO_MORE_BET_1",
 		10: "DEAL_PLAYER_1",
@@ -184,6 +187,7 @@ var (
 		"ROUND_START":       1,
 		"ROUND_FINISHED":    2,
 		"SHOW_FIRST_CARD":   3,
+		"PARE_CARDS":        4,
 		"ROUND_BET_1":       8,
 		"NO_MORE_BET_1":     9,
 		"DEAL_PLAYER_1":     10,
@@ -291,12 +295,14 @@ const file_games_baccaratinplay_record_proto_rawDesc = "" +
 	"\x19RESOURCE_TYPE_UNSPECIFIED\x10\x00\x12\n" +
 	"\n" +
 	"\x06NORMAL\x10\x01\x12\t\n" +
-	"\x05EXTRA\x10\x02*\xbb\x02\n" +
+	"\x05EXTRA\x10\x02*\xcb\x02\n" +
 	"\x04Step\x12\x14\n" +
 	"\x10STEP_UNSPECIFIED\x10\x00\x12\x0f\n" +
 	"\vROUND_START\x10\x01\x12\x12\n" +
 	"\x0eROUND_FINISHED\x10\x02\x12\x13\n" +
-	"\x0fSHOW_FIRST_CARD\x10\x03\x12\x0f\n" +
+	"\x0fSHOW_FIRST_CARD\x10\x03\x12\x0e\n" +
+	"\n" +
+	"PARE_CARDS\x10\x04\x12\x0f\n" +
 	"\vROUND_BET_1\x10\b\x12\x11\n" +
 	"\rNO_MORE_BET_1\x10\t\x12\x11\n" +
 	"\rDEAL_PLAYER_1\x10\n" +
@@ -315,8 +321,8 @@ const file_games_baccaratinplay_record_proto_rawDesc = "" +
 	"\n" +
 	"\x06PLAYER\x10\x02\x12\n" +
 	"\n" +
-	"\x06BANKER\x10\x03B\xe5\x01\n" +
-	"'com.wecasino.proto.games.baccaratinplayB\vRecordProtoP\x01Z<github.com/wecasino/wecasino-proto/pbgo/games/baccaratinplay\xa2\x02\x03GBX\xaa\x02\x14Games.Baccaratinplay\xca\x02\x14Games\\Baccaratinplay\xe2\x02 Games\\Baccaratinplay\\GPBMetadata\xea\x02\x15Games::Baccaratinplayb\x06proto3"
+	"\x06BANKER\x10\x03B\xd6\x01\n" +
+	"\x18com.games.baccaratinplayB\vRecordProtoP\x01Z<github.com/wecasino/wecasino-proto/pbgo/games/baccaratinplay\xa2\x02\x03GBX\xaa\x02\x14Games.Baccaratinplay\xca\x02\x14Games\\Baccaratinplay\xe2\x02 Games\\Baccaratinplay\\GPBMetadata\xea\x02\x15Games::Baccaratinplayb\x06proto3"
 
 var (
 	file_games_baccaratinplay_record_proto_rawDescOnce sync.Once

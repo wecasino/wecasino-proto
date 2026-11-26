@@ -236,6 +236,8 @@ const (
 	ResourceType_DISCARD ResourceType = 69
 	// JACKPOT
 	ResourceType_JACKPOT_RESOURCE ResourceType = 70
+	// 削牌。走地第一局依首張點數削掉的牌，與棄牌分開。
+	ResourceType_PARED ResourceType = 71
 )
 
 // Enum value maps for ResourceType.
@@ -249,6 +251,7 @@ var (
 		68: "SHOE_CUT",
 		69: "DISCARD",
 		70: "JACKPOT_RESOURCE",
+		71: "PARED",
 	}
 	ResourceType_value = map[string]int32{
 		"RESOURCE_TYPE_UNSPECIFIED": 0,
@@ -259,6 +262,7 @@ var (
 		"SHOE_CUT":                  68,
 		"DISCARD":                   69,
 		"JACKPOT_RESOURCE":          70,
+		"PARED":                     71,
 	}
 )
 
@@ -389,7 +393,7 @@ const file_games_games_proto_rawDesc = "" +
 	"\x05RIGHT\x10G\x12\v\n" +
 	"\aJACKPOT\x10H\x12\v\n" +
 	"\aCONTROL\x10`\x12\x10\n" +
-	"\fINSTRUCTIONS\x10c*\x8d\x01\n" +
+	"\fINSTRUCTIONS\x10c*\x98\x01\n" +
 	"\fResourceType\x12\x1d\n" +
 	"\x19RESOURCE_TYPE_UNSPECIFIED\x10\x00\x12\b\n" +
 	"\x04SHOE\x10@\x12\b\n" +
@@ -399,13 +403,14 @@ const file_games_games_proto_rawDesc = "" +
 	"FIRST_CARD\x10C\x12\f\n" +
 	"\bSHOE_CUT\x10D\x12\v\n" +
 	"\aDISCARD\x10E\x12\x14\n" +
-	"\x10JACKPOT_RESOURCE\x10F*?\n" +
+	"\x10JACKPOT_RESOURCE\x10F\x12\t\n" +
+	"\x05PARED\x10G*?\n" +
 	"\aWinType\x12\x18\n" +
 	"\x14WIN_TYPE_UNSPECIFIED\x10\x00\x12\b\n" +
 	"\x04LOSE\x10\x01\x12\a\n" +
 	"\x03WIN\x10\x02\x12\a\n" +
-	"\x03TIE\x10\x03B\x89\x01\n" +
-	"\x18com.wecasino.proto.gamesB\n" +
+	"\x03TIE\x10\x03Bz\n" +
+	"\tcom.gamesB\n" +
 	"GamesProtoP\x01Z-github.com/wecasino/wecasino-proto/pbgo/games\xa2\x02\x03GXX\xaa\x02\x05Games\xca\x02\x05Games\xe2\x02\x11Games\\GPBMetadata\xea\x02\x05Gamesb\x06proto3"
 
 var (
